@@ -53,9 +53,8 @@
 
 
 * {
-    font-family: 'Noto Sans TC', sans-serif  !important;
+    font-family: 'Noto Sans TC', sans-serif !important;
 }
-
 
 /* ---- topNav-mobile ----*/
 .topNav_mobile{
@@ -82,8 +81,6 @@
     cursor: pointer;
 }
 
-
-
 .topNav_mobile .menu img{
     width: 24px;
 }
@@ -96,15 +93,15 @@
     height: calc(100vh - 68px);
     top: 68px;
     z-index: 999;
+    transform: translateX(100%);
+    transition: 0.3s;
 }
 
 .nap_menu .content {
     background-color:var(--primaryColor_dark);
     height: 100%;
     width: 100%;
-    position: absolute;
-    transform: translateX(100%);
-    transition: 0.3s;
+    padding-top: 40px;
 }
 .nap_menu_open {
     transform: none !important;
@@ -117,11 +114,13 @@
 }
 .nap_menu .menu_link > li {
     margin-bottom: 36px;
-    width: 116%;
+}
+.nap_menu .menu_link a:hover {
+    color: var(--subColor_yellow);
 }
 .nap_menu .menu_link {
-    margin: 40px auto auto auto;
-    width: fit-content;
+    margin: auto;
+    width: 263px;
 }
 .nap_menu .menu_link, .menu_link a   {
     font-size: 24px;
@@ -137,9 +136,11 @@
 }
 .nap_menu .menu_link .layer2 a{
     font-size: 18px;
+    border-left: 4px solid #fff ;
+    padding-left: 12px;
 }
 .nap_menu .menu_link .layer2 li{
-    margin-top: 8px;
+    margin-top: 16px;
 }
 .nap_menu .menu_link .layer2 span{
     font-size: 14px;
@@ -147,26 +148,106 @@
 /* logout */
 .nap_menu .logout {
     font-size: 24px;
-    margin: 82px 0 0 auto;
+    margin: 52px 0 0 auto;
     width: fit-content;
 }
 /* icon_links */
 .nap_menu .icon_link {
     position: absolute;
     display: flex;
-    left: calc((100% - 267px)/2 - 12px);
+    left: calc((100% - 263px)/2 );
     top: 543px;
+    transform: translateX(-32px);
 }
 .nap_menu .icon_link li {
     margin-left: 32px;
 
 }
 
+/* ------ napBtn ------*/
+
+/* padding_filled */
+
+.napBtn_padding_filled {
+    display: block;
+    text-decoration: none;
+    padding: 12px 32px;
+    background-color:var(--primaryColor_dark);
+    border-radius: 200px;
+    width: fit-content;
+    transition: 0.3s;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_padding_filled:hover {
+    background-color:var(--primaryColor_light)
+}
 
 
+/* padding_outline */
 
+.napBtn_padding_outline {
+    display: block;
+    text-decoration: none;
+    padding: 12px 32px;
+    background-color:var(--white);
+    border-radius: 200px;
+    width: fit-content;
+    transition: 0.3s;
+    outline: 2px solid var(--primaryColor_dark);
+    color: var(--primaryColor_dark);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_padding_outline:hover {
+    background-color:var(--primaryColor_light);
+    outline: 2px solid var(--primaryColor_light);
+    color:var(--white);
+}
 
+/* fixed_filled */
 
+.napBtn_fixed_filled {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 218px;
+    height: 42px;
+    background-color:var(--primaryColor_dark);
+    border-radius: 200px;
+    transition: 0.3s;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_fixed_filled:hover {
+    background-color:var(--primaryColor_light)
+}
+
+/* fixed_outlined*/
+
+.napBtn_fixed_outlined {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 218px;
+    height: 42px;
+    background-color:var(--white);
+    outline: 2px solid var(--primaryColor_dark);
+    border-radius: 200px;
+    transition: 0.3s;
+    color: var(--primaryColor_dark);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_fixed_outlined:hover {
+    background-color:var(--primaryColor_light);
+    outline: 2px solid var(--primaryColor_light);
+    color: var(--white);
+}
 
 
 
@@ -198,7 +279,8 @@
     width: fit-content;
     margin: auto;
     font-size: 12px;
-    padding-top: 76px;
+    padding-top: 98px;
+    line-height: 148%;
 }
 @media screen and (min-width: 768px){
     .footer-mobile .content {
@@ -216,6 +298,7 @@
     border-top: 1px solid #ffffff;
     padding-top: 4px;
 }
+
 
 @media screen and (min-width: 828px){
     .footer-mobile .sec2, .footer-mobile .sec1{
