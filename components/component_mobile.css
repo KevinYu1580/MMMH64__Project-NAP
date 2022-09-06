@@ -90,7 +90,7 @@
 
 /* ---- menu ----*/
 .nap_menu  {
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     width: 100%;
     height: calc(100vh - 68px);
