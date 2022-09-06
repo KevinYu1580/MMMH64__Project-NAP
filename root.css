@@ -1,7 +1,7 @@
 @font-face {
     font-family: custom-font;
     
-    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
     unicode-range: U+4E00-9FFF;
 }
 @font-face {
@@ -49,7 +49,6 @@
     --border-radious: 20px;
     --btn-radious: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
-
 }
 
 

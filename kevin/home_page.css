@@ -1,12 +1,11 @@
-@font-face{
+@font-face {
     font-family: custom-font;
-    src: url(''), local("微軟正黑體"), local("Microsoft JhengHei");
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
     unicode-range: U+4E00-9FFF;
 }
-
-@font-face{
+@font-face {
     font-family: custom-font;
-    src: local(Arial, Helvetica, sans-serif), local(Segoe UI);
+    src: local(Arial), url('../font/Arial.ttf') format("truetype");
     unicode-range: U+00-024F;
 }
 :root {
@@ -49,9 +48,6 @@
     --border-radious: 20px;
     --btn-radious: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
-
-    --font-en: Arial, Helvetica, sans-serif;
-    --font-tc: 'Noto Sans TC, sans-serif';
 }
 
 

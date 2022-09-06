@@ -93,7 +93,7 @@ background-color: var(--subColor_bgc);
     height: 100%;
     width: 100%;
     position: absolute;
-    transform: translateX(100%);
+    transform: translateX(0%);
     transition: 0.3s;
 }
 .nap_menu_open {
@@ -107,7 +107,7 @@ background-color: var(--subColor_bgc);
 }
 .nap_menu .menu_link > li {
     margin-bottom: 36px;
-    width: 106%;
+    width: 116%;
 }
 .nap_menu .menu_link {
     margin: 40px auto auto auto;
@@ -134,10 +134,12 @@ background-color: var(--subColor_bgc);
 .nap_menu .menu_link .layer2 span{
     font-size: 14px;
 }
+/* logout */
 .nap_menu .logout {
-    position: absolute;
     font-size: 24px;
-    bottom: 44px;
+    margin: 82px 0 0 auto;
+    width: fit-content;
+    
 }
 
 
