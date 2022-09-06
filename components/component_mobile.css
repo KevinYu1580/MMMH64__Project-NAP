@@ -93,7 +93,7 @@ background-color: var(--subColor_bgc);
     height: 100%;
     width: 100%;
     position: absolute;
-    transform: translateX(0%);
+    transform: translateX(100%);
     transition: 0.3s;
 }
 .nap_menu_open {
@@ -139,8 +139,19 @@ background-color: var(--subColor_bgc);
     font-size: 24px;
     margin: 82px 0 0 auto;
     width: fit-content;
-    
 }
+/* icon_links */
+.nap_menu .icon_link {
+    position: absolute;
+    display: flex;
+    left: calc((100% - 267px)/2 - 12px);
+    top: 543px;
+}
+.nap_menu .icon_link li {
+    margin-left: 32px;
+
+}
+
 
 
 
@@ -177,23 +188,52 @@ background-color: var(--subColor_bgc);
     width: fit-content;
     margin: auto;
     font-size: 12px;
-    padding-top: 82px;
+    padding-top: 76px;
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .content {
+        display: flex;
+        align-items: flex-end;
+        padding-top: 248px;
+        
+    }
 }
 .footer-mobile .sec1 {
     margin-bottom: 6px;
 }
 .footer-mobile .sec2 {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     border-top: 1px solid #ffffff;
-    padding-top: 5px;
+    padding-top: 4px;
 }
+
+@media screen and (min-width: 828px){
+    .footer-mobile .sec2, .footer-mobile .sec1{
+    border-top: none;
+    margin: 0 64px 0 0;
+    font-size: 16px;
+    }
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .sec2, .footer-mobile .sec1{
+    margin: 0 40px 0 0;
+    }
+}
+
 .footer-mobile .top_sec {
     width: 100%;
     height: 286px;
-    background-image: url(./img/footer-pc.png) ;
+    background-image: url(./img/footer-mobile.png);
     background-repeat: no-repeat;
-    background-size:cover;
-    background-position: 5%;
+    background-size:auto;
+    background-position: 10% 18%;
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .top_sec {
+        background-image: url(./img/footer-pc.png);
+        background-position: 10% 0%;
+        height: 450px;
+    }
 }
 .footer-mobile .bot_sec {
     background-color:var(--primaryColor_dark);
@@ -209,6 +249,11 @@ background-color: var(--subColor_bgc);
 .footer-mobile .logos {
     width: fit-content;
     margin: auto;
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .logos {
+        margin:initial;
+    }
 }
 
 
