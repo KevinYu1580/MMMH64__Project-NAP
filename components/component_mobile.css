@@ -93,7 +93,7 @@ background-color: var(--subColor_bgc);
     height: 100%;
     width: 100%;
     position: absolute;
-    transform: translateX(00%);
+    transform: translateX(100%);
     transition: 0.3s;
 }
 .nap_menu_open {

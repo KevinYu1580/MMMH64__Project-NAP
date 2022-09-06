@@ -38,6 +38,10 @@
     --border-radious: 20px;
     --btn-radious: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+
+    --font-en: Arial, Helvetica, sans-serif;
+    --font-tc: 'Noto Sans TC', sans-serif;
+    
 }
 
 
