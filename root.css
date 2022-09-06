@@ -1,3 +1,14 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
 :root {
     --primaryColor_default: #BFBD4A;
     --primaryColor_dark: #7C8C38;
@@ -38,5 +49,7 @@
     --border-radious: 20px;
     --btn-radious: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+
 }
+
 
