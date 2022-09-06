@@ -58,7 +58,7 @@ html,body{
 .wrap{
     width: 100%;
     height: 100vh;
-    background-color:var(--subColor_bgc);
+    background-color:var(--subColor_text);
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -68,7 +68,7 @@ html,body{
     
     position: absolute;
     top: 28px;
-    right: 10%;
+    right: 5%;
     
 }
 
@@ -196,4 +196,69 @@ a{
     font-weight: 900;
     padding-left: 20px;
     text-shadow: 0 0 0.5px #000;
+}
+
+/* ------------------ */
+
+{
+
+}
+@media (max-width: 565px) {
+    .login-pc {
+      display: none;
+      
+    }
+    .login-mb {
+        display:block;
+        
+      }
+    .wrap{
+        background-color:var(--subColor_bgc);
+    }
+  }
+  @media (min-width: 565px) {
+    .login-mb {
+      display:none;
+      
+    }
+    .login-pc {
+        display:block;
+        
+      }
+      .wrap{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+  }
+
+  /* ------------------ */
+
+
+
+
+.bg{
+    background-image: url(../img_n/bg/bg.png);
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: contain;
+    width: 1280px;
+    height: 751px;
+    border-radius: px;
+    
+    /* width: 70%; */
+    
+
+}
+.textbox{
+    width: 400px;
+    background-color: var(--subColor_bgc);
+    position: absolute;
+    top: 12%;
+    left: 18%;
+    width: 430px;
+    border-radius: var(--border-radious);
+
 }
