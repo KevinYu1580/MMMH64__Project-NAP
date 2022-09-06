@@ -39,6 +39,10 @@
     --btn-radious: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
+* {
+    font-family: 'Noto Sans TC', sans-serif  !important;
+}
+
 body {
 background-color: var(--subColor_bgc);
 }
@@ -74,8 +78,8 @@ background-color: var(--subColor_bgc);
     width: 24px;
 }
 
-/* ---- menu-mobile ----*/
-.menu_mobile  {
+/* ---- menu ----*/
+.nap_menu  {
     position: absolute;
     overflow: hidden;
     width: 100%;
@@ -84,19 +88,85 @@ background-color: var(--subColor_bgc);
     z-index: 999;
 }
 
-.menu_mobile .content {
+.nap_menu .content {
     background-color:var(--primaryColor_dark);
     height: 100%;
     width: 100%;
     position: absolute;
-    transform: translateX(100%);
-    transition: 0.3;
+    transform: translateX(00%);
+    transition: 0.3s;
 }
+.nap_menu_open {
+    transform: none !important;
+}
+
+/* li */
+.nap_menu, .nap_menu a {
+    color: var(--white);
+    text-decoration: none;
+}
+.nap_menu .menu_link > li {
+    margin-bottom: 36px;
+    width: 106%;
+}
+.nap_menu .menu_link {
+    margin: 40px auto auto auto;
+    width: fit-content;
+}
+.nap_menu .menu_link, .menu_link a   {
+    font-size: 24px;
+}
+.nap_menu .menu_link span {
+    font-size: 20px;
+    margin-left: 8px;
+}
+.nap_menu .menu_link .layer2 {
+    margin-top: 16px;
+    font-weight: 100;
+    border-top: 1px solid #fff;
+}
+.nap_menu .menu_link .layer2 a{
+    font-size: 18px;
+}
+.nap_menu .menu_link .layer2 li{
+    margin-top: 8px;
+}
+.nap_menu .menu_link .layer2 span{
+    font-size: 14px;
+}
+.nap_menu .logout {
+    position: absolute;
+    font-size: 24px;
+    bottom: 44px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ---- footer-mobile ----*/
 .footer-mobile {
-    font-family: 'Noto Sans TC', sans-serif;
     line-height: 1.8;
     color: var(--white);
     font-weight: 300;
@@ -138,7 +208,6 @@ background-color: var(--subColor_bgc);
     width: fit-content;
     margin: auto;
 }
-
 
 
 
