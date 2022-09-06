@@ -57,6 +57,8 @@ body{
     font-family: custom-font;
     color: var(--subColor_text);
 }
+
+
 /* 房內設施介紹卡片 | room-info */
 .room-info-card-container{
     width: 90%;
@@ -138,16 +140,16 @@ body{
     }
 }
 
-/* 房型介紹 | room-intoduce */
+/* 房型介紹卡片 | room-intoduce */
 .room-introduce-container{
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 .room-introduce-col{
     margin-bottom: 20px;
 }
 .room-introduce-card{
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 .room-introduce-imgbox{
@@ -162,9 +164,13 @@ body{
     text-align: center;
 }
 .room-introduce-textbox h5{
+    width: 80%;
+    margin: auto;
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--primaryColor_dark);
     color: var(--primaryColor_dark);
 }
 .room-introduce-textbox > p{
@@ -208,5 +214,166 @@ body{
     .room-introduce-textbox a:hover{
         background-color: var(--primaryColor_dark);
         color: var(--white);
+    }
+}
+
+/* 房型介紹banner | room-banner */
+.room-banner{
+    margin-bottom: 90%;
+}
+.room-banner-imgbox{
+    width: 80%;
+    height: 60vh;
+    background-color: #2D2D2D;
+    position: relative;
+}
+.room-banner-imgbox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.room-banner-textbox{
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    background-color: var(--subColor_bgc);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+.room-banner-textbox h2{
+    font-size: var(--headline_32px);
+    margin-bottom: 10px;
+    line-height: 1.3;
+    color: var(--secondaryColor_default);
+    font-weight: 600;
+}
+.room-banner-textbox p{
+    width: 70%;
+    margin: auto;
+    line-height: 1.8;
+    font-size: var(--p_16px);
+    word-break: keep-all;
+}
+.room-banner-textbox h3{
+    width: 70%;
+    margin: auto;
+    line-height: 1.8;
+    font-size: var(--p_16px);
+    color: var(--primaryColor_dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.room-banner-textbox-btn{
+    width: 60%;
+    margin: auto;
+}
+.room-banner-textbox a{
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 50px;
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+.room-banner-textbox span{
+    display: none;
+}
+.room-banner-textbox br{
+    display: block;
+}
+.room-banner-ai01-imgbox{
+    position: absolute;
+    width: 100%;
+    top: 83%;
+    left: -20%;
+}
+.room-banner-ai01-imgbox img{
+    width: 100%;
+}
+.room-banner-ai02-imgbox{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .room-banner{
+        margin-bottom: 12%;
+    }
+    .room-banner-imgbox{
+        width: 60%;
+        height: 80vh;
+        background-color: #2D2D2D;
+        position: relative;
+    }
+    .room-banner-textbox{
+        width: 50%;
+        height: 50vh;
+        position: absolute;
+        margin: auto;
+        top: 40%;
+        left: 40%;
+        background-color: var(--subColor_bgc);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .room-banner-textbox h2{
+        font-size: var(--headline_40px);
+        margin-bottom: 10px;
+        line-height: 1.3;
+        color: var(--secondaryColor_default);
+        font-weight: 600;
+    }
+    .room-banner-textbox p{
+        width: 50%;
+        margin: 10px auto;
+        line-height: 1.8;
+        font-size: var(--headline_20px);
+        word-break: normal;
+    }
+    .room-banner-textbox h3{
+        width: 50%;
+        margin: 10px auto;
+        line-height: 1.8;
+        font-size: var(--headline_20px);
+        color: var(--primaryColor_dark);
+        font-weight: 600;
+        margin-bottom: 10px;
+        word-break: keep-all;
+    }
+    .room-banner-textbox-btn{
+        width: 70%;
+        margin: auto;
+    }
+    .room-banner-textbox a{
+        text-decoration: none;
+        padding: 10px 50px;
+        border-radius: 50px;
+        font-size: var(--headline_24px);
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+    }
+    .room-banner-textbox span{
+        display: inline-block;
+    }
+    .room-banner-textbox br{
+        display: none;
+    }
+    .room-banner-ai01-imgbox{
+        position: absolute;
+        width: 800px;
+        top: 70%;
+        left: 20%;
+    }
+    .room-banner-ai02-imgbox{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 18%;
+        left: 65%;
+    }
+    .room-banner-ai01-imgbox img{
+        width: 100%;
     }
 }
