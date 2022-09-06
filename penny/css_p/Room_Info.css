@@ -58,165 +58,6 @@ body{
     color: var(--subColor_text);
 }
 
-
-/* 房內設施介紹卡片 | room-info */
-.room-info-card-container{
-    width: 90%;
-    margin: auto;
-}
-.room-info-card-row{
-    display: flex;
-    flex-wrap: wrap;
-}
-.room-info{
-    margin-bottom: 50px;
-}
-.room-info-card{
-    margin-left: auto;
-    margin-right: auto;
-    width: 75px;
-    height: 100px;
-    background-color: #E8E7D1;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-.room-info-imgbox{
-    width: 50%;
-    height: auto;
-    margin-bottom: 10px;
-}
-.room-info-imgbox img{
-    width: 100%;
-    filter: #ffffff;
-}
-.room-info-text{
-    width: 80%;
-    text-align: center;
-}
-.room-info-text h5{
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-.room-info-text p{
-    font-size: 15px;
-    line-height: 1.4rem;
-}
-.room-info-text-p-pc{
-    display: none;
-}
-@media screen and (min-width:768px) {
-    .room-info-card-container{
-        width: 65%;
-        margin: auto;
-    }
-    .room-info-card{
-        margin: auto;
-        width: 250px;
-        height: 280px;
-        background-color: #E8E7D1;
-        border-radius: 20px;
-        margin-bottom: 30px;
-    }
-    .room-info-imgbox{
-        width: 60px;
-        height: auto;
-        margin-bottom: 25px;
-    }
-    .room-info-text{
-        width: 180px;
-        text-align: center;
-    }
-    .room-info-text h5{
-        font-size: 30px;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-    .room-info-text p{
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-    }
-    .room-info-text-p-pc{
-        display: block;
-    }
-}
-
-/* 房型介紹卡片 | room-intoduce */
-.room-introduce-container{
-    width: 90%;
-    margin: auto;
-}
-.room-introduce-col{
-    margin-bottom: 20px;
-}
-.room-introduce-card{
-    width: 85%;
-    margin: auto;
-}
-.room-introduce-imgbox{
-    width: 100%;
-    margin-bottom: 20px;
-}
-.room-introduce-imgbox img{
-    width: 100%;
-}
-.room-introduce-textbox{
-    width: 100%;
-    text-align: center;
-}
-.room-introduce-textbox h5{
-    width: 80%;
-    margin: auto;
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--primaryColor_dark);
-    color: var(--primaryColor_dark);
-}
-.room-introduce-textbox > p{
-    font-size: 20px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-.room-introduce-btn{
-    width: 60%;
-    margin: auto;
-}
-.room-introduce-textbox a{
-    text-decoration: none;
-    padding: 5px 30px;
-    border-radius: 50px;
-    background-color: var(--primaryColor_dark);
-    color: var(--white);
-}
-@media screen and (min-width:768px) {
-    .room-introduce-container{
-        width: 65%;
-        margin: auto;
-    }
-    .room-introduce-card{
-        width: 100%;
-        margin: auto;
-    }
-    .room-introduce-textbox > p{
-        font-size: 20px;
-        line-height: 1.6;
-        margin-bottom: 30px;
-    }
-    .room-introduce-textbox a{
-        text-decoration: none;
-        padding: 10px 70px;
-        border-radius: 50px;
-        border: 1px solid var(--primaryColor_dark);
-        background-color: transparent;
-        color: var(--primaryColor_dark);
-    }
-    .room-introduce-textbox a:hover{
-        background-color: var(--primaryColor_dark);
-        color: var(--white);
-    }
-}
-
 /* 房型介紹banner | room-banner */
 .room-banner{
     margin-bottom: 90%;
@@ -377,3 +218,162 @@ body{
         width: 100%;
     }
 }
+
+/* 房內設施介紹卡片 | room-info */
+.room-info-card-container{
+    width: 90%;
+    margin: auto;
+}
+.room-info-card-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.room-info{
+    margin-bottom: 50px;
+}
+.room-info-card{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 100px;
+    background-color: #E8E7D1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.room-info-imgbox{
+    width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.room-info-imgbox img{
+    width: 100%;
+    filter: #ffffff;
+}
+.room-info-text{
+    width: 80%;
+    text-align: center;
+}
+.room-info-text h5{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.room-info-text p{
+    font-size: 15px;
+    line-height: 1.4rem;
+}
+.room-info-text-p-pc{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .room-info-card-container{
+        width: 65%;
+        margin: auto;
+    }
+    .room-info-card{
+        margin: auto;
+        width: 250px;
+        height: 280px;
+        background-color: #E8E7D1;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+    .room-info-imgbox{
+        width: 60px;
+        height: auto;
+        margin-bottom: 25px;
+    }
+    .room-info-text{
+        width: 180px;
+        text-align: center;
+    }
+    .room-info-text h5{
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .room-info-text p{
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+    .room-info-text-p-pc{
+        display: block;
+    }
+}
+
+/* 房型介紹卡片 | room-intoduce */
+.room-introduce-container{
+    width: 90%;
+    margin: auto;
+}
+.room-introduce-col{
+    margin-bottom: 20px;
+}
+.room-introduce-card{
+    width: 85%;
+    margin: auto;
+}
+.room-introduce-imgbox{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.room-introduce-imgbox img{
+    width: 100%;
+}
+.room-introduce-textbox{
+    width: 100%;
+    text-align: center;
+}
+.room-introduce-textbox h5{
+    width: 80%;
+    margin: auto;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--primaryColor_dark);
+    color: var(--primaryColor_dark);
+}
+.room-introduce-textbox > p{
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.room-introduce-btn{
+    width: 60%;
+    margin: auto;
+}
+.room-introduce-textbox a{
+    text-decoration: none;
+    padding: 5px 30px;
+    border-radius: 50px;
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+@media screen and (min-width:768px) {
+    .room-introduce-container{
+        width: 65%;
+        margin: auto;
+    }
+    .room-introduce-card{
+        width: 100%;
+        margin: auto;
+    }
+    .room-introduce-textbox > p{
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+    .room-introduce-textbox a{
+        text-decoration: none;
+        padding: 10px 70px;
+        border-radius: 50px;
+        border: 1px solid var(--primaryColor_dark);
+        background-color: transparent;
+        color: var(--primaryColor_dark);
+    }
+    .room-introduce-textbox a:hover{
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+    }
+}
+
