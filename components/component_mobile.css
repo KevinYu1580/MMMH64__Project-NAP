@@ -1,3 +1,14 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
 :root {
     --primaryColor_default: #BFBD4A;
     --primaryColor_dark: #7C8C38;
@@ -39,13 +50,12 @@
     --btn-radius: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
+
+
 * {
     font-family: 'Noto Sans TC', sans-serif  !important;
 }
 
-body {
-background-color: var(--subColor_bgc);
-}
 
 /* ---- topNav-mobile ----*/
 .topNav_mobile{
@@ -80,7 +90,7 @@ background-color: var(--subColor_bgc);
 
 /* ---- menu ----*/
 .nap_menu  {
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     width: 100%;
     height: calc(100vh - 68px);
