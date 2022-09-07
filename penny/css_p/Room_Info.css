@@ -195,6 +195,9 @@ body{
         background-color: var(--primaryColor_dark);
         color: var(--white);
     }
+    .room-banner-textbox a:hover{
+        background-color: var(--secondaryColor_default);
+    }
     .room-banner-textbox span{
         display: inline-block;
     }
@@ -203,18 +206,18 @@ body{
     }
     .room-banner-ai01-imgbox{
         position: absolute;
-        width: 800px;
+        width: 680px;
         top: 70%;
-        left: 20%;
+        left: 25%;
     }
     .room-banner-ai02-imgbox{
         display: block;
         position: absolute;
-        width: 100%;
+        width: 350px;
         top: 18%;
-        left: 65%;
+        left: 75%;
     }
-    .room-banner-ai01-imgbox img{
+    .room-banner-ai02-imgbox img{
         width: 100%;
     }
 }
