@@ -60,11 +60,12 @@ body{
 
 /* 房型介紹banner | room-banner */
 .room-banner{
+    margin-top: 68px;
     margin-bottom: 90%;
 }
 .room-banner-imgbox{
     width: 80%;
-    height: 60vh;
+    height: 50vh;
     background-color: #2D2D2D;
     position: relative;
 }
@@ -147,11 +148,11 @@ body{
     }
     .room-banner-textbox{
         width: 50%;
-        height: 50vh;
+        height: 55vh;
         position: absolute;
         margin: auto;
         top: 40%;
-        left: 40%;
+        left: 39%;
         background-color: var(--subColor_bgc);
         display: flex;
         flex-direction: column;
@@ -196,7 +197,8 @@ body{
         color: var(--white);
     }
     .room-banner-textbox a:hover{
-        background-color: var(--secondaryColor_default);
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
     }
     .room-banner-textbox span{
         display: inline-block;
@@ -206,9 +208,9 @@ body{
     }
     .room-banner-ai01-imgbox{
         position: absolute;
-        width: 680px;
-        top: 70%;
-        left: 25%;
+        width: 640px;
+        top: 78%;
+        left: 26%;
     }
     .room-banner-ai02-imgbox{
         display: block;
@@ -375,8 +377,10 @@ body{
         color: var(--primaryColor_dark);
     }
     .room-introduce-textbox a:hover{
-        background-color: var(--primaryColor_dark);
+        border: 1px solid var(--primaryColor_light);
+        background-color: var(--primaryColor_light);
         color: var(--white);
+        transition: 0.3s;
     }
 }
 
