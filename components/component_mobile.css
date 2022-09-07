@@ -306,8 +306,9 @@
     color: var(--white);
 }
 .napSwitch_two .backmask {
-    width: 50%;
-    height: 100%;
+    transform: translateX(-1px);
+    width: calc(50% + 2px);
+    height: calc(100% + 2px);
     position: absolute;
     left: 0%;
     background-color:var(--secondaryColor_default);
@@ -339,8 +340,9 @@
     color: var(--white);
 }
 .napSwitch_three .backmask {
-    width: 33.333333%;
-    height: 100%;
+    transform: translateX(-1px);
+    width: calc(33.333333% + 2px);
+    height: calc(100% + 2px);
     position: absolute;
     left: 0%;
     background-color:var(--secondaryColor_default);
@@ -366,13 +368,15 @@
 }
 .chat_bordSlec_PC .top {
     padding: 22px 64px 16px;
+    font-weight: bold;
 }
 .chat_bordSlec_PC .bot {
     padding: 16px 64px 22px;
-    border-radius: 20px;
+    border-radius: var();
 }
 .chat_bordSlec_PC .napBtn {
     border: none;
+    border-radius: var(--border-radious);
     background-color: var(--primaryColor_tint);
     font-size: 20px;
 }
