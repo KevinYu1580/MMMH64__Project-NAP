@@ -1,6 +1,7 @@
 @font-face {
     font-family: custom-font;
-    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
     unicode-range: U+4E00-9FFF;
 }
 @font-face {
@@ -12,7 +13,7 @@
     --primaryColor_default: #BFBD4A;
     --primaryColor_dark: #7C8C38;
     --primaryColor_light: #D6D48A;
-    --primaryColor_tint: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
     --secondaryColor_default: #B18042;
     --secondaryColor_light: #EDDCCE;
 
@@ -46,10 +47,10 @@
     --p_10px: 10px;
 
     --border-radious: 20px;
-    --btn-radious: 1200px;
+    --btn-radius: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
-
 }
+
 *{
     box-sizing: border-box;
 }
@@ -66,9 +67,10 @@ body{
 }
 
 .mobile-backpage{
-    position: absolute;
+    /* position: absolute; */
     height: 45px;
-    top: 68px;
+    /* top: 68px; */
+    margin-top: 68px;
     background-color: var(--secondaryColor_default);
     width: 100%;
     color: var(--white);
@@ -166,17 +168,20 @@ body{
     height: 590px;
     border: solid 6px var(--primaryColor_light);
     border-radius: 0 0 20px 20px;
+    margin-bottom: 55px;
 }
     @media screen and (min-width: 576px){
         .notice-content{
             border: solid 8px var(--primaryColor_light);
             height: 650px;
+            margin-bottom: 60px;
         }
     }
     @media screen and (min-width: 768px){
         .notice-content{
             border: solid 10px var(--primaryColor_light);
             height: 535px;
+            margin-bottom: 65px;
         }
     }
     
@@ -289,6 +294,6 @@ body{
             display: block;
             position: absolute;
             bottom: 0;
-            right: 0;
+            right: 5%;
         }
     }
