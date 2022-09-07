@@ -59,7 +59,10 @@ body{
 }
 
 /* 活動頁面banner | events-banner */
-/* 浪浪套裝-手機版 */
+.events-banner-row-mb{
+    display: block;
+}
+/* 浪浪套裝活動-手機版 */
 .events-banner-package{
     height: 50vh;
     background: url('../img_p/illustration/illustration-76.png') no-repeat center center / cover;
@@ -104,7 +107,7 @@ body{
     color: var(--white);
 }
 
-/* 每月特別 | 手機版 */
+/* 每月特別活動 | 手機版 */
 .events-banner-special{
     height: 50vh;
     background: url('../img_p/illustration/illustration-77.png') no-repeat center center / cover;
@@ -151,4 +154,56 @@ body{
     border-radius: 20px;
     background-color: var(--secondaryColor_default);
     color: var(--white);
+}
+.wrap{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .events-banner-row-mb{
+        display: none;
+    }
+    .wrap{
+        display: block;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+      
+        /* place your img here */
+        background: url('../img_p/illustration/illustration-79.png') no-repeat right center / cover;
+        background-size: cover;
+    }
+    .pic {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        transition: 0.3s linear;
+        overflow: hidden;
+      
+        /* place your img here */
+        background: url('../img_p/illustration/illustration-78.png') no-repeat left center / cover fixed;
+      }
+      
+      img {
+        width: 100%;
+      }
+      p {
+        font-size: 52px;
+        white-space: nowrap;
+      }
+      #p1 {
+        position: absolute;
+        left: 100px;
+        color: #2d2d2d;
+      }
+      #p2 {
+        position: absolute;
+        right: 100px;
+        color: #ededed;
+      }
+      
 }
