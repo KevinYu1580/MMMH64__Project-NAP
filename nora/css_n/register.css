@@ -85,6 +85,18 @@ html{
     width: 100%;
 }
 
+.content1{
+    /* position: absolute; */
+    position: relative;
+    z-index: 10;
+    
+}
+.content2{
+    /* position: absolute; */
+    position: relative;
+    z-index: 20;
+}
+
 .part{
     width: 100%;
 }
@@ -121,13 +133,19 @@ form{
     font-size: 18px;
     color: var(--subColor_text);
     font-weight: 700;
-    /* text-shadow: 0 0 0.5px #000; */
+    
     
 }
 
+.form-control{
+    padding-left: 12px;
+    padding-right: 152.65px;
+}
+
+
 input{
     height: 32px;
-    width: 100%;
+    /* width: 324px; */
     
     
 }
@@ -139,9 +157,10 @@ input{
 }
 .btn-box{
     /* height: 40px; */
-    padding-top: 40px;
-    margin-bottom: 20px;
+    padding-top: 30px;
+    margin-bottom: 89px;
     width: 150px;
+    
     
 
 }
@@ -157,6 +176,7 @@ input{
 .title-sm{
     color:var(--subColor_text);
     font-weight: 900;
+    width: 337.5px;
 }
 .title-sm p{
     margin-bottom: 0;
@@ -169,8 +189,7 @@ input{
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 10px;
-    
-    
+       
 }
 
 .community .pic{
@@ -223,7 +242,7 @@ a{
 
     .login-pc{
         /* background-color:var(--subColor_text); */
-        background-image: url(../img_n/bg/bg.png);
+        background-image: url(../img_n/bg/bg-2.png);
         width: 70%;
         /* height: 750px; */
         background-repeat: no-repeat;
@@ -252,3 +271,183 @@ a{
     font-size: 8px;
     margin-top: 0;
   }
+
+
+
+  .content2{
+    
+  }
+
+
+
+.content2 .title{
+    padding-top: 47px;
+    border-bottom: 1px solid var(--black_600);
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 4px;
+    border: none;
+    
+}
+
+
+
+
+.stepbox{
+    /* background-color: rgb(225, 94, 94); */
+    position: relative;
+    height: 40px;
+    width: 279px;
+}
+.steps .dot{
+    width: 12px;
+    height: 12px;
+    background-color: var(--black_500);
+    border-radius: 50%;
+    /* position: absolute; */
+}
+
+.steps{
+    position: absolute;
+
+    
+}
+
+.step{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.step1 .dot{
+    background-color: var(--primaryColor_dark);
+}
+.step1 .text{
+    color:var(--primaryColor_dark);
+}
+
+.stepline{
+    border-top: 1px solid var(--black_500);
+    position: absolute;
+    width: 160px;
+     top: 15%; 
+    
+    /* z-index: 20; */
+    
+}
+
+
+
+
+.up-part{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+form{
+    font-size: 18px;
+    color: var(--subColor_text);
+    font-weight: 700;
+    
+    
+}
+
+.content2 .form-control{
+    padding-left: 12px; */
+     padding-right: 152.65px; 
+}
+
+
+input{
+    height: 32px;
+    /* width: 324px; */
+    
+    
+}
+.form-label{
+    margin-bottom: 0;
+    color: var(--subColor_text);
+    font-size: var(--subtitle_18px);
+    
+}
+.btn-box{
+    /* height: 40px; */
+    padding-top: 30px;
+    margin-bottom: 89px;
+    width: 150px;
+    
+    
+
+}
+
+.btn-box .btn{
+    background-color: var(--primaryColor_dark);
+    border-radius: var(--btn-radius);
+    border: 1px solid var(--primaryColor_dark);
+    font-size: 18px;
+    
+}
+
+.title-sm{
+    color:var(--subColor_text);
+    font-weight: 900;
+    width: 337.5px;
+}
+.title-sm p{
+    margin-bottom: 0;
+    padding-bottom: 4px;
+    font-size: 16px;
+}
+
+.line{
+    border-bottom: 1px solid var(--black_600);
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+       
+}
+
+.community .pic{
+    background-color: #C0CC8E;
+    
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0px 0px 10px;
+}
+.community .text{
+    background-color: #E8E7D1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    
+    color:var(--subColor_text);
+    border-radius: 0px 10px 10px 0px;
+    
+}
+a{
+    text-decoration:none
+}
+.community .text p{
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.say  p{
+    color: var(--black_600);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.say .right p{
+    color: #6F6F6F;
+    font-weight: 900;
+    padding-left: 20px;
+    text-shadow: 0 0 0.5px #000;
+    
+}
