@@ -13,7 +13,7 @@
     --primaryColor_default: #BFBD4A;
     --primaryColor_dark: #7C8C38;
     --primaryColor_light: #D6D48A;
-    --primaryColor_tint: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
     --secondaryColor_default: #B18042;
     --secondaryColor_light: #EDDCCE;
 
@@ -50,6 +50,7 @@
     --btn-radius: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
+
 
 
 * {
@@ -290,13 +291,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    border: 4px solid var(--secondaryColor_default);
+    border: 2px solid var(--secondaryColor_default);
     border-radius: 500px;
     z-index: 0;
     font-size: 18px;
 }
 .napSwitch_two .sec {
-    padding: 16px 24px;
+    padding: 8px 24px;
     cursor: pointer;
     color: var(--black_600);
     transition: 0.3s;
@@ -323,13 +324,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    border: 4px solid var(--secondaryColor_default);
+    border: 2px solid var(--secondaryColor_default);
     border-radius: 500px;
     z-index: 0;
     font-size: 16px;
 }
 .napSwitch_three .sec {
-    padding: 16px 16px;
+    padding: 9px 16px;
     cursor: pointer;
     color: var(--black_600);
     transition: 0.3s;
@@ -349,11 +350,35 @@
 }
 
 
+/* ------ 留言區區塊選擇 ------*/
+
+.chat_bordSlec_PC {
+    background-color: var(--primaryColor_tint);
+    width: fit-content;
+    border-radius: var(--border-radious);
+    position: relative;
+}
+.chat_bordSlec_PC .top, .chat_bordSlec_PC .bot {
+    text-decoration: none;
+    color: #8A7171;
+    display: flex;
+    justify-content: center;
+}
+.chat_bordSlec_PC .top {
+    padding: 22px 64px 16px;
+}
+.chat_bordSlec_PC .bot {
+    padding: 16px 64px 22px;
+}
+.chat_bordSlec_PC .line {
+    width: 80%;
+    height: 1px;
+    background-color: #8a71714d;
+    margin: auto;
+}
 
 
-
-
-
+/* ------ 頁數選擇器 ------*/
 
 
 
