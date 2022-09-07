@@ -55,20 +55,32 @@
 body{
 font-family: custom-font;
 }
+/* nav-moble */
+.nav-white-block{
+    width: 100%;
+    height: 68px;
+    background-color: var(--white);    
+}
 .banner {
     width: 100%;
     height: 140px;
     overflow: hidden;
     position: relative;
+    
 }
 .banner img{
     width: 100%;
-    
+}
+/* pc-banner*/
+@media screen and (min-width:576px){
+    .banner{
+        height: 580px;
+    }
 }
 /* banner 按鈕區 */
 .banner-button-info{
-margin-top:-30px ;
-position: relative;
+    margin-top:-30px ;
+    position: relative;
 }
 .banner-block-middle{
     height: 20px;
@@ -84,6 +96,7 @@ position: relative;
     display: flex; 
     justify-content: center;
 }
+
 .banner-block-up p{
     color: var(--subColor_text);
     text-align: center;
@@ -91,27 +104,55 @@ position: relative;
     margin-top: 10px;
     padding-right: 5px;    
 }
+.banner-block-icon{
+    cursor: pointer;
+    margin-top: 10px;   
+}
 .banner-block-up img{
     width:20px;
-    margin-top: 10px;
+    margin-top: 10px;  
+      
 }
 .banner-block-middle{
     width: 100%;
     height: 20px;
     background-color:var(--subColor_bgc);
 }
+/* 中間灰色色塊 */
+.banner-block-down-mobile{
+    background-color: var(--subColor_bgc);
+}
 /*下拉式彈出頁面  */
 .banner-block-down{
     width: 100%;
     background-color: var(--subColor_bgc);
     }
+.why-card-box-fram{
+        width:100%;
+        overflow: hidden;
+        overflow-x: scroll;  
+        -webkit-overflow-scrolling:touch;
+    }
+    .why-card-box-fram::-webkit-scrollbar{
+        width:0; 
+        height:0; 
+        display: none;
+    }
+    
+.why-card-box{
+    width: 400%;
+    }
+.why-card{
+         width: 100%;
+    }
 .why-card-img{
-    width: 60%;
+    width: 70%;
     margin: auto;
-}
+  }
 .why-card-img img{
     width: 100%;
 }
+/*下拉式彈出頁面-text  */
 .why-card h4{
     color: var(--primaryColor_dark);
     font-weight: 700;
@@ -125,7 +166,13 @@ position: relative;
     font-size: var(--p_16px);
     line-height: 1.8rem;
     text-align: center;
-    /* padding-bottom: 50px; */
+    
+}
+/* pc的效果 */
+@media screen and (min-width:576px){
+    .banner-block-down-mobile {
+    display: none ;
+    }    
 }
 /* 四個點點 */
 .silder-dot{
@@ -158,7 +205,34 @@ position: relative;
     margin:10px 0  20px ;
 }
 /* 篩選器 */
+.napSwitch_two,.napSwitch_three{
+    margin: auto;
+}
+@media screen and (max-width:576px){
+    .filter-title-pc{
+        display: none;
+    }
+}
 
+@media screen and (min-width:576px){
+    .filter{
+        width: 1440px;
+        margin: auto; 
+    }
+    .filter-title-mobile{
+        display: none;
+    }
+    
+    .filter-group{
+        display: flex; 
+        justify-content: space-between;
+          
+    }
+    .filter-title-pc h2{
+        font-size: 40px ;
+        margin:45px 0 45px;
+    }
+}
 /* 寵物卡片 */
 .pet-card-block{
     gap: 5px;
@@ -175,7 +249,6 @@ position: relative;
     /* border: 1px solid red; */
     object-fit: cover;
     margin: 0;
-
 }
 .pet-card-img img{
     width: 100%;

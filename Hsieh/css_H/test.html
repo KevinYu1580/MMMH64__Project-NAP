@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html>
+<head>
+    <title>橫向滑動</title>
+    <style type="text/css">
+        .slide-box{
+            margin-top: 200px;
+            display: -webkit-box;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling:touch;
+        }
+        /*去掉滾動條*/
+        .slide-box::-webkit-scrollbar{
+            width:0; 
+            height:0; 
+            display: none;
+        }
+        .slide-item{
+            width: 200px;
+            height: 200px;
+            border:1px solid #ccc;
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-box">
+        <div class="slide-item"></div>
+        <div class="slide-item"></div>
+        <div class="slide-item"></div>
+        <div class="slide-item"></div>
+        <div class="slide-item"></div>
+    </div>
+</body>
+</html>
+</body>
+</html>
