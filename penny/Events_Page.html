@@ -39,19 +39,39 @@
             </div>
         </div>
     </div>
-    <div class="wrap">
-        <p id="p2">Hover this pic !</p>
-        <div class="pic">
-          <p id="p1">Hover this pic !</p>
+    <div class="events-banner-special-bg-pc">
+        <div class="events-banner-pc-text">
+            <h3>SPECIAL EVENTS</h3>
+            <h2>每月特別活動</h2>
+            <p>每月有配合節慶的活動外，還有專業動物醫學講師開班舉辦講座課程，快帶家中毛孩來參加並留下美好回憶吧！</p>
+            <div class="events-banner-special-btn">
+                <a href="">查看活動</a>
+            </div>
         </div>
-      </div>
+        <div class="events-banner-package-bg-pc">
+            <!-- <div id="p1">
+                <h3>SPECIAL EVENTS</h3>
+                <h2>每月特別活動</h2>
+                <p>每月有配合節慶的活動外，還有專業動物醫學講師開班舉辦講座課程，快帶家中毛孩來參加並留下美好回憶吧！</p>
+                <div class="events-banner-special-btn">
+                    <a href="">查看活動</a>
+                </div>
+            </div> -->
+            <!-- <img src="./img_p/illustration/illustration-78-1.png" usemap="#image-map">
+
+            <map name="image-map">
+                <area target="_blank" alt="" title="" href="#" coords="374,485,601,556" shape="rect">
+            </map> -->
+        </div>
+    </div>
+
 </section>
 
 <script src="./js_p/jquery-3.6.0.min.js"></script>
     <script>
-        $(".wrap").mousemove(function (e) {
-        const picWidth = $(".pic");
-        const wrapWid = $(".wrap").width();
+        $(".events-banner-special-bg-pc").mousemove(function (e) {
+        const picWidth = $(".events-banner-package-bg-pc");
+        const wrapWid = $(".events-banner-special-bg-pc").width();
         let mouseNow = (e.offsetX / wrapWid) * 100;
 
         picWidth.css("width", 100 - mouseNow + "%");

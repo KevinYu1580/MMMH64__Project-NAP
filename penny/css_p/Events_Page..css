@@ -155,14 +155,15 @@ body{
     background-color: var(--secondaryColor_default);
     color: var(--white);
 }
-.wrap{
+.events-banner-special-bg-pc{
     display: none;
 }
 @media screen and (min-width:768px) {
     .events-banner-row-mb{
         display: none;
     }
-    .wrap{
+    /* 每月特別活動 | 桌機版 */
+    .events-banner-special-bg-pc{
         display: block;
         width: 100%;
         height: 100vh;
@@ -170,40 +171,67 @@ body{
         display: flex;
         justify-content: space-between;
         overflow: hidden;
-      
-        /* place your img here */
+        position: relative;
         background: url('../img_p/illustration/illustration-79.png') no-repeat right center / cover;
-        background-size: cover;
     }
-    .pic {
+    .events-banner-pc-text{
+        position: absolute;
+        top: 15%;
+        right: 20%;
+        width: 500px;
+        height: 50%;
+        /* background-color: #2D2D2D; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .events-banner-pc-text h3{
+        font-size: var(--headline_40px);
+        color: var(--white);
+        font-weight: 300;
+        padding-bottom: 20px;
+    }
+    .events-banner-pc-text h2{
+        font-size: var(--headline_60px);
+        font-weight: 600;
+        color: var(--secondaryColor_default);
+        padding-bottom: 20px;
+    }
+    .events-banner-pc-text p{
+        font-size: var(--headline_20px);
+        line-height: 1.8;
+        color: var(--white);
+        font-weight: 300;
+        padding-bottom: 30px;
+        text-align: right;
+    }
+    .events-banner-pc-text .events-banner-special-btn{
+        width: 100%;
+        text-align: right;
+    }
+    .events-banner-pc-text .events-banner-special-btn a{
+        font-size: var(--headline_24px);
+        text-decoration: none;
+        padding: 10px 40px;
+        border-radius: 40px;
+        background-color: var(--secondaryColor_default);
+        color: var(--white);
+    }
+    /* 浪浪套裝活動 | 桌機版 */
+    .events-banner-package-bg-pc {
         width: 50%;
         height: 100%;
         position: relative;
         top: 0;
         left: 0;
         transition: 0.3s linear;
-        overflow: hidden;
-      
-        /* place your img here */
         background: url('../img_p/illustration/illustration-78.png') no-repeat left center / cover fixed;
-      }
-      
-      img {
-        width: 100%;
-      }
-      p {
-        font-size: 52px;
-        white-space: nowrap;
       }
       #p1 {
         position: absolute;
         left: 100px;
         color: #2d2d2d;
-      }
-      #p2 {
-        position: absolute;
-        right: 100px;
-        color: #ededed;
       }
       
 }
