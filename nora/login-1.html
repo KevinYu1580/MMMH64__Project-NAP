@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -74,7 +76,7 @@
                 </form>
         </div>
         
-        <div class="login-pc w-100 w-100">
+        <div class="login-pc">
             <div class="bg">
                 <div class="textbox">
                     <div class="close"><img src="./img_n/close.png" alt=""></div>
@@ -88,6 +90,11 @@
                                 <div class="email-box w-100 mb-2">
                                 <label for="email" class="form-label">帳號 (email)</label>
                                 <input type="email" class="form-control" id="email1" name="email" placeholder="請輸入帳號" required>
+                                <div id="myAlert2" class="alert alert-warning">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <!-- <strong>警告！</strong>您的网络连接有问题。 -->
+                                </div>
+                                <div id="liveAlertPlaceholder"></div>
                                 </div>
                                 <div class="password-box w-100">
                                     <label for="password" class="form-label">密碼</label>
@@ -95,7 +102,7 @@
                                     
                                 </div>
                                 <div class="btn-box d-flex flex-column  ">
-                                    <button type="submit" class="btn btn-primary">登入</button>
+                                    <button type="submit" class="btn btn-primary" id="liveAlertBtn">登入</button>
                                     
                                 </div>
                                 
@@ -138,5 +145,45 @@
     </div>
 
 </div> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    
+
+    function checkForm() {
+        // TODO: 欄位檢查
+        if (!$('#email').val()) {
+            $("#myAlert").append(抱歉錯誤狀態);
+            
+            return;
+        }
+        if (!$('#password').val()) {
+            alert('請填寫密碼');
+            return;
+        }
+        if (!$('#email1').val()) {
+            alert('請填寫帳號');
+            return;
+        }
+        if (!$('#password1').val()) {
+            alert('請填寫密碼');
+            return;
+        }
+        $.post(
+            'login-api.php',
+            $(document.form1).serialize(),
+            function(data) {
+                if(data.success){
+                    location.href = './';
+                } else {
+                    alert(data.error);
+                }
+            },
+            'json'
+        );
+
+    }
+</script>
 </body>
+
 </html>
