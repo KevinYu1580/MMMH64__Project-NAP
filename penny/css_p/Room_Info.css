@@ -142,7 +142,7 @@ body{
 }
 @media screen and (min-width:768px) {
     .room-banner{
-        margin-bottom: 10%;
+        margin-bottom: 9%;
     }
     .room-banner-container{
         width: 1680px;
@@ -157,7 +157,7 @@ body{
         width: 840px;
         height: 605px;
         margin-left: auto;
-        top: 360px;
+        top: 310px;
         right: 240px;
         background-color: var(--subColor_bgc);
         display: flex;
@@ -208,20 +208,17 @@ body{
     .room-banner-textbox span{
         display: inline-block;
     }
-    .room-banner-textbox br{
-        /* display: none; */
-    }
     .room-banner-ai01-imgbox{
         position: absolute;
         width: 640px;
-        top: 78%;
+        top: 80%;
         left: 28%;
     }
     .room-banner-ai02-imgbox{
         display: block;
         position: absolute;
         width: 350px;
-        top: 17%;
+        top: 12%;
         left: 68%;
     }
     .room-banner-ai02-imgbox img{
