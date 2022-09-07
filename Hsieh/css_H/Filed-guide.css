@@ -1,0 +1,211 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('../font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #D6D48A;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radious: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+body{
+font-family: custom-font;
+}
+.banner {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+}
+.banner img{
+    width: 100%;
+    
+}
+/* banner 按鈕區 */
+.banner-button-info{
+margin-top:-30px ;
+position: relative;
+}
+.banner-block-middle{
+    height: 20px;
+    width: 100%;
+}
+.banner-block-up{
+    width: 80%;
+    background-color: var(--subColor_bgc);
+    border-radius: 20px 20px 0 0;
+    height: 30px;
+}
+.banner-block-up-container{
+    display: flex; 
+    justify-content: center;
+}
+.banner-block-up p{
+    color: var(--subColor_text);
+    text-align: center;
+    line-height: 40px;
+    margin-top: 10px;
+    padding-right: 5px;    
+}
+.banner-block-up img{
+    width:20px;
+    margin-top: 10px;
+}
+.banner-block-middle{
+    width: 100%;
+    height: 20px;
+    background-color:var(--subColor_bgc);
+}
+/*下拉式彈出頁面  */
+.banner-block-down{
+    width: 100%;
+    background-color: var(--subColor_bgc);
+    }
+.why-card-img{
+    width: 60%;
+    margin: auto;
+}
+.why-card-img img{
+    width: 100%;
+}
+.why-card h4{
+    color: var(--primaryColor_dark);
+    font-weight: 700;
+    font-size: var(--headline_20px);
+    line-height: 1.8rem;
+    text-align: center;
+    margin-top: 20px;
+}
+.why-card p{
+    color: var(--subColor_text);
+    font-size: var(--p_16px);
+    line-height: 1.8rem;
+    text-align: center;
+    /* padding-bottom: 50px; */
+}
+/* 四個點點 */
+.silder-dot{
+    width: 30%;
+    display: flex;
+    border-radius: var(--border-radious);
+    justify-content: space-between;
+    margin: auto;
+}
+.silder-dot .dot{
+    width: 10px;
+    height: 10px;
+   border: 2px solid var(--primaryColor_light);
+    border-radius: 50%;
+    margin: 20px 0;
+}
+/* 篩選器標題 */
+.filter h2{
+    font-weight: 700;
+    font-size: var(--headline_28px);
+    color: var(--secondaryColor_default);
+    text-align: center;
+    margin-top: 45px;
+}
+.filter h3{
+    font-weight: 700;
+    font-size: var(--headline_20px);
+    color: var(--secondaryColor_default);
+    text-align: center;
+    margin:10px 0  20px ;
+}
+/* 篩選器 */
+
+/* 寵物卡片 */
+.pet-card-block{
+    gap: 5px;
+}
+.pet-card{
+    background-color: var(--subColor_bgc);
+    border-radius: 20px;
+    overflow: hidden;
+    /* border: 1px solid red; */
+   
+}
+.pet-card-img{
+    width: 100%;
+    /* border: 1px solid red; */
+    object-fit: cover;
+    margin: 0;
+
+}
+.pet-card-img img{
+    width: 100%;
+    object-fit: cover;
+}
+/* 寵物卡片-資訊 */
+.pet-info{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.pet-info .name{
+    text-align: center;
+    padding: 15px 0 5px;
+    border-bottom: 1px solid var(--black_500);
+    width: 60%;
+    margin: auto;
+}
+.pet-info-up{
+    display: flex; 
+    justify-content: center; 
+    color: var(--subColor_text);
+    font-size: var(--p_10px);
+    padding: 10px 0 0;
+}
+.pet-info-down{
+    display: flex; 
+    justify-content: center;
+    color: var(--subColor_text);
+    font-size: var(--p_10px);
+    padding: 10px 0 30px ;
+
+}
