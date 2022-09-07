@@ -61,9 +61,8 @@ body{
 }
 
 .mobile-backpage{
-    position: absolute;
     height: 45px;
-    top: 68px;
+    margin-top: 68px;
     background-color: var(--secondaryColor_default);
     width: 100%;
     color: var(--white);
@@ -93,16 +92,38 @@ body{
 
 /* -----------詳細訂單卡---------- */
 .enroll-detail-card{
-    
-    width: 100%;
-    margin-top: 68px;
+    /* width: 100%; */
     height: 515px;
     font-size: var(--p_16px);
     background-color: var(--primaryColor_tint);
-    padding: 15%;
+    padding: 5%;
     z-index: 20;
-    
 }
+    @media screen and (min-width: 768px){
+        .enroll-detail-card{
+            /* width: 520px; */
+            height: 590px;
+            font-size: var(--headline_24px);
+            background-color: var(--primaryColor_tint);
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 55px;
+            
+        }
+    }
+
+.enroll-detail-card .card-deco{
+    padding: 10%;
+    border: solid 2px var(--white);
+    border-radius: 15px;
+}
+    @media screen and (min-width: 768px){
+        .enroll-detail-card .card-deco{
+            padding: 10%;
+            border: solid 4px var(--white);
+            border-radius: 20px;
+        }
+    }
 
 .enroll-detail-card .card-title{
     margin: auto;
@@ -111,7 +132,13 @@ body{
     font-size: var(--headline_20px);
     padding-bottom: 8px;
     border-bottom: solid 1px var(--subColor_text);
+    font-weight: 700;
 }
+    @media screen and (min-width: 768px){
+        .enroll-detail-card .card-title{
+            font-size: var(--headline_32px);
+        }
+    }
 
 .enroll-detail-card .event-name{
     margin-top: 20px;
@@ -124,19 +151,69 @@ body{
 }
 
 .enroll-detail-card .perevent-price{
-    margin-top: 50px;
+    margin-top: 40px;
     padding-bottom: 30px;
     background-image: linear-gradient(to right, var(--black_600) 40%, rgba(255, 255, 255, 0) 20%);
     background-position: bottom;
     background-size: 10px 1px;
-    background-repeat: repeat-x
-    
+    background-repeat: repeat-x;
+    text-align: right;
+}
+
+.enroll-detail-card .perevent-price .per{
+    text-align: left;
 }
 
 .enroll-detail-card .perevent-price .enroll-num{
     color: var(--primaryColor_dark);
     font-weight: 700;
 }
+
+.payable{
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: var(--headline_20px);
+}
+    @media screen and (min-width: 768px){
+        .payable{
+            font-size: var(--headline_32px);
+        }
+    }
+
+.payable .total-price{
+    text-align: right;
+    color: var(--subColor_highLightRed);
+}
+
+.price-info{
+    font-size: var(--p_14px);
+    margin-top: 20px;
+    line-height: 1.2rem;
+}
+
+.enroll-card-btn{
+    margin: auto;
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .enroll-card-btn{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+.enroll-card-btn a{
+    margin: auto;
+    margin-top: 10px;
+    width: 170px;
+}
+
+
+
+
+
+
+
 
 
 .container{
@@ -148,12 +225,13 @@ body{
 }
     @media screen and (min-width: 768px){
         .backpage {
-            position: absolute;
+            /* position: absolute; */
             font-size: var(--headline_28px);
             padding-left: 8%;
             display: flex;
             align-items: center;
-            top: 100px;
+            /* top: 100px; */
+            margin-top: 80px;
         }
     }
 
@@ -169,16 +247,56 @@ body{
 
 
 
+.enroll-data-title{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .enroll-data-title{
+            color: var(--white);
+            font-size: var(--headline_32px);
+            background-color: var(--secondaryColor_default);
+            width: 365px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            margin: auto;
+            justify-content: center;
+            position: relative;
+            margin-top: 20px;
+        }
+    }
+    @media screen and (min-width: 768px){
+        .enroll-data-title::after, .enroll-data-title::before{
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 380px;
+            background-color: var(--secondaryColor_default);
+            top: 50%;
+        }
+        .enroll-data-title::after{
+            right: 90%;
+        }
+        .enroll-data-title::before{
+            left: 90%;
+        }
+    }
 
 
+/* -----------左邊新增參與人列---------- */
+.enroll-data-left{
 
+}
+    @media screen and (min-width: 768px){
+        .enroll-data-left{
+            /* width: 840px; */
+            
+        }
+    }
 
 
 .add-member-btn{
-    width: 200px;
-    height: 45px;
-    background-color: var(--primaryColor_dark);
-    border-radius: var(--btn-radius);
     display: flex;
     margin: 0 auto;
     align-items: center;
@@ -186,8 +304,8 @@ body{
     cursor: pointer;
 }
     @media screen and (min-width: 768px){
-        .notice-btn{
-            width: 240px;
+        .add-member-btn{
+            width: 300px;
             height: 55px;
             margin-top: 40px;
             cursor: pointer;
@@ -200,22 +318,31 @@ body{
     text-decoration: none;
 }
     @media screen and (min-width: 768px){
-        .notice-btn a{
+        .add-member-btn a{
+            width: 300px;
             font-size: var(--headline_28px);
         }
     }
 
-.add-member-btn:hover{
-    background-color: var(--primaryColor_light);
+.data-content{
+    
 }
+    @media screen and (min-width: 768px){
+        .data-content{
+            
+            display: flex;
+            flex-direction: row;
+        }
+    }
 
 .enroll{
-    margin: auto;
-    padding-top: 150px;
+
+    /* padding-top: 150px; */
 }
     @media screen and (min-width: 768px){
         .enroll{
-            padding-top: 170px;
+            /* padding-top: 170px; */
+            margin-top: 20px;
         }
     }
 
@@ -254,14 +381,27 @@ body{
     }
 
 .enroll-content{
-    height: 590px;
+    /* height: 590px; */
     background-color: var(--subColor_bgc);
     border-radius: 0 0 20px 20px;
 }
     @media screen and (min-width: 768px){
         .enroll-content{
             /* background-color: var(--subColor_bgc); */
-            height: 535px;
+            /* height: 535px; */
+            color: var(--primaryColor_dark);
+            font-size: var(--headline_28px);
+            padding-bottom: 5%;
+        }
+    }
+
+.enroll-content p{
+
+}
+    @media screen and (min-width: 768px){
+        .enroll-content p{
+            margin-top: 10px;
+            text-align: center;
         }
     }
     

@@ -60,16 +60,13 @@ body{
     color: var(--subColor_text);
 }
 
-
 .container{
     max-width: 1440px;
     position: relative;
 }
 
 .mobile-backpage{
-    /* position: absolute; */
     height: 45px;
-    /* top: 68px; */
     margin-top: 68px;
     background-color: var(--secondaryColor_default);
     width: 100%;
@@ -102,12 +99,13 @@ body{
 }
     @media screen and (min-width: 768px){
         .backpage {
-            position: absolute;
+            /* position: absolute; */
             font-size: var(--headline_28px);
             padding-left: 8%;
             display: flex;
             align-items: center;
-            top: 100px;
+            /* top: 100px; */
+            margin-top: 80px;
         }
     }
 
@@ -123,11 +121,11 @@ body{
 
 .notice{
     margin: auto;
-    padding-top: 150px;
+    margin-top: 50px;
 }
     @media screen and (min-width: 768px){
         .notice{
-            padding-top: 170px;
+            margin-top: 30px;
         }
     }
 
