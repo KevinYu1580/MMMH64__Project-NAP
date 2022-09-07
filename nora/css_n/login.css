@@ -219,16 +219,17 @@ a{
 }
 
 
-@media (min-width: 576px) {
+@media (min-width: 1200px) {
 
     .login-pc{
         /* background-color:var(--subColor_text); */
         background-image: url(../img_n/bg/bg.png);
         width: 70%;
+        /* height: 750px; */
         background-repeat: no-repeat;
         /* background-attachment: fixed; */
-        background-position:100%;
-        background-size: cover;
+        background-position:center;
+        background-size: contain;
         /* border-radius: 100px 150px; */
         
         
@@ -236,12 +237,12 @@ a{
 
     .textbox{
         /* background-color: rgb(177, 65, 65); */
-        padding-left: 5%;
+        padding: 5%;
     }
 
   }
 
-  @media (max-width: 577px) {
+  @media (max-width: 1200px) {
     
     .wrap{
         background-color:var(--subColor_bgc);
