@@ -10,28 +10,51 @@ $('.napBtn_likeBtn').click(function(){
 })
 
 // ----------switch---------
+
 // --兩格
-const backmask = $('.napSwitch_two .backmask');
-$('.napSwitch_two .num2').click(function(){
-  const num1 = $('.napSwitch_two .num1');
-  const num2 = $('.napSwitch_two .num2');
+const backmask_two = $('.napSwitch_two .backmask');
+const switch_two_num1 = $('.napSwitch_two .num1');
+const switch_two_num2 = $('.napSwitch_two .num2');
 
-  $(backmask).css('left', '50%');
-  $(num1).css('color', 'var(--black_600)')
-  $(num2).css('color', 'var(--white)')
-})
 $('.napSwitch_two .num1').click(function(){
-  const num1 = $('.napSwitch_two .num1');
-  const num2 = $('.napSwitch_two .num2');
+  $(backmask_two).css('left', '0%');
+  $(switch_two_num1).css('color', 'var(--white)');
+  $(switch_two_num2).css('color', 'var(--black_600)');
+});
 
-  $(backmask).css('left', '0%');
-  $(num1).css('color', 'var(--white)')
-  $(num2).css('color', 'var(--black_600)')
-})
+$('.napSwitch_two .num2').click(function(){
+  $(backmask_two).css('left', '50%');
+  $(switch_two_num1).css('color', 'var(--black_600)');
+  $(switch_two_num2).css('color', 'var(--white)');
+});
 
 
 // --三格
+const backmask_three = $('.napSwitch_three .backmask');
+const switch_three_num1 = $('.napSwitch_three .num1');
+const switch_three_num2 = $('.napSwitch_three .num2');
+const switch_three_num3 = $('.napSwitch_three .num3');
 
+$('.napSwitch_three .num1').click(function(){
+  $(backmask_three).css('left', '0%');
+  $(switch_three_num1).css('color', 'var(--white)');
+  $(switch_three_num2).css('color', 'var(--black_600)');
+  $(switch_three_num3).css('color', 'var(--black_600)');
+});
+
+$('.napSwitch_three .num2').click(function(){
+  $(backmask_three).css('left', '33.333333%');
+  $(switch_three_num2).css('color', 'var(--white)');
+  $(switch_three_num1).css('color', 'var(--black_600)');
+  $(switch_three_num3).css('color', 'var(--black_600)');
+});
+
+$('.napSwitch_three .num3').click(function(){
+  $(backmask_three).css('left', '66.666666%');
+  $(switch_three_num3).css('color', 'var(--white)');
+  $(switch_three_num1).css('color', 'var(--black_600)');
+  $(switch_three_num2).css('color', 'var(--black_600)');
+});
 
 
 

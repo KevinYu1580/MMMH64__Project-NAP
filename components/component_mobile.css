@@ -282,6 +282,7 @@
 
 /* ------ napSwtich ------*/
 
+/* 兩格 */
 .napSwitch_two {
     background-color:var(--white);
     display: flex;
@@ -292,6 +293,7 @@
     border: 4px solid var(--secondaryColor_default);
     border-radius: 500px;
     z-index: 0;
+    font-size: 18px;
 }
 .napSwitch_two .sec {
     padding: 16px 24px;
@@ -313,6 +315,38 @@
     transition: 0.3s;
 }
 
+/* 三格 */
+.napSwitch_three {
+    background-color:var(--white);
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 4px solid var(--secondaryColor_default);
+    border-radius: 500px;
+    z-index: 0;
+    font-size: 16px;
+}
+.napSwitch_three .sec {
+    padding: 16px 16px;
+    cursor: pointer;
+    color: var(--black_600);
+    transition: 0.3s;
+}
+.napSwitch_three .num1 {
+    color: var(--white);
+}
+.napSwitch_three .backmask {
+    width: 33.333333%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    background-color:var(--secondaryColor_default);
+    border-radius: 500px;
+    z-index: -50;
+    transition: 0.3s;
+}
 
 
 
