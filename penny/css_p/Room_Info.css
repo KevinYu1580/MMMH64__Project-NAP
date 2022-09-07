@@ -230,6 +230,9 @@ body{
 }
 
 /* 房內設施介紹卡片 | room-info */
+.room-info{
+    margin-bottom: 30px;
+}
 .room-info-card-container{
     width: 327px;
     margin: auto;
@@ -237,9 +240,6 @@ body{
 .room-info-card-row{
     display: flex;
     flex-wrap: wrap;
-}
-.room-info{
-    margin-bottom: 30px;
 }
 .room-info-card{
     margin-left: auto;
@@ -275,6 +275,9 @@ body{
     display: none;
 }
 @media screen and (min-width:768px) {
+    .room-info{
+        margin-bottom: 70px;
+    }
     .room-info-card-container{
         width: 1440px;
         margin: auto;
