@@ -296,6 +296,11 @@
 .napSwitch_two .sec {
     padding: 16px 24px;
     cursor: pointer;
+    color: var(--black_600);
+    transition: 0.3s;
+}
+.napSwitch_two .num1 {
+    color: var(--white);
 }
 .napSwitch_two .backmask {
     width: 50%;
