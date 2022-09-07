@@ -51,42 +51,61 @@
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 
 }
-html,body{
-    font-family: custom-font;
+*{
+    font-family: custom-font;        
 }
-
+html{
+    width: 100%;
+}
 .wrap{
+    background-color: var(--subColor_text);
     width: 100%;
     height: 100vh;
-    background-color:var(--subColor_text);
+    display: flex;
+    justify-content: center;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
     
 }
+
+
+
 .close {
     
     position: absolute;
-    top: 28px;
+    top: 20px;
     right: 5%;
     
 }
 
-
 .content{
-padding-top: 48px;
-    
-    
+    background-color: var(--subColor_bgc);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 5%;
+    width: 100%;
+}
+
+.part{
+    width: 100%;
 }
 
 .title{
     padding-top: 15px;
-    border-bottom: 1px solid #909090;
+    border-bottom: 1px solid var(--black_600);
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 32px;
+    margin-bottom: 4px;
+    
     
 }
+
+
+.logo img{
+
+    display: inline;
+}
+
 
 h3{
     font-size: var(--headline_24px);
@@ -95,30 +114,35 @@ h3{
 }
 
 .up-part{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+form{
+    font-size: 18px;
+    color: var(--subColor_text);
+    
     
 }
 
-.up-part h5{
-margin-bottom: 0;
-color: var(--subColor_text);
-
+input{
+    height: 32px;
+    width: 100%;
+    
+    
 }
-
-.up-part .form-control{
-    background-color: var(--white);
+.form-label{
+    margin-bottom: 0;
     color: var(--subColor_text);
     font-size: var(--subtitle_18px);
-    height: 32px;
+    
 }
-
-
 .btn-box{
     /* height: 40px; */
-    padding-top: 100px;
-    margin-bottom: 10px;
+    padding-top: 40px;
+    margin-bottom: 20px;
     width: 150px;
+    
 
 }
 
@@ -126,7 +150,7 @@ color: var(--subColor_text);
     background-color: var(--primaryColor_dark);
     border-radius: var(--btn-radious);
     border: 1px solid var(--primaryColor_dark);
-    margin-bottom: 44px;
+    font-size: 18px;
     
 }
 
@@ -136,23 +160,17 @@ color: var(--subColor_text);
 }
 .title-sm p{
     margin-bottom: 0;
-    padding-bottom: 12px;
+    padding-bottom: 4px;
+    font-size: 16px;
 }
 
 .line{
     border-bottom: 1px solid var(--black_600);
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 10px;
     
     
-}
-
-
-
-
-.community{
-    /* width: 90%; */
 }
 
 .community .pic{
@@ -172,23 +190,24 @@ color: var(--subColor_text);
     align-items: center;
     justify-content: center;
     width: 130px;
-    font-size: var(--subtitle_16px);
+    
     color:var(--subColor_text);
     border-radius: 0px 10px 10px 0px;
     
 }
-
 a{
     text-decoration:none
 }
 .community .text p{
     margin-bottom: 0;
-    
+    font-size: 16px;
 }
 
 .say  p{
     color: var(--black_600);
     font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 0;
 }
 
 .say .right p{
@@ -196,69 +215,39 @@ a{
     font-weight: 900;
     padding-left: 20px;
     text-shadow: 0 0 0.5px #000;
+    
 }
 
-/* ------------------ */
 
-{
+@media (min-width: 576px) {
 
-}
-@media (max-width: 565px) {
-    .login-pc {
-      display: none;
-      
-    }
-    .login-mb {
-        display:block;
+    .login-pc{
+        /* background-color:var(--subColor_text); */
+        background-image: url(../img_n/bg/bg.png);
+        width: 70%;
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-position:100%;
+        background-size: cover;
+        /* border-radius: 100px 150px; */
         
-      }
+        
+    }
+
+    .textbox{
+        /* background-color: rgb(177, 65, 65); */
+        padding-left: 5%;
+    }
+
+  }
+
+  @media (max-width: 577px) {
+    
     .wrap{
         background-color:var(--subColor_bgc);
     }
   }
-  @media (min-width: 565px) {
-    .login-mb {
-      display:none;
-      
-    }
-    .login-pc {
-        display:block;
-        
-      }
-      .wrap{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
+  .invalid-feedback{
+    font-size: 8px;
+    margin-top: 0;
   }
-
-  /* ------------------ */
-
-
-
-
-.bg{
-    background-image: url(../img_n/bg/bg.png);
-    background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-    background-position: center;
-    background-size: contain;
-    width: 1280px;
-    height: 751px;
-    border-radius: px;
-    
-    /* width: 70%; */
-    
-
-}
-.textbox{
-    width: 400px;
-    background-color: var(--subColor_bgc);
-    position: absolute;
-    top: 12%;
-    left: 18%;
-    width: 430px;
-    border-radius: var(--border-radious);
-
-}
