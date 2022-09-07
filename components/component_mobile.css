@@ -1,3 +1,14 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
 :root {
     --primaryColor_default: #BFBD4A;
     --primaryColor_dark: #7C8C38;
@@ -36,15 +47,13 @@
     --p_10px: 10px;
 
     --border-radious: 20px;
-    --btn-radious: 1200px;
+    --btn-radius: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
-* {
-    font-family: 'Noto Sans TC', sans-serif  !important;
-}
 
-body {
-background-color: var(--subColor_bgc);
+
+* {
+    font-family: 'Noto Sans TC', sans-serif !important;
 }
 
 /* ---- topNav-mobile ----*/
@@ -72,29 +81,27 @@ background-color: var(--subColor_bgc);
     cursor: pointer;
 }
 
-
-
 .topNav_mobile .menu img{
     width: 24px;
 }
 
 /* ---- menu ----*/
 .nap_menu  {
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     width: 100%;
     height: calc(100vh - 68px);
     top: 68px;
     z-index: 999;
+    transform: translateX(100%);
+    transition: 0.3s;
 }
 
 .nap_menu .content {
     background-color:var(--primaryColor_dark);
     height: 100%;
     width: 100%;
-    position: absolute;
-    transform: translateX(0%);
-    transition: 0.3s;
+    padding-top: 40px;
 }
 .nap_menu_open {
     transform: none !important;
@@ -107,11 +114,13 @@ background-color: var(--subColor_bgc);
 }
 .nap_menu .menu_link > li {
     margin-bottom: 36px;
-    width: 116%;
+}
+.nap_menu .menu_link a:hover {
+    color: var(--subColor_yellow);
 }
 .nap_menu .menu_link {
-    margin: 40px auto auto auto;
-    width: fit-content;
+    margin: auto;
+    width: 263px;
 }
 .nap_menu .menu_link, .menu_link a   {
     font-size: 24px;
@@ -127,9 +136,11 @@ background-color: var(--subColor_bgc);
 }
 .nap_menu .menu_link .layer2 a{
     font-size: 18px;
+    border-left: 4px solid #fff ;
+    padding-left: 12px;
 }
 .nap_menu .menu_link .layer2 li{
-    margin-top: 8px;
+    margin-top: 16px;
 }
 .nap_menu .menu_link .layer2 span{
     font-size: 14px;
@@ -137,15 +148,106 @@ background-color: var(--subColor_bgc);
 /* logout */
 .nap_menu .logout {
     font-size: 24px;
-    margin: 82px 0 0 auto;
+    margin: 52px 0 0 auto;
     width: fit-content;
-    
+}
+/* icon_links */
+.nap_menu .icon_link {
+    position: absolute;
+    display: flex;
+    left: calc((100% - 263px)/2 );
+    top: 543px;
+    transform: translateX(-32px);
+}
+.nap_menu .icon_link li {
+    margin-left: 32px;
+
+}
+
+/* ------ napBtn ------*/
+
+/* padding_filled */
+
+.napBtn_padding_filled {
+    display: block;
+    text-decoration: none;
+    padding: 12px 32px;
+    background-color:var(--primaryColor_dark);
+    border-radius: 200px;
+    width: fit-content;
+    transition: 0.3s;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_padding_filled:hover {
+    background-color:var(--primaryColor_light)
 }
 
 
+/* padding_outline */
 
+.napBtn_padding_outline {
+    display: block;
+    text-decoration: none;
+    padding: 12px 32px;
+    background-color:var(--white);
+    border-radius: 200px;
+    width: fit-content;
+    transition: 0.3s;
+    outline: 2px solid var(--primaryColor_dark);
+    color: var(--primaryColor_dark);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_padding_outline:hover {
+    background-color:var(--primaryColor_light);
+    outline: 2px solid var(--primaryColor_light);
+    color:var(--white);
+}
 
+/* fixed_filled */
 
+.napBtn_fixed_filled {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 218px;
+    height: 42px;
+    background-color:var(--primaryColor_dark);
+    border-radius: 200px;
+    transition: 0.3s;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_fixed_filled:hover {
+    background-color:var(--primaryColor_light)
+}
+
+/* fixed_outlined*/
+
+.napBtn_fixed_outlined {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 218px;
+    height: 42px;
+    background-color:var(--white);
+    outline: 2px solid var(--primaryColor_dark);
+    border-radius: 200px;
+    transition: 0.3s;
+    color: var(--primaryColor_dark);
+    font-size: 18px;
+    font-weight: 400 ;
+}
+.napBtn_fixed_outlined:hover {
+    background-color:var(--primaryColor_light);
+    outline: 2px solid var(--primaryColor_light);
+    color: var(--white);
+}
 
 
 
@@ -177,23 +279,54 @@ background-color: var(--subColor_bgc);
     width: fit-content;
     margin: auto;
     font-size: 12px;
-    padding-top: 82px;
+    padding-top: 98px;
+    line-height: 148%;
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .content {
+        display: flex;
+        align-items: flex-end;
+        padding-top: 248px;
+        
+    }
 }
 .footer-mobile .sec1 {
     margin-bottom: 6px;
 }
 .footer-mobile .sec2 {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     border-top: 1px solid #ffffff;
-    padding-top: 5px;
+    padding-top: 4px;
 }
+
+
+@media screen and (min-width: 828px){
+    .footer-mobile .sec2, .footer-mobile .sec1{
+    border-top: none;
+    margin: 0 64px 0 0;
+    font-size: 16px;
+    }
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .sec2, .footer-mobile .sec1{
+    margin: 0 40px 0 0;
+    }
+}
+
 .footer-mobile .top_sec {
     width: 100%;
     height: 286px;
-    background-image: url(./img/footer-pc.png) ;
+    background-image: url(./img/footer-mobile.png);
     background-repeat: no-repeat;
-    background-size:cover;
-    background-position: 5%;
+    background-size:auto;
+    background-position: 10% 18%;
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .top_sec {
+        background-image: url(./img/footer-pc.png);
+        background-position: 10% 0%;
+        height: 450px;
+    }
 }
 .footer-mobile .bot_sec {
     background-color:var(--primaryColor_dark);
@@ -209,6 +342,11 @@ background-color: var(--subColor_bgc);
 .footer-mobile .logos {
     width: fit-content;
     margin: auto;
+}
+@media screen and (min-width: 768px){
+    .footer-mobile .logos {
+        margin:initial;
+    }
 }
 
 
