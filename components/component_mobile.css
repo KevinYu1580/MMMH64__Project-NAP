@@ -251,6 +251,35 @@
     color: var(--white);
 }
 
+/* like_Btn*/
+.napBtn_likeBtn {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 200px;
+    border: 1px solid var(--primaryColor_dark);
+    color: var(--primaryColor_dark);
+    font-size: 16px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.likeBtn_activated {
+    background-color: var(--subColor_lightRed);
+    color: var(--white);
+    border: 1px solid var(--subColor_lightRed);
+}
+.napBtn_likeBtn .svgs{
+    display: flex;
+    position: relative;
+}
+.napBtn_likeBtn #white{
+    position: absolute;
+    left: 0;
+    display: none;
+}
+
 
 
 
