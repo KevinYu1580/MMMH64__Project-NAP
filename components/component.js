@@ -70,4 +70,7 @@ $('.chat_bordSlec_PC .bot').click(function(){
 
 // --------頁數選擇器---------
 
+$('.page_slec .page_indic').click(function(){
+  $(this).css('background-color', '#ffffff')
+})
 
