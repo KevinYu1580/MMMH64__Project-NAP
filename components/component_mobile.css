@@ -125,10 +125,10 @@
     width: 263px;
 }
 .nap_menu .menu_link, .menu_link a   {
-    font-size: 24px;
+    font-size: 22px;
 }
 .nap_menu .menu_link span {
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 8px;
 }
 .nap_menu .menu_link .layer2 {
@@ -150,7 +150,7 @@
 /* logout */
 .nap_menu .logout {
     font-size: 24px;
-    margin: 52px 0 0 auto;
+    margin: 70px 0 0 auto;
     width: fit-content;
 }
 /* icon_links */
