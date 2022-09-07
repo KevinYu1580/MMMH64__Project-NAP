@@ -217,13 +217,13 @@
 
 
     <br>
-    <!------ 頁數選擇器 -------->
+    <!------ 頁數選擇器 PC -------->
 
-    <div class="page_slec">
+    <div class="page_slec_pc">
         <button class="page_click">
             <img width=""  src="./img/arrow_lastpage.svg" alt="">
         </button>
-
+        <!-- 頁碼 -->
         <button class="page_indic">
             <span class="napPage">1</span>
         </button>
@@ -233,14 +233,25 @@
         <button class="page_indic">
             <span class="napPage">3</span>
         </button>
+        <!---->
 
         <button class="page_click">
             <img width="" src="./img/arrow_nextpage.svg" alt="">
         </button>
-
     </div>
+    
 
+    <br>
+    <!------ 頁數選擇器 Mobile -------->
+    <div class="page_slec_mobile">
+        <button class="page_click">
+            <img width="92px"  src="./img/arrow_lastpage.svg" alt="">
+        </button>
 
+        <button class="page_click">
+            <img width="92px" src="./img/arrow_nextpage.svg" alt="">
+        </button>
+    </div>
 
 
 
@@ -318,6 +329,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="./component.js"></script>
+    <!-- sweetalert cdn -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

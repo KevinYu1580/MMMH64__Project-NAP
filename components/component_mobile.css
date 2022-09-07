@@ -384,21 +384,22 @@
 }
 
 
-/* ------ 頁數選擇器 ------*/
-.page_slec{
+/* ------ 頁數選擇器 PC ------*/
+.page_slec_pc{
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.page_slec .page_click {
+.page_slec_pc .page_click {
     background-color: rgba(255, 255, 255, 0);
     border: none;
     height: fit-content;
     padding: 0;
     margin: 0px 50px;
+    cursor: pointer;
 }
-.page_slec .page_indic{
+.page_slec_pc .page_indic{
     background-color: rgba(255, 255, 255, 0);
     display: flex;
     justify-content: center;
@@ -410,12 +411,26 @@
     border: 1px solid var(--primaryColor_dark);
     border-radius: 50%;
     margin: 0px 14px;
+    cursor: pointer;
  }
- .page_slec .napPage{
+ .page_slec_pc .napPage{
     font-size: 26px;
     color: var(--primaryColor_dark);
     margin-bottom: 5px;
  }
+
+ /* ------ 頁數選擇器 Mobile ------*/
+ .page_slec_mobile{
+    width: fit-content;
+ }
+ .page_slec_mobile .page_click {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    height: fit-content;
+    padding: 0;
+    margin: 0px 20px;
+    cursor: pointer;
+}
 
 
 

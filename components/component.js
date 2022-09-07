@@ -68,9 +68,15 @@ $('.chat_bordSlec_PC .bot').click(function(){
   $('.chat_bordSlec_PC .top').css('font-weight', 'normal')
 })
 
-// --------頁數選擇器---------
+// --------頁數選擇器PC---------
 
-$('.page_slec .page_indic').click(function(){
-  $(this).css('background-color', '#ffffff')
+$('.page_slec_pc .page_indic').click(function(){
+  $('.page_slec_pc .page_indic').css('background-color', 'var(--white)');
+  $('.page_slec_pc .napPage').css('color','var(--primaryColor_dark)');
+
+
+  $(this).css('background-color', 'var(--primaryColor_dark)');
+  $(this).find('span').css('color', '#ffffff')
 })
+
 
