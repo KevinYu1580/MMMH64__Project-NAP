@@ -58,8 +58,23 @@
 body{
     font-family: custom-font;
     color: var(--subColor_text);
+    position: relative;
+    
+    
 }
 
+.all-container{
+    min-width: 375px;
+    
+}
+    @media screen and (min-width: 768px){
+        .all-container{
+            padding: 5%;
+            max-width: 1440px;
+        }
+    }
+
+/* ---------上方返回--------- */
 .mobile-backpage{
     height: 45px;
     margin-top: 68px;
@@ -90,9 +105,20 @@ body{
     margin-left: 10%;
 }
 
+.backpage img{
+    transform: rotate(-90deg);
+    margin-right: 15px;
+}
+
+.backpage a{
+    text-decoration: none;
+    color: var(--subColor_text);
+}
+
+
 /* -----------詳細訂單卡---------- */
 .enroll-detail-card{
-    /* width: 100%; */
+    width: 100%;
     height: 515px;
     font-size: var(--p_16px);
     background-color: var(--primaryColor_tint);
@@ -191,6 +217,7 @@ body{
     line-height: 1.2rem;
 }
 
+/* ---------加入購物車＋前往結帳按鈕--------- */
 .enroll-card-btn{
     margin: auto;
     margin-top: 20px;
@@ -208,18 +235,6 @@ body{
     width: 170px;
 }
 
-
-
-
-
-
-
-
-
-.container{
-    max-width: 1440px;
-    position: relative;
-}
 .backpage{
     display: none;
 }
@@ -227,7 +242,6 @@ body{
         .backpage {
             /* position: absolute; */
             font-size: var(--headline_28px);
-            padding-left: 8%;
             display: flex;
             align-items: center;
             /* top: 100px; */
@@ -245,8 +259,7 @@ body{
     color: var(--subColor_text);
 }
 
-
-
+/* ----------套裝活動報名表頭---------- */
 .enroll-data-title{
     display: none;
 }
@@ -286,11 +299,11 @@ body{
 
 /* -----------左邊新增參與人列---------- */
 .enroll-data-left{
-
+    margin: auto;
+    width: 327px;
 }
     @media screen and (min-width: 768px){
         .enroll-data-left{
-            /* width: 840px; */
             
         }
     }
@@ -302,6 +315,7 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-top: 50px;
 }
     @media screen and (min-width: 768px){
         .add-member-btn{
@@ -314,7 +328,7 @@ body{
 
 .add-member-btn a{
     color: var(--white);
-    font-size: var(--headline_24px);
+    font-size: var(--headline_20px);
     text-decoration: none;
 }
     @media screen and (min-width: 768px){
@@ -324,37 +338,39 @@ body{
         }
     }
 
-.data-content{
-    
-}
+/* .data-content{
+    margin: auto;
+} */
     @media screen and (min-width: 768px){
         .data-content{
-            
             display: flex;
             flex-direction: row;
         }
     }
 
+/* ----------參與人資料---------- */
 .enroll{
-
-    /* padding-top: 150px; */
+    margin-top: 35px;
+    margin-bottom: 55px;
 }
     @media screen and (min-width: 768px){
         .enroll{
             /* padding-top: 170px; */
             margin-top: 20px;
+            margin-bottom: 65px;
         }
     }
 
 .enroll-title{
     background-color: var(--primaryColor_light);
-    height: 65px;
+    height: 55px;
     border-radius: 20px 20px 0 0;
-    margin: auto;
+    /* margin: auto; */
+
 }
     @media screen and (min-width: 768px){
         .enroll-title {
-            height: 75px;
+            height: 65px;
             margin-left: 0;
         }
     }
@@ -363,9 +379,9 @@ body{
     display: flex;
     font-size: var(--headline_20px);
     text-align: left;
-    margin-left: 15px;
-    height: 75px;
-    /* justify-content: center; */
+    /* margin-left: 15px; */
+    height: 65px;
+    justify-content: center;
     align-items: center;
     line-height: 1.4rem;
     font-weight: 500;
@@ -389,19 +405,22 @@ body{
         .enroll-content{
             /* background-color: var(--subColor_bgc); */
             /* height: 535px; */
-            color: var(--primaryColor_dark);
-            font-size: var(--headline_28px);
             padding-bottom: 5%;
         }
     }
 
 .enroll-content p{
-
+    padding: 10px 20px 20px;
+    
+    color: var(--primaryColor_dark);
+    font-size: var(--headline_20px);
+    line-height: 1.6rem;
 }
     @media screen and (min-width: 768px){
         .enroll-content p{
             margin-top: 10px;
             text-align: center;
+            font-size: var(--headline_28px);
         }
     }
     
