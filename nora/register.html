@@ -24,16 +24,16 @@
     <div class="login-pc d-flex justify-content-end">
         <div class="textbox d-flex  align-items-center justify-content-center">
             <div class="close"><img src="./img_n/close.png" alt=""></div>
-            <div class="content content1 d-flex flex-column align-items-center ">
+            <div class="content content1 d-flex flex-column  ">
                 <div class="part ">
                     <div class="logo d-flex justify-content-center"><img src="./img_n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center "><h3>註冊</h3></div>
                 </div>
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
-                    <div class="up-part d-flex flex-column align-items-center ">
-                        <div class="email-box  my-2">
+                    <div class="up-part d-flex flex-column align-items-center justify-content-center ">
+                        <div class="email-box  my-2 w-100">
                         <label for="email" class="form-label">註冊新帳號</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="請輸入帳號" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="請輸入電子信箱" required>
                         <div class="invalid-feedback">
                             此處不可空值
                         </div>
@@ -41,14 +41,12 @@
 
                             
                         </div>
-                        
                         <div class="btn-box d-flex flex-column  ">
-                            <button type="submit" class="btn btn-primary">註冊</button>
-                            
+                            <button type="submit" class="btn btn-primary btnto2"> <p>註冊</p> </button> 
                         </div>
                         
                     </div>
-                
+                </form>
                     
                         <div class="line">
                         <div class="title-sm d-flex flex-column align-items-center"><p>快速註冊</p></div>
@@ -73,12 +71,12 @@
 
                         <div class="say d-flex pt-4 justify-content-center">
                             <div class="left "> <p>等不及想見到園區的毛孩嗎？</p> </div>
-                            <div class="right"><a href="#"><p>立即登入</p></a></div>
+                            <div class="right"><a href="./login.html"><p>立即登入</p></a></div>
                         </div>
 
             </div>
-            <div class="content content2 d-flex flex-column align-items-center ">
-                <div class="part ">
+            <div class="content content2 d-flex flex-column align-items-center  w-100">
+                <div class="part w-100">
                     
                     <div class="title d-flex justify-content-center "><h3>STEP1</h3></div>
                     <div class="stepbox mx-5 d-flex justify-content-center">
@@ -104,9 +102,9 @@
 
                 </div>
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
-                    <div class="up-part d-flex flex-column align-items-center">
+                    <div class="up-part d-flex flex-column align-items-center   w-100">
                         
-                        <div class="password-box  my-3 mt-2">
+                        <div class="password-box  my-3 mt-4 w-100">
                             <label for="password" class="form-label">密碼</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="請輸入密碼" required>
                             <div class="invalid-feedback">
@@ -114,33 +112,26 @@
                         </div>
 
                         </div>
-                        <div class="password-box  ">
+                        <div class="password-box  w-100">
                             <label for="password1" class="form-label">再次確認密碼</label>
                             <input type="password1" class="form-control" id="password1" name="password1" placeholder="請再次輸入密碼" required>
                             <div class="invalid-feedback">
                             此處不可空值或格式錯誤
                         </div>
-
+                        </div>
+                        <div class="btn-box d-flex flex-column  ">
+                            <button type="submit" class="btn btn-primary">確認</button>
                             
                         </div>
-                        
-                        
-                    
-                        
-                        
-
                 </div>
-                <div class="btn-box d-flex flex-column  ">
-                    <button type="submit" class="btn btn-primary">註冊</button>
-                    
-                </div>
+                
                 
                 </form>
             </div>
             <div class="content content3 d-flex flex-column align-items-center ">
                 <div class="part ">
                     
-                    <div class="title d-flex justify-content-center "><h3>STEP1</h3></div>
+                    <div class="title d-flex justify-content-center "><h3>STEP2</h3></div>
                     <div class="stepbox mx-5 d-flex justify-content-center">
                         <div class="stepline"></div>
                         <div class="steps d-flex justify-content-between">
@@ -166,7 +157,7 @@
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
                     <div class="up-part d-flex flex-column align-items-center">
                         
-                        <div class="name-box  my-3 mt-2">
+                        <div class="name-box  my-3 mt-4 w-100">
                             <label for="name" class="form-label">姓名</label>
                             <input type="name" class="form-control" id="name" name="name" placeholder="請輸入真實姓名" required>
                             <div class="invalid-feedback">
@@ -174,16 +165,16 @@
                         </div>
 
                         </div>
-                        <div class="password-box   mb-3">
-                            <label for="password1" class="form-label">再次確認密碼</label>
-                            <input type="password1" class="form-control" id="password1" name="password1" placeholder="請再次輸入密碼" required>
+                        <div class="phone-box   mb-3 w-100">
+                            <label for="phone" class="form-label">手機</label>
+                            <input type="phone" class="form-control" id="phone" name="phone" placeholder="請輸手機" required>
                             <div class="invalid-feedback">
                             此處不可空值或格式錯誤
                         </div>
                         </div>
-                        <div class="password-box  ">
-                            <label for="password1" class="form-label">再次確認密碼</label>
-                            <input type="password1" class="form-control" id="password1" name="password1" placeholder="請再次輸入密碼" required>
+                        <div class="birth-box  w-100">
+                            <label for="birth" class="form-label">生日</label>
+                            <input type="birth" class="form-control" id="birth" name="birth" placeholder="YYYY / MM / DD" required>
                             <div class="invalid-feedback">
                             此處不可空值或格式錯誤
                         </div>
@@ -193,14 +184,9 @@
                             
                         </div>
                         <div class="btn-box d-flex flex-column ">
-                            <button type="submit" class="btn btn-primary">註冊</button>
+                            <button type="submit" class="btn btn-primary">確認</button>
                             
                         </div>
-                        
-                    
-                        
-                        
-
                 </div>
                 
                 
@@ -280,6 +266,22 @@
         );
 
     }
+
+
+
+    $('.content .btnto2').click(function(s){
+
+$(this).parents().find('.content2').css('display','none');
+
+
+
+})
+
+
+
+
+
+
 </script>
 </body>
 
