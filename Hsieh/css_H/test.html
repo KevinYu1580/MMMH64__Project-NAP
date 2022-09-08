@@ -9,36 +9,35 @@
 <body>
     <html>
 <head>
-    <title>橫向滑動</title>
-    <style type="text/css">
-        .slide-box{
-            margin-top: 200px;
-            display: -webkit-box;
-            overflow-x: scroll;
-            -webkit-overflow-scrolling:touch;
-        }
-        /*去掉滾動條*/
-        .slide-box::-webkit-scrollbar{
-            width:0; 
-            height:0; 
-            display: none;
-        }
-        .slide-item{
-            width: 200px;
-            height: 200px;
-            border:1px solid #ccc;
-            margin-right: 30px;
-        }
-    </style>
+    
 </head>
 <body>
-    <div class="slide-box">
-        <div class="slide-item"></div>
-        <div class="slide-item"></div>
-        <div class="slide-item"></div>
-        <div class="slide-item"></div>
-        <div class="slide-item"></div>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function() {
+    // Optimalisation: Store the references outside the event handler:
+    var $window = $(window);
+    var $pane = $('#pane1');
+
+    function checkWidth() {
+        var windowsize = $window.width();
+        if (windowsize > 440) {
+            //if the window is greater than 440px wide then turn on jScrollPane..
+            $pane.jScrollPane({
+               scrollbarWidth:15, 
+               scrollbarMargin:52
+            });
+        }
+    }
+    // Execute on load
+    checkWidth();
+    // Bind event listener
+    $(window).resize(checkWidth);
+});
+    </script>
+
+    
+    <script src="../components/component.js"></script>
 </body>
 </html>
 </body>

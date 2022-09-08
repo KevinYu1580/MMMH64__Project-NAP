@@ -168,12 +168,83 @@ font-family: custom-font;
     text-align: center;
     
 }
-/* pc的效果 */
+/* 下拉式彈出pc */
 @media screen and (min-width:576px){
-    .banner-block-down-mobile {
+    .banner-button-info {
     display: none ;
-    }    
+    } 
+   .banner-button-info-pc{
+    border: 1px solid red;
+    background-color: var(--subColor_bgc);
+    }
+    /* 按鈕 */
+    .button-block-pc{
+        border: 1px solid red;
+        background-color: var(--subColor_bgc);
+        width: 500px;
+        border-radius: 20px 0px 0px 0px ;
+        margin-left: auto;
+        /* position: absolute; */
+    }
+    .button-block-row-pc{
+        display: flex;
+         /* position: absolute; */
+         justify-content: center;
+         cursor: pointer;
+    }
+    .button-block-row-pc h3{
+        font-size: 24px;
+        color: var(--subColor_text);
+        margin-top:10px ;
+    }
+    .button-block-icon-pc img{
+        width:30px;
+        margin-top:10px;
+        cursor: pointer;
+    }
+    .banner-button-container-pc{
+        width: 1440px;
+        border: 1px solid rgb(68, 255, 0);
+        margin: auto;
+    }  
+    .banner-button-container-row-pc{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    } 
+    .banner-why-card-pc{
+        /* border: 1px solid red; */
+        padding: 20px;
+       
+    }
+    .why-card-img-pc{
+        width: 100%;
+        overflow: hidden;
+    }
+    .why-card-img-pc img{
+        width: 100%;
+    }
+    .banner-why-card-pc h3{
+        font-size: var(--headline_28px);
+        color:var(--primaryColor_dark);
+        font-weight: 700;
+        text-align: center;
+        padding: 20px 0 10px;
+    }
+    .banner-why-card-pc p{
+        font-size: 18px;
+        color: var(--subColor_text);
+        text-align: center;
+        line-height: 1.8rem;
+    }
 }
+
+@media screen and (max-width:576px){
+    .banner-button-info-pc{
+        display: none;
+    }
+}
+
 /* 四個點點 */
 .silder-dot{
     width: 30%;
@@ -190,59 +261,73 @@ font-family: custom-font;
     margin: 20px 0;
 }
 /* 篩選器標題 */
+.filter{
+    margin: 50px 0 30px;
+}
+
 .filter h2{
     font-weight: 700;
     font-size: var(--headline_28px);
     color: var(--secondaryColor_default);
     text-align: center;
-    margin-top: 45px;
+    /* margin-top: 45px; */
 }
 .filter h3{
     font-weight: 700;
     font-size: var(--headline_20px);
     color: var(--secondaryColor_default);
     text-align: center;
-    margin:10px 0  20px ;
+    /* margin:10px 0  20px ; */
 }
-/* 篩選器 */
-.napSwitch_two,.napSwitch_three{
+/* 篩選器pc*/
+/* .napSwitch_two,.napSwitch_three{
     margin: auto;
-}
+} */
 @media screen and (max-width:576px){
     .filter-title-pc{
         display: none;
     }
 }
-
 @media screen and (min-width:576px){
     .filter{
+        margin: 100px 0 50px;
+        border:1px solid red ;
+    }
+    .filter-container{
         width: 1440px;
         margin: auto; 
     }
     .filter-title-mobile{
         display: none;
     }
-    
-    .filter-group{
+   .filter-group{
         display: flex; 
         justify-content: space-between;
-          
     }
     .filter-title-pc h2{
         font-size: 40px ;
-        margin:45px 0 45px;
+        text-align: left;
+        
     }
 }
 /* 寵物卡片 */
-.pet-card-block{
+.pet-card-cnotainer{
+    width: 327px;
+    margin: auto;
+}
+
+.pet-card-row{
+    display: flex;
+    /* justify-content: space-around; */
+    /* flex-direction: row; */
     gap: 5px;
 }
-.pet-card{
+.pet-card-col{
     background-color: var(--subColor_bgc);
     border-radius: 20px;
     overflow: hidden;
-    /* border: 1px solid red; */
-   
+    box-shadow: 3px 3px #00000015;
+    height: 256px;
 }
 .pet-card-img{
     width: 100%;
@@ -254,7 +339,25 @@ font-family: custom-font;
     width: 100%;
     object-fit: cover;
 }
-/* 寵物卡片-資訊 */
+
+@media screen and (min-width:576px){
+    .pet-card-cnotainer{
+        width: 1440px;
+        margin: auto;
+    }
+    .pet-card-row{
+        display: flex;
+       gap: 70px;
+    }
+    .pet-card-col{
+        background-color: var(--subColor_bgc);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 10px 10px #00000015;
+        height: 580px;
+    }
+}
+/* 寵物卡片-資訊text*/
 .pet-info{
 display: flex;
 flex-direction: column;
@@ -266,13 +369,15 @@ justify-content: center;
     border-bottom: 1px solid var(--black_500);
     width: 60%;
     margin: auto;
+    font-weight: 700;
+    color: var(--subColor_text);
 }
 .pet-info-up{
     display: flex; 
     justify-content: center; 
     color: var(--subColor_text);
     font-size: var(--p_10px);
-    padding: 10px 0 0;
+    padding:10px 0 0;
 }
 .pet-info-down{
     display: flex; 
@@ -280,5 +385,19 @@ justify-content: center;
     color: var(--subColor_text);
     font-size: var(--p_10px);
     padding: 10px 0 30px ;
-
+}
+@media screen and (min-width:576px){
+    .pet-info .name{
+        padding: 25px 0 15px;
+        width: 80%;
+        font-size: var(--headline_32px);
+    }
+    .pet-info-up{
+        font-size: var(--headline_20px);
+        padding: 20px 0 0;
+    }
+    .pet-info-down{
+        font-size: var(--headline_20px);
+        padding: 10px 0 30px ;
+    } 
 }
