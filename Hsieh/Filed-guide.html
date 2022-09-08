@@ -366,17 +366,29 @@
         $('.why-card-box-fram').scroll(function(){
             console.log('left:',$('.why-card-box-fram').scrollLeft())
             console.log('left:',$('.why-card-box-fram').scrollLeft() > 375)
-            if($('.why-card-box-fram').scrollLeft() > 375 && $('.why-card-box-fram').scrollLeft() < 750 ){
+            if($('.why-card-box-fram').scrollLeft() > 0 && $('.why-card-box-fram').scrollLeft() < 300 ){
                 $('.dot1').css('background','#D6D48A')
             }
             else{
                     $('.dot1').css('background','none')    
                 }
-                if($('.why-card-box-fram').scrollLeft() > 375 && $('.why-card-box-fram').scrollLeft() < 750 ){
+                if($('.why-card-box-fram').scrollLeft() > 300 && $('.why-card-box-fram').scrollLeft() < 600 ){
                 $('.dot2').css('background','#D6D48A')
             }
             else{
                     $('.dot2').css('background','none')    
+                }
+                if($('.why-card-box-fram').scrollLeft() > 600 && $('.why-card-box-fram').scrollLeft() < 900 ){
+                $('.dot3').css('background','#D6D48A')
+            }
+            else{
+                    $('.dot3').css('background','none')    
+                }
+                if($('.why-card-box-fram').scrollLeft() > 900 && $('.why-card-box-fram').scrollLeft() < 1275 ){
+                $('.dot4').css('background','#D6D48A')
+            }
+            else{
+                    $('.dot4').css('background','none')    
                 }
 console.log('hi2');
         })
