@@ -184,7 +184,8 @@
     font-weight: 400 ;
 }
 .napBtn_padding_filled:hover {
-    background-color:var(--primaryColor_light)
+    background-color:var(--primaryColor_light);
+    color: var(--white);
 }
 
 
