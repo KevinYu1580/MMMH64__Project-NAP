@@ -248,13 +248,13 @@ p {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin: auto;
+  margin: auto auto 56px;
   width: fit-content;
 }
 .explain .cause p{
   line-height: 200%;
 }
-.explain .sec1, .explain .sec2,.explain .sec3 {
+.explain .cause .sec1, .explain .cause .sec2,.explain .cause .sec3 {
   width: 214px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -265,29 +265,85 @@ p {
 }
 
 /* 圈圈樣式 */
-.explain .sec1 {
+.explain .cause .sec1 {
   background-color:#E8E7D1;
 }
-.explain .sec1 .hintNum {
+.explain .cause .sec1 .hintNum {
   color: var(--primaryColor_dark);
 }
-.explain .sec2 {
+.explain .cause .sec2 {
   background-color: var(--white);
   border: 4px solid var(--primaryColor_default);
 } 
-.explain .sec2 .hintNum {
+.explain .cause .sec2 .hintNum {
   color: var(--secondaryColor_default);
 }
-.explain .sec3 {
+.explain .cause .sec3 {
   background-color: #D6D48A;
 }
-.explain .sec3 .hintNum {
+.explain .cause .sec3 .hintNum {
   color:var(--white);
 }
-/*  */
 .explain .cause .hintNum {
   font-size: 24px;
   font-weight: 600;
 }
+/*  */
+.explain {
+  position: relative;
+}
+.explain .explainText {
+  margin-bottom: 32px;
+}
+.explain .sleepPic{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+  outline: 2px solid var(--primaryColor_dark);
+  border-radius: var(--border-radious);
+  z-index: 0;
+}
+.explain .sleepPic #num1{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(3%, 3%);
+  z-index: -1;
+}
+.explain .sleepPic #num2{
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  transform: translateX(-40%) scaleX(-1) ;
+}
+.explain .contentWrap .sec1 {
+  font-weight: 600;
+  color: var(--secondaryColor_default);
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.explain .contentWrap .sec2 {
+  font-weight: 600;
+  color: var(--secondaryColor_default);
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.explain .contentWrap .explainText p{
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.explain .paws  {
+  position: absolute;
+  bottom: -100px;
+  left: 50;
+}
+.explain .paws img {
+  width: 280px;
+  transform: rotate(60%);
+}
+
+
 
 
