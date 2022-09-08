@@ -173,7 +173,7 @@ body{
         display: block;
         width: 45%;
         position: absolute;
-        top: 82%;
+        top: 83%;
         right: 0%;
         overflow: hidden;
     }
@@ -182,6 +182,7 @@ body{
     }
     /* 每月特別活動 | 桌機版 */
     .banner-special-pc{
+        background: url('../img_p/illustration/illustration-77-1.png') no-repeat right center / cover;        
         width: 100%;
         height: 100vh;
         justify-content: space-between;
@@ -191,14 +192,62 @@ body{
         width: 100%;
         height: 100vh;
     }
+    .events-banner-special-textbox{
+        width: 450px;
+        height: 380px;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 250px;
+        right: 350px;
+    }
+    .events-banner-special-textbox h3{
+        font-size: var(--headline_40px);
+        padding-bottom: 20px;
+    }
+    .events-banner-special-textbox h2{
+        font-size: var(--headline_60px);
+        font-weight: 600;
+        color: var(--secondaryColor_default);
+        padding-bottom: 20px;
+    }
+    .events-banner-special-textbox p{
+        width: 100%;
+        font-size: var(--headline_20px);
+        text-align: justify;
+        line-height: 1.6;
+        padding-bottom: 30px;
+        text-align: right;
+    }
+    .events-banner-special-textbox span{
+        display: none;
+    }
+    .events-banner-special-btn{
+        width: 100%;
+        text-align: right;
+    }
+    .events-banner-special-btn a{
+        font-size: var(--headline_28px);
+        text-decoration: none;
+        padding: 5px 30px;
+        border-radius: 30px;
+        background-color: var(--secondaryColor_default);
+        color: var(--white);
+    }
+    .events-banner-special-btn a:hover{
+        background-color: #ecbc7c;
+    } 
     /* 浪浪套裝活動 | 桌機版 */
     .banner-package-pc{
+        background: url('../img_p/illustration/illustration-76-1.png') no-repeat left center / cover;  
         width: 50%;
         height: 100vh;
         position: absolute;
         top: 0;
         left: 0;
-        transition: 0.3s linear;
+        transition: 0.1s linear;
         overflow: hidden;
     }
     .banner-package-pc img{
@@ -206,5 +255,50 @@ body{
         height: 100vh;
         object-fit: cover;
         object-position: 0 0;
-    }   
+    }
+    .events-banner-package-textbox{
+        width: 450px;
+        height: 380px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 250px;
+        left: 350px;
+    }
+    .events-banner-package-textbox h3{
+        font-size: var(--headline_40px);
+        padding-bottom: 20px;
+    }
+    .events-banner-package-textbox h2{
+        font-size: var(--headline_60px);
+        font-weight: 600;
+        color: var(--primaryColor_dark);
+        padding-bottom: 20px;
+    }
+    .events-banner-package-textbox p{
+        width: 100%;
+        font-size: var(--headline_20px);
+        text-align: justify;
+        line-height: 1.6;
+        padding-bottom: 30px;
+    }
+    .events-banner-package-textbox span{
+        display: none;
+    }
+    .events-banner-package-btn{
+        width: 100%;
+        text-align: left;
+    }
+    .events-banner-package-btn a{
+        font-size: var(--headline_28px);
+        text-decoration: none;
+        padding: 5px 30px;
+        border-radius: 30px;
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+    }
+    .events-banner-package-btn a:hover{
+        background-color: var(--primaryColor_light);
+    }     
 }
