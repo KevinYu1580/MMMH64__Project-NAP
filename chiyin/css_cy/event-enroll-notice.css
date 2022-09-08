@@ -86,7 +86,7 @@ body{
     text-decoration: none;
     color: var(--white);
 }
-.mobile-backpage img{
+.mobile-backpage svg{
     position: absolute;
     height: 12px;
     transform: rotate(-90deg);

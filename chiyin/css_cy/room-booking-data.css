@@ -140,139 +140,118 @@ body{
     @media screen and (min-width: 768px){
         .data-content{
             display: flex;
-            margin-bottom: 80px;
-        
+
         }
     }
 
-/* --------------------------詳細訂單卡----------------------- */
-.enroll-detail-card{
+/* --------------------------詳細訂房卡----------------------- */
+.booking-detail-card{
     /* width: 100%; */
-    height: 515px;
-    font-size: var(--p_16px);
-    background-color: var(--primaryColor_tint);
-    padding: 5%;
-    z-index: 20;
-}
-    @media screen and (min-width: 768px){
-        .enroll-detail-card{
-            width: 520px;
-            /* height: 590px; */
-            font-size: var(--headline_24px);
-            background-color: var(--primaryColor_tint);
-            padding: 25px;
-            border-radius: 20px;
-            margin-top: 30px;
-            position: fixed;
-            right: 10%;
-        }
-    }
-
-.enroll-detail-card .card-deco{
-    padding: 10%;
-    border: solid 2px var(--white);
-    border-radius: 15px;
-}
-    @media screen and (min-width: 768px){
-        .enroll-detail-card .card-deco{
-            padding: 30px;
-            border: solid 4px var(--white);
-            border-radius: 20px;
-        }
-    }
-
-.enroll-detail-card .card-title{
-    margin: auto;
-    text-align: center;
-    width: 200px;
-    font-size: var(--headline_20px);
-    padding-bottom: 8px;
-    border-bottom: solid 1px var(--subColor_text);
-    font-weight: 700;
-}
-    @media screen and (min-width: 768px){
-        .enroll-detail-card .card-title{
-            font-size: var(--headline_32px);
-        }
-    }
-
-.enroll-detail-card .event-name{
-    margin-top: 20px;
-    
-}
-
-.enroll-detail-card .event-date{
-    margin-top: 10px;
-    
-}
-
-.enroll-detail-card .perevent-price{
-    margin-top: 40px;
-    padding-bottom: 30px;
-    background-image: linear-gradient(to right, var(--black_600) 40%, rgba(255, 255, 255, 0) 20%);
-    background-position: bottom;
-    background-size: 10px 1px;
-    background-repeat: repeat-x;
-    text-align: right;
-}
-
-.enroll-detail-card .perevent-price .per{
-    text-align: left;
-}
-
-.enroll-detail-card .perevent-price .enroll-num{
-    color: var(--primaryColor_dark);
-    font-weight: 700;
-}
-
-.payable{
-    margin-top: 20px;
-    font-weight: 700;
-    font-size: var(--headline_20px);
-}
-    @media screen and (min-width: 768px){
-        .payable{
-            font-size: var(--headline_32px);
-        }
-    }
-
-.payable .total-price{
-    text-align: right;
-    color: var(--subColor_highLightRed);
-}
-
-.price-info{
+    /* height: 515px; */
     font-size: var(--p_14px);
-    margin-top: 20px;
-    line-height: 1.2rem;
+    background-color: var(--primaryColor_tint);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
 }
+    @media screen and (min-width: 768px){
+        .booking-detail-card{
+            font-size: var(--headline_20px);
+            background-color: var(--primaryColor_tint);
+            border-radius: 20px 20px 0 0;
+            margin-top: 55px;
+            padding: 25px 35px;
+            height: 120px;
+        }
+    }
+
+.down-expand-btn{
+    display: flex;
+    align-items: center;
+}
+    @media screen and (min-width: 768px){
+        .down-expand-btn{
+            display: none;
+        }
+    }
+
+.down-expand-btn img{
+    width: 20px;
+}
+
+
+.booking-date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-date{
+            margin-bottom: 20px;
+        }
+    }
+
+.booking-room{
+    display: flex;
+    align-items: center;
+}
+
+.booking-date .date-num, .booking-room .room-num{
+    margin-left: 15px;
+}
+
+.date-icon img, .room-icon img{
+    width: 23px;
+}
+
 
 /* ---------加入購物車＋前往結帳按鈕--------- */
-.enroll-card-btn{
+.cart-btn{
     margin: auto;
-    margin-top: 20px;
+    margin-bottom: 55px;
+    
 }
     @media screen and (min-width: 768px){
-        .enroll-card-btn .napBtn_fixed_outlined span, .enroll-card-btn .napBtn_fixed_filled span{
-            display: flex;
-            flex-direction: column;
+        .cart-btn{
+            margin-bottom: 65px;
+            
+        }
+    }
+
+.napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+    font-size: var(--headline_20px);
+    
+}
+    @media screen and (min-width: 768px){
+        .napBtn_fixed_outlined span, .napBtn_fixed_filled span{
             font-size: var(--headline_24px);
         }
     }
 
-.enroll-card-btn a{
+.cart-btn a{
     margin: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
     width: 170px;
+    height: 40px;
     text-decoration: none;
 }
+    @media screen and (min-width: 768px){
+        .cart-btn a{
+            margin: auto;
+            margin-top: 10px;
+            width: 230px;
+            height: 55px;
+            text-decoration: none;
+        }
+    }
 
 /* ----------套裝活動報名表頭---------- */
-.enroll-data-title{
+.booking-data-title{
     display: none;
 }
     @media screen and (min-width: 768px){
-        .enroll-data-title{
+        .booking-data-title{
             color: var(--white);
             font-size: var(--headline_32px);
             background-color: var(--secondaryColor_default);
@@ -288,7 +267,7 @@ body{
         }
     }
     @media screen and (min-width: 768px){
-        .enroll-data-title::after, .enroll-data-title::before{
+        .booking-data-title::after, .booking-data-title::before{
             position: absolute;
             content: '';
             height: 1px;
@@ -296,23 +275,23 @@ body{
             background-color: var(--secondaryColor_default);
             top: 50%;
         }
-        .enroll-data-title::after{
+        .booking-data-title::after{
             right: 90%;
         }
-        .enroll-data-title::before{
+        .booking-data-title::before{
             left: 90%;
         }
     }
 
 
-/* -----------左邊新增參與人列---------- */
-.enroll-data-left{
+/* -----------左邊訂房人資料列---------- */
+.booking-data-left{
     margin: auto;
     /* width: 327px; */
     padding: 20px;
 }
     @media screen and (min-width: 768px){
-        .enroll-data-left{
+        .booking-data-left{
             padding: 0;
             margin: 0;
             margin-top: 55px;
@@ -320,80 +299,33 @@ body{
         }
     }
 
-.add-member-btn{
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-top: 50px;
-}
-    @media screen and (min-width: 768px){
-        .add-member-btn{
-            width: 300px;
-            height: 55px;
-            margin-top: 0px;
-            cursor: pointer;
-            align-items: flex-start;
-            flex-wrap: nowrap;
-        }
-    }
-
-.add-member-btn a{
-    color: var(--white);
-    font-size: var(--headline_20px);
-    /* text-decoration: none; */
-}
-    @media screen and (min-width: 768px){
-        .add-member-btn a{
-            width: 300px;
-            height: 55px;
-            font-size: var(--headline_24px);
-        }
-    }
-
-
-    
-/* ----------參與人資料---------- */
-.enroll{
-    margin-top: 35px;
-    margin-bottom: 55px;
-}
-    @media screen and (min-width: 768px){
-        .enroll{
-            /* padding-top: 170px; */
-            margin-top: 20px;
-            margin-bottom: 65px;
-        }
-    }
-
-.enroll-title{
+.booking-title{
     background-color: var(--primaryColor_light);
-    height: 55px;
+    height: 45px;
     border-radius: 20px 20px 0 0;
     /* margin: auto; */
 
 }
     @media screen and (min-width: 768px){
-        .enroll-title {
-            height: 65px;
+        .booking-title {
+            height: 55px;
             margin-left: 0;
         }
     }
 
-.enroll-title h4{
+.booking-title h4{
     display: flex;
     font-size: var(--headline_20px);
     text-align: left;
     /* margin-left: 15px; */
-    height: 55px;
+    height: 49px;
     justify-content: center;
     align-items: center;
     line-height: 1.4rem;
     font-weight: 500;
 }
     @media screen and (min-width: 768px){
-        .enroll-title h4{
+        .booking-title h4{
             font-size: var(--headline_28px);
             text-align: center;
             height: 65px;
@@ -402,66 +334,74 @@ body{
         }
     }
 
-.enroll-content{
-    /* height: 590px; */
-    background-color: var(--subColor_bgc);
+.booking-content{
     padding: 40px 20px;
-    position: relative;
-    border-bottom: solid 1px var(--black_500);
+    border: solid 6px var(--primaryColor_light);
+    border-radius: 0 0 20px 20px;
 }
     @media screen and (min-width: 768px){
-        .enroll-content{
-            /* background-color: var(--subColor_bgc); */
-            /* height: 535px; */
-            /* padding-bottom: 5%; */
+        .booking-content{
             padding: 40px 20px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            position: relative;
-            border-bottom: solid 1px var(--black_500);
+            border: solid 10px var(--primaryColor_light);
         }
     }
 
-.enroll-content p{
-    padding: 10px 20px 20px;
-    color: var(--primaryColor_dark);
-    font-size: var(--headline_20px);
-    line-height: 1.6rem;
+.member-note{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
     @media screen and (min-width: 768px){
-        .enroll-content p{
-            /* margin-top: 10px; */
-            text-align: center;
-            font-size: var(--headline_28px);
-            line-height: 2rem;
+        .member-note{
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
         }
     }
 
-.enroll-content .count-num{
-    color: var(--primaryColor_dark);
-    text-align: center;
-    font-size: var(--headline_40px);
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
-}  
+.warn-img{
+    width: 30px;
+    padding-left: 10px;
+    margin-right: 15px;
+}
     @media screen and (min-width: 768px){
-        .enroll-content .count-num{
-            /* margin-top: 10px; */
-            text-align: center;
-            font-size: var(--headline_60px);
-            font-weight: 500;
+        .warn-img{
+            width: 43px;
+            padding-left: 20px;
+            margin-right: 25px;
         }
-    } 
+    }
+
+.warn-img svg{
+    width: 30px;
+}
+    @media screen and (min-width: 768px){
+        .warn-img svg{
+            width: 43px;
+        }
+    }
+
+.note-content p{
+    color: var(--subColor_highLightRed);
+    font-size: var(--p_14px);
+    line-height: 1rem;
+    margin-left: 5px;
+}
+    @media screen and (min-width: 768px){
+        .note-content p{
+            font-size: var(--headline_20px);
+            line-height: 1.5rem;
+            
+        }
+    }
+
 
     @media screen and (min-width: 768px){
-        .enroll-content .form{
+        .booking-content .form{
             margin-top: 10px;
-            width: 400px;
+            /* width: 400px; */
+            margin: auto;
+            width: 85%;
         }
     } 
 
@@ -476,38 +416,6 @@ body{
     @media screen and (min-width: 768px){
         .triangle img{
             width: 35px;
-        }
-    }
-
-.enroll-content-bottom{
-    background-color: var(--primaryColor_light);
-    border-radius: 0 0 20px 20px;
-    height: 45px;
-}
-    @media screen and (min-width: 768px){
-        .enroll-content-bottom{
-            height: 60px;
-        }
-    }
-
-.delete-btn{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-.delete-btn img{
-    width: 20px;
-    
-}
-    @media screen and (min-width: 768px){
-        .delete-btn{
-            position: absolute;
-            top: 30px;
-            right: 30px;
-        }
-        .delete-btn img{
-            width: 30px;
-            
         }
     }
 
