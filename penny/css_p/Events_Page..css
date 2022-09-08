@@ -179,7 +179,7 @@ body{
         position: relative;
     }
     .events-banner-ai01-imgbox{
-        display: block;
+        display: none;
         width: 45%;
         position: absolute;
         top: 82%;
@@ -259,6 +259,9 @@ body{
         background-color: var(--primaryColor_dark);
         color: var(--white);
     }
+    .events-banner-package-btn a:hover{
+        background-color: var(--primaryColor_light);
+    }
 
     /* 每月特別活動 | 桌機版 */
     .banner-special-pc{
@@ -314,6 +317,9 @@ body{
         border-radius: 30px;
         background-color: var(--secondaryColor_default);
         color: var(--white);
+    }
+    .events-banner-special-btn a:hover{
+        background-color: #d6b07f;
     }
 
 }
