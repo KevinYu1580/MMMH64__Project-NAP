@@ -140,14 +140,22 @@ body{
     @media screen and (min-width: 768px){
         .data-content{
             display: flex;
-
+            
+        
         }
     }
 
 /* --------------------------詳細訂房卡----------------------- */
+.booking-data-right{
+    margin: auto;
+}
+    /* @media screen and (min-width: 768px){
+        .booking-data-right{
+
+        }
+    } */
+
 .booking-detail-card{
-    /* width: 100%; */
-    /* height: 515px; */
     font-size: var(--p_14px);
     background-color: var(--primaryColor_tint);
     padding: 20px 30px;
@@ -179,7 +187,6 @@ body{
     width: 20px;
 }
 
-
 .booking-date{
     display: flex;
     align-items: center;
@@ -204,6 +211,124 @@ body{
     width: 23px;
 }
 
+/* ---------右邊詳細內容--------- */
+.booking-detail-content{
+    padding: 30px 10%;
+    position: relative;
+}
+.booking-detail-content::after{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 1px;
+    background-color: var(--black_500);
+    bottom: 1px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content{
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+        }
+        .booking-detail-content::after{
+            position: absolute;
+            content: '';
+            width: 80%;
+            height: 1px;
+            background-color: var(--black_500);
+            bottom: 1px;
+        }
+    }
+
+.booking-detail-content .room-name{
+    font-size: var(--headline_20px);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-name{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.per-room-num{
+    margin-left: 10px;
+}
+
+.booking-detail-content .room-count{
+    font-size: var(--p_14px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-count{
+            font-size: var(--subtitle_16px);
+        }
+    }
+
+.booking-detail-content .room-detail-num{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-detail-num{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.booking-detail-content .price-include{
+    font-size: var(--p_12px);
+    text-align: right;
+    font-weight: 300;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .price-include{
+            font-size: var(--p_14px);
+        }
+    }
+
+/* ---------右邊詳細內容(最下方統計)--------- */
+.booking-detail-content-final{
+    padding: 30px 10%;
+    position: relative;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content-final{
+            border-bottom: solid 1px var(--black_500);
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+            border-radius: 0 0 20px 20px;
+        }
+    }
+.booking-detail-content-final .total-count, .deposit-count, .rest-count{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content-final .total-count, .deposit-count, .rest-count{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.booking-detail-content-final .rest-pay-notice{
+    font-size: var(--p_14px);
+    font-weight: 300;
+}
+
+.deposit-num span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
+}
 
 /* ---------加入購物車＋前往結帳按鈕--------- */
 .cart-btn{
@@ -213,8 +338,7 @@ body{
 }
     @media screen and (min-width: 768px){
         .cart-btn{
-            margin-bottom: 65px;
-            
+            margin-bottom: 65px;  
         }
     }
 
