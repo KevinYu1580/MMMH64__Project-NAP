@@ -130,7 +130,7 @@ font-family: custom-font;
 .why-card-box-fram{
         width:100%;
         overflow: hidden;
-        overflow-x: scroll;  
+        overflow-x: auto;  
         -webkit-overflow-scrolling:touch;
     }
     .why-card-box-fram::-webkit-scrollbar{
@@ -277,18 +277,26 @@ font-family: custom-font;
     font-size: var(--headline_20px);
     color: var(--secondaryColor_default);
     text-align: center;
+    margin: 10px;
     /* margin:10px 0  20px ; */
 }
 /* 篩選器pc*/
-/* .napSwitch_two,.napSwitch_three{
-    margin: auto;
-} */
+.napSwitch_two,.napSwitch_three{
+    margin: 8px auto;
+}
+.filter-group{
+    display: flex;
+    flex-direction: column;
+}
 @media screen and (max-width:576px){
     .filter-title-pc{
         display: none;
     }
 }
 @media screen and (min-width:576px){
+    .filter-title-mobile{
+        display: none;
+    }
     .filter{
         margin: 100px 0 50px;
         border:1px solid red ;
@@ -297,16 +305,23 @@ font-family: custom-font;
         width: 1440px;
         margin: auto; 
     }
-    .filter-title-mobile{
-        display: none;
-    }
-   .filter-group{
-        display: flex; 
+    .filter-group{
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
     }
+    .napSwitch_two,.napSwitch_three{
+        margin: 8px 0;
+        font-size: 24px;
+    }
+    .napSwitch_three{
+        padding: 8px 35px;
+    }
+    
     .filter-title-pc h2{
         font-size: 40px ;
         text-align: left;
+        margin-bottom: 30px;
         
     }
 }
@@ -315,14 +330,15 @@ font-family: custom-font;
     width: 327px;
     margin: auto;
 }
+.pet-card-col {
+    padding: 5px;
+    border: 1px solid red;
+}
 
 .pet-card-row{
     display: flex;
-    /* justify-content: space-around; */
-    /* flex-direction: row; */
-    gap: 5px;
 }
-.pet-card-col{
+.pet-card-content{
     background-color: var(--subColor_bgc);
     border-radius: 20px;
     overflow: hidden;
@@ -345,11 +361,11 @@ font-family: custom-font;
         width: 1440px;
         margin: auto;
     }
+    p
     .pet-card-row{
         display: flex;
-       gap: 70px;
     }
-    .pet-card-col{
+    .pet-card-content{
         background-color: var(--subColor_bgc);
         border-radius: 20px;
         overflow: hidden;
@@ -363,13 +379,14 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 }
+
 .pet-info .name{
     text-align: center;
     padding: 15px 0 5px;
     border-bottom: 1px solid var(--black_500);
     width: 60%;
     margin: auto;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--subColor_text);
 }
 .pet-info-up{
@@ -387,6 +404,9 @@ justify-content: center;
     padding: 10px 0 30px ;
 }
 @media screen and (min-width:576px){
+    .pet-card-col{
+        padding: 20px;
+    }
     .pet-info .name{
         padding: 25px 0 15px;
         width: 80%;
@@ -398,6 +418,25 @@ justify-content: center;
     }
     .pet-info-down{
         font-size: var(--headline_20px);
-        padding: 10px 0 30px ;
+        padding: 20px 0 30px ;
     } 
+}
+/* 關注按鈕 */
+.napBtn_likeBtn{
+    width: fit-content;
+    padding: 6px 20px;
+    margin: auto;
+}
+.napBtn_likeBtn span{
+    font-size: var(--p_14px);
+}
+@media screen and (min-width:576px){
+    .napBtn_likeBtn{
+        width: fit-content;
+        padding: 10px 30px;
+        margin: auto;
+    }
+    .napBtn_likeBtn span{
+        font-size: var(--headline_20px);
+    }  
 }
