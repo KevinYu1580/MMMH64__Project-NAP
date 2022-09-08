@@ -192,6 +192,7 @@ body{
 
     /* 浪浪套裝活動 | 桌機版 */
     .banner-package-pc-box{
+        /* pointer-events:none; */
         width: 50%;
         height: 100vh;
         overflow: hidden;
@@ -201,7 +202,6 @@ body{
         transition: 0.3s linear;
     }
     .banner-package-pc{
-        pointer-events:none;
         background: url('../img_p/illustration/illustration-76-1.png') no-repeat left center / cover;  
         width: 100vw;
         height: 100vh;
@@ -265,7 +265,6 @@ body{
         background: url('../img_p/illustration/illustration-77-1.png') no-repeat right center / cover;        
         width: 100%;
         height: 100vh;
-        /* clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%); */
     }
     .banner-special-pc img{
         width: 100%;
