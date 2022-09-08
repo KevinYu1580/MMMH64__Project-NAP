@@ -51,8 +51,9 @@
   --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
 
-* {
+p {
     color: var(--subColor_text);
+    line-height: 180%;
 }
 
 /* ------first page ------ */
@@ -133,17 +134,160 @@
     line-height: 180%;
 }
 .home_info .story_wrap, .home_info .field_intro {
-    margin-bottom: 32px;
+    margin-bottom: 46px;
 }
 .home_info .story_wrap .napHeadline {
   font-size: 32px;
 }
 .home_info .field_intro .napHeadline {
   font-size: 24px;
+  line-height: 140%;
 }
 
 /* bot_img */
-
 .home_info .bot_img {
-    
+  position: relative;
 }
+.home_info .bot_img #hand {
+  width: 100%;
+  height: 240px;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-image: url(./img/k/hand.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: cover ;
+}
+
+.home_info .bot_img .napimg {
+    width: 100%;
+    height: 182px;
+    background-image: url(./img/k/park\ pic.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* ------ info_points ------ */
+
+.info_points {
+  background-image: url(./img/k/illustration-76.png);
+  background-size: cover;
+  padding: 68px 40px 280px 40px;
+  position: relative;
+}
+.info_points .infoBoxs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index:2;
+}
+.info_points .box{
+  background-color:var(--white);
+  padding: 54px 24px 48px ;
+  text-align: center;
+}
+.info_points .box h3{
+  font-size: 28px;
+  color: var(--primaryColor_dark);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.info_points .box p{
+  margin-bottom: 24px;
+  
+}
+.info_points .infoBoxs a {
+  font-size: 18px;
+  margin: auto;
+}
+/* pics */
+.pool, .poolPeople, .fence {
+  position: absolute;
+}
+.info_points .pool {
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  background-image: url(./img/k/pool-mb.png);
+  background-position:0% 100% ;
+  background-repeat: no-repeat;
+  width: 60%;
+  height: 483px;
+  z-index: 1;
+}
+.info_points .poolPeople {
+  position: absolute;
+  bottom: 82px;
+  left: 0;
+  background-image: url(./img/k/illustration-58.png);
+  background-repeat: no-repeat;
+  background-position:0% 100% ;
+  background-size:contain;
+  width: 277px;
+  height: 126px;
+  z-index: 5;
+}
+.info_points .fence {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url(./img/k/illustration-77.png);
+  background-position:0% 100% ;
+  background-size: cover;
+  width: 216px;
+  height: 54px;
+}
+
+/* ------ explain ------ */
+.explain {
+  padding:  80px 40px 140px;
+}
+.explain .cause {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: auto;
+  width: fit-content;
+}
+.explain .cause p{
+  line-height: 200%;
+}
+.explain .sec1, .explain .sec2,.explain .sec3 {
+  width: 214px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 圈圈樣式 */
+.explain .sec1 {
+  background-color:#E8E7D1;
+}
+.explain .sec1 .hintNum {
+  color: var(--primaryColor_dark);
+}
+.explain .sec2 {
+  background-color: var(--white);
+  border: 4px solid var(--primaryColor_default);
+} 
+.explain .sec2 .hintNum {
+  color: var(--secondaryColor_default);
+}
+.explain .sec3 {
+  background-color: #D6D48A;
+}
+.explain .sec3 .hintNum {
+  color:var(--white);
+}
+/*  */
+.explain .cause .hintNum {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+

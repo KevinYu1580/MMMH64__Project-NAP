@@ -72,24 +72,24 @@ html{
 .close {
     
     position: absolute;
-    top: 20px;
+    top: 60px;
     right: 5%;
     
 }
 
 .content{
     background-color: var(--subColor_bgc);
-    padding-top: 5%;
-    padding-bottom: 5%;
-    border-radius: 5%;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    border-radius: 20px;
     width: 100%;
 }
 
 
 .content2{
     /* position: absolute; */
-    position: relative;
-    z-index: 20;
+    /* position: relative; */
+    /* z-index: 20; */
     
 }
 
@@ -129,14 +129,12 @@ form{
     font-size: 18px;
     color: var(--subColor_text);
     font-weight: 700;
-    
-    
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
-.form-control{
-    padding-left: 12px;
-    padding-right: 152.65px;
-}
+
 
 
 input{
@@ -166,6 +164,11 @@ input{
     border-radius: var(--btn-radius);
     border: 1px solid var(--primaryColor_dark);
     font-size: 18px;
+    
+}
+
+.btn-box p{
+    margin-bottom: 0;
     
 }
 
@@ -269,25 +272,22 @@ a{
   }
 
 
-  .content2 {
-    box-sizing: border-box;
-    /* padding-top: 75px; */
-  }
+/* ------------------- */
 
-
-
+.content2 .part{
+    height: 89px;
+    padding-top: 20px;
+}
 
 .content2 .title{
-    /* padding-top: 90px; */
-    /* margin-top: 20px; */
-    border-bottom: 1px solid var(--black_600);
+    padding-top: 15px;
+    /* border-bottom: 1px solid var(--black_600); */
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 4px;
+    
     border: none;
     
 }
-
 
 
 
@@ -296,6 +296,7 @@ a{
     position: relative;
     height: 40px;
     width: 279px;
+    color: var(--black_500);
 }
 .steps .dot{
     width: 12px;
@@ -318,10 +319,10 @@ a{
     
 }
 
-.step1 .dot{
+.content2 .step1 .dot{
     background-color: var(--primaryColor_dark);
 }
-.step1 .text{
+.content2 .step1 .text{
     color:var(--primaryColor_dark);
 }
 
@@ -335,61 +336,50 @@ a{
     
 }
 
-
-
-
-.content2 .up-part{
-    padding-left: 2%;
-    padding-right: 2%;
-    height: 140px;
-    /* margin-top: px; */
-    /* margin-bottom: 50px; */
+.content2 .form-label{
+    font-weight: 700;
 }
 
 
-
-/* .content2 .form-control{
-    padding-left: 12px; 
-     padding-right: 152.65px; 
-} */
-
-
-
-.content2 .btn-box
-{
-    /* height: 40px; */
-    padding-top: 88px;
-    /* margin-top: 50px; */
-    /* margin-bottom: 89px; */
+.content2 .btn-box{
+    /* height: 100px; */
+    padding-top: 116px;
+    margin-bottom:60px;
     width: 150px;
     
+
 }
+/* ---------------------------- */
 
-.content3{
-
+.content3 .part{
+    height: 89px;
+    padding-top: 20px;
+    
 }
 
 .content3 .title{
-    padding-top: 10px;
+    padding-top: 15px;
     /* border-bottom: 1px solid var(--black_600); */
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 4px;
+    
     border: none;
     
 }
-
-.content3 .btn-box
-{
-    /* height: 40px; */
-    /* padding-top: 104px; */
-    margin-bottom: 89px;
+.content3 .btn-box{
+    /* height: 100px; */
+    padding-top: 47px;
+    margin-bottom:60px;
     width: 150px;
     
+
 }
-.content3 .up-part{
-    padding-left: 2%;
-    padding-right: 2%;
-    margin-top: px;
-    /* margin-bottom: 20px; */
+
+
+
+.content3 .step2 .dot{
+    background-color: var(--primaryColor_dark);
+}
+.content3 .step2 .text{
+    color:var(--primaryColor_dark);
 }
