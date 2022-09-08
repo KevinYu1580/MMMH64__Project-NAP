@@ -386,7 +386,7 @@ body{
     font-size: var(--headline_20px);
     text-align: left;
     /* margin-left: 15px; */
-    height: 65px;
+    height: 55px;
     justify-content: center;
     align-items: center;
     line-height: 1.4rem;
@@ -405,32 +405,64 @@ body{
 .enroll-content{
     /* height: 590px; */
     background-color: var(--subColor_bgc);
-    border-radius: 0 0 20px 20px;
+    padding: 40px 20px;
+    position: relative;
 }
     @media screen and (min-width: 768px){
         .enroll-content{
             /* background-color: var(--subColor_bgc); */
             /* height: 535px; */
-            padding-bottom: 5%;
+            /* padding-bottom: 5%; */
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
         }
     }
 
 .enroll-content p{
     padding: 10px 20px 20px;
-    
     color: var(--primaryColor_dark);
     font-size: var(--headline_20px);
     line-height: 1.6rem;
 }
     @media screen and (min-width: 768px){
         .enroll-content p{
-            margin-top: 10px;
+            /* margin-top: 10px; */
             text-align: center;
             font-size: var(--headline_28px);
             line-height: 2rem;
         }
     }
-    
+
+.enroll-content .count-num{
+    color: var(--primaryColor_dark);
+    text-align: center;
+    font-size: var(--headline_40px);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}  
+    @media screen and (min-width: 768px){
+        .enroll-content .count-num{
+            /* margin-top: 10px; */
+            text-align: center;
+            font-size: var(--headline_60px);
+            font-weight: 500;
+        }
+    } 
+
+    @media screen and (min-width: 768px){
+        .enroll-content .form{
+            margin-top: 10px;
+            width: 400px;
+        }
+    } 
+
 .triangle {
     display: flex;
     width: 100%;
@@ -445,6 +477,35 @@ body{
         }
     }
 
+.enroll-content-bottom{
+    background-color: var(--primaryColor_light);
+    border-radius: 0 0 20px 20px;
+    height: 45px;
+}
+    @media screen and (min-width: 768px){
+        .enroll-content-bottom{
+            height: 60px;
+        }
+    }
 
-
+.delete-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.delete-btn img{
+    width: 20px;
+    
+}
+    @media screen and (min-width: 768px){
+        .delete-btn{
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+        .delete-btn img{
+            width: 30px;
+            
+        }
+    }
 

@@ -1,27 +1,21 @@
 
+<?php
+session_start();
+// 如果已經登入會員
+if (!empty($_SESSION['user'])) {
+    header('Location: ./');
+    exit;
+}
 
-<!DOCTYPE html>
-<html lang="zh">
+?>
+<?php include __DIR__ . '/parts/html-head.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css_n/reset.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-    <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./bootstrap-5.1.1-dist/js/bootstrap.js">
-
-    <link rel="stylesheet" href="./css_n/login.css">
-    <title><?= $title ?></title>
-</head>
 <body>
 
 <div class="wrap">
-    <div class="login-pc d-flex">
+    
+    <!-- <div class="outcut"> -->
+        <div class="login-pc d-flex">
         <div class="textbox d-flex flex-column align-items-center justify-content-center">
             <div class="close"><img src="./img_n/close.png" alt=""></div>
             <div class="content d-flex flex-column align-items-center">
@@ -29,9 +23,9 @@
                     <div class="logo d-flex justify-content-center"><img src="./img_n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center "><h3>登入</h3></div>
                 </div>
-                <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
+                <form class="form needs-validation "name="form1" method="post" onsubmit="checkForm(); return false;">
                     <div class="up-part d-flex flex-column align-items-center">
-                        <div class="email-box w-100 my-2">
+                        <div class="email-box w-100 mb-2">
                         <label for="email" class="form-label">帳號 (email)</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="請輸入帳號" required>
                         <div class="invalid-feedback">
@@ -58,7 +52,7 @@
                         <div class="line">
                         <div class="title-sm d-flex flex-column align-items-center"><p>快速登入</p></div>
                         </div>
-                        <div class="community  d-flex flex
+                        <div class="community d-flex flex
                         justify-content-center align-items-center">
                             
                                 <div class="btn">
@@ -78,7 +72,7 @@
 
                         <div class="say d-flex pt-4 justify-content-center">
                             <div class="left "> <p>等不及想見到園區的毛孩嗎？</p> </div>
-                            <div class="right"><a href="./register.html"><p>立即註冊</p></a></div>
+                            <div class="right"><a href="#"><p>立即註冊</p></a></div>
                         </div>
 
                     </div>
@@ -90,8 +84,7 @@
                     
                 
                 
-    </div>
-
+    </div></div>
 </div>
 
 
