@@ -57,8 +57,10 @@ body{
     font-family: custom-font;
     color: var(--subColor_text);
 }
-
 /* 活動頁面banner | events-banner */
+.events-banner{
+    margin-bottom: 50px;
+}
 .events-banner-row-mb{
     display: block;
 }
@@ -66,7 +68,7 @@ body{
     display: none;
 }
 .events-banner-ai01-imgbox{
-    display: block;
+    display: none;
     width: 100%;
     position: absolute;
     top: 87%;
@@ -321,5 +323,39 @@ body{
     .events-banner-special-btn a:hover{
         background-color: #d6b07f;
     }
+}
 
+/* 選擇器 | filter */
+.events-filter{
+    
+}
+.events-filter-frame{
+    position: relative;
+    width: 245px;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primaryColor_dark);
+    border-radius: 50px;   
+}
+.package-filter{
+    background-color: var(--primaryColor_dark);
+    width: 50%;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--white);
+}
+.special-filter{
+    width: 50%;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--primaryColor_dark);
 }
