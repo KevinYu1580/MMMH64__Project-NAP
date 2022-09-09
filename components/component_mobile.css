@@ -469,6 +469,7 @@
     line-height: 1.8;
     color: var(--white);
     font-weight: 300;
+    position: relative;
 }
 .footer-mobile .content {
     width: fit-content;

@@ -353,6 +353,7 @@ p {
 .napSteps {
   text-align: center;
   padding: 0px 40px;
+  margin-bottom: 38px;
 }
 .napSteps .wrap_mb .line {
   margin: 36px 0px;
@@ -387,11 +388,18 @@ p {
 /* btn  */
 .napBtn_fixed_filled {
   width: 50vw;
-  max-width: ;
+  max-width: 288px;
   margin: auto;
 }
 
 
+
+/* ------ footer ------ */
+
+.footer-mobile .sec1, .footer-mobile .sec2 {
+  line-height: 148%;
+  color: var(--white);
+}
 
 
 
