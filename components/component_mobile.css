@@ -227,7 +227,8 @@
     font-weight: 400 ;
 }
 .napBtn_fixed_filled:hover {
-    background-color:var(--primaryColor_light)
+    background-color:var(--primaryColor_light);
+    color: var(--white);
 }
 
 /* fixed_outlined*/
@@ -436,31 +437,6 @@
     margin: 0px 20px;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
