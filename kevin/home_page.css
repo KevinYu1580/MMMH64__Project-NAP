@@ -243,6 +243,10 @@ p {
 /* ------ explain ------ */
 .explain {
   padding:  80px 40px 140px;
+  background-image: url(./img/k/cloud-mb.svg);
+  background-position: 0% 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .explain .cause {
   display: flex;
@@ -291,6 +295,7 @@ p {
 /*  */
 .explain {
   position: relative;
+  margin-bottom: 82px;
 }
 .explain .explainText {
   margin-bottom: 32px;
@@ -336,13 +341,56 @@ p {
 }
 .explain .paws  {
   position: absolute;
-  bottom: -100px;
-  left: 50;
+  bottom: -84px;
 }
 .explain .paws img {
   width: 280px;
-  transform: rotate(60%);
+  transform: rotate(-10deg);
 }
+
+
+/*------ napSteps------  */
+.napSteps {
+  text-align: center;
+  padding: 0px 40px;
+}
+.napSteps .wrap_mb .line {
+  margin: 36px 0px;
+}
+.napSteps .wrap_mb .cardWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+.napSteps .wrap_mb .napCard #back {
+  transform: rotateY(180deg) ;
+}
+.napSteps .wrap_mb .napCard {
+  width: 100%;
+  max-width: 455px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: .5s;
+  border-radius: 20px;
+  aspect-ratio: 1 / 1.238;
+}
+.napSteps .wrap_mb .napCard img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+/* btn  */
+.napBtn_fixed_filled {
+  width: 50vw;
+  max-width: ;
+  margin: auto;
+}
+
 
 
 
