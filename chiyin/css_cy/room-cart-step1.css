@@ -66,13 +66,12 @@ body{
 }
     @media screen and (min-width: 768px){
         .all-container{
-            padding: 0 5%;
+            /* padding: 0 5%; */
             max-width: 1440px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             margin-top: 120px;
-            /* align-items: flex-start; */
         }
     }
 
@@ -83,6 +82,7 @@ body{
     @media screen and (min-width: 768px){
         .cart-detail{
             width: 50%;
+            margin: 0;
         }
     }
 
@@ -325,6 +325,17 @@ body{
     color: var(--subColor_highLightRed);
 }
 
+.per-cart-item .item-list .stay-date{
+    font-weight: 300;
+    line-height: 0.8rem;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .stay-date{
+            font-weight: 300;
+            line-height: 1.4rem;
+        }
+    }
+
 .delete-btn img{
     width: 15px;
     margin-left: 30px;
@@ -332,9 +343,10 @@ body{
     @media screen and (min-width: 768px){
         .delete-btn img{
             width: 28px;
-            margin-left: 60px;
+            margin-left: 120px;
         }
     }
+
 
 /* --------------總結算列------------- */
 .final-cart-price{
@@ -355,6 +367,7 @@ body{
     justify-content: right;
     margin-top: 30px;
 }
+
 .deposit-price{
     display: flex;
     text-align: right;
@@ -374,6 +387,7 @@ body{
             font-size: var(--headline_24px);
         }
     }
+
 .deposit-price p{
     font-size: var(--headline_20px);
 }
