@@ -24,12 +24,12 @@
     <div class="login-pc d-flex justify-content-end">
         <div class="textbox d-flex  align-items-center justify-content-center">
             <div class="close"><img src="./img_n/close.png" alt=""></div>
-            <div class="content content1 d-flex flex-column  ">
+            <div class="content content1 d-flex flex-column" id="content1">
                 <div class="part ">
                     <div class="logo d-flex justify-content-center"><img src="./img_n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center "><h3>註冊</h3></div>
                 </div>
-                <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
+                <form class="form needs-validation" name="form" method="post" onsubmit="checkForm(); return false;">
                     <div class="up-part d-flex flex-column align-items-center justify-content-center ">
                         <div class="email-box  my-2 w-100">
                         <label for="email" class="form-label">註冊新帳號</label>
@@ -41,42 +41,43 @@
 
                             
                         </div>
-                        <div class="btn-box d-flex flex-column  ">
-                            <button type="submit" class="btn btn-primary btnto2"> <p>註冊</p> </button> 
+                        <div class="btn-box1 d-flex flex-column  ">
+                            <button type="submit" class="btn btn-primary"> <p>註冊</p> </button> 
                         </div>
                         
                     </div>
                 </form>
                     
-                        <div class="line">
-                        <div class="title-sm d-flex flex-column align-items-center"><p>快速註冊</p></div>
-                        </div>
-                        <div class="community d-flex flex
-                        justify-content-center align-items-center">
-                            
-                                <div class="btn">
-                                    <a href="#" class="d-flex  ">
-                                        <div class="pic"><img src="./img_n/google.png" alt=""></div>
-                                        <div class="text"><p>Google</p></div>
-                                    </a>
-                                </div>
-                                <div class="btn">
-                                    <a href="#" class="d-flex  ">
-                                        <div class="pic "><img src="./img_n/fb.png" alt=""></div>
-                                        <div class="text"> <p>Facebook</p></div>
-                                    </a>
-                                </div>
-                            
-                        </div>
-
-                        <div class="say d-flex pt-4 justify-content-center">
-                            <div class="left "> <p>等不及想見到園區的毛孩嗎？</p> </div>
-                            <div class="right"><a href="./login.html"><p>立即登入</p></a></div>
-                        </div>
+                <div class="alldown">
+                    <div class="line">
+                            <div class="title-sm d-flex flex-column align-items-center" style="pointer-events:none" ><p>快速註冊</p></div>
+                    </div>
+                    <div class="community d-flex flex
+                            justify-content-center align-items-center">
+                    
+                                    <div class="btn">
+                                        <a href="#" class="d-flex  ">
+                                            <div class="pic"><img src="./img_n/google.png" alt=""></div>
+                                            <div class="text" style="pointer-events:none" ><p>Google</p></div>
+                                        </a>
+                                    </div>
+                                    <div class="btn">
+                                        <a href="#" class="d-flex  ">
+                                            <div class="pic "><img src="./img_n/fb.png" alt=""></div>
+                                            <div class="text" style="pointer-events:none" > <p>Facebook</p></div>
+                                        </a>
+                                    </div>
+                    
+                    </div>
+                    <div class="say d-flex pt-4 justify-content-center">
+                                <div class="left " style="pointer-events:none" > <p>等不及想見到園區的毛孩嗎？</p> </div>
+                                <div class="right"><a href="./login.html"><p>立即登入</p></a></div>
+                    </div>
+                </div>
 
             </div>
             <div class="content content2 d-flex flex-column align-items-center  w-100">
-                <div class="part w-100">
+                <div class="part w-100 ">
                     
                     <div class="title d-flex justify-content-center "><h3>STEP1</h3></div>
                     <div class="stepbox mx-5 d-flex justify-content-center">
@@ -101,7 +102,7 @@
 
 
                 </div>
-                <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
+                <form class="form needs-validation " name="form1" method="post" onsubmit="checkForm(); return false;">
                     <div class="up-part d-flex flex-column align-items-center   w-100">
                         
                         <div class="password-box  my-3 mt-4 w-100">
@@ -120,7 +121,7 @@
                         </div>
                         </div>
                         <div class="btn-box d-flex flex-column  ">
-                            <button type="submit" class="btn btn-primary">確認</button>
+                            <button type="submit" class="btn btn-primary"> <p>確認</p> </button>
                             
                         </div>
                 </div>
@@ -191,7 +192,12 @@
                 
                 
                 </form>
-        </div>
+            </div>
+            
+                
+                
+                </form>
+            </div>
         
         
                     
@@ -269,11 +275,25 @@
 
 
 
-    $('.content .btnto2').click(function(s){
+    $('.content1 p').click(function(s){
 
-$(this).parents().find('.content2').css('display','none');
+$(this).parents().find('.content1 form').css('display','none');
+$(this).parents().find('.content1 .part').css('display','none');
+$(this).parents().find('.content1 .alldown').css('display','none');
+
+$(this).parents().find('.content2 form').css('display','block');
+$(this).parents().find('.content2 .part').css('display','block');
+
+})
+
+$('.content2 p').click(function(s){
 
 
+$(this).parents().find('.content2 form').css('display','none');
+$(this).parents().find('.content2 .part').css('display','none');
+
+$(this).parents().find('.content3 form').css('display','block');
+$(this).parents().find('.content3 .part').css('display','block');
 
 })
 
