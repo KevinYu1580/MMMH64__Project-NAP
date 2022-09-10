@@ -66,13 +66,12 @@ body{
 }
     @media screen and (min-width: 768px){
         .all-container{
-            padding: 0 5%;
+            /* padding: 0 5%; */
             max-width: 1440px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             margin-top: 120px;
-            /* align-items: flex-start; */
         }
     }
 
@@ -83,6 +82,7 @@ body{
     @media screen and (min-width: 768px){
         .cart-detail{
             width: 50%;
+            margin: 0;
         }
     }
 
@@ -332,9 +332,10 @@ body{
     @media screen and (min-width: 768px){
         .delete-btn img{
             width: 28px;
-            margin-left: 60px;
+            margin-left: 120px;
         }
     }
+
 
 /* --------------總結算列------------- */
 .final-cart-price{
