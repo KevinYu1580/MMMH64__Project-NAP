@@ -1,6 +1,6 @@
 // ----------menu---------
-$(".topNav_mobile .menu").click(function () {
-  $(".nap_menu ").toggleClass("nap_menu_open");
+$(".topNav_mobile .menu, .menu_lightBox_pc").click(function () {
+  $('.nap_menu, .menu_lightBox_pc').toggleClass("nap_menu_open");
 });
 
 // ----------like_Btn---------
@@ -16,13 +16,15 @@ const backmask_two = $('.napSwitch_two .backmask');
 const switch_two_num1 = $('.napSwitch_two .num1');
 const switch_two_num2 = $('.napSwitch_two .num2');
 
-$('.napSwitch_two .num1').click(function(){
+
+$(switch_two_num1).click(function(){
   $(backmask_two).css('left', '0%');
   $(switch_two_num1).css('color', 'var(--white)');
   $(switch_two_num2).css('color', 'var(--black_600)');
 });
 
-$('.napSwitch_two .num2').click(function(){
+
+$(switch_two_num2).click(function(){
   $(backmask_two).css('left', '50%');
   $(switch_two_num1).css('color', 'var(--black_600)');
   $(switch_two_num2).css('color', 'var(--white)');

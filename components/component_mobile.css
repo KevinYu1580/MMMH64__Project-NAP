@@ -1,6 +1,5 @@
 @font-face {
     font-family: custom-font;
-    
     src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
     unicode-range: U+4E00-9FFF;
 }
@@ -73,8 +72,12 @@
     height: 36px;
     margin-left: 16px;
 }
-.topNav_mobile .logo img{
+.topNav_mobile .logo .mb{
     height: 36px;
+}
+.topNav_mobile .logo .pc{
+    display: none;
+    width: 140px;
 }
 .topNav_mobile .menu {
     border: none;
@@ -87,6 +90,31 @@
 .topNav_mobile .menu img{
     width: 24px;
 }
+@media screen and (min-width: 992px){
+    .topNav_mobile{
+        background: none;
+    }
+    .topNav_mobile{
+        padding: 22px 0px;
+    }
+    .topNav_mobile .logo{
+        text-decoration: none;
+        height: fit-content;
+        margin-left: 40px;
+    }
+    .topNav_mobile .logo .mb{
+        display: none;
+    }
+    .topNav_mobile .logo .pc{
+        display: block;
+    }
+    .topNav_mobile .menu img{
+        width: 32px;
+    }
+    .topNav_mobile .menu {
+        margin-right: 40px;
+    }
+}
 
 /* ---- menu ----*/
 .nap_menu  {
@@ -95,9 +123,26 @@
     width: 100%;
     height: calc(100vh - 68px);
     top: 68px;
-    z-index: 999;
+    z-index: 99999;
     transform: translateX(100%);
-    transition: 0.3s;
+    transition: 0.8s;
+    
+}
+@media screen and (min-width: 992px){
+    .nap_menu  {
+        max-width: 60%;
+        height: 100vh;
+        right: 0;
+        top: 0;
+    }
+}
+@media screen and (min-width: 1200px){
+    .nap_menu  {
+        max-width: 790px;
+        height: 100vh;
+        right: 0;
+        top: 0;
+    }
 }
 
 .nap_menu .content {
@@ -105,26 +150,48 @@
     height: 100%;
     width: 100%;
     padding-top: 40px;
+    box-shadow: 0px 0px 60px #00000000;
+}
+@media screen and (min-width: 992px){
+    .nap_menu .content {
+        padding-top: 112px;
+    }
 }
 .nap_menu_open {
     transform: none !important;
+    opacity: 1 !important;
+    display: block !important;
+    pointer-events: auto !important;
 }
+
 
 /* li */
 .nap_menu, .nap_menu a {
     color: var(--white);
     text-decoration: none;
 }
-.nap_menu .menu_link > li {
-    margin-bottom: 36px;
-}
-.nap_menu .menu_link a:hover {
-    color: var(--subColor_yellow);
-}
 .nap_menu .menu_link {
     margin: auto;
     width: 263px;
 }
+@media screen and (min-width: 992px){
+    .nap_menu .menu_link {
+        margin: auto;
+        width: 285px;
+    }
+}
+.nap_menu .menu_link > li {
+    margin-bottom: 36px;
+}
+@media screen and (min-width: 992px){
+    .nap_menu .menu_link > li {
+        margin-bottom: 42px;
+    }
+}
+.nap_menu .menu_link a:hover {
+    color: var(--subColor_yellow);
+}
+
 .nap_menu .menu_link, .menu_link a   {
     font-size: 22px;
 }
@@ -148,11 +215,68 @@
 .nap_menu .menu_link .layer2 span{
     font-size: 14px;
 }
+@media screen and (min-width: 992px){
+
+    .nap_menu .menu_link, .menu_link a   {
+        font-size: 28px;
+    }
+    .nap_menu .menu_link span {
+        font-size: 20px;
+        margin-left: 8px;
+    }
+    .nap_menu .menu_link .layer2 {
+        margin-top: 16px;
+        font-weight: 100;
+        border-top: 1px solid #fff;
+    }
+    .nap_menu .menu_link .layer2 a{
+        font-size: 22px;
+        border-left: 4px solid rgb(255, 255, 255);
+        padding-left: 14px;
+    }
+    .nap_menu .menu_link .layer2 li{
+        margin-top: 16px;
+    }
+    .nap_menu .menu_link .layer2 span{
+        font-size: 16px;
+    }
+    
+}
 /* logout */
 .nap_menu .logout {
     font-size: 24px;
     margin: 70px 0 0 auto;
     width: fit-content;
+}
+
+@media screen and (min-width: 992px){
+    .nap_menu .logout {
+        position: absolute;
+        bottom: 80px;
+        right: 16%;   
+    }
+}
+/* lightBox */
+.menu_lightBox_pc{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: 0.8s;
+    z-index: 9999;
+    pointer-events: none;
+    /* display: none; */
+}
+@media screen and (max-width: 991px){
+    .menu_lightBox_pc{
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    }
 }
 /* icon_links */
 .nap_menu .icon_link {
@@ -161,6 +285,11 @@
     left: calc((100% - 263px)/2 );
     top: 543px;
     transform: translateX(-32px);
+}
+@media screen and (min-width: 992px){
+    .nap_menu .icon_link {
+        display: none;
+    }
 }
 .nap_menu .icon_link li {
     margin-left: 32px;
@@ -458,7 +587,8 @@
     .footer-mobile .content {
         display: flex;
         align-items: flex-end;
-        padding-top: 248px;
+        padding-top: 312px;
+        line-height: 180%;
         
     }
 }
