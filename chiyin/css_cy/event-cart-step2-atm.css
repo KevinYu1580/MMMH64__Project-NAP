@@ -233,7 +233,7 @@ body{
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list .event-name{
-            font-size: var(--headline_24px);
+            font-size: var(--headline_28px);
             margin-bottom: 10px;
         }
     }
@@ -241,10 +241,12 @@ body{
 .per-cart-item .item-list{
     margin-left: 8px;
     position: relative;
+    width: calc(100% - 100px);
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list{
             margin-left: 20px;
+            width: calc(100% - 230px);
         }
     }
     
@@ -273,6 +275,8 @@ body{
 .per-cart-item .item-list .item-price{
     font-size: var(--subtitle_18px);
     margin-top: 5px;
+    display: flex;
+    justify-content: right;
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list .item-price{

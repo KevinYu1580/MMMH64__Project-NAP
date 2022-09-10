@@ -60,24 +60,86 @@ body{
     color: var(--subColor_text);
 }
 
+.outer-container{
+    position: relative;
+    margin: auto;
+    min-width: 375px;
+}
+    @media screen and (min-width: 768px){
+        .outer-container{
+            max-width: 1440px;
+        }
+    }
+
 .all-container{
     min-width: 375px;
-    margin-top: 80px;
+    margin-top: 40px;
 }
     @media screen and (min-width: 768px){
         .all-container{
             /* padding: 0 5%; */
-            max-width: 1440px;
             margin: auto;
             display: flex;
             justify-content: space-between;
-            margin-top: 120px;
+            margin-top: 0;
         }
     }
 
+.mobile-backpage{
+    height: 45px;
+    margin-top: 68px;
+    background-color: var(--primaryColor_dark);
+    width: 100%;
+    color: var(--white);
+    font-size: var(--headline_24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    @media screen and (min-width: 768px){
+        .mobile-backpage{
+            display: none;
+        }
+    }
+
+.mobile-backpage a{
+    text-decoration: none;
+    color: var(--white);
+}
+.mobile-backpage svg{
+    position: absolute;
+    height: 12px;
+    transform: rotate(-90deg);
+    left: 0;
+    margin-left: 10%;
+}
+
+.backpage{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .backpage {
+            font-size: var(--headline_28px);
+            /* padding-left: 8%; */
+            display: flex;
+            align-items: center;
+            margin-top: 80px;
+        }
+    }
+
+.backpage img{
+    transform: rotate(-90deg);
+    margin-right: 15px;
+}
+
+.backpage a{
+    text-decoration: none;
+    color: var(--subColor_text);
+}
+
 .cart-detail{
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
 }
     @media screen and (min-width: 768px){
         .cart-detail{
@@ -86,122 +148,6 @@ body{
         }
     }
 
-/* ---------分別結帳提示--------- */
-.cart-note{
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-bottom: 20px;
-}
-    @media screen and (min-width: 768px){
-        .cart-note{
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-    }
-
-.warn-img{
-    width: 30px;
-    padding-left: 10px;
-    margin-right: 15px;
-}
-    @media screen and (min-width: 768px){
-        .warn-img{
-            width: 43px;
-            margin-right: 20px;
-        }
-    }
-
-.warn-img svg{
-    width: 30px;
-}
-    @media screen and (min-width: 768px){
-        .warn-img svg{
-            width: 43px;
-        }
-    }
-
-.cart-note-content p{
-    color: var(--subColor_highLightRed);
-    font-size: var(--p_14px);
-    line-height: 1rem;
-    margin-left: 5px;
-}
-    @media screen and (min-width: 768px){
-        .cart-note-content p{
-            font-size: var(--headline_20px);
-            line-height: 1.5rem;
-            
-        }
-    }
-
-/* -------------正在結帳的頁面------------ */
-.cart-page{
-    display: flex;
-    margin: auto;
-    width: 100%;
-}
-
-.cart-page .event-cart{
-    border: solid 1px var(--secondaryColor_default);
-    font-size: var(--subtitle_18px);
-    font-weight: 500;
-    color: var(--secondaryColor_default);
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-}
-    @media screen and (min-width: 768px){
-        .cart-page .event-cart{
-            border: solid 2px var(--secondaryColor_default);
-            font-size: var(--headline_24px);
-            padding: 15px;
-        }
-    }
-.inactive-cart, .active-cart{
-    width: 50%;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.inactive-cart:hover, .active-cart:hover{
-    transform: translateY(-5px);
-    transition: .3s;
-}
-
-.cart-page .room-cart{
-    border: solid 1px var(--secondaryColor_default);
-    font-size: var(--subtitle_18px);
-    font-weight: 500;
-    background-color: var(--secondaryColor_default);
-    color: var(--white);
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-}
-    @media screen and (min-width: 768px){
-        .cart-page .room-cart{
-            border: solid 2px var(--secondaryColor_default);
-            font-size: var(--headline_24px);
-            padding: 15px;
-        }
-    }
-
-.triangle{
-    display: flex;
-    width: 100%;
-}
-.triangle svg{
-    width: 21px;
-    margin: 0 auto;
-    padding-bottom: 12px;
-}
-    @media screen and (min-width: 768px){
-        .triangle svg{
-            width: 35px;
-        }
-    }
 
 /* -------------步驟進度------------ */
 .step-rate{
@@ -212,16 +158,22 @@ body{
 }
     @media screen and (min-width: 768px){
         .step-rate{
-            width: 100%;
+            display: flex;
+            justify-content:right;
+            /* width: 100%; */
             margin: 30px 0;
         }
     }
+
 .step-rate img{
     margin: auto;
+    display: flex;
 }
     @media screen and (min-width: 768px){
         .step-rate img{
-            margin: auto;
+            width: 296px;
+            height: 57px;
+            justify-content: right;
         }
     }
 
@@ -288,13 +240,16 @@ body{
 
 .per-cart-item .item-list{
     margin-left: 8px;
+    /* position: relative; */
+    width: calc(100% - 100px);
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list{
             margin-left: 20px;
+            width: calc(100% - 230px);
         }
     }
-    
+
 .per-cart-item .item-list .room-night{
     display: flex;
 }
@@ -313,6 +268,8 @@ body{
 .per-cart-item .item-list .item-price{
     font-size: var(--subtitle_18px);
     margin-top: 10px;
+    display: flex;
+    justify-content: right;
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list .item-price{
@@ -336,44 +293,69 @@ body{
         }
     }
 
-.delete-btn img{
-    width: 15px;
-    margin-left: 30px;
-}
-    @media screen and (min-width: 768px){
-        .delete-btn img{
-            width: 28px;
-            margin-left: 120px;
-        }
-    }
-
-
 /* --------------總結算列------------- */
 .final-cart-price{
     position: relative;
 }
-    .final-cart-price::before{
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 2px;
-        background-color: var(--primaryColor_dark);
-        top: -20px;
+
+.final-cart-price::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: var(--primaryColor_dark);
+    top: -10px;
+}
+    @media screen and (min-width: 768px){
+        .final-cart-price::before{
+            top: -20px;
+        }
     }
+
+.final-cart-price .discount{
+    display: flex;
+    background-color: var(--secondaryColor_light);
+    padding: 5px;
+    font-size: var(--p_14px);
+    width: 50%;
+    justify-content: center;
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+    @media screen and (min-width: 768px){
+        .final-cart-price .discount{
+            font-size: var(--headline_20px);
+            width: 35%;
+        }
+    }
+
+.final-cart-price .discount-num{
+    margin-left: 10px;
+}
 
 .total-price{
     display: flex;
     text-align: right;
     justify-content: right;
-    margin-top: 30px;
+    margin-top: 10px;
 }
+    @media screen and (min-width: 768px){
+        .total-price{
+            margin-top: 15px;
+        }
+    }
 
 .deposit-price{
     display: flex;
     text-align: right;
     justify-content: right;
-    margin-top: 20px;
+    margin-top: 10px;
 }
+    @media screen and (min-width: 768px){
+        .deposit-price{
+            margin-top: 15px;
+        }
+    }
 
 .total-price p, .deposit-price p{
     text-align: right;
@@ -407,19 +389,18 @@ body{
 }
 
 
-
-/* ---------付款方式區塊--------- */
-.pay-way{
+/* ---------ATM 注意事項--------- */
+.pay-atm{
     background-color: var(--subColor_bgc);
-    padding: 30px;
+    padding: 20px 30px;
     border-radius: 20px;
     width: 90%;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 55px;
 }
     @media screen and (min-width: 768px){
-        .pay-way{
+        .pay-atm{
             margin: auto;
             padding: 5%;
             width: 50%;
@@ -427,63 +408,115 @@ body{
             margin-top: 0;
         }
     }
-.pay-way .member-img{
-    width: 70px;
-    margin: auto;
-    margin-bottom: 30px;
+.pay-atm .pay-atm-title h4{
+    display: none;
 }
     @media screen and (min-width: 768px){
-        .pay-way .member-img{
-            width: 120px;
-            margin-bottom: 40px;
-        }
-    }
-
-.pay-way .member-img svg{
-    width: 70px;
-    height: 70px;
-}
-    @media screen and (min-width: 768px){
-        .pay-way .member-img svg{
-            width: 120px;
-            height: 120px;
-        }
-    }
-
-.pay-way .mb-3 .form-label{
-    font-size: var(--headline_20px);
-    display: flex;
-    justify-content: center;
-    margin-bottom: 12px;
-    
-}
-    @media screen and (min-width: 768px){
-        .pay-way .mb-3 .form-label{
-            font-size: var(--headline_20px);
-            margin-bottom: 18px;
-            justify-content: left;
-        }
-    }
-
-/* ---------付款方式按鈕--------- */
-.cart-btn{
-    margin: auto;
-    margin-top: 40px;
-}
-    @media screen and (min-width: 768px){
-        .cart-btn{
+        .pay-atm .pay-atm-title h4{
             display: flex;
-            margin: auto;
-            justify-content: space-evenly;
-            margin-top: 40px;
+            font-size: var(--headline_32px);
+            text-align: center;
+            justify-content: center;
         }
     }
 
-.napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+.pay-atm .atm-notice{
+    background-color: var(--white);
+    margin: 20px 0;
+    padding: 20px;
+}
+    @media screen and (min-width: 768px){
+        .pay-atm .atm-notice{
+            padding: 40px;
+            margin: 30px 0;
+        }
+    }
+
+.pay-atm .atm-notice .notice-title{
+    font-size: var(--headline_20px);
+    position: relative;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+    @media screen and (min-width: 768px){
+        .pay-atm .atm-notice .notice-title{
+            font-size: var(--headline_24px);
+            margin: 0 0 40px 0;
+        }
+    }
+
+.pay-atm .atm-notice .notice-title::after{
+    position: absolute;
+    content: '';
+    background-color: var(--black_600);
+    width: 50%;
+    height: 1px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.atm-notice-content{
+    font-size: var(--p_16px);
+    line-height: 1.4rem;
+    margin: 0 8px;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .atm-notice-content{
+            font-size: var(--headline_20px);
+            line-height: 1.8rem;
+            margin: 20px;
+            margin-bottom: 20px;
+            
+
+        }
+    }
+
+.atm-notice-content span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
+}
+
+.atm-notice-example{
+    font-size: var(--p_12px);
+    line-height: 1rem;
+    margin: 0 8px;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .atm-notice-example{
+            font-size: var(--subtitle_16px);
+            line-height: 1.2rem;
+            margin: 0 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+
+/* ---------確認結帳按鈕--------- */
+.confirm-btn{
+    margin-top: 30px;
+    width: 100%;
+}
+    @media screen and (min-width: 768px){
+        .confirm-btn{
+            margin-top: 35px;
+            width: 100%;
+        }
+    }
+
+.confirm-btn .napBtn_fixed_filled {
+    font-size: var(--headline_20px);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.confirm-btn .napBtn_fixed_filled span{
     font-size: var(--headline_20px);
 }
     @media screen and (min-width: 768px){
-        .napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+        .confirm-btn .napBtn_fixed_filled span{
             font-size: var(--headline_24px);
         }
     }
@@ -498,8 +531,7 @@ body{
         }
     }
 
-
-.cart-btn a{
+.confirm-btn a{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -508,7 +540,7 @@ body{
     width: 180px;
 }
     @media screen and (min-width: 768px){
-        .cart-btn a{
+        .confirm-btn a{
             margin: auto;
             margin-top: 10px;
             height: 55px;
