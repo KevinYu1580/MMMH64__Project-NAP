@@ -161,6 +161,13 @@ body{
     }
 .inactive-cart, .active-cart{
     width: 50%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.inactive-cart:hover, .active-cart:hover{
+    transform: translateY(-5px);
+    transition: .3s;
 }
 
 .cart-page .room-cart{
@@ -429,6 +436,20 @@ body{
         }
     }
 
+.pay-way .mb-3 .form-label{
+    font-size: var(--headline_20px);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    
+}
+    @media screen and (min-width: 768px){
+        .pay-way .mb-3 .form-label{
+            font-size: var(--headline_20px);
+            margin-bottom: 18px;
+            justify-content: left;
+        }
+    }
 
 /* ---------付款方式按鈕--------- */
 .cart-btn{
