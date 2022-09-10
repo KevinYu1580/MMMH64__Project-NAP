@@ -54,10 +54,7 @@
     font-family: custom-font;        
 }
 
-.gift-expired{
-    
-    filter: grayscale(100%);
-}
+
 
 .gift{
     background-image: url(../img_n/gift/bg.svg);
@@ -67,8 +64,29 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    
 
 }
+
+.gift-expired{  
+    background-color: rgb(76, 76, 76, 0.7);
+    height: 163px;
+    width: 296px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+}
+
+.gift-expired h4{
+    font-size: var(--headline_20px);
+    color: var(--black_200);
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+}
+
 
 .gift p{
     position: absolute;
@@ -104,6 +122,23 @@
         
     
     }
+
+    .gift-expired{  
+
+        height: 270px;
+        width: 524px;
+    }
+
+    .gift-expired h4{
+        font-size: var(--headline_40px);
+        color: var(--black_200);
+        position: absolute;
+        top: 50%;
+        right: 0%;
+    }
+
+
+
     .gift p{
         position: absolute;
         top: 36px;

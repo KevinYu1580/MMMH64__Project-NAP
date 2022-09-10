@@ -90,7 +90,12 @@
     font-size: var(--headline_32px);
 }
 
+.container{
+    padding-left: 0;
+    padding-right: 0;
+    
 
+}
 
 
 li {
@@ -118,7 +123,71 @@ li .inhere{
     
 }
 
-@media (min-width: 576px) {
+
+/* ------------------------- */
+
+
+
+  .titlemb{
+    background-color:var(--secondaryColor_default);
+    height: 45px;
+    width: 100%;
+    
+  }
+
+  .titlemb h2{
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0;
+    
+  }
+
+
+  /* -------------------------------- */
+
+  .top-pages {
+    
+    margin-bottom: 64px;
+    
+  }
+
+  .top-page a{
+    text-decoration: none;
+    color: var(--secondaryColor_default);
+  }
+
+  .top-page .page{
+    width: 200px;
+    height: 40px;
+    border: 1px solid var(--secondaryColor_default);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .top-page  .atpage{
+    background-color: var(--secondaryColor_default);
+    color: rgb(255, 255, 255);
+    
+  }
+  
+
+  .top-page .page img {
+    line-height: 0;
+    position: absolute;
+    top: 38px;
+    left: 88px
+  }
+
+  .top-page h5{
+    margin-bottom: 0;
+    font-size: 22px;
+  }
+
+
+  @media (min-width: 576px) {
 
     .titlebox{
         display: block;
@@ -129,6 +198,14 @@ li .inhere{
     .partname-mb{
         display: none;
     }
+
+    .decorate-big{
+        display: block;
+      }
+
+      .decorate-sm{
+        display: none;
+      }
 
    
 }
@@ -147,8 +224,9 @@ li .inhere{
     
 li{
     font-size: 18px; 
-    padding-right: 5px;
-   padding-left: 5px;
+    padding-right: 15px;
+   padding-left: 15px;
+   font-weight: 900;
 }
 
 .titlebox{
@@ -164,25 +242,40 @@ li{
 .wrap{
     
     margin-top: 68px;
-    margin-bottom: 60px;
+    margin-bottom: 28px;
 
 }
 
+.top-pages{
+    margin-bottom: 32px;
+}
 
-/* ------------------------- */
-
-
-
-  .titlemb{
-    background-color:var(--secondaryColor_default);
-    height: 45px;
-    width: 100%;
+.top-page .page{
+    width: 98px;
+    height: 28px;
     
   }
-
-  .titlemb h2{
-    font-size: 22px;
-    color: rgb(255, 255, 255);
+  .top-page h5{
     margin-bottom: 0;
-    
+    font-size: 16px;
+  }
+
+  .top-page .page img {
+    line-height: 0;
+    position: absolute;
+    top: 27px;
+    left: 47px
+  }
+
+  .decorate-big{
+    display: none;
+  }
+  .decorate-sm{
+    display: block;
+  }
+
+  .bd-none1{
+    border-right: none
+}
+
   }
