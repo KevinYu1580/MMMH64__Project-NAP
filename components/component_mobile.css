@@ -144,7 +144,36 @@
         top: 0;
     }
 }
+.topNav_mobile .icon_wrap {
+    display: flex;
+    gap: 28px;
+}
+.topNav_mobile .icon_wrap .sec1{
+    gap: 16px;
+    display: none;
+}
+@media screen and (min-width: 992px){
+    .topNav_mobile .icon_wrap .sec1{
+        display: flex;
+    }
+}
+.topNav_mobile .icon_wrap .sec1 > a{
+width: 40px;
+height: 40px;
+}
+.topNav_mobile .icon_wrap #memberPic {
+    border: 4px solid var(--primaryColor_dark);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-image: url(../kevin/img/circle-people.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
 
+
+/* 選單內容 */
 .nap_menu .content {
     background-color:var(--primaryColor_dark);
     height: 100%;
@@ -154,7 +183,10 @@
 }
 @media screen and (min-width: 992px){
     .nap_menu .content {
-        padding-top: 112px;
+        padding-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 .nap_menu_open {
@@ -177,7 +209,7 @@
 @media screen and (min-width: 992px){
     .nap_menu .menu_link {
         margin: auto;
-        width: 285px;
+        width: 292px;
     }
 }
 .nap_menu .menu_link > li {

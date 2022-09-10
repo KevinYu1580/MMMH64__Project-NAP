@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="../reset/reset.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
     <link rel="stylesheet" href="./home_page.css">
@@ -19,18 +19,31 @@
     <!------ topNav 要跟menu一起複製------>
     <div class="topNav_mobile">
         <a class="logo" href="#">
-            <img src="./img/logo-1.svg" alt="">
+            <img class='mb' src="../kevin/img/logo-1.svg" alt="">
+            <img class='pc' src="../kevin/img/logo-2.svg" alt="">
         </a>
-        <button class="menu">
-            <img src="./img/k/hamburger.svg" alt="">
-        </button>
+        <div class="icon_wrap">
+            <div class="sec1">
+                <a href="">
+                    <img src="../components/img/Cart.svg" alt="">
+                </a>
+                <a id="memberPic" href="">
+                  <!-- 圖片在css的background-image -->
+                </a>
+            </div>
+            <button class="menu sec2">
+                <img src="../components/img/hamburger.svg" alt="">
+            </button>
+        </div>
+
     </div>
     <!------ menu -------->
+    <div class="menu_lightBox_pc">
+    </div>
     <div class="nap_menu">
-        <div class="lightBox_pc">
-        </div>
+
         <div class="content">
-            
+
             <ul class="menu_link">
                 <li>
                     <a href="#">首頁<span>Home Page</span></a>
@@ -130,6 +143,8 @@
 
     <!-- first page -->
     <div class="first_page">
+        <div class="visualPic_wrap">
+        </div>
         <div class="content_wrap">
             <!-- logo+text -->
             <div class="logo_content">
@@ -187,10 +202,40 @@
         <div class="bot_img">
             <div id="hand">
             </div>
-            <div class="trainWrap">
-                <div class="napimg">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
                 </div>
-            </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./img/k/carousel-1.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./img/k/carousel-2.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./img/k/carousel-3.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./img/k/carousel-4.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./img/k/carousel-5.jpg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
     </div>
 
@@ -353,7 +398,9 @@
 
     </div>
     <div class="footer-mobile">
-        
+        <div class="illustration">
+            <img src="./img/k/illustration-65.png" alt="">
+        </div>
         <div class="top_sec">
             <div class="content">
                 <p class="sec1">
@@ -432,6 +479,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../components/component.js"></script>
     <script src="./home_page.js"></script>
 
