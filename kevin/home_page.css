@@ -416,7 +416,7 @@ p {
   background-repeat: no-repeat;
   position: relative;
   margin-bottom: 82px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 @media screen and (min-width: 576px){
   .explain {
@@ -426,6 +426,11 @@ p {
 @media screen and (min-width: 992px){
   .explain {
     padding: 200px 260px 270px;
+  }
+}
+@media screen and (min-width: 1200px){
+  .explain {
+    margin-bottom: 174px;
   }
 }
 .explain .cause {
@@ -502,7 +507,7 @@ p {
 }
 /*  */
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1200px){
   .explainInfo .contentWrap{
     display: flex;
     flex-direction: row-reverse;
@@ -512,7 +517,7 @@ p {
 .explain .explainText {
   margin-bottom: 32px;
 }
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1200px){
   .explain .explainText {
     margin-left: 80px;
   }
@@ -521,11 +526,19 @@ p {
   position: relative;
   width: 100%;
   max-width: 680px;
+
   aspect-ratio: 1 / 1;
-  margin: auto;
+  margin: auto 0 auto  0;
   outline: 2px solid var(--primaryColor_dark);
   border-radius: var(--border-radious);
   z-index: 0;
+}
+@media screen and (min-width: 1024px){
+  .explain .sleepPic {
+    margin: 0 0 auto 0;
+    outline: 4px solid var(--primaryColor_dark);
+    min-width: 380px;
+  }
 }
 .explain .sleepPic img{
   position: absolute;
@@ -548,15 +561,32 @@ p {
   font-size: 24px;
   margin-bottom: 20px;
 }
+@media screen and (min-width: 768px){
+  .explain .contentWrap .sec1 {
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+}
 .explain .contentWrap .sec2 {
   font-weight: 600;
   color: var(--secondaryColor_default);
   font-size: 32px;
   margin-bottom: 20px;
 }
+@media screen and (min-width: 768px){
+  .explain .contentWrap .sec2 {
+    font-size: 40px;
+  }
+}
 .explain .contentWrap .explainText p {
   font-size: 14px;
   margin-bottom: 24px;
+}
+@media screen and (min-width: 768px){
+  .explain .contentWrap .explainText p {
+    font-size: 18px;
+    margin-bottom: 58px;
+  }
 }
 .explain .explainInfo {
   position: relative;
@@ -567,16 +597,51 @@ p {
   bottom: 84px;
   transform: scaleX(-1);
 }
+@media screen and (min-width: 768px){
+  .explain .bush {
+    bottom: 28px;
+  }
+}
+@media screen and (min-width: 1024px){
+  .explain .bush {
+    bottom: 194px;
+  }
+}
 .explain .bush img{
   width: 80vw;
 }
+@media screen and (min-width: 768px){
+  .explain .bush img{
+    max-width: 590px;
+  }
+}
+@media screen and (min-width: 1024px){
+  .explain .bush img{
+    max-width: 608px;
+  }
+}
+
 .explain .paws {
   position: absolute;
-  bottom: -84px;
+  transform-origin: 50% 50%;
+  right: 20%;
+  bottom: 0px;
+  transform: translate(0%, 40%);
+}
+@media screen and (min-width: 1024px){
+  .explain .paws {
+    transform: translate(0%, 0%);
+  }
 }
 .explain .paws img {
   width: 280px;
   transform: rotate(-10deg);
+}
+@media screen and (min-width: 1024px){
+  .explain .paws img {
+    width: 508px;
+    transform: rotate(-10deg);
+  }
 }
 
 /*------ napSteps------  */
@@ -584,6 +649,19 @@ p {
   text-align: center;
   padding: 0px 40px;
   margin-bottom: 72px;
+}
+@media screen and (min-width: 1200px){
+  .napSteps {
+    text-align: center;
+    padding: 0px 120px;
+    margin-bottom: 72px;
+  }
+}
+/* --mb-- */
+@media screen and (min-width: 1200px){
+  .wrap_mb {
+    display: none;
+  }
 }
 .napSteps .wrap_mb .line {
   margin: 36px 0px;
@@ -615,12 +693,60 @@ p {
   backface-visibility: hidden;
 }
 
+/* --pc-- */
+@media screen and (max-width: 1199px){
+  .wrap_pc {
+    display: none;
+  }
+}
+.napSteps .wrap_pc .line {
+  margin: 72px 0px;
+  font-size: 20px;
+}
+.napSteps .wrap_pc .cardWrap {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.napSteps .wrap_pc .napCard #back {
+  transform: rotateY(180deg);
+}
+.napSteps .wrap_pc .cardWrap > .size {
+  width: 100%;
+  max-width: 455px;
+  aspect-ratio: 1 / 1.238;
+}
+.napSteps .wrap_pc .napCard {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.napSteps .wrap_pc .napCard img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+.hoverWrap {
+  width: 500px;
+  height: 500px;
+}
+
+
+
 /* btn  */
 .napBtn_fixed_filled {
   width: 50vw;
   max-width: 288px;
   margin: auto;
 }
+
 
 /* ------ footer ------ */
 
