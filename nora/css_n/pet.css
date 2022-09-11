@@ -163,3 +163,11 @@
     background-color: none;
     width: 326px;
 }
+
+.form-control:disabled{
+    background-color: var(--black_200)
+}
+
+.row{
+    --bs-gutter-x: 0rem;
+}
