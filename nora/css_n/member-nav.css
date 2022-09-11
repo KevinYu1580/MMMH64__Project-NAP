@@ -167,6 +167,19 @@ li .inhere{
     
   }
 
+  .top-page .page1{
+    width: 200px;
+    height: 40px;
+    border: 1px solid var(--secondaryColor_default);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+
+
   .top-page  .atpage{
     background-color: var(--secondaryColor_default);
     color: rgb(255, 255, 255);
@@ -175,6 +188,13 @@ li .inhere{
   
 
   .top-page .page img {
+    line-height: 0;
+    position: absolute;
+    top: 38px;
+    left: 88px
+  }
+
+  .top-page .page1 img {
     line-height: 0;
     position: absolute;
     top: 38px;
@@ -255,6 +275,13 @@ li{
     height: 28px;
     
   }
+
+  .top-page .page1{
+    width: 118px;
+    height: 28px;
+    
+  }
+
   .top-page h5{
     margin-bottom: 0;
     font-size: 16px;
@@ -272,6 +299,13 @@ li{
   }
   .decorate-sm{
     display: block;
+  }
+
+  .top-page .page1 img {
+    line-height: 0;
+    position: absolute;
+    top: 27px;
+    left: 52px
   }
 
   .bd-none1{
