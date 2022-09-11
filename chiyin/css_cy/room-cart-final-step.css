@@ -53,137 +53,258 @@
 
 *{
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 body{
     font-family: custom-font;
     color: var(--subColor_text);
-}
-
-.outer-container{
     position: relative;
-    margin: auto;
-    min-width: 375px;
 }
-    @media screen and (min-width: 768px){
-        .outer-container{
-            max-width: 1440px;
-        }
-    }
 
 .all-container{
     min-width: 375px;
-    margin-top: 40px;
+    margin-top: 100px;
 }
     @media screen and (min-width: 768px){
         .all-container{
-            /* padding: 0 5%; */
+            max-width: 1440px;
             margin: auto;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0;
+            margin-bottom: 50px;
+            margin-top: 180px;
         }
     }
 
-.mobile-backpage{
-    height: 45px;
-    margin-top: 68px;
-    background-color: var(--primaryColor_dark);
-    width: 100%;
-    color: var(--white);
-    font-size: var(--headline_24px);
+.complete-icon img{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: auto;
+    width: 100px;
 }
     @media screen and (min-width: 768px){
-        .mobile-backpage{
-            display: none;
+        .complete-icon img{
+            width: 250px;
+            margin-bottom: 50px;
         }
     }
 
-.mobile-backpage a{
-    text-decoration: none;
-    color: var(--white);
+.order-content-text{
+    font-size: var(--headline_20px);
+    color: var(--primaryColor_dark);
+    font-weight: 500;
+    line-height: 2rem;
+    text-align: center;
+    margin: 20px;
 }
-.mobile-backpage svg{
-    position: absolute;
-    height: 12px;
-    transform: rotate(-90deg);
-    left: 0;
-    margin-left: 10%;
+    @media screen and (min-width: 768px){
+        .order-content-text{
+            font-size:var(--headline_40px);
+            line-height: 4rem;
+            text-align: center;
+            margin: 20px;
+            margin-bottom: 30px;
+        }
+    }
+
+/* ---------查看其他訂單結帳按鈕--------- */
+.other-btn{
+    margin: auto;
+    margin-bottom: 55px;
+
+}
+    @media screen and (min-width: 768px){
+        .other-btn{
+            margin-bottom: 65px;
+            flex-direction: row-reverse;
+            display: flex;
+            justify-content: space-evenly;
+            width: 40%;
+        }
+    }
+
+.napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+    font-size: var(--headline_20px);
+}
+    @media screen and (min-width: 768px){
+        .napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+            font-size: var(--headline_24px);
+        }
+    }
+
+.other-btn a{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+}
+    @media screen and (min-width: 768px){
+        .other-btn a{
+            margin: auto;
+            margin-top: 10px;
+            width: 230px;
+            height: 55px;
+            text-decoration: none;
+        }
+    }
+
+/* -----------中間訂單明細列---------- */
+.order-detail{
+    margin: auto;
+    /* width: 327px; */
+    padding: 20px;
+    
+}
+    @media screen and (min-width: 768px){
+        .order-detail{
+            padding: 0;
+            margin-top: 55px;
+            /* margin-left: 5%; */
+            width: 80%;
+        }
+    }
+
+.order-deco-img{
+    display: flex;
+    justify-content: space-between;
 }
 
-.backpage{
+.order-deco-left, .order-deco-right{
+    position: relative;
+}
+
+.dog-left, .cat-left, .cat-right, .dog-right{
+    position: absolute;
+    bottom: -5px;
+}
+
+.dog-left{
+    left: 40px;
+}
+
+.dog-left img{
+    width: 70px;
+}
+
+.cat-left{
     display: none;
 }
+
+.dog-right{
+    display: none;
+}
+
+.cat-right{
+    right: 40px;
+}
+
+.cat-right img{
+    width: 70px;
+}
+@media screen and (min-width: 768px){
+    .dog-left{
+        left: 150px;
+        bottom: -8px;
+    }
+    .dog-left img{
+        width: 153px;
+    }
+    .cat-left{
+        display: block;
+        left: 40px;
+    }
+    .cat-left img{
+        width: 120px;
+    }
+    .dog-right{
+        display: block;
+        right: 140px;
+    }
+    .dog-right img{
+        width: 170px;
+    }
+    .cat-right{
+        right: 50px;
+        bottom: -15px;
+    }
+    .cat-right img{
+        width: 175px;
+    }
+}
+
+.order-title{
+    background-color: var(--secondaryColor_light);
+    height: 45px;
+    border-radius: 20px 20px 0 0;
+    /* margin: auto; */
+
+}
     @media screen and (min-width: 768px){
-        .backpage {
+        .order-title {
+            height: 55px;
+            margin-left: 0;
+        }
+    }
+
+.order-title h4{
+    display: flex;
+    font-size: var(--headline_20px);
+    text-align: left;
+    /* margin-left: 15px; */
+    height: 49px;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.4rem;
+    font-weight: 500;
+}
+    @media screen and (min-width: 768px){
+        .order-title h4{
             font-size: var(--headline_28px);
-            /* padding-left: 8%; */
-            display: flex;
-            align-items: center;
-            margin-top: 80px;
+            text-align: center;
+            height: 65px;
+            justify-content: center;
+            line-height: 2rem;
         }
     }
 
-.backpage img{
-    transform: rotate(-90deg);
-    margin-right: 15px;
-}
-
-.backpage a{
-    text-decoration: none;
-    color: var(--subColor_text);
-}
-
-.cart-detail{
-    width: 90%;
-    margin: 0 auto;
-}
-    @media screen and (min-width: 768px){
-        .cart-detail{
-            width: 50%;
-            margin: 0;
-        }
-    }
-
-
-/* -------------步驟進度------------ */
-.step-rate{
+.triangle {
     display: flex;
     width: 100%;
-    margin: auto;
-    margin: 15px 0;
+}
+.triangle svg{
+    width: 21px;
+    margin: 0 auto;
+    padding-bottom: 10px;
 }
     @media screen and (min-width: 768px){
-        .step-rate{
-            display: flex;
-            justify-content:right;
-            /* width: 100%; */
-            margin: 30px 0;
-        }
-    }
-
-.step-rate img{
-    margin: auto;
-    display: flex;
-}
-    @media screen and (min-width: 768px){
-        .step-rate img{
-            width: 296px;
-            height: 57px;
-            justify-content: right;
+        .triangle svg{
+            width: 35px;
         }
     }
 
 /* -------------明細內容------------ */
+.order-content{
+    padding: 40px 20px;
+    border: solid 6px var(--secondaryColor_light);
+    border-radius: 0 0 20px 20px;
+    background-color: var(--subColor_bgc);
+}
+    @media screen and (min-width: 768px){
+        .order-content{
+            padding: 40px 20px;
+            border: solid 10px var(--secondaryColor_light);
+        }
+    }
+
 .cart-detail-content{
     margin-bottom: 55px;
 }
     @media screen and (min-width: 768px){
         .cart-detail-content{
+            margin: 0 auto;
             margin-bottom: 65px;
+            width: 70%;
         }
     }
 .per-cart-item{
@@ -326,7 +447,7 @@ body{
     background-color: var(--secondaryColor_light);
     padding: 5px;
     font-size: var(--p_14px);
-    width: 50%;
+    width: 60%;
     justify-content: center;
     margin-left: 100%;
     transform: translateX(-100%);
@@ -398,161 +519,77 @@ body{
 }
 
 
-/* ---------ATM 注意事項--------- */
-.pay-atm{
-    background-color: var(--subColor_bgc);
-    padding: 20px 30px;
-    border-radius: 20px;
-    width: 90%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 55px;
+/* --------------訂單明細下方資訊------------- */
+.order-content{
+    margin-bottom: 20px;
 }
     @media screen and (min-width: 768px){
-        .pay-atm{
-            margin: auto;
-            padding: 5%;
-            width: 50%;
-            margin-left: 50px;
-            margin-top: 0;
+        .order-content{
+            margin-bottom: 65px;
         }
     }
-.pay-atm .pay-atm-title h4{
-    display: none;
-}
     @media screen and (min-width: 768px){
-        .pay-atm .pay-atm-title h4{
-            display: flex;
-            font-size: var(--headline_32px);
-            text-align: center;
-            justify-content: center;
+        .order-content-bottom{
+            margin: 0 auto;
+            margin-bottom: 50px;
+            width: 70%;
         }
     }
 
-.pay-atm .atm-notice{
-    background-color: var(--white);
-    margin: 20px 0;
-    padding: 20px;
-}
-    @media screen and (min-width: 768px){
-        .pay-atm .atm-notice{
-            padding: 40px;
-            margin: 30px 0;
-        }
-    }
-
-.pay-atm .atm-notice .notice-title{
-    font-size: var(--headline_20px);
-    position: relative;
+.order-id, .order-date, .pay-way, .order-status, .final-payment{
+    display: flex;
+    justify-content: space-between;
     text-align: center;
-    margin: 0 0 20px 0;
-}
-    @media screen and (min-width: 768px){
-        .pay-atm .atm-notice .notice-title{
-            font-size: var(--headline_24px);
-            margin: 0 0 40px 0;
-        }
-    }
-
-.pay-atm .atm-notice .notice-title::after{
-    position: absolute;
-    content: '';
-    background-color: var(--black_600);
-    width: 50%;
-    height: 1px;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.atm-notice-content{
-    font-size: var(--p_16px);
-    line-height: 1.4rem;
-    margin: 0 8px;
-    margin-bottom: 10px;
-}
-    @media screen and (min-width: 768px){
-        .atm-notice-content{
-            font-size: var(--headline_20px);
-            line-height: 1.8rem;
-            margin: 20px;
-            margin-bottom: 20px;
-            
-
-        }
-    }
-
-.atm-notice-content span{
-    color: var(--subColor_highLightRed);
-    font-weight: 500;
-}
-
-.atm-notice-example{
-    font-size: var(--p_12px);
-    line-height: 1rem;
-    margin: 0 8px;
-    margin-bottom: 10px;
-}
-    @media screen and (min-width: 768px){
-        .atm-notice-example{
-            font-size: var(--subtitle_16px);
-            line-height: 1.2rem;
-            margin: 0 20px;
-            margin-bottom: 20px;
-        }
-    }
-
-
-/* ---------確認結帳按鈕--------- */
-.confirm-btn{
-    margin-top: 30px;
-    width: 100%;
-}
-    @media screen and (min-width: 768px){
-        .confirm-btn{
-            margin-top: 35px;
-            width: 100%;
-        }
-    }
-
-.confirm-btn .napBtn_fixed_filled {
     font-size: var(--headline_20px);
-    border-radius: 5px;
-    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to right, var(--black_600) 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: bottom;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
 }
+    @media screen and (min-width: 768px){
+        .order-id, .order-date, .pay-way, .order-status, .final-payment{
+            font-size: var(--headline_28px);
 
-.confirm-btn .napBtn_fixed_filled span{
+        }
+    }
+
+.order-note{
     font-size: var(--headline_20px);
+    margin-top: 20px;
 }
     @media screen and (min-width: 768px){
-        .confirm-btn .napBtn_fixed_filled span{
-            font-size: var(--headline_24px);
+        .order-note{
+            font-size: var(--headline_28px);
         }
     }
 
-.credit-card-btn, .atm-btn{
-    width: 180px;
-    margin: auto;
-}
-    @media screen and (min-width: 768px){
-        .credit-card-btn, .atm-btn{
-            width: 45%;
-        }
-    }
-
-.confirm-btn a{
-    margin: auto;
+.order-note-content p{
+    word-wrap: break-word;
     margin-top: 10px;
-    margin-bottom: 10px;
-    height: 40px;
-    text-decoration: none;
-    width: 180px;
 }
     @media screen and (min-width: 768px){
-        .confirm-btn a{
-            margin: auto;
-            margin-top: 10px;
-            height: 55px;
-            width: 100%;
+        .order-note-content p{
+            font-size: var(--headline_28px);
         }
     }
+
+.order-content-bottom .text{
+    color: var(--secondaryColor_default);
+}
+
+.order-content-bottom .content{
+    width: 65%;
+    text-align: center;
+}
+    @media screen and (min-width: 768px){
+        .order-content-bottom .content{
+            width: 65%;
+            text-align: right;
+        }
+    }
+
+.final-payment span{
+    color: var(--subColor_highLightRed);
+}
