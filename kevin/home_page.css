@@ -239,12 +239,12 @@ p {
   transform: translate(-50% , -50%);
 }
 .carousel-indicators [data-bs-target] {
-  background-color: var(--secondaryColor_default);
+  background-color:var(--subColor_yellow);
   width: 8px;
   height: 8px;
   border-radius: 50%;
   margin: 0 6px;
-  border: 2px solid var(--white);
+  border: 2px solid var(--secondaryColor_default);
 }
 .carousel-indicators{
   margin-bottom: 8px;
@@ -270,26 +270,61 @@ p {
   padding: 68px 40px 280px 40px;
   position: relative;
 }
+@media screen and (min-width: 992px){
+  .info_points {
+    padding: 136px 40px 424px 40px;
+  }
+}
 .info_points .infoBoxs {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 24px;
   z-index: 2;
 }
+@media screen and (min-width: 992px){
+  .info_points .infoBoxs {
+    gap: 68px;
+  }
+}
+
 .info_points .box {
   background-color: var(--white);
   padding: 54px 24px 48px;
   text-align: center;
+  min-width: 296px;
+  max-width: 498px;
+}
+@media screen and (min-width: 768px){
+  .info_points .box {
+    max-width: 500px;
+    text-align: left;
+    padding: 104px 82px;
+  }
 }
 .info_points .box h3 {
   font-size: 28px;
   color: var(--primaryColor_dark);
   font-weight: 600;
   margin-bottom: 24px;
+  text-align: center;
+}
+@media screen and (min-width: 768px){
+  .info_points .box h3 {
+    margin-bottom: 28px;
+    font-size: 40px;
+  }
 }
 .info_points .box p {
   margin-bottom: 24px;
+}
+@media screen and (min-width: 768px){
+  .info_points .box p {
+    margin-bottom: 32px;
+    font-size: 20px;
+  }
 }
 .info_points .infoBoxs a {
   font-size: 18px;
@@ -312,6 +347,14 @@ p {
   height: 483px;
   z-index: 1;
 }
+@media screen and (min-width: 1024px){
+  .info_points .pool {
+    background-image: url(./img/k/pool-pc.png);
+    background-position: 0% 100%;
+    width: 60%;
+    height: 100%;
+  }
+}
 .info_points .poolPeople {
   position: absolute;
   bottom: 82px;
@@ -324,6 +367,21 @@ p {
   height: 126px;
   z-index: 5;
 }
+@media screen and (min-width: 768px){
+  .info_points .poolPeople{
+    width: 355px;
+    height: 140px;
+    bottom: 120px;
+  }
+}
+@media screen and (min-width: 992px){
+  .info_points .poolPeople{
+    width: 673px;
+    height: 265px;
+    left: 6%;
+  }
+}
+
 .info_points .fence {
   position: absolute;
   bottom: 0;
@@ -334,6 +392,20 @@ p {
   width: 216px;
   height: 54px;
 }
+@media screen and (min-width: 768px){
+  .info_points .fence {
+    left: 3%;
+    width: 284px;
+    height: 62px;
+  }
+}
+@media screen and (min-width: 1024px){
+  .info_points .fence {
+    left: 5%;
+    width: 509px;
+    height: 88px;
+  }
+}
 
 /* ------ explain ------ */
 .explain {
@@ -342,16 +414,42 @@ p {
   background-position: 0% 100%;
   background-size: 100%;
   background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 82px;
+  overflow: hidden;
+}
+@media screen and (min-width: 576px){
+  .explain {
+    background-image: url(./img/k/cloud-pc.svg);
+}
+}
+@media screen and (min-width: 992px){
+  .explain {
+    padding: 200px 260px 270px;
+  }
 }
 .explain .cause {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: start;
   gap: 32px;
   margin: auto auto 56px;
   width: fit-content;
 }
+@media screen and (min-width: 1024px){
+  .explain .cause {
+    gap: 106px;
+    margin: auto auto 306px;
+  }
+}
 .explain .cause p {
   line-height: 200%;
+}
+@media screen and (min-width: 1024px){
+  .explain .cause p {
+    font-size: 30px;
+  }
 }
 .explain .cause .sec1,
 .explain .cause .sec2,
@@ -363,6 +461,14 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+@media screen and (min-width: 1024px){
+  .explain .cause .sec1,
+  .explain .cause .sec2,
+  .explain .cause .sec3 {
+    width: 383px;
+
+  }
 }
 
 /* 圈圈樣式 */
@@ -389,30 +495,46 @@ p {
   font-size: 24px;
   font-weight: 600;
 }
-/*  */
-.explain {
-  position: relative;
-  margin-bottom: 82px;
+@media screen and (min-width: 1024px){
+  .explain .cause .hintNum {
+    font-size: 40px;
+  }
 }
+/*  */
+
+@media screen and (min-width: 1024px){
+  .explainInfo .contentWrap{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
 .explain .explainText {
   margin-bottom: 32px;
+}
+@media screen and (min-width: 1024px){
+  .explain .explainText {
+    margin-left: 80px;
+  }
 }
 .explain .sleepPic {
   position: relative;
   width: 100%;
+  max-width: 680px;
   aspect-ratio: 1 / 1;
   margin: auto;
   outline: 2px solid var(--primaryColor_dark);
   border-radius: var(--border-radious);
   z-index: 0;
 }
-.explain .sleepPic #num1 {
+.explain .sleepPic img{
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 100%;
   transform: translate(3%, 3%);
   z-index: -1;
+  border-radius: 20px;
 }
 .explain .sleepPic #num2 {
   position: absolute;
@@ -435,6 +557,18 @@ p {
 .explain .contentWrap .explainText p {
   font-size: 14px;
   margin-bottom: 24px;
+}
+.explain .explainInfo {
+  position: relative;
+}
+.explain .bush {
+  position: absolute;
+  left: -99px;
+  bottom: 84px;
+  transform: scaleX(-1);
+}
+.explain .bush img{
+  width: 80vw;
 }
 .explain .paws {
   position: absolute;
