@@ -253,11 +253,11 @@ body{
     margin-top: 20px;
     /* margin-bottom: 20px; */
 }
-    @media screen and (min-width: 768px){
+    /* @media screen and (min-width: 768px){
         .confirm-edit-btn{
-            /* padding-bottom: 60px; */
+            padding-bottom: 60px;
         }
-    }
+    } */
 
 .confirm-edit-btn a{
     margin: auto;
