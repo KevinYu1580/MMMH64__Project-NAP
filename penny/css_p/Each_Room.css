@@ -200,7 +200,6 @@ p.line{
     padding: 10px 60px;
     border-radius: 60px;
     font-size: var(--headline_20px);
-    transition: 0.3s;
 }
 .booking-btn a:hover{
     background-color: var(--primaryColor_light);
@@ -339,10 +338,10 @@ p.line{
         padding: 10px 60px;
         border-radius: 60px;
         font-size: var(--headline_24px);
-        transition: 0.3s;
     }
     .booking-btn a:hover{
         background-color: var(--primaryColor_light);
+        transition: 0.3s;
     }
 }
 
