@@ -156,17 +156,7 @@
  </div>
 <!-- 分頁 -->
 
-<div class="top-pages">
-    <div class="top-page d-flex w-100 justify-content-center">
-        <a href="./list.html" >
-            <div class=" page2 d-flex " >
-                <img class="mx-2" src="./img_n/pet/plus+top.svg" alt=""> 
-                <h5> 新增毛孩資料</h5>
-            </div>
-        </a> 
-    </div>
-    
-</div>
+<!--   -->
 
  <!------ content ------>
 
@@ -174,8 +164,8 @@
     <div class="container m-auto">
 
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex  ">
-        <div class="col mx-5 mb-4 ">
-          <div class="card ">
+        <div class="col mx-5 mb-4 col-pc ">
+          <div class="card1 ">
             <div class="up-img">
                 <div class="imgbox">
                     <img src="./img_n/pet/photo.png" alt="" class="photo" >
@@ -191,7 +181,8 @@
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
 
                     <div class="diypart">
-                        <img src="./img_n/pet/dog-mb.png" alt="">
+                        <img src="./img_n/pet/dog-mb.png" alt="" class="card-mb">
+                        <img src="./img_n/pet/dog.png" alt="" class="card-pc">
                         <div class="petname-box pet-box  mb-3  d-flex ">
                             <label for="name" class="form-label d-flex align-items-center">毛孩姓名</label>
                             <input type="name" disabled="disabled" class="form-control" id="name" name="name" placeholder="李菜菜"  required>
@@ -212,15 +203,10 @@
                         
                     </div>
 
-                    <div class="d-flex justify-content-end align-items-center mt-3">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary"><img src="./img_n/pet/Download.svg" class="fixbox"     alt=""></button>
+                    <div class=" btn-group1 d-flex justify-content-end align-items-center mt-3">
                           <div class="btn-box   ">
-                            <button type="submit" class="btn btn-primary">儲存</button>
-                            
+                            <button type="submit" class="btn btn-primary">確認修改</button>
                         
-                
-                        </div>
                         </div>
                         
                       </div>
@@ -230,59 +216,37 @@
           </div>
         </div>
         <div class="col mx-5 mb-4 ">
-            <div class="card ">
-              <div class="up-img">
-                  <div class="imgbox">
-                      <img src="./img_n/pet/photo.png" alt="" class="photo" >
-                  </div>
-                  <div class="plusbox d-flex flex-column align-items-center">
-                      <img src="./img_n/pet/plus.png" alt="">
-                      <p>新增毛孩照片</p>
-                  </div>
-              
+            <div class="card2
+             ">
+              <div class="control flex-column  align-items-center
+              ">
+                <p class="pb-1" >A. 選擇卡片外觀樣式</p>
+                <div class="kind d-flex  pb-3">
+                    <div class="img-dog d-flex justify-content-center align-items-center mx-3">
+                        <img src="./img_n/pet/diy/card-kind/Dog.svg" alt="">
+                    </div>
+                    <div class="img-cat d-flex justify-content-center align-items-center mx-3 ">
+                        <img src="./img_n/pet/diy/card-kind/Cat.svg" alt="">
+                    </div>
+                </div>
+                <p class="pb-1" >B. 選擇卡片顏色</p>
+                <div class="pet-color  d-flex  pb-3">
+                    <div class="pet-color-gray mx-3">
+                        <img src="" alt="">
+                    </div>
+                    <div class="pet-color-brown mx-3">
+                        <img src="" alt="">
+                    </div>
+                    <div class="pet-color-yellow mx-3">
+                        <img src="" alt="">
+                    </div>
+                    <div class="pet-color-red mx-3">
+                        <img src="" alt="">
+                    </div>
+                    
+                </div>
+
               </div>
-  
-              <div class="card-body1">
-                  <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
-  
-                      <div class="diypart">
-                          <img src="./img_n/pet/dog-mb.png" alt="">
-                          <div class="petname-box pet-box  mb-3  d-flex ">
-                              <label for="name" class="form-label d-flex align-items-center">毛孩姓名</label>
-                              <input type="name" disabled="disabled" class="form-control" id="name" name="name" placeholder="李菜菜"  required>
-                          </div>
-                          <div class="petname-box pet-box pet-box3 mb-3  d-flex ">
-                              <label for="name" class="form-label d-flex align-items-center">種類</label>
-                              <input type="name" disabled="disabled" class="form-control" id="name" name="name" placeholder="狗狗"  required>
-                          </div>
-                          <div class="petname-box pet-box pet-box4  mb-3  d-flex ">
-                              <label for="name" class="form-label d-flex align-items-center">性別</label>
-                              <input type="name" disabled="disabled" class="form-control" id="name" name="name" placeholder="女生"  required>
-                          </div>
-                          <div class="petname-box pet-box pet-box2  mb-3  d-flex ">
-                              <label for="name" class="form-label d-flex align-items-center">年齡</label>
-                              <input type="name" disabled="disabled" class="form-control" id="name" name="name" placeholder="成年"  required>
-                          </div>
-                          
-                          
-                      </div>
-  
-                      <div class="d-flex justify-content-end align-items-center mt-3">
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary"><img src="./img_n/pet/Download.svg" class="fixbox"     alt=""></button>
-                            <div class="btn-box   ">
-                              <button type="submit" class="btn btn-primary">儲存</button>
-                              
-                          
-                  
-                          </div>
-                          </div>
-                          
-                        </div>
-                  </form>
-                
-              </div>
-            </div>
           </div>
         
         

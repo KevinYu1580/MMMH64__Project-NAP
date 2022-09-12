@@ -70,8 +70,17 @@
 
  .up-img .plusbox{
     position: absolute;
-    top: 70px;
-    left: 120px;
+    top: 85px;
+    left: 115px;
+    cursor: pointer;
+}
+
+.card1 .up-img .plusbox{
+    position: absolute;
+    top:130px;
+    left: 178px;
+    z-index: 20;
+    cursor: pointer;
 }
 
 
@@ -136,6 +145,27 @@
 
 .btn{
     border: none;
+    
+    
+}
+
+.btn1:hover{
+    background-color: #fff;
+    border: none;
+}
+
+
+.btn1{
+    border: none;
+    /* padding-top: 20px; */
+    margin-bottom: 4px;
+    
+}
+
+.btn-box1{
+    background-color: #fff;
+    height: 34px;
+    
 }
 
  .btn-box .btn{
@@ -158,11 +188,25 @@
     width: 326px;
 
 }
+
+
+
 .card{
     border: 0;
     background-color: none;
     width: 326px;
+    position: relative;
 }
+
+.card1{
+    border: 0;
+    background-color: none;
+    width: 326px;
+    position: relative;
+
+}
+
+
 
 .form-control:disabled{
     background-color: var(--black_200)
@@ -170,4 +214,295 @@
 
 .row{
     --bs-gutter-x: 0rem;
+}
+
+.btn:hover{
+    background-color: var(--primaryColor_light);
+    border: 1px solid var(--primaryColor_light);
+    
+}
+
+.btn-sm-1{
+    margin-top: 1px;
+}
+
+.btn-sm:hover{
+    background-color: #fff;
+    border: none;
+}
+
+
+
+
+.btn:focus{
+    background-color: #fff;
+}
+
+
+
+/* ---------------------------- */
+
+.control{
+    width: 326px;
+    height: 300px;
+    border-radius: var(--border-radious);
+    background-color: var(--subColor_bgc);
+    display: flex; 
+    padding-top: 40px;
+    align-items: center;
+}
+
+.control .img-dog{
+    width: 40px;
+    height:40px;
+    background-color: var(--primaryColor_tint);
+    border-radius: 20px;
+
+}
+
+.control .img-cat{
+    width: 40px;
+    height:40px;
+    /* background-color: var(--primaryColor_tint); */
+    border-radius: 20px;
+}
+
+.control .img-dog img{
+    width: 26px;
+    height: 24px;
+}
+
+.control .img-cat img{
+    width: 26px;
+    height: 28px;
+}
+
+.control .pet-color-gray{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #C6C2C2;
+}
+.control .pet-color-brown{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color:var(--secondaryColor_default);
+
+}
+.control .pet-color-yellow{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #FAC844;
+}
+.control .pet-color-red{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #DD5941;
+}
+
+
+
+.btn-group1 {
+    position: relative;
+}
+
+.btn-group1 .btn-box {
+    position: absolute;
+    top: 270px;
+    left: 110px;
+    z-index: 20;
+}
+
+.btn-group1 .btn-box .btn{
+    width: 92px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+@media (min-width: 1200px){
+    .album .row{
+        justify-content: start;
+        margin-left: 25px;
+    }
+
+    /* ---------------------------- */
+
+.control{
+    width: 650px;
+    height: 618px;
+    border-radius: var(--border-radious);
+    background-color: var(--subColor_bgc);
+    display: flex; 
+    padding-top: 120px;
+    align-items: center;
+}
+
+.control p{
+    font-size: 24px;
+}
+
+.control .img-dog{
+    width: 100px;
+    height:100px;
+    background-color: var(--primaryColor_tint);
+    border-radius: 50px;
+
+}
+
+.control .img-cat{
+    width: 100px;
+    height:100px;
+    /* background-color: var(--primaryColor_tint); */
+    border-radius: 50px;
+}
+
+.control .img-dog img{
+    width: 70px;
+    height: 70px;
+}
+
+.control .img-cat img{
+    width: 70px;
+    height: 70px;
+}
+
+.control .pet-color-gray{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #C6C2C2;
+    
+}
+.control .pet-color-brown{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color:var(--secondaryColor_default);
+    
+}
+.control .pet-color-yellow{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FAC844;
+    
+}
+.control .pet-color-red{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #DD5941;
+    
+}
+
+
+
+.btn-group1 {
+    position: relative;
+}
+
+.btn-group1 .btn-box {
+    position: absolute;
+    top: -180px;
+    left: 790px;
+    z-index: 20;
+}
+
+.btn-group1 .btn-box .btn{
+    width: 152px;
+    height: 48px;
+    font-size: 24px;
+}
+
+    
+    /* ----------------------------------- */
+
+    .card2{
+        width: 650px;
+    }
+
+    .card1 .up-img .photo{
+        height: 300px;
+        width: 450px;
+        background-color: var(--black_400) ;
+        border-radius: 20px;
+     }
+
+
+    .card1 .card-pc{
+        display: block;
+    }
+    .card1 .card-mb{
+        display: none;
+    }
+
+    .col-pc{
+        width: 450px;
+    }
+
+    .card1{
+        width: 450px;
+    }
+
+    .card1 .diypart{
+        position: relative;
+        width: 450px;
+        box-sizing: border-box;
+    }
+
+    .card1 .form-control{
+        width: 120px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .card1 .pet-box{
+    
+        height: 30px;
+        position: absolute;
+        top: 80px;
+        right: 10px;
+    }
+    
+    .card1 .pet-box2{
+        top: 125px;
+    }
+    .card1 .pet-box3{
+        top: 165px;
+    
+    }
+    .card1 .pet-box4{
+        top: 215px;
+    }
+
+
+}
+
+@media (max-width: 1200px){
+    .album .row{
+        justify-content: center;
+    }
+    .card1 .card-pc{
+        display: none;
+    }
+    .card1 .card-mb{
+        display: block;
+    }
+
+    .card1 .up-img .plusbox{
+        position: absolute;
+        top:85px;
+        left: 115px;
+        cursor: pointer;
+    }
+
 }

@@ -118,6 +118,11 @@ li a{
     text-decoration: none;
 }
 
+li a:hover{
+  color: var(--primaryColor_light);
+
+}
+
 li .inhere{
     color: var(--secondaryColor_default);
     
@@ -169,6 +174,17 @@ li .inhere{
 
   .top-page .page1{
     width: 200px;
+    height: 40px;
+    border: 1px solid var(--secondaryColor_default);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .top-page .page2{
+    width: 300px;
     height: 40px;
     border: 1px solid var(--secondaryColor_default);
     position: relative;
