@@ -63,11 +63,11 @@ font-family: custom-font;
     background-color: var(--white);    
 }
 
-@media screen and (min-width:576px){
+/* @media screen and (min-width:576px){
     .topNav_mobile , .nap_menu ,.nav-white-block{
         display: none;
     }
-}
+} */
 .banner {
     width: 100%;
     height: 140px;
@@ -459,6 +459,11 @@ justify-content: center;
     }  
 }
 /* 黑色光箱 */
+/* .lightBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+} */
 .lightBox-container{
     width: 100%;
     height: 100vh;
@@ -502,13 +507,15 @@ justify-content: center;
     object-fit: cover;
 }
 /* 黑色光箱info */
+
 .lightBox-card-name {
     font-size: 24px;
     width: fit-content;
     border-left: 3px solid var(--secondaryColor_default);
     margin: 20px 0 10px;
-    padding-left: 5px;
+    padding-left: 20px;
     font-weight: 500;
+
 }
 .lightBox-card-info h6{
  text-align: left;

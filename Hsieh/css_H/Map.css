@@ -56,11 +56,11 @@ body{
 font-family: custom-font;
 }
 /* nav */
-@media screen and (min-width:576px){
+/* @media screen and (min-width:576px){
     .topNav_mobile , .nap_menu ,.nav-white-block{
         display: none;
     }
-}
+} */
 /* 手機版地圖 -----------------------------------------*/
 .nap-map-mobile{
     background-color: var(--subColor_bgc);
@@ -153,17 +153,23 @@ text-align: center;
     left: 70%;
 }
 /* 手機黑色光箱 */
+.lightBox{
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999; */
+}
 .lightBox-container{
     width: 100%;
     height: 100vh;
     background-color: var(--black_core);
-    position: relative;
-    opacity: .8;
+    position: absolute;
+    /* opacity: .8; */
 }
 .lightBox-row{
     color: var(--white);
     width: 100%;
-    position: absolute;
+    
     margin: auto;
 }
 .close{
@@ -173,15 +179,13 @@ text-align: center;
 }
 .close img{
     width: 100%;
-    /* margin: 10px 0 0 0; */
     height: 68px;
 }
 .lightBox-card-img{
     width: 100%;
     height: 260px;
     overflow: hidden;
-    
-    /* margin-top:-68px; */
+
 }
 .lightBox-card-img img{
     width: 100%;
@@ -250,7 +254,7 @@ text-align: center;
     .nap-map-row-pc{
         width: 100%;
         height: 1300px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         display: flex;
         justify-content: space-between;
         
@@ -260,10 +264,10 @@ text-align: center;
         padding: 0;
         margin: 0;
         width: 100%;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         height: 100%;
-        background: url(../img_H/map.png)center 85%;
-        background-size:contain;
+        background: url(../img_H/map.png)center 60%;
+        background-size:90%;
         background-repeat: no-repeat;
     }
     .nap-map-row-pc h3{
@@ -271,7 +275,7 @@ text-align: center;
         font-size: var(--headline_40px);
         font-weight: 700;
         padding: 0px 0 10px 0;
-        margin-top: 140px;
+        margin-top: 120px;
         }
         .nap-map-row-pc h4{
         color: var(--secondaryColor_default);
@@ -296,52 +300,52 @@ text-align: center;
     .button-doghouse{
         position: absolute;
         top: 20.5%;
-        left: 21%;
+        left: 23%;
     }
     .button-cat{
         position: absolute;
-        top: 28.5%;
-        left: 59%;
+        top: 27.5%;
+        left: 57%;
     }
     .button-room{
         position: absolute;
-        top: 43%;
-        left: 47%;
+        top: 41%;
+        left: 48%;
     }
     .button-run{
         position: absolute;
-        top: 38%;
+        top: 36%;
         left: 65%;
     }
     .button-pool{
         position: absolute;
-        top: 57%;
-        left: 52%;
+        top: 53.5%;
+        left: 50%;
     }
     .button-playground{
         position: absolute;
-        top: 60%;
-        left: 20%;
+        top: 56.5%;
+        left: 22%;
     }
     .button-food{
         position: absolute;
-        top: 71%;
-        left: 73.5%;
+        top: 66%;
+        left: 68.5%;
     }
     .button-wash{
         position: absolute;
-        top: 74%;
-        left: 24%;
+        top: 68%;
+        left: 26%;
     }
     .button-parking{
         position: absolute;
-        top: 88%;
-        left: 33%;
+        top: 81.5%;
+        left: 34.5%;
     }
     .button-sale{
         position: absolute;
-        top: 87.5%;
-        left: 72.5%;
+        top: 81%;
+        left: 69.5%;
     }
     /* 右邊文字介紹 */
     .nap-map-col-rihgt{
@@ -352,7 +356,7 @@ text-align: center;
         overflow: hidden;
         width: 100%;
         height: 500px;
-        margin-top: 200px;
+        margin-top: 240px;
     }
     .mapBox-card-img img{
         width: 100%;
@@ -390,19 +394,21 @@ text-align: center;
         color: var(--subColor_text);
         padding: 0;
     }
-
-
-
-
-
-    }
+}
 
     
 
 
 @media screen and (min-width:576px){
-    .footer-mobile ,.lightBox ,.nap-map-mobile{
+     .lightBox ,.nap-map-mobile {
         display: none;
     }
 }
+@media screen and (max-width:576px){
+    .nap-map-pc{
+        display: none;
+    }
+}
+
+
 
