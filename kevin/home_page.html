@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="../reset/reset.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
     <link rel="stylesheet" href="./home_page.css">
@@ -17,6 +17,7 @@
 
 <body>
     <!------ topNav 要跟menu一起複製------>
+    </div>
     <div class="topNav_mobile">
         <a class="logo" href="#">
             <img class='mb' src="../kevin/img/logo-1.svg" alt="">
@@ -28,7 +29,7 @@
                     <img src="../components/img/Cart.svg" alt="">
                 </a>
                 <a id="memberPic" href="">
-                  <!-- 圖片在css的background-image -->
+                    <!-- 圖片在css的background-image -->
                 </a>
             </div>
             <button class="menu sec2">
@@ -140,6 +141,9 @@
         </div>
     </div>
 
+    <div class="aniCover">
+        <div class="aniCover_mask"></div>
+    </div>
 
     <!-- first page -->
     <div class="first_page">
@@ -204,38 +208,45 @@
             </div>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="./img/k/carousel-1.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./img/k/carousel-2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./img/k/carousel-3.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./img/k/carousel-4.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./img/k/carousel-5.jpg" class="d-block w-100" alt="...">
-                  </div>
+                    <div class="carousel-item active">
+                        <img src="./img/k/carousel-1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/k/carousel-2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/k/carousel-3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/k/carousel-4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/k/carousel-5.jpg" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-              </div>
+            </div>
         </div>
     </div>
 
@@ -392,14 +403,56 @@
                 自身的利益上！
             </p>
         </div>
+
+        <div class="wrap_pc">
+            <p class="line">
+                認養前，可以先思考各種可能的問題或狀況，<br>
+                同時重新檢視自己的個性及生活環境和家庭成員，<br>
+                再做出對彼此最合適的決定！
+            </p>
+            <div class="cardWrap">
+                <div id="num1" class="size">
+                    <div class="napCard">
+                        <img id="front" src="./img/k/stepPic-1.svg" alt="">
+                        <img id="back" src="./img/k/stepPic-1_back.svg" alt="">
+                    </div>
+                </div>
+                <div id="num2" class="size">
+                    <div class="napCard">
+                        <img id="front" src="./img/k/stepPic-2.svg" alt="">
+                        <img id="back" src="./img/k/stepPic-2_back.svg" alt="">
+                    </div>
+                </div>
+                <div id="num3" class="size">
+                    <div class="napCard">
+                        <img id="front" src="./img/k/stepPic-3.svg" alt="">
+                        <img id="back" src="./img/k/stepPic-3_back.svg" alt="">
+                    </div>
+                </div>
+                <div id="num4" class="size">
+                    <div class="napCard">
+                        <img id="front" src="./img/k/stepPic-4.svg" alt="">
+                        <img id="back" src="./img/k/stepPic-4_back.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <p class="line">
+                飼養後可以多想想貓狗牠們真正需要的是什麼？<br>
+                我們應該彼此互相理解、認同，因為動物的存在從不該建立在自身的利益上！
+            </p>
+        </div>
         <a class="napBtn_fixed_filled" href="#">
-            <span>按鈕</span>
+            <span>加入會員 Join Us!</span>
         </a>
 
     </div>
     <div class="footer-mobile">
         <div class="illustration">
             <img src="./img/k/illustration-65.png" alt="">
+        </div>
+        <div class="branch">
+            <img src="./img/k/illustration-67.png" alt="">
         </div>
         <div class="top_sec">
             <div class="content">
@@ -460,7 +513,7 @@
     </div>
 
 
-  
+
 
 
 
@@ -479,7 +532,9 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
     <script src="../components/component.js"></script>
     <script src="./home_page.js"></script>
 

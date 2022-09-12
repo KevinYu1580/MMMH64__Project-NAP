@@ -118,7 +118,7 @@ body{
             display: flex;
             align-items: center;
             /* top: 100px; */
-            margin-top: 80px;
+            margin-top: 132px;
         }
     }
 
@@ -531,7 +531,6 @@ body{
         }
     }
 
-
     @media screen and (min-width: 768px){
         .booking-content .form{
             margin-top: 10px;
@@ -555,6 +554,8 @@ body{
         }
     }
 
+
+/* ---------這裡開始以下要重新複製--------- */
 /* ---------入住須知及取消政策----------- */
 .expand-btn1, .expand-btn2{
     position: absolute;
@@ -584,44 +585,48 @@ body{
 }
 
 .check-in-instructions{
-    background-color: var(--subColor_bgc);
-    position: relative;
-    font-size: var(--headline_24px);
-    font-weight: 500;
-    color: var(--primaryColor_dark);
-    text-align: center;
-    padding: 40px;
+    display: none;
 }
     @media screen and (min-width: 768px){
         .check-in-instructions{
+            display: block;
+            background-color: var(--subColor_bgc);
+            position: relative;
             font-size: var(--headline_28px);
+            font-weight: 500;
+            color: var(--primaryColor_dark);
+            text-align: center;
+            padding: 40px;
             padding-top: 100px;
         }
     }
 
 .check-in-instructions::after{
-    position: absolute;
-    content: '';
-    height: 1px;
-    width: 80%;
-    background-color: var(--black_500);
-    bottom: 20px;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto;
+    display: none;
 }
+    @media screen and (min-width: 768px){
+        .check-in-instructions::after{
+            display: block;
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 80%;
+            background-color: var(--black_500);
+            bottom: 20px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+    }
 
 .check-in-instructions-content{
-    background-color: var(--subColor_bgc);
-    padding: 10px 40px 40px 40px;
-    line-height: 1.2rem;
-    font-size: var(--p_12px);
     display: none;
 }
     @media screen and (min-width: 768px){
         .check-in-instructions-content{
             display: block;
+            background-color: var(--subColor_bgc);
             padding: 40px 240px;
             line-height: 1.6rem;
             font-size: var(--headline_20px);
@@ -629,53 +634,57 @@ body{
     }
 
 .check-in-instructions-content li{
-    margin-top: 6px;
-    list-style: none;
+    display: none;
 }
     @media screen and (min-width: 768px){
         .check-in-instructions-content li{
+            display: block;
             margin-top: 10px;
         }
     }
 
 .cancellation-policy{
-    background-color: var(--subColor_bgc);
-    position: relative;
-    font-size: var(--headline_24px);
-    font-weight: 500;
-    color: var(--primaryColor_dark);
-    text-align: center;
-    padding: 40px;
+    display: none;
 }
     @media screen and (min-width: 768px){
         .cancellation-policy{
+            display: block;
+            background-color: var(--subColor_bgc);
             font-size: var(--headline_28px);
+            position: relative;
+            font-weight: 500;
+            color: var(--primaryColor_dark);
+            text-align: center;
+            padding: 40px;
         }
     }
 
 .cancellation-policy::after{
-    position: absolute;
-    content: '';
-    height: 1px;
-    width: 80%;
-    background-color: var(--black_500);
-    bottom: 20px;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto;
+    display: none;
 }
+    @media screen and (min-width: 768px){
+        .cancellation-policy::after{
+            display: block;
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 80%;
+            background-color: var(--black_500);
+            bottom: 20px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+    }
 
 .cancellation-policy-content{
-    background-color: var(--subColor_bgc);
-    padding: 10px 40px 40px 40px;
-    line-height: 1.2rem;
-    font-size: var(--p_12px);
     display: none;
 }
     @media screen and (min-width: 768px){
         .cancellation-policy-content{
             display: block;
+            background-color: var(--subColor_bgc);
             padding: 40px 240px;
             line-height: 1.6rem;
             font-size: var(--headline_20px);
@@ -684,15 +693,134 @@ body{
     }
 
 .cancellation-policy-content li{
-    margin-top: 6px;
-    list-style: none;
+    display: none;
 }
     @media screen and (min-width: 768px){
         .cancellation-policy-content li{
+            display: block;
             margin-top: 10px;
         }
     }
 
+
 .footer-mobile{
     background-color: var(--subColor_bgc);
 }
+
+
+/* ---------<手機版>入住須知及取消政策----------- */
+.check-in-instructions-mobile{
+    display: block;
+    background-color: var(--subColor_bgc);
+    position: relative;
+    font-size: var(--headline_24px);
+    font-weight: 500;
+    color: var(--primaryColor_dark);
+    text-align: center;
+    padding: 40px;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-mobile{
+            display: none;
+        }
+    }
+
+.check-in-instructions-mobile::after{
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 80%;
+    background-color: var(--black_500);
+    bottom: 20px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-mobile::after{
+            display: none;
+        }
+    }
+
+.check-in-instructions-content-mobile{
+    display: none;
+    background-color: var(--subColor_bgc);
+    padding: 10px 40px 40px 40px;
+    line-height: 1.2rem;
+    font-size: var(--p_12px);
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content-mobile{
+            display: none;
+        }
+    }
+
+.check-in-instructions-content-mobile li{
+    margin-top: 6px;
+    list-style: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content-mobile li{
+            display: none;
+        }
+    }
+
+.cancellation-policy-mobile{
+    display: block;
+    background-color: var(--subColor_bgc);
+    position: relative;
+    font-size: var(--headline_24px);
+    font-weight: 500;
+    color: var(--primaryColor_dark);
+    text-align: center;
+    padding: 40px;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-mobile{
+            display: none;
+        }
+    }
+
+.cancellation-policy-mobile::after{
+    display: block;
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 80%;
+    background-color: var(--black_500);
+    bottom: 20px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-mobile::after{
+            display: none;
+        }
+    }
+
+.cancellation-policy-content-mobile{
+    display: none;
+    background-color: var(--subColor_bgc);
+    padding: 10px 40px 40px 40px;
+    line-height: 1.2rem;
+    font-size: var(--p_12px);
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content-mobile{
+            display: none;
+        }
+    }
+
+.cancellation-policy-content-mobile li{
+    display: block;
+    margin-top: 6px;
+    list-style: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content-mobile li{
+            display: none;
+        }
+    }

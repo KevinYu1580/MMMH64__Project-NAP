@@ -422,7 +422,7 @@ body{
     display: none;
 }
 .events-card-row-mb{
-    width: 270%;
+    /* width: 270%; */
 }
 .events-card-col-mb{
     padding-bottom: 5px;

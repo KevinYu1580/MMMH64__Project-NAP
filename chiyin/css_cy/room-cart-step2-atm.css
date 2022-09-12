@@ -123,7 +123,7 @@ body{
             /* padding-left: 8%; */
             display: flex;
             align-items: center;
-            margin-top: 80px;
+            margin-top: 132px;
         }
     }
 
@@ -262,6 +262,15 @@ body{
         .per-cart-item .item-list .stay-date, .room-night{
             font-size: var(--subtitle_18px);
             margin-top: 10px;
+        }
+    }
+
+.per-cart-item .item-list .room-night .night-num{
+    margin-left: 10px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .room-night .night-num{
+            margin-left: 20px;
         }
     }
 

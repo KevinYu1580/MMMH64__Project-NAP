@@ -71,7 +71,7 @@ body{
             margin: auto;
             display: flex;
             justify-content: space-between;
-            margin-top: 120px;
+            margin-top: 132px;
         }
     }
 
@@ -310,6 +310,15 @@ body{
         }
     }
 
+.per-cart-item .item-list .room-night .night-num{
+    margin-left: 10px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .room-night .night-num{
+            margin-left: 20px;
+        }
+    }
+    
 .per-cart-item .item-list .item-price{
     font-size: var(--subtitle_18px);
     margin-top: 10px;

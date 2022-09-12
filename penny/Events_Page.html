@@ -89,7 +89,7 @@
     <div class="events-card-container">
         <div class="evnets-card-group-mb">
             <div class="events-card-row-mb d-flex">
-                <div class="events-card-col-mb">
+                <div class="events-card-col-mb flex-shrink-0">
                     <div class="events-card-mb">
                         <div class="card-imgbox-mb">
                             <img src="./img_p/events/pack-mb-01.jpg" alt="">
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="events-card-col-mb">
+                <div class="events-card-col-mb flex-shrink-0">
                     <div class="events-card-mb">
                         <div class="card-imgbox-mb">
                             <img src="./img_p/events/pack-mb-02.jpg" alt="">
@@ -127,7 +127,64 @@
                         </div>
                     </div>
                 </div>
-                <div class="events-card-col-mb">
+                <div class="events-card-col-mb flex-shrink-0">
+                    <div class="events-card-mb">
+                        <div class="card-imgbox-mb">
+                            <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                        </div>
+                        <div class="card-textbox-mb">
+                            <h4>10/15-10/16</h4>
+                            <h3>汪汪俱樂部  | 兩日遊</h3>
+                            <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                            <h5>剩餘名額：<span>9</span> / 20</h5>
+                            <div class="card-btn">
+                                <a href="">查看活動</a>
+                            </div>
+                        </div>
+                        <div class="card-like-mb">
+                            <img src="./img_p/icon/Heart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="events-card-col-mb flex-shrink-0">
+                    <div class="events-card-mb">
+                        <div class="card-imgbox-mb">
+                            <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                        </div>
+                        <div class="card-textbox-mb">
+                            <h4>10/15-10/16</h4>
+                            <h3>汪汪俱樂部  | 兩日遊</h3>
+                            <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                            <h5>剩餘名額：<span>9</span> / 20</h5>
+                            <div class="card-btn">
+                                <a href="">查看活動</a>
+                            </div>
+                        </div>
+                        <div class="card-like-mb">
+                            <img src="./img_p/icon/Heart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="events-card-col-mb flex-shrink-0">
+                    <div class="events-card-mb">
+                        <div class="card-imgbox-mb">
+                            <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                        </div>
+                        <div class="card-textbox-mb">
+                            <h4>10/15-10/16</h4>
+                            <h3>汪汪俱樂部  | 兩日遊</h3>
+                            <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                            <h5>剩餘名額：<span>9</span> / 20</h5>
+                            <div class="card-btn">
+                                <a href="">查看活動</a>
+                            </div>
+                        </div>
+                        <div class="card-like-mb">
+                            <img src="./img_p/icon/Heart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="events-card-col-mb flex-shrink-0">
                     <div class="events-card-mb">
                         <div class="card-imgbox-mb">
                             <img src="./img_p/events/pack-mb-03.jpg" alt="">
@@ -371,9 +428,9 @@
 
         // 活動卡片 | events-card
         // TO DO：當進入瀏覽器時，如果卡片(.events-card-mb)有n張，那卡片盒子(.events-card-row-mb)的寬度是n*90%
+        
 
-
-            
+        $('.events-card-row-mb').css('width', `${$('.events-card-mb').outerWidth(true) * $('.events-card-mb').length}px`)
     </script>
     
 </body>
