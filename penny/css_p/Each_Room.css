@@ -166,10 +166,13 @@ p.line{
 }
 .detail-imgbox{
     width: 30px;
+    aspect-ratio: 1/1;
     margin-right: 10px;
 }
 .detail-imgbox img{
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .each-detail small{
     font-size: var(--p_14px);

@@ -249,12 +249,15 @@ body{
 }
 .room-info-imgbox{
     width: 50%;
+    aspect-ratio: 1/1;
     height: auto;
     margin-bottom: 10px;
 }
 .room-info-imgbox img{
     width: 100%;
-    filter: #ffffff;
+    height: 100%;
+    object-fit: contain;
+    
 }
 .room-info-text{
     width: 80%;
