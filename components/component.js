@@ -18,16 +18,16 @@ const switch_two_num2 = $('.napSwitch_two .num2');
 
 
 $(switch_two_num1).click(function(){
-  $(backmask_two).css('left', '0%');
-  $(switch_two_num1).css('color', 'var(--white)');
-  $(switch_two_num2).css('color', 'var(--black_600)');
+  console.log('this',$(this));
+  $(this).prev().css('left', '0%');
+  $(this).css('color', 'var(--white)');
+  $(this).next().css('color', 'var(--black_600)');
 });
 
-
 $(switch_two_num2).click(function(){
-  $(backmask_two).css('left', '50%');
-  $(switch_two_num1).css('color', 'var(--black_600)');
-  $(switch_two_num2).css('color', 'var(--white)');
+  $(this).prev().prev().css('left', '50%');
+  $(this).prev().css('color', 'var(--black_600)');
+  $(this).css('color', 'var(--white)');
 });
 
 
