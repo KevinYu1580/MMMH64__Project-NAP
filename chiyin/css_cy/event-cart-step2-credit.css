@@ -176,227 +176,193 @@ body{
             justify-content: right;
         }
     }
-
 /* -------------明細內容------------ */
 .cart-detail-content{
     margin-bottom: 55px;
 }
-    @media screen and (min-width: 768px){
-        .cart-detail-content{
-            margin-bottom: 65px;
-        }
+@media screen and (min-width: 768px){
+    .cart-detail-content{
+        margin-bottom: 65px;
     }
-.per-cart-item{
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-    position: relative;
 }
-    @media screen and (min-width: 768px){
-        .per-cart-item{
-            margin: 40px 0;
-        }
+.per-cart-item{
+display: flex;
+align-items: center;
+margin: 20px 0;
+position: relative;
+}
+@media screen and (min-width: 768px){
+    .per-cart-item{
+        margin: 40px 0;
     }
+}
 
 .per-cart-item::after{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: var(--primaryColor_dark);
-    bottom: -10px;
-    
-}
-    @media screen and (min-width: 768px){
-        .per-cart-item::after{
-            bottom: -20px;
-            
-        }
-    }
+position: absolute;
+content: '';
+width: 100%;
+height: 1px;
+background-color: var(--primaryColor_dark);
+bottom: -10px;
 
-.per-cart-item .room-img img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
 }
-    @media screen and (min-width: 768px){
-        .per-cart-item .room-img img{
-            width: 230px;
-            height: 158px;
-            object-fit: cover;
-        }
+@media screen and (min-width: 768px){
+    .per-cart-item::after{
+        bottom: -20px;
+        
     }
+}
 
-.per-cart-item .item-list .room-name{
-    font-size: var(--subtitle_18px);
-    margin-bottom: 10px;
+.per-cart-item .event-img img{
+width: 100px;
+height: 100px;
+object-fit: cover;
 }
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list .room-name{
-            font-size: var(--headline_28px);
-            margin-bottom: 25px;
-        }
+@media screen and (min-width: 768px){
+    .per-cart-item .event-img img{
+        width: 230px;
+        height: 158px;
+        object-fit: cover;
     }
+}
+
+.per-cart-item .item-list .event-name{
+font-size: var(--p_14px);
+margin-bottom: 5px;
+}
+@media screen and (min-width: 768px){
+    .per-cart-item .item-list .event-name{
+        font-size: var(--headline_28px);
+        margin-bottom: 10px;
+    }
+}
 
 .per-cart-item .item-list{
-    margin-left: 8px;
-    /* position: relative; */
-    width: calc(100% - 100px);
+margin-left: 8px;
+position: relative;
+width: calc(100% - 100px);
 }
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list{
-            margin-left: 20px;
-            width: calc(100% - 230px);
-        }
+@media screen and (min-width: 768px){
+    .per-cart-item .item-list{
+        margin-left: 20px;
+        width: calc(100% - 230px);
     }
-
-.per-cart-item .item-list .room-night{
-    display: flex;
 }
 
-.per-cart-item .item-list .stay-date, .room-night{
-    font-size: var(--p_12px);
-    margin-top: 8px;
+.per-cart-item .item-list .stay-date, .enroll-people{
+font-size: var(--p_12px);
+margin-top: 5px;
 }
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list .stay-date, .room-night{
-            font-size: var(--subtitle_18px);
-            margin-top: 10px;
-        }
+@media screen and (min-width: 768px){
+    .per-cart-item .item-list .stay-date, .enroll-people{
+        font-size: var(--subtitle_18px);
+        margin-top: 4px;
     }
-
-.per-cart-item .item-list .room-night .night-num{
-    margin-left: 10px;
-}
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list .room-night .night-num{
-            margin-left: 20px;
-        }
-    }
-
-.per-cart-item .item-list .item-price{
-    font-size: var(--subtitle_18px);
-    margin-top: 10px;
-    display: flex;
-    justify-content: right;
-}
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list .item-price{
-            font-size: var(--headline_28px);
-            margin-top: 15px;
-        }
-    }
-
-.per-cart-item .item-list .item-price span{
-    color: var(--subColor_highLightRed);
 }
 
 .per-cart-item .item-list .stay-date{
-    font-weight: 300;
-    line-height: 0.8rem;
+font-weight: 300;
+line-height: 0.8rem;
 }
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list .stay-date{
-            font-weight: 300;
-            line-height: 1.4rem;
-        }
+@media screen and (min-width: 768px){
+    .per-cart-item .item-list .stay-date{
+        font-weight: 300;
+        line-height: 1.4rem;
     }
+}
+
+.per-cart-item .item-list .item-price{
+font-size: var(--subtitle_18px);
+margin-top: 5px;
+display: flex;
+justify-content: right;
+}
+@media screen and (min-width: 768px){
+    .per-cart-item .item-list .item-price{
+        font-size: var(--headline_28px);
+        margin-top: 8px;
+    }
+}
+
+.per-cart-item .item-list .item-price span{
+color: var(--subColor_highLightRed);
+}
+
+
 
 /* --------------總結算列------------- */
 .final-cart-price{
-    position: relative;
+position: relative;
 }
 
 .final-cart-price::before{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 2px;
-    background-color: var(--primaryColor_dark);
-    top: -10px;
+position: absolute;
+content: '';
+width: 100%;
+height: 2px;
+background-color: var(--primaryColor_dark);
+top: -10px;
 }
-    @media screen and (min-width: 768px){
-        .final-cart-price::before{
-            top: -20px;
-        }
+@media screen and (min-width: 768px){
+    .final-cart-price::before{
+        top: -20px;
     }
+}
 
 .final-cart-price .discount{
-    display: flex;
-    background-color: var(--secondaryColor_light);
-    padding: 5px;
-    font-size: var(--p_14px);
-    width: 50%;
-    justify-content: center;
-    margin-left: 100%;
-    transform: translateX(-100%);
+display: flex;
+background-color: var(--secondaryColor_light);
+padding: 5px;
+font-size: var(--p_14px);
+width: 50%;
+justify-content: center;
+margin-left: 100%;
+transform: translateX(-100%);
 }
-    @media screen and (min-width: 768px){
-        .final-cart-price .discount{
-            font-size: var(--headline_20px);
-            width: 35%;
-        }
+@media screen and (min-width: 768px){
+    .final-cart-price .discount{
+        font-size: var(--headline_20px);
+        width: 35%;
     }
+}
 
 .final-cart-price .discount-num{
-    margin-left: 10px;
+margin-left: 10px;
 }
 
 .total-price{
-    display: flex;
-    text-align: right;
-    justify-content: right;
-    margin-top: 10px;
+display: flex;
+text-align: right;
+justify-content: right;
+margin-top: 10px;
 }
-    @media screen and (min-width: 768px){
-        .total-price{
-            margin-top: 15px;
-        }
+@media screen and (min-width: 768px){
+    .total-price{
+        margin-top: 20px;
     }
-
-.deposit-price{
-    display: flex;
-    text-align: right;
-    justify-content: right;
-    margin-top: 10px;
-}
-    @media screen and (min-width: 768px){
-        .deposit-price{
-            margin-top: 15px;
-        }
-    }
-
-.total-price p, .deposit-price p{
-    text-align: right;
 }
 
 .total-price p{
-    font-size: var(--subtitle_16px);
+text-align: right;
 }
-    @media screen and (min-width: 768px){
-        .total-price p{
-            font-size: var(--headline_24px);
-        }
+
+.total-price p{
+font-size: var(--headline_20px);
+}
+@media screen and (min-width: 768px){
+    .total-price p{
+        font-size: var(--headline_28px);
     }
-
-.deposit-price p{
-    font-size: var(--headline_20px);
-}
-    @media screen and (min-width: 768px){
-        .deposit-price p{
-            font-size: var(--headline_28px);
-        }
-    }
-
-.deposit-price p span{
-    color: var(--subColor_highLightRed);
-    font-weight: 500;
 }
 
-.total-price-num, .deposit-price-num{
-    margin-left: 20px;
+.total-price p span{
+color: var(--subColor_highLightRed);
+font-weight: 500;
 }
 
+.total-price-num{
+margin-left: 20px;
+}
 
 /* --------- 輸入信用卡資料 --------- */
 .pay-credit{
