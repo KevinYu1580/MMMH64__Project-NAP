@@ -142,6 +142,7 @@ body{
 }
 @media screen and (min-width:768px) {
     .room-banner{
+        margin-top: 120px;
         margin-bottom: 9%;
     }
     .room-banner-container{
@@ -211,8 +212,8 @@ body{
     .room-banner-ai01-imgbox{
         position: absolute;
         width: 640px;
-        top: 80%;
-        left: 28%;
+        top: 82%;
+        left: 30%;
     }
     .room-banner-ai02-imgbox{
         display: block;
