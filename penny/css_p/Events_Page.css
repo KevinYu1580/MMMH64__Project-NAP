@@ -349,7 +349,6 @@ body{
     justify-content: center;
     border: 1px solid var(--primaryColor_dark);
     border-radius: 50px;   
-    transition: 0.3s;
     cursor: pointer;
 }
 .package-switch{
@@ -385,7 +384,6 @@ body{
         justify-content: center;
         border: 1px solid var(--primaryColor_dark);
         border-radius: 120px;   
-        transition: 0.3s;
     }
     .package-switch{
         background-color: var(--primaryColor_dark);
