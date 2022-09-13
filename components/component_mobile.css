@@ -450,13 +450,26 @@ height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 6px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .napBtn_likeBtn_comt .svgs{
     position: relative;
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    font-size: 14px;
+}
+.napBtn_likeBtn_comt span{
+    font-size: 14px;
+    color: #8A7171;
 }
 .napBtn_likeBtn_comt .svgs img{
-   
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 20px;
     aspect-ratio: 1 / 1;
 }

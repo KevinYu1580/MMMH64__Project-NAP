@@ -4,9 +4,17 @@ $(".topNav_mobile .menu, .menu_lightBox_pc").click(function () {
 });
 
 // ----------like_Btn---------
+
+// 寵物卡片
 $('.napBtn_likeBtn').click(function(){
   $(this).toggleClass('likeBtn_activated');
   $('.napBtn_likeBtn #white').toggle();
+})
+
+
+// 留驗區
+$('.napBtn_likeBtn_comt').click(function(){
+  $('.napBtn_likeBtn_comt .svgs #napActivate').toggle()
 })
 
 // ----------switch---------

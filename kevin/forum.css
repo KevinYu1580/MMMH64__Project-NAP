@@ -124,17 +124,25 @@ button {
     flex-direction: column;
     gap: 24px;
 }
+.comtCard {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
 .comtCard_wrap .comtCard {
     width: 100%;
     aspect-ratio: 1 / 0.464;
+    max-height: 240px;
+    min-height: 174px;
     background-color: var(--subColor_bgc);
     padding: 16px;
+    overflow: hidden;
 }
-.comtCard_wrap .comtCard .content_wrap {
-    height: 100%;
-}
+
 .comtCard_wrap .member_info {
     display: flex;
+    
     align-items: center;
     gap: 8px;
     font-size: 14px;
@@ -160,10 +168,46 @@ button {
     color: var(--black_900);
     font-weight: 400;
     margin-bottom: 8px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -moz-box;
+     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 .comtCard_wrap .comtCard .comtLabel {
     margin-bottom: 4px;
 }
+.comtCard_wrap .comtCard .content_wrap{
+    padding-right: 8px;
+}
+.comtCard_wrap .comtCard .content_wrap .contentText{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    display:-moz-box;
+     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.napBtn_likeBtn_comt {
+    margin-top: auto;
+    position: absolute;
+    bottom: 16px;
+}
+/* 卡片小縮圖 */
+.comtCard_wrap .comtCard .card_smPic {
+    overflow: hidden;
+    margin-top: 40px;
+    min-width: 102px;
+    aspect-ratio: 1 / 1;
+    background-image: url('./img/k/carousel-4.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 
 
