@@ -37,37 +37,35 @@ $(window).scroll(function(){
 
     // 控制aniCover遮罩到達firstPage時的寬度
         // aniCover位移控制
-    if(first_page_top - window_top < (screen.height /5)){
+    if(first_page_top - window_top < (screen.height /4)){
         aniCover.css({
             'position': 'absolute',
             'top':`300vh`,
+            'width':'55%',
+            'z-index':'998',
+            'height': '110vh',
             'opacity': '0',
-            
         })
         }
     else {
         aniCover.css({
             'position': 'fixed',
             'top':`0`,
-            'width':'100%',
-            'opacity': '1',
+            'opacity': '1'
         })
         }
-    if(first_page_top - window_top < (screen.availHeight /99)){
+    if(first_page_top - window_top < 0){
         aniCover.css({
-            'width':'55%',
-            'opacity': '1',
-            'transition':'1s',
+            'opacity': '1'
         })
         }
     else {
         aniCover.css({
-            'width':'100%',
-            'transition':'0s',
+            'width':'100%',  
             
         })
     }
-})
+
 
 
 
@@ -185,7 +183,7 @@ $(window).scroll(function(){
         $(card4_pc).unbind();
     }
 })
-
+})
 
 
 

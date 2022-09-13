@@ -66,12 +66,12 @@ html {
   top: 0;
   background-color: #fff;
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0s;
+  transition: 1s;
 }
 .aniCover_mask {
   position: relative;
@@ -139,6 +139,7 @@ html {
 @media screen and (max-width: 991px) {
   .first_page .visualPic_wrap {
     display: none;
+    height: 100vh;
   }
 }
 .first_page .content_wrap {

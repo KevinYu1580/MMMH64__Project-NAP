@@ -153,6 +153,7 @@
 @media screen and (min-width: 992px){
     .topNav_mobile .icon_wrap .sec1{
         display: flex;
+        align-items: center;
     }
 }
 .topNav_mobile .icon_wrap .sec1 > a{
@@ -162,12 +163,13 @@ height: 40px;
 .topNav_mobile .icon_wrap #memberPic {
     border: 4px solid var(--primaryColor_dark);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     background-image: url(../kevin/img/circle-people.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    background-color: var(--primaryColor_dark);
 }
 
 
@@ -413,7 +415,8 @@ height: 40px;
     color: var(--white);
 }
 
-/* like_Btn*/
+/* --- like_Btn ---*/
+/* 寵物卡片 */
 .napBtn_likeBtn {
     display: flex;
     justify-content: center;
@@ -441,6 +444,26 @@ height: 40px;
     left: 0;
     display: none;
 }
+/* 寵物卡片 */
+.napBtn_likeBtn_comt{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.napBtn_likeBtn_comt .svgs{
+    position: relative;
+}
+.napBtn_likeBtn_comt .svgs img{
+   
+    width: 20px;
+    aspect-ratio: 1 / 1;
+}
+
+
+
+
 
 /* ------ napSwtich ------*/
 
@@ -597,6 +620,37 @@ height: 40px;
     cursor: pointer;
 }
 
+/* ---- 留言卡片label ----*/
+
+.comtLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    width: 106px;
+    height: 20px;
+    background-color: var(--primaryColor_tint);
+}
+.comtLabel span {
+    font-size: 12px;
+    color: var(--primaryColor_dark);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ---- footer-mobile ----*/
@@ -617,8 +671,8 @@ height: 40px;
     .footer-mobile .content {
         display: flex;
         align-items: flex-end;
-        padding-top: 312px;
-        line-height: 180%;
+        padding-top: 248px;
+        line-height: 240%;
         
     }
 }
@@ -631,17 +685,17 @@ height: 40px;
     padding-top: 4px;
 }
 
+@media screen and (min-width: 768px){
+    .footer-mobile .sec2, .footer-mobile .sec1{
+    margin: 0 40px 0 0;
+    }
+}
 
-@media screen and (min-width: 828px){
+@media screen and (min-width: 992px){
     .footer-mobile .sec2, .footer-mobile .sec1{
     border-top: none;
     margin: 0 64px 0 0;
     font-size: 16px;
-    }
-}
-@media screen and (min-width: 768px){
-    .footer-mobile .sec2, .footer-mobile .sec1{
-    margin: 0 40px 0 0;
     }
 }
 
