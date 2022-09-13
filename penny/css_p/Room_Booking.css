@@ -124,7 +124,7 @@ body{
         width: 1px;
         height: 80px;
         right: 0;
-        background-color: var(--subColor_text);
+        background-color: var(--black_500);
     }
     .search-pc-col:nth-of-type(3):after, .search-pc-col:nth-of-type(4):after{
         background-color: transparent;
@@ -166,14 +166,17 @@ body{
 
 
 
-/* 房間搜尋結果 | room-result */
+/* 房間搜尋結果(左邊) | room-result */
 .room-card{
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+}
+.room-card:nth-of-type(3){
+    margin-bottom: 20px;
 }
 /* 房間搜尋結果-卡片圖 */
 .card-imgbox{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .card-imgbox img{
     width: 100%;
@@ -192,7 +195,7 @@ body{
     transform: translateX(-50%);
     width: 80%;
     height: 1px;
-    background-color: var(--subColor_text);
+    background-color: var(--black_500);
 }
 .room-card:nth-of-type(3) .card-textbox:after{
     background-color: transparent;
@@ -216,7 +219,7 @@ body{
     object-fit: contain;
 }
 .price{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .price span{
     color: var(--subColor_highLightRed);
@@ -242,9 +245,23 @@ input{
         max-width: calc(100% - 480px);
         margin: auto;
     }
+    .room-card{
+        position: relative;
+        margin-bottom: 60px;
+    }
+    .room-card::after{
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -20px;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 1;
+        border-bottom: 1px solid var(--black_500);
+    }
     /* 房間搜尋結果-卡片圖 */
     .card-imgbox{
-        width: 80%;
+        width: 50%;
         margin-right: 30px;
         margin-bottom: 20px;
     }
@@ -267,6 +284,16 @@ input{
         height: 1px;
         background-color: transparent;
     }
+    .icon-imgbox{
+        width: 25px;
+        aspect-ratio: 1/1;
+        margin-right: 10px;
+    }
+    .icon-imgbox img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
     .card-textbox h2{
         font-size: var(--headline_32px);
         font-weight: 600;
@@ -275,5 +302,254 @@ input{
     .card-textbox p{
         font-size: var(--headline_20px);
         padding-bottom: 10px;
+    }
+}
+
+
+
+
+
+/* 房間搜尋結果(右邊) | room-result */
+/* ---------訂房明細表頭--------- */
+.booking-detail-card{
+    max-width: calc(100% - 48px);
+    margin: auto;
+    font-size: var(--p_14px);
+    background-color: var(--primaryColor_tint);
+    border-radius: 20px 20px 0 0;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-card{
+            max-width: 100%;
+            font-size: var(--headline_20px);
+            background-color: var(--primaryColor_tint);
+            border-radius: 20px 20px 0 0;
+            padding: 25px 35px;
+            height: 120px;
+        }
+    }
+.booking-date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-date{
+            margin-bottom: 20px;
+        }
+    }
+
+.booking-room{
+    display: flex;
+    align-items: center;
+}
+    
+.booking-date .date-num, .booking-room .room-num{
+    margin-left: 15px;
+}
+    
+.date-icon img, .room-icon img{
+    width: 23px;
+}
+
+/* ---------訂房明細下方資訊欄位--------- */
+.booking-detail-combine{
+    max-width: calc(100% - 48px);
+    margin: auto;
+    margin-bottom: 50px;
+}
+@media screen and (min-width:768px) {
+    .booking-detail-combine{
+        max-width: 100%;
+        margin-bottom: 0px;
+    }
+}
+
+/* ---------每筆訂房資料--------- */
+.booking-detail-content{
+    padding: 42px 10%;
+    border-left: solid 1px var(--black_500);
+    border-right: solid 1px var(--black_500);
+    position: relative;;
+}
+.booking-detail-content::after{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 1px;
+    background-color: var(--black_500);
+    bottom: 1px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content{
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+        }
+        .booking-detail-content::after{
+            position: absolute;
+            content: '';
+            width: 80%;
+            height: 1px;
+            background-color: var(--black_500);
+            bottom: 1px;
+        }
+    }
+
+/* ---------每筆訂房資料-房名--------- */
+.name-cancel-btn{
+    margin-bottom: 20px;
+}
+.booking-detail-content .room-name{
+    font-size: var(--headline_20px);
+    font-weight: 700;
+    /* margin-bottom: 10px; */
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-name{
+            font-size: var(--headline_24px);
+        }
+    }
+
+/* ---------每筆訂房資料-刪除按鈕--------- */
+.cancle-btn{
+    width: 20px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+
+}
+.cancle-btn img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ---------每筆訂房資料-幾間晚、幾間房--------- */
+.per-room-num{
+    margin-left: 10px;
+}
+.booking-detail-content .room-count{
+    font-size: var(--p_14px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-count{
+            font-size: var(--subtitle_16px);
+        }
+    }
+
+/* ---------每筆訂房資料-房價--------- */
+.booking-detail-content .room-detail-num{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-detail-num{
+            font-size: var(--headline_20px);
+        }
+    }
+
+/* ---------每筆訂房資料-房價含稅金小字--------- */
+.booking-detail-content .price-include{
+    font-size: var(--p_12px);
+    text-align: right;
+    font-weight: 300;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .price-include{
+            font-size: var(--p_14px);
+        }
+    }
+
+/* ---------右邊詳細內容(最下方統計)--------- */
+.booking-detail-content-final{
+    padding: 30px 10%;
+    border-left: solid 1px var(--black_500);
+    border-right: solid 1px var(--black_500);
+    position: relative;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content-final{
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+        }
+    }
+
+/* -----右邊詳細內容(最下方統計)：總價、付訂金額、剩餘尾款----- */
+.booking-detail-content-final .total-count, .deposit-count, .rest-count{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content-final .total-count, .deposit-count, .rest-count{
+            font-size: var(--headline_20px);
+        }
+    }
+.deposit-num span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
+}
+
+
+/* -----右邊詳細內容(最下方統計)：於現場付清小字----- */
+.booking-detail-content-final .rest-pay-notice{
+    font-size: var(--p_14px);
+    font-weight: 300;
+}
+
+
+/* ----------訂房按鈕---------- */
+.booking-btn{
+    padding-top: 20px;
+    height: 100px;
+    text-align: center;
+    border-bottom: solid 1px var(--black_500);
+    border-left: solid 1px var(--black_500);
+    border-right: solid 1px var(--black_500);
+    border-radius: 0 0 20px 20px;
+}
+.booking-btn a{
+    text-decoration: none;
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+    font-size: var(--headline_20px);
+    padding: 10px 30px;
+    border-radius: 30px;            
+}
+@media screen and (min-width:768px) {
+    .booking-btn{
+        padding-top: 50px;
+        height: 140px;
+        text-align: center;
+        border-bottom: solid 1px var(--black_500);
+        border-left: solid 1px var(--black_500);
+        border-right: solid 1px var(--black_500);
+        border-radius: 0 0 20px 20px;
+    }
+    .booking-btn a{
+        text-decoration: none;
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+        font-size: var(--headline_28px);
+        padding: 10px 35px;
+        border-radius: 35px;            
+    }
+    .booking-btn a:hover{
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
     }
 }

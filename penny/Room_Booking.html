@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="../components/component_mobile.css">
 </head>
 <body>
-        <!------ topNav 要跟menu一起複製------>
-        <div class="topNav_mobile">
-            <a class="logo" href="#">
-                <img src="../components/img/logo-1.svg" alt="">
-            </a>
-            <button class="menu">
-                <img src="../components/img/hamburger.svg" alt="">
-            </button>
-        </div>
-        <!------ menu -------->
-        <div class="nap_menu">
+    <!------ topNav 要跟menu一起複製------>
+    <div class="topNav_mobile">
+        <a class="logo" href="#">
+            <img src="../components/img/logo-1.svg" alt="">
+        </a>
+        <button class="menu">
+            <img src="../components/img/hamburger.svg" alt="">
+        </button>
+    </div>
+    <!------ menu -------->
+    <div class="nap_menu">
             <div class="content">
                 <ul class="menu_link">
                     <li>
@@ -117,7 +117,7 @@
     
     
             </div>
-        </div>
+    </div>
 
 
     <!-- 日期搜尋 | date-search -->
@@ -203,8 +203,8 @@
     <!-- 房間搜尋結果 | room-result -->
     <section class="room-result">
         <div class="room-result-container">
-            <div class="room-result-row">
-                <div class="room-result-col col-md-5">
+            <div class="room-result-row d-md-flex">
+                <div class="room-result-col col-md-7">
                     <div class="room-card-group">
                         <div class="room-card d-md-flex align-items-center">
                             <div class="card-imgbox col-md-4">
@@ -304,7 +304,114 @@
                         </div>
                     </div>
                 </div>
-                <div class="room-result-col col-md-7"></div>
+                <div class="room-result-col col-md-5">
+                    <div class="booking-detail-card">
+                        <div class="left-content">
+                            <div class="booking-date">
+                                <div class="date-icon">
+                                    <img src="./img_p/icon/calender.svg
+                                    " alt="">
+                                </div>
+                                <div class="date-num">
+                                    <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p>
+                                </div>
+                            </div>
+                            <div class="booking-room">
+                                <div class="room-icon">
+                                    <img src="./img_p/icon/room.svg" alt="">
+                                </div>
+                                <div class="room-num">
+                                    <p><span>3</span> 間房間</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="booking-detail-combine">
+                        <div class="booking-detail-content">
+                            <div class="name-cancel-btn d-flex justify-content-between align-items-center">
+                                <div class="room-name">單人房 呼嚕嚕</div>
+                                <div class="cancle-btn">
+                                    <img src="./img_p/icon/xmark.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="room-count">
+                                <div class="per-room-night">
+                                    <p>x<span>1</span> 晚</p>
+                                </div>
+                                <div class="per-room-num">
+                                    <p>x<span>1</span> 間</p>
+                                </div>
+                            </div>
+                            <div class="room-detail-num">
+                                <div class="room-detail-text">總價</div>
+                                <div class="room-detail-price">NT$ <span>2,600</span></div>
+                            </div>
+                            <div class="price-include">
+                                <p>(房價已包含稅金及其他費用)</p>
+                            </div>
+                        </div>
+                        <div class="booking-detail-content">
+                            <div class="room-name">雙人房 皺皺鼻</div>
+                            <div class="room-count">
+                                <div class="per-room-night">
+                                    <p>x<span>1</span> 晚</p>
+                                </div>
+                                <div class="per-room-num">
+                                    <p>x<span>1</span> 間</p>
+                                </div>
+                            </div>
+                            <div class="room-detail-num">
+                                <div class="room-detail-text">總價</div>
+                                <div class="room-detail-price">NT$ <span>3,600</span></div>
+                            </div>
+                            <div class="price-include">
+                                <p>(房價已包含稅金及其他費用)</p>
+                            </div>
+                        </div>
+                        <div class="booking-detail-content">
+                            <div class="room-name">四人房 撓癢癢</div>
+                            <div class="room-count">
+                                <div class="per-room-night">
+                                    <p>x<span>1</span> 晚</p>
+                                </div>
+                                <div class="per-room-num">
+                                    <p>x<span>1</span> 間</p>
+                                </div>
+                            </div>
+                            <div class="room-detail-num">
+                                <div class="room-detail-text">總價</div>
+                                <div class="room-detail-price">NT$ <span>6,600</span></div>
+                            </div>
+                            <div class="price-include">
+                                <p>(房價已包含稅金及其他費用)</p>
+                            </div>
+                        </div>
+                        <div class="booking-detail-content-final">
+                            <div class="total-count">
+                                <div class="total-price">
+                                    <p>總價</p>
+                                </div>
+                                <div class="total-num">
+                                    <p>NT$ <span>12,800</span></p>
+                                </div>
+                            </div>
+                            <div class="deposit-count">
+                                <div class="deposit-price">應付訂金金額</div>
+                                <div class="deposit-num">NT$ <span>6,400</span></div>
+                            </div>
+                            <div class="rest-count">
+                                <div class="rest-price">剩餘尾款</div>
+                                <div class="rest-num">NT$ <span>6,400</span></div>
+                            </div>
+                            <div class="rest-pay-notice">
+                                <p>(請於現場付清)</p>
+                            </div>
+                        </div>
+                        <div class="booking-btn">
+                            <a href="">填寫訂房資料</a>
+                        </div>
+                    </div>                    
+                </div>                    
             </div>
         </div>
     </section>

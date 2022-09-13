@@ -421,9 +421,6 @@ body{
 .evnets-card-group-mb::-webkit-scrollbar{
     display: none;
 }
-.events-card-row-mb{
-    /* width: 270%; */
-}
 .events-card-col-mb{
     padding-bottom: 5px;
 }
@@ -571,4 +568,166 @@ body{
         transition: 0.3s;
     }
 }
+
+
+
+
+
+/* --------------------------詳細訂房卡----------------------- */
+.booking-data-right{
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .booking-data-right{
+            margin: 0;
+        }
+    }
+
+.booking-detail-card{
+    font-size: var(--p_14px);
+    background-color: var(--primaryColor_tint);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-card{
+            font-size: var(--headline_20px);
+            background-color: var(--primaryColor_tint);
+            border-radius: 20px 20px 0 0;
+            margin-top: 55px;
+            padding: 25px 35px;
+            height: 120px;
+        }
+    }
+
+.down-expand-btn{
+    display: flex;
+    align-items: center;
+    transform: rotate(0deg);
+}
+
+.down-expand-btn .up{
+    transition: all 0.6s;
+}
+
+.down-expand-btn .active{
+    transform: rotate(-180deg);
+    transition: all 0.6s;
+}
+    @media screen and (min-width: 768px){
+        .down-expand-btn{
+            display: none;
+        }
+    }
+
+.down-expand-btn img{
+    width: 20px;
+}
+
+.booking-date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-date{
+            margin-bottom: 20px;
+        }
+    }
+
+.booking-room{
+    display: flex;
+    align-items: center;
+}
+
+.booking-date .date-num, .booking-room .room-num{
+    margin-left: 15px;
+}
+
+.date-icon img, .room-icon img{
+    width: 23px;
+}
+
+/* ---------右邊詳細內容--------- */
+.booking-detail-content{
+    padding: 30px 10%;
+    position: relative;
+}
+.booking-detail-content::after{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 1px;
+    background-color: var(--black_500);
+    bottom: 1px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content{
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+        }
+        .booking-detail-content::after{
+            position: absolute;
+            content: '';
+            width: 80%;
+            height: 1px;
+            background-color: var(--black_500);
+            bottom: 1px;
+        }
+    }
+
+.booking-detail-content .room-name{
+    font-size: var(--headline_20px);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-name{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.per-room-num{
+    margin-left: 10px;
+}
+
+.booking-detail-content .room-count{
+    font-size: var(--p_14px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-count{
+            font-size: var(--subtitle_16px);
+        }
+    }
+
+.booking-detail-content .room-detail-num{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-detail-num{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.booking-detail-content .price-include{
+    font-size: var(--p_12px);
+    text-align: right;
+    font-weight: 300;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .price-include{
+            font-size: var(--p_14px);
+        }
+    }
 
