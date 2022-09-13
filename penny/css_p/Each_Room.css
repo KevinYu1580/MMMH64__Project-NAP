@@ -209,6 +209,7 @@ p.line{
 }
 @media screen and (min-width:768px) {
     .each-room{
+        margin-top: 120px;
         margin-bottom: 50px;
     }
     .each-room-container{

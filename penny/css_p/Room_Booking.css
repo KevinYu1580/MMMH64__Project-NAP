@@ -91,7 +91,7 @@ body{
 }
 @media screen and (min-width:768px) {
     .date-search{
-        margin-top: 100px;
+        margin-top: 120px;
         margin-bottom: 70px;
         background-color: transparent;
     }
@@ -241,6 +241,9 @@ input{
     object-fit: contain;
 }
 @media screen and (min-width:768px) {
+    .room-result{
+        margin-bottom: 50px;
+    }
     .room-result-container{
         max-width: calc(100% - 480px);
         margin: auto;
@@ -258,6 +261,9 @@ input{
         width: 90%;
         height: 1;
         border-bottom: 1px solid var(--black_500);
+    }
+    .room-card:nth-of-type(3):after{
+        border-bottom: 1px solid transparent;
     }
     /* 房間搜尋結果-卡片圖 */
     .card-imgbox{

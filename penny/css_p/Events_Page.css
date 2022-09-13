@@ -57,6 +57,11 @@ body{
     font-family: custom-font;
     color: var(--subColor_text);
 }
+.topNav_mobile{
+    background-color: transparent;
+    
+}
+
 /* 活動頁面banner | events-banner */
 .events-banner{
     margin-bottom: 50px;
