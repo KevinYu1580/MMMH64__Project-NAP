@@ -60,109 +60,69 @@ body{
 
 /* 日期搜尋 | date-search */
 .date-search{
-    margin-top: 68px;
     background-color: var(--primaryColor_tint);
+    margin-top: 68px;
 }
-.date-search-container{
-    max-width: calc(100% - 48px);
-    height: 100px;
+.data-search-container{
+    /* max-width: calc(100% - 48px); */
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
-.search-date{
-    margin-bottom: 10px;
+.data-search-row{
+    position: relative;
 }
-.search-mb-imgbox{
-    width: 27px;
+.data-search-row::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 90%;
+    height: 2px;
+    background-color: var(--black_500);
+}
+.choose-box, .booking-box{
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+.choose-box:nth-child(1)::after{
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 2px;
+    height: 100px;
+    background-color: var(--black_500);
+}
+.choose-box:nth-of-type(3) {
+    background-color: #000000;
+}
+.choose-iconbox{
+    width: 15px;
     aspect-ratio: 1/1;
-    margin-right: 10px;
 }
-.search-btn{
-    width: 16px;
-    aspect-ratio: 1/1;
-}
-.search-mb-imgbox img, .search-btn img{
+.choose-iconbox img{
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
-.search-pc{
-    display: none;
+.choose-textbox{
+    margin-right: 20px;
 }
-@media screen and (min-width:768px) {
-    .date-search{
-        margin-top: 120px;
-        margin-bottom: 70px;
-        background-color: transparent;
-    }
-    .date-search-container{
-        max-width: calc(100% - 480px);
-        height: 130px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .search-mb{
-        display: none;
-    }
-    .search-pc{
-        height: 130px;
-        display: block;
-        background-color: var(--primaryColor_tint);
-        border-radius: 130px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .search-pc-col{
-        position: relative;
-    }
-    .search-pc-col:after{
-        content: '';
-        position: absolute;
-        width: 1px;
-        height: 80px;
-        right: 0;
-        background-color: var(--black_500);
-    }
-    .search-pc-col:nth-of-type(3):after, .search-pc-col:nth-of-type(4):after{
-        background-color: transparent;
-    }
-    .choose-btn{
-        width: 20px;
-        aspect-ratio: 1/1;
-    }
-    .choose-btn img{
-        width: 100%;
-    }
-    .choose-data{
-        text-align: center;
-        padding-right: 20px;
-    }
-    .choose-data p, .choose-data h6{
-        padding-bottom: 5px;
-    }
-    .choose-data h6{
-        font-size: var(--headline_40px);
-        font-weight: 600;
-        color: var(--primaryColor_dark);
-    }
-    .search-room{
-        background-color: var(--primaryColor_light);
-        border-radius: 0 100px 100px 0;
-        padding: 22px 0;
-    }
-    .search-btn{
-        margin-left: 20px;
-        transform: rotate(-90deg);
-    }
-    .check-in-btn, .check-out-btn, .select-room-btn, .search-room-btn{
-        cursor: pointer;
-    }
+.choose-textbox p{
+    padding-bottom: 10px;
+    color: var(--subColor_text);
 }
-
-
+.choose-textbox h6{
+    font-size: var(--headline_28px);
+    font-weight: 600;
+    color: var(--primaryColor_dark);
+    padding-bottom: 10px;
+}
+.booking-box{
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
 
 
 
