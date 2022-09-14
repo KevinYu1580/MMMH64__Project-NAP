@@ -55,16 +55,92 @@ p {
   color: var(--subColor_text);
   line-height: 180%;
 }
+html {
+  background-color: var(--subColor_bgc);
+}
+body {
+  background-color: var(--subColor_bgc);
+}
+
+/* ------ */
+.aniCover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+.aniCover_mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/k/visualPic-lg.jpg);
+  background-position: 50% 50%;
+  background-size:cover;
+  -webkit-mask-image: url(./img/k/dog.svg) ;
+  -webkit-mask-size: auto 80vh ;
+  -webkit-mask-position: 50% 50%;
+  -webkit-mask-repeat:no-repeat;
+  transition: 1.8s;
+}
+@media screen and (max-width: 991px){
+  .aniCover {
+    display: none;
+  }
+}
+.aniCover_mask .textWrap  {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.aniCover_mask .textWrap > span {
+  -webkit-writing-mode: vertical-lr;
+  text-indent: 1em;
+  font-size: 42px;
+  line-height: 160%;
+  font-weight: 600;
+  color: var(--white);
+  text-shadow: 0px 0px 16px #000000bd;
+}
+.aniCover_mask .textWrap > span span{
+  color: var(--white);
+  transition: 0.5s;
+}
+.aniCover_mask .textWrap img {
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 185px;
+}
+
 
 /* ------first page ------ */
 .first_page {
   background-color: var(--subColor_bgc);
   display: flex;
 }
+@media screen and (min-width: 992px){
+  .first_page {
+    margin-top: 300vh;
+  }
+}
+@media screen and (min-width: 992px){
+    .firstpage_opacity {
+      opacity: 0;
+      transition: 2s;
+    }
+}
 .first_page .visualPic_wrap {
   width: 55%;
-  height: 100vh;
-  background-image: url(./img/k/visualPic-lg.jpg);
+  height: 110vh;
+  /* background-image: url(./img/k/visualPic-lg.jpg); */
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -72,6 +148,7 @@ p {
 @media screen and (max-width: 991px) {
   .first_page .visualPic_wrap {
     display: none;
+    height: 100vh;
   }
 }
 .first_page .content_wrap {
@@ -86,6 +163,7 @@ p {
 @media screen and (min-width: 992px) {
   .first_page .content_wrap {
     width: 45%;
+    height: 110vh;
   }
 }
 .first_page .logo_content {
@@ -147,7 +225,7 @@ p {
 @media screen and (min-width: 1024px) {
   .home_info .content_wrap {
     background-image: url(./img/k/house_pc.svg);
-    padding: 218px 40px 80px 40px;
+    padding: 218px 40px 86px 40px;
   }
 }
 .home_info .napHeadline {
@@ -215,9 +293,9 @@ p {
 }
 @media screen and (min-width: 996px) {
   .home_info .bot_img #hand {
-    height: 550px;
+    height: 734px;
     background-position: 50% 50%;
-    bottom: 68%;
+    bottom: 70%;
   }
 }
 /* 輪播牆 */
@@ -229,7 +307,7 @@ p {
 }
 @media screen and (min-width: 1024px) {
   .carousel-item {
-    aspect-ratio: 1 / 0.45;
+    aspect-ratio: 1 / 0.48;
   }
 }
 .carousel-item img {
@@ -239,12 +317,11 @@ p {
   transform: translate(-50% , -50%);
 }
 .carousel-indicators [data-bs-target] {
-  background-color:var(--subColor_yellow);
+  background-color:var(--white);
   width: 8px;
   height: 8px;
   border-radius: 50%;
   margin: 0 6px;
-  border: 2px solid var(--secondaryColor_default);
 }
 .carousel-indicators{
   margin-bottom: 8px;
@@ -416,7 +493,7 @@ p {
   background-repeat: no-repeat;
   position: relative;
   margin-bottom: 82px;
-  /* overflow: hidden; */
+  background-color: var(--white);
 }
 @media screen and (min-width: 576px){
   .explain {
@@ -647,14 +724,14 @@ p {
 /*------ napSteps------  */
 .napSteps {
   text-align: center;
-  padding: 0px 40px;
-  margin-bottom: 72px;
+  padding: 0px 40px 72px 40px;
+  overflow: hidden;
+  background-color: var(--white);
 }
 @media screen and (min-width: 1200px){
   .napSteps {
     text-align: center;
-    padding: 0px 120px;
-    margin-bottom: 72px;
+    padding: 0px 120px 72px 120px;
   }
 }
 /* --mb-- */
@@ -694,8 +771,9 @@ p {
 }
 
 /* --pc-- */
+
 @media screen and (max-width: 1199px){
-  .wrap_pc {
+  .napSteps .wrap_pc {
     display: none;
   }
 }
@@ -707,6 +785,8 @@ p {
   display: flex;
   gap: 24px;
   justify-content: center;
+  transform: translateX(100vw);
+  transition: 2s;
 }
 .napSteps .wrap_pc .napCard #back {
   transform: rotateY(180deg);
@@ -738,6 +818,72 @@ p {
   height: 500px;
 }
 
+/* 進場動畫效果animation keyframe */
+@keyframes flip1-1 {
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(1440deg);
+  }
+}
+@keyframes flip2-1 {
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(1080deg);
+  }
+}
+@keyframes flip3-1 {
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(720deg);
+  }
+}
+@keyframes flip4-1 {
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(360deg);
+  }
+}
+@keyframes flip1-2 {
+  0%{
+    transform: rotateY(1440deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+@keyframes flip2-2 {
+  0%{
+    transform: rotateY(1080deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+@keyframes flip3-2 {
+  0%{
+    transform: rotateY(720deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+@keyframes flip4-2 {
+  0%{
+    transform: rotateY(360deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+
 
 
 /* btn  */
@@ -746,23 +892,56 @@ p {
   max-width: 288px;
   margin: auto;
 }
+@media screen and (min-width: 1024px){
+    .napBtn_fixed_filled{
+      font-size: 32px;
+      height: 80px;
+      max-width: 360px !important;
+    }
+}
 
 
 /* ------ footer ------ */
+.footer-mobile {
+  background-color: var(--white);
+}
 
 .footer-mobile .sec1,
 .footer-mobile .sec2 {
   line-height: 148%;
   color: var(--white);
 }
-.footer-mobile .illustration img {
-  width: 100%;
-  height: 100%;
-}
 .footer-mobile .illustration {
   position: absolute;
   top: -47px;
   right: 4px;
-  width: 217px;
-  height: 146px;
 }
+.footer-mobile .illustration img {
+  width: 217px;
+}
+@media screen and (min-width: 768px){
+  .footer-mobile .illustration {
+    position: absolute;
+    right: 25%;
+  }
+  .footer-mobile .illustration img {
+    width: 395px;
+  }
+}
+.footer-mobile .branch {
+  transform: scaleX(-1);
+  position: absolute;
+  overflow: hidden;
+  top: -326px;
+  right: 4px;
+}
+.footer-mobile .branch img{
+  width: 444px;
+  transform: translateX(-86px);
+}
+@media screen and (max-width: 767px){
+  .footer-mobile .branch {
+    display: none;
+  }
+}
+

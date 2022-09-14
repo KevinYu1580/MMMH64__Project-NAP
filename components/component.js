@@ -4,9 +4,17 @@ $(".topNav_mobile .menu, .menu_lightBox_pc").click(function () {
 });
 
 // ----------like_Btn---------
+
+// 寵物卡片
 $('.napBtn_likeBtn').click(function(){
   $(this).toggleClass('likeBtn_activated');
   $('.napBtn_likeBtn #white').toggle();
+})
+
+
+// 留驗區
+$('.napBtn_likeBtn_comt').click(function(){
+  $('.napBtn_likeBtn_comt .svgs #napActivate').toggle()
 })
 
 // ----------switch---------
@@ -18,16 +26,16 @@ const switch_two_num2 = $('.napSwitch_two .num2');
 
 
 $(switch_two_num1).click(function(){
-  $(backmask_two).css('left', '0%');
-  $(switch_two_num1).css('color', 'var(--white)');
-  $(switch_two_num2).css('color', 'var(--black_600)');
+  console.log('this',$(this));
+  $(this).prev().css('left', '0%');
+  $(this).css('color', 'var(--white)');
+  $(this).next().css('color', 'var(--black_600)');
 });
 
-
 $(switch_two_num2).click(function(){
-  $(backmask_two).css('left', '50%');
-  $(switch_two_num1).css('color', 'var(--black_600)');
-  $(switch_two_num2).css('color', 'var(--white)');
+  $(this).prev().prev().css('left', '50%');
+  $(this).prev().css('color', 'var(--black_600)');
+  $(this).css('color', 'var(--white)');
 });
 
 

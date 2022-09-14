@@ -4,261 +4,444 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Events_Page</title>
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css_p/reset.css">
-    <link rel="stylesheet" href="./css_p/Events_Page.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
+    <link rel="stylesheet" href="./css_p/Events_Page.css">
+    
 </head>
 <body>
-<!-- 活動頁面banner | events-banner -->
-<section class="events-banner">
-    <div class="events-banner-row-mb">
-        <div class="events-banner-col col-lg-6">
-            <div class="events-banner-package">
-                <div class="events-banner-package-textbox">
-                    <h3>PACKAGE EVENTS</h3>
-                    <h2>浪浪套裝活動</h2>
-                    <p>歡迎你來到N.A.P.園區，尋找你命定的另一「伴」！<span> N.A.P.透過各種活動與知識課程，</span>讓你與浪浪們在兩日的相處下能透過活動更加的了解彼此。</p>
-                    <div class="events-banner-package-btn">
-                        <a href="#package-switch">查看活動</a>
+    <!------ topNav 要跟menu一起複製------>
+    <div class="topNav_mobile">
+        <a class="logo" href="#">
+            <img class='mb' src="../components/img/logo-1.svg" alt="">
+            <img class='pc' src="../components/img/logo-2.svg" alt="">
+        </a>
+        <div class="icon_wrap">
+            <div class="sec1">
+                <a href="">
+                    <img src="../components/img/Cart.svg" alt="">
+                </a>
+                <a id="memberPic" href="">
+                  <!-- 圖片在css的background-image -->
+                </a>
+            </div>
+            <button class="menu sec2">
+                <img src="../components/img/hamburger.svg" alt="">
+            </button>
+        </div>
+
+    </div>
+    <!------ menu -------->
+    <div class="menu_lightBox_pc">
+    </div>
+    <div class="nap_menu">
+
+        <div class="content">
+
+            <ul class="menu_link">
+                <li>
+                    <a href="#">首頁<span>Home Page</span></a>
+                </li>
+                <li>
+                    園區介紹 <span>Field Info</span>
+                    <ul class="layer2">
+                        <li>
+                            <a href="#">
+                                園區地圖
+                                <span>Field Guide</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                園區內的毛孩
+                                <span>Our Furry Friends</span>
+                            </a>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">活動檔期 <span>Events</span></a>
+                </li>
+                <li>
+                    <a href="#">房型介紹
+                        <span>Room Info</span></a>
+                </li>
+                <li>交流討論區 <span>ChatChat!</span>
+                    <ul class="layer2">
+                        <li>
+                            <a href="#">
+                                Q & A
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                活動討論
+                                <span>Event Forum</span>
+                            </a>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="logout">
+                        <a class="" href="#">登出<span>Logout</span></a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="icon_link">
+                <li>
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40" fill="none">
+                            <g clip-path="url(#clip0_30_489)">
+                                <path
+                                    d="M14.609 33.7363C12.9197 33.7363 11.5491 35.1416 11.5491 36.8627C11.5491 38.5838 12.9197 39.9891 14.609 39.9891C16.2983 39.9891 17.6689 38.5838 17.6689 36.8627C17.6689 35.1416 16.2983 33.7363 14.609 33.7363V33.7363ZM30.0147 33.7363C28.3254 33.7363 26.9548 35.1416 26.9548 36.8627C26.9548 38.5838 28.3254 39.9891 30.0147 39.9891C31.7041 39.9891 33.0746 38.5838 33.0746 36.8627C33.0746 35.1416 31.7041 33.7363 30.0147 33.7363V33.7363Z"
+                                    fill="#ffffff" />
+                                <path
+                                    d="M36.8888 5.95861H10.0084L9.11596 2.44009C8.86097 1.03486 7.64976 0 6.2473 0H1.85932C0.828724 0 0 0.849673 0 1.90632C0 2.96296 0.828724 3.81264 1.85932 3.81264H5.63107L10.6565 23.6601L8.6591 28.3769C8.41473 28.9651 8.46786 29.6405 8.80785 30.1852C9.14784 30.719 9.73219 31.0458 10.359 31.0458H33.7333C34.7639 31.0458 35.5926 30.1961 35.5926 29.1394C35.5926 28.0828 34.7639 27.2331 33.7333 27.2331H13.1958L14.322 24.5752C14.322 24.5752 14.3327 24.5098 14.3433 24.4771H33.6483C34.6364 24.4771 35.4864 23.78 35.7201 22.7996L38.9713 8.63834C39.29 7.26579 38.27 5.95861 36.8995 5.95861H36.8888ZM18.8375 18.0174C18.8375 18.7691 18.2425 19.3791 17.5094 19.3791C16.7763 19.3791 16.1814 18.7691 16.1814 18.0174V12.4183C16.1814 11.6667 16.7763 11.0566 17.5094 11.0566C18.2425 11.0566 18.8375 11.6667 18.8375 12.4183V18.0174ZM25.2123 18.0174C25.2123 18.7691 24.6173 19.3791 23.8842 19.3791C23.1511 19.3791 22.5562 18.7691 22.5562 18.0174V12.4183C22.5562 11.6667 23.1511 11.0566 23.8842 11.0566C24.6173 11.0566 25.2123 11.6667 25.2123 12.4183V18.0174ZM31.5871 18.0174C31.5871 18.7691 30.9921 19.3791 30.259 19.3791C29.5259 19.3791 28.931 18.7691 28.931 18.0174V12.4183C28.931 11.6667 29.5259 11.0566 30.259 11.0566C30.9921 11.0566 31.5871 11.6667 31.5871 12.4183V18.0174Z"
+                                    fill="#ffffff" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_30_489">
+                                    <rect width="40" height="40" fill="#ffffff" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="31" viewBox="0 0 32 40" fill="none">
+                            <g clip-path="url(#clip0_30_488)">
+                                <path
+                                    d="M19.9697 24.0026C25.2335 21.7179 27.7234 15.4187 25.5313 9.93294C23.3391 4.44714 17.295 1.85209 12.0313 4.13673C6.76757 6.42137 4.27758 12.7206 6.46972 18.2064C8.66187 23.6922 14.706 26.2872 19.9697 24.0026Z"
+                                    fill="#ffffff" />
+                                <path
+                                    d="M16 28.7871C8.90206 28.7871 2.84445 31.7241 0.381897 35.8826C-0.671601 37.6805 0.579428 39.9862 2.60741 39.9862H29.3926C31.4206 39.9862 32.6716 37.6805 31.6181 35.8826C29.1687 31.7241 23.0979 28.7871 16 28.7871V28.7871Z"
+                                    fill="#ffffff" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_30_488">
+                                    <rect width="32" height="40" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <!-- 活動頁面banner | events-banner -->
+    <section class="events-banner">
+        <div class="events-banner-row-mb">
+            <div class="events-banner-col col-lg-6">
+                <div class="events-banner-package">
+                    <div class="events-banner-package-textbox">
+                        <h3>PACKAGE EVENTS</h3>
+                        <h2>浪浪套裝活動</h2>
+                        <p>歡迎你來到N.A.P.園區，尋找你命定的另一「伴」！<span> N.A.P.透過各種活動與知識課程，</span>讓你與浪浪們在兩日的相處下能透過活動更加的了解彼此。</p>
+                        <div class="events-banner-package-btn">
+                            <a href="#package-switch">查看活動</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="events-banner-col col-lg-6">
+                <div class="events-banner-special">
+                    <div class="events-banner-special-textbox">
+                        <h3>SPECIAL EVENTS</h3>
+                        <h2>每月特別活動</h2>
+                        <p>每月有配合節慶的活動外，還有專業動物醫學講師開班舉辦講座課程，快帶家中毛孩來參加並留下美好回憶吧！</p>
+                        <div class="events-banner-special-btn">
+                            <a href="#special-switch">查看活動</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="events-banner-ai01-imgbox">
+                <img src="./img_p/illustration/illustration-66.png" alt="">
+            </div>
         </div>
-        <div class="events-banner-col col-lg-6">
-            <div class="events-banner-special">
+        <div class="events-banner-row-pc">
+
+            <div class="banner-special-pc">
                 <div class="events-banner-special-textbox">
                     <h3>SPECIAL EVENTS</h3>
                     <h2>每月特別活動</h2>
-                    <p>每月有配合節慶的活動外，還有專業動物醫學講師開班舉辦講座課程，快帶家中毛孩來參加並留下美好回憶吧！</p>
+                    <p>N.A.P.精心準備的主題活動，不僅有配合節慶的每月活動外，還有專業動物醫學講師開班舉辦講座課程，快與您的毛孩子一同參加並留下美好回憶吧！</p>
                     <div class="events-banner-special-btn">
                         <a href="#special-switch">查看活動</a>
                     </div>
-                </div>
+                </div>  
             </div>
-        </div>
-        <div class="events-banner-ai01-imgbox">
-            <img src="./img_p/illustration/illustration-66.png" alt="">
-        </div>
-    </div>
-    <div class="events-banner-row-pc">
 
-        <div class="banner-special-pc">
-            <div class="events-banner-special-textbox">
-                <h3>SPECIAL EVENTS</h3>
-                <h2>每月特別活動</h2>
-                <p>N.A.P.精心準備的主題活動，不僅有配合節慶的每月活動外，還有專業動物醫學講師開班舉辦講座課程，快與您的毛孩子一同參加並留下美好回憶吧！</p>
-                <div class="events-banner-special-btn">
-                    <a href="#special-switch">查看活動</a>
-                </div>
-            </div>  
-        </div>
-
-        <div class="banner-package-pc-box">
-            <div class="banner-package-pc">
-                <div class="events-banner-package-textbox">
-                    <h3>PACKAGE EVENTS</h3>
-                    <h2>浪浪套裝活動</h2>
-                    <p>歡迎你來到N.A.P.園區，尋找你命定的另一「伴」！<span> N.A.P.透過各種活動與知識課程，</span>讓你與浪浪們在兩日的相處下能透過活動更加的了解彼此。</p>
-                    <div class="events-banner-package-btn">
-                        <a href="#package-switch">查看活動</a>
+            <div class="banner-package-pc-box">
+                <div class="banner-package-pc">
+                    <div class="events-banner-package-textbox">
+                        <h3>PACKAGE EVENTS</h3>
+                        <h2>浪浪套裝活動</h2>
+                        <p>歡迎你來到N.A.P.園區，尋找你命定的另一「伴」！<span> N.A.P.透過各種活動與知識課程，</span>讓你與浪浪們在兩日的相處下能透過活動更加的了解彼此。</p>
+                        <div class="events-banner-package-btn">
+                            <a href="#package-switch">查看活動</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="events-banner-ai01-imgbox">
+                <img src="./img_p/illustration/illustration-66.png" alt="">
+            </div>
         </div>
-        
-        <div class="events-banner-ai01-imgbox">
-            <img src="./img_p/illustration/illustration-66.png" alt="">
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- 選擇器 | events-switch -->
-<section class="events-switch">
-    <div class="events-switch-frame">
-        <div id="package-switch" class="package-switch d-flex justify-content-center align-items-center">
-            浪浪套裝活動
+    <!-- 選擇器 | events-switch -->
+    <section class="events-switch">
+        <div class="events-switch-frame">
+            <div id="package-switch" class="package-switch d-flex justify-content-center align-items-center">
+                浪浪套裝活動
+            </div>
+            <div id="special-switch" class="special-switch d-flex justify-content-center align-items-center">每月特別活動</div>
         </div>
-        <div id="special-switch" class="special-switch d-flex justify-content-center align-items-center">每月特別活動</div>
-    </div>
-</section>
+    </section>
 
-<!-- 活動卡片 | events-card -->
-<section class="events-card"> 
-    <div class="events-card-container">
-        <div class="evnets-card-group-mb">
-            <div class="events-card-row-mb d-flex">
-                <div class="events-card-col-mb">
-                    <div class="events-card-mb">
-                        <div class="card-imgbox-mb">
-                            <img src="./img_p/events/pack-mb-01.jpg" alt="">
+    <!-- 活動卡片 | events-card -->
+    <section class="events-card"> 
+        <div class="events-card-container">
+            <div class="evnets-card-group-mb">
+                <div class="events-card-row-mb d-flex">
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb">
+                            <div class="card-imgbox-mb">
+                                <img src="./img_p/events/pack-mb-01.jpg" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4>10/15-10/16</h4>
+                                <h3>汪汪大集合 | 兩日遊</h3>
+                                <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                                <h5>剩餘名額：<span>9</span> / 20</h5>
+                                <div class="card-btn">
+                                    <a href="">查看活動</a>
+                                </div>
+                            </div>
+                            <div class="card-like-mb">
+                                <img src="./img_p/icon/Heart.svg" alt="">
+                            </div>
                         </div>
-                        <div class="card-textbox-mb">
+                    </div>
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb">
+                            <div class="card-imgbox-mb">
+                                <img src="./img_p/events/pack-mb-02.jpg" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4>10/15-10/16</h4>
+                                <h3>吸貓控樂園 | 兩日遊</h3>
+                                <p>與喵喵寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                                <h5>剩餘名額：<span>9</span> / 20</h5>
+                                <div class="card-btn">
+                                    <a href="">查看活動</a>
+                                </div>
+                            </div>
+                            <div class="card-like-mb">
+                                <img src="./img_p/icon/Heart.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb">
+                            <div class="card-imgbox-mb">
+                                <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4>10/15-10/16</h4>
+                                <h3>汪汪俱樂部  | 兩日遊</h3>
+                                <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                                <h5>剩餘名額：<span>9</span> / 20</h5>
+                                <div class="card-btn">
+                                    <a href="">查看活動</a>
+                                </div>
+                            </div>
+                            <div class="card-like-mb">
+                                <img src="./img_p/icon/Heart.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb">
+                            <div class="card-imgbox-mb">
+                                <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4>10/15-10/16</h4>
+                                <h3>汪汪俱樂部  | 兩日遊</h3>
+                                <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                                <h5>剩餘名額：<span>9</span> / 20</h5>
+                                <div class="card-btn">
+                                    <a href="">查看活動</a>
+                                </div>
+                            </div>
+                            <div class="card-like-mb">
+                                <img src="./img_p/icon/Heart.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb">
+                            <div class="card-imgbox-mb">
+                                <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4>10/15-10/16</h4>
+                                <h3>汪汪俱樂部  | 兩日遊</h3>
+                                <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                                <h5>剩餘名額：<span>9</span> / 20</h5>
+                                <div class="card-btn">
+                                    <a href="">查看活動</a>
+                                </div>
+                            </div>
+                            <div class="card-like-mb">
+                                <img src="./img_p/icon/Heart.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb">
+                            <div class="card-imgbox-mb">
+                                <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4>10/15-10/16</h4>
+                                <h3>汪汪俱樂部  | 兩日遊</h3>
+                                <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                                <h5>剩餘名額：<span>9</span> / 20</h5>
+                                <div class="card-btn">
+                                    <a href="">查看活動</a>
+                                </div>
+                            </div>
+                            <div class="card-like-mb">
+                                <img src="./img_p/icon/Heart.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="events-card-group-pc">
+                <div class="events-card-pc">
+                    <div class="events-card-row-pc d-flex">
+                        <div class="card-imgbox-pc col-4">
+                            <img src="./img_p/events/pack-pc-01.jpg" alt="">
+                        </div>
+                        <div class="card-textbox-pc col-8">
                             <h4>10/15-10/16</h4>
                             <h3>汪汪大集合 | 兩日遊</h3>
                             <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                            <h5>剩餘名額：<span>9</span> / 20</h5>
-                            <div class="card-btn">
-                                <a href="">查看活動</a>
+                            <div class="card-textbox-row-pc row justify-content-center align-items-center">
+                                <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
+                                <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
+                                    <div class="card-like-pc d-flex justify-content-center align-items-center ">
+                                        <img src="./img_p/icon/Heart.svg" alt="">
+                                    </div>
+                                    <div class="card-btn-pc">
+                                        <a href="">查看活動詳情</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-like-mb">
-                            <img src="./img_p/icon/Heart.svg" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="events-card-col-mb">
-                    <div class="events-card-mb">
-                        <div class="card-imgbox-mb">
-                            <img src="./img_p/events/pack-mb-02.jpg" alt="">
+                <div class="events-card-pc">
+                    <div class="events-card-row-pc d-flex">
+                        <div class="card-imgbox-pc col-4">
+                            <img src="./img_p/events/pack-pc-02.jpg" alt="">
                         </div>
-                        <div class="card-textbox-mb">
+                        <div class="card-textbox-pc col-8">
                             <h4>10/15-10/16</h4>
-                            <h3>吸貓控樂園 | 兩日遊</h3>
+                            <h3>吸貓控樂園  | 兩日遊</h3>
                             <p>與喵喵寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                            <h5>剩餘名額：<span>9</span> / 20</h5>
-                            <div class="card-btn">
-                                <a href="">查看活動</a>
+                            <div class="card-textbox-row-pc row justify-content-center align-items-center">
+                                <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
+                                <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
+                                    <div class="card-like-pc d-flex justify-content-center align-items-center ">
+                                        <img src="./img_p/icon/Heart.svg" alt="">
+                                    </div>
+                                    <div class="card-btn-pc">
+                                        <a href="">查看活動詳情</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-like-mb">
-                            <img src="./img_p/icon/Heart.svg" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="events-card-col-mb">
-                    <div class="events-card-mb">
-                        <div class="card-imgbox-mb">
-                            <img src="./img_p/events/pack-mb-03.jpg" alt="">
+                <div class="events-card-pc">
+                    <div class="events-card-row-pc d-flex">
+                        <div class="card-imgbox-pc col-4">
+                            <img src="./img_p/events/pack-pc-03.jpg" alt="">
                         </div>
-                        <div class="card-textbox-mb">
+                        <div class="card-textbox-pc col-8">
                             <h4>10/15-10/16</h4>
                             <h3>汪汪俱樂部  | 兩日遊</h3>
                             <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                            <h5>剩餘名額：<span>9</span> / 20</h5>
-                            <div class="card-btn">
-                                <a href="">查看活動</a>
-                            </div>
-                        </div>
-                        <div class="card-like-mb">
-                            <img src="./img_p/icon/Heart.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="events-card-group-pc">
-            <div class="events-card-pc">
-                <div class="events-card-row-pc d-flex">
-                    <div class="card-imgbox-pc col-4">
-                        <img src="./img_p/events/pack-pc-01.jpg" alt="">
-                    </div>
-                    <div class="card-textbox-pc col-8">
-                        <h4>10/15-10/16</h4>
-                        <h3>汪汪大集合 | 兩日遊</h3>
-                        <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                        <div class="card-textbox-row-pc row justify-content-center align-items-center">
-                            <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
-                            <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
-                                <div class="card-like-pc d-flex justify-content-center align-items-center ">
-                                    <img src="./img_p/icon/Heart.svg" alt="">
-                                </div>
-                                <div class="card-btn-pc">
-                                    <a href="">查看活動詳情</a>
+                            <div class="card-textbox-row-pc row justify-content-center align-items-center">
+                                <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
+                                <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
+                                    <div class="card-like-pc d-flex justify-content-center align-items-center ">
+                                        <img src="./img_p/icon/Heart.svg" alt="">
+                                    </div>
+                                    <div class="card-btn-pc">
+                                        <a href="">查看活動詳情</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="events-card-pc">
-                <div class="events-card-row-pc d-flex">
-                    <div class="card-imgbox-pc col-4">
-                        <img src="./img_p/events/pack-pc-02.jpg" alt="">
-                    </div>
-                    <div class="card-textbox-pc col-8">
-                        <h4>10/15-10/16</h4>
-                        <h3>吸貓控樂園  | 兩日遊</h3>
-                        <p>與喵喵寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                        <div class="card-textbox-row-pc row justify-content-center align-items-center">
-                            <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
-                            <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
-                                <div class="card-like-pc d-flex justify-content-center align-items-center ">
-                                    <img src="./img_p/icon/Heart.svg" alt="">
-                                </div>
-                                <div class="card-btn-pc">
-                                    <a href="">查看活動詳情</a>
+                <div class="events-card-pc">
+                    <div class="events-card-row-pc d-flex">
+                        <div class="card-imgbox-pc col-4">
+                            <img src="./img_p/events/pack-pc-04.jpg" alt="">
+                        </div>
+                        <div class="card-textbox-pc col-8">
+                            <h4>10/15-10/16</h4>
+                            <h3>汪汪出發GO  | 兩日遊</h3>
+                            <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                            <div class="card-textbox-row-pc row justify-content-center align-items-center">
+                                <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
+                                <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
+                                    <div class="card-like-pc d-flex justify-content-center align-items-center ">
+                                        <img src="./img_p/icon/Heart.svg" alt="">
+                                    </div>
+                                    <div class="card-btn-pc">
+                                        <a href="">查看活動詳情</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="events-card-pc">
-                <div class="events-card-row-pc d-flex">
-                    <div class="card-imgbox-pc col-4">
-                        <img src="./img_p/events/pack-pc-03.jpg" alt="">
-                    </div>
-                    <div class="card-textbox-pc col-8">
-                        <h4>10/15-10/16</h4>
-                        <h3>汪汪俱樂部  | 兩日遊</h3>
-                        <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                        <div class="card-textbox-row-pc row justify-content-center align-items-center">
-                            <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
-                            <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
-                                <div class="card-like-pc d-flex justify-content-center align-items-center ">
-                                    <img src="./img_p/icon/Heart.svg" alt="">
-                                </div>
-                                <div class="card-btn-pc">
-                                    <a href="">查看活動詳情</a>
-                                </div>
-                            </div>
+                <div class="events-card-pc">
+                    <div class="events-card-row-pc d-flex">
+                        <div class="card-imgbox-pc col-4">
+                            <img src="./img_p/events/pack-pc-05.jpg" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="events-card-pc">
-                <div class="events-card-row-pc d-flex">
-                    <div class="card-imgbox-pc col-4">
-                        <img src="./img_p/events/pack-pc-04.jpg" alt="">
-                    </div>
-                    <div class="card-textbox-pc col-8">
-                        <h4>10/15-10/16</h4>
-                        <h3>汪汪出發GO  | 兩日遊</h3>
-                        <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                        <div class="card-textbox-row-pc row justify-content-center align-items-center">
-                            <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
-                            <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
-                                <div class="card-like-pc d-flex justify-content-center align-items-center ">
-                                    <img src="./img_p/icon/Heart.svg" alt="">
-                                </div>
-                                <div class="card-btn-pc">
-                                    <a href="">查看活動詳情</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="events-card-pc">
-                <div class="events-card-row-pc d-flex">
-                    <div class="card-imgbox-pc col-4">
-                        <img src="./img_p/events/pack-pc-05.jpg" alt="">
-                    </div>
-                    <div class="card-textbox-pc col-8">
-                        <h4>10/15-10/16</h4>
-                        <h3>汪汪隊出任務 | 兩日遊</h3>
-                        <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                        <div class="card-textbox-row-pc row justify-content-center align-items-center">
-                            <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
-                            <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
-                                <div class="card-like-pc d-flex justify-content-center align-items-center ">
-                                    <img src="./img_p/icon/Heart.svg" alt="">
-                                </div>
-                                <div class="card-btn-pc">
-                                    <a href="">查看活動詳情</a>
+                        <div class="card-textbox-pc col-8">
+                            <h4>10/15-10/16</h4>
+                            <h3>汪汪隊出任務 | 兩日遊</h3>
+                            <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
+                            <div class="card-textbox-row-pc row justify-content-center align-items-center">
+                                <div class="person col-6">剩餘人數：<span>9</span> / 20</div>
+                                <div class="card-textbox-col-pc d-flex justify-content-end align-items-center col-6">
+                                    <div class="card-like-pc d-flex justify-content-center align-items-center ">
+                                        <img src="./img_p/icon/Heart.svg" alt="">
+                                    </div>
+                                    <div class="card-btn-pc">
+                                        <a href="">查看活動詳情</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -266,10 +449,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
+  
 
     <!------ footer-mobile ------>
     <div class="footer-mobile">
@@ -334,6 +515,7 @@
 
 
 <script src="./js_p/jquery-3.6.0.min.js"></script>
+<script src="../components/component.js"></script>
     <script>
         // 活動頁面banner | events-banner
         $(".events-banner").mousemove(function(e){
@@ -371,9 +553,9 @@
 
         // 活動卡片 | events-card
         // TO DO：當進入瀏覽器時，如果卡片(.events-card-mb)有n張，那卡片盒子(.events-card-row-mb)的寬度是n*90%
+        
 
-
-            
+        $('.events-card-row-mb').css('width', `${$('.events-card-mb').outerWidth(true) * $('.events-card-mb').length}px`)
     </script>
     
 </body>

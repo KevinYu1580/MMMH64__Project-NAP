@@ -55,12 +55,19 @@
 body{
 font-family: custom-font;
 }
+
 /* nav-moble */
 .nav-white-block{
     width: 100%;
     height: 68px;
     background-color: var(--white);    
 }
+
+/* @media screen and (min-width:576px){
+    .topNav_mobile , .nap_menu ,.nav-white-block{
+        display: none;
+    }
+} */
 .banner {
     width: 100%;
     height: 140px;
@@ -214,7 +221,7 @@ font-family: custom-font;
     } 
     .banner-why-card-pc{
         /* border: 1px solid red; */
-        padding: 20px;
+        padding: 30px;
        
     }
     .why-card-img-pc{
@@ -278,9 +285,8 @@ font-family: custom-font;
     color: var(--secondaryColor_default);
     text-align: center;
     margin: 10px;
-    /* margin:10px 0  20px ; */
 }
-/* 篩選器pc*/
+/* 篩選器*/
 .napSwitch_two,.napSwitch_three{
     margin: 8px auto;
 }
@@ -302,7 +308,7 @@ font-family: custom-font;
         border:1px solid red ;
     }
     .filter-container{
-        width: 1440px;
+        width: 75%;
         margin: auto; 
     }
     .filter-group{
@@ -312,13 +318,21 @@ font-family: custom-font;
     }
     .napSwitch_two,.napSwitch_three{
         margin: 8px 0;
-        font-size: 24px;
+        font-size: 20px;
     }
-    .napSwitch_three{
+    .napSwitch_two,.napSwitch_three{
         padding: 8px 35px;
     }
-    
-    .filter-title-pc h2{
+    .napSwitch_three .num1, .num2, .num3 {
+        padding: 0px 40px 0px 0px;
+    }
+    .napSwitch_three .num2 {
+        padding: 0px 20px 0px 10px;
+    }
+    .napSwitch_three .num3 {
+        padding: 0px 0px 0px 40px;
+    }
+.filter-title-pc h2{
         font-size: 40px ;
         text-align: left;
         margin-bottom: 30px;
@@ -326,13 +340,16 @@ font-family: custom-font;
     }
 }
 /* 寵物卡片 */
+.pet-card{
+    margin-bottom: 50px;
+}
 .pet-card-cnotainer{
     width: 327px;
     margin: auto;
 }
 .pet-card-col {
     padding: 5px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .pet-card-row{
@@ -358,12 +375,13 @@ font-family: custom-font;
 
 @media screen and (min-width:576px){
     .pet-card-cnotainer{
-        width: 1440px;
+        width: 85%;
         margin: auto;
     }
-    p
+    
     .pet-card-row{
         display: flex;
+        
     }
     .pet-card-content{
         background-color: var(--subColor_bgc);
@@ -405,7 +423,7 @@ justify-content: center;
 }
 @media screen and (min-width:576px){
     .pet-card-col{
-        padding: 20px;
+        padding: 20px 80px;
     }
     .pet-info .name{
         padding: 25px 0 15px;
@@ -437,6 +455,120 @@ justify-content: center;
         margin: auto;
     }
     .napBtn_likeBtn span{
-        font-size: var(--headline_20px);
+        font-size: var(--headline_2px);
     }  
 }
+/* 黑色光箱 */
+/* .lightBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+} */
+.lightBox-container{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--black_core);
+    position: relative;
+    text-align: center;
+    margin: auto;
+    color: var(--subColor_text);
+}
+.lightBox-row{
+    color: var(--subColor_text);
+    width: 80%;
+    position: absolute;
+    margin: auto;
+    border-radius: 20px;
+    background-color: var(--subColor_bgc);
+    border: 1px solid red;
+    padding: 20px;
+    text-align: center;
+}
+.close{
+    margin-left: 92%;
+    width: 20px;
+    cursor: pointer;
+    border: 1px solid red;
+}
+.close img{
+    width: 100%;
+    height: 68px;
+    margin-bottom: 30px;
+}
+.lightBox-card-img{
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border: 1px solid red;
+    padding: 0;
+}
+.lightBox-card-img img{
+    width: 100%;
+    object-fit: cover;
+}
+/* 黑色光箱info */
+
+.lightBox-card-name {
+    font-size: 24px;
+    width: fit-content;
+    border-left: 3px solid var(--secondaryColor_default);
+    margin: 20px 0 10px;
+    padding-left: 20px;
+    font-weight: 500;
+
+}
+.lightBox-card-info h6{
+ text-align: left;
+ line-height: 1.6rem;
+}
+.lightBox-card-info p{
+font-size: var(--p_12px);
+text-align: left;
+line-height: 1.2rem;
+}
+.lightBox-card-info .napBtn_likeBtn{
+  margin: 20px auto 0;  
+  
+}
+@media screen and (min-width:576px){
+
+    .lightBox-row{
+        display: flex;
+        width: 50%;
+        padding: 50px;
+        justify-content: space-around;
+    }
+    .lightBox-card-img{
+        margin-right: 20px;
+        height: 500px;
+    }
+    .lightBox-card-info{
+        margin-left: 20px;
+        padding: 0;
+    }
+.lightBox-card-name {
+        font-size: 40px;
+        margin-top: 0;
+        border-left: 5px solid var(--secondaryColor_default);
+        
+    }
+    .lightBox-card-info h6{
+        
+        line-height: 2.6rem;
+        font-size: 28px;
+       }
+       .lightBox-card-info p{
+       font-size: 20px;
+       text-align: left;
+       line-height: 2rem;
+       }
+       .lightBox-card-info .napBtn_likeBtn{
+        margin: 0;
+        margin-left: auto;
+       }  
+
+}
+
+
+
+

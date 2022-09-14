@@ -1,0 +1,268 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radius: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+p{
+    color: var(--subColor_text);
+    line-height: 180% !important;
+}
+    
+button {
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+/* ------ coverPic ------ */
+.coverPic {
+    width: 100%;
+    margin-top: 68px;
+    height: 140px;
+    background-image: url(./img/k/Forum_cover.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+/* 留言板selector & 大標 */
+.selector_wrap {
+    margin-bottom: 36px;
+}
+.selector_wrap h2 {
+    color: var(--secondaryColor_default);
+    font-size: 32px;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+    margin-top: 28px;
+}
+.selector_wrap span {
+    font-size: 20px;
+    color: var(--secondaryColor_default);
+}
+.selector_wrap .secSelec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 36px;
+    margin-bottom: 22px;
+}
+.selector_wrap .secSelec #num1 {
+    color: var(--secondaryColor_default);
+}
+.selector_wrap .secSelec button {
+    padding: 6px;
+    background-color: #fff;
+    border: none;
+}
+.napSwitch_three .sec {
+    padding: 14px 30px;
+}
+
+.selector_wrap .forum_switch {
+    margin: auto;
+}
+
+.selector_wrap .secSelec .line {
+    height: 16px;
+    width: 1px;
+    background-color:var(--black_500);
+}
+
+/* ------ comtCard ------ */
+.comtCard_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 60px;
+}
+.comtCard {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.comtCard_wrap .comtCard {
+    width: 100%;
+    aspect-ratio: 1 / 0.464;
+    max-height: 240px;
+    min-height: 174px;
+    background-color: var(--subColor_bgc);
+    padding: 16px;
+    overflow: hidden;
+}
+
+.comtCard_wrap .member_info {
+    display: flex;
+    
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+.comtCard_wrap .member_info .member_pic {
+    position: relative;
+    width: 28px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.comtCard_wrap .member_info .member_pic img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.comtCard_wrap .comtCard .napTitle {
+    font-size: 18px;
+    color: var(--black_900);
+    font-weight: 500;
+    margin-bottom: 8px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -moz-box;
+     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.comtCard_wrap .comtCard .comtLabel {
+    margin-bottom: 4px;
+}
+.comtCard_wrap .comtCard .content_wrap{
+    padding-right: 6px;
+    width: 70%;
+}
+.comtCard_wrap .comtCard .content_wrap .contentText{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    display:-moz-box;
+     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+/* 卡片小縮圖 */
+.comtCard_wrap .comtCard .card_smPic {
+    overflow: hidden;
+    margin-top: 40px;
+    aspect-ratio: 1 / 1;
+    background-image: url('./img/k/carousel-4.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+}
+
+.comtCard_wrap .comtCard  .iconIndic{
+    display: flex;
+    position: absolute;
+    align-items: end;
+    bottom: 16px;
+    gap: 24px;
+}
+.comtCard_wrap .comtCard  .iconIndic .napComt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comtCard_wrap .comtCard  .iconIndic .napComt img {
+    width: 20px;
+}
+
+.comtCard_wrap .comtCard  .iconIndic .napComt span{
+    color:var(--secondaryColor_default);
+    font-size: 14px;
+}
+/* 卡片的小選單 */
+.comtCard_wrap .comtCard .pointMenu {
+    width: 4px;
+    height: fit-content;
+}
+.comtCard_wrap .comtCard .pointMenu img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* footer */
+
+.footer-mobile {
+    margin-top: 80px;
+}
+.footer-mobile p{
+    color: var(--white);
+    line-height: 148% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

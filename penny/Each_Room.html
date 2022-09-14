@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Each_Room</title>
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css_p/reset.css">
     <link rel="stylesheet" href="./css_p/Each_Room.css">
@@ -14,15 +14,31 @@
     <!------ topNav 要跟menu一起複製------>
     <div class="topNav_mobile">
         <a class="logo" href="#">
-            <img src="../components/img/logo-1.svg" alt="">
+            <img class='mb' src="../components/img/logo-1.svg" alt="">
+            <img class='pc' src="../components/img/logo-2.svg" alt="">
         </a>
-        <button class="menu">
-            <img src="../components/img/hamburger.svg" alt="">
-        </button>
+        <div class="icon_wrap">
+            <div class="sec1">
+                <a href="">
+                    <img src="../components/img/Cart.svg" alt="">
+                </a>
+                <a id="memberPic" href="">
+                  <!-- 圖片在css的background-image -->
+                </a>
+            </div>
+            <button class="menu sec2">
+                <img src="../components/img/hamburger.svg" alt="">
+            </button>
+        </div>
+
     </div>
     <!------ menu -------->
+    <div class="menu_lightBox_pc">
+    </div>
     <div class="nap_menu">
+
         <div class="content">
+
             <ul class="menu_link">
                 <li>
                     <a href="#">首頁<span>Home Page</span></a>
@@ -188,7 +204,7 @@
                                         </div>
                                         <div class="each-detail d-flex align-items-center">
                                             <div class="detail-imgbox">
-                                                <img src="./img_p/icon/Bell.svg" alt="">
+                                                <img src="./img_p/icon/Bottle.svg" alt="">
                                             </div>
                                             <small>免費瓶裝水</small>
                                         </div>
@@ -196,7 +212,7 @@
                                     <div class="room-detail-col col-6">
                                         <div class="each-detail d-flex align-items-center">
                                             <div class="detail-imgbox">
-                                                <img src="./img_p/icon/Ice.svg" alt="">
+                                                <img src="./img_p/icon/Coffee.svg" alt="">
                                             </div>
                                             <small>含早餐乙客</small>
                                         </div>
@@ -204,7 +220,7 @@
                                             <div class="detail-imgbox">
                                                 <img src="./img_p/icon/Ice.svg" alt="">
                                             </div>
-                                            <small>獨立空間</small>
+                                            <small>獨立空調</small>
                                         </div>
                                         <div class="each-detail d-flex align-items-center">
                                             <div class="detail-imgbox">

@@ -80,6 +80,31 @@ body{
     height: 100%;
     object-fit: cover;
 }
+/* ---------活動詳細頁-收藏按鈕---------- */
+.detail-textbox{
+    position: relative;
+}
+.like-btn{
+    position: absolute;
+    top: 220px;
+    right: 10px;
+    width: 40px;
+    aspect-ratio: 1/1;
+    border: 2px solid var(--primaryColor_dark);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.like-btn svg{
+    width: 70%;
+    height: 100%;
+    object-fit: contain;
+}
+.like-btn path{
+    fill: var(--subColor_lightRed);
+}
 /* ---------活動詳細頁-標題---------- */
 .detail-textbox h3, .detail-textbox h2{
     text-align: center;
@@ -90,6 +115,7 @@ body{
 }
 .detail-textbox h2{
     padding-bottom: 30px;
+    margin-bottom: 30px;
     border-bottom: 2px solid var(--primaryColor_dark);
 }
 /* ---------活動詳細頁-集合時間---------- */
@@ -109,7 +135,7 @@ body{
 }
 .icon-box img{
     width: 100%;
-    aspect-ratio: 1/1;
+    height: 100%;
     object-fit: contain;
 }
 /* ---------活動詳細頁-日程---------- */
@@ -154,7 +180,7 @@ body{
 }
 @media screen and (min-width:768px) {
     .events-detail{
-        margin-top: 150px;
+        margin-top: 120px;
         margin-bottom: 100px;
     }
     .events-detail-container{
@@ -174,9 +200,32 @@ body{
         height: 100%;
         object-fit: cover;
     }
-        /* ---------活動詳細頁-文案框---------- */
+    /* ---------活動詳細頁-文案框---------- */
     .detail-textbox{
         padding: 0 50px;
+        position: relative;
+    }
+    /* ---------活動詳細頁-收藏按鈕---------- */
+    .like-btn{
+        position: absolute;
+        top: 70px;
+        right: 50px;
+        width: 50px;
+        aspect-ratio: 1/1;
+        border: 2px solid var(--primaryColor_dark);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .like-btn svg{
+        width: 70%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .like-btn path{
+        fill: var(--subColor_lightRed);
     }
     /* ---------活動詳細頁-標題---------- */
     .detail-textbox h3, .detail-textbox h2{
@@ -188,6 +237,7 @@ body{
     }
     .detail-textbox h2{
         padding-bottom: 30px;
+        margin-bottom: 30px;
         border-bottom: 2px solid var(--primaryColor_dark);
     }
     /* ---------活動詳細頁-集合時間---------- */
@@ -210,7 +260,7 @@ body{
     }
     .icon-box img{
         width: 100%;
-        aspect-ratio: 1/1;
+        height: 100%;
         object-fit: contain;
     }
     /* ---------活動詳細頁-日程---------- */

@@ -34,7 +34,7 @@
                     <img src="./img/Cart.svg" alt="">
                 </a>
                 <a id="memberPic" href="">
-                  <!-- 圖片在css的background-image -->
+                    <!-- 圖片在css的background-image -->
                 </a>
             </div>
             <button class="menu sec2">
@@ -176,6 +176,7 @@
     <br>
 
     <!-- likeBtn -->
+    <!-- 寵物卡片 -->
     <button class="napBtn_likeBtn">
         <div class="svgs">
             <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
@@ -188,6 +189,17 @@
                     d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z"
                     fill="#FFFFFF" />
             </svg>
+        </div>
+        <span>關注</span>
+    </button>
+
+    <br>
+
+    <!-- 留言區-->
+    <button class="napBtn_likeBtn_comt">
+        <div class="svgs">
+            <img id="napDefault" src="./img/Heart-outline-comt.svg" alt="">
+            <img id="napActivate" src="./img/Heart-filled-comt.svg" alt="">
         </div>
         <span>關注</span>
     </button>
@@ -249,22 +261,23 @@
     <br>
     <!------ 頁數選擇器 PC -------->
 
-    <div class="page_slec_pc">
+    <div class="page_slec">
         <button class="page_click">
             <img width="" src="./img/arrow_lastpage.svg" alt="">
         </button>
         <!-- 頁碼 -->
-        <button class="page_indic">
-            <span class="napPage">1</span>
-        </button>
-        <button class="page_indic">
-            <span class="napPage">2</span>
-        </button>
-        <button class="page_indic">
-            <span class="napPage">3</span>
-        </button>
+        <div class="indic_wrap">
+            <button class="page_indic">
+                <span class="napPage">1</span>
+            </button>
+            <button class="page_indic">
+                <span class="napPage">2</span>
+            </button>
+            <button class="page_indic">
+                <span class="napPage">3</span>
+            </button>
+        </div>
         <!---->
-
         <button class="page_click">
             <img width="" src="./img/arrow_nextpage.svg" alt="">
         </button>
@@ -272,17 +285,11 @@
 
 
     <br>
-    <!------ 頁數選擇器 Mobile -------->
-    <div class="page_slec_mobile">
-        <button class="page_click">
-            <img width="92px" src="./img/arrow_lastpage.svg" alt="">
-        </button>
 
-        <button class="page_click">
-            <img width="92px" src="./img/arrow_nextpage.svg" alt="">
-        </button>
+    <!------ 留言卡片label ------>
+    <div class="comtLabel">
+        <span># 浪浪套裝活動</span>
     </div>
-
 
 
 
@@ -347,7 +354,6 @@
                 Copyright © 2022 N.A.P. Guide CO.,LTD All rights reserved.
             </span>
         </div>
-
     </div>
 
 
