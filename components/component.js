@@ -8,13 +8,13 @@ $(".topNav_mobile .menu, .menu_lightBox_pc").click(function () {
 // 寵物卡片
 $('.napBtn_likeBtn').click(function(){
   $(this).toggleClass('likeBtn_activated');
-  $('.napBtn_likeBtn #white').toggle();
+  $(this).find('#white').toggle();
 })
 
 
-// 留驗區
+// 留言區
 $('.napBtn_likeBtn_comt').click(function(){
-  $('.napBtn_likeBtn_comt .svgs #napActivate').toggle()
+  $(this).find('#napActivate').toggle()
 })
 
 // ----------switch---------
