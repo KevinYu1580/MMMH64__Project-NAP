@@ -117,6 +117,37 @@ button {
     background-color:var(--black_500);
 }
 
+/* search bar */
+.napSearchBar {
+    margin: 0 auto 24px auto;
+    width: 280px;
+}
+.napSearchBar ::-webkit-input-placeholder {
+    color: var(--black_500);
+}
+.form-control:focus {
+    outline: none;
+}
+
+.me-2 {
+    margin: 0 !important;
+}
+.form-control {
+    border-radius: 100px 0px 0px 100px;
+    border: none;
+    background-color: #F3F3F3;
+    border: none;
+    padding-left: 30px;
+}
+.searchIcon {
+    background-color:var(--primaryColor_default);
+    padding: 0 12px 0 8px;
+    border-radius: 0 100px 100px 0;
+    border: none;
+}
+.searchIcon:hover {
+    background-color:var(--primaryColor_dark);
+}
 /* ------ comtCard ------ */
 .comtCard_wrap {
     display: flex;
@@ -132,7 +163,7 @@ button {
 }
 .comtCard_wrap .comtCard {
     width: 100%;
-    aspect-ratio: 1 / 0.464;
+    aspect-ratio: 1 / 0.5;
     max-height: 240px;
     min-height: 174px;
     background-color: var(--subColor_bgc);
@@ -227,14 +258,92 @@ button {
 }
 /* 卡片的小選單 */
 .comtCard_wrap .comtCard .pointMenu {
-    width: 4px;
+    width: 5px;
     height: fit-content;
 }
 .comtCard_wrap .comtCard .pointMenu img{
     width: 100%;
     height: 100%;
 }
+/* 小選單光箱 */
+.comtCard_wrap .comtCard .lightBox_mb {
+    height: 20vh;
+    width: 100%;
+    background-color: var(--white);
+    padding: 18px 32px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    border-radius: 20px 20px 0 0;
+    transform: translateY(102%);
+    transition: 0.3s;
+}
+.comtCard_wrap .comtCard .lightBox_mb button{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 18px;
+}
+.comtCard_wrap .comtCard .lightBox_mb .cardDelete{
+    margin-bottom: 22px;
+}
+.lightBox_mb_mask {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    cursor: pointer;
+    display: none;
 
+}
+/* 留言卡片展開的光箱  */
+.lightBox_comtCard {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 72px 40px;
+}
+.lightBox_comtCard .member_info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.lightBox_comtCard .member_info .member_pic {
+    width: 32px;
+    height: 32px;
+    background-image: url(./img/circle-people.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 50%;
+}
+.lightBox_comtCard .member_info span {
+    font-size: 14px;
+    margin-left: 8px;
+}
+.lightBox_comtCard article .others_wrap {
+    margin-bottom: 18px;
+    align-items: center;
+}
+.lightBox_comtCard article h3 {
+    color:var(--secondaryColor_default);
+    font-size: 24px;
+    line-height: 140%;
+    margin-bottom: 28px;
+}
+.lightBox_comtCard article .date {
+    font-size: 14px;
+    margin-left: 12px;
+    transform: translateY(4px);
+}
 
 
 /* footer */
@@ -244,7 +353,11 @@ button {
 }
 .footer-mobile p{
     color: var(--white);
-    line-height: 148% !important;
+}
+@media screen and (max-width: 767px){
+    .footer-mobile p{
+        line-height: 148% !important;
+    }
 }
 
 

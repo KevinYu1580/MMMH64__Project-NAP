@@ -80,9 +80,9 @@ $('.chat_bordSlec_PC .bot').click(function(){
 
 // --------頁數選擇器PC---------
 
-$('.page_slec_pc .page_indic').click(function(){
-  $('.page_slec_pc .page_indic').css('background-color', 'var(--white)');
-  $('.page_slec_pc .napPage').css('color','var(--primaryColor_dark)');
+$('.page_slec .page_indic').click(function(){
+  $('.page_slec .page_indic').css('background-color', 'var(--white)');
+  $('.page_slec .napPage').css('color','var(--primaryColor_dark)');
 
 
   $(this).css('background-color', 'var(--primaryColor_dark)');
