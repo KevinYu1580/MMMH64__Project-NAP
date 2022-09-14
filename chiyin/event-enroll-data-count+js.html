@@ -180,14 +180,14 @@
                     <div class="price-info">
                         費用含住宿、保險及兩日餐食(Day1 午晚餐及 Day2 早午餐）
                     </div>
-                    <div class="enroll-card-btn row">
-                        <div class="col add-to-cart-btn">
-                            <a class="napBtn_fixed_filled" href="#">
+                    <div class="enroll-card-btn">
+                        <div class="add-to-cart-btn">
+                            <a class="napBtn_fixed_filled" href="javascript:" type="button">
                                 <span>前往結帳</span>
                             </a>
                         </div>
-                        <div class="col check-bill-btn">
-                            <a class="napBtn_fixed_outlined" href="#">
+                        <div class="check-bill-btn">
+                            <a class="napBtn_fixed_outlined" href="javascript:" type="button"  disabled="disabled">
                                 <span>加入購物車</span>
                             </a>
                         </div>
@@ -196,7 +196,7 @@
             </div>
             <div class="enroll-data-left col-md-6 order-first">
                 <div class="add-member-btn">
-                    <a class="napBtn_fixed_filled" href="#" type="button">
+                    <a class="napBtn_fixed_filled" href="javascript:" type="button">
                         <span>+ 新增參與人資料</span>
                     </a>
                 </div>
@@ -206,14 +206,16 @@
                         <div class="triangle">
                             <img src="./img_cy/down-triangle.svg" alt="">
                         </div>
-                        
+
                     </div>
                     <div class="enroll-content-null">
                         <p>目前無參與人資料，請點選『新增參與人資料』加入！</p>
                     </div>
                     <div class="enroll-content-obj">
                         <div class="delete-btn">
-                            <img src="./img_cy/component/icon/xmark.svg" alt="">
+                            <a class="delete" href="javascript:" type="button">
+                                <img src="./img_cy/component/icon/xmark.svg" alt="">
+                            </a>
                         </div>
                         <div class="count-num">0</div>
                         <div class="form">
@@ -263,9 +265,9 @@
                         </div>
 
                     </div>
-                    
+
                     <div id="enroll-area">
-                        
+
                     </div>
                     <div class="enroll-content-bottom"></div>
                 </div>
@@ -337,27 +339,112 @@
     <script src="../components/component.js"></script>
 
     <script>
-        
-        $('.add-member-btn').on('click', function () {
-            console.log('Clicked');
-        });
-        //點擊按鈕動態產生一個div方塊
-        var amount=0;
-        $('.add-member-btn').on('click', function () {
-            if(amount<4){
-                $('.enroll-content-null').hide();
-                var $obj = $('.enroll-content-obj').clone();
-                console.log($obj);
-                $obj.removeClass("enroll-content-obj");
-                $obj.addClass("enroll-content") ;
 
+        //點擊按鈕動態產生一個div form方塊
+        var amount = 0;
+        var total = 0;
+        var testArray = [];
+        var $obj;
+        var testArray2 = [];
+        CheckAmount();
+        $('.add-member-btn').on('click', function () {
+            if (amount < 4) {
+                $('.enroll-content-null').hide();
+                $obj = $('.enroll-content-obj').clone();
+                $obj.removeClass("enroll-content-obj");
+                $obj.addClass("enroll-content");
+
+                // testArray.push($obj);
+                $obj.children(('.count-num')).html(amount+1);
+                // $obj.children(('.count-num')).html(testArray.indexOf($obj)+1);
                 $('#enroll-area').prepend($obj);
                 amount++;
-            }
-            
+                // ReSortList();
+                $('.add-member-btn').removeClass('disabled');
+            };
+            // eventPrice 之後要取資料庫值
+            var eventPrice = 2999;
+            var enrollNum = (amount);
+            var total = eventPrice * enrollNum;
+            // console.log(total);
+            $('.total-price').html(total);
+            $('.enroll-num').html(amount);
 
+            // 呼叫判斷數量function
+            CheckAmount();
         });
 
+        //綁定的物件為.delete-btn的父層元素，若沒有父層可直接綁定$(document)
+        $(document).on('click', '.delete-btn', function () {
+            // console.log('del-Clicked');
+            var temp = $(this).parent().children(('.count-num')).text()
+        
+            $(this).parent().remove();
+            amount--;
+            
+            if(amount < 1){
+                $('.enroll-content-null').show();
+                
+            };
+
+
+            var myClasses = document.getElementsByClassName("count-num");
+            console.log(myClasses)
+            for (var i = 0; i < myClasses.length; i++) {
+                if (myClasses[i].innerHTML > temp){
+                    myClasses[i].innerHTML = parseInt(myClasses[i].innerHTML)-1;
+                }
+            }
+            $obj = $(this).parent();
+            // testArray.pop($obj);
+
+            ReSortList();
+
+            CheckAmount();
+            var eventPrice = 2999;
+            var enrollNum = (amount);
+            var total = eventPrice * enrollNum;
+            console.log(total);
+            console.log("amount:" + amount);
+            
+            // 新的值取代舊得值
+            $('.enroll-num').html(function(index, oldContent){
+                $('.enroll-num').html(amount);
+            });
+            $('.total-price').html(function(index, oldContent){
+                $('.total-price').html(total);
+            });
+            
+        });
+
+        // 判斷amount數量，去顯示disable狀態
+        function CheckAmount(){
+            if (amount > 3 ){
+                $('.add-member-btn').addClass('disabled');
+            } else {
+                $('.add-member-btn').removeClass('disabled')
+            };
+            if (amount < 1 ){
+                $('.enroll-card-btn').addClass('disabled');
+            } else {
+                $('.enroll-card-btn').removeClass('disabled')
+            };
+        };
+
+        $(document).on('click', '.enroll-card-btn', function () {
+            console.log('click add');
+        })
+        
+        function ReSortList()
+        {
+            // var i = 0
+            console.log($('.enroll-content .count-num').length+"誒嘿");
+            for(i = 0 ; i < $('.enroll-content .count-num').length ; i++)
+            {
+                $('.content-area:nth-child('+i+')').children(('.count-num')).html(i++);
+                console.log('你好'+i);
+            }
+        }
 
     </script>
 </body>
