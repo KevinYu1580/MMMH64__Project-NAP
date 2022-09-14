@@ -169,6 +169,7 @@ button {
     background-color: var(--subColor_bgc);
     padding: 16px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .comtCard_wrap .member_info {
@@ -245,7 +246,7 @@ button {
 .comtCard_wrap .comtCard  .iconIndic .napComt {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
 }
 
 .comtCard_wrap .comtCard  .iconIndic .napComt img {
@@ -284,6 +285,7 @@ button {
     align-items: center;
     gap: 18px;
     font-size: 18px;
+    font-weight: 300;
 }
 .comtCard_wrap .comtCard .lightBox_mb .cardDelete{
     margin-bottom: 22px;
@@ -310,7 +312,20 @@ button {
     top: 0;
     left: 0;
     padding: 72px 40px;
+    overflow-y: scroll;
 }
+.lightBox_comtCard::-webkit-scrollbar {
+    display: none;
+}
+.close_lightBox_comtCard {
+    position: absolute;
+    top: 24px;
+    left: 4px;
+}
+/* .lightBox_comtCard .content_wrap {
+    position: relative;
+    width: 100%;
+} */
 .lightBox_comtCard .member_info {
     display: flex;
     align-items: center;
@@ -329,6 +344,9 @@ button {
     font-size: 14px;
     margin-left: 8px;
 }
+.lightBox_comtCard article .content {
+    margin-bottom: 88px;
+}
 .lightBox_comtCard article .others_wrap {
     margin-bottom: 18px;
     align-items: center;
@@ -339,12 +357,84 @@ button {
     line-height: 140%;
     margin-bottom: 28px;
 }
-.lightBox_comtCard article .date {
+.lightBox_comtCard article .others_wrap .date {
     font-size: 14px;
     margin-left: 12px;
     transform: translateY(4px);
 }
-
+.lightBox_comtCard article .comtCard_lightBox_p img {
+    width: 100%;
+    margin: 32px 0;
+    border-radius: 20px;
+}
+.lightBox_comtCard .comtSection .numIndic{
+    gap: 6px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--secondaryColor_default);
+}
+.lightBox_comtCard .comtSection .numIndic span{
+    color: var(--secondaryColor_default);
+    font-size: 14px;
+}
+.lightBox_comtCard .comtSection .messageLev {
+    padding: 24px 0px;
+    gap: 8px;
+}
+.lightBox_comtCard .comtSection .messageLev .memberPic {
+    width: 36px;
+    aspect-ratio: 1 / 1;
+    background-image: url(./img/k/carousel-4.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+.lightBox_comtCard .comtSection .messageLev .message_input {
+    width: 85%;
+    border: none;
+    border-bottom: 1px solid var(--black_500);
+}
+.lightBox_comtCard .comtSection .messageLev .message_input::placeholder {
+    color: var(--black_600);
+    font-size: 14px;
+    font-weight: 300;
+}
+.lightBox_comtCard .comtSection .message_pack .memberPic {
+    width: 36px;
+    height: 36px;
+    background-image: url(./img/k/carousel-3.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+.lightBox_comtCard .comtSection .message_pack .messageCard {
+    gap: 8px;
+    padding: 24px 0;
+}
+.lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap {
+    flex-direction: column;
+    gap: 8px;
+    width: 85%;
+}
+.lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .poster {
+    font-size: 16px;
+    color: var(--black_800);
+}
+.lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .date {
+    font-size: 12px;
+    color: var(--black_600);
+}
+.lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .message_text {
+    font-size: 14px;
+}
+.lightBox_comtCard .comtSection .botHint {
+    display: block;
+    width: fit-content;
+    color: var(--black_500);
+    font-weight: 300;
+    margin: 72px auto 0px auto;
+}
 
 /* footer */
 
