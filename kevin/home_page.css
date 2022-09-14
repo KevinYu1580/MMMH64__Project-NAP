@@ -58,6 +58,9 @@ p {
 html {
   background-color: var(--subColor_bgc);
 }
+body {
+  background-color: var(--subColor_bgc);
+}
 
 /* ------ */
 .aniCover {
@@ -127,6 +130,12 @@ html {
   .first_page {
     margin-top: 300vh;
   }
+}
+@media screen and (min-width: 992px){
+    .firstpage_opacity {
+      opacity: 0;
+      transition: 2s;
+    }
 }
 .first_page .visualPic_wrap {
   width: 55%;
@@ -484,7 +493,7 @@ html {
   background-repeat: no-repeat;
   position: relative;
   margin-bottom: 82px;
-  /* overflow: hidden; */
+  background-color: var(--white);
 }
 @media screen and (min-width: 576px){
   .explain {
@@ -715,15 +724,14 @@ html {
 /*------ napSteps------  */
 .napSteps {
   text-align: center;
-  padding: 0px 40px;
-  margin-bottom: 72px;
+  padding: 0px 40px 72px 40px;
   overflow: hidden;
+  background-color: var(--white);
 }
 @media screen and (min-width: 1200px){
   .napSteps {
     text-align: center;
-    padding: 0px 120px;
-    margin-bottom: 72px;
+    padding: 0px 120px 72px 120px;
   }
 }
 /* --mb-- */
@@ -894,6 +902,9 @@ html {
 
 
 /* ------ footer ------ */
+.footer-mobile {
+  background-color: var(--white);
+}
 
 .footer-mobile .sec1,
 .footer-mobile .sec2 {

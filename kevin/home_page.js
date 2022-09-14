@@ -46,6 +46,7 @@ $(window).scroll(function(){
             'height': '110vh',
             'opacity': '0',
         })
+       
         }
     else {
         aniCover.css({
@@ -58,12 +59,13 @@ $(window).scroll(function(){
         aniCover.css({
             'opacity': '1'
         })
+        $('.firstpage_opacity').css('opacity', '1')
         }
     else {
         aniCover.css({
             'width':'100%',  
-            
         })
+        $('.firstpage_opacity').css('opacity', '0')
     }
 
 
