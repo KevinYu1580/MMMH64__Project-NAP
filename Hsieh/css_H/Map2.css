@@ -102,63 +102,62 @@ text-align: center;
     border-radius: 20px;
     cursor: pointer;
 }
-.button-doghouse-2{
+.button-doghouse{
     position: absolute;
     top: 17%;
     left: 18%;
 }
-.button-cat-2{
+.button-cat{
     position: absolute;
     top: 25%;
     left: 56%;
 }
-.button-room-2{
+.button-room{
     position: absolute;
     top: 37%;
     left: 45%;
 }
-.button-run-2{
+.button-run{
     position: absolute;
     top: 33%;
     left: 70%;
 }
-.button-pool-2{
+.button-pool{
     position: absolute;
     top: 50%;
     left: 57%;
 }
-.button-playground-2{
+.button-playground{
     position: absolute;
     top: 54%;
     left: 20%;
 }
-.button-food-2{
+.button-food{
     position: absolute;
     top: 64%;
     left: 62%;
 }
-.button-wash-2{
+.button-wash{
     position: absolute;
     top: 67%;
     left: 25%;
 }
-.button-parking-2{
+.button-parking{
     position: absolute;
-    top: 79%;
-    left: 31%;
+    top: 80%;
+    left: 25%;
 }
-.button-sale-2{
+.button-sale{
     position: absolute;
     top: 79%;
     left: 70%;
 }
 /* 手機黑色光箱 */
-.lightBox {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+.lightBox{
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999; */
 }
 .lightBox-container{
     width: 100%;
@@ -174,10 +173,9 @@ text-align: center;
     margin: auto;
 }
 .close{
-    /* margin-left: 85%; */
+    margin-left: 92%;
     width: 20px;
     cursor: pointer;
-    margin-right: 15px;
 }
 .close img{
     width: 100%;
@@ -187,26 +185,27 @@ text-align: center;
     width: 100%;
     height: 260px;
     overflow: hidden;
+
 }
 .lightBox-card-img img{
     width: 100%;
     object-fit: cover;
 }
 /* 三個點點 */
-.carousel ol{
+.silder-dot{
     width: 30%;
     display: flex;
+    border-radius: var(--border-radious);
     justify-content: space-between;
-    margin: auto;
+    margin: -50px auto;
 }
-.carousel li{
-    background-color:var(--white);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 6px;
+.silder-dot .dot{
+    width: 10px;
+    height: 10px;
+   border: 2px solid var(--primaryColor_light);
+    border-radius: 50%;
+    margin: 20px 0;
 }
-
 /* 手機光箱文字介紹 */
 
 .title h4{
@@ -214,7 +213,7 @@ text-align: center;
     width: 70%;
     text-align: center;
     margin: auto;
-    padding: 30px 0 10px;
+    padding: 80px 0 10px;
 }
 .title p{
     font-size:var(--p_12px) ;
@@ -353,7 +352,7 @@ text-align: center;
         padding: 0 ;
         margin: 0;    
     }
-     .lightBox-card-img{
+    .mapBox-card-img{
         overflow: hidden;
         width: 100%;
         height: 500px;
@@ -396,6 +395,10 @@ text-align: center;
         padding: 0;
     }
 }
+
+    
+
+
 @media screen and (min-width:576px){
      .lightBox ,.nap-map-mobile {
         display: none;
