@@ -198,7 +198,7 @@
     </div>
     <!-- 下拉式彈出頁面--pc -->
     <section class="banner-button-info-pc">
-        <div class="button-block-pc">
+        <div class="button-block-pc ">
             <div class="button-block-row-pc">
                 <h3>為什麼要領養 N.A.P. 的浪浪 ｜</h3>
                 <div class="button-block-icon-pc">
@@ -471,12 +471,15 @@
         })
         $('.button-block-pc').click(function(){
            $('.banner-button-container-pc').slideToggle('slow')
+           $('.button-block-pc').css('background','#F7F5F0')
+           $(".button-block-icon-pc").toggleClass("active");
         })
+        
         // 手機輪播牆
         $('.why-card-box-fram').scroll(function(){
             console.log('left:',$('.why-card-box-fram').scrollLeft())
             console.log('left:',$('.why-card-box-fram').scrollLeft() > 375)
-            if($('.why-card-box-fram').scrollLeft() > 0 && $('.why-card-box-fram').scrollLeft() < 300 ){
+            if($('.why-card-box-fram').scrollLeft() > -1 && $('.why-card-box-fram').scrollLeft() < 300 ){
                 $('.dot1').css('background','#D6D48A')
             }
             else{
@@ -500,8 +503,9 @@
             else{
                     $('.dot4').css('background','none')    
                 }
-console.log('hi2');
+
         })
+
         
         
         

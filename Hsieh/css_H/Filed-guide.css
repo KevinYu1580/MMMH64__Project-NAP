@@ -63,11 +63,11 @@ font-family: custom-font;
     background-color: var(--white);    
 }
 
-/* @media screen and (min-width:576px){
-    .topNav_mobile , .nap_menu ,.nav-white-block{
+@media screen and (min-width:576px){
+    .nav-white-block{
         display: none;
     }
-} */
+}
 .banner {
     width: 100%;
     height: 140px;
@@ -77,6 +77,9 @@ font-family: custom-font;
 }
 .banner img{
     width: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    height: 100%;
 }
 /* pc-banner*/
 @media screen and (min-width:576px){
@@ -175,43 +178,54 @@ font-family: custom-font;
     text-align: center;
     
 }
+/*旋轉按鈕 */
+.active {
+    transform: rotate(-180deg);
+    transition: all 0.6s;
+
+}
 /* 下拉式彈出pc */
 @media screen and (min-width:576px){
+    .banner-button-container-pc{
+        display: none;
+    }
     .banner-button-info {
     display: none ;
     } 
    .banner-button-info-pc{
-    border: 1px solid red;
+   
     background-color: var(--subColor_bgc);
+    position: relative;
     }
     /* 按鈕 */
     .button-block-pc{
-        border: 1px solid red;
-        background-color: var(--subColor_bgc);
+        
+        background-color: var(--white);
         width: 500px;
         border-radius: 20px 0px 0px 0px ;
-        margin-left: auto;
-        /* position: absolute; */
+        margin-left:auto;
+        position: absolute;
+        margin-top: -40px;
     }
     .button-block-row-pc{
         display: flex;
-         /* position: absolute; */
-         justify-content: center;
-         cursor: pointer;
+        justify-content: center;
+        cursor: pointer;
     }
     .button-block-row-pc h3{
         font-size: 24px;
         color: var(--subColor_text);
-        margin-top:10px ;
+        margin-top:20px ;
     }
     .button-block-icon-pc img{
         width:30px;
-        margin-top:10px;
+        margin-top:17px;
         cursor: pointer;
+        margin-left: 10px;
     }
     .banner-button-container-pc{
         width: 1440px;
-        border: 1px solid rgb(68, 255, 0);
+        /* border: 1px solid rgb(68, 255, 0); */
         margin: auto;
     }  
     .banner-button-container-row-pc{
@@ -267,6 +281,11 @@ font-family: custom-font;
     border-radius: 50%;
     margin: 20px 0;
 }
+.silder-dot .dot1{
+    background-color: var(--primaryColor_light);
+}
+
+
 /* 篩選器標題 */
 .filter{
     margin: 50px 0 30px;
@@ -305,7 +324,7 @@ font-family: custom-font;
     }
     .filter{
         margin: 100px 0 50px;
-        border:1px solid red ;
+        /* border:1px solid red ; */
     }
     .filter-container{
         width: 75%;
@@ -375,7 +394,7 @@ font-family: custom-font;
 
 @media screen and (min-width:576px){
     .pet-card-cnotainer{
-        width: 85%;
+        width: 83%;
         margin: auto;
     }
     
@@ -448,6 +467,9 @@ justify-content: center;
 .napBtn_likeBtn span{
     font-size: var(--p_14px);
 }
+button:focus{
+    outline: none ;
+}
 @media screen and (min-width:576px){
     .napBtn_likeBtn{
         width: fit-content;
@@ -457,6 +479,7 @@ justify-content: center;
     .napBtn_likeBtn span{
         font-size: var(--headline_2px);
     }  
+
 }
 /* 黑色光箱 */
 /* .lightBox{
