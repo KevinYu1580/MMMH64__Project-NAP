@@ -79,7 +79,7 @@ height: 24px;
     border: 1px solid var(--primaryColor_light);
 }
 
-.input-group .form-control{
+/* .input-group .form-control{
     background-color: var(--subColor_bgc)
 }
 
@@ -89,11 +89,11 @@ height: 24px;
 
     box-shadow: 0px 0px 1px var(--primaryColor_dark) inset, 0px 0px 1px var(--primaryColor_dark);
 
-}
+} */
 
 
 
-.btn:focus, /*清除btn按钮点击出现的边框*/
+.btn:focus, /*清除按鈕出現的邊*/
 .btn:active:focus,
 .btn.active:focus,
 .btn.focus,

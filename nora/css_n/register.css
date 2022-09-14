@@ -164,6 +164,9 @@ input{
     border-radius: var(--btn-radius);
     border: 1px solid var(--primaryColor_dark);
     font-size: 18px;
+    padding-left: 50px;
+    padding-right: 50px;
+    
     
 }
 
@@ -175,7 +178,6 @@ input{
 .title-sm{
     color:var(--subColor_text);
     font-weight: 900;
-    width: 337.5px;
 }
 .title-sm p{
     margin-bottom: 0;
@@ -376,11 +378,14 @@ a{
     border-radius: var(--btn-radius);
     border: 1px solid var(--primaryColor_dark);
     font-size: 18px;
+    padding-left: 50px;
+    padding-right: 50px;
     
 }
 
 .content2 .btn-box p{
     margin-bottom: 0;
+
     
 }
 
@@ -492,5 +497,21 @@ a{
 .content4 .step3 .text{
     color:var(--primaryColor_dark);
 }
+
+.up-part1{
+    position: relative;
+}
+
+.backt01{
+    position: absolute;
+    top: -15px;
+    left: 75px;
+    width: 60px;
+    height: 30px;
+    /* background-color: #fff; */
+    
+    
+}
+
 
 

@@ -53,7 +53,9 @@
 *{
     font-family: custom-font;        
 }
-
+.row{
+    --bs-gutter-x: 0;
+}
 
 
 .gift{

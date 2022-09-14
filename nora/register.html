@@ -36,10 +36,7 @@
                         <input type="email" class="form-control" id="email" name="email" placeholder="請輸入電子信箱" required>
                         <div class="invalid-feedback">
                             此處不可空值
-                        </div>
-
-
-                            
+                        </div> 
                         </div>
                         <div class="btn-box1 d-flex flex-column  ">
                             <button type="submit" class="btn btn-primary"> <p>註冊</p> </button> 
@@ -103,7 +100,7 @@
 
                 </div>
                 <form class="form needs-validation " name="form1" method="post" onsubmit="checkForm(); return false;">
-                    <div class="up-part d-flex flex-column align-items-center   w-100">
+                    <div class="up-part up-part1 d-flex flex-column align-items-center   w-100">
                         
                         <div class="password-box  my-3 mt-4 w-100">
                             <label for="password" class="form-label">密碼</label>
@@ -122,6 +119,7 @@
                         </div>
                         <div class="btn-box d-flex flex-column  ">
                             <button type="submit" class="btn btn-primary"> <p>確認</p> </button>
+                            
                             
                         </div>
                 </div>
@@ -156,9 +154,9 @@
 
                 </div>
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
-                    <div class="up-part d-flex flex-column align-items-center">
+                    <div class="up-part up-part1 d-flex flex-column align-items-center">
                         
-                        <div class="name-box  my-3 mt-4 ">
+                        <div class="name-box  my-3 mt-4 w-100">
                             <label for="name" class="form-label">姓名</label>
                             <input type="name" class="form-control" id="name" name="name" placeholder="請輸入真實姓名" required>
                             <div class="invalid-feedback">
@@ -186,6 +184,7 @@
                         </div>
                         <div class="btn-box d-flex flex-column ">
                             <button type="submit" class="btn btn-primary">確認</button>
+                            <p class="backt01"></p>
                             
                         </div>
                 </div>
@@ -299,6 +298,16 @@ $(this).parents().find('.content3 .part').css('display','block');
 
 
 
+$('.content3 .backt01').click(function(s){
+
+
+$(this).parents().find('.content3 form').css('display','none');
+$(this).parents().find('.content3 .part').css('display','none');
+
+$(this).parents().find('.content2 form').css('display','block');
+$(this).parents().find('.content2 .part').css('display','block');
+
+})
 
 
 
