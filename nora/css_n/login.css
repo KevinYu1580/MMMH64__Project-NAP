@@ -287,3 +287,12 @@ a{
     padding-top: 80px;
     margin-bottom: 90px;
 }
+
+.btn:focus, 
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+outline: none !important; box-shadow:none !important; 
+}
