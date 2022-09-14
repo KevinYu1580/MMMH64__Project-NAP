@@ -105,6 +105,7 @@ font-family: custom-font;
 .banner-block-up-container{
     display: flex; 
     justify-content: center;
+    position: relative;
 }
 
 .banner-block-up p{
@@ -116,21 +117,25 @@ font-family: custom-font;
 }
 .banner-block-icon{
     cursor: pointer;
-    margin-top: 10px;   
+    margin-top: 10px; 
+    position: absolute;  
+    top: 10px;
+    right: 25px;
+    transition: all .6s;
 }
 .banner-block-up img{
     width:20px;
-    margin-top: 10px;  
-      
 }
 .banner-block-middle{
     width: 100%;
     height: 20px;
     background-color:var(--subColor_bgc);
+
 }
 /* 中間灰色色塊 */
 .banner-block-down-mobile{
     background-color: var(--subColor_bgc);
+    display: none;
 }
 /*下拉式彈出頁面  */
 .banner-block-down{
@@ -199,7 +204,6 @@ font-family: custom-font;
     }
     /* 按鈕 */
     .button-block-pc{
-        
         background-color: var(--white);
         width: 500px;
         border-radius: 20px 0px 0px 0px ;
@@ -211,17 +215,23 @@ font-family: custom-font;
         display: flex;
         justify-content: center;
         cursor: pointer;
+        position: relative;
     }
     .button-block-row-pc h3{
         font-size: 24px;
         color: var(--subColor_text);
         margin-top:20px ;
     }
+    .button-block-icon-pc{
+        position: absolute;
+        /* transform: rotate(0deg); */
+        transition: all 0.6s;
+        top: 8px;
+        right: 40px;
+    }
     .button-block-icon-pc img{
         width:30px;
-        margin-top:17px;
         cursor: pointer;
-        margin-left: 10px;
     }
     .banner-button-container-pc{
         width: 1440px;
