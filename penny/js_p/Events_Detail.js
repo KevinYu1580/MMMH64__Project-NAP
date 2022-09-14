@@ -1,4 +1,19 @@
-// 手機 | 了解陪伴(橫向滾動)
+// $('.mb-train').css('width', `${$('.mb-train li').outerWidth(true) * $('.mb-train li').length}px`)
+
+
+// 手機 | 了解陪伴-(瀏覽器滾動到圖片時會停住)
+$(window).scroll(function(){
+    console.log('瀏覽器高度:',$(window).scrollTop());
+    console.log('圖片高度:',$('.know-accompany-imgbox').offset().top);
+    if($(window).scrollTop() > 3300){
+        $('.know-accompany-imgbox').css({
+            'position':'sticky',
+            'top':68+'px'        
+        })
+    }
+});
+
+// 手機 | 了解陪伴-(橫向滾動)
 let move = document.querySelector(".know-accompany-imgbox");
 
 move.addEventListener("wheel", (event) => {
@@ -6,13 +21,13 @@ move.addEventListener("wheel", (event) => {
     move.scrollLeft += event.deltaY;
 });
 
-// 手機 | 了解陪伴(換圖時，文字跟頁碼顯示點點會跟著變動)
+// 手機 | 了解陪伴-(換圖時，文字跟頁碼顯示點點會跟著變動)
 $('.know-accompany-imgbox').scroll(function(){
     console.log('left:', $('.know-accompany-imgbox').scrollLeft());
     console.log('width', $('.mb-train li').outerWidth(true));
-    console.log('top', $('.mb-train li').offset().top);
+    // console.log('top', $('.mb-train li').offset().top);
 
-    if($('.know-accompany-imgbox').scrollLeft() < 250){
+    if($('.know-accompany-imgbox').scrollLeft() < 284){
         $('.know-accompany-textbox h3').text('01 相見說明會');
         $('.know-accompany-textbox p:nth-of-type(2)').text('與您尬意的浪浪相見，然後透過N.A.P.的說明，讓您了解領養流浪動物的各種須知，並且說明本次兩天一夜行程及注意事項。');
     }
@@ -107,7 +122,7 @@ $('.know-accompany-imgbox').scroll(function(){
     } 
 
     // 從 9 → 10 | 10 → 9
-    if($('.know-accompany-imgbox').scrollLeft() > 2556){
+    if($('.know-accompany-imgbox').scrollLeft() >= 2556){
         $('.dot').removeClass('silder-dot-mb default')
         $('.dot10').css('backgroundColor', 'var(--primaryColor_dark)');
         $('.know-accompany-textbox h3').text('10 合照留紀念');
@@ -117,3 +132,7 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot10').css('backgroundColor', 'transparent');
     }   
 });
+
+
+
+
