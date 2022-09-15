@@ -64,17 +64,22 @@ body {
 
 /* ------ */
 .aniCover {
-  position: fixed;
-  left: 0;
-  top: 0;
   background-color: #fff;
   width: 100%;
   height: 100vh;
-  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 1s;
+  transition: 0.5s;
+}
+.ani_anchor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  pointer-events: none;
 }
 .aniCover_mask {
   position: relative;
@@ -128,14 +133,13 @@ body {
 }
 @media screen and (min-width: 992px){
   .first_page {
-    margin-top: 300vh;
+    flex-direction: row-reverse;
+    position: absolute;
+    top: 300vh;
+    right: 0;
+    width: 100%;
+    opacity: 1;
   }
-}
-@media screen and (min-width: 992px){
-    .firstpage_opacity {
-      opacity: 0;
-      transition: 2s;
-    }
 }
 .first_page .visualPic_wrap {
   width: 55%;
@@ -163,7 +167,9 @@ body {
 @media screen and (min-width: 992px) {
   .first_page .content_wrap {
     width: 45%;
-    height: 110vh;
+    height: 100vh;
+    opacity: 0;
+    transition: 0.3s;
   }
 }
 .first_page .logo_content {
@@ -214,6 +220,11 @@ body {
 .home_info {
   padding-top: 68px;
   background-color: var(--subColor_bgc);
+}
+@media screen and (min-width: 992px){
+  .home_info {
+    margin-top: 500vh;
+  }
 }
 .home_info .content_wrap {
   padding: 86px 40px 34px 40px;
