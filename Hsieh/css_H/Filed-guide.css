@@ -183,11 +183,17 @@ font-family: custom-font;
     text-align: center;
     
 }
-/*旋轉按鈕 */
-/* .active {
-    transform: rotate(-180deg);
-    transition: all 0.6s;
-
+/*新增class */
+.button-block-pc.changeBackground{
+    background-color: var(--subColor_bgc);
+    /* width: 520px;
+    border-radius: 20px 0px 0px 0px ;
+    position: absolute;
+    margin-top: -40px;
+    left: 72.5%; */
+}
+/* .changeBackground{
+    background-color: var(--subColor_bgc);
 } */
 /* 下拉式彈出pc */
 @media screen and (min-width:576px){
@@ -204,6 +210,7 @@ font-family: custom-font;
     
     }
     /* 按鈕 */
+    
     .button-block-pc{
         background-color: var(--white);
         width: 520px;

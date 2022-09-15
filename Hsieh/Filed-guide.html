@@ -198,7 +198,7 @@
     </div>
     <!-- 下拉式彈出頁面--pc -->
     <section class="banner-button-info-pc">
-        <div class="button-block-pc ">
+        <div class="button-block-pc changeBackground-d ">
             <div class="button-block-row-pc">
                 <h3>為什麼要領養 N.A.P. 的浪浪 ｜</h3>
                 <div class="button-block-icon-pc">
@@ -471,9 +471,10 @@
            $(".banner-block-icon").toggleClass("active");
         })
         $('.button-block-pc').click(function(){
-           $('.banner-button-container-pc').slideToggle('slow')
-           $('.button-block-pc').css('background','#F7F5F0')
+           $('.banner-button-container-pc').slideToggle('slow');
            $(".button-block-icon-pc").toggleClass("active");
+           $('.button-block-pc').addClass("changeBackground");
+          
         })
         
         // 手機輪播牆
