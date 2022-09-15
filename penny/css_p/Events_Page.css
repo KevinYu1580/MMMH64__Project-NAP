@@ -546,16 +546,27 @@ body{
     .card-textbox-row-pc span{
         color: var(--subColor_highLightRed);
     }
+    /* 收藏按鈕 */
     .card-like-pc{
         width: 45px;
         aspect-ratio: 1/1;
         border: 2px solid var(--primaryColor_dark);
         border-radius: 50%;
         cursor: pointer;
+        position: relative;
     }
     .card-like-pc img{
         width: 60%;
+        height: 100%;
+        object-fit: contain;
     }
+    .card-like-pc .cover{
+        position: absolute;
+        top: 0;
+        display: none;
+    }
+    
+    /* 查看活動詳情按鈕 */
     .card-btn-pc{
         padding-left: 20px;
     }

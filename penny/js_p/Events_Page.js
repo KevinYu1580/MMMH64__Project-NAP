@@ -1,3 +1,10 @@
+//收藏按鈕
+$('.card-like-pc').click(function(){
+    // $('.card-like-pc img').removeClass('card-like-pc cover');
+    // $(this).addClass('card-like-pc cover').toggle();
+    $('.card-like-pc .cover').toggle();
+})
+
 // 活動頁面banner | events-banner
 $(".events-banner").mousemove(function(e){
     if(e.pageX >=960 ){
