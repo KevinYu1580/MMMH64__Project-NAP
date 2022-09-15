@@ -12,6 +12,7 @@ $('.silder-dot-pc .dot1').click(function(){
 $('.silder-dot-pc .dot2').click(function(){
     $('.dot').removeClass('default');
     $(this).addClass('default');
+    $('.pic2').removeClass('slide-next');
     $('.know-accompany-textbox h3').text('02 動手做鮮食');
     $('.know-accompany-textbox p:nth-of-type(2)').text('藥補不如食補，毛孩是家人，更應從飲食入手。以天然新鮮安全健康為主，為了讓寶貝們陪伴我們更久，平日在選擇毛孩食物時，也須加倍謹慎，一起動手做鮮食從飲食上來照顧牠們的身體吧！');
 });
@@ -84,9 +85,10 @@ $('.silder-dot-pc .dot10').click(function(){
 
 // 桌機 | 點擊點點時，圖片會移動
 $('.silder-dot-pc .dot').click(function(){
+    console.log($(this).index());
     const nowPage = $(this).index();
     const moveX = nowPage * -$('.pc-train li').outerWidth(true);
-    $('.pc-train li').css('transform',`translateX(${moveX}px)`);
+    $('.pc-train').css('transform',`translateX(${moveX}px)`);
 })
   
 

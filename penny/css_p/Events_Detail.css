@@ -637,6 +637,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 }
 .ka-train{
     width: 900%;
+    transition: 0.3s;
 }
 .ka-train li{
     width: 100%;
@@ -721,6 +722,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     .ka-train .pc-train{
         width: 900%;
         height: auto;
+        transition: 0.3s;
     }
     .mb-train li{
         display: none;
@@ -734,13 +736,16 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     }
     .slide-active{
         transform: scale(1);
+        transition: 0.3s;
         /* border: 8px solid var(--primaryColor_dark); */
     }
     .slide-prev{
         transform: scale(0.8);
+        transition: 0.3s;
     }
     .slide-next{
         transform: scale(0.8);
+        transition: 0.3s;
     }
     /* ---------了解陪伴-圖片顯示點點---------- */
     .silder-dot-mb{
