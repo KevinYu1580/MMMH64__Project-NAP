@@ -1,3 +1,8 @@
+//收藏按鈕
+$('.like-btn').click(function(){
+    $('.like-btn #cover path').toggle();
+})
+
 //桌機 | 比外表重要的事-(插圖定時翻轉)
 $(function () {
     timeback();

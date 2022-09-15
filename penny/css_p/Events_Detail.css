@@ -102,8 +102,16 @@ body{
     height: 100%;
     object-fit: contain;
 }
-.like-btn path{
+.like-btn #outline path{
     fill: var(--subColor_lightRed);
+}
+.like-btn #cover path{
+    fill: var(--subColor_lightRed);
+    display: none;
+}
+.like-btn #cover{
+    position: absolute;
+    top: 0;
 }
 /* ---------活動詳細頁-標題---------- */
 .detail-textbox h3, .detail-textbox h2{

@@ -538,48 +538,7 @@
 
 
 <script src="./js_p/jquery-3.6.0.min.js"></script>
+<script src="./js_p/Events_Page.js"></script>
 <script src="../components/component.js"></script>
-    <script>
-        // 活動頁面banner | events-banner
-        $(".events-banner").mousemove(function(e){
-            if(e.pageX >=960 ){
-                $('.banner-package-pc-box').css('width', 0+'%')
-            }
-            if(e.pageX <= 960){
-                $('.banner-package-pc-box').css('width', 100+'%');
-            }
-        })        
-
-        // 選擇器 | filter
-        $('.special-switch , .events-banner-special-btn').click(function(){
-            $('.events-switch-frame').css('borderColor', 'var(--secondaryColor_default)');
-                $('.special-switch').css({
-                    'backgroundColor':'var(--secondaryColor_default)',
-                    'color':'var(--white)',
-                });
-                $('.package-switch').css({
-                    'backgroundColor':'transparent',
-                    'color':'var(--secondaryColor_default)'
-                });
-        })
-        $('.package-switch , .events-banner-package-btn').click(function(){
-            $('.events-switch-frame').css('borderColor', 'var(--primaryColor_dark)');
-                $('.package-switch').css({
-                    'backgroundColor':'var(--primaryColor_dark)',
-                    'color':'var(--white)'
-                });
-                $('.special-switch').css({
-                    'backgroundColor':'transparent',
-                    'color':'var(--primaryColor_dark)'
-                })
-        })
-
-        // 活動卡片 | events-card
-        // TO DO：當進入瀏覽器時，如果卡片(.events-card-mb)有n張，那卡片盒子(.events-card-row-mb)的寬度是n*90%
-        
-
-        $('.events-card-row-mb').css('width', `${$('.events-card-mb').outerWidth(true) * $('.events-card-mb').length}px`)
-    </script>
-    
 </body>
 </html>
