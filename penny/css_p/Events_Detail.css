@@ -626,8 +626,8 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     margin-left: auto;
     margin-bottom: 20px;
     overflow: hidden;
-    overflow-x: auto;  
-    -webkit-overflow-scrolling:touch;
+    overflow-x: scroll;  
+    /* -webkit-overflow-scrolling:touch; */
 }
 .know-accompany-imgbox::-webkit-scrollbar{
     display: none;
@@ -649,6 +649,12 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.slide-active{
+    transform: scale(1);
+}
+.slide-next{
+    transform: scale(0.8);
 }
 /* ---------了解陪伴-圖片顯示點點---------- */
 .silder-dot-box{
@@ -674,7 +680,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 .silder-dot-mb .default{
     background-color: var(--primaryColor_dark);
 }
-@media screen and (min-width:768px) {
+    @media screen and (min-width:768px) {
     .know-accompany-container{
         margin-top: 100px;
         padding-bottom: 100px;
@@ -702,21 +708,39 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     /* ---------了解陪伴-圖片---------- */
     .know-accompany-imgbox{
         padding: 0px 0px 0px 60px;
+        margin-left: auto;
+        margin-top: 60px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling:touch;
     }
     .know-accompany-col{
         position: relative;
     }
-    .ka-train{
+    .ka-train .pc-train{
         width: 900%;
+        height: auto;
     }
     .mb-train li{
         display: none;
     }
     .pc-train li{
         display: block;
+        transition: 0.3s;
     }
     .pc-train li img{
         width: 100%;
+    }
+    .slide-active{
+        transform: scale(1);
+        /* border: 8px solid var(--primaryColor_dark); */
+    }
+    .slide-prev{
+        transform: scale(0.8);
+    }
+    .slide-next{
+        transform: scale(0.8);
     }
     /* ---------了解陪伴-圖片顯示點點---------- */
     .silder-dot-mb{
@@ -737,6 +761,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
         height: 15px;
         border: 2px solid var(--primaryColor_dark);
         border-radius: 50%;
+        cursor: pointer;
     }
     .silder-dot-pc .default{
         background-color: var(--primaryColor_dark);
