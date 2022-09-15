@@ -83,7 +83,7 @@ body {
   background-image: url(./img/k/visualPic-lg.jpg);
   background-position: 50% 50%;
   background-size:cover;
-  -webkit-mask-image: url(./img/k/dog.svg) ;
+  -webkit-mask-image: url(./img/k/firstPage_dogMask.svg) ;
   -webkit-mask-size: auto 80vh ;
   -webkit-mask-position: 50% 50%;
   -webkit-mask-repeat:no-repeat;

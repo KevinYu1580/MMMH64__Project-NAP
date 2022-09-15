@@ -1,8 +1,14 @@
+// 關閉光箱
+$('.close_lightBox').click(function(){
+    $(this).parent().hide()
+})
+
+
 // ---------------貼文卡片 以迴圈新增卡片數量
 function runCardLoop (){
     let comtCardHtml =  document.getElementById('comtCard')
 
-    for (i=0; i<9; i++){
+    for (i=0; i<19; i++){
         $('.comtCard_wrap').append($(comtCardHtml).prop('outerHTML'))
     }
 }
@@ -10,7 +16,9 @@ runCardLoop();
 
 // --------------卡片手機小menu 彈出效果
 
-$('.pointMenu').click(function(){
+$('.pointMenu').click(function(e){
+    e.stopPropagation();
+    const post_lightBox = $('.lightBox_comtCard')
     $(this).next().css({
         'transform': 'none',
     })
@@ -37,11 +45,99 @@ function postLightBox_messageNum(){
 }
 postLightBox_messageNum();
 
-// 光相返回(關閉)icon 
 
-$('.close_lightBox_comtCard').click(function(){
-    $(post_lightBox).hide()
+// 打開留言卡片光箱
+$('.comtCard').click(function(e){
+    $(post_lightBox).show();
 })
-$('.comtCard').click(function(){
-    $(post_lightBox).show()
+
+
+
+
+// 右下發文提示
+
+$(window).on('wheel', function(event){
+    if(event.originalEvent.deltaY < 0){
+      $('.postBtn_mb').css({
+        'opacity': '1',
+        ' pointer-events':'none'
+    })
+    }
+    else {
+        $('.postBtn_mb').css({
+            'opacity': '0',
+            ' pointer-events':'auto'
+        })
+ 
+    }
+});
+
+
+// ------lightBox_post 
+
+// 開啟光箱 
+
+$('.postBtn_mb').click(function(){
+    $('.lightBox_post').show()
 })
+
+// 寵物類別選擇器
+$('.lightBox_post .iconWrap').click(function(){
+    $('.lightBox_post .iconWrap').find('#activated').hide();
+    $('.lightBox_post .iconWrap').find('span').css('color', 'var(--black_500)');
+
+    $(this).find('#activated').show();
+    $(this).find('span').css('color', 'var(--primaryColor_dark)');
+})
+// 看板類別選擇器
+$('.lightBox_post .boardSelec .selec').click(function(){
+    $('.lightBox_post .boardSelec .selec').css('color', 'var(--black_500)')
+    $(this).css('color', 'var(--primaryColor_dark)');
+
+    // 判斷是否已經點選活動討論區
+    const eventBtn = $('.lightBox_post .boardSelec #event')
+    if(eventBtn.css('color') == 'rgb(124, 140, 56)'){
+        $('.lightBox_post .eventSelec .comtLabel').css('background-color', '#F8EEE8');
+        eventSelecClickable();
+        // 判斷成功後先觸發下方function (使可點擊)
+    }
+    else{
+        $('.lightBox_post .eventSelec .comtLabel').css('background-color', '#eeeeee');
+        $('.lightBox_post .eventSelec .comtLabel span').css('color', '#bbbbbb')
+        $('.lightBox_post .eventSelec .comtLabel').css('pointer-events', 'none')
+    }
+})
+
+// 活動類別選擇器
+function eventSelecClickable(){
+
+        // 使button可點擊
+        $('.lightBox_post .eventSelec .comtLabel').css('pointer-events', 'auto')
+    
+        // 背景顏色&文字顏色
+    $('.lightBox_post .eventSelec .comtLabel').click(function(){
+        $('.lightBox_post .eventSelec .comtLabel').css('background-color', '#F8EEE8');
+        $('.lightBox_post .eventSelec .comtLabel span').css('color', '#bbbbbb')
+    
+        $(this).css('background-color', 'var(--primaryColor_tint)')
+        $(this).find('span').css('color', 'var(--primaryColor_dark)')
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

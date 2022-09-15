@@ -246,10 +246,12 @@
     <!--  -->
     <!-- 留言卡片展開的光箱 -->
     <div class="lightBox_comtCard">
-        <button class="close_lightBox_comtCard">
+        <button class="close_lightBox">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z" fill="#2D2D2D"/>
-                </svg>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z"
+                    fill="#2D2D2D" />
+            </svg>
         </button>
         <div class="content_wrap">
             <div class="member_info">
@@ -296,7 +298,7 @@
                         <div id="messageCard" class="messageCard d-flex">
                             <div class="memberPic"></div>
                             <div class="content_wrap d-flex">
-                                
+
                                 <span class="poster">
                                     台北潘潘妮
                                 </span>
@@ -338,6 +340,90 @@
         <button class="page_click">
             <img width="" src="../components/img/arrow_nextpage.svg" alt="">
         </button>
+    </div>
+
+
+    <!-- 右下發文提示 -->
+    <button class="postBtn_mb">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 38 38" fill="none">
+            <g clip-path="url(#clip0_795_38865)">
+                <path
+                    d="M34.8333 22.1667H3.16667C1.39333 22.1667 0 20.7734 0 19C0 17.2267 1.39333 15.8334 3.16667 15.8334H34.8333C36.6067 15.8334 38 17.2267 38 19C38 20.7734 36.6067 22.1667 34.8333 22.1667Z"
+                    fill="#ffffff" />
+                <path
+                    d="M18.9999 38C17.2266 38 15.8333 36.6067 15.8333 34.8333V3.16667C15.8333 1.39333 17.2266 0 18.9999 0C20.7733 0 22.1666 1.39333 22.1666 3.16667V34.8333C22.1666 36.6067 20.7733 38 18.9999 38Z"
+                    fill="#ffffff" />
+            </g>
+            <defs>
+                <clipPath id="clip0_795_38865">
+                    <rect width="38" height="38" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    </button>
+    <div class="lightBox_post">
+        <button class="close_lightBox">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z"
+                    fill="#2D2D2D" />
+            </svg>
+        </button>
+        <div class="member_info">
+            <div class="member_pic"></div>
+            <div class="member_name">
+                <span>翁同學</span>
+            </div>
+        </div>
+        <div class="petSelec_wrap d-flex align-items-center">
+            <div class="secIndic">
+                寵物類別:
+            </div>
+            <div class="petSelec d-flex justify-content-between align-items-center">
+                <button class="iconWrap d-flex align-items-center">
+                    <img id='default' class="" src="./img/k/post_dogIcon_default.svg" alt="">
+                    <img id='activated' src="./img/k/post_dogIcon_activated.svg" alt="">
+                </button>
+                <div class="line"></div>
+                <button class="iconWrap d-flex align-items-center">
+                    <img id='default' class="" src="./img/k/post_catIcon_default.svg" alt="">
+                    <img id='activated' src="./img/k/post_catIcon_activated.svg" alt="">
+                </button>
+                <div class="line"></div>
+                <button class="iconWrap slectAll">
+                    <span>不限</span>
+                </button>
+            </div>
+        </div>
+        <div class="boardSelec_wrap d-flex align-items-center ">
+            <div class="secIndic">
+                選擇看板:
+            </div>
+            <div class="boardSelec d-flex justify-content-between align-items-center">
+                <button id="qa" class="selec">
+                    閒聊 Q&A
+                </button>
+                <div class="line"></div>
+                <button id="event" class="selec">
+                    活動討論區
+                </button>
+            </div>
+        </div>
+        <div class="eventSelec_wrap d-flex align-items-center ">
+            <div class="secIndic">
+                活動類別:
+            </div>
+            <div class="eventSelec d-flex align-items-center">
+                <button id="num1" class="comtLabel">
+                    <span># 浪浪套裝活動</span>
+                </button>
+                <button id="num2" class="comtLabel">
+                    <span># 每月特別活動</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     </div>
 
     <!-- footer -->
