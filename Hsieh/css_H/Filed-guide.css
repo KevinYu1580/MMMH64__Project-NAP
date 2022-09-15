@@ -123,6 +123,11 @@ font-family: custom-font;
     right: 25px;
     transition: all .6s;
 }
+.banner-block-icon.active{
+    transform: rotate(180deg);
+    transition: all 0.6s;
+}
+
 .banner-block-up img{
     width:20px;
 }
@@ -186,6 +191,7 @@ font-family: custom-font;
 /*新增class */
 .button-block-pc.changeBackground{
     background-color: var(--subColor_bgc);
+    transition: all .3s;
     /* width: 520px;
     border-radius: 20px 0px 0px 0px ;
     position: absolute;
@@ -203,7 +209,7 @@ font-family: custom-font;
     .banner-button-info {
     display: none ;
     } 
-   .banner-button-info-pc{
+    .banner-button-info-pc{
     /* padding-bottom: 20px; */
     background-color: var(--subColor_bgc);
     position: relative;
@@ -218,7 +224,11 @@ font-family: custom-font;
         position: absolute;
         margin-top: -40px;
         left: 72.5%;
+        transition: all 1.5s;
+        transform: rotate(0deg);
     }
+
+
     .button-block-row-pc{
         display: flex;
         justify-content: center;
@@ -236,6 +246,11 @@ font-family: custom-font;
         top: 15px;
         right: 60px;
     }
+    .button-block-icon-pc.active{
+        transform: rotate(180deg);
+        transition: all 0.6s;
+    }
+
     .button-block-icon-pc img{
         width:30px;
         cursor: pointer;
