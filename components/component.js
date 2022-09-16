@@ -6,15 +6,17 @@ $(".topNav_mobile .menu, .menu_lightBox_pc").click(function () {
 // ----------like_Btn---------
 
 // 寵物卡片
-$('.napBtn_likeBtn').click(function(){
+$('.napBtn_likeBtn').click(function(event){
+  event.stopPropagation()
   $(this).toggleClass('likeBtn_activated');
-  $('.napBtn_likeBtn #white').toggle();
+  $(this).find('#white').toggle();
 })
 
 
-// 留驗區
-$('.napBtn_likeBtn_comt').click(function(){
-  $('.napBtn_likeBtn_comt .svgs #napActivate').toggle()
+// 留言區
+$('.napBtn_likeBtn_comt').click(function(e){
+  e.stopPropagation()
+  $(this).find('#napActivate').toggle()
 })
 
 // ----------switch---------
@@ -80,9 +82,9 @@ $('.chat_bordSlec_PC .bot').click(function(){
 
 // --------頁數選擇器PC---------
 
-$('.page_slec_pc .page_indic').click(function(){
-  $('.page_slec_pc .page_indic').css('background-color', 'var(--white)');
-  $('.page_slec_pc .napPage').css('color','var(--primaryColor_dark)');
+$('.page_slec .page_indic').click(function(){
+  $('.page_slec .page_indic').css('background-color', 'var(--white)');
+  $('.page_slec .napPage').css('color','var(--primaryColor_dark)');
 
 
   $(this).css('background-color', 'var(--primaryColor_dark)');

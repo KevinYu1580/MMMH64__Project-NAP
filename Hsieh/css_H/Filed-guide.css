@@ -63,11 +63,11 @@ font-family: custom-font;
     background-color: var(--white);    
 }
 
-/* @media screen and (min-width:576px){
-    .topNav_mobile , .nap_menu ,.nav-white-block{
+@media screen and (min-width:576px){
+    .nav-white-block{
         display: none;
     }
-} */
+}
 .banner {
     width: 100%;
     height: 140px;
@@ -77,6 +77,9 @@ font-family: custom-font;
 }
 .banner img{
     width: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    height: 100%;
 }
 /* pc-banner*/
 @media screen and (min-width:576px){
@@ -102,6 +105,7 @@ font-family: custom-font;
 .banner-block-up-container{
     display: flex; 
     justify-content: center;
+    position: relative;
 }
 
 .banner-block-up p{
@@ -113,21 +117,30 @@ font-family: custom-font;
 }
 .banner-block-icon{
     cursor: pointer;
-    margin-top: 10px;   
+    margin-top: 10px; 
+    position: absolute;  
+    top: 10px;
+    right: 25px;
+    transition: all .6s;
 }
+.banner-block-icon.active{
+    transform: rotate(180deg);
+    transition: all 0.6s;
+}
+
 .banner-block-up img{
     width:20px;
-    margin-top: 10px;  
-      
 }
 .banner-block-middle{
     width: 100%;
     height: 20px;
     background-color:var(--subColor_bgc);
+
 }
 /* 中間灰色色塊 */
 .banner-block-down-mobile{
     background-color: var(--subColor_bgc);
+    display: none;
 }
 /*下拉式彈出頁面  */
 .banner-block-down{
@@ -175,53 +188,95 @@ font-family: custom-font;
     text-align: center;
     
 }
+/*新增class */
+.button-block-pc.changeBackground{
+    background-color: var(--subColor_bgc);
+    transition: all .3s;
+    /* width: 520px;
+    border-radius: 20px 0px 0px 0px ;
+    position: absolute;
+    margin-top: -40px;
+    left: 72.5%; */
+}
+/* .changeBackground{
+    background-color: var(--subColor_bgc);
+} */
 /* 下拉式彈出pc */
 @media screen and (min-width:576px){
+    .banner-button-container-pc{
+        display: none;
+    }
     .banner-button-info {
     display: none ;
     } 
-   .banner-button-info-pc{
-    border: 1px solid red;
+    .banner-button-info-pc{
+    /* padding-bottom: 20px; */
     background-color: var(--subColor_bgc);
+    position: relative;
+    
     }
     /* 按鈕 */
+    
     .button-block-pc{
-        border: 1px solid red;
-        background-color: var(--subColor_bgc);
-        width: 500px;
+        background-color: var(--white);
+        width: 520px;
         border-radius: 20px 0px 0px 0px ;
-        margin-left: auto;
-        /* position: absolute; */
+        position: absolute;
+        margin-top: -40px;
+        left: 72.5%;
+        transition: all 1.5s;
+        transform: rotate(0deg);
     }
+
+
     .button-block-row-pc{
         display: flex;
-         /* position: absolute; */
-         justify-content: center;
-         cursor: pointer;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
     }
     .button-block-row-pc h3{
         font-size: 24px;
         color: var(--subColor_text);
-        margin-top:10px ;
+        margin-top:20px ;
     }
+    .button-block-icon-pc{
+        position: absolute;
+        transition: all 0.6s;
+        top: 15px;
+        right: 60px;
+    }
+    .button-block-icon-pc.active{
+        transform: rotate(180deg);
+        transition: all 0.6s;
+    }
+
     .button-block-icon-pc img{
         width:30px;
-        margin-top:10px;
         cursor: pointer;
     }
     .banner-button-container-pc{
         width: 1440px;
-        border: 1px solid rgb(68, 255, 0);
+        /* border: 1px solid rgb(68, 255, 0); */
         margin: auto;
     }  
     .banner-button-container-row-pc{
         display: flex;
         width: 100%;
         justify-content: space-between;
+        transform: translate(0px, 0px);
+        animation: move 1s  alternate-reverse ;
+        /* transition: 5s; */
+    }
+    @keyframes move{
+        0%{
+    }
+        100%{
+            transform: translate(0px, 150px);
+        }
     } 
     .banner-why-card-pc{
-        /* border: 1px solid red; */
-        padding: 30px;
+       padding: 30px 30px 50px 30px;
        
     }
     .why-card-img-pc{
@@ -248,7 +303,8 @@ font-family: custom-font;
 
 @media screen and (max-width:576px){
     .banner-button-info-pc{
-        display: none;
+        
+    display: none;
     }
 }
 
@@ -267,6 +323,11 @@ font-family: custom-font;
     border-radius: 50%;
     margin: 20px 0;
 }
+.silder-dot .dot1{
+    background-color: var(--primaryColor_light);
+}
+
+
 /* 篩選器標題 */
 .filter{
     margin: 50px 0 30px;
@@ -305,7 +366,7 @@ font-family: custom-font;
     }
     .filter{
         margin: 100px 0 50px;
-        border:1px solid red ;
+        /* border:1px solid red ; */
     }
     .filter-container{
         width: 75%;
@@ -320,17 +381,11 @@ font-family: custom-font;
         margin: 8px 0;
         font-size: 20px;
     }
-    .napSwitch_two,.napSwitch_three{
-        padding: 8px 35px;
+    .napSwitch_two .sec{
+        padding:8px 40px ;
     }
-    .napSwitch_three .num1, .num2, .num3 {
-        padding: 0px 40px 0px 0px;
-    }
-    .napSwitch_three .num2 {
-        padding: 0px 20px 0px 10px;
-    }
-    .napSwitch_three .num3 {
-        padding: 0px 0px 0px 40px;
+    .napSwitch_three .sec {
+        padding: 8px 32px;
     }
 .filter-title-pc h2{
         font-size: 40px ;
@@ -349,6 +404,7 @@ font-family: custom-font;
 }
 .pet-card-col {
     padding: 5px;
+    cursor: pointer;
     /* border: 1px solid red; */
 }
 
@@ -375,7 +431,7 @@ font-family: custom-font;
 
 @media screen and (min-width:576px){
     .pet-card-cnotainer{
-        width: 85%;
+        width: 83%;
         margin: auto;
     }
     
@@ -397,7 +453,6 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 }
-
 .pet-info .name{
     text-align: center;
     padding: 15px 0 5px;
@@ -448,6 +503,9 @@ justify-content: center;
 .napBtn_likeBtn span{
     font-size: var(--p_14px);
 }
+button:focus{
+    outline: none ;
+}
 @media screen and (min-width:576px){
     .napBtn_likeBtn{
         width: fit-content;
@@ -457,57 +515,75 @@ justify-content: center;
     .napBtn_likeBtn span{
         font-size: var(--headline_2px);
     }  
+
 }
 /* 黑色光箱 */
-/* .lightBox{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-} */
-.lightBox-container{
-    width: 100%;
-    height: 100vh;
-    background-color: var(--black_core);
+.close{
     position: relative;
-    text-align: center;
-    margin: auto;
+    width: 16px;
+    overflow: hidden;
+    top: 10px;
+    left: 90%;
+}
+.close img{
+    width: 100%;
+}
+.lightBox{
+    /* display: none; */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    z-index: 1000;
+}
+.lightBox-container{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
     color: var(--subColor_text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lightBox-container-bg{
+    background-color: var(--black_core);
+    width: 100vw;
+    height: 100vh;
+    opacity: .8;
 }
 .lightBox-row{
     color: var(--subColor_text);
     width: 80%;
     position: absolute;
-    margin: auto;
     border-radius: 20px;
     background-color: var(--subColor_bgc);
-    border: 1px solid red;
-    padding: 20px;
     text-align: center;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
 }
-.close{
-    margin-left: 92%;
-    width: 20px;
-    cursor: pointer;
-    border: 1px solid red;
-}
-.close img{
-    width: 100%;
-    height: 68px;
-    margin-bottom: 30px;
+.lightBox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px ;
 }
 .lightBox-card-img{
     width: 100%;
-    height: 260px;
+    height: 220px;
     overflow: hidden;
-    border: 1px solid red;
     padding: 0;
+    
+    
 }
 .lightBox-card-img img{
     width: 100%;
     object-fit: cover;
 }
-/* 黑色光箱info */
-
+/* 光箱info */
+.lightBox-card-info{
+    padding: 0;
+}
 .lightBox-card-name {
     font-size: 24px;
     width: fit-content;
@@ -515,28 +591,41 @@ justify-content: center;
     margin: 20px 0 10px;
     padding-left: 20px;
     font-weight: 500;
-
 }
 .lightBox-card-info h6{
- text-align: left;
- line-height: 1.6rem;
+    text-align: left;
+    line-height: 1.6rem;
 }
 .lightBox-card-info p{
 font-size: var(--p_12px);
-text-align: left;
+text-align: justify;
 line-height: 1.2rem;
 }
 .lightBox-card-info .napBtn_likeBtn{
-  margin: 20px auto 0;  
-  
+    margin: 20px auto 0;  
 }
 @media screen and (min-width:576px){
-
+    .close{
+        position: relative;
+        width: 24px;
+        overflow: hidden;
+        top: -30px;
+        left: 100%;
+    }
+    .close img{
+        width: 100%;
+    }
     .lightBox-row{
         display: flex;
         width: 50%;
         padding: 50px;
         justify-content: space-around;
+    }
+    .lightBox-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     }
     .lightBox-card-img{
         margin-right: 20px;
@@ -553,19 +642,17 @@ line-height: 1.2rem;
         
     }
     .lightBox-card-info h6{
-        
         line-height: 2.6rem;
         font-size: 28px;
-       }
-       .lightBox-card-info p{
-       font-size: 20px;
-       text-align: left;
-       line-height: 2rem;
-       }
-       .lightBox-card-info .napBtn_likeBtn{
+    }
+    .lightBox-card-info p{
+        font-size: 20px;
+        line-height: 2rem;
+    }
+    .lightBox-card-info .napBtn_likeBtn{
         margin: 0;
         margin-left: auto;
-       }  
+    }  
 
 }
 

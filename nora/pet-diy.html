@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="./css_n/reset.css">
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
     <link rel="stylesheet" href="./css_n/member-nav.css">
     <link rel="stylesheet" href="./css_n/pet.css">
+
     <title>會員中心-優惠專區</title>
 </head>
 <body>
@@ -181,8 +183,8 @@
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm(); return false;">
 
                     <div class="diypart">
-                        <img src="./img_n/pet/dog-mb.png" alt="" class="card-mb">
-                        <img src="./img_n/pet/dog.png" alt="" class="card-pc">
+                        <img src="./img_n/pet/dog-mb.png" alt="" class="card-mb img-body">
+                        <img src="./img_n/pet/dog.png" alt="" class="card-pc img-body1">
                         <div class="petname-box pet-box  mb-3  d-flex ">
                             <label for="name" class="form-label d-flex align-items-center">毛孩姓名</label>
                             <input type="name" disabled="disabled" class="form-control" id="name" name="name" placeholder="李菜菜"  required>
@@ -215,7 +217,7 @@
             </div>
           </div>
         </div>
-        <div class="col mx-5 mb-4 ">
+        <div class="col col0 mx-5 mb-4 ">
             <div class="card2
              ">
               <div class="control flex-column  align-items-center
@@ -229,7 +231,7 @@
                         <img src="./img_n/pet/diy/card-kind/Cat.svg" alt="">
                     </div>
                 </div>
-                <p class="pb-1" >B. 選擇卡片顏色</p>
+                <p class="pb-1 " >B. 選擇卡片顏色</p>
                 <div class="pet-color  d-flex  pb-3">
                     <div class="pet-color-gray mx-3">
                         <img src="" alt="">
@@ -319,18 +321,26 @@
         </div>
     </div>
 
-
-
-    <script src="./js_cy/jquery-3.6.0.min.js"></script>
-    <script src="./bootstrap-5.1.1-dist/js/bootstrap.bundle.js"></script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./bootstrap-5.1.1-dist/js/bootstrap.js">
     <script src="../components/component.js"></script>
+
     <script>
 
 
+
+
+    $('.card2 .img-dog').click(function(s){
+
+
+    $(this).parents().find('.col .pet-color').css('display','none');
+
+    })
+
+
     </script>
-</body>
-
-</html>
 
 
 
@@ -338,7 +348,8 @@
 
 
 
-</script>
+
+
 </body>
 
 </html>

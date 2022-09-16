@@ -154,6 +154,7 @@ text-align: center;
 }
 /* 手機黑色光箱 */
 .lightBox {
+    display: none;
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -170,7 +171,6 @@ text-align: center;
 .lightBox-row{
     color: var(--white);
     width: 100%;
-    
     margin: auto;
 }
 .close{
@@ -349,6 +349,12 @@ text-align: center;
         left: 69.5%;
     }
     /* 右邊文字介紹 */
+    .carousel ol {
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px auto;}
+        
     .nap-map-col-rihgt{
         padding: 0 ;
         margin: 0;    

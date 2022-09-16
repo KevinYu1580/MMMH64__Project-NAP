@@ -152,7 +152,7 @@ body{
     font-size: var(--p_16px);
     background-color: var(--primaryColor_tint);
     padding: 5%;
-    z-index: 20;
+    z-index: 90;
 }
     @media screen and (min-width: 768px){
         .enroll-detail-card{
@@ -253,10 +253,36 @@ body{
     margin-top: 20px;
 }
     @media screen and (min-width: 768px){
-        .enroll-card-btn .napBtn_fixed_outlined span, .enroll-card-btn .napBtn_fixed_filled span{
+        .enroll-card-btn{
             display: flex;
-            flex-direction: column;
-            font-size: var(--headline_24px);
+            justify-content: space-evenly;
+            flex-direction: row-reverse;
+        }
+    }
+
+
+.napBtn_fixed_outlined{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* 當裡面沒有人數的時候，不能點擊 */
+.enroll-card-btn.disabled a{
+    margin: auto;
+    margin-top: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+    font-size: var(--headline_20px);
+    background-color: var(--black_500);
+    cursor: not-allowed;
+    color: var(--white);
+    outline: 0;
+}
+    @media screen and (min-width: 768px){
+        .enroll-card-btn.disabled a{
+            width: 180px;
+            height: 55px;
+            font-size: var(--headline_24px)
         }
     }
 
@@ -264,8 +290,17 @@ body{
     margin: auto;
     margin-top: 10px;
     width: 170px;
+    height: 40px;
     text-decoration: none;
+    font-size: var(--headline_20px);
 }
+    @media screen and (min-width: 768px){
+        .enroll-card-btn a{
+            width: 180px;
+            height: 55px;
+            font-size: var(--headline_24px)
+        }
+    }
 
 /* ----------套裝活動報名表頭---------- */
 .enroll-data-title{
@@ -325,7 +360,6 @@ body{
     margin: auto;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     margin-top: 50px;
 }
     @media screen and (min-width: 768px){
@@ -333,15 +367,31 @@ body{
             width: 300px;
             height: 55px;
             margin-top: 0px;
-            cursor: pointer;
             align-items: flex-start;
             flex-wrap: nowrap;
         }
     }
 
-.add-member-btn a{
+.add-member-btn.disabled a{
+    background-color: var(--black_500);
     color: var(--white);
     font-size: var(--headline_20px);
+    /* text-decoration: none; */
+    cursor: not-allowed;
+}
+    @media screen and (min-width: 768px){
+        .add-member-btn.disabled a{
+            width: 300px;
+            height: 55px;
+            font-size: var(--headline_24px);
+        }
+    }
+
+.add-member-btn a{
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+    font-size: var(--headline_20px);
+    cursor: pointer;
     /* text-decoration: none; */
 }
     @media screen and (min-width: 768px){
@@ -529,6 +579,7 @@ body{
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 80;
 }
 .delete-btn img{
     width: 20px;

@@ -415,6 +415,9 @@ body{
 .events-card-container{
     margin-left:65px;
 }
+.events-card-row-mb{
+    max-width: 100%;
+}
 .evnets-card-group-mb{
     width: 100%;
     overflow: hidden;
@@ -479,97 +482,154 @@ body{
     padding: 5px 30px;
     border-radius: 20px;
 }
-.card-like-mb{
-    max-width: 300px;
+/* 收藏按鈕 */
+.card-like{
+    width: 45px;
     aspect-ratio: 1/1;
     border: 2px solid var(--primaryColor_dark);
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
     position: absolute;
     top: 20px;
     right: 20px;
 }
-.card-like-mb img{
+.card-like img{
     width: 60%;
+    height: 100%;
+    object-fit: contain;
 }
+.card-like #cover{
+    position: absolute;
+    top: 0;
+}
+.card-like .cover{
+    display: none;
+}
+/*  */
 .events-card-group-pc{
     display: none;
 }
 @media screen and (min-width:768px) {
-    .evnets-card-group-mb{
-        display: none;
-    }
-    .events-card-group-pc{
-        display: block;
-    }
     .events-card-container{
         max-width: calc(100% - 800px);
         margin: auto;
+        /* background-color: #000000; */
     }
-    .events-card-pc{
-        max-width: 1000px;
+    .evnets-card-group-mb{
+        max-width: 100%;
+        margin: auto;
+        overflow: visible;
+        overflow-x: visible;  
+        -webkit-overflow-scrolling:touch;
+    }
+    .events-card-row-mb{
+        max-width: 100%;
+    }
+    .events-card{
+        margin-bottom: 50px;
+    }
+    .evnets-card-group-mb::-webkit-scrollbar{
+        display: none;
+    }
+    .events-card-col-mb{
+        max-width: 100%;
+        padding-bottom: 5px;
+        margin: auto;
+    }
+    .events-card-mb{
+        max-width: 1080px;
         background-color: var(--subColor_bgc);
         border-radius: 20px;
         box-shadow: 10px 10px #0000002d;
-        margin: 0 auto 60px;
+        position: relative;
+        margin-right: 0px;
+        margin-bottom: 50px;
     }
-    .card-imgbox-pc{
+    .card-imgbox-mb{
+        width: 33%;
         border-radius: 20px 0 0 20px;
         overflow: hidden;
+        margin-bottom: 0px;
     }
-    .card-imgbox-pc img{
+    .card-imgbox-mb img{
         width: 100%;
         height: 100%;
+        vertical-align: bottom;
         object-fit: cover;
     }
-    .card-textbox-pc{
-        padding: 30px;
+    .card-textbox-mb{
+        width: 67%;
+        margin: 0;
+        padding: 20px 20px 20px 50px;
     }
-    .card-textbox-pc h4, .card-textbox-pc h3{
-        font-size: var(--headline_28px);
-        font-weight: 600;
+    .card-textbox-mb h4{
+        margin-top: 20px;
+    }
+    .card-textbox-mb h4 , .card-textbox-mb h3{
+        font-size: var(--headline_32px);
+        text-align: left;
         color: var(--primaryColor_dark);
-        padding-bottom: 10px;
+        font-weight: 600;
+        padding-bottom: 15px;
     }
-    .card-textbox-pc p{
-        font-size: var(--headline_20px);
+    .card-textbox-mb p{
+        width:95%;
         line-height: 1.8;
-        padding-bottom: 10px;
+        font-size: var(--headline_20px);
+        padding-bottom: 15px;
     }
-    .card-textbox-row-pc .person{
-        font-size: var(--headline_24px);
-        font-weight: 600;
+    .people-cardBtn{
+        width: 95%;
+    }
+    .card-textbox-mb h5{
         color: var(--primaryColor_dark);
+        font-weight: 600;
+        font-size: var(--headline_28px);
+        padding-bottom: 0px;
+        text-align: center;
     }
-    .card-textbox-row-pc span{
+    .card-textbox-mb span{
         color: var(--subColor_highLightRed);
     }
-    .card-like-pc{
+    .card-btn{
+        text-align: center;
+        padding-bottom: 0px;
+    }
+    .card-btn a{
+        text-decoration: none;
+        color: var(--white);
+        font-size: var(--headline_24px);
+        background-color: var(--primaryColor_dark);
+        padding: 5px 30px;
+        border-radius: 50px;
+    }
+    .card-btn a:hover{
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
+    }
+    .card-like{
         width: 45px;
         aspect-ratio: 1/1;
         border: 2px solid var(--primaryColor_dark);
         border-radius: 50%;
         cursor: pointer;
+        position: absolute;
+        top: 210px;
+        right: 230px;
     }
-    .card-like-pc img{
+    .card-like img{
         width: 60%;
+        height: 100%;
+        object-fit: contain;
     }
-    .card-btn-pc{
-        padding-left: 20px;
+    .card-like #cover{
+        position: absolute;
+        top: 0;
     }
-    .card-btn-pc a{
-        text-decoration: none;
-        color: var(--white);
-        background-color: var(--primaryColor_dark);
-        padding: 10px 30px;
-        border-radius: 30px;
+    .card-like .cover{
+        display: none;
     }
-    .card-btn-pc a:hover{
-        background-color: var(--primaryColor_light);
-        transition: 0.3s;
-    }
+
 }
 
 

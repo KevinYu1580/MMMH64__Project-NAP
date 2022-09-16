@@ -102,6 +102,17 @@
     box-sizing: border-box;
 }
 
+.img-body{
+    position: absolute;
+    top: -63px;
+    left: 0;
+}
+
+.img-body1{
+    position: absolute;
+    top: -80px;
+    left: 0;
+}
 
 /* form{
     width: 326px;
@@ -115,19 +126,19 @@
     
     height: 30px;
     position: absolute;
-    top: 60px;
+    top: 40px;
     right: 10px;
 }
 
 .pet-box2{
-    top: 100px;
+    top: 80px;
 }
 .pet-box3{
-    top: 140px;
+    top: 120px;
 
 }
 .pet-box4{
-    top: 180px;
+    top: 160px;
 }
 
 .form-label{
@@ -141,6 +152,10 @@
     width: 80px;
     height: 30px;
     font-size: 14px;
+}
+
+.btn-group{
+    padding-top: 225px;
 }
 
 .btn{
@@ -307,11 +322,12 @@
 
 .btn-group1 {
     position: relative;
+    padding-bottom: 255px;
 }
 
 .btn-group1 .btn-box {
     position: absolute;
-    top: 270px;
+    top: 520px;
     left: 110px;
     z-index: 20;
 }
@@ -328,7 +344,7 @@
 
 
 
-@media (min-width: 1200px){
+@media (min-width: 1400px){
     .album .row{
         justify-content: start;
         margin-left: 25px;
@@ -404,6 +420,10 @@
     
 }
 
+.col0{
+    /* width: 600px; */
+}
+
 
 
 .btn-group1 {
@@ -412,7 +432,7 @@
 
 .btn-group1 .btn-box {
     position: absolute;
-    top: -180px;
+    top: 150px;
     left: 790px;
     z-index: 20;
 }
@@ -477,7 +497,7 @@
         top: 125px;
     }
     .card1 .pet-box3{
-        top: 165px;
+        top: 170px;
     
     }
     .card1 .pet-box4{
@@ -487,7 +507,7 @@
 
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1400px){
     .album .row{
         justify-content: center;
     }
@@ -504,5 +524,22 @@
         left: 115px;
         cursor: pointer;
     }
+
+}
+
+@media (min-width: 1000px) and (max-width: 1400px){
+
+    .btn-group1 {
+        position: relative;
+    }
+    
+    .btn-group1 .btn-box {
+        position: absolute;
+        top: 0px;
+        left: 530px;
+        z-index: 20;
+    }
+    
+    
 
 }
