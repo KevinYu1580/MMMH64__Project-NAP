@@ -3,7 +3,7 @@
 session_start();
 // 如果已經登入會員
 if (!empty($_SESSION['user'])) {
-    header('Location: ./');
+    header('Location: ./info-index');
     exit;
 }
 
