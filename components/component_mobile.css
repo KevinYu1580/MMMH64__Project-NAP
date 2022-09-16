@@ -733,6 +733,7 @@ height: 40px;
     background-repeat: no-repeat;
     background-size:auto;
     background-position: 10% 18%;
+    background-size: cover;
 }
 @media screen and (min-width: 768px){
     .footer-mobile .top_sec {

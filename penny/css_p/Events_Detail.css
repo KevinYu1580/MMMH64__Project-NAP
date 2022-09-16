@@ -102,8 +102,16 @@ body{
     height: 100%;
     object-fit: contain;
 }
-.like-btn path{
+.like-btn #outline path{
     fill: var(--subColor_lightRed);
+}
+.like-btn #cover path{
+    fill: var(--subColor_lightRed);
+    display: none;
+}
+.like-btn #cover{
+    position: absolute;
+    top: 0;
 }
 /* ---------活動詳細頁-標題---------- */
 .detail-textbox h3, .detail-textbox h2{
@@ -224,9 +232,10 @@ body{
         height: 100%;
         object-fit: contain;
     }
-    .like-btn path{
+    .like-btn #cover{
         fill: var(--subColor_lightRed);
     }
+    
     /* ---------活動詳細頁-標題---------- */
     .detail-textbox h3, .detail-textbox h2{
         text-align: left;
@@ -437,16 +446,28 @@ p.mportant-thing-mb{
     }
     .important-thing-imgbox-pc{
         display: block;
+        position: relative;
+        perspective: 800px;
+        transform-style: preserve-3d;
         max-width: 400px;
         margin: auto;
+        transition: 1s;
     }
     .important-thing-imgbox-pc img{
+        position: absolute;
+        backface-visibility: hidden;
         width: 100%;
     }
+    .front{
+        transform: rotateY(0deg);
+    }
+    .back{
+        transform: rotateY(180deg);
+    }
+    .card2{
+        display: none;
+    }
  }
-
-
-
 
 
  /* 毛孩專家與合作夥伴 | expert-partner */
@@ -454,10 +475,11 @@ p.mportant-thing-mb{
     max-width: 100%;
     /* height: 1585px; */
     background: url('../img_p/illustration/illustration-83.png') no-repeat center center / cover;
- }
+}
  .expert-partner-container{
     max-width: calc(100% - 80px);
-    margin: 100px auto 0;
+    padding-top: 100px;
+    margin: 0 auto 0;
  }
 /* ---------毛孩專家與合作夥伴-文案---------- */
 .expert-partner-textbox{
@@ -481,6 +503,15 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 /* ---------毛孩專家與合作夥伴-卡片---------- */
 .expert-partner-card{
     padding-bottom: 50px;
+}
+.ep-card-1{
+    transition: 1s;
+}
+.ep-card-2{
+    transition: 2.5s;
+}
+.ep-card-3{
+    transition: 3.5s;
 }
 .ep-card-imgbox{
     max-width: 225px;
@@ -525,6 +556,8 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     .expert-partner{
         max-width: 100%;
         background: url('../img_p/illustration/illustration-84.png') no-repeat center center / cover;
+
+
     }
     .expert-partner-container{
         max-width: calc(100% - 480px);
@@ -637,6 +670,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 }
 .ka-train{
     width: 900%;
+    transition: 0.3s;
 }
 .ka-train li{
     width: 100%;
@@ -721,6 +755,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     .ka-train .pc-train{
         width: 900%;
         height: auto;
+        transition: 0.3s;
     }
     .mb-train li{
         display: none;
@@ -734,13 +769,16 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     }
     .slide-active{
         transform: scale(1);
+        transition: 0.3s;
         /* border: 8px solid var(--primaryColor_dark); */
     }
     .slide-prev{
         transform: scale(0.8);
+        transition: 0.3s;
     }
     .slide-next{
         transform: scale(0.8);
+        transition: 0.3s;
     }
     /* ---------了解陪伴-圖片顯示點點---------- */
     .silder-dot-mb{

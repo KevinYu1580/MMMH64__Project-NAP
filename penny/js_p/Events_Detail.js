@@ -1,5 +1,58 @@
-// $('.mb-train').css('width', `${$('.mb-train li').outerWidth(true) * $('.mb-train li').length}px`)
+//收藏按鈕
+$('.like-btn').click(function(){
+    $('.like-btn #cover path').toggle();
+})
 
+//桌機 | 比外表重要的事-(插圖定時翻轉)
+$(function () {
+    timeback();
+});
+function timeback() {
+    const timer = null;
+    let i = 0;
+    var card = $(".important-thing-imgbox-pc");
+
+    function overturn() {
+        card.eq(i).toggleClass('back'); 
+        i++;
+        if(i==3){
+            i=0;
+        }
+    }
+    timer = setInterval(overturn, 1000);
+}
+
+// setInterval(function(){
+//     $('.card1').css('display','none')
+//     $('.card2').css('display','block')
+//     setTimeout(function(){
+//         $('.card1').css('display','block')
+//         $('.card2').css('display','none')
+//     },3000);
+// },6000);
+
+
+
+
+// 桌機、手機 | 毛孩專家卡片緩慢出現
+$(window).scroll(function(){
+
+    if($(window).scrollTop() >= ($('.expert-partner').offset().top)){
+        $('.expert-partner-card').css({
+            transform:'translateY(0px)',
+            opacity:1
+        })
+    }
+    else{
+        $('.expert-partner-card').css({
+            transform:'translateY(200px)',
+            opacity:0
+        })
+    }
+});
+
+
+// 桌機 | 了解陪伴-(換圖時，文字跟頁碼顯示點點會跟著變動)
 // 從 0 → 1
 $('.silder-dot-pc .dot1').click(function(){
     $('.dot').removeClass('default');
@@ -12,6 +65,7 @@ $('.silder-dot-pc .dot1').click(function(){
 $('.silder-dot-pc .dot2').click(function(){
     $('.dot').removeClass('default');
     $(this).addClass('default');
+    $('.pic2').removeClass('slide-next');
     $('.know-accompany-textbox h3').text('02 動手做鮮食');
     $('.know-accompany-textbox p:nth-of-type(2)').text('藥補不如食補，毛孩是家人，更應從飲食入手。以天然新鮮安全健康為主，為了讓寶貝們陪伴我們更久，平日在選擇毛孩食物時，也須加倍謹慎，一起動手做鮮食從飲食上來照顧牠們的身體吧！');
 });
@@ -82,16 +136,13 @@ $('.silder-dot-pc .dot10').click(function(){
     $('.know-accompany-textbox p:nth-of-type(2)').text('用心打造多種獨特專屬毛小孩拍攝的攝影空間，透過攝影師的專業引導，為毛小孩紀錄屬於您們的溫暖畫面。');
 });
 
-// 桌機 | 點擊點點時，圖片會移動
+// 桌機 | 了解陪伴-(點擊點點時，圖片會移動)
 $('.silder-dot-pc .dot').click(function(){
     const nowPage = $(this).index();
     const moveX = nowPage * -$('.pc-train li').outerWidth(true);
-    $('.pc-train li').css('transform',`translateX(${moveX}px)`);
+    $('.pc-train').css('transform',`translateX(${moveX}px)`);
 })
   
-
-
-
 
 // 手機 | 了解陪伴-(橫向滾動)
 let move = document.querySelector(".know-accompany-imgbox");
@@ -103,8 +154,8 @@ move.addEventListener("wheel", (event) => {
 
 // 手機 | 了解陪伴-(換圖時，文字跟頁碼顯示點點會跟著變動)
 $('.know-accompany-imgbox').scroll(function(){
-    console.log('left:', $('.know-accompany-imgbox').scrollLeft());
-    console.log('width', $('.mb-train li').outerWidth(true));
+    // console.log('left:', $('.know-accompany-imgbox').scrollLeft());
+    // console.log('width', $('.mb-train li').outerWidth(true));
     // console.log('top', $('.mb-train li').offset().top);
 
     if($('.know-accompany-imgbox').scrollLeft() < 284){
@@ -212,6 +263,9 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot10').css('backgroundColor', 'transparent');
     }   
 });
+
+
+
 
 
 
