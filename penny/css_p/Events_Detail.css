@@ -334,7 +334,7 @@ body{
 }
 /* ---------比外表重要的事-文案---------- */
 .important-thing-textbox{
-    padding: 60px 0 100px;
+    padding: 60px 0 120px;
 }
 .important-thing-textbox h3{
     font-size: var(--headline_20px);
@@ -417,7 +417,7 @@ p.mportant-thing-mb{
         height: 100vh;
     }
     .important-thing-textbox{
-        padding: 120px 0 0px;
+        padding: 60px 0 0px;
     }
     .important-thing-textbox h3{
         font-size: var(--headline_40px);
@@ -444,11 +444,15 @@ p.mportant-thing-mb{
     .important-thing-imgbox-mb{
         display: none;
     }
+    .important-thing-imgbox-pc-parent{
+        perspective: 800px;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
     .important-thing-imgbox-pc{
         display: block;
         position: relative;
         perspective: 800px;
-        transform-style: preserve-3d;
         max-width: 400px;
         margin: auto;
         transition: 1s;
@@ -458,14 +462,17 @@ p.mportant-thing-mb{
         backface-visibility: hidden;
         width: 100%;
     }
-    .front{
-        transform: rotateY(0deg);
+    
+    .important-thing-imgbox-pc{
+        backface-visibility: hidden;
     }
-    .back{
+    .important-thing-imgbox-pc img{
+        backface-visibility: hidden;
         transform: rotateY(180deg);
+        transition: 1.5s ease;
     }
-    .card2{
-        display: none;
+    img.front{
+        transform: rotateY(0deg);
     }
  }
 
@@ -478,7 +485,7 @@ p.mportant-thing-mb{
 }
  .expert-partner-container{
     max-width: calc(100% - 80px);
-    padding-top: 100px;
+    padding-top: 80px;
     margin: 0 auto 0;
  }
 /* ---------毛孩專家與合作夥伴-文案---------- */
@@ -669,15 +676,17 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     display: none;
 }
 .ka-train{
-    width: 900%;
-    transition: 0.3s;
+    /* width: 900%; */
+    transition: .5s;
 }
 .ka-train li{
-    width: 100%;
+    width: 60%;
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 20px;
-    margin-right: 30px;
+    flex-shrink: 0;
+    /* margin-right: 30px; */
+    /* transform: scale(0.9); */
 }
 .ka-train img{
     width: 100%;
@@ -688,7 +697,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     transform: scale(1);
 }
 .slide-next{
-    transform: scale(0.8);
+    /* transform: scale(0.8); */
 }
 /* ---------了解陪伴-圖片顯示點點---------- */
 .silder-dot-box{
@@ -755,30 +764,27 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     .ka-train .pc-train{
         width: 900%;
         height: auto;
-        transition: 0.3s;
+        transition: .3s;
     }
     .mb-train li{
         display: none;
     }
     .pc-train li{
         display: block;
-        transition: 0.3s;
     }
     .pc-train li img{
         width: 100%;
+        transition: .5s;
     }
     .slide-active{
         transform: scale(1);
-        transition: 0.3s;
         /* border: 8px solid var(--primaryColor_dark); */
     }
-    .slide-prev{
+    .slide-prev img{
         transform: scale(0.8);
-        transition: 0.3s;
     }
-    .slide-next{
+    .slide-next img{
         transform: scale(0.8);
-        transition: 0.3s;
     }
     /* ---------了解陪伴-圖片顯示點點---------- */
     .silder-dot-mb{
