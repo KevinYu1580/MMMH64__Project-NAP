@@ -1,6 +1,7 @@
 // 關閉光箱
 $('.close_lightBox').click(function(){
     $(this).parent().hide()
+    document.body.style.overflow='visible'
 })
 
 
@@ -47,8 +48,9 @@ postLightBox_messageNum();
 
 
 // 打開留言卡片光箱
-$('.comtCard').click(function(e){
+$('.comtCard_wrap').on('click', '.comtCard' ,function(e){
     $(post_lightBox).show();
+    document.body.style.overflow='hidden'
 })
 
 
@@ -60,13 +62,13 @@ $(window).on('wheel', function(event){
     if(event.originalEvent.deltaY < 0){
       $('.postBtn_mb').css({
         'opacity': '1',
-        ' pointer-events':'none'
+        'pointer-events':'auto'
     })
     }
     else {
         $('.postBtn_mb').css({
             'opacity': '0',
-            ' pointer-events':'auto'
+            'pointer-events':'none'
         })
  
     }
@@ -79,6 +81,7 @@ $(window).on('wheel', function(event){
 
 $('.postBtn_mb').click(function(){
     $('.lightBox_post').show()
+    document.body.style.overflow='hidden'
 })
 
 // 寵物類別選擇器
@@ -126,8 +129,8 @@ function eventSelecClickable(){
 
 
 
-// ------發文光箱  上傳圖片功能
-// 預覽
+// ------發文光箱  
+// 上傳圖片功能  預覽&新增div
 
 let picNum = 0
 imgInp.onchange = evt => {
@@ -138,15 +141,14 @@ imgInp.onchange = evt => {
     
 
     if (file) {
-        console.log(picNum)
-        $('.lightBox_post .inputArea .napContent').append(`<img id="postPic${picNum}" src="" alt="" />`);
+        
+        $('.lightBox_post .inputArea .imgInsert').append(`<img id="postPic${picNum}" src="" alt="" />`);
 
-        idName = picNum
-        postPic1.src = URL.createObjectURL(file)
+        document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
     }
-    
-   
   }
+
+
 
 
 

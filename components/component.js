@@ -14,10 +14,12 @@ $('.napBtn_likeBtn').click(function(event){
 
 
 // 留言區
-$('.napBtn_likeBtn_comt').click(function(e){
+$('.comtCard_wrap').on('click', '.napBtn_likeBtn_comt' ,function(e){
+  console.log('napBtn_likeBtn_comt');
   e.stopPropagation()
   $(this).find('#napActivate').toggle()
 })
+
 
 // ----------switch---------
 
