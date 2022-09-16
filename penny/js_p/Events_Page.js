@@ -1,5 +1,5 @@
 //收藏按鈕
-$('.card-like-pc , .card-like-mb').click(function(){
+$('.card-like').click(function(){
     $(this).find('.cover').toggle();
 })
 
