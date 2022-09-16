@@ -381,17 +381,11 @@ font-family: custom-font;
         margin: 8px 0;
         font-size: 20px;
     }
-    .napSwitch_two,.napSwitch_three{
-        padding: 8px 35px;
+    .napSwitch_two .sec{
+        padding:8px 40px ;
     }
-    .napSwitch_three .num1, .num2, .num3 {
-        padding: 0px 40px 0px 0px;
-    }
-    .napSwitch_three .num2 {
-        padding: 0px 20px 0px 10px;
-    }
-    .napSwitch_three .num3 {
-        padding: 0px 0px 0px 40px;
+    .napSwitch_three .sec {
+        padding: 8px 32px;
     }
 .filter-title-pc h2{
         font-size: 40px ;
@@ -545,12 +539,17 @@ button:focus{
 .lightBox-container{
     width: 100vw;
     height: 100vh;
-    background-color: var(--black_core);
     position: relative;
     color: var(--subColor_text);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.lightBox-container-bg{
+    background-color: var(--black_core);
+    width: 100vw;
+    height: 100vh;
+    opacity: .8;
 }
 .lightBox-row{
     color: var(--subColor_text);
@@ -594,8 +593,8 @@ button:focus{
     font-weight: 500;
 }
 .lightBox-card-info h6{
- text-align: left;
- line-height: 1.6rem;
+    text-align: left;
+    line-height: 1.6rem;
 }
 .lightBox-card-info p{
 font-size: var(--p_12px);
@@ -603,8 +602,7 @@ text-align: justify;
 line-height: 1.2rem;
 }
 .lightBox-card-info .napBtn_likeBtn{
-  margin: 20px auto 0;  
-  
+    margin: 20px auto 0;  
 }
 @media screen and (min-width:576px){
     .close{
@@ -628,7 +626,7 @@ line-height: 1.2rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-}
+    }
     .lightBox-card-img{
         margin-right: 20px;
         height: 500px;
@@ -644,18 +642,17 @@ line-height: 1.2rem;
         
     }
     .lightBox-card-info h6{
-        
         line-height: 2.6rem;
         font-size: 28px;
-       }
-       .lightBox-card-info p{
-       font-size: 20px;
-       line-height: 2rem;
-       }
-       .lightBox-card-info .napBtn_likeBtn{
+    }
+    .lightBox-card-info p{
+        font-size: 20px;
+        line-height: 2rem;
+    }
+    .lightBox-card-info .napBtn_likeBtn{
         margin: 0;
         margin-left: auto;
-       }  
+    }  
 
 }
 
