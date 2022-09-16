@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css_H/Filed-guide.css">
 </head>
 <body>
-      <!------ topNav 要跟menu一起複製------>
+    <!------ topNav 要跟menu一起複製------>
     </div>
     <div class="topNav_mobile">
         <a class="logo" href="#">
@@ -255,42 +255,45 @@
         <div class="filter-group">
             <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <div class="num1 sec">
+                <div class="num1 sec type">
                     狗勾
                 </div>
-                <div class="num2 sec">
+                <div class="num2 sec type">
                     貓貓
                 </div>
             </div>
+        
             <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <div class="num1 sec">
+                <div class="num1 sec gender">
                     男生
                 </div>
-                <div class="num2 sec">
+                <div class="num2 sec gender">
                     女生
                 </div>
             </div>
             <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <div class="num1 sec">
+                <div class="num1 sec fur">
                     長毛
                 </div>
-                <div class="num2 sec">
+                <div class="num2 sec fur">
                     短毛
                 </div>
             </div>
+        
+            <br>
             <!-- 三格 -->
-         <div class="napSwitch_three">
+            <div class="napSwitch_three">
                 <div class="backmask"></div>
                 <div class="num1 sec">
-                幼年 (0~1)
+                    幼年 (0~1)
                 </div>
                 <div class="num2 sec">
-                成年 (1~8)
+                    成年 (1~8)
                 </div>
                 <div class="num3 sec">
-                老年 (8+)
+                    老年 (8+)
                 </div>
             </div>
         </div>
@@ -298,7 +301,7 @@
     </section>
     <!-- 篩選卡片 -->
     <section class="pet-card">
-      <div class="pet-card-cnotainer">
+    <div class="pet-card-cnotainer">
             <div class="pet-card-row">
                 <div class="pet-card-col col-6 col-md-4">
                     <div class="pet-card-content">
@@ -404,6 +407,31 @@
         </div>
         
     </section>
+        <!------ 頁數選擇器 PC -------->
+        <div class="page_slec">
+            <button class="page_click">
+                <img width="" src="./img_H/arrow_lastpage.svg" alt="">
+            </button>
+            <!-- 頁碼 -->
+            <div class="indic_wrap">
+                <button class="page_indic">
+                    <span class="napPage">1</span>
+                </button>
+                <button class="page_indic">
+                    <span class="napPage">2</span>
+                </button>
+                <button class="page_indic">
+                    <span class="napPage">3</span>
+                </button>
+            </div>
+            <!---->
+            <button class="page_click">
+                <img width="" src="./img_H/arrow_nextpage.svg" alt="">
+            </button>
+        </div>
+    
+    
+        <br>
 
         <!------ footer-mobile ------>
         <div class="footer-mobile">
@@ -516,8 +544,8 @@
 
         })
         //光箱彈出
-        $('.pet-card-col').click(function(){
-            $('lightBox').show();
+        $('.pet-card-content').click(function(){
+            $('.lightBox').show();
         })
          //光箱關閉
         $('.close img').click(function(){
