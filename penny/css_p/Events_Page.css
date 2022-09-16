@@ -493,6 +493,15 @@ body{
 }
 .card-like-mb img{
     width: 60%;
+    height: 100%;
+    object-fit: contain;
+}
+.card-like-mb #cover-mb{
+    position: absolute;
+    top: 0;
+}
+.card-like-mb .cover{
+    display: none;
 }
 .events-card-group-pc{
     display: none;
@@ -560,9 +569,11 @@ body{
         height: 100%;
         object-fit: contain;
     }
-    .card-like-pc .cover{
+    .card-like-pc #cover{
         position: absolute;
         top: 0;
+    }
+    .card-like-pc .cover{
         display: none;
     }
     

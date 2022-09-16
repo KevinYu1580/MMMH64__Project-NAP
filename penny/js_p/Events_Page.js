@@ -1,8 +1,6 @@
 //收藏按鈕
-$('.card-like-pc').click(function(){
-    // $('.card-like-pc img').removeClass('card-like-pc cover');
-    // $(this).addClass('card-like-pc cover').toggle();
-    $('.card-like-pc .cover').toggle();
+$('.card-like-pc , .card-like-mb').click(function(){
+    $(this).find('.cover').toggle();
 })
 
 // 活動頁面banner | events-banner
