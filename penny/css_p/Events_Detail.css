@@ -630,7 +630,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 
 /* 了解陪伴 | know-accompany */
 .know-accompany-container{
-    margin: 60px auto 0;
+    margin: 60px auto 0px;
 }
 /* --------了解陪伴-文案---------- */
 .know-accompany-textbox h2{
@@ -676,17 +676,15 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     display: none;
 }
 .ka-train{
-    /* width: 900%; */
     transition: .5s;
 }
 .ka-train li{
-    width: 60%;
+    width: 80%;
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 20px;
     flex-shrink: 0;
-    /* margin-right: 30px; */
-    /* transform: scale(0.9); */
+    margin-right: 30px;
 }
 .ka-train img{
     width: 100%;
@@ -766,6 +764,14 @@ h3.expert-partner-pc, .expert-partner-textbox span{
         height: auto;
         transition: .3s;
     }
+    .ka-train li{
+        width: 60%;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        border-radius: 20px;
+        flex-shrink: 0;
+        margin-right: 0px;
+    }
     .mb-train li{
         display: none;
     }
@@ -775,6 +781,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     .pc-train li img{
         width: 100%;
         transition: .5s;
+        border-radius: 20px;
     }
     .slide-active{
         transform: scale(1);
