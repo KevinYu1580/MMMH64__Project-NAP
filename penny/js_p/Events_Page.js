@@ -5,10 +5,10 @@ $('.card-like').click(function(){
 
 // 活動頁面banner | events-banner
 $(".events-banner").mousemove(function(e){
-    if(e.pageX >=760 ){
+    if(e.pageX >=960 ){
         $('.banner-package-pc-box').css('width', 0+'%')
     }
-    if(e.pageX <= 1160){
+    if(e.pageX <= 960){
         $('.banner-package-pc-box').css('width', 100+'%');
     }
 })        
