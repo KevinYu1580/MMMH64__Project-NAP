@@ -415,6 +415,9 @@ body{
 .events-card-container{
     margin-left:65px;
 }
+.events-card-row-mb{
+    max-width: 100%;
+}
 .evnets-card-group-mb{
     width: 100%;
     overflow: hidden;
