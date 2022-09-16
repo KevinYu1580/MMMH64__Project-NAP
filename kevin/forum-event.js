@@ -126,7 +126,27 @@ function eventSelecClickable(){
 
 
 
+// ------發文光箱  上傳圖片功能
+// 預覽
 
+let picNum = 0
+imgInp.onchange = evt => {
+
+    picNum += 1
+
+    const [file] = imgInp.files
+    
+
+    if (file) {
+        console.log(picNum)
+        $('.lightBox_post .inputArea .napContent').append(`<img id="postPic${picNum}" src="" alt="" />`);
+
+        idName = picNum
+        postPic1.src = URL.createObjectURL(file)
+    }
+    
+   
+  }
 
 
 
