@@ -422,6 +422,28 @@
                 </button>
             </div>
         </div>
+        <form id="inputArea" class="inputArea" runat="server">
+
+            <div class="napHeadline textArea" placeholder="請輸入標題" name="" id="" contenteditable=""></div>
+
+
+            <!-- 插入圖片: -->
+            <!--1. 因input&textarea只能輸入文本, 故以div:attr'contenteditable'做成元素 -->
+            <!-- 以js的方式在div內插入 -->
+            <div class="napContent textArea" placeholder="請輸入內容" name="" id="" contenteditable=""></div>
+
+
+            
+            <!-- 上傳圖片 -->
+            <input class="" accept="image/*" type='file' id="imgInp"/>
+            
+            <button class="summitBtn napBtn_padding_filled" href="#">
+                <span>發佈貼文</span>
+            </button>
+
+        </form>
+
+
     </div>
 
     </div>
