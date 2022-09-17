@@ -74,7 +74,7 @@ $(window).on('wheel', function(event){
 });
 
 
-// ------lightBox_post 
+// ------lightBox_post 發文光箱
 
 // 開啟光箱 
 
@@ -147,6 +147,8 @@ imgInp.onchange = evt => {
     }
   }
 
+// 驗證是否已填寫完資料
+// if()
 
 
 
