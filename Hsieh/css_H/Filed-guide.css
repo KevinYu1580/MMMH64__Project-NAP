@@ -84,7 +84,7 @@ font-family: custom-font;
 /* pc-banner*/
 @media screen and (min-width:576px){
     .banner{
-        height: 580px;
+        height: 390px;
     }
 }
 /* banner 按鈕區 */

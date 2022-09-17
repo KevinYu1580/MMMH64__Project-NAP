@@ -304,9 +304,9 @@ body {
 }
 @media screen and (min-width: 996px) {
   .home_info .bot_img #hand {
-    height: 734px;
-    background-position: 50% 50%;
-    bottom: 70%;
+    height: 100%;
+    transform: scale(100%);
+    bottom: 65%;
   }
 }
 /* 輪播牆 */

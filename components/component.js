@@ -14,8 +14,12 @@ $('.napBtn_likeBtn').click(function(event){
 
 
 // 留言區
+// 因為卡片有三層(cardWrap & 卡片本身(以迴圈產生) & likeBtn), 為防止冒泡事件, 所以交流區卡片 & 貼文光箱內的likeBtn點擊事件方開寫
 $('.comtCard_wrap').on('click', '.napBtn_likeBtn_comt' ,function(e){
-  console.log('napBtn_likeBtn_comt');
+  e.stopPropagation()
+  $(this).find('#napActivate').toggle()
+})
+$('.napBtn_likeBtn_comt').on('click',function(e){
   e.stopPropagation()
   $(this).find('#napActivate').toggle()
 })

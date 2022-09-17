@@ -66,6 +66,10 @@ button {
     top: 24px;
     left: 4px;
 }
+input:focus {
+    outline: none ;
+    box-shadow: transparent;
+}
 
 /* ------ coverPic ------ */
 .coverPic {
@@ -75,6 +79,12 @@ button {
     background-image: url(./img/k/Forum_cover.jpg);
     background-size: cover;
     background-position: 50% 50%;
+}
+@media screen and (min-width: 992px){
+    .coverPic {
+        margin-top: 0px;
+        height: 390px;
+    }
 }
 /* 留言板selector & 大標 */
 .selector_wrap {
@@ -130,9 +140,6 @@ button {
 .napSearchBar ::-webkit-input-placeholder {
     color: var(--black_500);
 }
-.form-control:focus {
-    outline: none;
-}
 
 .me-2 {
     margin: 0 !important;
@@ -143,6 +150,10 @@ button {
     background-color: #F3F3F3;
     border: none;
     padding-left: 30px;
+}
+.form-control:focus {
+    box-shadow: none;
+    background-color: #F3F3F3;
 }
 .searchIcon {
     background-color:var(--primaryColor_default);
@@ -401,6 +412,7 @@ button {
     border: none;
     border-bottom: 1px solid var(--black_500);
 }
+
 .lightBox_comtCard .comtSection .messageLev .message_input::placeholder {
     color: var(--black_600);
     font-size: 14px;

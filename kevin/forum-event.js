@@ -51,9 +51,8 @@ postLightBox_messageNum();
 $('.comtCard_wrap').on('click', '.comtCard' ,function(e){
     $(post_lightBox).show();
     document.body.style.overflow='hidden'
+    
 })
-
-
 
 
 // 右下發文提示
