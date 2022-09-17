@@ -139,12 +139,11 @@
 
     <!------ coverPic ------>
     <div class="coverPic"></div>
-
-
-
     <!-- selector_wrap -->
     <div class="contentWrap">
-
+        <button class="postBtn napBtn_padding_filled">
+            <span>我要發文</span>
+        </button>
         <div class="selector_and_search_wrap_forPC">
             <div class="selector_wrap">
                 <h2>交流討論區<br>
@@ -213,56 +212,70 @@
         </form>
 
         <!-- comtCard -->
-        <div class="comtCard_wrap">
-            <div id='comtCard' class="comtCard">
-                <div class="content_wrap">
-                    <div class="member_info">
-                        <div class="member_pic">
-                            <img src="./img/k/carousel-2.jpg" alt="">
-                        </div>
-                        <span>翁同學</span>
-                    </div>
-                    <div class="napTitle">
-                        <span>
-                            我家出門後狗狗一直流鼻涕怎麼辦呢?
-                        </span>
-                    </div>
-                    <div class="comtLabel">
-                        <span># 浪浪套裝活動</span>
-                    </div>
-                    <p class="contentText">自從上次我家狗狗去外面玩後, 鼻涕一直流, 鼻子也乾乾的, 但去看醫生也沒發現甚麼病狀, 請問到底該怎麼辦呢?</p>
-                    <div class="iconIndic">
-                        <button class="napBtn_likeBtn_comt">
-                            <div class="svgs">
-                                <img id="napDefault" src="../components/img/Heart-outline-comt.svg" alt="">
-                                <img id="napActivate" src="../components/img/Heart-filled-comt.svg" alt="">
-                            </div>
-                            <span>關注</span>
-                        </button>
-                        <div class="napComt">
-                            <img src="./img/k/Comment.svg" alt="">
-                            <span>12則留言</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card_smPic">
-                </div>
-                <button class="pointMenu">
-                    <img src="./img/k/Small Menu.svg" alt="">
+        <div class="d-flex gap-5">
+            <div class="chat_bordSlec_PC">
+                <button class="top napBtn" href="#">
+                    <span>閒聊Q&A</span>
                 </button>
-                <div class="lightBox_mb">
-                    <button class="cardDelete">
-                        <div class="deleteIcon">
-                            <img width="28px" src="./img/k/Trash can.svg" alt="">
+                <div class="line"></div>
+                <button class="bot napBtn" href="#">
+                    <span>活動討論區</span>
+                </button>
+            </div>
+            <div class="comtCard_wrap">
+                <div id='comtCard' class="comtCard">
+                    <div class="content_wrap">
+                        <div class="member_info">
+                            <div class="member_pic">
+                                <img src="./img/k/carousel-2.jpg" alt="">
+                            </div>
+                            <span>翁同學</span>
                         </div>
-                        <span>刪除</span>
-                    </button>
-                    <button class="cardEdit">
-                        <div class="editIcon">
-                            <img width="28px" src="/kevin//img/k/Pencil.svg" alt="">
+                        <div class="napTitle">
+                            <span>
+                                我家出門後狗狗一直流鼻涕怎麼辦呢?
+                            </span>
                         </div>
-                        <span>編輯</span>
+                        <div class="d-flex align-items-center">
+                            <span class="date">2022/08/16</span>
+                            <div class="comtLabel">
+                                <span># 浪浪套裝活動</span>
+                            </div>
+                        </div>
+                        <p class="contentText">自從上次我家狗狗去外面玩後, 鼻涕一直流, 鼻子也乾乾的, 但去看醫生也沒發現甚麼病狀, 請問到底該怎麼辦呢?</p>
+                        <div class="iconIndic">
+                            <button class="napBtn_likeBtn_comt">
+                                <div class="svgs">
+                                    <img id="napDefault" src="../components/img/Heart-outline-comt.svg" alt="">
+                                    <img id="napActivate" src="../components/img/Heart-filled-comt.svg" alt="">
+                                </div>
+                                <span>關注</span>
+                            </button>
+                            <div class="napComt">
+                                <img src="./img/k/Comment.svg" alt="">
+                                <span>12則留言</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card_smPic">
+                    </div>
+                    <button class="pointMenu">
+                        <img src="./img/k/Small Menu.svg" alt="">
                     </button>
+                    <div class="lightBox_mb">
+                        <button class="cardDelete">
+                            <div class="deleteIcon">
+                                <img width="28px" src="./img/k/Trash can.svg" alt="">
+                            </div>
+                            <span>刪除</span>
+                        </button>
+                        <button class="cardEdit">
+                            <div class="editIcon">
+                                <img width="28px" src="/kevin//img/k/Pencil.svg" alt="">
+                            </div>
+                            <span>編輯</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -468,7 +481,6 @@
         </div>
 
     </div>
-
     <!-- footer -->
     <div class="footer-mobile">
         <div class="top_sec">

@@ -75,17 +75,6 @@ $('.napSwitch_three .num3').click(function(){
 });
 
 
-// --------留言區區塊選擇---------
-
-$('.chat_bordSlec_PC .top').click(function(){
-  $(this).css('font-weight', 'bold');
-  $('.chat_bordSlec_PC .bot').css('font-weight', 'normal')
-})
-$('.chat_bordSlec_PC .bot').click(function(){
-  $(this).css('font-weight', 'bold');
-  $('.chat_bordSlec_PC .top').css('font-weight', 'normal')
-})
-
 // --------頁數選擇器PC---------
 
 $('.page_slec .page_indic').click(function(){

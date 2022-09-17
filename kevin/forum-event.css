@@ -89,12 +89,20 @@ input:focus {
   }
 }
 
+/* 發文按鈕 */
+.postBtn {
+  font-size: 18px;
+  margin-left: auto;
+  margin-bottom: 40px;
+}
+
 /* content wrap  */
 @media screen and (min-width: 992px){
     .selector_and_search_wrap_forPC {
         display: flex;
         justify-content:space-between;
         align-items: flex-start;
+        margin-bottom: 32px;
     }
 }
 
@@ -218,6 +226,11 @@ input:focus {
   border: none;
   padding-left: 30px;
 }
+@media screen and (min-width: 992px){
+  .napSearchBar .form-control {
+    font-size: 18px;
+  }
+}
 .napSearchBar .form-control:focus {
   box-shadow: none;
   background-color: #f3f3f3;
@@ -232,11 +245,29 @@ input:focus {
   background-color: var(--primaryColor_dark);
 }
 /* ------ comtCard ------ */
+@media screen and (max-width: 991px){
+  .chat_bordSlec_PC {
+    display: none;
+  }
+}
+.chat_bordSlec_PC .top {
+  font-weight: 400;
+}
+.chat_bordSlec_PC .bot {
+  font-weight: 600;
+}
+
 .comtCard_wrap {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-bottom: 60px;
+  width: 100%;
+}
+@media screen and (min-width: 992px){
+  .comtCard_wrap {
+    width: calc(100% - 248px);
+  }
 }
 .comtCard {
   position: relative;
@@ -254,6 +285,14 @@ input:focus {
   overflow: hidden;
   cursor: pointer;
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard {
+    max-height: 316px;
+    padding: 24px 40px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0 #D9D9D9;
+  }
+}
 
 .comtCard_wrap .member_info {
   display: flex;
@@ -262,12 +301,22 @@ input:focus {
   font-size: 14px;
   margin-bottom: 12px;
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .member_info {
+    margin-bottom: 14px;
+  }
+}
 .comtCard_wrap .member_info .member_pic {
   position: relative;
   width: 28px;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 50%;
+}
+@media screen and (min-width: 992px){
+  .comtCard_wrap .member_info .member_pic {
+    width: 44px;
+  }
 }
 .comtCard_wrap .member_info .member_pic img {
   width: 100%;
@@ -277,6 +326,12 @@ input:focus {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .member_info  span {
+    font-size: 16px;
+  }
+}
+
 .comtCard_wrap .comtCard .napTitle {
   font-size: 18px;
   color: var(--black_900);
@@ -290,9 +345,38 @@ input:focus {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .napTitle {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+}
 .comtCard_wrap .comtCard .comtLabel {
   margin-bottom: 4px;
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .comtLabel {
+    margin-bottom: 0px;
+    width: 140px;
+    height: 32px;
+  }
+  .comtCard_wrap .comtCard .comtLabel span {
+    font-size: 16px;
+  }
+}
+.comtCard_wrap .comtCard .date {
+  display: none;
+}
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .date {
+    display: block;
+    font-size: 16px;
+    color: var(--black_500);
+    margin-right: 10px;
+    font-weight: 300;
+  }
+}
+
 .comtCard_wrap .comtCard .content_wrap {
   padding-right: 6px;
   width: 70%;
@@ -306,6 +390,11 @@ input:focus {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .content_wrap .contentText {
+    margin-top: 24px;
+  }
+}
 /* 卡片小縮圖 */
 .comtCard_wrap .comtCard .card_smPic {
   overflow: hidden;
@@ -316,6 +405,11 @@ input:focus {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 12px;
+}
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .card_smPic {
+    margin-top: 60px;
+  }
 }
 
 .comtCard_wrap .comtCard .iconIndic {
@@ -444,6 +538,7 @@ input:focus {
   font-size: 14px;
   margin-left: 12px;
   transform: translateY(4px);
+  color: var(--black_500);
 }
 .lightBox_comtCard article .comtCard_lightBox_p img {
   width: 100%;

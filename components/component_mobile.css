@@ -561,32 +561,35 @@ height: 40px;
     width: fit-content;
     border-radius: var(--border-radious);
     position: relative;
+    width: 200px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
 }
 .chat_bordSlec_PC .top, .chat_bordSlec_PC .bot {
     text-decoration: none;
     color: #8A7171;
-    display: flex;
-    justify-content: center;
+
 }
 .chat_bordSlec_PC .top {
-    padding: 22px 64px 16px;
     font-weight: bold;
 }
-.chat_bordSlec_PC .bot {
-    padding: 16px 64px 22px;
-    border-radius: var();
-}
+
 .chat_bordSlec_PC .napBtn {
     border: none;
     border-radius: var(--border-radious);
     background-color: var(--primaryColor_tint);
     font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
 }
 .chat_bordSlec_PC .line {
     width: 80%;
     height: 1px;
     background-color: #8a71714d;
-    margin: auto;
 }
 
 
