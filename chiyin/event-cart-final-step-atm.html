@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
-    <link rel="stylesheet" href="./css_cy/event-cart-final-step.css">
-    <title>event-cart-final-step</title>
+    <link rel="stylesheet" href="./css_cy/event-cart-final-step-atm.css">
+    <title>event-cart-final-step-atm</title>
 </head>
 
 <body>
@@ -143,10 +143,19 @@
             <div class="complete-icon">
                 <img src="./img_cy/component/icon/complete-icon.svg" alt="">
             </div>
-            <div class="order-content-text">
-                <h4>
-                    園區浪浪們期待<br>與您的相見
-                </h4>
+            <div class="order-content-text-atm">
+                <div class="atm-info">
+                    <div class="atm-info-deco col-2"></div>
+                    <div class="atm-info-text">
+                        <p>銀行代碼：822</p>
+                        <p>虛擬帳號：<span class="atm-num">2345678900001234</span></p>
+                        <p>繳費期限：<span class="pay-deadline">2022/08/16 23:59:59</span></p>
+                    </div>
+                </div>
+                <div class="atm-note">
+                    <p>※ 此帳號僅供本次交易使用，無法重複繳費。</p>
+                    <p>※ 訂購完成不代表報名完成，請於期限內完成繳費。</p>
+                </div>
             </div>
             <!------- 查看其他訂單按鈕 ------->
             <div class="other-btn">
@@ -264,7 +273,7 @@
                             付款方式
                         </div>
                         <div class="content pay-way-result">
-                            信用卡付款
+                            ATM 付款
                         </div>
                     </div>
                     <div class="order-status">
@@ -272,7 +281,7 @@
                             訂單狀態
                         </div>
                         <div class="content oder-status-result">
-                            已付款
+                            尚未付款
                         </div>
                     </div>
                     <div class="enroll-status">
@@ -280,7 +289,7 @@
                             報名狀態
                         </div>
                         <div class="content enroll-status-result">
-                            已完成
+                            已保留
                         </div>
                     </div>
                     <div class="order-note">
