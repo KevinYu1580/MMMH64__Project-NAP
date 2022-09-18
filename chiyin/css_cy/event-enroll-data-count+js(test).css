@@ -266,7 +266,7 @@ body{
 }
 
 /* 當裡面沒有人數的時候，不能點擊 */
-.enroll-card-btn.disabled a{
+.enroll-card-btn.disabled button{
     margin: auto;
     margin-top: 10px;
     width: 170px;
@@ -279,7 +279,7 @@ body{
     outline: 0;
 }
     @media screen and (min-width: 768px){
-        .enroll-card-btn.disabled a{
+        .enroll-card-btn.disabled button{
             width: 180px;
             height: 55px;
             font-size: var(--headline_24px)
