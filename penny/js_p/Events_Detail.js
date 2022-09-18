@@ -77,7 +77,7 @@ $('.silder-dot-pc .dot3').click(function(){
     $('.pic3').removeClass('slide-next');
     $('.pic4').addClass('slide-next');
     $('.know-accompany-textbox h3').text('03 歡樂瘋戲水');
-    $('.know-accompany-textbox p:nth-of-type(2)').text('炎熱的夏天，玩水既好玩又可以不傷膝蓋，尤其步入老年的汪汪，更需要訓練後腳力量，延緩老化不能行走的危機。園區裡的寵物池邊都有專業的救生員隨時照看著大家，確保在跟浪浪一起玩水時，也能放心玩。');
+    $('.know-accompany-textbox p:nth-of-type(2)').text('炎熱的夏天，玩水既好玩又可以不傷膝蓋。園區裡的寵物池邊都有專業的救生員隨時照看著大家，確保在跟浪浪一起玩水時，也能放心玩。');
 });
 
 // 從 3 → 4
@@ -89,7 +89,7 @@ $('.silder-dot-pc .dot4').click(function(){
     $('.pic4').removeClass('slide-next');
     $('.pic5').addClass('slide-next');
     $('.know-accompany-textbox h3').text('04 浪浪講學堂');
-    $('.know-accompany-textbox p:nth-of-type(2)').text('寵物爸爸媽媽的教導才能夠成為模範生哦! 透過NAP的專業講師課程, 了解毛孩的肢體語言以及教導各種指令, 例如: 看, 坐下, 趴下, 碰 , 不要碰, 拿起來, 放下, 腳側散步等...。');
+    $('.know-accompany-textbox p:nth-of-type(2)').text('寵物爸爸媽媽的教導才能夠成為模範生哦！透過N.A.P.的專業講師課程，了解毛孩的肢體語言以及教導各種指令，例如: 看、坐下、趴下、碰、不要碰、拿起來、放下、腳側散步等...。');
 });
 
 // 從 4 → 5
@@ -101,7 +101,7 @@ $('.silder-dot-pc .dot5').click(function(){
     $('.pic5').removeClass('slide-next');
     $('.pic6').addClass('slide-next');
     $('.know-accompany-textbox h3').text('05 一起說晚安');
-    $('.know-accompany-textbox p:nth-of-type(2)').text('跟毛孩同寢, 享受溫馨的獨處時光！在星光熠熠的夜空下，向毛孩說聲晚安吧！');
+    $('.know-accompany-textbox p:nth-of-type(2)').text('跟毛孩同寢，享受溫馨的獨處時光！在星光熠熠的夜空下，向毛孩說聲晚安吧！');
 });
 
 // 從 5 → 6
@@ -125,7 +125,7 @@ $('.silder-dot-pc .dot7').click(function(){
     $('.pic7').removeClass('slide-next');
     $('.pic8').addClass('slide-next');
     $('.know-accompany-textbox h3').text('07 路跑大作戰');
-    $('.know-accompany-textbox p:nth-of-type(2)').text('由主人繫繩與毛孩共同從教育園區出發點慢跑至海濱路與天府路交叉口折返點後蓋上折返印章後返回。');
+    $('.know-accompany-textbox p:nth-of-type(2)').text('由主人繫繩與毛孩共同從教育園區出發點，慢跑至海濱路與天府路交叉口折返點後，蓋上折返印章後返回。');
 });
 
 // 從 7 → 8
@@ -137,7 +137,7 @@ $('.silder-dot-pc .dot8').click(function(){
     $('.pic8').removeClass('slide-next');
     $('.pic9').addClass('slide-next');
     $('.know-accompany-textbox h3').text('08 放電跑一跑');
-    $('.know-accompany-textbox p:nth-of-type(2)').text('戶外狗狗運動公園，分為二個區域大約為400坪及200坪分開的獨立草地，可以放開牽繩讓狗狗盡情自由奔跑、 玩樂。主人們盡情享受鄉間田園的寧謐感，聽得到風聲、水聲和鳥叫聲，及空氣裡狗狗的歡笑聲。');
+    $('.know-accompany-textbox p:nth-of-type(2)').text('戶外狗狗運動公園，分為二個區域大約為400坪及200坪分開的獨立草地，可以放開牽繩讓狗狗盡情自由奔跑、玩樂。');
 });
 
 // 從 8 → 9
@@ -210,7 +210,7 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot').removeClass('silder-dot-mb default')
         $('.dot3').css('backgroundColor', 'var(--primaryColor_dark)');
         $('.know-accompany-textbox h3').text('03 歡樂瘋戲水');
-        $('.know-accompany-textbox p:nth-of-type(2)').text('炎熱的夏天，玩水既好玩又可以不傷膝蓋，尤其步入老年的汪汪，更需要訓練後腳力量，延緩老化不能行走的危機。園區裡的寵物池邊都有專業的救生員隨時照看著大家，確保在跟浪浪一起玩水時，也能放心玩。');
+        $('.know-accompany-textbox p:nth-of-type(2)').text('炎熱的夏天，玩水既好玩又可以不傷膝蓋。園區裡的寵物池邊都有專業的救生員隨時照看著大家，確保在跟浪浪一起玩水時，也能放心玩。');
     }
     else{
         $('.dot3').css('backgroundColor', 'transparent');
@@ -221,7 +221,7 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot').removeClass('silder-dot-mb default')
         $('.dot4').css('backgroundColor', 'var(--primaryColor_dark)');
         $('.know-accompany-textbox h3').text('04 浪浪講學堂');
-        $('.know-accompany-textbox p:nth-of-type(2)').text('寵物爸爸媽媽的教導才能夠成為模範生哦! 透過NAP的專業講師課程, 了解毛孩的肢體語言以及教導各種指令, 例如: 看, 坐下, 趴下, 碰 , 不要碰, 拿起來, 放下, 腳側散步等...。');
+        $('.know-accompany-textbox p:nth-of-type(2)').text('寵物爸爸媽媽的教導才能夠成為模範生哦！透過N.A.P.的專業講師課程，了解毛孩的肢體語言以及教導各種指令，例如: 看、坐下、趴下、碰、不要碰、拿起來、放下、腳側散步等...。');
     }
     else{
         $('.dot4').css('backgroundColor', 'transparent');
@@ -232,7 +232,7 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot').removeClass('silder-dot-mb default')
         $('.dot5').css('backgroundColor', 'var(--primaryColor_dark)');
         $('.know-accompany-textbox h3').text('05 一起說晚安');
-        $('.know-accompany-textbox p:nth-of-type(2)').text('跟毛孩同寢, 享受溫馨的獨處時光！在星光熠熠的夜空下，向毛孩說聲晚安吧！');
+        $('.know-accompany-textbox p:nth-of-type(2)').text('跟毛孩同寢，享受溫馨的獨處時光！在星光熠熠的夜空下，向毛孩說聲晚安吧！');
     }
     else{
         $('.dot5').css('backgroundColor', 'transparent');
@@ -254,7 +254,7 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot').removeClass('silder-dot-mb default')
         $('.dot7').css('backgroundColor', 'var(--primaryColor_dark)');
         $('.know-accompany-textbox h3').text('07 路跑大作戰');
-        $('.know-accompany-textbox p:nth-of-type(2)').text('由主人繫繩與毛孩共同從教育園區出發點慢跑至海濱路與天府路交叉口折返點後蓋上折返印章後返回。');
+        $('.know-accompany-textbox p:nth-of-type(2)').text('由主人繫繩與毛孩共同從教育園區出發點，慢跑至海濱路與天府路交叉口折返點後，蓋上折返印章後返回。');
     }
     else{
         $('.dot7').css('backgroundColor', 'transparent');
@@ -265,7 +265,7 @@ $('.know-accompany-imgbox').scroll(function(){
         $('.dot').removeClass('silder-dot-mb default')
         $('.dot8').css('backgroundColor', 'var(--primaryColor_dark)');
         $('.know-accompany-textbox h3').text('08 放電跑一跑');
-        $('.know-accompany-textbox p:nth-of-type(2)').text('戶外狗狗運動公園，分為二個區域大約為400坪及200坪分開的獨立草地，可以放開牽繩讓狗狗盡情自由奔跑、 玩樂。主人們盡情享受鄉間田園的寧謐感，聽得到風聲、水聲和鳥叫聲，及空氣裡狗狗的歡笑聲。');
+        $('.know-accompany-textbox p:nth-of-type(2)').text('戶外狗狗運動公園，分為二個區域大約為400坪及200坪分開的獨立草地，可以放開牽繩讓狗狗盡情自由奔跑、玩樂');
     }
     else{
         $('.dot8').css('backgroundColor', 'transparent');
