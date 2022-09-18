@@ -216,6 +216,28 @@ body{
     max-width: calc(100% - 48px);
     margin: auto;
 }
+.room-null{
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.room-null-imgbox{
+    width: 60px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+.room-null-imgbox img{
+    width: 100%;
+}
+.room-null-text{
+    color: var(--subColor_text);
+    font-size: var(--headline_20px);
+    text-align: center;
+}
+.room-card-group{
+    display: none;
+}
 .room-card{
     margin-bottom: 40px;
 }
@@ -284,11 +306,21 @@ input{
     margin: 0 10px;
     cursor: pointer;
 }
-.minus-btn img, .plus-btn img{
+.minus-btn svg, .plus-btn svg{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+#single-minus svg circle{
+    fill: var(--black_500);
+}
+#double-minus svg circle{
+    fill: var(--black_500);
+}
+#quadra-minus svg circle{
+    fill: var(--black_500);
+}
+
 @media screen and (min-width:768px) {
     .room-result{
         margin-bottom: 50px;
@@ -296,6 +328,25 @@ input{
     .room-result-container{
         max-width: calc(100% - 480px);
         margin: auto;
+    }
+    .room-null{
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .room-null-imgbox{
+        width: 70px;
+        margin: 0 auto 20px;
+        text-align: center;
+    }
+    .room-null-imgbox img{
+        width: 100%;
+    }
+    .room-null-text{
+        color: var(--subColor_text);
+        font-size: var(--headline_32px);
+        text-align: center;
     }
     .room-card{
         position: relative;
@@ -428,6 +479,7 @@ input{
 
 /* ---------每筆訂房資料--------- */
 .booking-detail-content{
+    display: none;
     padding: 42px 10%;
     border-left: solid 1px var(--black_500);
     border-right: solid 1px var(--black_500);

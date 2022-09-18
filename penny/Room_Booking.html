@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="./css_p/Room_Booking.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
 </head>
+
 <body>
     <!------ topNav 要跟menu一起複製------>
     <div class="topNav_mobile">
@@ -23,7 +25,7 @@
                     <img src="../components/img/Cart.svg" alt="">
                 </a>
                 <a id="memberPic" href="">
-                  <!-- 圖片在css的background-image -->
+                    <!-- 圖片在css的background-image -->
                 </a>
             </div>
             <button class="menu sec2">
@@ -174,6 +176,12 @@
             <div class="room-result-row d-md-flex">
                 <!-- 左邊-房間選擇 -->
                 <div class="room-result-col col-md-7">
+                    <div class="room-null">
+                        <div class="room-null-imgbox">
+                            <img src="./img_p/icon/Search.svg" alt="">
+                        </div>
+                        <div class="room-null-text">請選擇預入住的日期與間數</div>
+                    </div>
                     <div class="room-card-group">
                         <div class="room-card d-md-flex align-items-center">
                             <div class="card-imgbox col-md-4">
@@ -181,13 +189,15 @@
                             </div>
                             <div class="card-textbox col-md-8">
                                 <h2>單人房 呼嚕嚕</h2>
-                                <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
+                                <div
+                                    class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                     <div class="icon-imgbox">
                                         <img src="./img_p/icon/Bed.svg" alt="">
                                     </div>
                                     <p>加大單人床 * 1</p>
                                 </div>
-                                <div class="room-limit d-flex justify-content-center align-items-center justify-content-md-start">
+                                <div
+                                    class="room-limit d-flex justify-content-center align-items-center justify-content-md-start">
                                     <div class="icon-imgbox">
                                         <img src="./img_p/icon/People.svg" alt="">
                                     </div>
@@ -196,12 +206,29 @@
                                 <div class="price-cr-group d-md-flex">
                                     <div class="price">NT$ <span>2,600</span> 元 / 晚</div>
                                     <div class="choose-room d-flex justify-content-center align-items-center">
-                                        <div class="minus-btn">
-                                            <img src="./img_p/icon/minus.svg" alt="">
+                                        <div id="single-minus" class="minus-btn">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="20" cy="20" r="20" fill="#7C8C38" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7 20C7 18.3431 8.34315 17 10 17H30C31.6569 17 33 18.3431 33 20C33 21.6569 31.6569 23 30 23H10C8.34315 23 7 21.6569 7 20Z"
+                                                    fill="white" />
+                                            </svg>
+
                                         </div>
-                                        <input type="text" value="0">間
-                                        <div class="plus-btn">
-                                            <img src="./img_p/icon/plus.svg" alt="">
+                                        <input type="text" value="0" class="singleNum">間
+                                        <div id="single-plus" class="plus-btn">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="20" cy="20" r="20" fill="#7C8C38" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7 20C7 18.3431 8.34315 17 10 17H30C31.6569 17 33 18.3431 33 20C33 21.6569 31.6569 23 30 23H10C8.34315 23 7 21.6569 7 20Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M20 33C18.3431 33 17 31.6569 17 30L17 10C17 8.34315 18.3431 7 20 7C21.6569 7 23 8.34315 23 10L23 30C23 31.6569 21.6569 33 20 33Z"
+                                                    fill="white" />
+                                            </svg>
+
                                         </div>
                                     </div>
                                 </div>
@@ -213,13 +240,15 @@
                             </div>
                             <div class="card-textbox col-md-8">
                                 <h2>雙人房 皺皺鼻</h2>
-                                <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
+                                <div
+                                    class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                     <div class="icon-imgbox">
                                         <img src="./img_p/icon/Bed.svg" alt="">
                                     </div>
                                     <p>加大單人床 * 2</p>
                                 </div>
-                                <div class="room-limit d-flex justify-content-center align-items-center justify-content-md-start">
+                                <div
+                                    class="room-limit d-flex justify-content-center align-items-center justify-content-md-start">
                                     <div class="icon-imgbox">
                                         <img src="./img_p/icon/People.svg" alt="">
                                     </div>
@@ -228,12 +257,29 @@
                                 <div class="price-cr-group d-md-flex">
                                     <div class="price">NT$ <span>3,600</span> 元 / 晚</div>
                                     <div class="choose-room d-flex justify-content-center align-items-center">
-                                        <div class="minus-btn">
-                                            <img src="./img_p/icon/minus.svg" alt="">
+                                        <div id="double-minus" class="minus-btn">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="20" cy="20" r="20" fill="#7C8C38" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7 20C7 18.3431 8.34315 17 10 17H30C31.6569 17 33 18.3431 33 20C33 21.6569 31.6569 23 30 23H10C8.34315 23 7 21.6569 7 20Z"
+                                                    fill="white" />
+                                            </svg>
+
                                         </div>
-                                        <input type="text" value="0">間
-                                        <div class="plus-btn">
-                                            <img src="./img_p/icon/plus.svg" alt="">
+                                        <input type="text" value="0" class="doubleNum">間
+                                        <div id="double-plus" class="plus-btn">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="20" cy="20" r="20" fill="#7C8C38" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7 20C7 18.3431 8.34315 17 10 17H30C31.6569 17 33 18.3431 33 20C33 21.6569 31.6569 23 30 23H10C8.34315 23 7 21.6569 7 20Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M20 33C18.3431 33 17 31.6569 17 30L17 10C17 8.34315 18.3431 7 20 7C21.6569 7 23 8.34315 23 10L23 30C23 31.6569 21.6569 33 20 33Z"
+                                                    fill="white" />
+                                            </svg>
+
                                         </div>
                                     </div>
                                 </div>
@@ -245,13 +291,15 @@
                             </div>
                             <div class="card-textbox col-md-8">
                                 <h2>四人房 撓癢癢</h2>
-                                <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
+                                <div
+                                    class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                     <div class="icon-imgbox">
                                         <img src="./img_p/icon/Bed.svg" alt="">
                                     </div>
                                     <p>加大雙人床 * 2</p>
                                 </div>
-                                <div class="room-limit d-flex justify-content-center align-items-center justify-content-md-start">
+                                <div
+                                    class="room-limit d-flex justify-content-center align-items-center justify-content-md-start">
                                     <div class="icon-imgbox">
                                         <img src="./img_p/icon/People.svg" alt="">
                                     </div>
@@ -260,12 +308,29 @@
                                 <div class="price-cr-group d-md-flex">
                                     <div class="price">NT$ <span>6,600</span> 元 / 晚</div>
                                     <div class="choose-room d-flex justify-content-center align-items-center">
-                                        <div class="minus-btn">
-                                            <img src="./img_p/icon/minus.svg" alt="">
+                                        <div id="quadra-minus" class="minus-btn">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="20" cy="20" r="20" fill="#7C8C38" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7 20C7 18.3431 8.34315 17 10 17H30C31.6569 17 33 18.3431 33 20C33 21.6569 31.6569 23 30 23H10C8.34315 23 7 21.6569 7 20Z"
+                                                    fill="white" />
+                                            </svg>
+
                                         </div>
-                                        <input type="text" value="0">間
-                                        <div class="plus-btn">
-                                            <img src="./img_p/icon/plus.svg" alt="">
+                                        <input type="text" value="0" class="quadraNum">間
+                                        <div id="quadra-plus" class="plus-btn">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="20" cy="20" r="20" fill="#7C8C38" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7 20C7 18.3431 8.34315 17 10 17H30C31.6569 17 33 18.3431 33 20C33 21.6569 31.6569 23 30 23H10C8.34315 23 7 21.6569 7 20Z"
+                                                    fill="white" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M20 33C18.3431 33 17 31.6569 17 30L17 10C17 8.34315 18.3431 7 20 7C21.6569 7 23 8.34315 23 10L23 30C23 31.6569 21.6569 33 20 33Z"
+                                                    fill="white" />
+                                            </svg>
+
                                         </div>
                                     </div>
                                 </div>
@@ -297,10 +362,10 @@
                         </div>
                     </div>
                     <div class="booking-detail-combine">
-                        <div class="booking-detail-content">
+                        <div id="single-detail" class="booking-detail-content">
                             <div class="name-cancel-btn d-flex justify-content-between align-items-center">
                                 <div class="room-name">單人房 呼嚕嚕</div>
-                                <div class="cancle-btn">
+                                <div class="cancle-btn single-cancle">
                                     <img src="./img_p/icon/xmark.svg" alt="">
                                 </div>
                             </div>
@@ -308,22 +373,22 @@
                                 <div class="per-room-night">
                                     <p>x<span>1</span> 晚</p>
                                 </div>
-                                <div class="per-room-num">
+                                <div class="per-room-num single-room-num">
                                     <p>x<span>1</span> 間</p>
                                 </div>
                             </div>
                             <div class="room-detail-num">
                                 <div class="room-detail-text">總價</div>
-                                <div class="room-detail-price">NT$ <span>2,600</span></div>
+                                <div class="room-detail-price single-price">NT$ <span>2,600</span></div>
                             </div>
                             <div class="price-include">
                                 <p>(房價已包含稅金及其他費用)</p>
                             </div>
                         </div>
-                        <div class="booking-detail-content">
+                        <div id="double-detail" class="booking-detail-content">
                             <div class="name-cancel-btn d-flex justify-content-between align-items-center">
                                 <div class="room-name">雙人房 皺皺鼻</div>
-                                <div class="cancle-btn">
+                                <div class="cancle-btn double-cancle">
                                     <img src="./img_p/icon/xmark.svg" alt="">
                                 </div>
                             </div>
@@ -331,22 +396,22 @@
                                 <div class="per-room-night">
                                     <p>x<span>1</span> 晚</p>
                                 </div>
-                                <div class="per-room-num">
+                                <div class="per-room-num double-room-num">
                                     <p>x<span>1</span> 間</p>
                                 </div>
                             </div>
                             <div class="room-detail-num">
                                 <div class="room-detail-text">總價</div>
-                                <div class="room-detail-price">NT$ <span>3,600</span></div>
+                                <div class="room-detail-price double-price">NT$ <span>3,600</span></div>
                             </div>
                             <div class="price-include">
                                 <p>(房價已包含稅金及其他費用)</p>
                             </div>
                         </div>
-                        <div class="booking-detail-content">
+                        <div id="quadra-detail" class="booking-detail-content">
                             <div class="name-cancel-btn d-flex justify-content-between align-items-center">
                                 <div class="room-name">四人房 撓癢癢</div>
-                                <div class="cancle-btn">
+                                <div class="cancle-btn quadra-cancle">
                                     <img src="./img_p/icon/xmark.svg" alt="">
                                 </div>
                             </div>
@@ -354,13 +419,13 @@
                                 <div class="per-room-night">
                                     <p>x<span>1</span> 晚</p>
                                 </div>
-                                <div class="per-room-num">
+                                <div class="per-room-num quadra-room-num">
                                     <p>x<span>1</span> 間</p>
                                 </div>
                             </div>
                             <div class="room-detail-num">
                                 <div class="room-detail-text">總價</div>
-                                <div class="room-detail-price">NT$ <span>6,600</span></div>
+                                <div class="room-detail-price quadra-price">NT$ <span>6,600</span></div>
                             </div>
                             <div class="price-include">
                                 <p>(房價已包含稅金及其他費用)</p>
@@ -372,16 +437,16 @@
                                     <p>總價</p>
                                 </div>
                                 <div class="total-num">
-                                    <p>NT$ <span>12,800</span></p>
+                                    <p>NT$ <span>0</span></p>
                                 </div>
                             </div>
                             <div class="deposit-count">
                                 <div class="deposit-price">應付訂金金額</div>
-                                <div class="deposit-num">NT$ <span>6,400</span></div>
+                                <div class="deposit-num">NT$ <span>0</span></div>
                             </div>
                             <div class="rest-count">
                                 <div class="rest-price">剩餘尾款</div>
-                                <div class="rest-num">NT$ <span>6,400</span></div>
+                                <div class="rest-num">NT$ <span>0</span></div>
                             </div>
                             <div class="rest-pay-notice">
                                 <p>(請於現場付清)</p>
@@ -390,8 +455,8 @@
                         <div class="booking-btn">
                             <a href="../chiyin/room-booking-data.html">填寫訂房資料</a>
                         </div>
-                    </div>                    
-                </div>                    
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -456,7 +521,10 @@
 
     </div>
 
+
     <script src="./js_p/jquery-3.6.0.min.js"></script>
+    <script src="./js_p/Room_Booking.js"></script>
     <script src="../components/component.js"></script>
 </body>
+
 </html>
