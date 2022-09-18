@@ -21,7 +21,7 @@ runCardLoop();
 
 // --------------卡片手機小menu 彈出效果
 
-// mb
+// ---mb
 if(document.body.clientWidth < 992){
 $('.comtCard .pointMenu').click(function(e){
     e.stopPropagation();
@@ -36,15 +36,12 @@ $('.lightBox_mb_mask').click(function(){
     $('.lightBox_mb').css('transform', 'translateY(102%)')
 })
 // mb 刪除&編輯功能
-$('.comtCard .lightBox_mb .cardDelete').click(function(e){
+$('.comtCard .lightBox_mb').click(function(e){
+    // 防止光箱以下物件冒泡
     e.stopPropagation();
 })
-$('.comtCard .lightBox_mb .cardEdit').click(function(e){
-    e.stopPropagation();
-})
-
 }
-//pc
+//---pc
 // 小menu hover效果
 if(document.body.clientWidth >= 992){
     $('.comtCard_wrap .comtCard').mouseover(function(){
@@ -63,7 +60,11 @@ if(document.body.clientWidth >= 992){
         $('.comtCard .lightBox_pc').css('opacity', '0')
     })
 } 
-
+// pc 刪除&編輯功能
+$('.comtCard .lightBox_pc').click(function(e){
+    // 防止光箱以下物件冒泡
+    e.stopPropagation();
+})
 
 
 
@@ -129,6 +130,26 @@ $('.postBtn_mb').click(function(){
     $('.lightBox_post').show()
     document.body.style.overflow='hidden'
 })
+$('.postBtn_pc').click(function(){
+    $('.lightBox_post').show()
+    $('.lightBox_post_mask').css({
+        'opacity':'1',
+        'pointer-events':'auto',
+    })
+    document.body.style.overflow='hidden'
+})
+// 關閉光箱
+$('.lightBox_post_mask').click(function(){
+    $(this).css({
+        'opacity':'0',
+        'pointer-events':'none',
+    })
+    $('.lightBox_post').hide()
+    document.body.style.overflow='visible'
+
+})
+
+
 
 // 寵物類別選擇器
 $('.lightBox_post .iconWrap').click(function(){
