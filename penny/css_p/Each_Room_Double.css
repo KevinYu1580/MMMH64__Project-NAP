@@ -128,7 +128,7 @@ body{
 }
 .room-textbox p{
     padding: 30px 0px;
-    border-bottom: 1px solid var(--subColor_text);
+    border-bottom: 1px solid var(--black_500);
 }
 .room-textbox span{
     font-size: var(--p_14px);
@@ -284,7 +284,7 @@ p.line{
     }
     .room-textbox p{
         padding: 30px 0px;
-        border-bottom: 1px solid var(--subColor_text);
+        border-bottom: 1px solid var(--black_500);
     }
     .room-textbox span{
         font-size: var(--p_14px);

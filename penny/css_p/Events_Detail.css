@@ -853,7 +853,7 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 }
 .five-things-card{
     padding-bottom: 50px;
-    border-bottom: 1px solid var(--subColor_text);
+    border-bottom: 1px solid var(--black_500);
     margin-bottom: 50px;
 }
 .ft-icon-box{
@@ -936,7 +936,7 @@ p.ft-card-p-mb{
     /* --------出發前五件事-卡片---------- */
     .five-things-card{
         padding-bottom: 50px;
-        border-bottom: 1px solid var(--subColor_text);
+        border-bottom: 1px solid var(--black_500);
         margin-bottom: 100px;
     }
     .ft-icon-box{
