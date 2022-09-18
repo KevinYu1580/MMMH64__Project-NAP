@@ -67,6 +67,11 @@ button {
   top: 24px;
   left: 4px;
 }
+@media screen and (min-width: 992px){
+  .close_lightBox {
+    display: none;
+  }
+}
 input:focus {
   outline: none;
   box-shadow: transparent;
@@ -94,6 +99,12 @@ input:focus {
   font-size: 18px;
   margin-left: auto;
   margin-bottom: 40px;
+  display: none;
+}
+@media screen and (min-width: 992px){
+  .postBtn {
+    display: block;
+  }
 }
 
 /* content wrap  */
@@ -267,6 +278,7 @@ input:focus {
 @media screen and (min-width: 992px){
   .comtCard_wrap {
     width: calc(100% - 248px);
+    gap: 40px;
   }
 }
 .comtCard {
@@ -381,6 +393,12 @@ input:focus {
   padding-right: 6px;
   width: 70%;
 }
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .content_wrap {
+    padding-right: 0px;
+    width: 75%;
+  }
+}
 .comtCard_wrap .comtCard .content_wrap .contentText {
   width: 100%;
   overflow: hidden;
@@ -389,10 +407,12 @@ input:focus {
   display: -moz-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  color: var(--black_800);
 }
 @media screen and (min-width: 992px){
   .comtCard_wrap .comtCard .content_wrap .contentText {
     margin-top: 24px;
+    font-size: 18px;
   }
 }
 /* 卡片小縮圖 */
@@ -409,6 +429,7 @@ input:focus {
 @media screen and (min-width: 992px){
   .comtCard_wrap .comtCard .card_smPic {
     margin-top: 60px;
+    border-radius: 20px;
   }
 }
 
@@ -419,19 +440,36 @@ input:focus {
   bottom: 16px;
   gap: 24px;
 }
+
 .comtCard_wrap .comtCard .iconIndic .napComt {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.comtCard_wrap .comtCard .iconIndic .napComt img {
-  width: 20px;
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .iconIndic .napBtn_likeBtn_comt .svgs{
+    width: 22px;
+  }
+  .napBtn_likeBtn_comt span{
+    font-size: 16px;
+  }
 }
+
+
 
 .comtCard_wrap .comtCard .iconIndic .napComt span {
   color: var(--secondaryColor_default);
   font-size: 14px;
+}
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .iconIndic .napComt img {
+    width: 22px;
+  }
+  .comtCard_wrap .comtCard .iconIndic .napComt span{
+    font-size: 16px;
+  }
+  
 }
 /* 卡片的小選單 */
 .comtCard_wrap .comtCard .pointMenu {
@@ -442,6 +480,15 @@ input:focus {
   position: absolute;
   top: 0px;
   right: 0px;
+}
+@media screen and (min-width: 992px){
+  .comtCard_wrap .comtCard .pointMenu {
+    width: 6px;
+    top: 8px;
+    right: 24px;
+    display: none;
+  }
+ 
 }
 .comtCard_wrap .comtCard .pointMenu img {
   width: 100%;
@@ -482,12 +529,45 @@ input:focus {
   cursor: pointer;
   display: none;
 }
+.comtCard .lightBox_pc {
+  width: 132px;
+  height: 100px;
+  position: absolute;
+  inset: 36px 80px auto auto;
+  background-color: #fff;
+  border-radius: 12px 0 12px 12px;
+  box-shadow: 0px 4px 20px rgba(121, 121, 121, 0.603);
+  opacity: 0;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  padding-left: 20px;
+  
+}
+.comtCard .lightBox_pc:after{
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 0;
+  right: -22px;
+  background-color: #fff;
+  clip-path: polygon(100% 0%, 0 0, 0 100%);
+}
+.comtCard .lightBox_pc .cardDelete, .comtCard .lightBox_pc .cardEdit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
 /* 留言卡片展開的光箱  */
 .lightBox_comtCard {
   width: 100%;
   height: 100vh;
   background-color: #fff;
-  z-index: 1000;
+  z-index: 1001;
   position: fixed;
   top: 0;
   left: 0;
@@ -495,14 +575,39 @@ input:focus {
   overflow-y: scroll;
   display: none;
 }
+@media screen and (min-width: 992px){
+  .lightBox_comtCard {
+    width: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 72px 60px;
+  }
+}
+.lightBox_comtCard_mask {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0s;
+}
+@media screen and (min-width: 992px){
+  .lightBox_comtCard_mask {
+    transition: 0.5s;
+  }
+}
+
+
 .lightBox_comtCard::-webkit-scrollbar {
   display: none;
 }
 
-/* .lightBox_comtCard .content_wrap {
-    position: relative;
-    width: 100%;
-} */
 .lightBox_comtCard .member_info {
   display: flex;
   align-items: center;
@@ -640,6 +745,11 @@ input:focus {
   transition: 0.5s;
   opacity: 0;
   pointer-events: none;
+}
+@media screen and (min-width: 992px){
+  .postBtn_mb {
+    display: none;
+  }
 }
 .lightBox_post {
   width: 100%;

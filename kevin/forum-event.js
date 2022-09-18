@@ -1,6 +1,10 @@
 // 關閉光箱
 $('.close_lightBox').click(function(){
     $(this).parent().hide()
+    $('.lightBox_comtCard_mask').css({
+        'pointer-events': 'none',
+        'opacity':'0',
+    })
     document.body.style.overflow='visible'
 })
 
@@ -17,9 +21,10 @@ runCardLoop();
 
 // --------------卡片手機小menu 彈出效果
 
-$('.pointMenu').click(function(e){
+// mb
+if(document.body.clientWidth < 992){
+$('.comtCard .pointMenu').click(function(e){
     e.stopPropagation();
-    const post_lightBox = $('.lightBox_comtCard')
     $(this).next().css({
         'transform': 'none',
     })
@@ -30,6 +35,35 @@ $('.lightBox_mb_mask').click(function(){
     $(this).hide()
     $('.lightBox_mb').css('transform', 'translateY(102%)')
 })
+// mb 刪除&編輯功能
+$('.comtCard .lightBox_mb .cardDelete').click(function(e){
+    e.stopPropagation();
+})
+$('.comtCard .lightBox_mb .cardEdit').click(function(e){
+    e.stopPropagation();
+})
+
+}
+//pc
+// 小menu hover效果
+if(document.body.clientWidth >= 992){
+    $('.comtCard_wrap .comtCard').mouseover(function(){
+        $(this).find('.pointMenu').show()
+    })
+    $('.comtCard_wrap .comtCard').mouseout(function(){
+        $(this).find('.pointMenu').hide()
+    })
+
+    // 點擊顯示lightBox_pc
+    $('.comtCard .pointMenu').click(function(e){
+        e.stopPropagation();
+        $(this).siblings('.lightBox_pc').css('opacity', '1')
+    })
+    $('body').click(function(){
+        $('.comtCard .lightBox_pc').css('opacity', '0')
+    })
+} 
+
 
 
 
@@ -51,7 +85,20 @@ postLightBox_messageNum();
 $('.comtCard_wrap').on('click', '.comtCard' ,function(e){
     $(post_lightBox).show();
     document.body.style.overflow='hidden'
-    
+
+    // 打開光箱mask
+    $('.lightBox_comtCard_mask').css({
+        'pointer-events': 'auto',
+        'opacity':'1',
+    })
+})
+$('.lightBox_comtCard_mask').click(function(){
+    $(this).css({
+        'pointer-events': 'none',
+        'opacity':'0',
+    })
+    document.body.style.overflow='visible'
+    $(post_lightBox).hide()
 })
 
 
@@ -147,8 +194,7 @@ imgInp.onchange = evt => {
     }
   }
 
-// 驗證是否已填寫完資料
-// if()
+
 
 
 
