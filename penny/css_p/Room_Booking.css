@@ -120,6 +120,37 @@ body{
     color: var(--primaryColor_dark);
     padding-bottom: 10px;
 }
+.customSelect{
+    width: 327px;
+    height: 110px;
+    border: 1px solid var(--black_500);
+    flex-wrap: wrap;
+    padding: 5px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--white);
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 2;
+}
+li{
+    width: calc(100%/3);
+    color: var(--primaryColor_dark);
+    cursor: pointer;
+    font-size: var(--headline_20px);
+    line-height: 1;
+    padding: 15px 5px;
+    text-align: center;
+    background-color: var(--white);
+}
+li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(4),li:nth-of-type(5){
+    border-right: 1px solid var(--black_500);
+}
+li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
+    border-bottom: 1px solid var(--black_500);
+}    
 /* ---------訂房按鈕--------- */
 .booking-box{
     background-color: var(--primaryColor_dark);
@@ -174,6 +205,40 @@ body{
     }
     .choose-textbox, .booking-box{
         cursor: pointer;
+    }
+    /* ---------間數選擇--------- */
+    .customSelect{
+        width: 345px;
+        height: 110px;
+        border: 1px solid var(--black_500);
+        flex-wrap: wrap;
+        padding: 5px;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--white);
+        opacity: 0;
+        transition: 0.3s;
+    }
+    li{
+        width: calc(100%/3);
+        color: var(--primaryColor_dark);
+        cursor: pointer;
+        font-size: var(--headline_20px);
+        line-height: 1;
+        padding: 15px 5px;
+        text-align: center;
+        background-color: var(--white);
+    }
+    li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(4),li:nth-of-type(5){
+        border-right: 1px solid var(--black_500);
+    }
+    li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
+        border-bottom: 1px solid var(--black_500);
+    }    
+    li:hover{
+        background-color: var(--primaryColor_tint);
     }
     /* ---------訂房按鈕--------- */
     .booking-box{

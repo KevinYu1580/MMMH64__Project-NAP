@@ -5,6 +5,19 @@ $('.booking-box').click(function(){
 })
 
 
+// 搜尋bar選擇間數
+$('.selectRoom').click(function(){
+    $('.customSelect').css('opacity',1);
+
+    if($('.customSelect').css('opacity') == 1){
+            $('.customSelect').css('opacity',0);
+    }
+})
+
+
+
+
+
 // 訂房明細點擊叉叉
 $('.cancle-btn').click(function(){
     // 單人房明細刪除
