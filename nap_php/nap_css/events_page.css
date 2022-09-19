@@ -87,7 +87,7 @@ body{
 /* 浪浪套裝活動-手機版 */
 .events-banner-package{
     height: 50vh;
-    background: url('../img_p/illustration/illustration-76.png') no-repeat center center / cover;
+    background: url('../img/component/illustration/illustration-76.png') no-repeat center center / cover;
 }
 .events-banner-package-textbox{
     width: 75%;
@@ -132,7 +132,7 @@ body{
 /* 每月特別活動 | 手機版 */
 .events-banner-special{
     height: 50vh;
-    background: url('../img_p/illustration/illustration-77.png') no-repeat center center / cover;
+    background: url('../img/component/illustration/illustration-77.png') no-repeat center center / cover;
 }
 .events-banner-special-textbox{
     width: 75%;
@@ -212,7 +212,7 @@ body{
         transition: 0.3s linear;
     }
     .banner-package-pc{
-        background: url('../img_p/illustration/illustration-76-1.png') no-repeat left center / cover;  
+        background: url('../img/component/illustration/illustration-76-1.png') no-repeat left center / cover;  
         width: 100vw;
         height: 100vh;
         position: absolute;
@@ -276,7 +276,7 @@ body{
 
     /* 每月特別活動 | 桌機版 */
     .banner-special-pc{
-        background: url('../img_p/illustration/illustration-77-1.png') no-repeat right center / cover;        
+        background: url('../img/component/illustration/illustration-77-1.png') no-repeat right center / cover;        
         width: 100%;
         height: 100vh;
     }
@@ -500,7 +500,7 @@ body{
 }
 .card-like #cover{
     position: absolute;
-    top: 0;
+    top: 20px;
 }
 .card-like .cover{
     display: none;
@@ -614,7 +614,8 @@ body{
         border-radius: 50%;
         cursor: pointer;
         position: absolute;
-        top: 210px;
+        /* top: 210px; */
+        bottom: 20px;
         right: 230px;
     }
     .card-like img{

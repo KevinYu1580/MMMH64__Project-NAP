@@ -46,7 +46,7 @@ $pageName = '活動檔期'; // 頁面名稱
             </div>
         </div>
         <div class="events-banner-ai01-imgbox">
-            <img src="./img_p/illustration/illustration-66.png" alt="">
+            <img src="./img/component/illustration/illustration-66.png" alt="">
         </div>
     </div>
     <div class="events-banner-row-pc">
@@ -76,7 +76,7 @@ $pageName = '活動檔期'; // 頁面名稱
         </div>
 
         <div class="events-banner-ai01-imgbox">
-            <img src="./img_p/illustration/illustration-66.png" alt="">
+            <img src="./img/component/illustration/illustration-66.png" alt="">
         </div>
     </div>
 </section>
@@ -114,8 +114,8 @@ $pageName = '活動檔期'; // 頁面名稱
                             </div>
                         </div>
                         <div class="card-like d-flex justify-content-center align-items-center ">
-                            <img id="outline" src="./img_p/icon/red-Heart-outline.svg" alt="">
-                            <img id="cover" class="cover" src="./img_p/icon/red-Heart-filled.svg" alt="">
+                            <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
+                            <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ $pageName = '活動檔期'; // 頁面名稱
 
 <div class="page_slec">
     <button class="page_click">
-        <img width="" src="../components/img/arrow_lastpage.svg" alt="">
+        <img width="" src="./img/component/icon/arrow_lastpage.svg" alt="">
     </button>
     <!-- 頁碼 -->
     <div class="indic_wrap">
@@ -147,7 +147,7 @@ $pageName = '活動檔期'; // 頁面名稱
     </div>
     <!---->
     <button class="page_click">
-        <img width="" src="../components/img/arrow_nextpage.svg">
+        <img width="" src="./img/component/icon/arrow_nextpage.svg">
     </button>
 </div>
 
