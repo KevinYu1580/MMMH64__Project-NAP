@@ -1,9 +1,9 @@
 <?php
 
 $db_host = 'localhost';
-$db_user = 'chiyin_niyihc';
-$db_pass = 'Admin_chiyin0209';
-$db_name = 'nap_cy_macbook';
+$db_user = 'nap';
+$db_pass = 'nap2321';
+$db_name = 'nnn_57';
 
 $dsn = "mysql:host={$db_host};dbname={$db_name};charset=utf8"; // data source name
 
