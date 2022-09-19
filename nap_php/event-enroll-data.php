@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+
+// require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = 'home'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
@@ -49,7 +50,7 @@ $pageName = 'home'; // 頁面名稱
                     <div class="event-name">【MMMH64-與狗勾的兩日生活】</div>
                     <div class="event-date">2022/08/27 - 2022/08/28</div>
                     <div class="perevent-price row">
-                        <div class="per col-6">NT$ 2,999</div>
+                        <div class="per col-6">NT$ <span>2,999</span></div>
                         <div class="col enroll-num">0</div>
                         <div class="col-2">人</div>
                     </div>
