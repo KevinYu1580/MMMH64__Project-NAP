@@ -65,18 +65,27 @@ $('.cancle-btn').click(function(){
         $('#single-detail').hide();
         $('.singleNum').val(0);
         $('#single-minus svg circle').css('fill','var(--black_500)');
+        $('.total-num span').html(+$('.double-price span').html() + +$('.quadra-price span').html());
+        $('.deposit-num span').html($('.total-num span').html()/2);
+        $('.rest-num span').html($('.total-num span').html()/2);
     }
     // 雙人房明細刪除
     if($(this).hasClass('double-cancle')){
         $('#double-detail').hide();
         $('.doubleNum').val(0);
         $('#double-minus svg circle').css('fill','var(--black_500)');
+        $('.total-num span').html(+$('.single-price span').html() + +$('.quadra-price span').html());
+        $('.deposit-num span').html($('.total-num span').html()/2);
+        $('.rest-num span').html($('.total-num span').html()/2);
     }
     // 四人房明細刪除
     if($(this).hasClass('quadra-cancle')){
         $('#quadra-detail').hide();
         $('.quadraNum').val(0);
         $('#quadra-minus svg circle').css('fill','var(--black_500)');
+        $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html());
+        $('.deposit-num span').html($('.total-num span').html()/2);
+        $('.rest-num span').html($('.total-num span').html()/2);
     }
 })
 
@@ -280,10 +289,16 @@ $('#quadra-minus').click(function () {
 
 
 
-// 日曆初始化
-$( "#datepicker" ).datepicker();
 
-$( "#datepicker" ).change(function(){
+// console.log(+$('.singleNum').val() + +$('.doubleNum').val() + +$('.quadraNum').val());
+
+
+
+
+// 日曆初始化
+$( "#datepicker-in" ).datepicker();
+
+$( "#datepicker-in" ).change(function(){
     // console.log('now date:', $(this).val());
     changeShowDate(new Date($(this).val()))
 })
@@ -297,11 +312,41 @@ function changeShowDate(today){
 
     const monthOfShortArray =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    const myDate = `${monthOfShortArray[monthOfToday]}/ ${yearOfToday}`
+    const myDate = `${monthOfShortArray[monthOfToday]} / ${yearOfToday}`
+    const numberDate = `${yearOfToday} / ${monthOfToday + 1 } / ${dateOfToday}`
 
     $('.choose-textbox').eq(0).find('h6').text(dateOfToday)
     $('.choose-textbox').eq(0).find('p').eq(1).text(myDate)
+    $('.date-num p').text(`${numberDate} - `)
 }
 
 changeShowDate(new Date());
 
+
+// --------------
+
+$( "#datepicker-out" ).datepicker();
+
+$( "#datepicker-out" ).change(function(){
+    console.log('tomorrow date:', $(this).val());
+    changeShowDateTomorrow(($(this).val()))
+})
+
+function changeShowDateTomorrow(){
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const yearOfTomorrow = tomorrow.getFullYear();
+    const monthOfTomorrow = tomorrow.getMonth();
+    const dateOfTomorrow = tomorrow.getDate();
+    console.log('tomorrow day',tomorrow);
+
+    const monthOfShortArrayTomorrow =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+    const myTomorrow = `${monthOfShortArrayTomorrow[monthOfTomorrow]} / ${yearOfTomorrow}`
+
+    $('.choose-textbox').eq(1).find('h6').text(dateOfTomorrow)
+    $('.choose-textbox').eq(1).find('p').eq(1).text(myTomorrow)
+}
+
+changeShowDateTomorrow();

@@ -8,10 +8,11 @@
     <title>Room_Booking</title>
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css_p/reset.css">
+    <link rel="stylesheet" href="https://tainan.chamcham.com.tw/public/js/jqueryui/datepicker/datepicker.css">
     <link rel="stylesheet" href="./css_p/Room_Booking.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
-    <link rel="stylesheet" href="https://tainan.chamcham.com.tw/public/js/jqueryui/datepicker/datepicker.css">
+
 </head>
 
 <body>
@@ -147,19 +148,17 @@
                 <div class="choose-box d-flex col-6 col-md-4 justify-content-center">
                     <div class="choose-textbox">
                         <p>Check-In</p>
-                        <h6>13</h6>
-                        <p>Step / 2022</p>
-                        <input type="text" id="datepicker"></p>
+                        <h6><!-- 放日期 --></h6>
+                        <p><!-- 月份/年分 --></p>
+                        <input type="text" id="datepicker-in" class="checkIndate"></p>
                     </div>  
-
-                    
                 </div>
                 <div class="choose-box d-flex col-6 col-md-4 justify-content-center">
                     <div class="choose-textbox">
                         <p>Check-Out</p>
-                        <h6>14</h6>
-                        <p>Step / 2022</p>
-
+                        <h6><!-- 放日期 --></h6>
+                        <p><!-- 月份/年分 --></p>
+                        <input type="text" id="datepicker-out" class="checkOutdate"></p>
                     </div>
                 </div>
                 <div class="choose-box d-flex col-12 col-md-4 justify-content-center">
