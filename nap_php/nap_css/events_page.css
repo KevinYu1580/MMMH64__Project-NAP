@@ -803,3 +803,17 @@ body{
         }
     }
 
+
+/* ------------分頁按鈕------------ */
+
+.page-item.disabled .page-link .arrow{
+    fill: var(--black_500);
+}
+.page-item:not(:first-child):not(:last-child) .page-link {
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .page-item:not(:first-child):not(:last-child) .page-link {
+            display: block;
+        }
+    }
