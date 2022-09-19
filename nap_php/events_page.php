@@ -1,7 +1,50 @@
 <?php
-// require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = '活動檔期'; // 頁面名稱
+
+
+$perPage = 10;  // 每頁最多有幾筆
+
+// 用戶要看第幾頁，看什麼分類
+// $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+// $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+
+
+$qsp = []; // query string parameters
+
+
+// 取得資料的總筆數
+$t_sql = "SELECT COUNT(1) FROM event_detail $where ";
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+// 計算總頁數用無條件進位
+$totalPages = ceil($totalRows / $perPage);
+
+$rows = [];  // 預設值
+
+// 有資料才執行
+if ($totalRows > 0) {
+    if ($page < 1) {
+        header('Location: ?page=1');
+        exit;
+    }
+    if ($page > $totalPages) {
+        header('Location: ?page=' . $totalPages);
+        exit;
+    }
+    // 取得該頁面的資料
+    $sql = sprintf(
+        "SELECT * FROM `event_detail` %s ORDER BY `sid` DESC LIMIT %s, %s",
+        $where,
+        ($page - 1) * $perPage,
+        $perPage
+    );
+    $rows = $pdo->query($sql)->fetchAll();
+}
+
+
 ?>
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
@@ -96,29 +139,29 @@ $pageName = '活動檔期'; // 頁面名稱
     <div class="events-card-container">
         <div class="evnets-card-group-mb">
             <div class="events-card-row-mb d-flex d-md-block">
-
-                <div class="events-card-col-mb flex-shrink-0">
-                    <div class="events-card-mb d-md-flex">
-                        <div class="card-imgbox-mb">
-                            <img src="./img/events/pack-pc-01.jpg" alt="">
-                        </div>
-                        <div class="card-textbox-mb">
-                            <h4>10/15-10/16</h4>
-                            <h3>汪汪大集合 | 兩日遊</h3>
-                            <p>與汪汪寶貝們在園區內相處兩天一夜並參與各種好玩且知性的活動，目標找到彼此的靈魂伴侶並成功領養！</p>
-                            <div class="people-cardBtn d-md-flex justify-content-md-between ">
-                                <h5>剩餘名額：<span>9</span> / 20</h5>
-                                <div class="card-btn">
-                                    <a href="./Events_Detail.html">查看活動</a>
+                <?php foreach ($rows as $r) : ?>
+                    <div class="events-card-col-mb flex-shrink-0">
+                        <div class="events-card-mb d-md-flex">
+                            <div class="card-imgbox-mb">
+                                <img src="./img/events/<?= $r['event_img'] ?>" alt="">
+                            </div>
+                            <div class="card-textbox-mb">
+                                <h4><?= $r['event_date'] ?></h4>
+                                <h3><?= $r['event_name'] ?></h3>
+                                <p><?= $r['event_outline'] ?></p>
+                                <div class="people-cardBtn d-md-flex justify-content-md-between ">
+                                    <h5>剩餘名額：<span><?= $r['event_remain'] ?></span> / <?= $r['event_quota'] ?></h5>
+                                    <div class="card-btn">
+                                        <a href="./Events_Detail.html">查看活動</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-like d-flex justify-content-center align-items-center ">
-                            <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
-                            <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                            <div class="card-like d-flex justify-content-center align-items-center ">
+                                <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
+                                <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
             </div>
@@ -159,8 +202,6 @@ $pageName = '活動檔期'; // 頁面名稱
 <?php include __DIR__ . '/parts/nap-footer.php'; ?>
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
+
 <script src="./nap_js/events_page.js"></script>
-<!-- 自己的js放在這 -->
-
-
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

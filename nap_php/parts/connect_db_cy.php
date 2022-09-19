@@ -1,7 +1,7 @@
 <?php
 
 $db_host = 'localhost';
-$db_name = 'test-enroll';
+$db_name = 'nap_cy_macbook';
 $db_user = 'chiyin_niyihc';
 $db_pass = 'Admin_chiyin0209';
 
@@ -21,3 +21,4 @@ try{
 if(! isset($_SESSION)){
     session_start();
 }
+?>
