@@ -117,7 +117,6 @@ $(window).scroll(function(){
       if(!isRandoming){
         isRandoming = true;
         runRandom();
-        
       }
     }
     else{
@@ -130,26 +129,16 @@ function runRandom(){
   let runRandom = window.setInterval(function(){
     let changingNum = Math.random().toString().substring(2,8)
     $('.explain .sec3 .changeNum3').html(`${changingNum}`)
-    $('.explain .sec3 .changeNum3').delay('1s').html(`155869`)
-    
-  }, 50);
-
-
+  }, 60);
 setTimeout(
   function() {
     clearInterval(runRandom)
-  }, 1000);
+    $('.explain .sec3 .changeNum3').html(155869)
+  }, 1100);
 }
 
 
-
-
-
-
-
-
-
-
+// $('.explain .sec3 .changeNum3').delay(2000).hide()
 $(window).scroll(function () {
   // --------napSteps_mobile 卡片翻轉--------
   const card1_mb = $(".napSteps .wrap_mb .cardWrap #num1");
