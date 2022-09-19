@@ -1,3 +1,55 @@
+<?php
+require __DIR__ . '/parts/connect_db.php';
+$pageName = '園區的浪浪們'; // 頁面名稱
+
+
+$perPage = 12;  // 每頁最多有幾筆
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+
+
+// 取得資料的總筆數
+$t_sql = "SELECT COUNT(1) FROM pet_card";
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+// 計算總頁數
+$totalPages = ceil($totalRows / $perPage);
+
+$rows = [];  // 預設值
+// 有資料才執行
+if ($totalRows > 0) {
+    if ($page < 1) {
+        header('Location: ?page=1');
+        exit;
+    }
+    if ($page > $totalPages) {
+        header('Location: ?page=' . $totalPages);
+        exit;
+    }
+    // 取得該頁面的資料
+    $sql = sprintf("SELECT * FROM `pet_card` ORDER BY `pet_id` ASC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $rows = $pdo->query($sql)->fetchAll();
+}
+
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+// ]);
+
+$genderArray = ['男生','女生'];
+
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,14 +86,14 @@
         </div>
 
     </div>
-    <!------ menu -------->
     <div class="menu_lightBox_pc">
     </div>
+    <!------ menu -------->
+    
     <div class="nap_menu">
 
         <div class="content">
-
-            <ul class="menu_link">
+        <ul class="menu_link">
                 <li>
                     <a href="#">首頁<span>Home Page</span></a>
                 </li>
@@ -139,7 +191,7 @@
     <!-- banner -->
     <div class="nav-white-block"></div>
     <div class="banner">
-        <img src="./img_H/Field Guide-01.jpg" alt="">
+        <img src="../img/self/h/Field Guide-01.jpg" alt="">
     </div>
     <!-- 下拉式彈出頁面--mobile -->
     <div class="banner-button-info">
@@ -148,7 +200,7 @@
                 <div class="banner-block-up-container">
                     <p>為什麼要領養 N.A.P. 的浪浪 ｜</p>
                     <div class="banner-block-icon">
-                        <img src="icon/Exclude-1.svg" alt="">
+                        <img src="../img/component/icon/Exclude-1.svg" alt="">
                     </div>    
                 </div>
             </div>
@@ -158,28 +210,28 @@
                     <div class="why-card-box d-flex">
                         <div class="why-card why-card-offset1">
                             <div class="why-card-img">
-                                <img src="./img_H/illustration-35.png" alt="">
+                                <img src="../img/component/illustration/illustration-35.png" alt="">
                                 <h4>社會化</h4>
                                 <p>我們的狗狗都通過了N.A.P. 的訓練和社會化，透過各種相處與陪伴，讓他們能夠快速適應未來的家。</p>
                             </div>
                         </div>
                         <div class="why-card why-card-offset2">
                             <div class="why-card-img">
-                                <img src="./img_H/illustration-64.png" alt="">
+                                <img src="../img/component/illustration/illustration-64.png" alt="">
                                 <h4>更多愛心</h4>
                                 <p>在N.A.P.領養一隻狗狗時，實際上救了兩個生命。當您歡迎浪浪回家時，代表園區內能夠收容另一隻浪浪。︀</p>
                             </div>
                         </div>
                         <div class="why-card why-card-offset3">
                             <div class="why-card-img">
-                                <img src="./img_H/illustration-17.png" alt="" >
+                                <img src="../img/component/illustration/illustration-17.png" alt="" >
                                 <h4>很健康</h4>
                                 <p>所有N.A.P 的浪浪都會定期打疫苗及驅蟲，每季也會吃除蚤點心或戴防蚤項圈及防蜱藥。︀</p>
                             </div>
                         </div>
                         <div class="why-card why-card-offset4">
                             <div class="why-card-img">
-                                <img src="./img_H/illustration-68.png" alt="">
+                                <img src="../img/component/illustration/illustration-68.png" alt="">
                                 <h4>專業團隊</h4>
                                 <p>N.A.P.有一個專業團隊，隨時準備協助您解決任何有關毛孩的問題，不論是行為或是健康方面的問題。</p>
                             </div>
@@ -202,7 +254,7 @@
             <div class="button-block-row-pc">
                 <h3>為什麼要領養 N.A.P. 的浪浪 ｜</h3>
                 <div class="button-block-icon-pc">
-                    <img src="./icon/Exclude-1.svg" alt="">
+                    <img src="../img/component/icon/Exclude-1.svg" alt="">
                 </div>
             </div>   
         </div>
@@ -210,28 +262,28 @@
             <div class="banner-button-container-row-pc">
                 <div class="banner-why-card-pc col-3">
                     <div class="why-card-img-pc">
-                        <img src="./img_H/illustration-35.png" alt="">
+                        <img src="../img/component/illustration/illustration-35.png" alt="">
                     </div> 
                     <h3>社會化</h3>
                     <p>我們的狗狗都通過了N.A.P. 的訓練和社會化，透過各種相處與陪伴，讓他們能夠快速適應未來的家。</p>
                 </div>
                 <div class="banner-why-card-pc col-3">
                     <div class="why-card-img-pc">
-                        <img src="./img_H/illustration-64.png" alt="">
+                        <img src="../img/component/illustration/illustration-64.png" alt="">
                     </div> 
                     <h3>更多愛心</h3>
                     <p>在N.A.P.領養一隻狗狗時，實際上救了兩個生命。當您歡迎浪浪回家時，代表園區內能夠收容另一隻浪浪。︀</p>
                 </div>
                 <div class="banner-why-card-pc col-3">
                     <div class="why-card-img-pc">
-                        <img src="./img_H/illustration-68.png" alt="">
+                        <img src="../img/component/illustration/illustration-68.png" alt="">
                     </div> 
                     <h3>專業團隊</h3>
                     <p>N.A.P. 有一個專業團隊，隨時準備協助您解決任何有關毛孩的問題，不論是行為或是健康方面的問題。︀</p>
                 </div>
                 <div class="banner-why-card-pc col-3">
                     <div class="why-card-img-pc">
-                        <img src="./img_H/illustration-17.png" alt="">
+                        <img src="../img/component/illustration/illustration-17.png" alt="">
                     </div> 
                     <h3>很健康</h3>
                     <p>所有N.A.P 的浪浪都會定期打疫苗及驅蟲，每季也會吃除蚤點心或戴防蚤項圈及防蜱藥。︀</p>
@@ -301,72 +353,43 @@
     </section>
     <!-- 篩選卡片 -->
     <section class="pet-card">
-    <div class="pet-card-cnotainer">
-            <div class="pet-card-row">
-                <div class="pet-card-col col-6 col-md-4">
-                    <div class="pet-card-content">
-                        <div class="pet-card-img">
-                            <img src="./img_H/Field Guide-02.jpg" alt="">
-                        </div>
-                        <div class="pet-info">
-                            <div class="name">小白</div>
-                            <div class="pet-info-up">
-                                <div class="age">5歲</div>
-                                <div> &nbsp / &nbsp</div>
-                                <div class="gender">男生</div>
+        <div class="pet-card-cnotainer">
+            <div class="pet-card-row d-flex flex-wrap">
+                <?php foreach ($rows as $r) : ?>
+                    <div class="pet-card-col col-6 col-md-4">
+                        <div class="pet-card-content">
+                            <div class="pet-card-img">
+                                <img src="../img/pet/<?= $r['pet_id'] ?>.jpg" class="card-img-top" alt="...">
                             </div>
-                            <div class="pet-info-down">
-                                <div class="fur">短髮</div>
-                                <div> &nbsp / &nbsp</div>
-                                <div class="personality">乖巧</div>
-                            </div> 
-                            <button class="napBtn_likeBtn">
-                                <div class="svgs">
-                                <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#CCCCCC"/>
-                                </svg>
-                                <svg id='white' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#FFFFFF"/>
-                                </svg>
-                                </div>
-                                <span>關注</span>
-                            </button>
-                    </div>
-                </div>
-                </div>
-                <div class="pet-card-col col-6 col-md-4">
-                    <div class="pet-card-content">
-                        <div class="pet-card-img">
-                            <img src="./img_H/Field Guide-02.jpg" alt="">
-                        </div>
-                        <div class="pet-info">
-                            <div class="name">小白</div>
-                            <div class="pet-info-up">
-                                <div class="age">5歲</div>
-                                <div> &nbsp / &nbsp</div>
-                                <div class="gender">男生</div>
+                            <div class="pet-info">
+                                <div class="name"><?= $r['name'] ?></div>
+                                    <div class="pet-info-up">
+                                        <div class="age"><?= $r['age'] ?></div>
+                                        <div> &nbsp / &nbsp</div>
+                                        <div class="gender"><?= $genderArray[$r['gender']] ?></div>
+                                    </div>
+                                <div class="pet-info-down">
+                                    <div class="fur"><?= $r['fur'] ?></div>
+                                    <div> &nbsp / &nbsp</div>
+                                    <div class="personality"><?= $r['personality'] ?></div>
+                                </div> 
+                                <button class="napBtn_likeBtn">
+                                    <div class="svgs">
+                                        <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
+                                        <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#CCCCCC"/>
+                                    </svg>
+                                        <svg id='white' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
+                                        <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#FFFFFF"/>
+                                        </svg>
+                                    </div>
+                                    <span>關注</span>
+                                </button>
                             </div>
-                            <div class="pet-info-down">
-                                <div class="fur">短髮</div>
-                                <div> &nbsp / &nbsp</div>
-                                <div class="personality">乖巧</div>
-                            </div> 
-                            <button class="napBtn_likeBtn">
-                                <div class="svgs">
-                                <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#CCCCCC"/>
-                                </svg>
-                                <svg id='white' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#FFFFFF"/>
-                                </svg>
-                                </div>
-                                <span>關注</span>
-                            </button>
+                        </div>
                     </div>
-                </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-            </div>  
+        </div>  
     </section>
     <!-- 黑色光箱 -->
     <section class="lightBox">
@@ -374,11 +397,11 @@
             <div class="lightBox-container-bg"></div>
             <div class="lightBox-row">
                 <div class="close">
-                    <img src="./icon/xmark.svg" alt="">
+                    <img src="../img/component/icon/xmark.svg" alt="">
                 </div>
                 <div class="lightBox-content">
                     <div class="lightBox-card-img col-md-6">
-                        <img src="./img_H/nap-intro/pet-outdoor/pet-outdoor-04.jpg" alt="">
+                        <img src="../img/nap-intro/pet-outdoor/pet-outdoor-04.jpg" alt="">
                     </div>
                     <div class="lightBox-card-info col-md-6">
                         <h3 class="lightBox-card-name">小白</h3>
@@ -410,7 +433,7 @@
         <!------ 頁數選擇器 PC -------->
         <div class="page_slec">
             <button class="page_click">
-                <img width="" src="./img_H/arrow_lastpage.svg" alt="">
+                <img width="" src="../components/img/arrow_lastpage.svg" alt="">
             </button>
             <!-- 頁碼 -->
             <div class="indic_wrap">
@@ -426,7 +449,7 @@
             </div>
             <!---->
             <button class="page_click">
-                <img width="" src="./img_H/arrow_nextpage.svg" alt="">
+                <img width="" src="../components/img/arrow_nextpage.svg" alt="">
             </button>
         </div>
     

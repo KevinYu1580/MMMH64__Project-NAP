@@ -353,7 +353,7 @@ text-align: center;
         width: 20%;
         display: flex;
         justify-content: space-between;
-        margin: 20px auto;}
+        margin: 45px auto;}
         
     .nap-map-col-rihgt{
         padding: 0 ;
@@ -362,7 +362,7 @@ text-align: center;
     .lightBox-card-img{
         overflow: hidden;
         width: 100%;
-        height: 500px;
+        height: 450px;
         margin-top: 280px;
     }
     .mapBox-card-img img{
@@ -372,7 +372,7 @@ text-align: center;
         font-size: var(--headline_32px);
         color: var(--subColor_text);
         text-align: left;
-        margin: 80px 0 20px;
+        margin: 40px 0 20px;
         padding: 0;
     }
     .mapBox-card-info .title p{
@@ -380,7 +380,7 @@ text-align: center;
         width: 100%;
         color: var(--subColor_text);
         line-height: 2rem;
-        padding: 0 0 40px 0 ;
+        padding: 0 0 20px 0 ;
     }
     .mapBox-card-info h5{
         text-align: left;
@@ -390,7 +390,7 @@ text-align: center;
         border-top: 1px solid var(--subColor_text);
         width: 100%;
         color: var(--subColor_text);
-        padding: 60px 0 0 0;
+        padding: 40px 0 0 0;
     }
     .mapBox-card-info .opentime p{
         font-size: var(--headline_20px);
