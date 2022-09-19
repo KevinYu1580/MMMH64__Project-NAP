@@ -105,6 +105,37 @@ function coverAni() {
   }
 }
 
+// --------explain區塊   數字跳轉
+const changeNum1 = $('.explain .changeNum1').offset().top
+const changeNum2 = $('.explain .changeNum2').offset().top
+const changeNum3 = $('.explain .changeNum3').offset().top
+const screenBaseLine = screen.availHeight / 1.5
+
+$(window).scroll(function(){
+  var window_top = $(window).scrollTop()
+  
+    
+})
+
+
+
+
+
+let runRandom = window.setInterval(function(){console.log(Math.random())}, 50);
+console.log(runRandom)
+
+setTimeout(
+  function() {
+    clearInterval(runRandom)
+  }, 5000);
+
+
+
+
+
+
+
+
 $(window).scroll(function () {
   // --------napSteps_mobile 卡片翻轉--------
   const card1_mb = $(".napSteps .wrap_mb .cardWrap #num1");
