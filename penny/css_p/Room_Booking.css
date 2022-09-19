@@ -120,7 +120,11 @@ body{
     color: var(--primaryColor_dark);
     padding-bottom: 10px;
 }
-.customSelect{
+.customSelect-box{
+    display: none;
+    transition: 0.3s;
+}
+ul.customSelect{
     width: 327px;
     height: 110px;
     border: 1px solid var(--black_500);
@@ -131,11 +135,9 @@ body{
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--white);
-    opacity: 0;
-    transition: 0.3s;
     z-index: 2;
 }
-li{
+li.select-li{
     width: calc(100%/3);
     color: var(--primaryColor_dark);
     cursor: pointer;
@@ -145,10 +147,10 @@ li{
     text-align: center;
     background-color: var(--white);
 }
-li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(4),li:nth-of-type(5){
+li.select-li:nth-of-type(1), li.select-li:nth-of-type(2), li.select-li:nth-of-type(4),li.select-li:nth-of-type(5){
     border-right: 1px solid var(--black_500);
 }
-li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
+li.select-li:nth-of-type(1), li.select-li:nth-of-type(2), li:nth-of-type(3){
     border-bottom: 1px solid var(--black_500);
 }    
 /* ---------訂房按鈕--------- */
@@ -207,7 +209,11 @@ li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
         cursor: pointer;
     }
     /* ---------間數選擇--------- */
-    .customSelect{
+    .customSelect-box{
+        display: none;
+        transition: 0.3s;
+    }
+    ul.customSelect{
         width: 345px;
         height: 110px;
         border: 1px solid var(--black_500);
@@ -218,10 +224,8 @@ li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
         left: 50%;
         transform: translateX(-50%);
         background-color: var(--white);
-        opacity: 0;
-        transition: 0.3s;
     }
-    li{
+    li.select-li{
         width: calc(100%/3);
         color: var(--primaryColor_dark);
         cursor: pointer;
@@ -231,13 +235,13 @@ li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
         text-align: center;
         background-color: var(--white);
     }
-    li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(4),li:nth-of-type(5){
+    li.select-li:nth-of-type(1), li.select-li:nth-of-type(2), li.select-li:nth-of-type(4),li.select-li:nth-of-type(5){
         border-right: 1px solid var(--black_500);
     }
-    li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3){
+    li.select-li:nth-of-type(1), li.select-li:nth-of-type(2), li:nth-of-type(3){
         border-bottom: 1px solid var(--black_500);
-    }    
-    li:hover{
+    }   
+    li.select-li:hover{
         background-color: var(--primaryColor_tint);
     }
     /* ---------訂房按鈕--------- */

@@ -1,21 +1,55 @@
+// 搜尋bar顯示間數選項
+$('.selectRoom').click(function(){
+    $('.customSelect-box').toggle();
+})
+
+// 選擇間數
+$('li.select-li').click(function(){
+    let pickone = $('li.select-li:nth-of-type(1)').html();
+    let picktow = $('li.select-li:nth-of-type(2)').html();
+    let pickthree = $('li.select-li:nth-of-type(3)').html();
+    let pickfour = $('li.select-li:nth-of-type(4)').html();
+    let pickfive = $('li.select-li:nth-of-type(5)').html();
+    let picksix = $('li.select-li:nth-of-type(6)').html();
+
+    // 選1間
+    if($(this).html() == pickone){
+        $('.selectRoom h6').html(pickone);
+        $('.room-num span').html(pickone);
+    }
+    // 選2間
+    if($(this).html() == picktow){
+        $('.selectRoom h6').html(picktow);
+        $('.room-num span').html(picktow);
+    }
+    // 選3間
+    if($(this).html() == pickthree){
+        $('.selectRoom h6').html(pickthree);
+        $('.room-num span').html(pickthree);
+    }
+    // 選4間
+    if($(this).html() == pickfour){
+        $('.selectRoom h6').html(pickfour);
+        $('.room-num span').html(pickfour);
+    }
+    // 選5間
+    if($(this).html() == pickfive){
+        $('.selectRoom h6').html(pickfive);
+        $('.room-num span').html(pickfive);
+    }
+    // 選6間
+    if($(this).html() == picksix){
+        $('.selectRoom h6').html(picksix);
+        $('.room-num span').html(picksix);
+    }
+})
+
+
 // 按下查詢空房，出現訂房間數選項
 $('.booking-box').click(function(){
     $('.room-null').hide();
     $('.room-card-group').show();
 })
-
-
-// 搜尋bar選擇間數
-$('.selectRoom').click(function(){
-    $('.customSelect').css('opacity',1);
-
-    if($('.customSelect').css('opacity') == 1){
-            $('.customSelect').css('opacity',0);
-    }
-})
-
-
-
 
 
 // 訂房明細點擊叉叉
@@ -142,7 +176,25 @@ $('#double-minus').click(function () {
 
 // 四人房-《增加》
 $('#quadra-plus').click(function () {
+// 增加四人房間數
+    let plusNum = $('.quadraNum').val();
+    $('.quadraNum').val(++plusNum);
 
+    // 計算增加明細的間數&總價錢
+    let quadraPrice = 6600;
+    let quadraTotal = quadraPrice * plusNum;
+    $('.quadra-room-num span').html(plusNum);
+    $('.quadra-price').html(`NT$${quadraTotal}`);
+    console.log('quadraplus:',$('.quadraNum').val());
+
+    // 四人房間數>0，減號變綠色
+    if($('.quadraNum').val() > 0){
+        $('#quadra-minus svg circle').css('fill','var(--primaryColor_dark)');
+    }
+    // 增加四人房明細
+    if($('#quadra-detail').css('display') == 'none'){
+        $('#quadra-detail').show();
+    }
   });
   
 
@@ -168,27 +220,5 @@ $('#quadra-minus').click(function () {
     }
 });
 
-
-$('#single-minus #double-minus #quadra-minus').click(function(){
-    // 增加四人房間數
-    let plusNum = $('.quadraNum').val();
-    $('.quadraNum').val(++plusNum);
-
-    // 計算增加明細的間數&總價錢
-    let quadraPrice = 6600;
-    let quadraTotal = quadraPrice * plusNum;
-    $('.quadra-room-num span').html(plusNum);
-    $('.quadra-price').html(`NT$${quadraTotal}`);
-    console.log('quadraplus:',$('.quadraNum').val());
-
-    // 四人房間數>0，減號變綠色
-    if($('.quadraNum').val() > 0){
-        $('#quadra-minus svg circle').css('fill','var(--primaryColor_dark)');
-    }
-    // 增加四人房明細
-    if($('#quadra-detail').css('display') == 'none'){
-        $('#quadra-detail').show();
-    }
-})
 
 
