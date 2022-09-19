@@ -38,7 +38,7 @@
                 </a>
             </div>
             <button class="menu sec2">
-                <img src="../components/img/hamburger.svg" alt="">
+                <img src="../img/component/icon/hamburger.svg" alt="">
             </button>
         </div>
 
