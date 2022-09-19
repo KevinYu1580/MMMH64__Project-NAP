@@ -167,7 +167,7 @@ height: 40px;
     border-radius: 50%;
     width: 38px;
     height: 38px;
-    background-image: url(./img/circle-people.svg);
+    background-image: url(../img/component/icon/circle-people.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -732,7 +732,7 @@ height: 40px;
 .footer-mobile .top_sec {
     width: 100%;
     height: 286px;
-    background-image: url(./img/footer-mobile.png);
+    background-image: url(../img/component/footer/footer-mobile.png);
     background-repeat: no-repeat;
     background-size:auto;
     background-position: 10% 18%;
@@ -740,7 +740,7 @@ height: 40px;
 }
 @media screen and (min-width: 768px){
     .footer-mobile .top_sec {
-        background-image: url(./img/footer-pc.png);
+        background-image: url(../img/component/footer/footer-pc.png);
         background-position: 10% 0%;
         height: 450px;
     }
@@ -758,6 +758,7 @@ height: 40px;
 }
 .footer-mobile .logos {
     width: fit-content;
+    height: 30px;
     margin: auto;
 }
 @media screen and (min-width: 768px){
