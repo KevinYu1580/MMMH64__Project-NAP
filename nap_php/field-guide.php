@@ -1,12 +1,13 @@
 <?php
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = 'home'; // 頁面名稱
+
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
-<link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
-<!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
+<!-- <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css"> -->
+<link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css">
 
 <!-- 加自己的css -->
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
@@ -30,8 +31,8 @@ $pageName = 'home'; // 頁面名稱
 
 
 <!-- bootstrap擇一使用 -->
-<!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
-<script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+<script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script> -->
 
 <?php include __DIR__. '/parts/nap-footer.php'; ?>
 <?php include __DIR__. '/parts/scripts.php'; ?>
