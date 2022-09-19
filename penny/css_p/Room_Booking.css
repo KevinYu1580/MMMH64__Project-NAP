@@ -732,3 +732,11 @@ input{
         transition: 0.3s;
     }
 }
+
+.choose-textbox input{
+    width: 90%;
+    /* opacity: 0; */
+    /* display: none; */
+    /* visibility: hidden; */
+    /* cursor: pointer; */
+}
