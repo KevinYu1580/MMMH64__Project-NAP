@@ -358,7 +358,7 @@ height: 40px;
     display: block;
     text-decoration: none;
     padding: 12px 32px;
-    background-color:var(--white);
+    /* background-color:var(--white); */
     border-radius: 200px;
     width: fit-content;
     transition: 0.3s;
@@ -403,7 +403,7 @@ height: 40px;
     align-items: center;
     width: 218px;
     height: 42px;
-    background-color:var(--white);
+    /* background-color:var(--white); */
     outline: 2px solid var(--primaryColor_dark);
     border-radius: 200px;
     transition: 0.3s;

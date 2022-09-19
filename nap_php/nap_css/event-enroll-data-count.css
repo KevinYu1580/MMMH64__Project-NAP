@@ -1104,7 +1104,7 @@ button {
     .enroll-card-btn button {
         width: 180px;
         height: 55px;
-        font-size: var(--headline_24px)
+        font-size: var(--headline_24px);
     }
 }
 
