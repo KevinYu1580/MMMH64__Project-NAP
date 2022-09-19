@@ -666,29 +666,9 @@ height: 40px;
     font-weight: 300;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </style>
 
-
+<body>
 <div class="topNav_mobile">
     <a class="logo" href="#">
         <img class='mb' src="./img/component/logo/logo-1.svg" alt="">
@@ -801,5 +781,3 @@ height: 40px;
 
     </div>
 </div>
-
-<body>
