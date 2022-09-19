@@ -80,6 +80,8 @@ $('.cancle-btn').click(function(){
     }
 })
 
+
+
 // ---------------------(↓↓↓↓單人房↓↓↓↓)--------------------------------
 
 // 單人房-《增加》
@@ -88,14 +90,20 @@ $('#single-plus').click(function () {
     var plusNum = $('.singleNum').val();
     $('.singleNum').val(++plusNum);
 
-    // 計算增加明細的間數&總價錢
-    var singlePrice = 2600;
+    // 計算增加明細的間數&房型總價錢
+    var singlePrice = parseInt($('.singleprice span').html());
     var singleTotal = singlePrice * plusNum;
     $('.single-room-num span').html(plusNum);
-    $('.single-price').html(`${singleTotal}`);
-    $('.total-num span').html($('.single-price').html()+$('.double-price').html()+$('.quadra-price').html());
-    
-    console.log('singleplus:',$('.singleNum').val());
+    $('.single-price span').html(`${singleTotal}`);
+
+    // 計算增加的全部總價
+    $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
+
+    // 計算增加的訂金
+    $('.deposit-num span').html($('.total-num span').html()/2);
+
+    // 計算增加的尾款
+    $('.rest-num span').html($('.total-num span').html()/2);
 
     // 單人房間數>0，減號變綠色
     if($('.singleNum').val() > 0){
@@ -118,12 +126,20 @@ $('#single-minus').click(function () {
         console.log('singleminus:',$('.singleNum').val());
     }
 
-    // 計算減少明細的間數&總價錢
-    var singlePrice = 2600;
+    // 計算減少明細的間數&房型總價錢
+    var singlePrice = parseInt($('.singleprice span').html());
     var singleTotal = singlePrice * minusNum;
     $('.single-room-num span').html(minusNum);
-    $('.single-price').html(`${singleTotal}`);
-    $('.total-num span').html(-$('.single-price').html()-$('.double-price').html()-$('.quadra-price').html());
+    $('.single-price span').html(`${singleTotal}`);
+
+    // 計算減少的全部總價
+    $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
+
+    // 計算減少的訂金
+    $('.deposit-num span').html($('.total-num span').html()/2);
+
+    // 計算減少的尾款
+    $('.rest-num span').html($('.total-num span').html()/2);
 
     // 單人房間數=0，減號變灰色
     if($('.singleNum').val() == 0){
@@ -140,13 +156,20 @@ $('#double-plus').click(function () {
     var plusNum = $('.doubleNum').val();
     $('.doubleNum').val(++plusNum);
 
-    // 計算增加明細的間數&總價錢
-    var doublePrice = 3600;
+    // 計算增加明細的間數&房型總價錢
+    var doublePrice = parseInt($('.doubleprice span').html());
     var doubleTotal = doublePrice * plusNum;
     $('.double-room-num span').html(plusNum);
-    $('.double-price').html(`${doubleTotal}`);
-    $('.total-num span').html($('.single-price').html()+$('.double-price').html()+$('.quadra-price').html());
-    console.log('doubleplus:',$('.doubleNum').val());
+    $('.double-price span').html(`${doubleTotal}`);
+
+    // 計算增加的全部總價
+    $('.total-num span').html(+$('.single-price span').html()+ +$('.double-price span').html()+ +$('.quadra-price span').html());
+
+    // 計算增加的訂金
+    $('.deposit-num span').html($('.total-num span').html()/2);
+
+    // 計算增加的尾款
+    $('.rest-num span').html($('.total-num span').html()/2);
 
     // 雙人房間數>0，減號變綠色
     if($('.doubleNum').val() > 0){
@@ -168,11 +191,20 @@ $('#double-minus').click(function () {
         console.log('doubleminus:',$('.doubleNum').val());
     }
 
-    // 計算減少明細的間數&總價錢
-    var doublePrice = 3600;
+    // 計算減少明細的間數&房型總價錢
+    var doublePrice = parseInt($('.doubleprice span').html());
     var doubleTotal = doublePrice * minusNum;
     $('.double-room-num span').html(minusNum);
-    $('.double-price').html(`${doubleTotal}`);    
+    $('.double-price span').html(`${doubleTotal}`);
+    
+    // 計算減少的全部總價
+    $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
+    
+    // 計算減少的訂金
+    $('.deposit-num span').html($('.total-num span').html()/2);
+
+    // 計算減少的尾款
+    $('.rest-num span').html($('.total-num span').html()/2);
 
     // 雙人房間數=0，減號變灰色
     if($('.doubleNum').val() == 0){
@@ -189,13 +221,20 @@ $('#quadra-plus').click(function () {
     var plusNum = $('.quadraNum').val();
     $('.quadraNum').val(++plusNum);
 
-    // 計算增加明細的間數&總價錢
-    var quadraPrice = 6600;
+    // 計算增加明細的間數&房型總價錢
+    var quadraPrice = parseInt($('.quadraprice span').html());
     var quadraTotal = quadraPrice * plusNum;
     $('.quadra-room-num span').html(plusNum);
-    $('.quadra-price').html(`${quadraTotal}`);
-    $('.total-num span').html($('.single-price').html()+$('.double-price').html()+$('.quadra-price').html());
-    console.log('quadraplus:',$('.quadraNum').val());
+    $('.quadra-price span').html(`${quadraTotal}`);
+    
+    // 計算增加的全部總價
+    $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
+
+    // 計算增加的訂金
+    $('.deposit-num span').html($('.total-num span').html()/2);
+
+    // 計算增加的尾款
+    $('.rest-num span').html($('.total-num span').html()/2);
 
     // 四人房間數>0，減號變綠色
     if($('.quadraNum').val() > 0){
@@ -217,11 +256,20 @@ $('#quadra-minus').click(function () {
         console.log('quadraminus:',$('.quadraNum').val());
     }
 
-    // 計算減少明細的間數&總價錢
-    var quadraPrice = 6600;
+    // 計算減少明細的間數&房型總價錢
+    var quadraPrice = parseInt($('.quadraprice span').html());
     var quadraTotal = quadraPrice * minusNum;
     $('.quadra-room-num span').html(minusNum);
-    $('.quadra-price').html(`${quadraTotal}`);
+    $('.quadra-price span').html(`${quadraTotal}`);
+
+    // 計算減少的全部總價
+    $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
+
+    // 計算減少的訂金
+    $('.deposit-num span').html($('.total-num span').html()/2);
+
+    // 計算減少的尾款
+    $('.rest-num span').html($('.total-num span').html()/2);
 
     // 四人房間數=0，減號變灰色
     if($('.quadraNum').val() == 0){
@@ -230,14 +278,30 @@ $('#quadra-minus').click(function () {
     }
 });
 
-// $('#single-plus #double-plus #quadra-plus').click(function(){
-//     console.log('總價:',$('.single-price').html()+$('.double-price').html()+$('.quadra-price').html());
-// })
 
 
-// $('.total-num span').html(`${singleTotal}`+`${doubleTotal}`+`${quadraTotal}`);
+// 日曆初始化
+$( "#datepicker" ).datepicker();
 
-$('.datepicker').datepicker({
-    weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-    showMonthsShort: true
-  })
+$( "#datepicker" ).change(function(){
+    // console.log('now date:', $(this).val());
+    changeShowDate(new Date($(this).val()))
+})
+
+function changeShowDate(today){
+    // const today = new Date();
+    const yearOfToday = today.getFullYear();
+    const monthOfToday = today.getMonth();
+    const dateOfToday = today.getDate();
+    console.log('today',today);
+
+    const monthOfShortArray =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+    const myDate = `${monthOfShortArray[monthOfToday]}/ ${yearOfToday}`
+
+    $('.choose-textbox').eq(0).find('h6').text(dateOfToday)
+    $('.choose-textbox').eq(0).find('p').eq(1).text(myDate)
+}
+
+changeShowDate(new Date());
+

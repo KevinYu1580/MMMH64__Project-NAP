@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./css_p/reset.css">
     <link rel="stylesheet" href="./css_p/Room_Booking.css">
     <link rel="stylesheet" href="../components/component_mobile.css">
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="https://tainan.chamcham.com.tw/public/js/jqueryui/datepicker/datepicker.css">
 </head>
 
 <body>
@@ -147,14 +149,17 @@
                         <p>Check-In</p>
                         <h6>13</h6>
                         <p>Step / 2022</p>
-                        <input type="date">
-                    </div>
+                        <input type="text" id="datepicker"></p>
+                    </div>  
+
+                    
                 </div>
                 <div class="choose-box d-flex col-6 col-md-4 justify-content-center">
                     <div class="choose-textbox">
                         <p>Check-Out</p>
                         <h6>14</h6>
                         <p>Step / 2022</p>
+
                     </div>
                 </div>
                 <div class="choose-box d-flex col-12 col-md-4 justify-content-center">
@@ -215,7 +220,7 @@
                                     <p>上限 1 人 | 此房間不提供加人服務</p>
                                 </div>
                                 <div class="price-cr-group d-md-flex">
-                                    <div class="price">NT$ <span>2,600</span> 元 / 晚</div>
+                                    <div class="price singleprice">NT$ <span>2600</span> 元 / 晚</div>
                                     <div class="choose-room d-flex justify-content-center align-items-center">
                                         <div id="single-minus" class="minus-btn">
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -266,7 +271,7 @@
                                     <p>上限 2 人 | 此房間不提供加人服務</p>
                                 </div>
                                 <div class="price-cr-group d-md-flex">
-                                    <div class="price">NT$ <span>3,600</span> 元 / 晚</div>
+                                    <div class="price doubleprice">NT$ <span>3600</span> 元 / 晚</div>
                                     <div class="choose-room d-flex justify-content-center align-items-center">
                                         <div id="double-minus" class="minus-btn">
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -317,7 +322,7 @@
                                     <p>上限 4 人 | 此房間不提供加人服務</p>
                                 </div>
                                 <div class="price-cr-group d-md-flex">
-                                    <div class="price">NT$ <span>6,600</span> 元 / 晚</div>
+                                    <div class="price quadraprice">NT$ <span>6600</span> 元 / 晚</div>
                                     <div class="choose-room d-flex justify-content-center align-items-center">
                                         <div id="quadra-minus" class="minus-btn">
                                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -537,6 +542,8 @@
 
 
     <script src="./js_p/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
     <script src="./js_p/Room_Booking.js"></script>
     <script src="../components/component.js"></script>
 </body>
