@@ -141,6 +141,9 @@ body{
     color: var(--white);
     background: var(--primaryColor_dark);
 }
+.ui-datepicker-calendar .ui-state-active{
+    background-color: var(--primaryColor_dark);
+}
 /* 選擇間數 */
 .customSelect-box{
     display: none;
