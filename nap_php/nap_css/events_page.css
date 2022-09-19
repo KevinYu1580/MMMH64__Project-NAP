@@ -1,0 +1,796 @@
+@font-face {
+    font-family: custom-font;
+    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('../font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #D6D48A;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radious: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+
+body{
+    font-family: custom-font;
+    color: var(--subColor_text);
+}
+.topNav_mobile{
+    background-color: transparent;
+    
+}
+
+/* 活動頁面banner | events-banner */
+.events-banner{
+    margin-bottom: 50px;
+}
+.events-banner-row-mb{
+    display: block;
+}
+.events-banner-row-pc{
+    display: none;
+}
+.events-banner-ai01-imgbox{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 87%;
+    right: 0%;
+    overflow: hidden;
+}
+.events-banner-ai01-imgbox img{
+    width: 100%;
+    object-position: 50px 0;
+}
+/* 浪浪套裝活動-手機版 */
+.events-banner-package{
+    height: 50vh;
+    background: url('../img_p/illustration/illustration-76.png') no-repeat center center / cover;
+}
+.events-banner-package-textbox{
+    width: 75%;
+    margin: auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.events-banner-package-textbox h3{
+    padding-bottom: 10px;
+}
+.events-banner-package-textbox h2{
+    font-size: var(--headline_28px);
+    font-weight: 600;
+    color: var(--primaryColor_dark);
+    padding-bottom: 10px;
+}
+.events-banner-package-textbox p{
+    width: 75%;
+    font-size: var(--p_16px);
+    text-align: justify;
+    line-height: 1.6;
+    padding-bottom: 15px;
+}
+.events-banner-package-textbox span{
+    display: none;
+}
+.events-banner-package-btn{
+    width: 100%;
+    text-align: right;
+}
+.events-banner-package-btn a{
+    font-size: var(--p_16px);
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+
+/* 每月特別活動 | 手機版 */
+.events-banner-special{
+    height: 50vh;
+    background: url('../img_p/illustration/illustration-77.png') no-repeat center center / cover;
+}
+.events-banner-special-textbox{
+    width: 75%;
+    margin: auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.events-banner-special-textbox h3{
+    padding-bottom: 10px;
+    color: var(--white);
+    font-weight: 300;
+}
+.events-banner-special-textbox h2{
+    font-size: var(--headline_28px);
+    font-weight: 600;
+    color: var(--secondaryColor_default);
+    padding-bottom: 10px;
+}
+.events-banner-special-textbox p{
+    width: 100%;
+    font-size: var(--p_16px);
+    color: var(--white);
+    font-weight: 300;
+    text-align: justify;
+    line-height: 1.6;
+    padding-bottom: 15px;
+}
+.events-banner-special-textbox span{
+    display: none;
+}
+.events-banner-special-btn{
+    width: 100%;
+    text-align: left;
+}
+.events-banner-special-btn a{
+    font-size: var(--p_16px);
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: var(--secondaryColor_default);
+    color: var(--white);
+}
+@media screen and (min-width:768px) {
+    .events-banner{
+        margin-bottom: 80px;
+    }
+    .events-banner-row-mb{
+        display: none;
+    }
+    .events-banner-row-pc{
+        display: block;
+        position: relative;
+    }
+    .events-banner-ai01-imgbox{
+        display: none;
+        width: 45%;
+        position: absolute;
+        top: 82%;
+        right: 0%;
+        overflow: hidden;
+    }
+    .events-banner-ai01-imgbox img{
+        width: 100%;
+    }
+
+    /* 浪浪套裝活動 | 桌機版 */
+    .banner-package-pc-box{
+        /* pointer-events:none; */
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.3s linear;
+    }
+    .banner-package-pc{
+        background: url('../img_p/illustration/illustration-76-1.png') no-repeat left center / cover;  
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .banner-package-pc img{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: 0 0;
+    }
+    .events-banner-package-textbox{
+        position: absolute;
+        top: 200px;
+        left: 380px;
+        width: 600px;
+        height: 380px;
+        margin: auto;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .events-banner-package-textbox h3{
+        padding-bottom: 20px;
+        font-size: var(--headline_40px);
+    }
+    .events-banner-package-textbox h2{
+        font-size: var(--headline_60px);
+        font-weight: 600;
+        color: var(--primaryColor_dark);
+        padding-bottom: 20px;
+    }
+    .events-banner-package-textbox p{
+        width: 75%;
+        font-size: var(--headline_20px);
+        text-align: justify;
+        line-height: 1.6;
+        padding-bottom: 30px;
+    }
+    .events-banner-package-textbox span{
+        display: none;
+    }
+    .events-banner-package-btn{
+        width: 100%;
+        text-align: left;
+    }
+    .events-banner-package-btn a{
+        font-size: var(--headline_28px);
+        text-decoration: none;
+        padding: 5px 30px;
+        border-radius: 30px;
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+        transition: 0.3s;
+    }
+    .events-banner-package-btn a:hover{
+        background-color: var(--primaryColor_light);
+    }
+
+    /* 每月特別活動 | 桌機版 */
+    .banner-special-pc{
+        background: url('../img_p/illustration/illustration-77-1.png') no-repeat right center / cover;        
+        width: 100%;
+        height: 100vh;
+    }
+    .banner-special-pc img{
+        width: 100%;
+        height: 100vh;
+    }
+    .events-banner-special-textbox{
+        position: absolute;
+        top: 200px;
+        right: 380px;
+        width: 600px;
+        height: 380px;
+        margin: auto;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .events-banner-special-textbox h3{
+        padding-bottom: 20px;
+        font-size: var(--headline_40px);
+        font-weight: 300;
+    }
+    .events-banner-special-textbox h2{
+        font-size: var(--headline_60px);
+        font-weight: 600;
+        color: var(--secondaryColor_default);
+        padding-bottom: 20px;
+    }
+    .events-banner-special-textbox p{
+        width: 75%;
+        font-size: var(--headline_20px);
+        text-align: justify;
+        line-height: 1.6;
+        padding-bottom: 30px;
+    }
+    .events-banner-special-textbox span{
+        display: none;
+    }
+    .events-banner-special-btn{
+        width: 100%;
+        text-align: right;
+    }
+    .events-banner-special-btn a{
+        font-size: var(--headline_28px);
+        text-decoration: none;
+        padding: 5px 30px;
+        border-radius: 30px;
+        background-color: var(--secondaryColor_default);
+        color: var(--white);
+        transition: 0.3s;
+    }
+    .events-banner-special-btn a:hover{
+        background-color: #d6b07f;
+    }
+}
+
+/* 選擇器 | events-switch */
+.events-switch{
+    margin-bottom: 50px;
+}
+.events-switch-frame{
+    position: relative;
+    max-width: 245px;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primaryColor_dark);
+    border-radius: 50px;   
+    cursor: pointer;
+}
+.package-switch{
+    background-color: var(--primaryColor_dark);
+    width: 50%;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--white);
+}
+.special-switch{
+    width: 50%;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--primaryColor_dark);
+}
+@media screen and (min-width:768px) {
+    .events-switch{
+        margin-bottom: 80px;
+    }
+    .events-switch-frame{
+        position: relative;
+        max-width: 35%;
+        height: 80px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--primaryColor_dark);
+        border-radius: 120px;   
+    }
+    .package-switch{
+        background-color: var(--primaryColor_dark);
+        width: 50%;
+        height: 80px;
+        border-radius: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: var(--white);
+        font-size:var(--headline_28px);
+    }
+    .special-switch{
+        width: 50%;
+        height: 80px;
+        border-radius: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: var(--primaryColor_dark);
+        font-size:var(--headline_28px);
+    }
+}
+
+/* 活動卡片 | events-card */
+.events-card{
+    margin-bottom: 50px;
+}
+.events-card-container{
+    margin-left:65px;
+}
+.events-card-row-mb{
+    max-width: 100%;
+}
+.evnets-card-group-mb{
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;  
+    -webkit-overflow-scrolling:touch;
+}
+.evnets-card-group-mb::-webkit-scrollbar{
+    display: none;
+}
+.events-card-col-mb{
+    padding-bottom: 5px;
+}
+.events-card-mb{
+    max-width: 240px;
+    background-color: var(--subColor_bgc);
+    border-radius: 20px;
+    box-shadow: 5px 5px #0000002d;
+    position: relative;
+    margin-right: 30px;
+}
+.card-imgbox-mb{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.card-imgbox-mb img{
+    width: 100%;
+}
+.card-textbox-mb{
+    max-width: 80%;
+    margin: auto;
+}
+.card-textbox-mb h4 , .card-textbox-mb h3{
+    font-size: var(--headline_20px);
+    text-align: center;
+    color: var(--primaryColor_dark);
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+.card-textbox-mb p{
+    line-height: 1.6;
+    padding-bottom: 10px;
+}
+.card-textbox-mb h5{
+    color: var(--primaryColor_dark);
+    font-weight: 600;
+    padding-bottom: 25px;
+    text-align: center;
+}
+.card-textbox-mb span{
+    color: var(--subColor_highLightRed);
+}
+.card-btn{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.card-btn a{
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--primaryColor_dark);
+    padding: 5px 30px;
+    border-radius: 20px;
+}
+/* 收藏按鈕 */
+.card-like{
+    width: 45px;
+    aspect-ratio: 1/1;
+    border: 2px solid var(--primaryColor_dark);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.card-like img{
+    width: 60%;
+    height: 100%;
+    object-fit: contain;
+}
+.card-like #cover{
+    position: absolute;
+    top: 0;
+}
+.card-like .cover{
+    display: none;
+}
+/*  */
+.events-card-group-pc{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .events-card-container{
+        max-width: calc(100% - 800px);
+        margin: auto;
+        /* background-color: #000000; */
+    }
+    .evnets-card-group-mb{
+        max-width: 100%;
+        margin: auto;
+        overflow: visible;
+        overflow-x: visible;  
+        -webkit-overflow-scrolling:touch;
+    }
+    .events-card-row-mb{
+        max-width: 100%;
+    }
+    .events-card{
+        margin-bottom: 50px;
+    }
+    .evnets-card-group-mb::-webkit-scrollbar{
+        display: none;
+    }
+    .events-card-col-mb{
+        max-width: 100%;
+        padding-bottom: 5px;
+        margin: auto;
+    }
+    .events-card-mb{
+        max-width: 1080px;
+        background-color: var(--subColor_bgc);
+        border-radius: 20px;
+        box-shadow: 10px 10px #0000002d;
+        position: relative;
+        margin-right: 0px;
+        margin-bottom: 50px;
+    }
+    .card-imgbox-mb{
+        width: 33%;
+        border-radius: 20px 0 0 20px;
+        overflow: hidden;
+        margin-bottom: 0px;
+    }
+    .card-imgbox-mb img{
+        width: 100%;
+        height: 100%;
+        vertical-align: bottom;
+        object-fit: cover;
+    }
+    .card-textbox-mb{
+        width: 67%;
+        margin: 0;
+        padding: 20px 20px 20px 50px;
+    }
+    .card-textbox-mb h4{
+        margin-top: 20px;
+    }
+    .card-textbox-mb h4 , .card-textbox-mb h3{
+        font-size: var(--headline_32px);
+        text-align: left;
+        color: var(--primaryColor_dark);
+        font-weight: 600;
+        padding-bottom: 15px;
+    }
+    .card-textbox-mb p{
+        width:95%;
+        line-height: 1.8;
+        font-size: var(--headline_20px);
+        padding-bottom: 15px;
+    }
+    .people-cardBtn{
+        width: 95%;
+    }
+    .card-textbox-mb h5{
+        color: var(--primaryColor_dark);
+        font-weight: 600;
+        font-size: var(--headline_28px);
+        padding-bottom: 0px;
+        text-align: center;
+    }
+    .card-textbox-mb span{
+        color: var(--subColor_highLightRed);
+    }
+    .card-btn{
+        text-align: center;
+        padding-bottom: 0px;
+    }
+    .card-btn a{
+        text-decoration: none;
+        color: var(--white);
+        font-size: var(--headline_24px);
+        background-color: var(--primaryColor_dark);
+        padding: 5px 30px;
+        border-radius: 50px;
+    }
+    .card-btn a:hover{
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
+    }
+    .card-like{
+        width: 45px;
+        aspect-ratio: 1/1;
+        border: 2px solid var(--primaryColor_dark);
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        top: 210px;
+        right: 230px;
+    }
+    .card-like img{
+        width: 60%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .card-like #cover{
+        position: absolute;
+        top: 0;
+    }
+    .card-like .cover{
+        display: none;
+    }
+
+}
+
+
+
+
+
+/* --------------------------詳細訂房卡----------------------- */
+.booking-data-right{
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .booking-data-right{
+            margin: 0;
+        }
+    }
+
+.booking-detail-card{
+    font-size: var(--p_14px);
+    background-color: var(--primaryColor_tint);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-card{
+            font-size: var(--headline_20px);
+            background-color: var(--primaryColor_tint);
+            border-radius: 20px 20px 0 0;
+            margin-top: 55px;
+            padding: 25px 35px;
+            height: 120px;
+        }
+    }
+
+.down-expand-btn{
+    display: flex;
+    align-items: center;
+    transform: rotate(0deg);
+}
+
+.down-expand-btn .up{
+    transition: all 0.6s;
+}
+
+.down-expand-btn .active{
+    transform: rotate(-180deg);
+    transition: all 0.6s;
+}
+    @media screen and (min-width: 768px){
+        .down-expand-btn{
+            display: none;
+        }
+    }
+
+.down-expand-btn img{
+    width: 20px;
+}
+
+.booking-date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-date{
+            margin-bottom: 20px;
+        }
+    }
+
+.booking-room{
+    display: flex;
+    align-items: center;
+}
+
+.booking-date .date-num, .booking-room .room-num{
+    margin-left: 15px;
+}
+
+.date-icon img, .room-icon img{
+    width: 23px;
+}
+
+/* ---------右邊詳細內容--------- */
+.booking-detail-content{
+    padding: 30px 10%;
+    position: relative;
+}
+.booking-detail-content::after{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 1px;
+    background-color: var(--black_500);
+    bottom: 1px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content{
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+        }
+        .booking-detail-content::after{
+            position: absolute;
+            content: '';
+            width: 80%;
+            height: 1px;
+            background-color: var(--black_500);
+            bottom: 1px;
+        }
+    }
+
+.booking-detail-content .room-name{
+    font-size: var(--headline_20px);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-name{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.per-room-num{
+    margin-left: 10px;
+}
+
+.booking-detail-content .room-count{
+    font-size: var(--p_14px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-count{
+            font-size: var(--subtitle_16px);
+        }
+    }
+
+.booking-detail-content .room-detail-num{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-detail-num{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.booking-detail-content .price-include{
+    font-size: var(--p_12px);
+    text-align: right;
+    font-weight: 300;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .price-include{
+            font-size: var(--p_14px);
+        }
+    }
+

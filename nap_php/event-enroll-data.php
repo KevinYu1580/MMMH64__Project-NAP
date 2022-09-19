@@ -1,7 +1,7 @@
 <?php
 
 // require __DIR__ . '/parts/connect_db_cy.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '套裝活動報名'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
