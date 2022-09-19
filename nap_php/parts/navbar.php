@@ -91,7 +91,7 @@
 }
 @media screen and (min-width: 992px){
     .topNav_mobile{
-        background: none;
+        background: rgba(255, 255, 255, 0.85);
         backdrop-filter: none;
     }
     .topNav_mobile{

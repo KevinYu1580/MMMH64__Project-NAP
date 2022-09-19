@@ -530,10 +530,11 @@ body {
   margin: auto auto 56px;
   width: 100%;
 }
+
 @media screen and (min-width: 1024px){
   .explain .cause {
     margin: auto auto 306px;
-    justify-content:space-between;
+    justify-content:center;
   }
 }
 .explain .cause p {
@@ -592,6 +593,9 @@ body {
   .explain .cause .hintNum {
     font-size: 40px;
   }
+}
+.explain .cause .changeNum1, .explain .cause .changeNum2, .explain .cause .changeNum3 {
+  letter-spacing: 10px;
 }
 /*  */
 

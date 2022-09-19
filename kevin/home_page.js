@@ -106,28 +106,42 @@ function coverAni() {
 }
 
 // --------explain區塊   數字跳轉
-const changeNum1 = $('.explain .changeNum1').offset().top
-const changeNum2 = $('.explain .changeNum2').offset().top
 const changeNum3 = $('.explain .changeNum3').offset().top
-const screenBaseLine = screen.availHeight / 1.5
+const screenBaseLine = screen.availHeight
 
+// 位置與開始動畫設定
+let isRandoming = false;
 $(window).scroll(function(){
-  var window_top = $(window).scrollTop()
-  
-    
+    if((changeNum3 - $(window).scrollTop()) < (screenBaseLine * 0.8)){
+      console.log()
+      if(!isRandoming){
+        isRandoming = true;
+        runRandom();
+        
+      }
+    }
+    else{
+      isRandoming = false;
+    }
 })
 
+// 開始跑亂數 & 停止function
+function runRandom(){
+  let runRandom = window.setInterval(function(){
+    let changingNum = Math.random().toString().substring(2,8)
+    $('.explain .sec3 .changeNum3').html(`${changingNum}`)
+    $('.explain .sec3 .changeNum3').delay('1s').html(`155869`)
+    
+  }, 50);
 
-
-
-
-let runRandom = window.setInterval(function(){console.log(Math.random())}, 50);
-console.log(runRandom)
 
 setTimeout(
   function() {
     clearInterval(runRandom)
-  }, 5000);
+  }, 1000);
+}
+
+
 
 
 
