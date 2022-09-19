@@ -937,7 +937,6 @@ body {
 /* --------------------------詳細訂單卡----------------------- */
 .enroll-detail-card {
     /* width: 100%; */
-    height: 515px;
     font-size: var(--p_16px);
     background-color: var(--primaryColor_tint);
     padding: 5%;
@@ -947,7 +946,7 @@ body {
 @media screen and (min-width: 768px) {
     .enroll-detail-card {
         width: 520px;
-        /* height: 590px; */
+        height: 570px;
         font-size: var(--headline_24px);
         background-color: var(--primaryColor_tint);
         padding: 25px;
@@ -1025,7 +1024,7 @@ body {
 
 @media screen and (min-width: 768px) {
     .payable {
-        font-size: var(--headline_32px);
+        font-size: var(--headline_28px);
     }
 }
 
@@ -1254,7 +1253,7 @@ button {
     display: flex;
     font-size: var(--headline_20px);
     text-align: left;
-    /* margin-left: 15px; */
+    margin-left: 15px;
     height: 45px;
     justify-content: center;
     align-items: center;
@@ -1317,7 +1316,7 @@ button {
 
 .enroll-content-null p {
     padding: 10px 20px 20px;
-
+    text-align: center;
     color: var(--primaryColor_dark);
     font-size: var(--headline_20px);
     line-height: 1.6rem;
