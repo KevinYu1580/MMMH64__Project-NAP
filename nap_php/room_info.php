@@ -8,11 +8,7 @@ $pageName = 'room_info'; // 頁面名稱
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
 </head>
 <?php include __DIR__. '/parts/navbar.php'; ?>
 <!-- 加自己的css -->
