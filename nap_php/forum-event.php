@@ -10,29 +10,29 @@ $perPage = 12;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
 // 計算總頁數用無條件進位
-$totalPages = ceil($totalRows / $perPage);
+// $totalPages = ceil($totalRows / $perPage);
 
-$rows = [];  // 預設值
+// $rows = [];  // 預設值
 
 // 有資料才執行
-if ($totalRows > 0) {
-    if ($page < 1) {
-        header('Location: ?page=1');
-        exit;
-    }
-    if ($page > $totalPages) {
-        header('Location: ?page=' . $totalPages);
-        exit;
-    }
-    // 取得該頁面的資料
-    $sql = sprintf(
-        "SELECT * FROM `event_detail` %s ORDER BY `sid` DESC LIMIT %s, %s",
-        $where,
-        ($page - 1) * $perPage,
-        $perPage
-    );
-    $rows = $pdo->query($sql)->fetchAll();
-}
+// if ($totalRows > 0) {
+//     if ($page < 1) {
+//         header('Location: ?page=1');
+//         exit;
+//     }
+//     if ($page > $totalPages) {
+//         header('Location: ?page=' . $totalPages);
+//         exit;
+//     }
+//     // 取得該頁面的資料
+//     $sql = sprintf(
+//         "SELECT * FROM `event_detail` %s ORDER BY `sid` DESC LIMIT %s, %s",
+//         $where,
+//         ($page - 1) * $perPage,
+//         $perPage
+//     );
+//     $rows = $pdo->query($sql)->fetchAll();
+// }
 
 
 
@@ -46,6 +46,7 @@ if ($totalRows > 0) {
 
 </head>
 <?php include __DIR__. '/parts/navbar.php'; ?>
+<!-- kevin的css -->
 <link rel="stylesheet" href="./nap_css/forum-event.css">
 
     <!------ coverPic ------>
