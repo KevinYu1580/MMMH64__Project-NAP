@@ -1,0 +1,409 @@
+@font-face {
+    font-family: custom-font;
+    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('../font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #D6D48A;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radious: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+
+body{
+    font-family: custom-font;
+    color: var(--subColor_text);
+}
+
+/* 房型介紹banner | room-banner */
+.room-banner{
+    margin-top: 68px;
+    margin-bottom: 100%;
+}
+.room-banner-container{
+    width: 300px;
+}
+.room-banner-imgbox{
+    width: 100%;
+    height: 310px;
+    position: relative;
+}
+.room-banner-imgbox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 0;
+}
+.room-banner-textbox{
+    width: 300px;
+    height: 410px;
+    position: absolute;
+    top: 40%;
+    right: 0%;
+    background-color: var(--subColor_bgc);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+.room-banner-textbox h2{
+    font-size: var(--headline_32px);
+    margin-bottom: 10px;
+    line-height: 1.3;
+    color: var(--secondaryColor_default);
+    font-weight: 600;
+}
+.room-banner-textbox p{
+    width: 70%;
+    margin: auto;
+    line-height: 1.8;
+    font-size: var(--p_16px);
+    word-break: keep-all;
+}
+.room-banner-textbox h3{
+    width: 70%;
+    margin: auto;
+    line-height: 1.8;
+    font-size: var(--p_16px);
+    color: var(--primaryColor_dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.room-banner-textbox-btn{
+    width: 60%;
+    margin: auto;
+}
+.room-banner-textbox a{
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 50px;
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+.room-banner-textbox span{
+    display: none;
+}
+.room-banner-textbox br{
+    display: block;
+}
+.room-banner-ai01-imgbox{
+    position: absolute;
+    width: 100%;
+    top: 90%;
+    left: -20%;
+}
+.room-banner-ai01-imgbox img{
+    width: 100%;
+}
+.room-banner-ai02-imgbox{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .room-banner{
+        margin-top: 120px;
+        margin-bottom: 9%;
+    }
+    .room-banner-container{
+        width: 1680px;
+    }
+    .room-banner-imgbox{
+        width: 960px;
+        height: 800px;
+        position: relative;
+    }
+    .room-banner-textbox{
+        position: absolute;
+        width: 840px;
+        height: 605px;
+        margin-left: auto;
+        top: 310px;
+        right: 240px;
+        background-color: var(--subColor_bgc);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .room-banner-textbox h2{
+        font-size: var(--headline_40px);
+        margin-bottom: 10px;
+        line-height: 1.3;
+        color: var(--secondaryColor_default);
+        font-weight: 600;
+        word-break: break-all;
+    }
+    .room-banner-textbox p{
+        margin: 10px auto;
+        line-height: 1.8;
+        font-size: var(--headline_20px);
+        word-break: normal;
+    }
+    .room-banner-textbox h3{
+        margin: 10px auto;
+        line-height: 1.8;
+        font-size: var(--headline_20px);
+        color: var(--primaryColor_dark);
+        font-weight: 600;
+        margin-bottom: 10px;
+        word-break: keep-all;
+    }
+    .room-banner-textbox-btn{
+        width: 70%;
+        margin: auto;
+    }
+    .room-banner-textbox a{
+        text-decoration: none;
+        padding: 10px 50px;
+        border-radius: 50px;
+        font-size: var(--headline_24px);
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+    }
+    .room-banner-textbox a:hover{
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
+    }
+    .room-banner-textbox span{
+        display: inline-block;
+    }
+    .room-banner-ai01-imgbox{
+        position: absolute;
+        width: 640px;
+        top: 82%;
+        left: 30%;
+    }
+    .room-banner-ai02-imgbox{
+        display: block;
+        position: absolute;
+        width: 350px;
+        top: 12%;
+        left: 68%;
+    }
+    .room-banner-ai02-imgbox img{
+        width: 100%;
+    }
+}
+
+/* 房內設施介紹卡片 | room-info */
+.room-info{
+    margin-bottom: 30px;
+}
+.room-info-card-container{
+    width: 327px;
+    margin: auto;
+}
+.room-info-card-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.room-info-card{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 100px;
+    background-color: #E8E7D1;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+.room-info-imgbox{
+    width: 50%;
+    aspect-ratio: 1/1;
+    height: auto;
+    margin-bottom: 10px;
+}
+.room-info-imgbox img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+}
+.room-info-text{
+    width: 80%;
+    text-align: center;
+}
+.room-info-text h5{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.room-info-text p{
+    font-size: 15px;
+    line-height: 1.4rem;
+}
+.room-info-text-p-pc{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .room-info{
+        margin-bottom: 70px;
+    }
+    .room-info-card-container{
+        width: 1440px;
+        margin: auto;
+    }
+    .room-info-card{
+        margin: auto;
+        width: 350px;
+        height: 270px;
+        background-color: #E8E7D1;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+    .room-info-imgbox{
+        width: 60px;
+        height: auto;
+        margin-bottom: 25px;
+    }
+    .room-info-text{
+        width: 180px;
+        text-align: center;
+    }
+    .room-info-text h5{
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .room-info-text p{
+        font-size: 18px;
+        line-height: 1.8rem;
+    }
+    .room-info-text-p-pc{
+        display: block;
+    }
+}
+
+/* 房型介紹卡片 | room-intoduce */
+.room-introduce-container{
+    width: 90%;
+    margin: auto;
+}
+.room-introduce-col{
+    margin-bottom: 20px;
+}
+
+.room-introduce-imgbox{
+    width: 327px;
+    height: 100%;
+    margin-bottom: 20px;
+}
+.room-introduce-imgbox img{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+.double-room-imgbox img{
+    object-position: 70% 0;
+}
+.quadra-room-imgbox img{
+    object-position: 70% 0;
+}
+.room-introduce-textbox{
+    width: 100%;
+    text-align: center;
+}
+.room-introduce-textbox h5{
+    width: 80%;
+    margin: auto;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--primaryColor_dark);
+    color: var(--primaryColor_dark);
+}
+.room-introduce-textbox > p{
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.room-introduce-btn{
+    width: 60%;
+    margin: auto;
+}
+.room-introduce-textbox a{
+    text-decoration: none;
+    padding: 5px 30px;
+    border-radius: 50px;
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+@media screen and (min-width:768px) {
+    .room-introduce-container{
+        max-width: 1440px;
+        margin: auto;
+    }
+    .room-introduce-card{
+        width: 100%;
+        margin: auto;
+    }
+    .room-introduce-imgbox{
+        width: 450px;
+    }
+    .room-introduce-imgbox img{
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+    .room-introduce-textbox > p{
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+    .room-introduce-textbox a{
+        text-decoration: none;
+        padding: 10px 70px;
+        border-radius: 50px;
+        border: 1px solid var(--primaryColor_dark);
+        background-color: transparent;
+        color: var(--primaryColor_dark);
+    }
+    .room-introduce-textbox a:hover{
+        border: 1px solid var(--primaryColor_light);
+        background-color: var(--primaryColor_light);
+        color: var(--white);
+        transition: 0.3s;
+    }
+}
+

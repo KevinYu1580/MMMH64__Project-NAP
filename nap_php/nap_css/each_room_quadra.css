@@ -1,0 +1,615 @@
+@font-face {
+    font-family: custom-font;
+    src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('../font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #D6D48A;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radious: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+
+body{
+    font-family: custom-font;
+    color: var(--subColor_text);
+}
+
+/* 各房型介紹 | each-room */
+.each-room{
+    margin-top: 68px;
+}
+.each-room-col{
+    position: relative;
+}
+/* ---------房型介紹按鈕---------- */
+.room-btn-group a{
+    text-decoration: none;
+    color: var(--primaryColor_dark);
+    padding: 10px 10.7px;
+    border: 2px solid var(--primaryColor_dark);
+    background-color: var(--white);
+}
+.default a{
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+/* ---------房型介紹圖片---------- */
+.room-imgbox{
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.room-train{
+    width: 400%;
+}
+.room-imgbox img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    vertical-align: middle;
+}
+/* ---------房型介紹頁碼顯示點點---------- */
+.carousel-indicators{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    position: absolute;
+    left: -230px;
+    bottom: 10px;
+}
+.carousel-indicators [data-bs-target]{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+/* ---------房型標題---------- */
+.each-room-title{
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    background-color: var(--primaryColor_dark);
+    padding: 20px 30px;
+    color: var(--white);
+    font-size: var(--headline_20px);
+}
+/* ---------房型介紹說明---------- */
+.room-textbox{
+    max-width: calc(100% - 48px);
+    height: auto;
+    margin: auto ;
+    line-height: 1.6;
+    text-align: justify;
+}
+.room-textbox p{
+    padding: 30px 0px;
+    border-bottom: 1px solid var(--black_500);
+}
+.room-textbox span{
+    font-size: var(--p_14px);
+}
+/* ---------入住/退房時間---------- */
+.check-time{
+    position: relative;
+}
+p.line{
+    padding-left: 20px;
+}
+.line::before{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 130px;
+    top: 30px;
+    left: 0;
+    background-color: var(--primaryColor_light);
+}
+/* ---------房內設備項目---------- */
+.room-detail-col{
+    padding: 30px 0 0;
+}
+.each-detail{
+    margin-bottom: 25px;
+}
+.detail-imgbox{
+    width: 30px;
+    aspect-ratio: 1/1;
+    margin-right: 10px;
+}
+.detail-imgbox img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.each-detail small{
+    font-size: var(--p_14px);
+}
+/* ---------價錢---------- */
+.price{
+    text-align: center;
+    font-size: var(--headline_20px);
+    margin-bottom: 30px;
+}
+.price h2, .price h3{
+    display: inline-block;
+}
+.price h2{
+    font-size: var(--headline_32px);
+    font-weight: 600;
+    color: var(--subColor_highLightRed);
+}
+/* ---------訂房按鈕---------- */
+.booking-btn{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.booking-btn a{
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--primaryColor_dark);
+    padding: 10px 60px;
+    border-radius: 60px;
+    font-size: var(--headline_20px);
+}
+.booking-btn a:hover{
+    background-color: var(--primaryColor_light);
+}
+@media screen and (min-width:768px) {
+    .each-room{
+        margin-top: 120px;
+        margin-bottom: 50px;
+    }
+    .each-room-container{
+        max-width: calc(100% - 230px);
+    }
+    /* ---------房型介紹按鈕---------- */
+    .room-btn-group{
+        margin-bottom: 10px;
+    }
+    .single-btn, .double-btn, .four-btn{
+        margin-left: 10px;
+    }
+    .room-btn-group a{
+        text-decoration: none;
+        color: var(--primaryColor_dark);
+        padding: 15px 20px;
+        border: 2px solid var(--primaryColor_dark);
+        background-color: var(--white);
+        font-size: var(--headline_20px);
+    }
+    .default a{
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
+    }
+    .double-btn a:hover, .single-btn a:hover{
+        color: var(--white);
+        border-color: var(--primaryColor_light);
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
+    }
+    /* ---------房型介紹圖片---------- */
+    .room-imgbox{
+        width: 100%;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+    .room-train{
+        width: 400%;
+    }
+    .room-imgbox img{
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        vertical-align: middle;
+    }
+    /* ---------房型介紹頁碼顯示點點---------- */
+    .carousel-indicators{
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+        margin: auto;
+        position: absolute;
+        left: -50px;
+        bottom: 20px;
+    }
+    .carousel-indicators [data-bs-target]{
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+    /* ---------房型標題---------- */
+    .each-room-title{
+        position: absolute;
+        right: -50px;
+        bottom: 100px;
+        background-color: var(--primaryColor_dark);
+        padding: 30px 80px;
+        color: var(--white);
+        font-size: var(--headline_28px);
+    }
+    /* ---------房型介紹說明---------- */
+    .room-textbox{
+        max-width: calc(100% - 240px);
+        height: auto;
+        margin: auto ;
+        line-height: 1.6;
+        text-align: justify;
+        font-size: var(--headline_20px);
+    }
+    .room-textbox p{
+        padding: 30px 0px;
+        border-bottom: 1px solid var(--black_500);
+    }
+    .room-textbox span{
+        font-size: var(--p_14px);
+    }
+    /* ---------入住/退房時間---------- */
+    .check-time{
+        position: relative;
+    }
+    p.line{
+        padding-left: 20px;
+    }
+    .line::before{
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 130px;
+        top: 30px;
+        left: 0;
+        background-color: var(--primaryColor_light);
+    }
+    /* ---------價錢---------- */
+    .price{
+        text-align: center;
+        font-size: var(--headline_24px);
+        margin-bottom: 30px;
+    }
+    .price h2, .price h3{
+        display: inline-block;
+    }
+    .price h2{
+        font-size: var(--headline_40px);
+        font-weight: 600;
+        color: var(--subColor_highLightRed);
+    }
+    /* ---------訂房按鈕---------- */
+    .booking-btn{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .booking-btn a{
+        text-decoration: none;
+        color: var(--white);
+        background-color: var(--primaryColor_dark);
+        padding: 10px 60px;
+        border-radius: 60px;
+        font-size: var(--headline_24px);
+    }
+    .booking-btn a:hover{
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
+    }
+}
+
+
+
+/* ---------<桌機版>入住須知及取消政策----------- */
+.expand-btn1, .expand-btn2{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: rotate(0deg);
+    top: 45%;
+    right: 10%;
+}
+
+.expand-btn1 .down, .expand-btn2 .down{
+    transition: all 0.6s;
+}
+
+.expand-btn1 .active, .expand-btn2 .active{
+    transform: rotate(180deg);
+    transition: all 0.6s;
+}
+    @media screen and (min-width: 768px){
+        .expand-btn1, .expand-btn2{
+            display: none;
+        }
+    }
+
+.expand-btn1 img, .expand-btn2 img{
+    width: 20px;
+}
+
+.check-in-instructions{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions{
+            display: block;
+            background-color: var(--subColor_bgc);
+            position: relative;
+            font-size: var(--headline_28px);
+            font-weight: 500;
+            color: var(--primaryColor_dark);
+            text-align: center;
+            padding: 40px;
+            padding-top: 100px;
+        }
+    }
+
+.check-in-instructions::after{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions::after{
+            display: block;
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 80%;
+            background-color: var(--black_500);
+            bottom: 20px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+    }
+
+.check-in-instructions-content{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content{
+            display: block;
+            background-color: var(--subColor_bgc);
+            padding: 40px 240px;
+            line-height: 1.6rem;
+            font-size: var(--headline_20px);
+        }
+    }
+
+.check-in-instructions-content li{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content li{
+            display: block;
+            margin-top: 10px;
+        }
+    }
+
+.cancellation-policy{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy{
+            display: block;
+            background-color: var(--subColor_bgc);
+            font-size: var(--headline_28px);
+            position: relative;
+            font-weight: 500;
+            color: var(--primaryColor_dark);
+            text-align: center;
+            padding: 40px;
+        }
+    }
+
+.cancellation-policy::after{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy::after{
+            display: block;
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 80%;
+            background-color: var(--black_500);
+            bottom: 20px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+    }
+
+.cancellation-policy-content{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content{
+            display: block;
+            background-color: var(--subColor_bgc);
+            padding: 40px 240px;
+            line-height: 1.6rem;
+            font-size: var(--headline_20px);
+            padding-bottom: 100px;
+        }
+    }
+
+.cancellation-policy-content li{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content li{
+            display: block;
+            margin-top: 10px;
+        }
+    }
+
+
+.footer-mobile{
+    background-color: var(--subColor_bgc);
+}
+
+
+/* ---------<手機版>入住須知及取消政策----------- */
+.check-in-instructions-mobile{
+    display: block;
+    background-color: var(--subColor_bgc);
+    position: relative;
+    font-size: var(--headline_24px);
+    font-weight: 500;
+    color: var(--primaryColor_dark);
+    text-align: center;
+    padding: 40px;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-mobile{
+            display: none;
+        }
+    }
+
+.check-in-instructions-mobile::after{
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 80%;
+    background-color: var(--black_500);
+    bottom: 20px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-mobile::after{
+            display: none;
+        }
+    }
+
+.check-in-instructions-content-mobile{
+    display: none;
+    background-color: var(--subColor_bgc);
+    padding: 10px 40px 40px 40px;
+    line-height: 1.2rem;
+    font-size: var(--p_12px);
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content-mobile{
+            display: none;
+        }
+    }
+
+.check-in-instructions-content-mobile li{
+    margin-top: 6px;
+    list-style: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content-mobile li{
+            display: none;
+        }
+    }
+
+.cancellation-policy-mobile{
+    display: block;
+    background-color: var(--subColor_bgc);
+    position: relative;
+    font-size: var(--headline_24px);
+    font-weight: 500;
+    color: var(--primaryColor_dark);
+    text-align: center;
+    padding: 40px;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-mobile{
+            display: none;
+        }
+    }
+
+.cancellation-policy-mobile::after{
+    display: block;
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 80%;
+    background-color: var(--black_500);
+    bottom: 20px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-mobile::after{
+            display: none;
+        }
+    }
+
+.cancellation-policy-content-mobile{
+    display: none;
+    background-color: var(--subColor_bgc);
+    padding: 10px 40px 40px 40px;
+    line-height: 1.2rem;
+    font-size: var(--p_12px);
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content-mobile{
+            display: none;
+        }
+    }
+
+.cancellation-policy-content-mobile li{
+    display: block;
+    margin-top: 6px;
+    list-style: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content-mobile li{
+            display: none;
+        }
+    }
+
+/* footer-mobile */
+.footer-mobile{
+    background-color: var(--subColor_bgc);
+}
