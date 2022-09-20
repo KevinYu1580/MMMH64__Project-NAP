@@ -517,6 +517,7 @@ button:focus{
     }  
 
 }
+
 /* 黑色光箱 */
 .close{
     position: relative;
@@ -529,7 +530,7 @@ button:focus{
     width: 100%;
 }
 .lightBox{
-    /* display: none; */
+    display: none;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -630,6 +631,11 @@ line-height: 1.2rem;
     .lightBox-card-img{
         margin-right: 20px;
         height: 500px;
+    }
+    .lightBox-card-img img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
     }
     .lightBox-card-info{
         margin-left: 20px;
