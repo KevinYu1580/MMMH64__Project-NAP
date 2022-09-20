@@ -36,8 +36,13 @@ $( "#datepicker-out" ).change(function(){
 })
 
 function changeShowDateTomorrow(tomorrow){
-    // const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    tomorrow.setDate(tomorrow.getDate());
+
+    if (Number($('.choose-textbox').eq(0).find('h6').text()) === tomorrow.getDate()) {
+        tomorrow.setDate(tomorrow.getDate() + 1);
+    }
+    
     const yearOfTomorrow = tomorrow.getFullYear();
     const monthOfTomorrow = tomorrow.getMonth();
     const dateOfTomorrow = tomorrow.getDate();
@@ -168,6 +173,20 @@ $('#single-plus').click(function () {
     var plusNum = $('.singleNum').val();
     $('.singleNum').val(++plusNum);
 
+    // 選擇的大於上面間數跳出提示
+    const roomNum01 = +$('.singleNum').val();
+    const roomNum02 = +$('.doubleNum').val();
+    const roomNum03 = +$('.quadraNum').val();
+    if((roomNum01 + roomNum02 + roomNum03) > +$('.selectRoom h6').html()){
+        $('#single-plus svg circle').css('fill','var(--black_500)');
+        $('#double-plus svg circle').css('fill','var(--black_500)');
+        $('#quadra-plus svg circle').css('fill','var(--black_500)');
+        $('.singleNum').val(--plusNum);
+        alert('超過選擇間數')
+        $('.single-room-num span').html(plusNum);
+        return;
+    }
+
     // 計算增加明細的間數&房型總價錢
     var nights = +$('.date-num span').eq(3).text();
     var singlePrice = parseInt($('.singleprice span').html());
@@ -206,6 +225,16 @@ $('#single-minus').click(function () {
         console.log('singleminus:',$('.singleNum').val());
     }
 
+    // 選擇的小於上面間數加號會變灰色
+    const roomNum01 = +$('.singleNum').val();
+    const roomNum02 = +$('.doubleNum').val();
+    const roomNum03 = +$('.quadraNum').val();
+    if((roomNum01 + roomNum02 + roomNum03) < +$('.selectRoom h6').html()){
+        $('#single-plus svg circle').css('fill','var(--primaryColor_dark)');
+        $('#double-plus svg circle').css('fill','var(--primaryColor_dark)');
+        $('#quadra-plus svg circle').css('fill','var(--primaryColor_dark)');
+    }    
+
     // 計算減少明細的間數&房型總價錢
     var nights = +$('.date-num span').eq(3).text();
     var singlePrice = parseInt($('.singleprice span').html());
@@ -237,6 +266,20 @@ $('#double-plus').click(function () {
     // 增加雙人房間數
     var plusNum = $('.doubleNum').val();
     $('.doubleNum').val(++plusNum);
+
+    // 選擇的大於上面間數跳出提示
+    const roomNum01 = +$('.singleNum').val();
+    const roomNum02 = +$('.doubleNum').val();
+    const roomNum03 = +$('.quadraNum').val();
+    if((roomNum01 + roomNum02 + roomNum03) > +$('.selectRoom h6').html()){
+        $('#single-plus svg circle').css('fill','var(--black_500)');
+        $('#double-plus svg circle').css('fill','var(--black_500)');
+        $('#quadra-plus svg circle').css('fill','var(--black_500)');
+        $('.doubleNum').val(--plusNum);
+        alert('超過選擇間數')
+        $('.double-room-num span').html(plusNum);
+        return;
+    }
 
     // 計算增加明細的間數&房型總價錢
     var nights = +$('.date-num span').eq(3).text();
@@ -275,6 +318,16 @@ $('#double-minus').click(function () {
         console.log('doubleminus:',$('.doubleNum').val());
     }
 
+    // 選擇的小於上面間數加號會變灰色
+    const roomNum01 = +$('.singleNum').val();
+    const roomNum02 = +$('.doubleNum').val();
+    const roomNum03 = +$('.quadraNum').val();
+    if((roomNum01 + roomNum02 + roomNum03) < +$('.selectRoom h6').html()){
+        $('#single-plus svg circle').css('fill','var(--primaryColor_dark)');
+        $('#double-plus svg circle').css('fill','var(--primaryColor_dark)');
+        $('#quadra-plus svg circle').css('fill','var(--primaryColor_dark)');
+    } 
+
     // 計算減少明細的間數&房型總價錢
     var nights = +$('.date-num span').eq(3).text();
     var doublePrice = parseInt($('.doubleprice span').html());
@@ -303,9 +356,24 @@ $('#double-minus').click(function () {
 
 // 四人房-《增加》
 $('#quadra-plus').click(function () {
-// 增加四人房間數
+
+    // 增加四人房間數
     var plusNum = $('.quadraNum').val();
     $('.quadraNum').val(++plusNum);
+
+    // 選擇的大於上面間數跳出提示
+    const roomNum01 = +$('.singleNum').val();
+    const roomNum02 = +$('.doubleNum').val();
+    const roomNum03 = +$('.quadraNum').val();
+    if((roomNum01 + roomNum02 + roomNum03) > +$('.selectRoom h6').html()){
+        $('#single-plus svg circle').css('fill','var(--black_500)');
+        $('#double-plus svg circle').css('fill','var(--black_500)');
+        $('#quadra-plus svg circle').css('fill','var(--black_500)');
+        $('.quadraNum').val(--plusNum);
+        alert('超過選擇間數')
+        $('.quadra-room-num span').html(plusNum);
+        return;
+    }
 
     // 計算增加明細的間數&房型總價錢
     var nights = +$('.date-num span').eq(3).text();
@@ -313,8 +381,8 @@ $('#quadra-plus').click(function () {
     var quadraTotal = quadraPrice * plusNum * nights;
     $('.per-room-night span').html(nights);
     $('.quadra-room-num span').html(plusNum);
-    $('.quadra-price span').html(`${quadraTotal}`);
-    
+    $('.quadra-price span').html(`${quadraTotal}`);    
+
     // 計算增加的全部總價
     $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
 
@@ -328,6 +396,7 @@ $('#quadra-plus').click(function () {
     if($('.quadraNum').val() > 0){
         $('#quadra-minus svg circle').css('fill','var(--primaryColor_dark)');
     }
+
     // 增加四人房明細
     if($('#quadra-detail').css('display') == 'none'){
         $('#quadra-detail').show();
@@ -343,6 +412,16 @@ $('#quadra-minus').click(function () {
         $('.quadraNum').val(--minusNum);
         console.log('quadraminus:',$('.quadraNum').val());
     }
+
+    // 選擇的小於上面間數加號會變灰色
+    const roomNum01 = +$('.singleNum').val();
+    const roomNum02 = +$('.doubleNum').val();
+    const roomNum03 = +$('.quadraNum').val();
+    if((roomNum01 + roomNum02 + roomNum03) < +$('.selectRoom h6').html()){
+        $('#single-plus svg circle').css('fill','var(--primaryColor_dark)');
+        $('#double-plus svg circle').css('fill','var(--primaryColor_dark)');
+        $('#quadra-plus svg circle').css('fill','var(--primaryColor_dark)');
+    } 
 
     // 計算減少明細的間數&房型總價錢
     var nights = +$('.date-num span').eq(3).text();
@@ -370,8 +449,12 @@ $('#quadra-minus').click(function () {
 
 
 
-
-// console.log(+$('.singleNum').val() + +$('.doubleNum').val() + +$('.quadraNum').val());
+// function limitCount(){
+//     if(plusNum > $('.selectRoom h6').html()){
+//         console.log('123');
+//     }
+// }
+// limitCount();
 
 
 
