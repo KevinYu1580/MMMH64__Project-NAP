@@ -82,7 +82,7 @@ input:focus {
   width: 100%;
   margin-top: 68px;
   height: 140px;
-  background-image: url(./img/k/Forum_cover.jpg);
+  background-image: url(../img/self/k/Forum_cover.jpg);
   background-size: cover;
   background-position: 50% 50%;
   margin-bottom: 28px;
@@ -100,6 +100,7 @@ input:focus {
   margin-left: auto;
   margin-bottom: 40px;
   display: none;
+  line-height: 100%;
 }
 @media screen and (min-width: 992px){
   .postBtn_pc {
@@ -181,6 +182,7 @@ input:focus {
 }
 .napSwitch_three .sec {
   padding: 14px 30px;
+  line-height: 100%;
 }
 
 .selector_wrap .forum_switch {
@@ -420,7 +422,7 @@ input:focus {
   overflow: hidden;
   margin-top: 40px;
   aspect-ratio: 1 / 1;
-  background-image: url("./img/k/carousel-4.jpg");
+  background-image: url("../img/chatchat/event/chat-eve-08.jpeg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -615,7 +617,7 @@ input:focus {
 .lightBox_comtCard .member_info .member_pic {
   width: 32px;
   aspect-ratio: 1 / 1;
-  background-image: url(./img/circle-people.svg);
+  background-image: url(../img/component/icon/circle-people.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -723,7 +725,7 @@ input:focus {
 .lightBox_comtCard .comtSection .messageLev .memberPic {
   width: 36px;
   aspect-ratio: 1 / 1;
-  background-image: url(./img/k/carousel-4.jpg);
+  background-image: url(../img/chatchat/chat/chat-02.jpeg);
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -748,7 +750,7 @@ input:focus {
 .lightBox_comtCard .comtSection .message_pack .memberPic {
   width: 36px;
   height: 36px;
-  background-image: url(./img/k/carousel-3.jpg);
+  background-image: url(../img/chatchat/chat/chat-03.jpeg);
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -878,7 +880,7 @@ input:focus {
 .lightBox_post .member_info .member_pic {
   width: 32px;
   height: 32px;
-  background-image: url(./img/circle-people.svg);
+  background-image: url(../img/component/icon/circle-people.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -1110,3 +1112,18 @@ input:focus {
     line-height: 148% !important;
   }
 }
+
+
+/* pageselector */
+
+.page-item.disabled .page-link .arrow{
+  fill: var(--black_500);
+}
+.page-item:not(:first-child):not(:last-child) .page-link {
+  display: none;
+}
+  @media screen and (min-width: 768px){
+      .page-item:not(:first-child):not(:last-child) .page-link {
+          display: block;
+      }
+  }
