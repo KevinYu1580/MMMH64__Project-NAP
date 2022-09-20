@@ -1,9 +1,75 @@
-// 搜尋bar顯示間數選項
+// ---------------------選擇Check-in的日期---------------------
+$( "#datepicker-in" ).datepicker(); // 日曆初始化
+
+$( "#datepicker-in" ).change(function(){
+    // console.log('now date:', $(this).val());
+    changeShowDate(new Date($(this).val()));
+})
+
+function changeShowDate(today){
+    // const today = new Date();
+    const yearOfToday = today.getFullYear();
+    const monthOfToday = today.getMonth();
+    const dateOfToday = today.getDate();
+    console.log('today',today);
+
+    const monthOfShortArray =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const myDate = `${monthOfShortArray[monthOfToday]} / ${yearOfToday}`;
+    const numberDate = `${yearOfToday} / ${monthOfToday + 1 } / ${dateOfToday}`;
+
+    $('.choose-textbox').eq(0).find('h6').text(dateOfToday);
+    $('.choose-textbox').eq(0).find('p').eq(1).text(myDate);
+    $('.date-num span').eq(0).text(`${numberDate} - `);
+}
+
+changeShowDate(new Date());
+
+
+
+// ---------------------選擇Check-out的日期---------------------
+$( "#datepicker-out" ).datepicker(); // 日曆初始化
+
+$( "#datepicker-out" ).change(function(){
+    console.log('選到的日期:', $(this).val());
+    changeShowDateTomorrow(new Date($(this).val()));
+})
+
+function changeShowDateTomorrow(tomorrow){
+    // const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const yearOfTomorrow = tomorrow.getFullYear();
+    const monthOfTomorrow = tomorrow.getMonth();
+    const dateOfTomorrow = tomorrow.getDate();
+    console.log('明天的日期:',tomorrow);
+
+
+    const monthOfShortArrayTomorrow =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const myTomorrow = `${monthOfShortArrayTomorrow[monthOfTomorrow]} / ${yearOfTomorrow}`;
+    const numberDateTomorrow = `${yearOfTomorrow} / ${monthOfTomorrow + 1 } / ${dateOfTomorrow}`;
+
+    $('.choose-textbox').eq(1).find('h6').text(dateOfTomorrow);
+    $('.choose-textbox').eq(1).find('p').eq(1).text(myTomorrow);
+    $('.date-num span').eq(1).text(`${numberDateTomorrow}`);
+
+    const afterDay = $('.choose-textbox').eq(1).find('h6').text();
+    const beforeDay = $('.choose-textbox').eq(0).find('h6').text();
+    $('.date-num span').eq(3).text(`${afterDay - beforeDay}`); //計算共幾晚
+}
+
+changeShowDateTomorrow(new Date());
+
+
+
+// ---------------------搜尋bar顯示間數選項---------------------
 $('.selectRoom').click(function(){
     $('.customSelect-box').toggle();
 })
 
-// 選擇間數
+
+
+// ---------------------選擇間數---------------------
 $('li.select-li').click(function(){
     let pickone = $('li.select-li:nth-of-type(1)').html();
     let picktow = $('li.select-li:nth-of-type(2)').html();
@@ -45,7 +111,7 @@ $('li.select-li').click(function(){
 })
 
 
-// 按下查詢空房，出現訂房間數選項
+// ---------------------按下查詢空房，出現訂房間數選項---------------------
 $('.booking-box').click(function(){
     if( $('.selectRoom h6').html() <= 0){
         alert('尚未選擇間數')
@@ -58,13 +124,14 @@ $('.booking-box').click(function(){
 })
 
 
-// 訂房明細點擊叉叉
+// ---------------------訂房明細點擊叉叉---------------------
 $('.cancle-btn').click(function(){
     // 單人房明細刪除
     if($(this).hasClass('single-cancle')){
         $('#single-detail').hide();
         $('.singleNum').val(0);
         $('#single-minus svg circle').css('fill','var(--black_500)');
+        $('.single-price span').html(0);
         $('.total-num span').html(+$('.double-price span').html() + +$('.quadra-price span').html());
         $('.deposit-num span').html($('.total-num span').html()/2);
         $('.rest-num span').html($('.total-num span').html()/2);
@@ -74,6 +141,7 @@ $('.cancle-btn').click(function(){
         $('#double-detail').hide();
         $('.doubleNum').val(0);
         $('#double-minus svg circle').css('fill','var(--black_500)');
+        $('.double-price span').html(0);
         $('.total-num span').html(+$('.single-price span').html() + +$('.quadra-price span').html());
         $('.deposit-num span').html($('.total-num span').html()/2);
         $('.rest-num span').html($('.total-num span').html()/2);
@@ -83,6 +151,7 @@ $('.cancle-btn').click(function(){
         $('#quadra-detail').hide();
         $('.quadraNum').val(0);
         $('#quadra-minus svg circle').css('fill','var(--black_500)');
+        $('.quadra-price span').html(0);
         $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html());
         $('.deposit-num span').html($('.total-num span').html()/2);
         $('.rest-num span').html($('.total-num span').html()/2);
@@ -100,8 +169,10 @@ $('#single-plus').click(function () {
     $('.singleNum').val(++plusNum);
 
     // 計算增加明細的間數&房型總價錢
+    var nights = +$('.date-num span').eq(3).text();
     var singlePrice = parseInt($('.singleprice span').html());
-    var singleTotal = singlePrice * plusNum;
+    var singleTotal = singlePrice * plusNum * nights;
+    $('.per-room-night span').html(nights);
     $('.single-room-num span').html(plusNum);
     $('.single-price span').html(`${singleTotal}`);
 
@@ -136,8 +207,10 @@ $('#single-minus').click(function () {
     }
 
     // 計算減少明細的間數&房型總價錢
+    var nights = +$('.date-num span').eq(3).text();
     var singlePrice = parseInt($('.singleprice span').html());
-    var singleTotal = singlePrice * minusNum;
+    var singleTotal = singlePrice * minusNum * nights;
+    $('.per-room-night span').html(nights);
     $('.single-room-num span').html(minusNum);
     $('.single-price span').html(`${singleTotal}`);
 
@@ -166,8 +239,10 @@ $('#double-plus').click(function () {
     $('.doubleNum').val(++plusNum);
 
     // 計算增加明細的間數&房型總價錢
+    var nights = +$('.date-num span').eq(3).text();
     var doublePrice = parseInt($('.doubleprice span').html());
-    var doubleTotal = doublePrice * plusNum;
+    var doubleTotal = doublePrice * plusNum * nights;
+    $('.per-room-night span').html(nights);
     $('.double-room-num span').html(plusNum);
     $('.double-price span').html(`${doubleTotal}`);
 
@@ -201,8 +276,10 @@ $('#double-minus').click(function () {
     }
 
     // 計算減少明細的間數&房型總價錢
+    var nights = +$('.date-num span').eq(3).text();
     var doublePrice = parseInt($('.doubleprice span').html());
-    var doubleTotal = doublePrice * minusNum;
+    var doubleTotal = doublePrice * minusNum * nights;
+    $('.per-room-night span').html(nights);
     $('.double-room-num span').html(minusNum);
     $('.double-price span').html(`${doubleTotal}`);
     
@@ -231,8 +308,10 @@ $('#quadra-plus').click(function () {
     $('.quadraNum').val(++plusNum);
 
     // 計算增加明細的間數&房型總價錢
+    var nights = +$('.date-num span').eq(3).text();
     var quadraPrice = parseInt($('.quadraprice span').html());
-    var quadraTotal = quadraPrice * plusNum;
+    var quadraTotal = quadraPrice * plusNum * nights;
+    $('.per-room-night span').html(nights);
     $('.quadra-room-num span').html(plusNum);
     $('.quadra-price span').html(`${quadraTotal}`);
     
@@ -266,8 +345,10 @@ $('#quadra-minus').click(function () {
     }
 
     // 計算減少明細的間數&房型總價錢
+    var nights = +$('.date-num span').eq(3).text();
     var quadraPrice = parseInt($('.quadraprice span').html());
-    var quadraTotal = quadraPrice * minusNum;
+    var quadraTotal = quadraPrice * minusNum * nights;
+    $('.per-room-night span').html(nights);
     $('.quadra-room-num span').html(minusNum);
     $('.quadra-price span').html(`${quadraTotal}`);
 
@@ -295,58 +376,4 @@ $('#quadra-minus').click(function () {
 
 
 
-// 日曆初始化
-$( "#datepicker-in" ).datepicker();
 
-$( "#datepicker-in" ).change(function(){
-    // console.log('now date:', $(this).val());
-    changeShowDate(new Date($(this).val()))
-})
-
-function changeShowDate(today){
-    // const today = new Date();
-    const yearOfToday = today.getFullYear();
-    const monthOfToday = today.getMonth();
-    const dateOfToday = today.getDate();
-    console.log('today',today);
-
-    const monthOfShortArray =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-    const myDate = `${monthOfShortArray[monthOfToday]} / ${yearOfToday}`
-    const numberDate = `${yearOfToday} / ${monthOfToday + 1 } / ${dateOfToday}`
-
-    $('.choose-textbox').eq(0).find('h6').text(dateOfToday)
-    $('.choose-textbox').eq(0).find('p').eq(1).text(myDate)
-    $('.date-num p').text(`${numberDate} - `)
-}
-
-changeShowDate(new Date());
-
-
-// --------------
-
-$( "#datepicker-out" ).datepicker();
-
-$( "#datepicker-out" ).change(function(){
-    console.log('tomorrow date:', $(this).val());
-    changeShowDateTomorrow(($(this).val()))
-})
-
-function changeShowDateTomorrow(){
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const yearOfTomorrow = tomorrow.getFullYear();
-    const monthOfTomorrow = tomorrow.getMonth();
-    const dateOfTomorrow = tomorrow.getDate();
-    console.log('tomorrow day',tomorrow);
-
-    const monthOfShortArrayTomorrow =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-    const myTomorrow = `${monthOfShortArrayTomorrow[monthOfTomorrow]} / ${yearOfTomorrow}`
-
-    $('.choose-textbox').eq(1).find('h6').text(dateOfTomorrow)
-    $('.choose-textbox').eq(1).find('p').eq(1).text(myTomorrow)
-}
-
-changeShowDateTomorrow();
