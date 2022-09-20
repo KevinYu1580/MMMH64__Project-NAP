@@ -497,7 +497,7 @@ body{
 
 @media screen and (min-width:768px) {
     .card-like{
-        top: 260px;
+        top: 265px;
         right: 230px;
     }
 }
@@ -550,8 +550,7 @@ body{
         border-radius: 20px;
         box-shadow: 10px 10px #0000002d;
         position: relative;
-        margin-right: 0px;
-        margin-bottom: 50px;
+        margin: auto auto 50px;
     }
     .card-imgbox-mb{
         width: 33%;
@@ -599,7 +598,7 @@ body{
     .card-textbox-mb span{
         color: var(--subColor_highLightRed);
     }
-    .card-btn{
+    /* .card-btn{
         text-align: center;
         padding-bottom: 0px;
     }
@@ -614,7 +613,7 @@ body{
     .card-btn a:hover{
         background-color: var(--primaryColor_light);
         transition: 0.3s;
-    }
+    } */
     /* .card-like{
         width: 45px;
         aspect-ratio: 1/1;
@@ -817,3 +816,65 @@ body{
             display: block;
         }
     }
+
+/* ------------分頁按鈕------------ */
+button {
+    background-color: none;
+    outline: none;
+    padding: 0;
+    border: none 0;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* 
+.card-btn button {
+    margin: auto;
+    margin-top: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+    font-size: var(--headline_20px);
+}
+
+@media screen and (min-width: 768px) {
+    .card-btn button {
+        width: 180px;
+        height: 55px;
+        font-size: var(--headline_24px);
+    }
+} */
+
+
+
+.card-btn{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.card-btn button{
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--primaryColor_dark);
+    padding: 5px 30px;
+    border-radius: 20px;
+}
+@media screen and (min-width: 768px) {
+    .card-btn{
+        text-align: center;
+        padding-bottom: 0px;
+    }
+    .card-btn button{
+        text-decoration: none;
+        color: var(--white);
+        font-size: var(--headline_24px);
+        background-color: var(--primaryColor_dark);
+        padding: 5px 30px;
+        border-radius: 50px;
+    }
+    .card-btn button:hover{
+        background-color: var(--primaryColor_light);
+        transition: 0.3s;
+    }
+}

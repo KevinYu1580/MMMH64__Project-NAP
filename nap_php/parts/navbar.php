@@ -76,7 +76,7 @@
 }
 .topNav_mobile .logo .pc{
     display: none;
-    width: 140px;
+    height: 44px;
 }
 .topNav_mobile .menu {
     border: none;
@@ -95,7 +95,7 @@
         backdrop-filter: none;
     }
     .topNav_mobile{
-        padding: 22px 0px;
+        padding: 14px 0px;
     }
     .topNav_mobile .logo{
         text-decoration: none;
@@ -138,7 +138,7 @@
 }
 @media screen and (min-width: 1200px){
     .nap_menu  {
-        max-width: 790px;
+        max-width: 40%;
         height: 100vh;
         right: 0;
         top: 0;
@@ -210,8 +210,8 @@ height: 40px;
 }
 @media screen and (min-width: 992px){
     .nap_menu .menu_link {
-        margin: auto;
-        width: 292px;
+        margin: auto auto auto 12%;
+        width: 360px;
     }
 }
 .nap_menu .menu_link > li {
@@ -286,8 +286,8 @@ height: 40px;
 @media screen and (min-width: 992px){
     .nap_menu .logout {
         position: absolute;
-        bottom: 80px;
-        right: 16%;   
+        bottom: 32px;
+        right: 12%;   
     }
 }
 /* lightBox */

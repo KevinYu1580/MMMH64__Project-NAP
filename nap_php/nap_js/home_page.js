@@ -1,25 +1,41 @@
 // ----首頁aniCover 視覺特效----
 
-
 const first_page = $(".first_page");
 const first_page_top = first_page.offset().top;
 const first_page_height = first_page.height();
 const aniCover = $(".aniCover");
-const ani_anchor = $('.ani_anchor')
+const ani_anchor = $(".ani_anchor");
 
+// nav bar的透明度控制(超過)
+$(window).scroll(function () {
+  const window_top = $(window).scrollTop();
+
+  if (document.body.clientWidth >= 992) {
+    $(".topNav_mobile").css('opacity','0')
+
+      if (window_top >= first_page_height * 4) {
+       $(".topNav_mobile").css("opacity", "1");
+      }
+      else {
+       $(".topNav_mobile").css("opacity", "0");
+      }
+
+  } else{
+    return;
+  }
+});
 
 // 只有頁面寬度 >= 992時才觸發電腦版首頁視覺特效
-$(window).scroll(function(){
-    if(document.body.clientWidth >= 992){
-        coverAni();
-    }
-    else{
-        return
-    }
-})
+$(window).scroll(function () {
+  if (document.body.clientWidth >= 992) {
+    coverAni();
+  } else {
+    return;
+  }
+});
 
 function coverAni() {
-    const window_top = $(window).scrollTop();
+  const window_top = $(window).scrollTop();
 
   // 控制aniCover遮罩的大小
 
@@ -52,26 +68,24 @@ function coverAni() {
   }
 
   // ani_anchor位移控制 & aniCover寬度控制
-  if(window_top >= first_page_height * 2){
-    $(aniCover).css('width', '55%')
-    $(ani_anchor).css('z-index', '998')
+  if (window_top >= first_page_height * 2) {
+    $(aniCover).css("width", "55%");
+    $(ani_anchor).css("z-index", "998");
 
-    if(window_top >= first_page_height * 4){
-        $(ani_anchor).css({
-            'position' : 'absolute',
-            'top' : '400vh'
-        })
+    if (window_top >= first_page_height * 4) {
+      $(ani_anchor).css({
+        position: "absolute",
+        top: "400vh",
+      });
+    } else {
+      $(ani_anchor).css({
+        position: "fixed",
+        top: "0",
+      });
     }
-    else{
-        $(ani_anchor).css({
-            'position' : 'fixed',
-            'top' : '0'
-        })
-    }
-  }
-  else {
-    $(aniCover).css('width', '100%')
-    $(ani_anchor).css('z-index', '1000')
+  } else {
+    $(aniCover).css("width", "100%");
+    $(ani_anchor).css("z-index", "1000");
   }
 
   // firstPage的位移控制
@@ -81,62 +95,57 @@ function coverAni() {
       position: "fixed",
       top: "0",
     });
-    $('.first_page .content_wrap').css('opacity', '1')
+    $(".first_page .content_wrap").css("opacity", "1");
 
     if (window_top >= first_page_height * 4) {
-        first_page.css({
-          position: "absolute",
-          top: "400vh",
-        });
-      }
-      else{
-        first_page.css({
-            position: "fixed",
-            top: "0",
-          });
-      }
-  }
-  else{
-    first_page.css({
+      first_page.css({
         position: "absolute",
-        top: "300vh",
+        top: "400vh",
+      });
+    } else {
+      first_page.css({
+        position: "fixed",
+        top: "0",
+      });
+    }
+  } else {
+    first_page.css({
+      position: "absolute",
+      top: "300vh",
     });
-    $('.first_page .content_wrap').css('opacity', '0')
+    $(".first_page .content_wrap").css("opacity", "0");
   }
 }
 
 // --------explain區塊   數字跳轉
-const changeNum3 = $('.explain .changeNum3').offset().top
-const screenBaseLine = screen.availHeight
+const changeNum3 = $(".explain .changeNum3").offset().top;
+const screenBaseLine = screen.availHeight;
 
 // 位置與開始動畫設定
 let isRandoming = false;
-$(window).scroll(function(){
-    if((changeNum3 - $(window).scrollTop()) < (screenBaseLine * 0.8)){
-      console.log()
-      if(!isRandoming){
-        isRandoming = true;
-        runRandom();
-      }
+$(window).scroll(function () {
+  if (changeNum3 - $(window).scrollTop() < screenBaseLine * 0.8) {
+    console.log();
+    if (!isRandoming) {
+      isRandoming = true;
+      runRandom();
     }
-    else{
-      isRandoming = false;
-    }
-})
+  } else {
+    isRandoming = false;
+  }
+});
 
 // 開始跑亂數 & 停止function
-function runRandom(){
-  let runRandom = window.setInterval(function(){
-    let changingNum = Math.random().toString().substring(2,8)
-    $('.explain .sec3 .changeNum3').html(`${changingNum}`)
+function runRandom() {
+  let runRandom = window.setInterval(function () {
+    let changingNum = Math.random().toString().substring(2, 8);
+    $(".explain .sec3 .changeNum3").html(`${changingNum}`);
   }, 60);
-setTimeout(
-  function() {
-    clearInterval(runRandom)
-    $('.explain .sec3 .changeNum3').html(155869)
+  setTimeout(function () {
+    clearInterval(runRandom);
+    $(".explain .sec3 .changeNum3").html(155869);
   }, 1100);
 }
-
 
 // $('.explain .sec3 .changeNum3').delay(2000).hide()
 $(window).scroll(function () {

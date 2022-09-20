@@ -1054,10 +1054,6 @@ body {
 }
 
 
-.napBtn_fixed_outlined {
-    background-color: rgba(255, 255, 255, 0);
-}
-
 /* 當裡面沒有人數的時候，不能點擊 */
 .enroll-card-btn.disabled a {
     margin: auto;

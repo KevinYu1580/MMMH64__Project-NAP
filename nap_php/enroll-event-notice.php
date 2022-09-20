@@ -2,19 +2,18 @@
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = '套裝活動報名注意事項'; // 頁面名稱
 ?>
-<?php include __DIR__. '/parts/html-head.php'; ?>
+<?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
+
+</head>
+<?php include __DIR__ . '/parts/navbar.php'; ?>
 <!-- 加自己的css -->
 <link rel="stylesheet" href="./nap_css/event-enroll-notice.css">
-    
 
-    
-</head>
-<?php include __DIR__. '/parts/navbar.php'; ?>
 
 
 
@@ -27,40 +26,34 @@ $pageName = '套裝活動報名注意事項'; // 頁面名稱
         <a href="#">套裝活動報名須知</a>
     </div>
 
-    <!------ 上方返回 ------>
-    <div class="backpage">
-        <img src="./img/component/icon/Exclude.svg" alt="">
-        <a href="#">返回</a>
-    </div>
-
-    <!------ 套裝活動報名表頭 ------>
-    <div class="enroll-data-title">
-        套裝活動報名須知
-    </div>
-
-    <!------ 套裝下方內容 ------>
-    <div class="notice row col-10">
-        <div class="notice-title">
-            <h4>給即將報名認養套裝活動的您需要知道的大小事！</h4>
+    <div class="all-container">
+        <div class="backpage">
+            <img src="./img/component/icon/Exclude.svg" alt="">
+            <a href="#">返回</a>
         </div>
-        <div class="notice-content">
-            <div class="triangle">
-                <img src="./img_cy/down-triangle.svg" alt="">
+        <div class="notice row col-10">
+            <div class="notice-title">
+                <h4>給即將報名認養套裝活動的您需要知道的大小事！</h4>
             </div>
-            <ul>
-                <li>身分證字號為活動保險需求，請務必正確填寫！</li>
-                <li>一次報名活動僅限四人，大於四人之需求請分次報名。</li>
-                <li>若會員為活動參與者請於新增參與人資料處勾選加入會員資料。</li>
-                <li><span>套裝活動住宿房型依照人數分配，無法選擇</span>；本園區共有三種人數房型（單人、雙人、四人），如報名人數為四人，將優先以雙人房加床形式提供，歡迎大家揪團參加！</li>
-                <li>點選報名即視為清楚了解以上資訊，接下來快點手刀報名吧！</li>
-            </ul>
-            <div class="notice-btn">
-                <a href="#">手刀報名 GO</a>
+            <div class="notice-content">
+                <div class="triangle">
+                    <img src="./img/component/icon/down-triangle.svg" alt="">
+                </div>
+                <ul>
+                    <li>身分證字號為活動保險需求，請務必正確填寫！</li>
+                    <li>一次報名活動僅限四人，大於四人之需求請分次報名。</li>
+                    <li>若會員為活動參與者請於新增參與人資料處勾選加入會員資料。</li>
+                    <li><span>套裝活動住宿房型依照人數分配，無法選擇</span>；本園區共有三種人數房型（單人、雙人、四人），如報名人數為四人，將優先以雙人房加床形式提供，歡迎大家揪團參加！</li>
+                    <li>點選報名即視為清楚了解以上資訊，接下來快點手刀報名吧！</li>
+                </ul>
+                <div class="notice-btn">
+                    <a href="#">手刀報名 GO</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="deco-img">
-        <img src="./img/component/illustration/illustration-68.png" alt="">
+        <div class="deco-img">
+            <img src="./img/component/illustration/illustration-68.png" alt="">
+        </div>
     </div>
 </div>
 
@@ -68,15 +61,13 @@ $pageName = '套裝活動報名注意事項'; // 頁面名稱
 
 
 
-<?php include __DIR__. '/parts/nap-footer.php'; ?>
+<?php include __DIR__ . '/parts/nap-footer.php'; ?>
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
-<?php include __DIR__. '/parts/scripts.php'; ?>
+<?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 
 
-<?php include __DIR__. '/parts/html-foot.php'; ?>
-
-
+<?php include __DIR__ . '/parts/html-foot.php'; ?>
