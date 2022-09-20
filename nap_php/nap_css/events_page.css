@@ -699,7 +699,7 @@ body{
 .booking-date{
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    
 }
     @media screen and (min-width: 768px){
         .booking-date{
@@ -816,7 +816,6 @@ body{
             display: block;
         }
     }
-
 /* ------------分頁按鈕------------ */
 button {
     background-color: none;
