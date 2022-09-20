@@ -4899,6 +4899,7 @@ input[type="button"].btn-block {
   border-radius: 40px;
   text-align: center;
   margin: 20px;
+  text-decoration: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .page-link {
@@ -4911,6 +4912,7 @@ input[type="button"].btn-block {
   background-color: #D6D48A;
   border: none;
   border-color: #dee2e6;
+  text-decoration: none;
 }
 .page-link:focus {
   z-index: 3;

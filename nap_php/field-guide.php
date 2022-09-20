@@ -37,14 +37,14 @@ $furArray = ['短毛','長毛'];
 <?php include __DIR__. '/parts/html-head.php'; ?>
 <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css">
 
-<!-- 加自己的css -->
-    <link rel="stylesheet" href="./nap_css/filed-guide.css">
+
     
 
     
 </head>
 <?php include __DIR__. '/parts/navbar.php'; ?>
-
+<!-- 加自己的css -->
+<link rel="stylesheet" href="./nap_css/filed-guide.css">
 
 
     <!-- banner -->
