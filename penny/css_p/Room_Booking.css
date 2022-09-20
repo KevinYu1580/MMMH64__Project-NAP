@@ -120,6 +120,28 @@ body{
     color: var(--primaryColor_dark);
     padding-bottom: 10px;
 }
+/* 選擇日期 */
+.checkIndate, .checkOutdate{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.choose-textbox input{
+    width: 120%;
+}
+.ui-datepicker-header{
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
+.ui-datepicker-calendar .ui-state-hover{
+    color: var(--white);
+    background: var(--primaryColor_dark);
+}
+/* 選擇間數 */
 .customSelect-box{
     display: none;
     transition: 0.3s;
@@ -731,12 +753,4 @@ input{
         background-color: var(--primaryColor_light);
         transition: 0.3s;
     }
-}
-
-.choose-textbox input{
-    width: 90%;
-    /* opacity: 0; */
-    /* display: none; */
-    /* visibility: hidden; */
-    /* cursor: pointer; */
 }

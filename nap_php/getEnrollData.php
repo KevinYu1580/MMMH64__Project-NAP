@@ -16,9 +16,9 @@ if(isset($_POST['add-to-cart'])){
         $s_mobile = $mobile[$index];
         $s_birthdate = $birthdate[$index];
         $s_idnum = $idnum[$index];
-        $s_eat = $eat[$index];
+        // $s_eat = $eat;
 
-        $query = "INSERT INTO event_enroll_list(name,mobile,birthdate,id_num,eating_habit) VALUES('$s_name','$s_mobile','$s_birthdate','$s_idnum','$s_eat')";
+        $query = "INSERT INTO event_enroll_list(name,mobile,birthdate,id_num,eating_habit) VALUES('$s_name','$s_mobile','$s_birthdate','$s_idnum','$eat')";
         $query_run = mysqli_query($connect, $query);
 
 
