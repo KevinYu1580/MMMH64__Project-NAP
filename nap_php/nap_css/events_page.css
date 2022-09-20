@@ -435,7 +435,7 @@ body{
     max-width: 240px;
     background-color: var(--subColor_bgc);
     border-radius: 20px;
-    box-shadow: 5px 5px #0000002d;
+    box-shadow: 3px 3px #00000015;
     position: relative;
     margin-right: 30px;
 }
@@ -548,7 +548,7 @@ body{
         max-width: 1080px;
         background-color: var(--subColor_bgc);
         border-radius: 20px;
-        box-shadow: 10px 10px #0000002d;
+        box-shadow: 10px 10px #00000015;
         position: relative;
         margin: auto auto 50px;
     }

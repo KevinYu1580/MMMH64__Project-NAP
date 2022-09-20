@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$connect = mysqli_connect("localhost", "chiyin_niyihc", "Admin_chiyin0209", "nap_cy_v2");
+$connect = mysqli_connect("localhost", "chiyin_niyihc", "Admin_chiyin0209", "test-enroll");
 
 if(isset($_POST['add-to-cart'])){
     $name = $_POST["name"];
@@ -16,9 +16,9 @@ if(isset($_POST['add-to-cart'])){
         $s_mobile = $mobile[$index];
         $s_birthdate = $birthdate[$index];
         $s_idnum = $idnum[$index];
-        // $s_eat = $eat;
+        $s_eat = $eat[$index];
 
-        $query = "INSERT INTO event_enroll_list(name,mobile,birthdate,id_num,eating_habit) VALUES('$s_name','$s_mobile','$s_birthdate','$s_idnum','$eat')";
+        $query = "INSERT INTO event_enroll_list(name,mobile,birthdate,id_num,eating_habit) VALUES('$s_name','$s_mobile','$s_birthdate','$s_idnum','$s_eat')";
         $query_run = mysqli_query($connect, $query);
 
 

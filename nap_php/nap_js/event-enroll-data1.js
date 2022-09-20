@@ -1,65 +1,65 @@
 var amount = 0;
 CheckAmount();
 
+const tpl_func = (n) => {
+	return `
+	<div class="enroll-content-form">
+		<div class="delete-btn">
+			<a class="delete" href="javascript:" type="button">
+				<img src="./img/component/icon/xmark.svg" alt="">
+			</a>
+		</div>
+		<div class="count-num"></div>
+		<div class="enroll-other">
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" name="add-member-data">
+				<label class="form-check-label" for="exampleCheck1">加入會員資料（會員為活動參與者）</label>
+			</div>
+			<div class="mb-3">
+				<label for="name_${n}" class="form-label">姓名</label>
+				<input type="text" class="form-control" id="name_${n}" name="name[]" required>
+			</div>
+			<div class="mb-3">
+				<label for="mobile_${n}" class="form-label">手機</label>
+				<input type="text" class="form-control" id="mobile_${n}" name="mobile[]" maxlength="10" required>
+			</div>
+			<div class="mb-3">
+				<label for="birthdate_${n}" class="form-label">生日</label>
+				<input type="date" class="form-control" id="birthdate_${n}" name="birthdate[]" required>
+			</div>
+			<div class="mb-3">
+				<label for="id-num_${n}" class="form-label">身分證字號</label>
+				<input type="text" class="form-control" id="id-num_${n}" name="id-num[]" maxlength="10" required>
+			</div>
+			<div class="mb-3">
+				<label for="id-num" class="form-label">飲食習慣</label>
+				<fieldset>
+					<div class="mb-3">
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="inlineRadio1_${n}" name="eating_habit[${n}]" value="葷">
+							<label class="form-check-label" for="inlineRadio1_${n}">葷</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="inlineRadio2_${n}" name="eating_habit[${n}]" value="全素">
+							<label class="form-check-label" for="inlineRadio2_${n}">全素</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" id="inlineRadio3_${n}" name="eating_habit[${n}]" value="奶蛋素">
+							<label class="form-check-label" for="inlineRadio3_${n}">奶蛋素</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	`;
+};
 $(document).ready(function () {
 	$(document).on('click', '.add-member-btn', function () {
-		if (amount < 4) {
+		const myAmount = getEnrollContentFormNum();
+		if (myAmount < 4) {
 			$('.enroll-content-null').hide();
-			$('#enroll-area').prepend(
-				'<div class="enroll-content-form">\
-                                <div class="delete-btn">\
-                                    <a class="delete" href="javascript:" type="button">\
-                                        <img src="./img/component/icon/xmark.svg" alt="">\
-                                    </a>\
-                                </div>\
-                                <div class="count-num"></div>\
-                                <div class="enroll-other">\
-                                    <div class="mb-3 form-check">\
-                                        <input type="checkbox" class="form-check-input" name="add-member-data">\
-                                        <label class="form-check-label" for="exampleCheck1">加入會員資料（會員為活動參與者）</label>\
-                                    </div>\
-                                    <div class="mb-3">\
-                                        <label for="name" class="form-label">姓名</label>\
-                                        <input type="text" class="form-control" id="name" name="name[]" required>\
-                                    </div>\
-                                    <div class="mb-3">\
-                                        <label for="phone" class="form-label">手機</label>\
-                                        <input type="text" class="form-control" id="mobile" name="mobile[]" maxlength="10" required>\
-                                    </div>\
-                                    <div class="mb-3">\
-                                        <label for="birthdate" class="form-label">生日</label>\
-                                        <input type="date" class="form-control" id="birthdate" name="birthdate[]" required>\
-                                    </div>\
-                                    <div class="mb-3">\
-                                        <label for="id-num" class="form-label">身分證字號</label>\
-                                        <input type="text" class="form-control" id="id-num" name="id-num[]" maxlength="10" required>\
-                                    </div>\
-                                    <div class="mb-3">\
-                                        <label for="id-num" class="form-label">飲食習慣</label>\
-                                        <fieldset>\
-                                            <div class="mb-3">\
-                                                <div class="form-check form-check-inline">\
-                                                    <input class="form-check-input" type="radio"\
-                                                        id="inlineRadio1" name="eating-habit" value="葷">\
-                                                    <label class="form-check-label" for="inlineRadio1">葷</label>\
-                                                </div>\
-                                                <div class="form-check form-check-inline">\
-                                                    <input class="form-check-input" type="radio"\
-                                                        id="inlineRadio2" name="eating-habit"\
-                                                        value="全素">\
-                                                    <label class="form-check-label" for="inlineRadio2">全素</label>\
-                                                </div>\
-                                                <div class="form-check form-check-inline">\
-                                                    <input class="form-check-input" type="radio"\
-                                                        id="inlineRadio3" name="eating-habit" value="奶蛋素">\
-                                                    <label class="form-check-label" for="inlineRadio3">奶蛋素</label>\
-                                                </div>\
-                                            </div>\
-                                        </fieldset>\
-                                    </div>\
-                                </div>\
-                            </div>'
-			);
+			$('#enroll-area').prepend(tpl_func(myAmount));
 			amount++;
 		}
 
@@ -123,4 +123,8 @@ function CheckAmount() {
 	} else {
 		$('.enroll-card-btn').removeClass('disabled');
 	}
+}
+
+function getEnrollContentFormNum() {
+	return $('.enroll-content-form').length;
 }

@@ -95,7 +95,8 @@ $pageName = '套裝活動報名'; // 頁面名稱
 
 
                 <form action="getEnrollData.php" method="POST" id="enroll-list">
-                    <!-- <div class="enroll-content-form">
+                    <!-- 
+                        <div class="enroll-content-form">
                         <div class="delete-btn">
                             <a class="delete" href="javascript:" type="button">
                                 <img src="./img/component/icon/xmark.svg" alt="">
@@ -143,7 +144,8 @@ $pageName = '套裝活動報名'; // 頁面名稱
                                 </fieldset>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
+                -->
 
 
                     <div id="enroll-area">
