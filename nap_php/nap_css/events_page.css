@@ -814,12 +814,8 @@ body{
     @media screen and (min-width: 768px){
         .page-item:not(:first-child):not(:last-child) .page-link {
             display: block;
-            /* margin-bottom: 10px; */
         }
     }
-/* .page-link a{
-    margin-bottom: 30px;
-} */
 /* ------------分頁按鈕------------ */
 button {
     background-color: none;
