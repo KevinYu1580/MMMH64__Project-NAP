@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$connect = mysqli_connect("localhost", "chiyin_niyihc", "Admin_chiyin0209", "test-enroll");
+$connect = mysqli_connect("localhost", "chiyin_niyihc", "Admin_chiyin0209", "nap_cy_v2");
 
 if(isset($_POST['add-to-cart'])){
     $name = $_POST["name"];

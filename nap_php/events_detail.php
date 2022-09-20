@@ -386,11 +386,12 @@ $pageName = 'home'; // 頁面名稱
 <?php include __DIR__ . '/parts/nap-footer.php'; ?>
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
+
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="./nap_js/component.js"></script>
-<script src="./nap_js/events_detail.js"></script>
-<?php include __DIR__ . '/parts/scripts.php'; ?>
 
+<?php include __DIR__ . '/parts/scripts.php'; ?>
+<script src="./nap_js/events_detail.js"></script>
 <!-- 自己的js放在這 -->
 
 
