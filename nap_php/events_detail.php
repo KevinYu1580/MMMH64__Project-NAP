@@ -84,8 +84,8 @@ $pageName = 'home'; // 頁面名稱
                             <p>NT$
                             <h6>2,999</h6> / 人</p>
                         </div>
-                        <div class="joinbtn">
-                            <a href="../chiyin/event-enroll-notice.html">手刀報名GO</a>
+                        <div class="join-btn">
+                            <a href="#">手刀報名 GO</a>
                         </div>
                     </div>
                 </div>

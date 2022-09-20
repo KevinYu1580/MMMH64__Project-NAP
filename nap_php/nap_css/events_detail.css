@@ -157,7 +157,9 @@ body{
 }
 .day1 ul, .day2 ul{
     text-align: center;
+    padding: 0;
     padding-bottom: 10px;
+
 } 
 .day1 li, .day2 li{
     padding-bottom: 10px;
@@ -175,7 +177,7 @@ body{
     color: var(--subColor_highLightRed);
 }
 /* ---------活動詳細頁-按鈕---------- */
-.joinbtn{
+/* .joinbtn{
     margin: 40px 0;
 }
 .joinbtn a{
@@ -185,7 +187,7 @@ body{
     padding: 10px 30px;
     border-radius: 30px;
     font-size: var(--headline_20px);
-}
+} */
 @media screen and (min-width:768px) {
     .events-detail{
         margin-top: 120px;
@@ -292,6 +294,7 @@ body{
     /* ---------活動詳細頁-價錢---------- */
     .price-joinbtn{
         text-align: center;
+        margin-left: 30px;
     }
     .price{
         font-size: var(--headline_32px);
@@ -302,7 +305,7 @@ body{
         color: var(--subColor_highLightRed);
     }
     /* ---------活動詳細頁-按鈕---------- */
-    .joinbtn{
+    /* .joinbtn{
         margin: 40px 0;
     }
     .joinbtn a{
@@ -316,7 +319,7 @@ body{
     .joinbtn a:hover{
         background-color: var(--primaryColor_light);
         transition: 0.3s;
-    }
+    } */
 }
 
 
@@ -999,7 +1002,42 @@ p.ft-card-p-mb{
     }
 }
 
+/* ---------------手刀報名GO(NEW)------------- */
+.join-btn{
+    width: 200px;
+    height: 45px;
+    background-color: var(--primaryColor_dark);
+    border-radius: var(--btn-radius);
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+    @media screen and (min-width: 768px){
+        .join-btn{
+            width: 240px;
+            height: 55px;
+            margin-top: 15px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    }
 
+.join-btn a{
+    color: var(--white);
+    font-size: var(--headline_24px);
+    text-decoration: none;
+}
+    @media screen and (min-width: 768px){
+        .join-btn a{
+            font-size: var(--headline_28px);
+        }
+    }
+
+.join-btn:hover{
+    background-color: var(--primaryColor_light);
+}
 
 
 /* footer-mobile */

@@ -1,7 +1,7 @@
 <?php
 
 $db_host = 'localhost';
-$db_name = 'nap_cy_macbook';
+$db_name = 'nap_cy_v2';
 $db_user = 'chiyin_niyihc';
 $db_pass = 'Admin_chiyin0209';
 
