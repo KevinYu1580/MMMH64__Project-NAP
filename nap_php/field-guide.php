@@ -69,7 +69,7 @@ $furArray = ['短毛','長毛'];
                     <div class="why-card-box d-flex">
                         <div class="why-card why-card-offset1">
                             <div class="why-card-img">
-                                <img src="./img/self/h/illustration-35.png" alt="">
+                            <img src="./img/self/h/illustration-35.png" alt="">
                                 <h4>社會化</h4>
                                 <p>我們的狗狗都通過了N.A.P. 的訓練和社會化，透過各種相處與陪伴，讓他們能夠快速適應未來的家。</p>
                             </div>
@@ -113,7 +113,7 @@ $furArray = ['短毛','長毛'];
             <div class="button-block-row-pc">
                 <h3>為什麼要領養 N.A.P. 的浪浪 ｜</h3>
                 <div class="button-block-icon-pc">
-                    <img src="../img/component/icon/Exclude-1.svg" alt="">
+                    <img src="./img/component/icon/Exclude-1.svg" alt="">
                 </div>
             </div>   
         </div>
@@ -213,7 +213,7 @@ $furArray = ['短毛','長毛'];
     <!-- 篩選卡片 -->
     <section class="pet-card">
         <div class="pet-card-cnotainer">
-            <div class="pet-card-row d-flex flex-wrap">
+            <div class="pet-card-row d-flex flex-wrap" id="petCard">
                 <?php foreach ($rows as $r) : ?>
                     <div class="pet-card-col col-6 col-md-4">
                         <div class="pet-card-content">
@@ -290,34 +290,12 @@ $furArray = ['短毛','長毛'];
         
     </section>
         <!------ 頁數選擇器 PC -------->
-        <div class="page_slec">
-            <button class="page_click">
-                <img width="" src="../nap_php/img/component/icon/arrow_lastpage.svg" alt="">
-            </button>
-            <!-- 頁碼 -->
-            <div class="indic_wrap">
-                <button class="page_indic">
-                    <span class="napPage">1</span>
-                </button>
-                <button class="page_indic">
-                    <span class="napPage">2</span>
-                </button>
-                <button class="page_indic">
-                    <span class="napPage">3</span>
-                </button>
-            </div>
-            <!---->
-            <button class="page_click">
-                <img width="" src="./img/component/icon/arrow_nextpage.svg" alt="">
-            </button>
-        </div>
-        <!------ 頁數選擇器 PC -------->
 <div class="page_slec">
 <nav aria-label="Page navigation example">
     <ul class="pagination">
         <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
             <a class="page-link" href="?<?php $qsp['page'] = $page - 1;
-                                        echo http_build_query($qsp); ?>">
+                                        echo http_build_query($qsp); ?>#petCard">
                 <svg width="112" height="40" viewBox="0 0 112 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="arrow" d="M61.4 16.68V18.18H69.62V16.68H61.4ZM53.02 26.16V27.66H70.98V26.16H53.02ZM60.54 10.5V26.96H62.12V10.5H60.54ZM72.88 18.38V20.02H91.18V18.38H72.88ZM97.08 18.62H107.18V20.46H97.08V18.62ZM97.08 21.62H107.18V23.46H97.08V21.62ZM97.08 15.66H107.18V17.46H97.08V15.66ZM95.52 14.46V24.66H108.78V14.46H95.52ZM103.48 25.98C105.82 26.78 108.2 27.84 109.62 28.62L111.02 27.6C109.46 26.82 106.9 25.78 104.54 25L103.48 25.98ZM93.62 11.24V12.62H110.32V11.24H93.62ZM101.24 11.82C101.12 12.74 100.82 14.08 100.54 14.96L101.96 15.22C102.28 14.4 102.66 13.18 103 12.04L101.24 11.82ZM99.18 24.9C97.8 25.82 95.06 26.86 92.9 27.44C93.24 27.76 93.7 28.28 93.94 28.6C96.08 28 98.8 26.94 100.54 25.88L99.18 24.9Z" fill="#4C4C4C" />
                     <path class="arrow" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7C8C38" />
@@ -325,18 +303,18 @@ $furArray = ['短毛','長毛'];
                 </svg>
             </a>
         </li>
-        <?php for ($i = $page - 6; $i <= $page + 6; $i++) :
+        <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
             if ($i >= 1 and $i <= $totalPages) :
                 $qsp['page'] = $i;
         ?>
                 <li class="page-item <?= $page == $i ? 'active' : '' ?>">
-                    <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
+                    <a class="page-link" href="?<?= http_build_query($qsp); ?>#petCard"><?= $i ?></a>
                 </li>
         <?php endif;
         endfor; ?>
         <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
             <a class="page-link" href="?<?php $qsp['page'] = $page + 1;
-                                        echo http_build_query($qsp); ?>">
+                                        echo http_build_query($qsp); ?>#petCard">
                 <svg width="112" height="40" viewBox="0 0 112 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="arrow" d="M1.1 11.68V13.2H18.9V11.68H1.1ZM8.8 12.88V28.58H10.38V12.88H8.8ZM9.68 17.62C12.1 18.86 15.22 20.76 16.76 22L17.82 20.64C16.22 19.44 13.06 17.62 10.66 16.46L9.68 17.62ZM20.88 18.38V20.02H39.18V18.38H20.88ZM45.08 18.62H55.18V20.46H45.08V18.62ZM45.08 21.62H55.18V23.46H45.08V21.62ZM45.08 15.66H55.18V17.46H45.08V15.66ZM43.52 14.46V24.66H56.78V14.46H43.52ZM51.48 25.98C53.82 26.78 56.2 27.84 57.62 28.62L59.02 27.6C57.46 26.82 54.9 25.78 52.54 25L51.48 25.98ZM41.62 11.24V12.62H58.32V11.24H41.62ZM49.24 11.82C49.12 12.74 48.82 14.08 48.54 14.96L49.96 15.22C50.28 14.4 50.66 13.18 51 12.04L49.24 11.82ZM47.18 24.9C45.8 25.82 43.06 26.86 40.9 27.44C41.24 27.76 41.7 28.28 41.94 28.6C44.08 28 46.8 26.94 48.54 25.88L47.18 24.9Z" fill="#4C4C4C" />
                     <path class="arrow" d="M92 40C80.9543 40 72 31.0457 72 20C72 8.9543 80.9543 0 92 0C103.046 0 112 8.9543 112 20C112 31.0457 103.046 40 92 40Z" fill="#7C8C38" />

@@ -101,6 +101,7 @@ font-family: custom-font;
     background-color: var(--subColor_bgc);
     border-radius: 20px 20px 0 0;
     height: 30px;
+    margin: auto;
 }
 .banner-block-up-container{
     display: flex; 
@@ -379,13 +380,17 @@ font-family: custom-font;
     }
     .napSwitch_two,.napSwitch_three{
         margin: 8px 0;
-        font-size: 20px;
+        
+        
     }
     .napSwitch_two .sec{
         padding:8px 40px ;
     }
     .napSwitch_three .sec {
         padding: 8px 32px;
+    }
+    .sec{
+        font-size: 24px;
     }
 .filter-title-pc h2{
         font-size: 40px ;
@@ -405,11 +410,12 @@ font-family: custom-font;
 .pet-card-col {
     padding: 5px;
     cursor: pointer;
-    /* border: 1px solid red; */
+    margin: 20px 0;
 }
 
 .pet-card-row{
     display: flex;
+    flex-wrap: wrap;
 }
 .pet-card-content{
     background-color: var(--subColor_bgc);
@@ -474,7 +480,7 @@ justify-content: center;
     justify-content: center;
     color: var(--subColor_text);
     font-size: var(--p_10px);
-    padding: 10px 0 30px ;
+    padding: 10px 0 10px ;
 }
 @media screen and (min-width:576px){
     .pet-card-col{
@@ -517,6 +523,20 @@ button:focus{
     }  
 
 }
+/* ------------分頁按鈕------------ */
+
+.page-item.disabled .page-link .arrow{
+    fill: var(--black_500);
+}
+.page-item:not(:first-child):not(:last-child) .page-link {
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .page-item:not(:first-child):not(:last-child) .page-link {
+            display: block;
+            /* margin-bottom: 10px; */
+        }
+    }
 
 /* 黑色光箱 */
 .close{
