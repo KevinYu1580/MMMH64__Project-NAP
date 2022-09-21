@@ -3,6 +3,7 @@
     src: local(NotoSansTC), url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
     unicode-range: U+4E00-9FFF;
 }
+
 @font-face {
     font-family: custom-font;
     src: local(Arial), url('../font/Arial.ttf') format("truetype");
@@ -22,7 +23,7 @@
     --subColor_lightRed: #F67557;
     --subColor_highLightRed: #B14F42;
     --subColor_text: #4C4C4C;
-    
+
     --black_core: #000000;
     --black_900: #2D2D2D;
     --black_800: #4B4B4B;
@@ -32,15 +33,15 @@
     --black_200: #F6F6F6;
     --white: #ffffff;
 
-    --headline_50px:80px;
-    --headline_60px:60px;
-    --headline_40px:40px;
-    --headline_32px:32px;
-    --headline_28px:28px;
-    --headline_24px:24px;
-    --headline_20px:20px;
-    --subtitle_18px:18px;
-    --subtitle_16px:16px;
+    --headline_50px: 80px;
+    --headline_60px: 60px;
+    --headline_40px: 40px;
+    --headline_32px: 32px;
+    --headline_28px: 28px;
+    --headline_24px: 24px;
+    --headline_20px: 20px;
+    --subtitle_18px: 18px;
+    --subtitle_16px: 16px;
     --p_16px: 16px;
     --p_14px: 14px;
     --p_12px: 12px;
@@ -53,38 +54,43 @@
 
 
 
-body{
+body {
     font-family: custom-font;
     color: var(--subColor_text);
 }
 
 /* 活動詳細頁banner | events-detail */
-.events-detail{
+.events-detail {
     margin-top: 68px;
     margin-bottom: 70px;
 }
-.events-detail-container{
+
+.events-detail-container {
     max-width: calc(100% - 80px);
     margin: auto;
 }
+
 /* ---------活動詳細頁-圖片---------- */
-.detail-imgbox{
+.detail-imgbox {
     width: 100%;
     height: 300px;
     overflow: hidden;
     border-radius: 20px;
     margin-bottom: 20px;
 }
-.detail-imgbox img{
+
+.detail-imgbox img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 /* ---------活動詳細頁-收藏按鈕---------- */
-.detail-textbox{
+.detail-textbox {
     position: relative;
 }
-.like-btn{
+
+.like-btn {
     position: absolute;
     top: 220px;
     right: 10px;
@@ -97,57 +103,71 @@ body{
     align-items: center;
     cursor: pointer;
 }
-.like-btn svg{
+
+.like-btn svg {
     width: 70%;
     height: 100%;
     object-fit: contain;
 }
-.like-btn #outline path{
+
+.like-btn #outline path {
     fill: var(--subColor_lightRed);
 }
-.like-btn #cover path{
+
+.like-btn #cover path {
     fill: var(--subColor_lightRed);
     display: none;
 }
-.like-btn #cover{
+
+.like-btn #cover {
     position: absolute;
     top: 0;
 }
+
 /* ---------活動詳細頁-標題---------- */
-.detail-textbox h3, .detail-textbox h2{
+.detail-textbox h3,
+.detail-textbox h2 {
     text-align: center;
     font-size: var(--headline_28px);
     font-weight: 600;
     color: var(--primaryColor_dark);
     padding-bottom: 15px;
 }
-.detail-textbox h2{
+
+.detail-textbox h2 {
     padding-bottom: 30px;
     margin-bottom: 30px;
     border-bottom: 2px solid var(--primaryColor_dark);
 }
+
 /* ---------活動詳細頁-集合時間---------- */
-.detail-notice{
+.detail-notice {
     padding-bottom: 15px;
 }
-.detail-notice:first-of-type{
+
+.detail-notice:first-of-type {
     padding-top: 15px;
 }
-.detail-notice span{
+
+.detail-notice span {
     display: none;
 }
-.icon-box{
+
+.icon-box {
     width: 30px;
     aspect-ratio: 1/1;
     margin-right: 15px;
 }
-.icon-box img{
+
+.icon-box img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+
 /* ---------活動詳細頁-日程---------- */
-.day1 h5, .day2 h5{
+.day1 h5,
+.day2 h5 {
     font-size: var(--headline_20px);
     background-color: var(--primaryColor_dark);
     color: var(--white);
@@ -155,32 +175,38 @@ body{
     padding: 5px 0;
     margin-bottom: 10px;
 }
-.day1 ul, .day2 ul{
-    text-align: center;
-    padding: 0;
-    padding-bottom: 10px;
 
-} 
-.day1 li, .day2 li{
+.day1 ul,
+.day2 ul {
+    text-align: center;
     padding-bottom: 10px;
 }
+
+.day1 li,
+.day2 li {
+    padding-bottom: 10px;
+}
+
 /* ---------活動詳細頁-價錢---------- */
-.price-joinbtn{
+.price-joinbtn {
     text-align: center;
 }
-.price{
+
+.price {
     font-size: var(--headline_20px);
 }
-.price h6{
+
+.price h6 {
     font-size: var(--headline_40px);
     font-weight: 600;
     color: var(--subColor_highLightRed);
 }
+
 /* ---------活動詳細頁-按鈕---------- */
 /* .joinbtn{
     margin: 40px 0;
-}
-.joinbtn a{
+} */
+/* .joinbtn a{
     text-decoration: none;
     color: var(--white);
     background-color: var(--primaryColor_dark);
@@ -189,34 +215,39 @@ body{
     font-size: var(--headline_20px);
 } */
 @media screen and (min-width:768px) {
-    .events-detail{
+    .events-detail {
         margin-top: 120px;
         margin-bottom: 100px;
     }
-    .events-detail-container{
+
+    .events-detail-container {
         max-width: calc(100% - 480px);
         margin: auto;
     }
+
     /* ---------活動詳細頁-圖片---------- */
-    .detail-imgbox{
+    .detail-imgbox {
         width: 100%;
         height: 750px;
         overflow: hidden;
         border-radius: 20px;
         margin-bottom: 20px;
     }
-    .detail-imgbox img{
+
+    .detail-imgbox img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
     /* ---------活動詳細頁-文案框---------- */
-    .detail-textbox{
+    .detail-textbox {
         padding: 0 50px;
         position: relative;
     }
+
     /* ---------活動詳細頁-收藏按鈕---------- */
-    .like-btn{
+    .like-btn {
         position: absolute;
         top: 70px;
         right: 50px;
@@ -229,53 +260,65 @@ body{
         align-items: center;
         cursor: pointer;
     }
-    .like-btn svg{
+
+    .like-btn svg {
         width: 70%;
         height: 100%;
         object-fit: contain;
     }
-    .like-btn #cover{
+
+    .like-btn #cover {
         fill: var(--subColor_lightRed);
     }
-    
+
     /* ---------活動詳細頁-標題---------- */
-    .detail-textbox h3, .detail-textbox h2{
+    .detail-textbox h3,
+    .detail-textbox h2 {
         text-align: left;
         font-size: var(--headline_40px);
         font-weight: 600;
         color: var(--primaryColor_dark);
         padding-bottom: 30px;
     }
-    .detail-textbox h2{
+
+    .detail-textbox h2 {
         padding-bottom: 30px;
         margin-bottom: 30px;
         border-bottom: 2px solid var(--primaryColor_dark);
     }
+
     /* ---------活動詳細頁-集合時間---------- */
-    .detail-notice{
+    .detail-notice {
         padding-bottom: 20px;
     }
-    .detail-notice:first-of-type{
+
+    .detail-notice:first-of-type {
         padding-top: 20px;
     }
-    .detail-notice p{
+
+    .detail-notice p {
         font-size: var(--headline_24px);
     }
-    .detail-notice span{
+
+    .detail-notice span {
         display: inline-block;
     }
-    .icon-box{
+
+    .icon-box {
         width: 40px;
         aspect-ratio: 1/1;
         margin-right: 15px;
     }
-    .icon-box img{
+
+    .icon-box img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
+
     /* ---------活動詳細頁-日程---------- */
-    .day1 h5, .day2 h5{
+    .day1 h5,
+    .day2 h5 {
         font-size: var(--headline_28px);
         background-color: var(--primaryColor_dark);
         color: var(--white);
@@ -283,32 +326,40 @@ body{
         padding: 10px 0;
         margin-bottom: 20px;
     }
-    .day1 ul, .day2 ul{
+
+    .day1 ul,
+    .day2 ul {
         text-align: center;
         padding-bottom: 10px;
-    } 
-    .day1 li, .day2 li{
+    }
+
+    .day1 li,
+    .day2 li {
         padding-bottom: 20px;
         font-size: var(--headline_24px);
     }
+
     /* ---------活動詳細頁-價錢---------- */
-    .price-joinbtn{
+    .price-joinbtn {
         text-align: center;
-        margin-left: 30px;
     }
-    .price{
+
+    .price {
         font-size: var(--headline_32px);
     }
-    .price h6{
+
+    .price h6 {
         font-size: var(--headline_60px);
         font-weight: 600;
         color: var(--subColor_highLightRed);
     }
+
     /* ---------活動詳細頁-按鈕---------- */
-    /* .joinbtn{
+    .joinbtn {
         margin: 40px 0;
     }
-    .joinbtn a{
+
+    .joinbtn a {
         text-decoration: none;
         color: var(--white);
         background-color: var(--primaryColor_dark);
@@ -316,10 +367,11 @@ body{
         border-radius: 30px;
         font-size: var(--headline_28px);
     }
-    .joinbtn a:hover{
+
+    .joinbtn a:hover {
         background-color: var(--primaryColor_light);
         transition: 0.3s;
-    } */
+    }
 }
 
 
@@ -327,132 +379,158 @@ body{
 
 
 /* 比外表重要的事 | important-thing */
-.important-thing{
+.important-thing {
     background-color: var(--subColor_bgc);
     position: relative;
 }
-.important-thing-container{
+
+.important-thing-container {
     max-width: calc(100% - 80px);
     margin: auto;
 }
+
 /* ---------比外表重要的事-文案---------- */
-.important-thing-textbox{
+.important-thing-textbox {
     padding: 60px 0 120px;
 }
-.important-thing-textbox h3{
+
+.important-thing-textbox h3 {
     font-size: var(--headline_20px);
     text-align: center;
     padding-bottom: 15px;
 }
-.important-thing-textbox h2{
+
+.important-thing-textbox h2 {
     font-size: var(--headline_32px);
     text-align: center;
     padding-bottom: 15px;
     font-weight: 600;
     color: var(--secondaryColor_default);
 }
-p.mportant-thing-mb{
+
+p.mportant-thing-mb {
     text-align: justify;
     line-height: 1.8;
 }
-.mportant-thing-pc{
+
+.mportant-thing-pc {
     display: none;
 }
+
 /* ---------比外表重要的事-跑馬燈---------- */
-.important-thing-imgbox-mb{
+.important-thing-imgbox-mb {
     width: 100%;
     overflow: hidden;
     position: absolute;
     left: 0;
     bottom: -50px;
 }
-.run-light-box{
+
+.run-light-box {
     width: 400%;
 }
-.run-light-1{
+
+.run-light-1 {
     width: 100%;
     animation: marqee 15s linear infinite;
     left: 0%;
 }
-.run-light-2{
+
+.run-light-2 {
     width: 100%;
     animation: marqee2 15s linear infinite;
     animation-delay: -15s;
-	left: 0%;
+    left: 0%;
 }
-.run-light-1 img{
+
+.run-light-1 img {
     width: 100%;
     padding-right: 50px;
 }
-.run-light-2 img{
+
+.run-light-2 img {
     width: 100%;
     padding-right: 50px;
 }
+
 @keyframes marqee {
-    from{
+    from {
         transform: translateX(0%);
     }
-    to{
+
+    to {
         transform: translateX(-100%);
     }
 }
-@keyframes marqee2{
-    from{
+
+@keyframes marqee2 {
+    from {
         transform: translateX(0%)
     }
-    to{
+
+    to {
         transform: translateX(-100%)
     }
- }
-.important-thing-imgbox-pc{
+}
+
+.important-thing-imgbox-pc {
     display: none;
 }
 
 @media screen and (min-width:768px) {
-    .important-thing-container{
+    .important-thing-container {
         max-width: calc(100% - 720px);
         margin: auto;
     }
+
     /* ---------比外表重要的事-文案---------- */
-    .important-thing{
+    .important-thing {
         background-color: var(--subColor_bgc);
         position: relative;
         height: 100vh;
     }
-    .important-thing-textbox{
+
+    .important-thing-textbox {
         padding: 60px 0 0px;
     }
-    .important-thing-textbox h3{
+
+    .important-thing-textbox h3 {
         font-size: var(--headline_40px);
         text-align: center;
         padding-bottom: 40px;
     }
-    .important-thing-textbox h2{
+
+    .important-thing-textbox h2 {
         font-size: var(--headline_60px);
         text-align: center;
         padding-bottom: 40px;
         font-weight: 600;
         color: var(--secondaryColor_default);
     }
-    p.mportant-thing-mb{
+
+    p.mportant-thing-mb {
         display: none;
     }
-    p.mportant-thing-pc{
+
+    p.mportant-thing-pc {
         display: block;
         font-size: var(--headline_20px);
         line-height: 2.8;
         text-align: justify;
     }
+
     /* ---------比外表重要的事-圖片---------- */
-    .important-thing-imgbox-mb{
+    .important-thing-imgbox-mb {
         display: none;
     }
-    .important-thing-imgbox-pc-parent{
+
+    .important-thing-imgbox-pc-parent {
         perspective: 800px;
         transform-style: preserve-3d;
         backface-visibility: hidden;
     }
-    .important-thing-imgbox-pc{
+
+    .important-thing-imgbox-pc {
         display: block;
         position: relative;
         perspective: 800px;
@@ -460,42 +538,48 @@ p.mportant-thing-mb{
         margin: auto;
         transition: 1s;
     }
-    .important-thing-imgbox-pc img{
+
+    .important-thing-imgbox-pc img {
         position: absolute;
         backface-visibility: hidden;
         width: 100%;
     }
-    
-    .important-thing-imgbox-pc{
+
+    .important-thing-imgbox-pc {
         backface-visibility: hidden;
     }
-    .important-thing-imgbox-pc img{
+
+    .important-thing-imgbox-pc img {
         backface-visibility: hidden;
         transform: rotateY(180deg);
         transition: 1.5s ease;
     }
-    img.front{
+
+    img.front {
         transform: rotateY(0deg);
     }
- }
+}
 
 
- /* 毛孩專家與合作夥伴 | expert-partner */
- .expert-partner{
+/* 毛孩專家與合作夥伴 | expert-partner */
+.expert-partner {
     max-width: 100%;
     /* height: 1585px; */
     background: url('../img/component/illustration/illustration-83.png') no-repeat center center / cover;
 }
- .expert-partner-container{
+
+.expert-partner-container {
     max-width: calc(100% - 80px);
     padding-top: 80px;
     margin: 0 auto 0;
- }
+}
+
 /* ---------毛孩專家與合作夥伴-文案---------- */
-.expert-partner-textbox{
+.expert-partner-textbox {
     margin-bottom: 50px;
 }
-.expert-partner-textbox h2{
+
+.expert-partner-textbox h2 {
     font-size: var(--headline_32px);
     text-align: center;
     padding-bottom: 15px;
@@ -503,27 +587,35 @@ p.mportant-thing-mb{
     color: var(--primaryColor_dark);
     line-height: 1.4;
 }
-h3.expert-partner-mb{
+
+h3.expert-partner-mb {
     text-align: justify;
     line-height: 1.8;
 }
-h3.expert-partner-pc, .expert-partner-textbox span{
+
+h3.expert-partner-pc,
+.expert-partner-textbox span {
     display: none;
 }
+
 /* ---------毛孩專家與合作夥伴-卡片---------- */
-.expert-partner-card{
+.expert-partner-card {
     padding-bottom: 50px;
 }
-.ep-card-1{
+
+.ep-card-1 {
     transition: 1s;
 }
-.ep-card-2{
+
+.ep-card-2 {
     transition: 2.5s;
 }
-.ep-card-3{
+
+.ep-card-3 {
     transition: 3.5s;
 }
-.ep-card-imgbox{
+
+.ep-card-imgbox {
     max-width: 225px;
     aspect-ratio: 1/1;
     overflow: hidden;
@@ -531,23 +623,28 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     margin: auto;
     margin-bottom: 20px;
 }
-.ep-card-imgbox img{
+
+.ep-card-imgbox img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 100% 40%;
 }
-.ep-card-2 img{
+
+.ep-card-2 img {
     object-position: 0% 40%;
 }
-.ep-card-3 img{
+
+.ep-card-3 img {
     object-fit: none;
     object-position: 10% 45%;
 }
-.ep-card-textbox{
+
+.ep-card-textbox {
     text-align: center;
 }
-.ep-card-textbox h6{
+
+.ep-card-textbox h6 {
     width: 50%;
     margin: auto;
     background-color: var(--primaryColor_dark);
@@ -558,51 +655,61 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     border-radius: 20px;
     margin-bottom: 20px;
 }
-.ep-card-textbox p{
+
+.ep-card-textbox p {
     color: var(--primaryColor_dark);
     font-size: var(--headline_20px);
 }
+
 @media screen and (min-width:768px) {
-    .expert-partner{
+    .expert-partner {
         max-width: 100%;
         background: url('../img/component/illustration/illustration-84.png') no-repeat center center / cover;
 
 
     }
-    .expert-partner-container{
+
+    .expert-partner-container {
         max-width: calc(100% - 480px);
         margin: auto;
     }
-     /* ---------毛孩專家與合作夥伴-文案---------- */
-     .expert-partner-textbox{
+
+    /* ---------毛孩專家與合作夥伴-文案---------- */
+    .expert-partner-textbox {
         max-width: calc(100% - 240px);
         margin: auto;
         padding: 250px 0 50px;
     }
-    .expert-partner-textbox h2{
+
+    .expert-partner-textbox h2 {
         font-size: var(--headline_60px);
         text-align: center;
         padding-bottom: 40px;
         font-weight: 600;
         color: var(--primaryColor_dark);
     }
-    h3.expert-partner-mb{
+
+    h3.expert-partner-mb {
         display: none;
     }
-    h3.expert-partner-pc{
+
+    h3.expert-partner-pc {
         display: block;
         font-size: var(--headline_20px);
         line-height: 2.8;
         text-align: center;
     }
-    .expert-partner-textbox span{
+
+    .expert-partner-textbox span {
         display: inline-block;
     }
-     /* ---------毛孩專家與合作夥伴-卡片---------- */
-     .expert-partner-card{
+
+    /* ---------毛孩專家與合作夥伴-卡片---------- */
+    .expert-partner-card {
         padding-bottom: 120px;
     }
-     .ep-card-imgbox{
+
+    .ep-card-imgbox {
         max-width: 350px;
         aspect-ratio: 1/1;
         overflow: hidden;
@@ -610,7 +717,8 @@ h3.expert-partner-pc, .expert-partner-textbox span{
         margin: auto;
         margin-bottom: 30px;
     }
-    .ep-card-textbox h6{
+
+    .ep-card-textbox h6 {
         width: 45%;
         margin: auto;
         background-color: var(--primaryColor_dark);
@@ -621,7 +729,8 @@ h3.expert-partner-pc, .expert-partner-textbox span{
         border-radius: 30px;
         margin-bottom: 20px;
     }
-    .ep-card-textbox p{
+
+    .ep-card-textbox p {
         color: var(--primaryColor_dark);
         font-size: var(--headline_24px);
     }
@@ -632,11 +741,12 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 
 
 /* 了解陪伴 | know-accompany */
-.know-accompany-container{
+.know-accompany-container {
     margin: 60px auto 0px;
 }
+
 /* --------了解陪伴-文案---------- */
-.know-accompany-textbox h2{
+.know-accompany-textbox h2 {
     max-width: calc(100% - 80px);
     margin: auto;
     font-size: var(--headline_32px);
@@ -646,7 +756,8 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     color: var(--secondaryColor_default);
     line-height: 1.4;
 }
-.know-accompany-textbox h3{
+
+.know-accompany-textbox h3 {
     max-width: calc(100% - 80px);
     margin: auto;
     font-size: var(--headline_28px);
@@ -656,32 +767,38 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     color: var(--primaryColor_dark);
     line-height: 1.4;
 }
-.know-accompany-textbox p{
+
+.know-accompany-textbox p {
     max-width: calc(100% - 80px);
     margin: auto;
     text-align: justify;
     line-height: 1.8;
     padding-bottom: 15px;
 }
+
 /* ---------了解陪伴-圖片---------- */
-.know-accompany-imgbox{
+.know-accompany-imgbox {
     max-width: calc(100% - 48px);
     margin-left: auto;
     margin-bottom: 20px;
     overflow: hidden;
-    overflow-x: scroll;  
+    overflow-x: scroll;
     /* -webkit-overflow-scrolling:touch; */
 }
-.know-accompany-imgbox::-webkit-scrollbar{
+
+.know-accompany-imgbox::-webkit-scrollbar {
     display: none;
 }
-.pc-train li{
+
+.pc-train li {
     display: none;
 }
-.ka-train{
+
+.ka-train {
     transition: .5s;
 }
-.ka-train li{
+
+.ka-train li {
     width: 80%;
     aspect-ratio: 1/1;
     overflow: hidden;
@@ -689,23 +806,28 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     flex-shrink: 0;
     margin-right: 30px;
 }
-.ka-train img{
+
+.ka-train img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.slide-active{
+
+.slide-active {
     transform: scale(1);
 }
-.slide-next{
+
+.slide-next {
     /* transform: scale(0.8); */
 }
+
 /* ---------了解陪伴-圖片顯示點點---------- */
-.silder-dot-box{
+.silder-dot-box {
     position: relative;
     padding-bottom: 30px;
 }
-.silder-dot-mb{
+
+.silder-dot-mb {
     width: 50%;
     display: flex;
     border-radius: var(--border-radious);
@@ -715,59 +837,70 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     transform: translateX(-50%);
     top: 0%;
 }
-.silder-dot-mb .dot{
+
+.silder-dot-mb .dot {
     width: 10px;
     height: 10px;
     border: 1px solid var(--primaryColor_dark);
     border-radius: 50%;
 }
-.silder-dot-mb .default{
+
+.silder-dot-mb .default {
     background-color: var(--primaryColor_dark);
 }
-    @media screen and (min-width:768px) {
-    .know-accompany-container{
+
+@media screen and (min-width:768px) {
+    .know-accompany-container {
         margin-top: 100px;
         padding-bottom: 100px;
     }
+
     /* --------了解陪伴-文案---------- */
-    .know-accompany-textbox{
+    .know-accompany-textbox {
         padding: 60px 0px 0px 240px;
     }
-    .know-accompany-textbox h2{
+
+    .know-accompany-textbox h2 {
         font-size: var(--headline_60px);
         text-align: left;
         padding-bottom: 40px;
         font-weight: 600;
         color: var(--secondaryColor_default);
     }
-    .know-accompany-textbox p{
+
+    .know-accompany-textbox p {
         font-size: var(--headline_20px);
         line-height: 2.8;
         text-align: left;
     }
-    .know-accompany-textbox h3{
+
+    .know-accompany-textbox h3 {
         text-align: left;
         font-size: var(--headline_40px);
     }
+
     /* ---------了解陪伴-圖片---------- */
-    .know-accompany-imgbox{
+    .know-accompany-imgbox {
         padding: 0px 0px 0px 60px;
         margin-left: auto;
         margin-top: 60px;
         margin-bottom: 20px;
         overflow: hidden;
         overflow-x: scroll;
-        -webkit-overflow-scrolling:touch;
+        -webkit-overflow-scrolling: touch;
     }
-    .know-accompany-col{
+
+    .know-accompany-col {
         position: relative;
     }
-    .ka-train .pc-train{
+
+    .ka-train .pc-train {
         width: 900%;
         height: auto;
         transition: .3s;
     }
-    .ka-train li{
+
+    .ka-train li {
         width: 60%;
         aspect-ratio: 1/1;
         overflow: hidden;
@@ -775,32 +908,40 @@ h3.expert-partner-pc, .expert-partner-textbox span{
         flex-shrink: 0;
         margin-right: 0px;
     }
-    .mb-train li{
+
+    .mb-train li {
         display: none;
     }
-    .pc-train li{
+
+    .pc-train li {
         display: block;
     }
-    .pc-train li img{
+
+    .pc-train li img {
         width: 100%;
         transition: .5s;
         border-radius: 20px;
     }
-    .slide-active{
+
+    .slide-active {
         transform: scale(1);
         /* border: 8px solid var(--primaryColor_dark); */
     }
-    .slide-prev img{
+
+    .slide-prev img {
         transform: scale(0.8);
     }
-    .slide-next img{
+
+    .slide-next img {
         transform: scale(0.8);
     }
+
     /* ---------了解陪伴-圖片顯示點點---------- */
-    .silder-dot-mb{
+    .silder-dot-mb {
         display: none;
     }
-    .silder-dot-pc{
+
+    .silder-dot-pc {
         width: 50%;
         display: flex;
         border-radius: var(--border-radious);
@@ -810,14 +951,16 @@ h3.expert-partner-pc, .expert-partner-textbox span{
         transform: translateX(-50%);
         bottom: -40px;
     }
-    .silder-dot-pc .dot{
+
+    .silder-dot-pc .dot {
         width: 15px;
         height: 15px;
         border: 2px solid var(--primaryColor_dark);
         border-radius: 50%;
         cursor: pointer;
     }
-    .silder-dot-pc .default{
+
+    .silder-dot-pc .default {
         background-color: var(--primaryColor_dark);
     }
 }
@@ -827,22 +970,25 @@ h3.expert-partner-pc, .expert-partner-textbox span{
 
 
 /* 出發前五件事 | five-things */
-.five-things-bg{
+.five-things-bg {
     width: 100%;
     height: 50vh;
     background: url('../img/component/illustration/illustration-85.png') no-repeat center center / cover;
 }
-.five-things{
+
+.five-things {
     margin-top: -80px;
     width: 100%;
     background-color: #FCFFEB;
 }
-.five-things-container{
+
+.five-things-container {
     max-width: calc(100% - 80px);
     margin: auto;
 }
+
 /* --------出發前五件事-標題---------- */
-.five-things-container h2{
+.five-things-container h2 {
     font-size: var(--headline_32px);
     text-align: center;
     margin-bottom: 50px;
@@ -850,85 +996,107 @@ h3.expert-partner-pc, .expert-partner-textbox span{
     color: var(--primaryColor_dark);
     line-height: 1.4;
 }
+
 /* --------出發前五件事-卡片---------- */
-.five-things-card-group{
+.five-things-card-group {
     text-align: center;
 }
-.five-things-card{
+
+.five-things-card {
     padding-bottom: 50px;
     border-bottom: 1px solid var(--black_500);
     margin-bottom: 50px;
 }
-.ft-icon-box{
+
+.ft-icon-box {
     width: 30%;
     aspect-ratio: 1/1;
     margin: auto;
     text-align: center;
     margin-bottom: 10px;
 }
-.ft-icon-box svg{
+
+.ft-icon-box svg {
     width: 80px;
     height: 80px;
 }
-.ft-card-col h3{
+
+.ft-card-col h3 {
     font-size: var(--headline_20px);
     font-weight: 600;
     color: var(--secondaryColor_default);
     padding-bottom: 10px;
 }
-p.ft-card-p-mb{
+
+p.ft-card-p-mb {
     line-height: 1.8;
 }
-.ft-card-p-pc{
+
+.ft-card-p-pc {
     display: none;
 }
+
 /* --------出發前五件事-按鈕---------- */
-.five-things-btn{
-    text-align: center;
-    padding-bottom: 50px;
+.five-things-btn {
+    width: 200px;
+    height: 45px;
+    background-color: var(--primaryColor_dark);
+    border-radius: var(--btn-radius);
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 50px;
 }
-.five-things-btn a{
+
+.five-things-btn a {
     text-decoration: none;
     color: var(--white);
-    background-color: var(--primaryColor_dark);
-    padding: 10px 50px;
-    border-radius: 30px;
     font-size: var(--headline_24px);
 }
+
 /* --------出發前五件事-注意事項---------- */
-.five-things-notic{
+.five-things-notic {
     padding-bottom: 40px;
 }
-.five-things-notic p{
+
+.five-things-notic p {
     text-align: center;
     font-size: var(--headline_20px);
     padding-bottom: 10px;
 }
-.five-things-notic li{
+
+.five-things-notic li {
     line-height: 1.8;
     text-align: justify;
     margin-bottom: 10px;
 }
+
 @media screen and (min-width:768px) {
-    .five-things-bg{
+    .five-things-bg {
         width: 100%;
         height: 100vh;
         background: url('../img/component/illustration/illustration-85.png') no-repeat center center / cover;
     }
-    .five-things{
+
+    .five-things {
         margin-top: -100px;
         width: 100%;
         background-color: #FCFFEB;
     }
-    .five-things-container{
+
+    .five-things-container {
         max-width: calc(100% - 480px);
         margin: auto;
     }
-    .five-things-container br{
+
+    .five-things-container br {
         display: none;
     }
+
     /* --------出發前五件事-標題---------- */
-    .five-things-container h2{
+    .five-things-container h2 {
         font-size: var(--headline_60px);
         text-align: center;
         margin-bottom: 50px;
@@ -936,65 +1104,78 @@ p.ft-card-p-mb{
         color: var(--primaryColor_dark);
         line-height: 1.4;
     }
+
     /* --------出發前五件事-卡片---------- */
-    .five-things-card{
+    .five-things-card {
         padding-bottom: 50px;
         border-bottom: 1px solid var(--black_500);
         margin-bottom: 100px;
     }
-    .ft-icon-box{
+
+    .ft-icon-box {
         width: 115px;
         height: 115px;
     }
-    .ft-icon-box svg{
+
+    .ft-icon-box svg {
         width: 115px;
         height: 115px;
         text-align: center;
     }
-    .ft-card-col h3{
+
+    .ft-card-col h3 {
         font-size: var(--headline_32px);
         font-weight: 600;
         color: var(--secondaryColor_default);
         padding-bottom: 10px;
     }
-    .ft-card-p-pc{
+
+    .ft-card-p-pc {
         display: block;
         font-size: var(--headline_28px);
         text-align: left;
         line-height: 1.8;
     }
-    .ft-card-p-mb{
+
+    .ft-card-p-mb {
         display: none;
     }
+
     /* --------出發前五件事-按鈕---------- */
-    .five-things-btn{
+    .five-things-btn {
         text-align: center;
-        padding-bottom: 100px;
+        width: 240px;
+        height: 55px;
+        margin-top: 15px;
+        cursor: pointer;
+        margin-bottom: 100px;
     }
-    .five-things-btn a{
-        text-decoration: none;
-        color: var(--white);
-        background-color: var(--primaryColor_dark);
-        padding: 10px 100px;
-        border-radius: 30px;
+
+    .five-things-btn a {
+        /* text-decoration: none;
+        color: var(--white); */
         font-size: var(--headline_28px);
     }
-    .five-things-btn a:hover{
+
+    .five-things-btn:hover {
         background-color: var(--primaryColor_light);
         transition: 0.3s;
     }
+
     /* --------出發前五件事-注意事項---------- */
-    .five-things-notic{
+    .five-things-notic {
         max-width: calc(100% - 200px);
         margin: auto;
         padding-bottom: 40px;
     }
-    .five-things-notic p{
+
+    .five-things-notic p {
         text-align: center;
         font-size: var(--headline_24px);
         padding-bottom: 30px;
     }
-    .five-things-notic li{
+
+    .five-things-notic li {
         line-height: 2;
         text-align: center;
         margin-bottom: 30px;
@@ -1002,8 +1183,9 @@ p.ft-card-p-mb{
     }
 }
 
+
 /* ---------------手刀報名GO(NEW)------------- */
-.join-btn{
+.join-btn {
     width: 200px;
     height: 45px;
     background-color: var(--primaryColor_dark);
@@ -1014,33 +1196,36 @@ p.ft-card-p-mb{
     justify-content: center;
     cursor: pointer;
 }
-    @media screen and (min-width: 768px){
-        .join-btn{
-            width: 240px;
-            height: 55px;
-            margin-top: 15px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-    }
 
-.join-btn a{
+@media screen and (min-width: 768px) {
+    .join-btn {
+        width: 240px;
+        height: 55px;
+        margin: 0 0;
+        margin-top: 15px;
+        cursor: pointer;
+
+    }
+}
+
+.join-btn a {
     color: var(--white);
     font-size: var(--headline_24px);
     text-decoration: none;
 }
-    @media screen and (min-width: 768px){
-        .join-btn a{
-            font-size: var(--headline_28px);
-        }
-    }
 
-.join-btn:hover{
+@media screen and (min-width: 768px) {
+    .join-btn a {
+        font-size: var(--headline_28px);
+    }
+}
+
+.join-btn:hover {
     background-color: var(--primaryColor_light);
 }
 
 
 /* footer-mobile */
-.footer-mobile{
+.footer-mobile {
     background-color: #FCFFEB;
 }

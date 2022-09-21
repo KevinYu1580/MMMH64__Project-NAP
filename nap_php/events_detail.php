@@ -1,19 +1,22 @@
 <?php
-// require __DIR__ . '/parts/connect_db.php';
+require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = 'home'; // 頁面名稱
+
+
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
-
-</head>
-
-<?php include __DIR__ . '/parts/navbar.php'; ?>
+<link rel="stylesheet" href="./nap_css/reset.css">
 
 <!-- 加自己的css -->
 <link rel="stylesheet" href="./nap_css/events_detail.css">
+<?php include __DIR__ . '/parts/navbar.php'; ?>
+
+
 
 
 <!-- 活動詳細頁banner | events-detail -->
@@ -41,7 +44,7 @@ $pageName = 'home'; // 頁面名稱
                         <div class="icon-box">
                             <img src="./img/component/icon/Clock.svg" alt="">
                         </div>
-                        <p><span>活動時間：</span>10/08上午09:00~10/09下午16:00</p>
+                        <p><span>活動時間：</span>活動日每日上午 09:00 ~ 下午 16:00</p>
                     </div>
                     <div class="detail-notice d-flex align-items-center">
                         <div class="icon-box ">
@@ -57,7 +60,7 @@ $pageName = 'home'; // 頁面名稱
                     </div>
                     <div class="schedule d-md-flex justify-content-md-between">
                         <div class="day1 col-md-5">
-                            <h5>10/08 | Day 1</h5>
+                            <h5>Day 1</h5>
                             <ul>
                                 <li>相見說明會</li>
                                 <li>動手做鮮食</li>
@@ -67,7 +70,7 @@ $pageName = 'home'; // 頁面名稱
                             </ul>
                         </div>
                         <div class="day2 col-md-5">
-                            <h5>10/09 | Day 2</h5>
+                            <h5>Day 2</h5>
                             <ul>
                                 <li>誰是小吃貨</li>
                                 <li>路跑大作戰</li>
@@ -83,7 +86,7 @@ $pageName = 'home'; // 頁面名稱
                             <h6>2,999</h6> / 人</p>
                         </div>
                         <div class="join-btn">
-                            <a href="#">手刀報名 GO</a>
+                            <a href='enroll-event-notice.php'>手刀報名 GO</a>
                         </div>
                     </div>
                 </div>
@@ -362,7 +365,7 @@ $pageName = 'home'; // 頁面名稱
             </div>
         </div>
         <div class="five-things-btn">
-            <a href="../chiyin/event-enroll-notice.html">手刀報名GO</a>
+            <a href='enroll-event-notice.php'>手刀報名 GO</a>
         </div>
         <div class="five-things-notic">
             <p>《注意事項》</p>
@@ -386,9 +389,10 @@ $pageName = 'home'; // 頁面名稱
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
-<script src="./nap_js/component.js"></script>
+
 
 <?php include __DIR__ . '/parts/scripts.php'; ?>
+<script src="./nap_js/component.js"></script>
 <script src="./nap_js/events_detail.js"></script>
 <!-- 自己的js放在這 -->
 

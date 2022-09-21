@@ -14,8 +14,8 @@ $qsp = []; // query string parameters
 
 
 // 取得分類資料
-$cates = $pdo->query("SELECT * FROM event_categories WHERE parent_sid=0")
-    ->fetchAll();
+// $cates = $pdo->query("SELECT * FROM event_categories WHERE parent_sid=0")
+//     ->fetchAll();
 
 
 
@@ -53,6 +53,8 @@ if ($totalRows > 0) {
     );
     $rows = $pdo->query($sql)->fetchAll();
 }
+
+
 
 
 ?>
@@ -167,7 +169,7 @@ if ($totalRows > 0) {
                                     <h5>剩餘名額：<span><?= $r['event_remain'] ?></span> / <?= $r['event_quota'] ?></h5>
 
                                     <div class="card-btn">
-                                        <button>查看活動</button>
+                                        <button onclick="location.href='./events_detail?id=<?php echo $result['id']; ?>">查看活動</button>
                                     </div>
                                 </div>
                             </div>
