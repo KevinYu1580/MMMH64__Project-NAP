@@ -668,6 +668,9 @@ height: 40px;
 
     </style>
 
+<link rel="stylesheet" href="./nap_css/reset.css">
+</head>
+
 <body>
 <div class="topNav_mobile">
     <a class="logo" href="#">
@@ -781,3 +784,7 @@ height: 40px;
 
     </div>
 </div>
+
+
+
+
