@@ -6,12 +6,6 @@ $pageName = 'Homepage'; // 頁面名稱
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
-
-<!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
-
-
-
-
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 <link rel="stylesheet" href="./nap_css/home_page.css">
 
@@ -163,15 +157,16 @@ $pageName = 'Homepage'; // 頁面名稱
 <!-- explain -->
 <div class="explain">
     <div class="cause">
-        <div class="sec1">
+    <div class="sec3">
             <p>
-                統計退養<br>
+                每年約有<br>
                 <span class="hintNum">
-                    牽強 <span class="changeNum1">3</span>大理由<br>
+                    <span class="changeNum3">155869</span> 隻<br>
                 </span>
-                搬家、過敏、沒時間<br>
+                毛孩等待領養<br>
             </p>
         </div>
+
         <div class="sec2">
             <p>
                 卻因不符期待<br>
@@ -181,13 +176,14 @@ $pageName = 'Homepage'; // 頁面名稱
                 而紛紛退養<br>
             </p>
         </div>
-        <div class="sec3">
+
+        <div class="sec1">
             <p>
-                每年約有<br>
+                統計退養<br>
                 <span class="hintNum">
-                    <span class="changeNum3">155869</span> 隻<br>
+                    牽強 <span class="changeNum1">3</span>大理由<br>
                 </span>
-                毛孩等待領養<br>
+                搬家、過敏、沒時間<br>
             </p>
         </div>
 
