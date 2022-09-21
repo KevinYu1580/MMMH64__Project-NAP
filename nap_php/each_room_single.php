@@ -1,5 +1,5 @@
 <?php
-// require __DIR__ . '/parts/connect_db.php';
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'each_room_single'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
