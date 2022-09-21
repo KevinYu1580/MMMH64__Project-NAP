@@ -573,10 +573,10 @@ body {
 
 /* 圈圈樣式 */
 .explain .cause .sec1 {
-  background-color: #e8e7d1;
+  background-color: #d6d48a;
 }
 .explain .cause .sec1 .hintNum {
-  color: var(--primaryColor_dark);
+  color: var(--white);
 }
 .explain .cause .sec2 {
   background-color: var(--white);
@@ -586,10 +586,10 @@ body {
   color: var(--secondaryColor_default);
 }
 .explain .cause .sec3 {
-  background-color: #d6d48a;
+  background-color: #e8e7d1;
 }
 .explain .cause .sec3 .hintNum {
-  color: var(--white);
+  color: var(--primaryColor_dark);
 }
 .explain .cause .hintNum {
   font-size: 24px;

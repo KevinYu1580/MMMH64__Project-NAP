@@ -10,14 +10,14 @@ $('.close_lightBox').click(function(){
 
 
 // ---------------貼文卡片 以迴圈新增卡片數量
-function runCardLoop (){
-    let comtCardHtml =  document.getElementById('comtCard')
+// function runCardLoop (){
+//     let comtCardHtml =  document.getElementById('comtCard')
 
-    for (i=0; i<19; i++){
-        $('.comtCard_wrap').append($(comtCardHtml).prop('outerHTML'))
-    }
-}
-runCardLoop(); 
+//     for (i=0; i<19; i++){
+//         $('.comtCard_wrap').append($(comtCardHtml).prop('outerHTML'))
+//     }
+// }
+// runCardLoop(); 
 
 // --------------卡片手機小menu 彈出效果
 

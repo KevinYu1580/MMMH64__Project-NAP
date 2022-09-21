@@ -195,6 +195,8 @@ $('#single-plus').click(function () {
     $('.single-room-num span').html(plusNum);
     $('.single-price span').html(`${singleTotal}`);
 
+
+
     // 計算增加的全部總價
     $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html() + +$('.quadra-price span').html());
 
@@ -446,16 +448,6 @@ $('#quadra-minus').click(function () {
         $('#quadra-minus svg circle').css('fill','var(--black_500)');
     }
 });
-
-
-
-// function limitCount(){
-//     if(plusNum > $('.selectRoom h6').html()){
-//         console.log('123');
-//     }
-// }
-// limitCount();
-
 
 
 
