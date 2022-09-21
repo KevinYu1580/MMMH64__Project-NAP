@@ -587,6 +587,7 @@ body{
     }
     .people-cardBtn{
         width: 95%;
+        margin-bottom: 20px;
     }
     .card-textbox-mb h5{
         color: var(--primaryColor_dark);
@@ -598,33 +599,35 @@ body{
     .card-textbox-mb span{
         color: var(--subColor_highLightRed);
     }
-    /* .card-btn{
+    .card-btn{
         text-align: center;
         padding-bottom: 0px;
+
+        
     }
     .card-btn a{
         text-decoration: none;
         color: var(--white);
         font-size: var(--headline_24px);
-        background-color: var(--primaryColor_dark);
-        padding: 5px 30px;
+        padding: 10px 35px;
         border-radius: 50px;
     }
     .card-btn a:hover{
         background-color: var(--primaryColor_light);
         transition: 0.3s;
-    } */
-    /* .card-like{
+        text-decoration: none;
+        color: var(--white);
+    }
+    .card-like{
         width: 45px;
         aspect-ratio: 1/1;
         border: 2px solid var(--primaryColor_dark);
         border-radius: 50%;
         cursor: pointer;
         position: absolute;
-        top: 0;
-        bottom: 20px;
-        right: 230px;
-    } */
+        top: 260px;
+        right: 240px;
+    }
     .card-like img{
         width: 60%;
         height: 100%;
@@ -828,52 +831,4 @@ button {
     cursor: pointer;
 }
 
-/* 
-.card-btn button {
-    margin: auto;
-    margin-top: 10px;
-    width: 170px;
-    height: 40px;
-    text-decoration: none;
-    font-size: var(--headline_20px);
-}
 
-@media screen and (min-width: 768px) {
-    .card-btn button {
-        width: 180px;
-        height: 55px;
-        font-size: var(--headline_24px);
-    }
-} */
-
-
-
-.card-btn{
-    text-align: center;
-    padding-bottom: 30px;
-}
-.card-btn button{
-    text-decoration: none;
-    color: var(--white);
-    background-color: var(--primaryColor_dark);
-    padding: 5px 30px;
-    border-radius: 20px;
-}
-@media screen and (min-width: 768px) {
-    .card-btn{
-        text-align: center;
-        padding-bottom: 0px;
-    }
-    .card-btn button{
-        text-decoration: none;
-        color: var(--white);
-        font-size: var(--headline_24px);
-        background-color: var(--primaryColor_dark);
-        padding: 5px 30px;
-        border-radius: 50px;
-    }
-    .card-btn button:hover{
-        background-color: var(--primaryColor_light);
-        transition: 0.3s;
-    }
-}

@@ -2,6 +2,9 @@
 
 // require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = '套裝活動報名'; // 頁面名稱
+
+
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -10,13 +13,14 @@ $pageName = '套裝活動報名'; // 頁面名稱
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 
-<link rel="stylesheet" href="./nap_css/event-enroll-data-count.css">
+
 
 
 
 </head>
-
+<link rel="stylesheet" href="./nap_css/event-enroll-data.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
+
 
 
 
@@ -42,39 +46,42 @@ $pageName = '套裝活動報名'; // 頁面名稱
 
     <!------ 套裝下方內容 ------>
     <div class="data-content">
-        <div class="enroll-detail-card col-md-5">
-            <div class="card-deco">
-                <div class="card-title">訂單明細</div>
-                <div class="event-name">【MMMH64-與狗勾的兩日生活】</div>
-                <div class="event-date">2022/08/27 - 2022/08/28</div>
-                <div class="perevent-price row">
-                    <div class="per col-6">NT$ <span>2,999</span></div>
-                    <div class="col enroll-num">0</div>
-                    <div class="col-2">人</div>
-                </div>
-                <div class="payable row">
-                    <div class="col-6">應付總金額</div>
-                    <div class="col-2">NT$</div>
-                    <div class="col-4 total-price">0</div>
-                </div>
-                <div class="price-info">
-                    費用含住宿、保險及兩日餐食(Day1 午晚餐及 Day2 早午餐）
-                </div>
-                <div class="enroll-card-btn">
-
-                    <div class="add-to-cart-btn">
-                        <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit">
-                            <span>前往結帳</span>
-                        </button>
+        <div class="slider">
+            <div class="enroll-detail-card col-md-5">
+                <div class="card-deco">
+                    <div class="card-title">訂單明細</div>
+                    <div class="event-name">【MMMH64-與狗勾的兩日生活】</div>
+                    <div class="event-date">2022/08/27 - 2022/08/28</div>
+                    <div class="perevent-price row">
+                        <div class="per col-6">NT$ <span>2,999</span></div>
+                        <div class="col enroll-num">0</div>
+                        <div class="col-2">人</div>
                     </div>
-                    <div class="check-bill-btn">
-                        <button class="napBtn_fixed_outlined" name="add-to-cart" form="enroll-list" type="submit">
-                            <span>加入購物車</span>
-                        </button>
+                    <div class="payable row">
+                        <div class="col-6">應付總金額</div>
+                        <div class="col-2">NT$</div>
+                        <div class="col-4 total-price">0</div>
+                    </div>
+                    <div class="price-info">
+                        費用含住宿、保險及兩日餐食(Day1 午晚餐及 Day2 早午餐）
+                    </div>
+                    <div class="enroll-card-btn">
+
+                        <div class="add-to-cart-btn">
+                            <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit">
+                                <span>前往結帳</span>
+                            </button>
+                        </div>
+                        <div class="check-bill-btn">
+                            <button class="napBtn_fixed_outlined" name="add-to-cart" form="enroll-list" type="submit">
+                                <span>加入購物車</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="enroll-data-left col-md-6 order-first">
             <div class="add-member-btn">
                 <a class="napBtn_fixed_filled" href="javascript:" type="button">

@@ -3,39 +3,25 @@ require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = '活動檔期'; // 頁面名稱
 
 
-$perPage = 6;  // 每頁最多有幾筆
+// 每頁顯示幾筆活動資料
+$perPage = 6;
 
-// 用戶要看第幾頁，看什麼分類
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
-
-
-$qsp = []; // query string parameters
-
-
-// 取得分類資料
-// $cates = $pdo->query("SELECT * FROM event_categories WHERE parent_sid=0")
-//     ->fetchAll();
-
-
+// 顯示在url: page=?
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 
 $where = ' WHERE 1 ';  // 起頭
-if ($cate) {
-    $where .= " AND event_categories_sid = $cate ";
-    $qsp['cate'] = $cate;
-}
 
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM event_detail $where ";
-$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+$total_events = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 // 計算總頁數用無條件進位
-$totalPages = ceil($totalRows / $perPage);
+$totalPages = ceil($total_events / $perPage);
 
-$rows = [];  // 預設值
 
-// 有資料才執行
-if ($totalRows > 0) {
+$events = [];
+
+if ($total_events > 0) {
     if ($page < 1) {
         header('Location: ?page=1');
         exit;
@@ -44,17 +30,16 @@ if ($totalRows > 0) {
         header('Location: ?page=' . $totalPages);
         exit;
     }
+
     // 取得該頁面的資料
     $sql = sprintf(
-        "SELECT * FROM `event_detail` %s ORDER BY `sid` DESC LIMIT %s, %s",
+        "SELECT * FROM `event_detail` %s ORDER BY `sid` ASC LIMIT %s, %s",
         $where,
         ($page - 1) * $perPage,
         $perPage
     );
-    $rows = $pdo->query($sql)->fetchAll();
+    $events = $pdo->query($sql)->fetchAll();
 }
-
-
 
 
 ?>
@@ -62,17 +47,18 @@ if ($totalRows > 0) {
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
-<link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
+
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 <!-- 加自己的css -->
 <link rel="stylesheet" href="./nap_css/events_page.css">
 
 
-
 </head>
+
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
+<link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 
 
 <!-- 活動頁面banner | events-banner -->
@@ -155,21 +141,23 @@ if ($totalRows > 0) {
     <div class="events-card-container">
         <div class="evnets-card-group-mb">
             <div class="events-card-row-mb d-flex d-md-block">
-                <?php foreach ($rows as $r) : ?>
+                <?php foreach ($events as $event) : ?>
                     <div class="events-card-col-mb flex-shrink-0">
                         <div class="events-card-mb d-md-flex">
                             <div class="card-imgbox-mb">
-                                <img src="./img/events/<?= $r['event_img'] ?>.jpg">
+                                <img src="./img/events/<?= $event['event_img'] ?>.jpg">
                             </div>
                             <div class="card-textbox-mb">
-                                <h4><?= $r['event_date'] ?></h4>
-                                <h3><?= $r['event_name'] ?></h3>
-                                <p><?= $r['event_outline'] ?></p>
+                                <h4><?= $event['event_date'] ?></h4>
+                                <h3><?= $event['event_name'] ?></h3>
+                                <p><?= $event['event_outline'] ?></p>
                                 <div class="people-cardBtn d-md-flex justify-content-md-between ">
-                                    <h5>剩餘名額：<span><?= $r['event_remain'] ?></span> / <?= $r['event_quota'] ?></h5>
+                                    <h5>剩餘名額：<span><?= $event['event_remain'] ?></span> / <?= $event['event_quota'] ?></h5>
 
                                     <div class="card-btn">
-                                        <button onclick="location.href='./events_detail?id=<?php echo $result['id']; ?>">查看活動</button>
+                                        <a href="events_detail.php?page=event&sid=<?= $event['sid'] ?>" class="event">查看活動</a>
+                                        <?php //echo $event['sid'] 
+                                        ?>
                                     </div>
                                 </div>
                             </div>

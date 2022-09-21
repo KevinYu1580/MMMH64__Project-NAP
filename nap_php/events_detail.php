@@ -1,7 +1,25 @@
 <?php
 require __DIR__ . '/parts/connect_db_cy.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '活動檔期介紹'; // 頁面名稱
 
+// 確認在 url 中顯示對應 id
+if (isset($_GET['sid'])) {
+    
+    $stmt = $pdo->prepare('SELECT * FROM event_detail WHERE `sid` = ?');
+    $stmt->execute([$_GET['sid']]);
+
+    // 在 MySQL 中取得活動資料(fetch)並存入陣列
+    $event = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // 檢查是否有活動存在 （陣列中非空值）
+    if (!$event) {
+        // 如果陣列中沒有活動顯示錯誤訊息
+        exit('您所選擇的活動不存在！');
+    }
+} else {
+    // 如果找不到對應id顯示錯誤訊息
+    exit('您所選擇的活動不存在！');
+}
 
 
 ?>
@@ -24,7 +42,7 @@ $pageName = 'home'; // 頁面名稱
         <div class="events-detail-row d-md-flex">
             <div class="events-detail-col col-md-6">
                 <div class="detail-imgbox">
-                    <img src="./img/events/eve-00.jpg" alt="">
+                    <img src="./img/events/<?= $event['event_img'] ?>.jpg">
                 </div>
             </div>
             <div class="events-detail-col col-md-6">
@@ -37,8 +55,8 @@ $pageName = 'home'; // 頁面名稱
                             <path d="M0 14.9141V14.461C0 9.00006 3.94688 4.34225 9.32812 3.44537C12.8203 2.85241 16.5156 4.01334 19.0625 6.56412L20 7.50006L20.8672 6.56412C23.4844 4.01334 27.1094 2.85241 30.6719 3.44537C36.0547 4.34225 40 9.00006 40 14.461V14.9141C40 18.1563 38.6562 21.2579 36.2812 23.4688L22.1641 36.6485C21.5781 37.1954 20.8047 37.5001 20 37.5001C19.1953 37.5001 18.4219 37.1954 17.8359 36.6485L3.71797 23.4688C1.34609 21.2579 2.34375e-05 18.1563 2.34375e-05 14.9141H0Z" fill="#7C8C38" />
                         </svg>
                     </div>
-                    <h3>10/08-10/09</h3>
-                    <h2>汪汪大集合 | 兩日遊</h2>
+                    <h3><?= $event['event_date'] ?></h3>
+                    <h2><?= $event['event_name'] ?></h2>
                     <div class="detail-notice d-flex align-items-center">
                         <div class="icon-box">
                             <img src="./img/component/icon/Clock.svg" alt="">
@@ -55,7 +73,7 @@ $pageName = 'home'; // 頁面名稱
                         <div class="icon-box">
                             <img src="./img/component/icon/People-1.svg" alt="">
                         </div>
-                        <p><span>剩餘名額：</span>9 / 20人</p>
+                        <p>剩餘名額：<span><?= $event['event_remain'] ?></span> / <?= $event['event_quota'] ?></p>
                     </div>
                     <div class="schedule d-md-flex justify-content-md-between">
                         <div class="day1 col-md-5">
@@ -82,10 +100,10 @@ $pageName = 'home'; // 頁面名稱
                     <div class="price-joinbtn d-md-flex justify-content-md-between">
                         <div class="price d-flex justify-content-center align-items-center">
                             <p>NT$
-                            <h6>2,999</h6> / 人</p>
+                            <h6><?= $event['event_price'] ?></h6> / 人</p>
                         </div>
                         <div class="join-btn">
-                            <a href='enroll-event-notice.php'>手刀報名 GO</a>
+                            <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>">手刀報名 GO</a>
                         </div>
                     </div>
                 </div>

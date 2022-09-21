@@ -669,6 +669,7 @@ height: 40px;
     </style>
 
 <link rel="stylesheet" href="./nap_css/reset.css">
+<title><?= 'N.A.P.| '.$pageName?></title>
 </head>
 
 <body>

@@ -1,6 +1,11 @@
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = '套裝活動報名注意事項'; // 頁面名稱
+$pageName = '活動報名注意事項'; // 頁面名稱
+
+
+
+
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -47,7 +52,7 @@ $pageName = '套裝活動報名注意事項'; // 頁面名稱
                     <li>點選報名即視為清楚了解以上資訊，接下來快點手刀報名吧！</li>
                 </ul>
                 <div class="notice-btn">
-                    <a href="#">手刀報名 GO</a>
+                    <a href="event-enroll-data.php">手刀報名 GO</a>
                 </div>
             </div>
         </div>
