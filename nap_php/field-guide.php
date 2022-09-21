@@ -32,10 +32,22 @@ if ($totalRows > 0) {
 
 $genderArray = ['男生','女生'];
 $furArray = ['短毛','長毛'];
+
+// 篩選:取得性別資料
+$genderF = $pdo->query("SELECT * FROM pet_card WHERE `type`=1 & `type`=0 ")
+    ->fetchAll();
+
+
+
+
+
 ?>
 
+
+
 <?php include __DIR__. '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 
     
@@ -166,12 +178,12 @@ $furArray = ['短毛','長毛'];
         <div class="filter-group">
             <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <div class="num1 sec type">
+                <a class="num1 sec type">
                     狗勾
-                </div>
-                <div class="num2 sec type">
+                </a>
+                <a class="num2 sec type">
                     貓貓
-                </div>
+                </a>
             </div>
         
             <div class="napSwitch_two">

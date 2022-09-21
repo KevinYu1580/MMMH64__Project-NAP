@@ -57,7 +57,7 @@ font-family: custom-font;
 }
 /* nav */
 /* @media screen and (min-width:576px){
-    .topNav_mobile , .nap_menu ,.nav-white-block{
+    .nav-white-block{
         display: none;
     }
 } */
@@ -74,7 +74,7 @@ font-family: custom-font;
 .nap-map-row{
     width: 100%;
     height: 850px;
-    background: url(../img_H/map.png)center center;
+    background: url('../img/self/h/map.png')center center;
     background-size:contain;
     background-repeat: no-repeat;
 }
@@ -201,10 +201,10 @@ text-align: center;
 }
 .carousel li{
     background-color:var(--white);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 6px;
 }
 
 /* 手機光箱文字介紹 */
@@ -267,7 +267,7 @@ text-align: center;
         width: 100%;
         /* border: 1px solid red; */
         height: 100%;
-        background: url(../img_H/map.png)center 70%;
+        background: url('../img/self/h/map.png')center 70%;
         background-size:90%;
         background-repeat: no-repeat;
     }
@@ -403,7 +403,7 @@ text-align: center;
     }
 }
 @media screen and (min-width:576px){
-    .lightBox ,.nap-map-mobile {
+    .lightBox ,.nap-map-mobile .nav-white-block {
         display: none;
     }
 }
