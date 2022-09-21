@@ -10,7 +10,6 @@ $pageName = 'home'; // 頁面名稱
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
-<link rel="stylesheet" href="./nap_css/reset.css">
 
 <!-- 加自己的css -->
 <link rel="stylesheet" href="./nap_css/events_detail.css">
