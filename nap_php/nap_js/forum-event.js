@@ -1,23 +1,13 @@
 // 關閉光箱
 $('.close_lightBox').click(function(){
-    $(this).parent().hide()
-    $('.lightBox_comtCard_mask').css({
-        'pointer-events': 'none',
-        'opacity':'0',
-    })
-    document.body.style.overflow='visible'
+    if(document.body.clientWidth < 992){
+        $(this).parent().parent().hide()
+    };
+    $('.lightBox_comtCard_mask').hide()
+    $('body').css('overflow','visible');
 })
 
 
-// ---------------貼文卡片 以迴圈新增卡片數量
-// function runCardLoop (){
-//     let comtCardHtml =  document.getElementById('comtCard')
-
-//     for (i=0; i<19; i++){
-//         $('.comtCard_wrap').append($(comtCardHtml).prop('outerHTML'))
-//     }
-// }
-// runCardLoop(); 
 
 // --------------卡片手機小menu 彈出效果
 
@@ -56,6 +46,7 @@ if(document.body.clientWidth >= 992){
         e.stopPropagation();
         $(this).siblings('.lightBox_pc').css('opacity', '1')
     })
+    // 點籍非lightBox_pc, 及關閉
     $('body').click(function(){
         $('.comtCard .lightBox_pc').css('opacity', '0')
     })
@@ -72,19 +63,19 @@ $('.comtCard .lightBox_pc').click(function(e){
 const post_lightBox = $('.lightBox_comtCard')
 
 // 貼文卡片展開後內部留言 以迴圈新增數量
-function postLightBox_messageNum(){
-    let messageHtml = document.getElementsByClassName('messageCard')
+// function postLightBox_messageNum(){
+//     let messageHtml = document.getElementsByClassName('messageCard')
 
-    for (i=0; i<9; i++){
-        $('.lightBox_comtCard .comtSection .message_pack').append($(messageHtml).prop('outerHTML'))
-    }
-}
-postLightBox_messageNum();
+//     for (i=0; i<9; i++){
+//         $('.lightBox_comtCard .comtSection .message_pack').append($(messageHtml).prop('outerHTML'))
+//     }
+// }
+// postLightBox_messageNum();
 
 
 // 打開留言卡片光箱
-$('.comtCard_wrap').on('click', '.comtCard' ,function(e){
-    $(post_lightBox).show();
+$('.comtCard_wrap .comtCard').click(function(e){
+    $(this).find('.lightBox_comtCard').show();
     document.body.style.overflow='hidden'
 
     // 打開光箱mask

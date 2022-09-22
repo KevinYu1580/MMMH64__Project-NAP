@@ -656,9 +656,13 @@ height: 40px;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    width: 106px;
-    height: 20px;
+    padding: 4px 16px;
     background-color: var(--primaryColor_tint);
+}
+@media screen and (min-width: 992px){
+    .comtLabel {
+    padding: 6px 20px;
+}
 }
 .comtLabel span {
     font-size: 12px;

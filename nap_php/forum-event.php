@@ -9,7 +9,7 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
 
 // 取得資料的總筆數
-$t_sql = "SELECT COUNT(1) FROM chat WHERE tag = 0 OR tag = 1" ;
+$t_sql = "SELECT COUNT(1) FROM chat LEFT JOIN member01 on member01.id = chat.po_sid WHERE tag = 0 OR tag = 1";
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 // 計算總頁數
@@ -27,11 +27,11 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT * FROM chat WHERE tag = 0 OR tag = 1 ORDER BY `date` DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM chat LEFT JOIN member01 on member01.id = chat.po_sid WHERE tag = 0 OR tag = 1 ORDER BY `date` DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-$genderArray = ['男生', '女生'];
+$event = ['# 特別活動', '# 浪浪套裝活動'];
 $furArray = ['短毛', '長毛'];
 
 
@@ -131,22 +131,22 @@ $furArray = ['短毛', '長毛'];
                     <div class="content_wrap">
                         <div class="member_info">
                             <div class="member_pic">
-                                <img src="./img/self/k/carousel-2.jpg" alt="">
+                                <img src="./img/member/profile-image/<?= $r['avatar'] ?>" alt="">
                             </div>
-                            <span><?= $r['po_sid'] ?></span>
+                            <span><?= $r['name'] ?></span>
                         </div>
                         <div class="napTitle">
                             <span>
-                            <?= $r['title'] ?>
+                                <?= $r['title'] ?>
                             </span>
                         </div>
                         <div class="d-flex align-items-center">
-                            <span class="date"><?= $r['date'] ?></span>
                             <div class="comtLabel">
-                                <span><?= $r['po_sid'] ?></span>
+                                <span><?= $event[$r['tag']] ?></span>
                             </div>
+                            <span class="date"><?= $r['date'] ?></span>
                         </div>
-                        <p class="contentText">自從上次我家狗狗去外面玩後, 鼻涕一直流, 鼻子也乾乾的, 但去看醫生也沒發現甚麼病狀, 請問到底該怎麼辦呢?</p>
+                        <p class="contentText"><?= $r['content'] ?></p>
                         <div class="iconIndic">
                             <button class="napBtn_likeBtn_comt">
                                 <div class="svgs">
@@ -161,7 +161,10 @@ $furArray = ['短毛', '長毛'];
                             </div>
                         </div>
                     </div>
-                    <div class="card_smPic">
+
+                    <div style="background-image: url(./img/chatchat/event/<?= $r['articlePic_id'] ?>)"
+                    class="card_smPic">
+
                     </div>
                     <button class="pointMenu">
                         <img src="./img/component/icon/Small Menu.svg" alt="">
@@ -194,6 +197,88 @@ $furArray = ['短毛', '長毛'];
                             <span>編輯</span>
                         </button>
                     </div>
+                    <div class="lightBox_comtCard">
+                        <button class="close_lightBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z" fill="#2D2D2D" />
+                            </svg>
+                        </button>
+                        <div class="content_wrap">
+                            <div class="member_info">
+                                <div class="member_pic"></div>
+                                <span class="member_name">
+                                    <?= $r['name'] ?>
+                                </span>
+                            </div>
+                            <article>
+                                <div class="content">
+                                    <h3> <?= $r['title'] ?></h3>
+                                    <div class="others_wrap d-flex align-bottom justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="comtLabel">
+                                                <span> <?= $event[$r['tag']] ?></span>
+                                            </div>
+                                            <span class="date"> <?= $r['date'] ?></span>
+                                        </div>
+                                        <button class="napBtn_likeBtn_comt">
+                                            <div class="svgs">
+                                                <img id="napDefault" src="./img/component/icon/red-Heart-outline.svg" alt="">
+                                                <img id="napActivate" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                                            </div>
+                                            <span>關注</span>
+                                        </button>
+                                    </div>
+                                    <p class="comtCard_lightBox_p">
+                                        <?= $r['content'] ?>
+                                    </p>
+                                    <div class="comtCard_lightBox_pic">
+                                        <!-- 顯示多張圖片 -->
+                                    <?php
+                                    $picAry = [];
+                                    if(! empty($r['articlePic_id'])){
+                                        $picAry = explode(',',$r['articlePic_id']);
+                                    }
+                                    foreach($picAry as $p){
+                                        echo "<img src='./img/chatchat/event/{$p}' alt=''>";
+                                    }
+                                    ?>
+                                    </div>
+                                </div>
+                                <div class="comtSection">
+                                    <div class="numIndic d-flex align-items-end">
+                                        <img src="./img/component/icon/Comment-brown.svg" alt="">
+                                        <span>12則留言</span>
+                                    </div>
+                                    <div class="messageLev d-flex align-items-center">
+                                        <div class="memberPic">
+                                        </div>
+                                        <input class="message_input" type="text" placeholder="我要留言">
+                                    </div>
+                                    <div class="message_pack">
+                                        <div id="messageCard" class="messageCard d-flex">
+                                            <div class="memberPic"></div>
+                                            <div class="content_wrap d-flex">
+
+                                                <span class="poster">
+                                                    台北潘潘妮
+                                                </span>
+                                                <span class="date">
+                                                    2022/09/14
+                                                </span>
+                                                <p class="message_text">
+                                                    這隻狗未免也太胖了吧?是阿罵養的ㄇ~是阿罵養的ㄇ~
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="botHint">尚無更多留言</span>
+                                </div>
+
+
+
+                            </article>
+                        </div>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -202,79 +287,7 @@ $furArray = ['短毛', '長毛'];
     <div class="lightBox_mb_mask"></div>
     <!--  -->
     <!-- 留言卡片展開的光箱 -->
-    <div class="lightBox_comtCard">
-        <button class="close_lightBox">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z" fill="#2D2D2D" />
-            </svg>
-        </button>
-        <div class="content_wrap">
-            <div class="member_info">
-                <div class="member_pic"></div>
-                <span class="member_name">
-                    翁同學
-                </span>
-            </div>
-            <article>
-                <div class="content">
-                    <h3>我家狗狗一直流鼻涕怎麼辦阿蛤?</h3>
-                    <div class="others_wrap d-flex align-bottom justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <div class="comtLabel">
-                                <span># 浪浪套裝活動</span>
-                            </div>
-                            <span class="date">2022/08/15</span>
-                        </div>
-                        <button class="napBtn_likeBtn_comt">
-                            <div class="svgs">
-                                <img id="napDefault" src="./img/component/icon/red-Heart-outline.svg" alt="">
-                                <img id="napActivate" src="./img/component/icon/red-Heart-filled.svg" alt="">
-                            </div>
-                            <span>關注</span>
-                        </button>
-                    </div>
-                    <p class="comtCard_lightBox_p">
-                        既然，狗狗對我來說，已經成為了我生活的一部分。這樣看來，我們不得不面對一個非常尷尬的事實，那就是，狗狗必定會成為未來世界的新標準。我們普遍認為，若能理解透徹核心原理。
-                        你不及時抓住，再得到的卻是抓不住的瓶身了。這讓我的思緒清晰了。機會老人先給你送上它的頭髮，當你沒有抓住再後悔時，卻只能摸到它的禿頭了。或者說它先給你一個可以抓的瓶。
 
-                        <img src="./img/chatchat/event/chat-eve-05.jpeg" alt="">
-                    </p>
-                </div>
-                <div class="comtSection">
-                    <div class="numIndic d-flex align-items-end">
-                        <img src="./img/component/icon/Comment-brown.svg" alt="">
-                        <span>12則留言</span>
-                    </div>
-                    <div class="messageLev d-flex align-items-center">
-                        <div class="memberPic">
-                        </div>
-                        <input class="message_input" type="text" placeholder="我要留言">
-                    </div>
-                    <div class="message_pack">
-                        <div id="messageCard" class="messageCard d-flex">
-                            <div class="memberPic"></div>
-                            <div class="content_wrap d-flex">
-
-                                <span class="poster">
-                                    台北潘潘妮
-                                </span>
-                                <span class="date">
-                                    2022/09/14
-                                </span>
-                                <p class="message_text">
-                                    這隻狗未免也太胖了吧?是阿罵養的ㄇ~是阿罵養的ㄇ~
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="botHint">尚無更多留言</span>
-                </div>
-
-
-
-            </article>
-        </div>
-    </div>
     <div class="lightBox_comtCard_mask"></div>
     <!--  -->
     <!------ 頁數選擇器 PC -------->
