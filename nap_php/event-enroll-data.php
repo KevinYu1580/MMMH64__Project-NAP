@@ -35,7 +35,7 @@ $pageName = '套裝活動報名'; // 頁面名稱
 
     <!------ 上方返回 ------>
     <div class="backpage">
-        <img src="./img/component/icon/Exclude.svg" alt="">
+        <a href=""><img src="./img/component/icon/Exclude.svg" alt=""></a>
         <a href="#">返回</a>
     </div>
 

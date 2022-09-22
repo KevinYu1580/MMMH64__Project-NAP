@@ -1,0 +1,830 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radius: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: custom-font;
+    color: var(--subColor_text);
+    position: relative;
+    
+    
+}
+
+.all-container{
+    min-width: 375px;
+    
+}
+    @media screen and (min-width: 768px){
+        .all-container{
+            padding: 0 5%;
+            max-width: 1440px;
+            /* background-color: #B14F42; */
+            margin: auto;
+        }
+    }
+
+/* ---------手機上方返回--------- */
+.mobile-backpage{
+    height: 45px;
+    margin-top: 68px;
+    background-color: var(--secondaryColor_default);
+    width: 100%;
+    color: var(--white);
+    font-size: var(--headline_24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    @media screen and (min-width: 768px){
+        .mobile-backpage{
+            display: none;
+        }
+    }
+
+.mobile-backpage a{
+    text-decoration: none;
+    color: var(--white);
+}
+
+.mobile-backpage svg{
+    position: absolute;
+    height: 12px;
+    transform: rotate(-90deg);
+    left: 0;
+    margin-left: 10%;
+}
+
+/* -------------------------上方返回------------------------ */
+.backpage{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .backpage {
+            /* position: absolute; */
+            font-size: var(--headline_28px);
+            display: flex;
+            align-items: center;
+            /* top: 100px; */
+            margin-top: 132px;
+        }
+        .backpage:hover {
+            transform: translateX(-3px);
+            transition: all .3s;
+        }
+    }
+
+.backpage img{
+    transform: rotate(-90deg);
+    margin-right: 15px;
+}
+
+.backpage a{
+    text-decoration: none;
+    color: var(--subColor_text);
+}
+
+
+/* -------------------------套裝下方內容---------------------- */
+.data-content{
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .data-content{
+            display: flex;
+            margin-bottom: 50px;
+            justify-content: space-between;        }
+    }
+
+/* --------------------------詳細訂房卡----------------------- */
+.booking-data-right{
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .booking-data-right{
+            margin: 0;
+        }
+    }
+
+.booking-detail-card{
+    font-size: var(--p_14px);
+    background-color: var(--primaryColor_tint);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-card{
+            font-size: var(--headline_20px);
+            background-color: var(--primaryColor_tint);
+            border-radius: 20px 20px 0 0;
+            margin-top: 55px;
+            padding: 25px 35px;
+            height: 120px;
+        }
+    }
+
+.down-expand-btn{
+    display: flex;
+    align-items: center;
+    transform: rotate(0deg);
+}
+
+.down-expand-btn .up{
+    transition: all 0.6s;
+}
+
+.down-expand-btn .active{
+    transform: rotate(-180deg);
+    transition: all 0.6s;
+}
+    @media screen and (min-width: 768px){
+        .down-expand-btn{
+            display: none;
+        }
+    }
+
+.down-expand-btn img{
+    width: 20px;
+}
+
+.booking-date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-date{
+            margin-bottom: 20px;
+        }
+    }
+
+.booking-room{
+    display: flex;
+    align-items: center;
+}
+
+.booking-date .date-num, .booking-room .room-num{
+    margin-left: 15px;
+}
+
+.date-icon img, .room-icon img{
+    width: 23px;
+}
+
+/* ---------右邊詳細內容--------- */
+.booking-detail-content{
+    padding: 30px 10%;
+    position: relative;
+}
+.booking-detail-content::after{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 1px;
+    background-color: var(--black_500);
+    bottom: 1px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content{
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+        }
+        .booking-detail-content::after{
+            position: absolute;
+            content: '';
+            width: 80%;
+            height: 1px;
+            background-color: var(--black_500);
+            bottom: 1px;
+        }
+    }
+
+.booking-detail-content .room-name{
+    font-size: var(--headline_20px);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-name{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.per-room-num{
+    margin-left: 10px;
+}
+
+.booking-detail-content .room-count{
+    font-size: var(--p_14px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-count{
+            font-size: var(--subtitle_16px);
+        }
+    }
+
+.booking-detail-content .room-detail-num{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .room-detail-num{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.booking-detail-content .price-include{
+    font-size: var(--p_12px);
+    text-align: right;
+    font-weight: 300;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content .price-include{
+            font-size: var(--p_14px);
+        }
+    }
+
+/* ---------右邊詳細內容(最下方統計)--------- */
+.booking-detail-content-final{
+    padding: 30px 10%;
+    position: relative;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content-final{
+            border-bottom: solid 1px var(--black_500);
+            border-left: solid 1px var(--black_500);
+            border-right: solid 1px var(--black_500);
+            position: relative;
+            border-radius: 0 0 20px 20px;
+        }
+    }
+.booking-detail-content-final .total-count, .deposit-count, .rest-count{
+    font-size: var(--subtitle_18px);
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .booking-detail-content-final .total-count, .deposit-count, .rest-count{
+            font-size: var(--headline_20px);
+        }
+    }
+
+.booking-detail-content-final .rest-pay-notice{
+    font-size: var(--p_14px);
+    font-weight: 300;
+}
+
+.deposit-num span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
+}
+
+/* ---------加入購物車＋前往結帳按鈕--------- */
+.cart-btn{
+    margin: auto;
+    margin-bottom: 55px;
+    
+}
+    @media screen and (min-width: 768px){
+        .cart-btn{
+            margin-bottom: 65px;
+            flex-direction: row-reverse;
+            display: flex;
+            width: 50%;
+        }
+    }
+
+.napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+    font-size: var(--headline_20px);
+    
+}
+    @media screen and (min-width: 768px){
+        .napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+            font-size: var(--headline_24px);
+        }
+    }
+
+.cart-btn a{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+}
+    @media screen and (min-width: 768px){
+        .cart-btn a{
+            margin: auto;
+            margin-top: 10px;
+            width: 230px;
+            height: 55px;
+            text-decoration: none;
+        }
+    }
+
+/* ----------套裝活動報名表頭---------- */
+.booking-data-title{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .booking-data-title{
+            color: var(--white);
+            font-size: var(--headline_32px);
+            background-color: var(--secondaryColor_default);
+            width: 365px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            margin: auto;
+            justify-content: center;
+            position: relative;
+            margin-top: 20px;
+        }
+    }
+    @media screen and (min-width: 768px){
+        .booking-data-title::after, .booking-data-title::before{
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 380px;
+            background-color: var(--secondaryColor_default);
+            top: 50%;
+        }
+        .booking-data-title::after{
+            right: 90%;
+        }
+        .booking-data-title::before{
+            left: 90%;
+        }
+    }
+
+
+/* -----------左邊訂房人資料列---------- */
+.booking-data-left{
+    margin: auto;
+    /* width: 327px; */
+    padding: 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-data-left{
+            padding: 0;
+            margin: 0;
+            margin-top: 55px;
+            /* margin-left: 5%; */
+        }
+    }
+
+.booking-title{
+    background-color: var(--primaryColor_light);
+    height: 45px;
+    border-radius: 20px 20px 0 0;
+    /* margin: auto; */
+
+}
+    @media screen and (min-width: 768px){
+        .booking-title {
+            height: 55px;
+            margin-left: 0;
+        }
+    }
+
+.booking-title h4{
+    display: flex;
+    font-size: var(--headline_20px);
+    text-align: left;
+    /* margin-left: 15px; */
+    height: 49px;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.4rem;
+    font-weight: 500;
+}
+    @media screen and (min-width: 768px){
+        .booking-title h4{
+            font-size: var(--headline_28px);
+            text-align: center;
+            height: 65px;
+            justify-content: center;
+            line-height: 2rem;
+        }
+    }
+
+.booking-content{
+    padding: 40px 20px;
+    border: solid 6px var(--primaryColor_light);
+    border-radius: 0 0 20px 20px;
+}
+    @media screen and (min-width: 768px){
+        .booking-content{
+            padding: 40px 20px;
+            border: solid 10px var(--primaryColor_light);
+        }
+    }
+
+.member-note{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+    @media screen and (min-width: 768px){
+        .member-note{
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+    }
+
+.warn-img{
+    width: 30px;
+    padding-left: 10px;
+    margin-right: 15px;
+}
+    @media screen and (min-width: 768px){
+        .warn-img{
+            width: 43px;
+            padding-left: 20px;
+            margin-right: 25px;
+        }
+    }
+
+.warn-img svg{
+    width: 30px;
+}
+    @media screen and (min-width: 768px){
+        .warn-img svg{
+            width: 43px;
+        }
+    }
+
+.note-content p{
+    color: var(--subColor_highLightRed);
+    font-size: var(--p_14px);
+    line-height: 1rem;
+    margin-left: 5px;
+}
+    @media screen and (min-width: 768px){
+        .note-content p{
+            font-size: var(--headline_20px);
+            line-height: 1.5rem;
+            
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        .booking-content .form{
+            margin-top: 10px;
+            /* width: 400px; */
+            margin: auto;
+            width: 85%;
+        }
+    } 
+
+.triangle {
+    display: flex;
+    width: 100%;
+}
+.triangle img{
+    width: 21px;
+    margin: 0 auto;
+}
+    @media screen and (min-width: 768px){
+        .triangle img{
+            width: 35px;
+        }
+    }
+
+
+/* ---------這裡開始以下要重新複製--------- */
+/* ---------入住須知及取消政策----------- */
+.expand-btn1, .expand-btn2{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: rotate(0deg);
+    top: 45%;
+    right: 10%;
+}
+
+.expand-btn1 .down, .expand-btn2 .down{
+    transition: all 0.6s;
+}
+
+.expand-btn1 .active, .expand-btn2 .active{
+    transform: rotate(180deg);
+    transition: all 0.6s;
+}
+    @media screen and (min-width: 768px){
+        .expand-btn1, .expand-btn2{
+            display: none;
+        }
+    }
+
+.expand-btn1 img, .expand-btn2 img{
+    width: 20px;
+}
+
+.check-in-instructions{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions{
+            display: block;
+            background-color: var(--subColor_bgc);
+            position: relative;
+            font-size: var(--headline_28px);
+            font-weight: 500;
+            color: var(--primaryColor_dark);
+            text-align: center;
+            padding: 40px;
+            padding-top: 100px;
+        }
+    }
+
+.check-in-instructions::after{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions::after{
+            display: block;
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 80%;
+            background-color: var(--black_500);
+            bottom: 20px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+    }
+
+.check-in-instructions-content{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content{
+            display: block;
+            background-color: var(--subColor_bgc);
+            padding: 40px 240px;
+            line-height: 1.6rem;
+            font-size: var(--headline_20px);
+        }
+    }
+
+.check-in-instructions-content li{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content li{
+            display: block;
+            margin-top: 10px;
+        }
+    }
+
+.cancellation-policy{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy{
+            display: block;
+            background-color: var(--subColor_bgc);
+            font-size: var(--headline_28px);
+            position: relative;
+            font-weight: 500;
+            color: var(--primaryColor_dark);
+            text-align: center;
+            padding: 40px;
+        }
+    }
+
+.cancellation-policy::after{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy::after{
+            display: block;
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 80%;
+            background-color: var(--black_500);
+            bottom: 20px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+    }
+
+.cancellation-policy-content{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content{
+            display: block;
+            background-color: var(--subColor_bgc);
+            padding: 40px 240px;
+            line-height: 1.6rem;
+            font-size: var(--headline_20px);
+            padding-bottom: 100px;
+        }
+    }
+
+.cancellation-policy-content li{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content li{
+            display: block;
+            margin-top: 10px;
+        }
+    }
+
+
+.footer-mobile{
+    background-color: var(--subColor_bgc);
+}
+
+
+/* ---------<手機版>入住須知及取消政策----------- */
+.check-in-instructions-mobile{
+    display: block;
+    background-color: var(--subColor_bgc);
+    position: relative;
+    font-size: var(--headline_24px);
+    font-weight: 500;
+    color: var(--primaryColor_dark);
+    text-align: center;
+    padding: 40px;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-mobile{
+            display: none;
+        }
+    }
+
+.check-in-instructions-mobile::after{
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 80%;
+    background-color: var(--black_500);
+    bottom: 20px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-mobile::after{
+            display: none;
+        }
+    }
+
+.check-in-instructions-content-mobile{
+    display: none;
+    background-color: var(--subColor_bgc);
+    padding: 10px 40px 40px 40px;
+    line-height: 1.2rem;
+    font-size: var(--p_12px);
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content-mobile{
+            display: none;
+        }
+    }
+
+.check-in-instructions-content-mobile li{
+    margin-top: 6px;
+    list-style: none;
+}
+    @media screen and (min-width: 768px){
+        .check-in-instructions-content-mobile li{
+            display: none;
+        }
+    }
+
+.cancellation-policy-mobile{
+    display: block;
+    background-color: var(--subColor_bgc);
+    position: relative;
+    font-size: var(--headline_24px);
+    font-weight: 500;
+    color: var(--primaryColor_dark);
+    text-align: center;
+    padding: 40px;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-mobile{
+            display: none;
+        }
+    }
+
+.cancellation-policy-mobile::after{
+    display: block;
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 80%;
+    background-color: var(--black_500);
+    bottom: 20px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-mobile::after{
+            display: none;
+        }
+    }
+
+.cancellation-policy-content-mobile{
+    display: none;
+    background-color: var(--subColor_bgc);
+    padding: 10px 40px 40px 40px;
+    line-height: 1.2rem;
+    font-size: var(--p_12px);
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content-mobile{
+            display: none;
+        }
+    }
+
+.cancellation-policy-content-mobile li{
+    display: block;
+    margin-top: 6px;
+    list-style: none;
+}
+    @media screen and (min-width: 768px){
+        .cancellation-policy-content-mobile li{
+            display: none;
+        }
+    }
