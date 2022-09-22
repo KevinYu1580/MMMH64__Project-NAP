@@ -20,7 +20,7 @@ function changeShowDate(today){
 
     $('.choose-textbox').eq(0).find('h6').text(dateOfToday);
     $('.choose-textbox').eq(0).find('p').eq(1).text(myDate);
-    $('.date-num span').eq(0).text(`${numberDate} - `);
+    $('.date-num span').eq(0).text(`${numberDate}`);
 }
 
 changeShowDate(new Date());
@@ -58,9 +58,12 @@ function changeShowDateTomorrow(tomorrow){
     $('.choose-textbox').eq(1).find('p').eq(1).text(myTomorrow);
     $('.date-num span').eq(1).text(`${numberDateTomorrow}`);
 
-    const afterDay = $('.choose-textbox').eq(1).find('h6').text();
-    const beforeDay = $('.choose-textbox').eq(0).find('h6').text();
-    $('.date-num span').eq(3).text(`${afterDay - beforeDay}`); //計算共幾晚
+    const day1 = new Date($('.date-num span').eq(0).text());
+    const day2 = new Date($('.date-num span').eq(1).text());
+
+    const difference = Math.abs(day2 - day1);
+    days = difference / (1000 * 3600 * 24)
+    $('.date-num span').eq(3).text(days); //計算共幾晚
 }
 
 changeShowDateTomorrow(new Date());
@@ -224,6 +227,9 @@ $('#single-minus').click(function () {
         $('.singleNum').val(--minusNum);
         console.log('singleminus:',$('.singleNum').val());
     }
+    if($('.singleNum').val() == 0){
+        $('#single-detail').hide();
+    }
 
     // 選擇的小於上面間數加號會變灰色
     const roomNum01 = +$('.singleNum').val();
@@ -316,6 +322,9 @@ $('#double-minus').click(function () {
     if($('.doubleNum').val() > 0){
         $('.doubleNum').val(--minusNum);
         console.log('doubleminus:',$('.doubleNum').val());
+    }
+    if($('.doubleNum').val() == 0){
+        $('#double-detail').hide();
     }
 
     // 選擇的小於上面間數加號會變灰色
@@ -411,6 +420,9 @@ $('#quadra-minus').click(function () {
     if($('.quadraNum').val() > 0){
         $('.quadraNum').val(--minusNum);
         console.log('quadraminus:',$('.quadraNum').val());
+    }
+    if($('.quadraNum').val() == 0){
+        $('#quadra-detail').hide();
     }
 
     // 選擇的小於上面間數加號會變灰色

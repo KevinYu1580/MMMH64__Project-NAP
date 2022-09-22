@@ -1,7 +1,9 @@
 <?php
+
+
 require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'room_booking'; // 頁面名稱
-
+/*
 $sqlSingle = "SELECT `room_name`,`room_price` FROM `room_info` WHERE sid =1";
 $sqlDouble = "SELECT `room_name`,`room_price` FROM `room_info` WHERE sid =2";
 $sqlQuadra = "SELECT `room_name`,`room_price` FROM `room_info` WHERE sid =3";
@@ -18,7 +20,9 @@ $stmtQuadra = $pdo->query($sqlQuadra)->fetch(PDO::FETCH_NUM);
 foreach($stmtQuadra as $j){
     // echo $j;
 }
+*/
 
+$rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
 
 ?>
@@ -101,7 +105,7 @@ foreach($stmtQuadra as $j){
             <div class="room-result-col col-md-7">
                 <div class="room-null">
                     <div class="room-null-imgbox">
-                        <img src="../img/component/icon/Search.svg" alt="">
+                        <img src="../nap_php/img/component/icon/Search.svg" alt="">
                     </div>
                     <div class="room-null-text">請選擇預入住的日期與間數</div>
                 </div>
@@ -111,7 +115,7 @@ foreach($stmtQuadra as $j){
                             <img src="../nap_php/img/nap-intro/roomInfo/single-room/single-02.jpg" alt="">
                         </div>
                         <div class="card-textbox col-md-8">
-                            <h2><?= $stmtSingle[0] ?></h2>
+                            <h2><?= $rooms[0]['room_name'] ?></h2>
                             <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                 <div class="icon-imgbox">
                                     <img src="../nap_php/img/component/icon/Bed.svg" alt="">
@@ -124,8 +128,8 @@ foreach($stmtQuadra as $j){
                                 </div>
                                 <p>上限 1 人 | 此房間不提供加人服務</p>
                             </div>
-                            <div class="price-cr-group d-md-flex">
-                                <div class="price singleprice">NT$ <span><?= $stmtSingle[1] ?></span> 元 / 晚</div>
+                            <div class="price-cr-group d-md-flex" data-id="<?= $rooms[0]['sid'] ?>">
+                                <div class="price singleprice">NT$ <span><?= $rooms[0]['room_price'] ?></span> 元 / 晚</div>
                                 <div class="choose-room d-flex justify-content-center align-items-center">
                                     <div id="single-minus" class="minus-btn">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,7 +156,7 @@ foreach($stmtQuadra as $j){
                             <img src="../nap_php/img/nap-intro/roomInfo/double-room/double-04.jpg" alt="">
                         </div>
                         <div class="card-textbox col-md-8">
-                            <h2><?= $stmtDouble[0]?></h2>
+                            <h2><?= $rooms[1]['room_name'] ?></h2>
                             <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                 <div class="icon-imgbox">
                                     <img src="../nap_php/img/component/icon/Bed.svg" alt="">
@@ -165,8 +169,8 @@ foreach($stmtQuadra as $j){
                                 </div>
                                 <p>上限 2 人 | 此房間不提供加人服務</p>
                             </div>
-                            <div class="price-cr-group d-md-flex">
-                                <div class="price doubleprice">NT$ <span><?= $stmtDouble[1]?></span> 元 / 晚</div>
+                            <div class="price-cr-group d-md-flex" data-id="<?= $rooms[1]['sid'] ?>">
+                                <div class="price doubleprice">NT$ <span><?= $rooms[1]['room_price'] ?></span> 元 / 晚</div>
                                 <div class="choose-room d-flex justify-content-center align-items-center">
                                     <div id="double-minus" class="minus-btn">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -193,7 +197,7 @@ foreach($stmtQuadra as $j){
                             <img src="../nap_php/img/nap-intro/roomInfo/quadra-room/quadra-05.jpg" alt="">
                         </div>
                         <div class="card-textbox col-md-8">
-                            <h2><?= $stmtQuadra[0] ?></h2>
+                            <h2><?= $rooms[2]['room_name'] ?></h2>
                             <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                 <div class="icon-imgbox">
                                     <img src="../nap_php/img/component/icon/Bed.svg" alt="">
@@ -206,8 +210,8 @@ foreach($stmtQuadra as $j){
                                 </div>
                                 <p>上限 4 人 | 此房間不提供加人服務</p>
                             </div>
-                            <div class="price-cr-group d-md-flex">
-                                <div class="price quadraprice">NT$ <span><?= $stmtQuadra[1] ?></span> 元 / 晚</div>
+                            <div class="price-cr-group d-md-flex" data-id="<?= $rooms[2]['sid'] ?>">
+                                <div class="price quadraprice">NT$ <span><?= $rooms[2]['room_price'] ?></span> 元 / 晚</div>
                                 <div class="choose-room d-flex justify-content-center align-items-center">
                                     <div id="quadra-minus" class="minus-btn">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -243,6 +247,7 @@ foreach($stmtQuadra as $j){
                                 <span>
                                     <!-- 帶入checkIn的日期 -->
                                 </span>
+                                -
                                 <span>
                                     <!-- 帶入checkOut的日期 -->
                                 </span>
@@ -375,9 +380,40 @@ foreach($stmtQuadra as $j){
 <script src="./nap_js/component.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="./nap_js/room_booking.js"></script>
+<script>
+    const rooms = <?= json_encode($rooms, JSON_UNESCAPED_UNICODE) ?>;
+    const rooms_dict = {};
+    // price-cr-group
 
+    for (let i of rooms) {
+        rooms_dict[i.sid] = i;
+    }
 
-<!-- 自己的js放在這 -->
+    const handleRoomNum = function() {
+        const price_cr_group = $(this).closest('.price-cr-group');
+        const room_id = price_cr_group.attr('data-id');
+        const num = price_cr_group.find('input').val();
+        const day1 = new Date($('.date-num span').eq(0).text());
+        const day2 = new Date($('.date-num span').eq(1).text());
+
+        const difference = Math.abs(day2 - day1);
+        const days = difference / (1000 * 3600 * 24)
+        console.log('hi', days);
+
+        // console.log({room_id, num});
+        rooms_dict[room_id].num = num;
+        rooms_dict[room_id].day1 = day1;
+        rooms_dict[room_id].day2 = day2;
+        rooms_dict[room_id].days = days;
+        // console.log(rooms_dict);
+
+        localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
+
+    };
+
+    $('.minus-btn').on('click', handleRoomNum);
+    $('.plus-btn').on('click', handleRoomNum);
+</script>
 
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

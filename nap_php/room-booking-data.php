@@ -1,5 +1,7 @@
 <?php
-// require __DIR__ . '/parts/connect_db.php';
+
+
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '訂房資料填寫'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
@@ -46,7 +48,13 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                                 <img src="./img/component/icon/calender.svg" alt="">
                             </div>
                             <div class="date-num">
-                                <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p>
+                                <span></span>
+                                -
+                                <span></span>
+                                (
+                                <span></span>
+                                晚 )
+                                <!-- <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p> -->
                             </div>
                         </div>
                         <div class="booking-room">
@@ -353,7 +361,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
         </p>
     </div>
 
-
+    <div id="info"></div>
 
 
 <?php include __DIR__. '/parts/nap-footer.php'; ?>
@@ -363,7 +371,14 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 <?php include __DIR__. '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
+<script>
 
+    const date = JSON.parse(localStorage.getItem('rooms_order'))
+    $('.date-num span').eq(0).text(new Date(date['1'].day1).toLocaleDateString());
+    $('.date-num span').eq(1).text(new Date(date['1'].day2).toLocaleDateString());
+    $('.date-num span').eq(2).text(date['1'].days);
+
+</script>
 
 <?php include __DIR__. '/parts/html-foot.php'; ?>
 
