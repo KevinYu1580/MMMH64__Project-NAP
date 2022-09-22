@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect_db_vera.php';
-$pageName = 'filed-guide'; // 頁面名稱
+$pageName = 'Our Furry Friends'; // 頁面名稱
 
 $perPage = 6;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
@@ -53,12 +53,6 @@ if ($totalRows > 0) {
     // echo $sql; exit;
     $rows = $pdo->query($sql)->fetchAll();
 }
-
-// $genderArray = ['男生','女生'];
-// $furArray = ['短毛','長毛'];
-
-// 篩選:取得種類資料
-
 
 //位置開始---------
 

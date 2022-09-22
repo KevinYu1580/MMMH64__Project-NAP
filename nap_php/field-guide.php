@@ -4,7 +4,7 @@ $pageName = 'filed-guide'; // 頁面名稱
 
 $perPage = 12;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$type = isset($_GET['type']) ? intval($_GET['type']) : 0;
+
 
 
 
@@ -34,16 +34,7 @@ if ($totalRows > 0) {
 $genderArray = ['男生','女生'];
 $furArray = ['短毛','長毛'];
 
-// 篩選:取得種類資料
-$typeF = $pdo->query("SELECT * FROM pet_card WHERE `type`")
-    ->fetchAll();
 
-//位置開始---------
-$where = ' WHERE 1 ';  // 起頭
-if($cate){
-    $where .= " AND pet_id=$type ";
-    $qsp['type'] = $type;
-}
 ?>
 
 

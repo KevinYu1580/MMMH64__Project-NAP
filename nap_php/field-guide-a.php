@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect_db_vera.php';
-$pageName = 'filed-guide'; // 頁面名稱
+$pageName = 'Our Furry Friends'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
@@ -227,7 +227,7 @@ $pageName = 'filed-guide'; // 頁面名稱
         
     </section>
         <!------ 頁數選擇器 PC -------->
-<div class="page_slec">
+<!-- <div class="page_slec">
 <nav aria-label="Page navigation example">
     <ul class="pagination">
         <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
@@ -261,7 +261,7 @@ $pageName = 'filed-guide'; // 頁面名稱
             </a>
         </li>
     </ul>
-</nav>
+</nav> -->
 </div>
 
 
@@ -321,19 +321,19 @@ $pageName = 'filed-guide'; // 頁面名稱
                     $('.dot4').css('background','none')    
                 }
         })
-        //光箱彈出
-        $('.pet-card-content').click(function(){
-            console.log(321)
-            $('.lightBox-card-img img').attr('src', $(this).find('.pet-card-img img').attr('src'));
-            $('.lightBox-card-name').text( $(this).find('.pet-info .name').text());
-            $('.lightBox-card-age span').text( $(this).find('.pet-info .age').text());
-            $('.lightBox-card-personality span').text( $(this).find('.pet-info .personality').text());
-            $('.lightBox').show();
-        })
-         //光箱關閉
-        $('.close img').click(function(){
-                $('.lightBox').hide();
-            })
+        // //光箱彈出
+        // $('.pet-card-content').click(function(){
+        //     console.log(321)
+        //     $('.lightBox-card-img img').attr('src', $(this).find('.pet-card-img img').attr('src'));
+        //     $('.lightBox-card-name').text( $(this).find('.pet-info .name').text());
+        //     $('.lightBox-card-age span').text( $(this).find('.pet-info .age').text());
+        //     $('.lightBox-card-personality span').text( $(this).find('.pet-info .personality').text());
+        //     $('.lightBox').show();
+        // })
+        //  //光箱關閉
+        // $('.close img').click(function(){
+        //         $('.lightBox').hide();
+        //     })
 </script>
 <script>
     const petCard = $('#petCard');
@@ -419,11 +419,28 @@ $pageName = 'filed-guide'; // 頁面名稱
                 });
             }
             petCard.html(str);
+
+            
         }, 'json');
 
     }
     
+    
      getData({}); // first get data
+
+    //光箱彈出
+    $('.pet-card-content').click(function(){
+            console.log(321);
+            $('.lightBox-card-img img').attr('src', $(this).find('.pet-card-img img').attr('src'));
+            $('.lightBox-card-name').text( $(this).find('.pet-info .name').text());
+            $('.lightBox-card-age span').text( $(this).find('.pet-info .age').text());
+            $('.lightBox-card-personality span').text( $(this).find('.pet-info .personality').text());
+            $('.lightBox').show();
+        })
+    //光箱關閉
+    $('.close img').click(function(){
+                $('.lightBox').hide();
+            })
 </script>
 
 <?php include __DIR__. '/parts/html-foot.php'; ?>
