@@ -449,6 +449,7 @@ $('#quadra-minus').click(function () {
     }
 });
 
+localStorage.setItem('aaa','bbb');
 
 
 
