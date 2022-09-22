@@ -321,26 +321,15 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
                     $('.dot4').css('background','none')    
                 }
         })
-        // //光箱彈出
-        // $('.pet-card-content').click(function(){
-        //     console.log(321)
-        //     $('.lightBox-card-img img').attr('src', $(this).find('.pet-card-img img').attr('src'));
-        //     $('.lightBox-card-name').text( $(this).find('.pet-info .name').text());
-        //     $('.lightBox-card-age span').text( $(this).find('.pet-info .age').text());
-        //     $('.lightBox-card-personality span').text( $(this).find('.pet-info .personality').text());
-        //     $('.lightBox').show();
-        // })
-        //  //光箱關閉
-        // $('.close img').click(function(){
-        //         $('.lightBox').hide();
-        //     })
+        
 </script>
 <script>
     const petCard = $('#petCard');
+    
     const card_tpl_func = ({pet_id, name, age, gender, fur, personality})=>{
         return `
 <div class="pet-card-col col-6 col-md-4">
-    <div class="pet-card-content">
+    <div class="pet-card-content" onclick="showBox(event);" >
         <div class="pet-card-img">
             <img src="../nap_php/img/pet/${pet_id}.jpg" class="card-img-top" alt="...">
         </div>
@@ -429,18 +418,23 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
      getData({}); // first get data
 
     //光箱彈出
-    $('.pet-card-content').click(function(){
-            console.log(321);
-            $('.lightBox-card-img img').attr('src', $(this).find('.pet-card-img img').attr('src'));
-            $('.lightBox-card-name').text( $(this).find('.pet-info .name').text());
-            $('.lightBox-card-age span').text( $(this).find('.pet-info .age').text());
-            $('.lightBox-card-personality span').text( $(this).find('.pet-info .personality').text());
+    function showBox(event){
+        const me = event.currentTarget
+        // $('.pet-card-content').click(function(){
+            console.log(me);
+            console.log($(me).find('.pet-card-img img').attr('src'));
+            $('.lightBox-card-img img').attr('src', $(me).find('.pet-card-img img').attr('src'));
+            $('.lightBox-card-name').text( $(me).find('.pet-info .name').text());
+            $('.lightBox-card-age span').text( $(me).find('.pet-info .age').text());
+            $('.lightBox-card-personality span').text( $(me).find('.pet-info .personality').text());
             $('.lightBox').show();
-        })
+        // })
     //光箱關閉
     $('.close img').click(function(){
                 $('.lightBox').hide();
             })
+    }
+    
 </script>
 
 <?php include __DIR__. '/parts/html-foot.php'; ?>
