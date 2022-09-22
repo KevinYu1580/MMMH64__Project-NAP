@@ -130,14 +130,3 @@ function getEnrollContentFormNum() {
 }
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-// 	const slider = document.querySelector("[data-sticky-nav]");
-// 	const stickyNavLinks = slider.querySelectorAll("a");
-
-	
-
-// 	stickyNavLinks.forEach((link) => {
-// 		const sections = document.querySelector(link.hash);
-// 		observer.observe(sections);
-// 	});
-// });

@@ -956,6 +956,7 @@ body {
         position: absolute;
         /* right: 10%; */
         bottom: 0;
+        /* z-index: 700; */
     }
     .slider{
         height: 560px;

@@ -33,8 +33,8 @@ $pageName = '活動報名注意事項'; // 頁面名稱
 
     <div class="all-container">
         <div class="backpage">
-            <img src="./img/component/icon/Exclude.svg" alt="">
-            <a href="#">返回</a>
+            <!-- <img src="./img/component/icon/Exclude.svg" alt=""> -->
+            <a href="events_detail.php?page=event&sid=<?= $event['sid'] ?>"><img src="./img/component/icon/Exclude.svg" alt="">返回</a>
         </div>
         <div class="notice row col-10">
             <div class="notice-title">
