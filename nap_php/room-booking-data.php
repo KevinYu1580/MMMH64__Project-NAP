@@ -83,7 +83,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price singlePrice">NT$ <span>2,600</span></div>
+                            <div class="room-detail-price singlePrice">NT$ <span><!--帶入單人總價錢--></span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
@@ -101,7 +101,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price doublePrice">NT$ <span>2,600</span></div>
+                            <div class="room-detail-price doublePrice">NT$ <span><!--帶入雙人總價錢--></span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
@@ -119,7 +119,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price quadraPrice">NT$ <span>2,600</span></div>
+                            <div class="room-detail-price quadraPrice">NT$ <span><!--帶入四人總價錢--></span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
@@ -131,16 +131,16 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                                 <p>總價</p>
                             </div>
                             <div class="total-num">
-                                <p>NT$ <span>12,800</span></p>
+                                <p>NT$ <span>0</span></p>
                             </div>
                         </div>
                         <div class="deposit-count">
                             <div class="deposit-price">應付訂金金額</div>
-                            <div class="deposit-num">NT$ <span>6,400</span></div>
+                            <div class="deposit-num">NT$ <span>0</span></div>
                         </div>
                         <div class="rest-count">
                             <div class="rest-price">剩餘尾款</div>
-                            <div class="rest-num">NT$ <span>6,400</span></div>
+                            <div class="rest-num">NT$ <span>0</span></div>
                         </div>
                         <div class="rest-pay-notice">
                             <p>(請於現場付清)</p>
@@ -395,27 +395,19 @@ $pageName = '訂房資料填寫'; // 頁面名稱
         $('.quadra-detail').hide();
     }
     else{
-        
+
     }
 
     $('.room-num span').text(+(localData['1'].num?localData['1'].num:0) + +(localData['2'].num?localData['2'].num:0) + +(localData['3'].num?localData['3'].num:0)); //計算幾間房
     $('.single-name').html(localData['1'].room_name); //抓取房名
     $('.single-detail span').eq(0).html(localData['1'].days); //抓取單人房明細，幾晚
     $('.single-detail span').eq(1).html(localData['1'].num); //抓取單人房明細，幾間
-    // $('.room-detail-price span').html(localData['1'].singlePrice); //單人房明細總價
     $('.singlePrice span').html(localData['1'].singlePrice); //單人房明細總價
 
     // 雙人房
-
-    // $('.date-num span').eq(0).text(new Date(localData['2'].day1).toLocaleDateString());
-    // $('.date-num span').eq(1).text(new Date(localData['2'].day2).toLocaleDateString());
-    // $('.date-num span').eq(2).text(localData['2'].days);
     $('.double-name').html(localData['2'].room_name); //抓取房名
 
     // 四人房
-    // $('.date-num span').eq(0).text(new Date(localData['3'].day1).toLocaleDateString());
-    // $('.date-num span').eq(1).text(new Date(localData['3'].day2).toLocaleDateString());
-    // $('.date-num span').eq(2).text(localData['3'].days);
     $('.quadra-name').html(localData['3'].room_name); //抓取房名
 
 </script>
