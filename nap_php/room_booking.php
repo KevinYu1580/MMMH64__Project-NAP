@@ -360,7 +360,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                         </div>
                     </div>
                     <div class="booking-btn">
-                        <a href="../chiyin/room-booking-data.html">填寫訂房資料</a>
+                        <a href="./room-booking-data.php">填寫訂房資料</a>
                     </div>
                 </div>
             </div>
