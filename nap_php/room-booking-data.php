@@ -48,11 +48,11 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                                 <img src="./img/component/icon/calender.svg" alt="">
                             </div>
                             <div class="date-num">
-                                <span></span>
+                                <span><!--check-in--></span>
                                 -
-                                <span></span>
+                                <span><!--check-out--></span>
                                 (
-                                <span></span>
+                                <span><!--天數--></span>
                                 晚 )
                                 <!-- <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p> -->
                             </div>
@@ -62,7 +62,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                                 <img src="./img/component/icon/room.svg" alt="">
                             </div>
                             <div class="room-num">
-                                <p><span>3</span> 間房間</p>
+                                <p><span><!--帶入房間數--></span> 間房間</p>
                             </div>
                         </div>
                     </div>
@@ -71,8 +71,8 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                     </div>
                 </div>
                 <div class="booking-detail-combine">
-                    <div class="booking-detail-content">
-                        <div class="room-name">單人房 呼嚕嚕</div>
+                    <div class="booking-detail-content single-detail">
+                        <div class="room-name single-name"><!--帶入單人房名--></div>
                         <div class="room-count">
                             <div class="per-room-night">
                                 <p>x<span>1</span> 晚</p>
@@ -83,14 +83,14 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price">NT$ <span>2,600</span></div>
+                            <div class="room-detail-price singlePrice">NT$ <span>2,600</span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
                         </div>
                     </div>
-                    <div class="booking-detail-content">
-                        <div class="room-name">單人房 呼嚕嚕</div>
+                    <div class="booking-detail-content double-detail">
+                        <div class="room-name double-name"><!--帶入雙人房名--></div>
                         <div class="room-count">
                             <div class="per-room-night">
                                 <p>x<span>1</span> 晚</p>
@@ -101,14 +101,14 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price">NT$ <span>2,600</span></div>
+                            <div class="room-detail-price doublePrice">NT$ <span>2,600</span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
                         </div>
                     </div>
-                    <div class="booking-detail-content">
-                        <div class="room-name">單人房 呼嚕嚕</div>
+                    <div class="booking-detail-content quadra-detail">
+                        <div class="room-name quadra-name"><!--帶入四人房名--></div>
                         <div class="room-count">
                             <div class="per-room-night">
                                 <p>x<span>1</span> 晚</p>
@@ -119,7 +119,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price">NT$ <span>2,600</span></div>
+                            <div class="room-detail-price quadraPrice">NT$ <span>2,600</span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
@@ -373,10 +373,50 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 <!-- 自己的js放在這 -->
 <script>
 
-    const date = JSON.parse(localStorage.getItem('rooms_order'))
-    $('.date-num span').eq(0).text(new Date(date['1'].day1).toLocaleDateString());
-    $('.date-num span').eq(1).text(new Date(date['1'].day2).toLocaleDateString());
-    $('.date-num span').eq(2).text(date['1'].days);
+    const localData = JSON.parse(localStorage.getItem('rooms_order'))
+    // 單人房
+    // $('.single-detail').show();
+    $('.date-num span').eq(0).text(new Date(localData['1'].day1).toLocaleDateString()); //check-in日期
+    $('.date-num span').eq(1).text(new Date(localData['1'].day2).toLocaleDateString()); //check-out日期
+    $('.date-num span').eq(2).text(localData['1'].days); //計算共幾晚
+
+    if(localData['1'].num === 0){
+        $('.single-detail').hide();
+    }else{
+
+    }
+    if(localData['2'].num === 0){
+        $('.double-detail').hide();
+    }
+    else{
+
+    }
+    if(localData['3'].num === 0){
+        $('.quadra-detail').hide();
+    }
+    else{
+        
+    }
+
+    $('.room-num span').text(+(localData['1'].num?localData['1'].num:0) + +(localData['2'].num?localData['2'].num:0) + +(localData['3'].num?localData['3'].num:0)); //計算幾間房
+    $('.single-name').html(localData['1'].room_name); //抓取房名
+    $('.single-detail span').eq(0).html(localData['1'].days); //抓取單人房明細，幾晚
+    $('.single-detail span').eq(1).html(localData['1'].num); //抓取單人房明細，幾間
+    // $('.room-detail-price span').html(localData['1'].singlePrice); //單人房明細總價
+    $('.singlePrice span').html(localData['1'].singlePrice); //單人房明細總價
+
+    // 雙人房
+
+    // $('.date-num span').eq(0).text(new Date(localData['2'].day1).toLocaleDateString());
+    // $('.date-num span').eq(1).text(new Date(localData['2'].day2).toLocaleDateString());
+    // $('.date-num span').eq(2).text(localData['2'].days);
+    $('.double-name').html(localData['2'].room_name); //抓取房名
+
+    // 四人房
+    // $('.date-num span').eq(0).text(new Date(localData['3'].day1).toLocaleDateString());
+    // $('.date-num span').eq(1).text(new Date(localData['3'].day2).toLocaleDateString());
+    // $('.date-num span').eq(2).text(localData['3'].days);
+    $('.quadra-name').html(localData['3'].room_name); //抓取房名
 
 </script>
 

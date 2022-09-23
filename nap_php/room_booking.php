@@ -379,7 +379,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="./nap_js/room_booking.js"></script>
+
 <script>
     const rooms = <?= json_encode($rooms, JSON_UNESCAPED_UNICODE) ?>;
     const rooms_dict = {};
@@ -389,31 +389,34 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         rooms_dict[i.sid] = i;
     }
 
-    const handleRoomNum = function() {
-        const price_cr_group = $(this).closest('.price-cr-group');
+    const handleRoomNum = function(e) {
+        const price_cr_group = $(e.currentTarget).closest('.price-cr-group');
         const room_id = price_cr_group.attr('data-id');
-        const num = price_cr_group.find('input').val();
+        const num = +(price_cr_group.find('input').val()?price_cr_group.find('input').val():0);
+        console.log('hi num',num);
+
         const day1 = new Date($('.date-num span').eq(0).text());
         const day2 = new Date($('.date-num span').eq(1).text());
+        const singlePrice = $('.single-price span').text();
 
         const difference = Math.abs(day2 - day1);
         const days = difference / (1000 * 3600 * 24)
         console.log('hi', days);
-
-        // console.log({room_id, num});
+        console.log('rooms_dict',rooms_dict);
+        console.log({room_id, num});
         rooms_dict[room_id].num = num;
-        rooms_dict[room_id].day1 = day1;
-        rooms_dict[room_id].day2 = day2;
-        rooms_dict[room_id].days = days;
+        rooms_dict[room_id].singlePrice = singlePrice;
         // console.log(rooms_dict);
+
+        
 
         localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
 
     };
 
-    $('.minus-btn').on('click', handleRoomNum);
-    $('.plus-btn').on('click', handleRoomNum);
+    // $('.minus-btn').on('click', handleRoomNum);
+    // $('.plus-btn').on('click', handleRoomNum);
 </script>
-
+<script src="./nap_js/room_booking.js"></script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

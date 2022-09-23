@@ -228,6 +228,7 @@ body{
 .booking-detail-content{
     padding: 30px 10%;
     position: relative;
+    /* display: none; */
 }
 .booking-detail-content::after{
     position: absolute;
