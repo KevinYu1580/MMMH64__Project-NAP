@@ -1,12 +1,13 @@
 // 關閉光箱
-$('.close_lightBox').click(function(){
-    if(document.body.clientWidth < 992){
-        $(this).parent().parent().hide()
-    };
-    $('.lightBox_comtCard_mask').hide()
-    $('body').css('overflow','visible');
-})
 
+$('.comtCard_wrap').on('click','.close_lightBox', function(){
+    $('.lightBox_comtCard').hide()
+    $('.lightBox_comtCard_mask').css({
+        'pointer-events': 'none',
+        'opacity':'0',
+    })
+    document.body.style.overflow='visible'
+})
 
 
 // --------------卡片手機小menu 彈出效果

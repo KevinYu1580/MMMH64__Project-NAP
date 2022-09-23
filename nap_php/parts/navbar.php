@@ -570,7 +570,6 @@ height: 40px;
 }
 .chat_bordSlec_PC .top, .chat_bordSlec_PC .bot {
     text-decoration: none;
-    color: #8A7171;
 
 }
 .chat_bordSlec_PC .top {

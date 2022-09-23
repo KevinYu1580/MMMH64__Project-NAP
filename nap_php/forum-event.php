@@ -6,8 +6,7 @@ $pageName = 'Forum-events'; // 頁面名稱
 $perPage = 12;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-
-
+// ---------------貼文----------------
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM chat LEFT JOIN member01 on member01.id = chat.po_sid WHERE tag = 0 OR tag = 1";
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
@@ -32,7 +31,17 @@ if ($totalRows > 0) {
 }
 
 $event = ['# 特別活動', '# 浪浪套裝活動'];
-$furArray = ['短毛', '長毛'];
+
+// ---------------貼文裡的留言----------------
+$comment_rows = [];  // 預設值
+$comment_sql = sprintf(
+    "SELECT * FROM chat LEFT JOIN member01 on member01.id LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid;
+");
+$comment_rows = $pdo->query($comment_sql)->fetchAll();
+
+
+
+
 
 
 
@@ -160,9 +169,12 @@ $furArray = ['短毛', '長毛'];
                                 <span>12則留言</span>
                             </div>
                         </div>
+                        
                     </div>
-
-                    <div style="background-image: url(./img/chatchat/event/<?= $r['articlePic_id'] ?>)"
+                    <div style="background-image: url(./img/chatchat/event/<?php 
+                    $picAry = explode(',',$r['articlePic_id']);
+                    print_r ($picAry[0]);
+                    ?>)"
                     class="card_smPic">
 
                     </div>
@@ -255,12 +267,13 @@ $furArray = ['短毛', '長毛'];
                                         <input class="message_input" type="text" placeholder="我要留言">
                                     </div>
                                     <div class="message_pack">
+                                    <?php for ($i=0;$i<2;$i++) : ?>
                                         <div id="messageCard" class="messageCard d-flex">
                                             <div class="memberPic"></div>
                                             <div class="content_wrap d-flex">
 
                                                 <span class="poster">
-                                                    台北潘潘妮
+                                                    <?= $r['name'] ?>
                                                 </span>
                                                 <span class="date">
                                                     2022/09/14
@@ -270,6 +283,7 @@ $furArray = ['短毛', '長毛'];
                                                 </p>
                                             </div>
                                         </div>
+                                    <?php endfor; ?>
                                     </div>
                                     <span class="botHint">尚無更多留言</span>
                                 </div>

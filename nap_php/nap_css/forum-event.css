@@ -265,9 +265,11 @@ input:focus {
 }
 .chat_bordSlec_PC .top {
   font-weight: 400;
+  color: var(--black_600);
 }
 .chat_bordSlec_PC .bot {
   font-weight: 600;
+  color: var(--secondaryColor_default);
 }
 
 .comtCard_wrap {
@@ -566,6 +568,7 @@ input:focus {
 
 /* 留言卡片展開的光箱  */
 .lightBox_comtCard {
+  cursor: auto;
   width: 100%;
   height: 100vh;
   background-color: #fff;
@@ -1001,12 +1004,6 @@ input:focus {
   height: 28px;
   background-color: #eeeeee;
   pointer-events: none;
-}
-@media screen and (min-width: 992px){
-  .lightBox_post .eventSelec .comtLabel {
-    width: 140px;
-    height: 32px;
-  }
 }
 .lightBox_post .eventSelec .comtLabel span {
   font-size: 14px;
