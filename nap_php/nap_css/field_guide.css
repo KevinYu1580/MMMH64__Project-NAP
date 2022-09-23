@@ -102,6 +102,17 @@ text-align: center;
     border-radius: 20px;
     cursor: pointer;
 }
+.button-group .button{
+    transform: translate(0px, 0px) rotate(0deg) ;
+    animation: move-place 1.5s infinite alternate;
+}
+@keyframes move-place{
+    from{
+}
+    to{
+        transform: translate(10px, 0px)
+    }
+}
 .button-doghouse-2{
     position: absolute;
     top: 17%;
@@ -273,10 +284,11 @@ text-align: center;
     }
     .nap-map-row-pc h3{
         color: var(--secondaryColor_default);
-        font-size: var(--headline_60px);
+        font-size: var(--headline_40px);
         font-weight: 700;
         padding: 0px 0 10px 0;
-        margin-top: 120px;
+        margin-top: 160px;
+        text-align: center;
         }
         .nap-map-row-pc h4{
         color: var(--secondaryColor_default);
@@ -293,6 +305,11 @@ text-align: center;
         padding: 8px 15px;
         border-radius: 20px;
         cursor: pointer;
+        transform: translateX(10px);
+    }
+    .button-group .button{
+        transform: translate(0px, 0px) rotate(0deg) ;
+        animation: move-place 1.5s infinite alternate;
     }
     .button-group .button:hover{
         color: var(--white);
@@ -403,7 +420,7 @@ text-align: center;
     }
 }
 @media screen and (min-width:576px){
-    .lightBox ,.nap-map-mobile .nav-white-block {
+    .lightBox ,.nap-map-mobile ,.nav-white-block {
         display: none;
     }
 }

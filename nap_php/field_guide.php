@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect_db_vera.php';
-$pageName = 'map'; // 頁面名稱
+$pageName = 'field-guide'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
@@ -9,13 +9,13 @@ $pageName = 'map'; // 頁面名稱
 
 
 <?php include __DIR__ . '/parts/navbar.php'; ?>
-<link rel="stylesheet" href="./nap_css/map.css">
+<link rel="stylesheet" href="./nap_css/field_guide.css">
 <!-- 手機版地圖 -->
 <section class="nap-map-mobile">
     <div class="nap-map-container">
         <div class="nap-map-row">
-            <h3>園區地圖</h3>
-            <h4>Field Guide</h4>
+            <h3>園區地圖｜Field Guide</h3>
+            <!-- <h4>Field Guide</h4> -->
             <!-- 地圖按鈕  -->
             <div class="button-group">
                 <div class="button button-doghouse-2">狗勾宿舍</div>
@@ -38,8 +38,8 @@ $pageName = 'map'; // 頁面名稱
         <div class="nap-map-row-pc">
             <!-- 左邊地圖 -->
             <div class="nap-map-col-left col-md-5">
-                <h3>園區地圖</h3>
-                <h4>Field Guide</h4>
+            <h3>園區地圖｜Field Guide</h3>
+            <!-- <h4>Field Guide</h4> -->
                 <div class="button-group">
                     <div class="button button-doghouse">狗勾宿舍</div>
                     <div class="button button-cat">貓貓宿舍</div>

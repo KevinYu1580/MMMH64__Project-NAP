@@ -1,7 +1,44 @@
 <?php
 require __DIR__ . '/parts/connect_db_vera.php';
-$pageName = 'Our Furry Friends'; // 頁面名稱
+$pageName = 'filed-guide'; // 頁面名稱
+
+$perPage = 12;  // 每頁最多有幾筆
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+
+
+
+// 取得資料的總筆數
+$t_sql = "SELECT COUNT(1) FROM pet_card";
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+// 計算總頁數
+$totalPages = ceil($totalRows / $perPage);
+
+$rows = [];  // 預設值
+// 有資料才執行
+if ($totalRows > 0) {
+    if ($page < 1) {
+        header('Location: ?page=1');
+        exit;
+    }
+    if ($page > $totalPages) {
+        header('Location: ?page=' . $totalPages);
+        exit;
+    }
+    // 取得該頁面的資料
+    $sql = sprintf("SELECT * FROM `pet_card` ORDER BY `pet_id` ASC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $rows = $pdo->query($sql)->fetchAll();
+}
+
+$genderArray = ['男生','女生'];
+$furArray = ['短毛','長毛'];
+
+
 ?>
+
+
+
 <?php include __DIR__. '/parts/html-head.php'; ?>
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -13,7 +50,7 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
 </head>
 <?php include __DIR__. '/parts/navbar.php'; ?>
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/filed-guide.css">
+<link rel="stylesheet" href="./nap_css/furry_friends.css">
 
 
     <!-- banner -->
@@ -133,48 +170,48 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
         </div>
         
         <div class="filter-group">
-            <div class="napSwitch_two my-option type" data-val="0">
+            <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <a class="num1 sec type" onclick="getData({type:1})">
+                <a class="num1 sec type">
                     狗勾
                 </a>
-                <a class="num2 sec type" onclick="getData({type:0})">
+                <a class="num2 sec type">
                     貓貓
                 </a>
             </div>
         
-            <div class="napSwitch_two my-option gender" data-val="0">
+            <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <a class="num1 sec gender" onclick="getData({gender:0})">
+                <div class="num1 sec gender">
                     男生
-                </a>
-                <a class="num2 sec gender" onclick="getData({gender:1})">
+                </div>
+                <div class="num2 sec gender">
                     女生
-                </a>
+                </div>
             </div>
-            <div class="napSwitch_two my-option fur" data-val="1">
+            <div class="napSwitch_two">
                 <div class="backmask"></div>
-                <a class="num1 sec fur"  onclick="getData({fur:1})">
+                <div class="num1 sec fur">
                     長毛
-                </a>
-                <a class="num2 sec fur" onclick="getData({fur:0})">
+                </div>
+                <div class="num2 sec fur">
                     短毛
-                </a>
+                </div>
             </div>
         
             <br>
             <!-- 三格 -->
-            <div class="napSwitch_three my-option old" data-val="1">
+            <div class="napSwitch_three">
                 <div class="backmask"></div>
-                <a class="num1 sec old"  onclick="getData({old:0})">
+                <div class="num1 sec">
                     幼年 (0~1)
-                </a>
-                <a class="num2 sec old"  onclick="getData({old:1})">
-                    成年 (2~7)
-                </a>
-                <a class="num3 sec old"  onclick="getData({old:2})">
+                </div>
+                <div class="num2 sec">
+                    成年 (1~8)
+                </div>
+                <div class="num3 sec">
                     老年 (8+)
-                </a>
+                </div>
             </div>
         </div>
     </div>
@@ -183,7 +220,39 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
     <section class="pet-card">
         <div class="pet-card-cnotainer">
             <div class="pet-card-row d-flex flex-wrap" id="petCard">
-
+                <?php foreach ($rows as $r) : ?>
+                    <div class="pet-card-col col-6 col-md-4">
+                        <div class="pet-card-content">
+                            <div class="pet-card-img">
+                                <img src="../nap_php/img/pet/<?= $r['pet_id'] ?>.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="pet-info">
+                                <div class="name"><?= $r['name'] ?></div>
+                                    <div class="pet-info-up">
+                                        <div class="age"><?= $r['age'].'歲' ?></div>
+                                        <div> &nbsp / &nbsp</div>
+                                        <div class="gender"><?= $genderArray[$r['gender']] ?></div>
+                                    </div>
+                                <div class="pet-info-down">
+                                    <div class="fur"><?= $furArray[$r['fur']] ?></div>
+                                    <div> &nbsp / &nbsp</div>
+                                    <div class="personality"><?= $r['personality'] ?></div>
+                                </div> 
+                                <button class="napBtn_likeBtn">
+                                    <div class="svgs">
+                                        <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
+                                        <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#CCCCCC"/>
+                                    </svg>
+                                        <svg id='white' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
+                                        <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#FFFFFF"/>
+                                        </svg>
+                                    </div>
+                                    <span>關注</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>  
     </section>
@@ -227,7 +296,7 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
         
     </section>
         <!------ 頁數選擇器 PC -------->
-<!-- <div class="page_slec">
+<div class="page_slec">
 <nav aria-label="Page navigation example">
     <ul class="pagination">
         <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
@@ -261,7 +330,7 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
             </a>
         </li>
     </ul>
-</nav> -->
+</nav>
 </div>
 
 
@@ -321,120 +390,18 @@ $pageName = 'Our Furry Friends'; // 頁面名稱
                     $('.dot4').css('background','none')    
                 }
         })
-        
-</script>
-<script>
-    const petCard = $('#petCard');
-    
-    const card_tpl_func = ({pet_id, name, age, gender, fur, personality})=>{
-        return `
-<div class="pet-card-col col-6 col-md-4">
-    <div class="pet-card-content" onclick="showBox(event);" >
-        <div class="pet-card-img">
-            <img src="../nap_php/img/pet/${pet_id}.jpg" class="card-img-top" alt="...">
-        </div>
-        <div class="pet-info">
-            <div class="name">${name}</div>
-                <div class="pet-info-up">
-                    <div class="age">${age} 歲</div>
-                    <div> &nbsp / &nbsp</div>
-                    <div class="gender">${gender==1 ? '女生' : '男生' }</div>
-                </div>
-            <div class="pet-info-down">
-                <div class="fur">${fur==1 ? '長毛' : '短毛' }</div>
-                <div> &nbsp / &nbsp</div>
-                <div class="personality">${personality}</div>
-            </div> 
-            <button class="napBtn_likeBtn">
-                <div class="svgs">
-                    <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#CCCCCC"/>
-                </svg>
-                    <svg id='white' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#FFFFFF"/>
-                    </svg>
-                </div>
-                <span>關注</span>
-            </button>
-        </div>
-    </div>
-</div>`;
-    };
-
-    // default selections
-    $('.my-option').each(function(){
-        const val = + $(this).attr('data-val');
-        $(this).find('a').eq(val).click();
-    });
-
-    let defaultVals = {
-        type: 1, // dog
-        gender: 0, // boy
-        fur: 0, // short
-        old: 1, 
-    }
-
-    function getData(obj) {
-        try{
-            if(typeof defaultVals === 'undefined'){
-                return;
-            }
-        }catch(ex){
-            return;
-        }
-
-
-        if(obj.type !== undefined) {
-            defaultVals.type = obj.type;
-        }
-        if(obj.gender !== undefined) {
-            defaultVals.gender = obj.gender;
-        }
-        if(obj.fur !== undefined) {
-            defaultVals.fur = obj.fur;
-        }
-        if(obj.old !== undefined) {
-            defaultVals.old = obj.old;
-        }
-
-
-        $.get('field-guide-api.php', defaultVals , function(data){
-            console.log(data);
-            let str = '';
-
-            if(data.rows && data.rows.length){
-                data.rows.forEach(function(obj){
-                    str += card_tpl_func(obj);
-                });
-            }
-            petCard.html(str);
-
-            
-        }, 'json');
-
-    }
-    
-    
-     getData({}); // first get data
-
-    //光箱彈出
-    function showBox(event){
-        const me = event.currentTarget
-        // $('.pet-card-content').click(function(){
-            console.log(me);
-            console.log($(me).find('.pet-card-img img').attr('src'));
-            $('.lightBox-card-img img').attr('src', $(me).find('.pet-card-img img').attr('src'));
-            $('.lightBox-card-name').text( $(me).find('.pet-info .name').text());
-            $('.lightBox-card-age span').text( $(me).find('.pet-info .age').text());
-            $('.lightBox-card-personality span').text( $(me).find('.pet-info .personality').text());
+        //光箱彈出
+        $('.pet-card-content').click(function(){
+            $('.lightBox-card-img img').attr('src', $(this).find('.pet-card-img img').attr('src'));
+            $('.lightBox-card-name').text( $(this).find('.pet-info .name').text());
+            $('.lightBox-card-age span').text( $(this).find('.pet-info .age').text());
+            $('.lightBox-card-personality span').text( $(this).find('.pet-info .personality').text());
             $('.lightBox').show();
-        // })
-    //光箱關閉
-    $('.close img').click(function(){
+        })
+         //光箱關閉
+        $('.close img').click(function(){
                 $('.lightBox').hide();
             })
-    }
-    
 </script>
 
 <?php include __DIR__. '/parts/html-foot.php'; ?>

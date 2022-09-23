@@ -320,7 +320,7 @@ font-family: custom-font;
 .silder-dot .dot{
     width: 10px;
     height: 10px;
-   border: 2px solid var(--primaryColor_light);
+    border: 2px solid var(--primaryColor_light);
     border-radius: 50%;
     margin: 20px 0;
 }
@@ -355,6 +355,9 @@ font-family: custom-font;
 .filter-group{
     display: flex;
     flex-direction: column;
+}
+.my-option a{
+    text-decoration: none;
 }
 @media screen and (max-width:576px){
     .filter-title-pc{
@@ -409,7 +412,6 @@ font-family: custom-font;
 }
 .pet-card-col {
     padding: 5px;
-    cursor: pointer;
     margin: 20px 0;
 }
 
@@ -429,10 +431,12 @@ font-family: custom-font;
     /* border: 1px solid red; */
     object-fit: cover;
     margin: 0;
+    /* cursor: pointer; */
 }
 .pet-card-img img{
     width: 100%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 @media screen and (min-width:576px){
@@ -545,6 +549,7 @@ button:focus{
     overflow: hidden;
     top: 10px;
     left: 90%;
+    cursor: pointer;
 }
 .close img{
     width: 100%;
