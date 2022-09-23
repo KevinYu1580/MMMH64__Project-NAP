@@ -1,4 +1,5 @@
 var amount = 0;
+var eventPrice = 
 CheckAmount();
 
 const tpl_func = (n) => {
@@ -66,6 +67,7 @@ $(document).ready(function () {
 		// 呼叫判斷數量function
 		CheckAmount();
 		var eventPrice = 2999;
+		// var eventPrice = $event['event_price'];
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;
 		$('.total-price').html(total);
@@ -83,6 +85,7 @@ $(document).ready(function () {
 		CheckAmount();
 
 		var eventPrice = 2999;
+		// var eventPrice = $event['event_price'];
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;
 
@@ -94,7 +97,7 @@ $(document).ready(function () {
 			$('.total-price').html(total);
 		});
 	});
-
+/*
 	$('input:checkbox').on('click', function () {
 		// in the handler, 'this' refers to the box clicked on
 		var $box = $(this);
@@ -110,6 +113,7 @@ $(document).ready(function () {
 			$box.prop('checked', false);
 		}
 	});
+*/
 });
 // 判斷amount數量，去顯示disable狀態
 function CheckAmount() {

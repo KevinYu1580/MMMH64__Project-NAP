@@ -1,8 +1,26 @@
 <?php
 
-// require __DIR__ . '/parts/connect_db_cy.php';
-$pageName = '套裝活動報名'; // 頁面名稱
+require __DIR__ . '/parts/connect_db_cy.php';
+$pageName = '活動報名'; // 頁面名稱
 
+// 確認在 url 中顯示對應 id
+if (isset($_GET['sid'])) {
+    
+    $stmt = $pdo->prepare('SELECT * FROM event_detail WHERE `sid` = ?');
+    $stmt->execute([$_GET['sid']]);
+
+    // 在 MySQL 中取得活動資料(fetch)並存入陣列
+    $event = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // 檢查是否有活動存在 （陣列中非空值）
+    if (!$event) {
+        // 如果陣列中沒有活動顯示錯誤訊息
+        exit('您所選擇的活動不存在！');
+    }
+} else {
+    // 如果找不到對應id顯示錯誤訊息
+    exit('您所選擇的活動不存在！');
+}
 
 
 ?>
@@ -27,21 +45,22 @@ $pageName = '套裝活動報名'; // 頁面名稱
 <div class="all-container">
     <!------ 活動 notice 這裡開始 ------>
     <div class="mobile-backpage">
-        <svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>"><svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
-        </svg>
-        <a href="#">套裝活動報名</a>
+        </svg></a>
+        
+        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>">活動報名</a>
     </div>
 
     <!------ 上方返回 ------>
     <div class="backpage">
-        <a href=""><img src="./img/component/icon/Exclude.svg" alt=""></a>
-        <a href="#">返回</a>
+        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>"><img src="./img/component/icon/Exclude.svg" alt=""></a>
+        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>">返回</a>
     </div>
 
-    <!------ 套裝活動報名表頭 ------>
+    <!------ 活動報名表頭 ------>
     <div class="enroll-data-title">
-        套裝活動報名
+        活動報名
     </div>
 
     <!------ 套裝下方內容 ------>
@@ -50,10 +69,10 @@ $pageName = '套裝活動報名'; // 頁面名稱
             <div class="enroll-detail-card col-md-5">
                 <div class="card-deco">
                     <div class="card-title">訂單明細</div>
-                    <div class="event-name">【MMMH64-與狗勾的兩日生活】</div>
-                    <div class="event-date">2022/08/27 - 2022/08/28</div>
+                    <div class="event-name"><?= $event['event_name'] ?></div>
+                    <div class="event-date"><?= $event['event_date'] ?></div>
                     <div class="perevent-price row">
-                        <div class="per col-6">NT$ <span>2,999</span></div>
+                        <div class="per col-6">NT$ <span><?= $event['event_price'] ?></span></div>
                         <div class="col enroll-num">0</div>
                         <div class="col-2">人</div>
                     </div>
@@ -63,7 +82,7 @@ $pageName = '套裝活動報名'; // 頁面名稱
                         <div class="col-4 total-price">0</div>
                     </div>
                     <div class="price-info">
-                        費用含住宿、保險及兩日餐食(Day1 午晚餐及 Day2 早午餐）
+                        ・套裝活動費用含住宿、保險及兩日餐食(Day1 午晚餐及 Day2 早午餐）
                     </div>
                     <div class="enroll-card-btn">
 

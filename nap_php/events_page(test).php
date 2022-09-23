@@ -127,13 +127,13 @@ if ($total_events > 0) {
 
 <!-- 選擇器 | events-switch -->
 <section class="events-switch">
-    <div class="events-switch-frame">
-        <div id="package-switch" class="package-switch d-flex justify-content-center align-items-center">
+    <div class="events-switch-frame my-option cate" data-val="0">
+        <a id="package-switch" class="package-switch d-flex justify-content-center align-items-center" onclick="getData({cate:0})" href="javascript:">
             浪浪套裝活動
-        </div>
-        <div id="special-switch" class="special-switch d-flex justify-content-center align-items-center">
+        </a>
+        <a id="special-switch" class="special-switch d-flex justify-content-center align-items-center" onclick="getData({cate:1})" >
             每月特別活動
-        </div>
+        </a>
     </div>
 </section>
 
@@ -141,34 +141,9 @@ if ($total_events > 0) {
 <section class="events-card">
     <div class="events-card-container">
         <div class="evnets-card-group-mb">
-            <div class="events-card-row-mb d-flex d-md-block">
-                <?php foreach ($events as $event) : ?>
-                    <div class="events-card-col-mb flex-shrink-0">
-                        <div class="events-card-mb d-md-flex">
-                            <div class="card-imgbox-mb">
-                                <img src="./img/events/<?= $event['event_img'] ?>.jpg">
-                            </div>
-                            <div class="card-textbox-mb">
-                                <h4><?= $event['event_date'] ?></h4>
-                                <h3><?= $event['event_name'] ?></h3>
-                                <p><?= $event['event_outline'] ?></p>
-                                <div class="people-cardBtn d-md-flex justify-content-md-between ">
-                                    <h5>剩餘名額：<span><?= $event['event_remain'] ?></span> / <?= $event['event_quota'] ?></h5>
+            <div class="events-card-row-mb d-flex d-md-block" id="eventCard">
 
-                                    <div class="card-btn">
-                                        <a href="events_detail.php?page=event&sid=<?= $event['sid'] ?>" class="event">查看活動</a>
-                                        <?php //echo $event['sid'] 
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-like d-flex justify-content-center align-items-center ">
-                                <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
-                                <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                <!-- 卡片在這裡 -->
             </div>
         </div>
 
@@ -213,7 +188,6 @@ if ($total_events > 0) {
     </nav>
 </div>
 
-</div>
 
 
 <!-- bootstrap擇一使用 -->
@@ -223,18 +197,100 @@ if ($total_events > 0) {
 <?php include __DIR__ . '/parts/nap-footer.php'; ?>
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
-
-<script src="./nap_js/events_page.js"></script>
+<script src="./nap_js/events_page(test).js"></script>
 <script>
+    const eventCard = $('#eventCard');
+
+    const card_tpl_func = ({
+        event_sid,
+        event_img,
+        event_name,
+        event_date,
+        event_outline,
+        event_remain,
+        event_quota,
+    }) => {
+        return `<div class="events-card-col-mb flex-shrink-0">
+                    <div class="events-card-mb d-md-flex">
+                        <div class="card-imgbox-mb">
+                            <img src="./img/events/${event_img}.jpg">
+                        </div>
+                        <div class="card-textbox-mb">
+                            <h4>${event_date}</h4>
+                            <h3>${event_name}</h3>
+                            <p>${event_outline}</p>
+                            <div class="people-cardBtn d-md-flex justify-content-md-between ">
+                                <h5>剩餘名額：<span>${event_remain}</span> / ${event_quota}</h5>
+
+                                <div class="card-btn">
+                                    <a href="events_detail.php?page=event&sid=${event_sid}" class="event">查看活動</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-like d-flex justify-content-center align-items-center ">
+                            <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
+                            <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                        </div>
+                    </div>
+                </div>`;
+    };
+    
     $(function() {
-        var len = 45; // 超過50個字以"..."取代
-        $(".card-textbox-mb p").each(function(i) {
-            if ($(this).text().length > len) {
-                $(this).attr("title", $(this).text());
-                var text = $(this).text().substring(0, len - 1) + "...";
-                $(this).text(text);
-            }
+            var len = 45; // 超過50個字以"..."取代
+            $(".card-textbox-mb p").each(function(i) {
+                if ($(this).text().length > len) {
+                    $(this).attr("title", $(this).text());
+                    var text = $(this).text().substring(0, len - 1) + "...";
+                    $(this).text(text);
+                }
+            });
         });
+
+
+    // default selections
+    $('.my-option').each(function() {
+        const val = +$(this).attr('data-val');
+        $(this).find('a').eq(val).click();
     });
+
+    let defaultVals = {
+        cate: 0, // 浪浪套裝活動
+    }
+
+    function getData(obj) {
+        try {
+            if (typeof defaultVals === 'undefined') {
+                return;
+            }
+        } catch (ex) {
+            return;
+        }
+
+
+        if (obj.cate !== undefined) {
+            defaultVals.cate = obj.cate;
+        }
+
+
+        $.get('events_page_api.php', defaultVals, function(data) {
+            console.log(data);
+            let str = '';
+
+            if (data.events && data.events.length) {
+                data.events.forEach(function(obj) {
+                    str += card_tpl_func(obj);
+                });
+            }
+            eventCard.html(str);
+
+
+        }, 'json');
+
+    }
+    getData({}); // first get data
+
+
 </script>
+
+
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

@@ -1,8 +1,26 @@
 <?php
-// require __DIR__ . '/parts/connect_db.php';
+require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = '活動報名注意事項'; // 頁面名稱
 
 
+// 確認在 url 中顯示對應 id
+if (isset($_GET['sid'])) {
+    
+    $stmt = $pdo->prepare('SELECT * FROM event_detail WHERE `sid` = ?');
+    $stmt->execute([$_GET['sid']]);
+
+    // 在 MySQL 中取得活動資料(fetch)並存入陣列
+    $event = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // 檢查是否有活動存在 （陣列中非空值）
+    if (!$event) {
+        // 如果陣列中沒有活動顯示錯誤訊息
+        exit('您所選擇的活動不存在！');
+    }
+} else {
+    // 如果找不到對應id顯示錯誤訊息
+    exit('您所選擇的活動不存在！');
+}
 
 
 
@@ -34,7 +52,7 @@ $pageName = '活動報名注意事項'; // 頁面名稱
     <div class="all-container">
         <div class="backpage">
             <!-- <img src="./img/component/icon/Exclude.svg" alt=""> -->
-            <a href=""><img src="./img/component/icon/Exclude.svg" alt=""></a>
+            <a href="events_detail.php?page=event&sid=<?= $event['sid'] ?>"><img src="./img/component/icon/Exclude.svg" alt=""></a>
             <a href="events_detail.php?page=event&sid=<?= $event['sid'] ?>">返回</a>
         </div>
         <div class="notice row col-10">
@@ -53,7 +71,7 @@ $pageName = '活動報名注意事項'; // 頁面名稱
                     <li>點選報名即視為清楚了解以上資訊，接下來快點手刀報名吧！</li>
                 </ul>
                 <div class="notice-btn">
-                    <a href="event-enroll-data.php">手刀報名 GO</a>
+                    <a href="event-enroll-data.php?page=event&sid=<?= $event['sid'] ?>">手刀報名 GO</a>
                 </div>
             </div>
         </div>
