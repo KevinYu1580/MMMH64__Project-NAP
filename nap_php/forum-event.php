@@ -33,10 +33,9 @@ if ($totalRows > 0) {
 $event = ['# 特別活動', '# 浪浪套裝活動'];
 
 // ---------------貼文裡的留言----------------
-$comment_rows = [];  // 預設值
+
 $comment_sql = sprintf(
-    "SELECT * FROM chat LEFT JOIN member01 on member01.id LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid;
-");
+    "SELECT * FROM chat LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid LEFT JOIN member01 on chat_commit.member_sid = member01.id ORDER BY `comment_date` ASC");
 $comment_rows = $pdo->query($comment_sql)->fetchAll();
 
 
@@ -267,23 +266,22 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
                                         <input class="message_input" type="text" placeholder="我要留言">
                                     </div>
                                     <div class="message_pack">
-                                    <?php for ($i=0;$i<2;$i++) : ?>
+                                    <?php foreach($comment_rows as $cr) : ?>
                                         <div id="messageCard" class="messageCard d-flex">
                                             <div class="memberPic"></div>
                                             <div class="content_wrap d-flex">
-
                                                 <span class="poster">
-                                                    <?= $r['name'] ?>
+                                                    <?= $cr['name'] ?>
                                                 </span>
                                                 <span class="date">
-                                                    2022/09/14
+                                                <?= $cr['comment_date'] ?>
                                                 </span>
                                                 <p class="message_text">
-                                                    這隻狗未免也太胖了吧?是阿罵養的ㄇ~是阿罵養的ㄇ~
+                                                    <?= $cr['comment'] ?>
                                                 </p>
                                             </div>
                                         </div>
-                                    <?php endfor; ?>
+                                    <?php endforeach; ?>
                                     </div>
                                     <span class="botHint">尚無更多留言</span>
                                 </div>

@@ -590,7 +590,7 @@ input:focus {
 }
 
 .lightBox_comtCard .content_wrap {
-  width: 100% !important;
+  width: 100% ;
 }
 
 
@@ -612,7 +612,9 @@ input:focus {
     transition: 0.5s;
   }
 }
-
+.comtCard_wrap .comtCard .lightBox_comtCard .content_wrap  {
+  width: 100%;
+}
 
 .lightBox_comtCard::-webkit-scrollbar {
   display: none;
@@ -795,6 +797,7 @@ input:focus {
 .lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .date {
   font-size: 12px;
   color: var(--black_500);
+  margin: 0;
 }
 @media screen and (min-width: 992px){
   .lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .date {
