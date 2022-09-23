@@ -374,11 +374,15 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 <script>
 
     const localData = JSON.parse(localStorage.getItem('rooms_order'))
-    // 單人房
-    // $('.single-detail').show();
+
     $('.date-num span').eq(0).text(new Date(localData['1'].day1).toLocaleDateString()); //check-in日期
     $('.date-num span').eq(1).text(new Date(localData['1'].day2).toLocaleDateString()); //check-out日期
     $('.date-num span').eq(2).text(localData['1'].days); //計算共幾晚
+    $('.room-num span').text(+(localData['1'].num ? localData['1'].num : 0) + +(localData['2'].num ? localData['2'].num : 0) + +(localData['3'].num ? localData['3'].num : 0)); //計算幾間房
+    $('.total-num span').text(+(localData['1'].singlePrice ? localData['1'].singlePrice : 0) + +(localData['2'].doublePrice ? localData['2'].doublePrice : 0) + +(localData['3'].quadraPrice ? localData['3'].quadraPrice : 0)); //計算全部訂單的總價
+    $('.deposit-num span').text( +$('.total-num span').text() / 2 );
+    $('.rest-num span').text( +$('.total-num span').text() / 2 );
+
 
     if(localData['1'].num === 0){
         $('.single-detail').hide();
@@ -398,17 +402,24 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 
     }
 
-    $('.room-num span').text(+(localData['1'].num?localData['1'].num:0) + +(localData['2'].num?localData['2'].num:0) + +(localData['3'].num?localData['3'].num:0)); //計算幾間房
-    $('.single-name').html(localData['1'].room_name); //抓取房名
+    // 單人房
+    $('.single-name').html(localData['1'].room_name); //抓取單人房名
     $('.single-detail span').eq(0).html(localData['1'].days); //抓取單人房明細，幾晚
     $('.single-detail span').eq(1).html(localData['1'].num); //抓取單人房明細，幾間
     $('.singlePrice span').html(localData['1'].singlePrice); //單人房明細總價
 
+
     // 雙人房
-    $('.double-name').html(localData['2'].room_name); //抓取房名
+    $('.double-name').html(localData['2'].room_name); //抓取雙人房名
+    $('.double-detail span').eq(0).html(localData['2'].days); //抓取雙人房明細，幾晚
+    $('.double-detail span').eq(1).html(localData['2'].num); //抓取雙人房明細，幾間
+    $('.doublePrice span').html(localData['2'].doublePrice); //雙人房明細總價
 
     // 四人房
-    $('.quadra-name').html(localData['3'].room_name); //抓取房名
+    $('.quadra-name').html(localData['3'].room_name); //抓取四人房名
+    $('.quadra-detail span').eq(0).html(localData['3'].days); //抓取四人房明細，幾晚
+    $('.quadra-detail span').eq(1).html(localData['3'].num); //抓取四人房明細，幾間
+    $('.quadraPrice span').html(localData['3'].quadraPrice); //四人房明細總價
 
 </script>
 

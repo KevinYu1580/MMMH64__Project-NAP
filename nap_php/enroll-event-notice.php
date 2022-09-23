@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動報名注意事項'; // 頁面名稱
 
 

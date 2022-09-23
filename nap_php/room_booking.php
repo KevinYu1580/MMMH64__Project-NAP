@@ -398,6 +398,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const day1 = new Date($('.date-num span').eq(0).text());
         const day2 = new Date($('.date-num span').eq(1).text());
         const singlePrice = $('.single-price span').text();
+        const doublePrice = $('.double-price span').text();
+        const quadraPrice = $('.quadra-price span').text();
 
         const difference = Math.abs(day2 - day1);
         const days = difference / (1000 * 3600 * 24)
@@ -406,6 +408,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         console.log({room_id, num});
         rooms_dict[room_id].num = num;
         rooms_dict[room_id].singlePrice = singlePrice;
+        rooms_dict[room_id].doublePrice = doublePrice;
+        rooms_dict[room_id].quadraPrice = quadraPrice;
         // console.log(rooms_dict);
 
         

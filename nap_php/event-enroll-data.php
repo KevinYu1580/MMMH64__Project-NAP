@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動報名'; // 頁面名稱
 
 // 確認在 url 中顯示對應 id
