@@ -56,6 +56,3 @@ echo json_encode([
     'cate' => $cate,
 
 ], JSON_UNESCAPED_UNICODE);
-
-
-?>
