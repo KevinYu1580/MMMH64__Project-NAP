@@ -1,3 +1,5 @@
+
+
 // ---------------------選擇Check-in的日期---------------------
 $( "#datepicker-in" ).datepicker(); // 日曆初始化
 
@@ -122,9 +124,10 @@ $('li.select-li').click(function(){
 // ---------------------按下查詢空房，出現訂房間數選項---------------------
 $('.booking-box').click(function(){
     if( $('.selectRoom h6').html() <= 0){
-        alert('尚未選擇間數')
+        alert('尚未選擇間數');
         $('.room-null').html();
     }
+
     if($('.selectRoom h6').html() > 0){
         $('.room-null').hide();
         $('.room-card-group').show();
@@ -492,12 +495,6 @@ $('#quadra-minus').click(function (e) {
 
 
 
-// function limitCount(){
-//     if(plusNum > $('.selectRoom h6').html()){
-//         console.log('123');
-//     }
-// }
-// limitCount();
 
 
 

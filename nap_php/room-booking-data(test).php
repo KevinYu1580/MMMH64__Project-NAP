@@ -1,4 +1,21 @@
 <?php
+session_start();
+
+
+// if(! isset($_SEESION['my'])){
+//     $_SESSION['my']=1;
+// }else{
+//     $_SESSION['my']++;
+// }
+
+// echo $_SEESION['my'];
+
+if(isset($_POST['add-to-cart'])){
+    echo 123;
+    exit;
+}
+
+
 
 
 require __DIR__ . '/parts/connect_db_penny.php';
@@ -170,22 +187,22 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                     </div>
                     <div class="form">
-                        <form>
+                        <form method="post" acton="" id="formList" name="formList" action="room-booking-data-api.php">
                             <div class="mb-3">
                                 <label for="name" class="form-label">姓名</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" id="name" name="name">
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">手機</label>
-                                <input type="text" class="form-control" id="phone">
+                                <input type="number" class="form-control" id="phone" name="phone">
                             </div>
                             <div class="mb-3">
                                 <label for="birthdate" class="form-label">生日</label>
-                                <input type="date" class="form-control" id="birthdate">
+                                <input type="date" class="form-control" id="birthdate" name="birthdate">
                             </div>
                             <div class="mb-3">
                                 <label for="car-num" class="form-label">車號</label>
-                                <input type="text" class="form-control" id="car-num">
+                                <input type="text" class="form-control" id="car-num" name="car-num">
                             </div>
                             <div class="mb-3">
                                 <label for="id-num" class="form-label">攜帶寵物</label>
@@ -202,10 +219,10 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                             </div>
                             <div class="mb-3">
                                 <label for="special-need" class="form-label">特殊需求</label>
-                                <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
+                                <textarea class="form-control" aria-label="With textarea" id="special-need" name="special-need"></textarea>
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">我想收到更多 N.A.P. 的活動相關訊息！</label>
                             </div>
                         </form>
@@ -217,7 +234,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
         <!------- 加入購物車按鈕 ------->
         <div class="cart-btn row">
             <div class="col add-to-cart-btn">
-                <a class="napBtn_fixed_filled" href="#" >
+                <a class="napBtn_fixed_filled" type="submit" value="submit" href="javascript:;" onclick="document.getElementById('formList').submit();" name="add-to-cart">
                     <span>前往結帳</span>
                 </a>
             </div>

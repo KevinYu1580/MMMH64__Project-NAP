@@ -3,25 +3,8 @@
 
 require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'room_booking'; // 頁面名稱
-/*
-$sqlSingle = "SELECT `room_name`,`room_price` FROM `room_info` WHERE sid =1";
-$sqlDouble = "SELECT `room_name`,`room_price` FROM `room_info` WHERE sid =2";
-$sqlQuadra = "SELECT `room_name`,`room_price` FROM `room_info` WHERE sid =3";
 
-$stmtSingle = $pdo->query($sqlSingle)->fetch(PDO::FETCH_NUM);
-foreach($stmtSingle as $e){
-    // echo $e;
-}
-$stmtDouble = $pdo->query($sqlDouble)->fetch(PDO::FETCH_NUM);
-foreach($stmtSingle as $i){
-    // echo $i;
-}
-$stmtQuadra = $pdo->query($sqlQuadra)->fetch(PDO::FETCH_NUM);
-foreach($stmtQuadra as $j){
-    // echo $j;
-}
-*/
-
+// 在 MySQL 中取得房間的資料表，並抓取(fetch)全部資料表的欄位
 $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
 
@@ -374,13 +357,29 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <?php include __DIR__ . '/parts/nap-footer.php'; ?>
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
+
 <script src="./nap_js/room_booking.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <script>
+    // function oopsAlert(){
+    //     swal("汪汪汪汪!", "翻譯蒟蒻：您尚未選擇房間喔~", "warning");
+    // };
+
+    // $('.booking-btn a').click(function(){
+    // if(+$('.total-num span').text() === 0){
+    //     $('.booking-btn a').attr('href','./room_booking.php')
+    // }
+    // }); 
+    // oopsAlert();
+
+
+
     const rooms = <?= json_encode($rooms, JSON_UNESCAPED_UNICODE) ?>;
     const rooms_dict = {};
     // price-cr-group
@@ -412,11 +411,14 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         rooms_dict[room_id].quadraPrice = quadraPrice;
         // console.log(rooms_dict);
 
-        
+
 
         localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
 
     };
+
+
+
 
     // $('.minus-btn').on('click', handleRoomNum);
     // $('.plus-btn').on('click', handleRoomNum);
