@@ -1,6 +1,6 @@
 <?php
-// require __DIR__ . '/parts/connect_db_cy.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動報名注意事項'; // 頁面名稱
 
 
@@ -72,7 +72,7 @@ if (isset($_GET['sid'])) {
                     <li>點選報名即視為清楚了解以上資訊，接下來快點手刀報名吧！</li>
                 </ul>
                 <div class="notice-btn">
-                    <a href="event-enroll-data.php?page=event&sid=<?= $event['sid'] ?>">手刀報名 GO</a>
+                    <a href="event-enroll-data.php?sid=<?= $event['sid'] ?>">手刀報名 GO</a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 var amount = 0;
-var eventPrice = 
+
 CheckAmount();
 
 const tpl_func = (n) => {
@@ -66,7 +66,9 @@ $(document).ready(function () {
 
 		// 呼叫判斷數量function
 		CheckAmount();
-		var eventPrice = 2999;
+		var eventPrice = $('.per span').text();
+		// var eventPrice = $('.total-price').text();
+		// var eventPrice = 2999;
 		// var eventPrice = $event['event_price'];
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;
@@ -84,7 +86,8 @@ $(document).ready(function () {
 		// 呼叫判斷數量function
 		CheckAmount();
 
-		var eventPrice = 2999;
+		var eventPrice = $('.per span').text();
+		// var eventPrice = $event(event_price);
 		// var eventPrice = $event['event_price'];
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;

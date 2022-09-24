@@ -1,6 +1,6 @@
 <?php
-// require __DIR__ . '/parts/connect_db_cy.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動檔期介紹'; // 頁面名稱
 
 // 確認在 url 中顯示對應 id
@@ -104,7 +104,7 @@ if (isset($_GET['sid'])) {
                             <h6><?= $event['event_price'] ?></h6> / 人</p>
                         </div>
                         <div class="join-btn">
-                            <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>">手刀報名 GO</a>
+                            <a href="enroll-event-notice.php?sid=<?= $event['sid'] ?>">手刀報名 GO</a>
                         </div>
                     </div>
                 </div>

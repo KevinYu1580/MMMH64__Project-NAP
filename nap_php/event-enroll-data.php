@@ -1,7 +1,7 @@
 <?php
 
-// require __DIR__ . '/parts/connect_db_cy.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動報名'; // 頁面名稱
 
 // 確認在 url 中顯示對應 id
@@ -121,7 +121,7 @@ if (isset($_GET['sid'])) {
                 </div>
 
 
-                <form action="getEnrollData.php" method="POST" id="enroll-list">
+                <form action="enroll_data_api.php" method="POST" id="enroll-list">
                     <!-- 
                         <div class="enroll-content-form">
                         <div class="delete-btn">
@@ -198,6 +198,6 @@ if (isset($_GET['sid'])) {
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 
-<script src="./nap_js/event-enroll-data1.js"></script>
+<script src="./nap_js/event-enroll-data.js"></script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
