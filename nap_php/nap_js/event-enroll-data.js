@@ -55,9 +55,11 @@ const tpl_func = (n) => {
 	</div>
 	`;
 };
+
 $(document).ready(function () {
 	$(document).on('click', '.add-member-btn', function () {
 		const myAmount = getEnrollContentFormNum();
+		console.log(myAmount);
 		if (myAmount < 4) {
 			$('.enroll-content-null').hide();
 			$('#enroll-area').prepend(tpl_func(myAmount));
@@ -67,9 +69,6 @@ $(document).ready(function () {
 		// 呼叫判斷數量function
 		CheckAmount();
 		var eventPrice = $('.per span').text();
-		// var eventPrice = $('.total-price').text();
-		// var eventPrice = 2999;
-		// var eventPrice = $event['event_price'];
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;
 		$('.total-price').html(total);
@@ -87,8 +86,6 @@ $(document).ready(function () {
 		CheckAmount();
 
 		var eventPrice = $('.per span').text();
-		// var eventPrice = $event(event_price);
-		// var eventPrice = $event['event_price'];
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;
 

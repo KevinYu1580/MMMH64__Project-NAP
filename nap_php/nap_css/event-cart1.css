@@ -187,6 +187,20 @@ body{
         }
     }
 
+/*
+.active-cart{
+    position: relative;
+    background-color: #BFBD4A; 
+}
+.active-cart #cartCount{
+    background-color:#7f5c2f;
+    position: absolute;
+    top: 14px;
+    right: 50px;
+    border-radius: 20px;
+}
+*/
+
 .triangle{
     display: flex;
     width: 100%;
@@ -288,6 +302,7 @@ body{
 .per-cart-item .item-list{
     margin-left: 8px;
     position: relative;
+    width: 100%;
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list{
@@ -295,12 +310,12 @@ body{
         }
     }
     
-.per-cart-item .item-list .stay-date, .enroll-people{
+.per-cart-item .item-list .stay-date, .enroll-people, .price{
     font-size: var(--p_12px);
     margin-top: 5px;
 }
     @media screen and (min-width: 768px){
-        .per-cart-item .item-list .stay-date, .enroll-people{
+        .per-cart-item .item-list .stay-date, .enroll-people, .price{
             font-size: var(--subtitle_18px);
             margin-top: 4px;
         }
@@ -350,6 +365,7 @@ body{
             height: 39px;
         }
     }
+
 
 .delete-btn img{
     width: 15px;
@@ -490,6 +506,38 @@ body{
     }
 
 
+
+
+
+/* 當裡面沒有人數的時候，不能點擊 */
+.cart-btn.disabled button {
+    margin: auto;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: var(--headline_20px);
+    background-color: var(--black_500);
+    cursor: not-allowed;
+    color: var(--white);
+    outline: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .cart-btn.disabled button {
+        font-size: var(--headline_24px)
+    }
+}
+
+button {
+    background-color: none;
+    outline: none;
+    padding: 0;
+    border: none 0;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 /* ---------付款方式按鈕--------- */
 .cart-btn{
     margin: auto;
@@ -524,7 +572,7 @@ body{
     }
 
 
-.cart-btn a{
+.cart-btn button{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -533,10 +581,99 @@ body{
     width: 180px;
 }
     @media screen and (min-width: 768px){
-        .cart-btn a{
+        .cart-btn button{
             margin: auto;
             margin-top: 10px;
             height: 55px;
             width: 100%;
         }
     }
+
+
+
+
+/* -------------------空購物車區塊------------------- */
+
+/* .empty{
+    display: none;
+} */
+
+.empty-cart{
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart{
+            margin-top: 100px;
+        }
+    }
+
+.empty-cart svg{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart svg{
+            height: 150px;
+            width: 150px;
+        }
+    }
+
+.empty-car-text{
+    font-size: var(--subtitle_18px);
+    text-align: center;
+    line-height: 2rem;
+    margin: 10%;
+}
+    @media screen and (min-width: 768px){
+        .empty-car-text{
+            font-size: var(--headline_28px);
+            line-height: 3.5rem;
+            margin: 5%;
+        }
+    }
+
+
+/* ---------查看其他頁面按鈕--------- */
+.empty-cart-btn{
+    margin: auto;
+    margin-bottom: 55px;
+    
+}
+    @media screen and (min-width: 768px){
+        .empty-cart-btn{
+            display: flex;
+            width: 50%;
+            margin-bottom: 65px;
+        }
+    }
+
+
+.empty-cart-btn a{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart-btn a{
+            margin: auto;
+            margin-top: 10px;
+            width: 230px;
+            height: 55px;
+            text-decoration: none;
+            font-size: var(--headline_24px);
+        }
+    }
+
+
+
+.price_qty{
+    display: flex;
+}
+.per_price{
+    margin-right: 5px;
+}

@@ -1,0 +1,153 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radius: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: custom-font;
+    color: var(--subColor_text);
+}
+
+.all-container{
+    min-width: 375px;
+    
+}
+    @media screen and (min-width: 768px){
+        .all-container{
+            padding: 0 5%;
+            max-width: 1440px;
+            margin: auto;
+        }
+    }
+
+
+.empty-cart{
+    margin-top: 120px;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart{
+            margin-top: 200px;
+        }
+    }
+
+.empty-cart svg{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart svg{
+            height: 250px;
+            width: 250px;
+        }
+    }
+
+.empty-car-text{
+    font-size: var(--subtitle_18px);
+    text-align: center;
+    line-height: 2rem;
+    margin: 10%;
+}
+    @media screen and (min-width: 768px){
+        .empty-car-text{
+            font-size: var(--headline_32px);
+            line-height: 3.5rem;
+            margin: 5%;
+        }
+    }
+
+
+/* ---------查看其他頁面按鈕--------- */
+.cart-btn{
+    margin: auto;
+    margin-bottom: 55px;
+    
+}
+    @media screen and (min-width: 768px){
+        .cart-btn{
+            display: flex;
+            width: 50%;
+            margin-bottom: 65px;
+        }
+    }
+
+.napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+    font-size: var(--headline_20px);
+    
+}
+    @media screen and (min-width: 768px){
+        .napBtn_fixed_outlined span, .napBtn_fixed_filled span{
+            font-size: var(--headline_24px);
+        }
+    }
+
+.cart-btn a{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+}
+    @media screen and (min-width: 768px){
+        .cart-btn a{
+            margin: auto;
+            margin-top: 10px;
+            width: 230px;
+            height: 55px;
+            text-decoration: none;
+        }
+    }
