@@ -35,7 +35,11 @@ $event = ['# 特別活動', '# 浪浪套裝活動'];
 // ---------------貼文裡的留言----------------
 
 $comment_sql = sprintf(
-    "SELECT * FROM chat LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid LEFT JOIN member01 on chat_commit.member_sid = member01.id ORDER BY `comment_date` ASC");
+    "SELECT * FROM chat 
+    LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid 
+    LEFT JOIN member01 on chat_commit.member_sid = member01.id 
+    ORDER BY `comment_date` ASC"
+);
 $comment_rows = $pdo->query($comment_sql)->fetchAll();
 
 
@@ -135,7 +139,7 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
         </div>
         <div class="comtCard_wrap">
             <?php foreach ($rows as $r) : ?>
-                <div id='comtCard' class="comtCard">
+                <div id='comtCard' class="comtCard" name='comtCard'>
                     <div class="content_wrap">
                         <div class="member_info">
                             <div class="member_pic">
@@ -168,13 +172,12 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
                                 <span>12則留言</span>
                             </div>
                         </div>
-                        
+
                     </div>
-                    <div style="background-image: url(./img/chatchat/event/<?php 
-                    $picAry = explode(',',$r['articlePic_id']);
-                    print_r ($picAry[0]);
-                    ?>)"
-                    class="card_smPic">
+                    <div style="background-image: url(./img/chatchat/event/<?php
+                                                                            $picAry = explode(',', $r['articlePic_id']);
+                                                                            print_r($picAry[0]);
+                                                                            ?>)" class="card_smPic">
 
                     </div>
                     <button class="pointMenu">
@@ -244,15 +247,15 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
                                     </p>
                                     <div class="comtCard_lightBox_pic">
                                         <!-- 顯示多張圖片 -->
-                                    <?php
-                                    $picAry = [];
-                                    if(! empty($r['articlePic_id'])){
-                                        $picAry = explode(',',$r['articlePic_id']);
-                                    }
-                                    foreach($picAry as $p){
-                                        echo "<img src='./img/chatchat/event/{$p}' alt=''>";
-                                    }
-                                    ?>
+                                        <?php
+                                        $picAry = [];
+                                        if (!empty($r['articlePic_id'])) {
+                                            $picAry = explode(',', $r['articlePic_id']);
+                                        }
+                                        foreach ($picAry as $p) {
+                                            echo "<img src='./img/chatchat/event/{$p}' alt=''>";
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="comtSection">
@@ -266,22 +269,22 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
                                         <input class="message_input" type="text" placeholder="我要留言">
                                     </div>
                                     <div class="message_pack">
-                                    <?php foreach($comment_rows as $cr) : ?>
-                                        <div id="messageCard" class="messageCard d-flex">
-                                            <div class="memberPic"></div>
-                                            <div class="content_wrap d-flex">
-                                                <span class="poster">
-                                                    <?= $cr['name'] ?>
-                                                </span>
-                                                <span class="date">
-                                                <?= $cr['comment_date'] ?>
-                                                </span>
-                                                <p class="message_text">
-                                                    <?= $cr['comment'] ?>
-                                                </p>
+                                        <?php foreach ($comment_rows as $cr) : ?>
+                                            <div id="messageCard" class="messageCard d-flex">
+                                                <div style="background-image: url(./img/member/profile-image/<?= $cr['avatar'] ?>);" class="memberPic"></div>
+                                                <div class="content_wrap d-flex">
+                                                    <span class="poster">
+                                                        <?= $cr['name'] ?>
+                                                    </span>
+                                                    <span class="date">
+                                                        <?= $cr['comment_date'] ?>
+                                                    </span>
+                                                    <p class="message_text">
+                                                        <?= $cr['comment'] ?>
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    <?php endforeach; ?>
+                                        <?php endforeach; ?>
                                     </div>
                                     <span class="botHint">尚無更多留言</span>
                                 </div>
@@ -450,6 +453,21 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script src="./nap_js/forum-event.js"></script>
+<script>
+    $('.comtCard').click(function() {
+        let comtCardIndex = ($(this).index()) + 1
+        $.post( 
+            'forum-message-api',
+            {index: comtCardIndex},
+            'json'
+        )
+    })
+
+
+
+
+
+</script>
 
 
 

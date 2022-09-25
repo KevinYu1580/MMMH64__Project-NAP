@@ -757,7 +757,7 @@ input:focus {
 .lightBox_comtCard .comtSection .message_pack .memberPic {
   width: 36px;
   height: 36px;
-  background-image: url(../img/chatchat/chat/chat-03.jpeg);
+  /* background-image: url(../img/chatchat/chat/chat-02.jpeg); */
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
