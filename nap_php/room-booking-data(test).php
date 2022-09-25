@@ -10,11 +10,16 @@ session_start();
 
 // echo $_SEESION['my'];
 
-if(isset($_POST['add-to-cart'])){
-    echo 123;
-    exit;
-}
+// if(isset($_POST['add-to-cart'])){
+//     echo 123;
+//     exit;
+// }
 
+
+$_SESSION['name'] = 'Yiru';//將此值記錄於Session變數
+$_SESSION['age'] = '15'; //將此值記錄於Session變數
+echo $_SESSION['name']; //Yiru
+echo $_SESSION['age'];//15
 
 
 
@@ -172,7 +177,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                 <div class="booking-title">
                     <h4>訂房人資料</h4>
                     <div class="triangle">
-                        <img src="./img/down-triangle.svg" alt="">
+                        <img src="../nap_php/img/component/icon/down-triangle.svg" alt="">
                     </div>
                 </div>
                 <div class="booking-content">
@@ -187,7 +192,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                         </div>
                     </div>
                     <div class="form">
-                        <form method="post" acton="" id="formList" name="formList" action="room-booking-data-api.php">
+                        <form method="post" acton="" id="formList" name="formList" action="room-cart-step1.php">
                             <div class="mb-3">
                                 <label for="name" class="form-label">姓名</label>
                                 <input type="text" class="form-control" id="name" name="name">

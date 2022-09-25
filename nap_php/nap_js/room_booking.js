@@ -151,7 +151,7 @@ $('.booking-box').click(function(){
 
 
 // ---------------------訂房明細點擊叉叉---------------------
-$('.cancle-btn').click(function(){
+$('.cancle-btn').click(function(e){
     // 單人房明細刪除
     if($(this).hasClass('single-cancle')){
         $('#single-detail').hide();
@@ -161,6 +161,7 @@ $('.cancle-btn').click(function(){
         $('.total-num span').html(+$('.double-price span').html() + +$('.quadra-price span').html());
         $('.deposit-num span').html($('.total-num span').html()/2);
         $('.rest-num span').html($('.total-num span').html()/2);
+        $('.room-num span').text(+$('input.singleNum').val() + +$('input.doubleNum').val() + +$('input.quadraNum').val());
     }
     // 雙人房明細刪除
     if($(this).hasClass('double-cancle')){
@@ -171,6 +172,7 @@ $('.cancle-btn').click(function(){
         $('.total-num span').html(+$('.single-price span').html() + +$('.quadra-price span').html());
         $('.deposit-num span').html($('.total-num span').html()/2);
         $('.rest-num span').html($('.total-num span').html()/2);
+        $('.room-num span').text(+$('input.singleNum').val() + +$('input.doubleNum').val() + +$('input.quadraNum').val());
     }
     // 四人房明細刪除
     if($(this).hasClass('quadra-cancle')){
@@ -181,7 +183,9 @@ $('.cancle-btn').click(function(){
         $('.total-num span').html(+$('.single-price span').html() + +$('.double-price span').html());
         $('.deposit-num span').html($('.total-num span').html()/2);
         $('.rest-num span').html($('.total-num span').html()/2);
+        $('.room-num span').text(+$('input.singleNum').val() + +$('input.doubleNum').val() + +$('input.quadraNum').val());
     }
+    handleRoomNum(e);
 })
 
 
