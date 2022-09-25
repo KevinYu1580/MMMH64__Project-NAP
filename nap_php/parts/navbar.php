@@ -669,9 +669,22 @@ height: 40px;
     font-weight: 300;
 }
 
+.cart{
+    position: relative;
+}
+#cartCount{
+    background-color: #B14F42;
+    position: absolute;
+    right: -15px;
+    border-radius: 20px;
+}
+
     </style>
 
 <link rel="stylesheet" href="./nap_css/reset.css">
+<script src="./nap_js/jquery-3.6.0.min.js"></script>
+
+
 <title><?= 'N.A.P.| '.$pageName?></title>
 </head>
 
@@ -683,9 +696,14 @@ height: 40px;
     </a>
     <div class="icon_wrap">
         <div class="sec1">
-            <a href="">
-                <img src="./img/component/icon/Cart.svg" alt="">
+
+            <a class="cart  <?= $pageName == 'cart' ? 'active' : '' ?>" href="event-cart.php">
+            <img src="./img/component/icon/Cart.svg" alt="">
+            <span class="badge badge-pill badge-danger" id="cartCount"></span>
+            <!-- 加上紅色購物車數量 -->
+            
             </a>
+
             <a id="memberPic" href=""></a>
         </div>
         <button class="menu sec2">
@@ -766,6 +784,7 @@ height: 40px;
                             </clipPath>
                         </defs>
                     </svg>
+                    
                 </a>
             </li>
             <li>
@@ -781,6 +800,7 @@ height: 40px;
                             </clipPath>
                         </defs>
                     </svg>
+                    
                 </a>
             </li>
         </ul>
@@ -789,6 +809,33 @@ height: 40px;
     </div>
 </div>
 
+<script>
 
+function showCartCount(obj){
+    let count = 0;
+
+    for(let key in obj){
+        // const item = obj[key];
+        // console.log(obj)
+        const item = Object.keys(obj).length;
+        count = +item;
+        //原本+=會計算session累加
+        // console.log(+item)
+        // +加號做型別的轉換
+    
+        // count += +item.qty;
+
+    }
+    $('#cartCount').html(count);
+}
+
+
+$.get(
+    'handle-event-cart.php',
+    function(data){
+        showCartCount(data);
+    },
+    'json');
+</script>
 
 

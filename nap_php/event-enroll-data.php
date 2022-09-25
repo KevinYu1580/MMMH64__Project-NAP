@@ -4,6 +4,13 @@ require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動報名'; // 頁面名稱
 
+$where = ' WHERE 1 ';  // 起頭
+
+// 取得資料的總筆數
+$t_sql = "SELECT COUNT(1) FROM event_detail $where ";
+$total_events = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+
 // 確認在 url 中顯示對應 id
 if (isset($_GET['sid'])) {
     
@@ -37,7 +44,7 @@ if (isset($_GET['sid'])) {
 
 
 </head>
-<link rel="stylesheet" href="./nap_css/event-enroll-data.css">
+<link rel="stylesheet" href="./nap_css/event-enroll-data1.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 
@@ -88,12 +95,12 @@ if (isset($_GET['sid'])) {
                     <div class="enroll-card-btn">
 
                         <div class="add-to-cart-btn">
-                            <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit">
+                            <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="addToCart(event)">
                                 <span>前往結帳</span>
                             </button>
                         </div>
                         <div class="check-bill-btn">
-                            <button class="napBtn_fixed_outlined" name="add-to-cart" form="enroll-list" type="submit">
+                            <button class="napBtn_fixed_outlined" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="addToCart(event)">
                                 <span>加入購物車</span>
                             </button>
                         </div>
@@ -121,7 +128,7 @@ if (isset($_GET['sid'])) {
                 </div>
 
 
-                <form action="enroll_data_api.php" method="POST" id="enroll-list">
+                <form action="enroll-data-api.php" method="POST" id="enroll-list">
                     <!-- 
                         <div class="enroll-content-form">
                         <div class="delete-btn">
@@ -199,5 +206,27 @@ if (isset($_GET['sid'])) {
 <script src="./nap_js/component.js"></script>
 
 <script src="./nap_js/event-enroll-data.js"></script>
+<script>
+    function addToCart(event) {
+        const btn = $(event.currentTarget);
+        const qty = getEnrollContentFormNum();
+        //qty 數量這裡是用$('.enroll-content-form').length算人數
 
+
+        // const qty = btn.closest('.card-body').find('select').val();
+        const sid = btn.attr('data-sid');
+        //在送出btn上下屬性
+
+        console.log({sid, qty});
+        $.get(
+            'handle-event-cart.php',
+            {sid, qty}, function(data){
+                console.log(data);
+                showCartCount(data);
+            },
+            'json');
+            
+            
+    }
+</script>
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

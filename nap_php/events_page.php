@@ -23,7 +23,7 @@ $totalPages = ceil($total_events / $perPage);
 
 
 $events = [];
-
+//有資料才執行
 if ($total_events > 0) {
     if ($page < 1) {
         header('Location: ?page=1');
