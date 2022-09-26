@@ -2,12 +2,12 @@
 require __DIR__ . '/parts/connect_db_cy.php';
 
 //宣告購物車是陣列
-if(! isset($_SESSION['room_order'])){
+if (!isset($_SESSION['room_order'])) {
     $_SESSION['room_order'] = [];
 }
 
 //如果有設定的話，就把他的值轉換成整數
-$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+$sid = isset($_GET['room_id']) ? intval($_GET['room_id']) : 0;
 $num = isset($_GET['num']) ? intval($_GET['num']) : 0;
 $days = isset($_GET['days']) ? intval($_GET['days']) : 0;
 
@@ -19,20 +19,20 @@ $days = isset($_GET['days']) ? intval($_GET['days']) : 0;
 //購物車紀錄產品的sid(primary key)&產品的數量(num)
 
 //如果有設定
-if(! empty($sid)) {
+if (!empty($sid)) {
 
-    if(! empty($num)) {
+    if (!empty($num)) {
         // 新增或變更
 
-        if(!empty($_SESSION['room_order'][$sid])){
+        if (!empty($_SESSION['room_order'][$sid])) {
             // 如果項目已經存在，不用再查資料表，直接變更
             $_SESSION['room_order'][$sid]['num'] = $num;
         } else {
             // 新增
             // TODO: 檢查資料表是不是有這個商品
 
-            $room = $pdo->query("SELECT * FROM event_detail WHERE sid=$sid")->fetch();
-            if(! empty($room)){
+            $room = $pdo->query("SELECT * FROM room_info WHERE sid=$sid")->fetch();
+            if (!empty($room)) {
                 $room['num'] = $num;  // 先把數量放進去
                 $_SESSION['room_order'][$sid] = $room;
             }

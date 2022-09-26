@@ -1,7 +1,8 @@
 <?php
 
 
-require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'room_booking'; // 頁面名稱
 
 // 在 MySQL 中取得房間的資料表，並抓取(fetch)全部資料表的欄位

@@ -405,7 +405,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const days = difference / (1000 * 3600 * 24)
         console.log('hi', days);
         console.log('rooms_dict', rooms_dict);
-        console.log({
+        console.log('data', {
             room_id,
             num
         });
@@ -420,10 +420,19 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         // localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
 
         // Save data to sessionStorage
-        sessionStorage.setItem('room_order', JSON.stringify(rooms_dict));
+        // sessionStorage.setItem('room_order', JSON.stringify(rooms_dict));
 
-
-
+        $.get(
+            'handle-room-order.php', {
+                room_id,
+                num,
+                days
+            },
+            function(data) {
+                console.log('RETURN DATA:', data);
+                // showCartCount(data);
+            },
+            'json');
 
     };
 
