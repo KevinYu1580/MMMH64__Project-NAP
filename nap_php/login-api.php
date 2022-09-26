@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/parts/connect_db.php';
+require __DIR__ . '/parts/connect_db_vera.php';
 
 $output = [
     'success' => false,
