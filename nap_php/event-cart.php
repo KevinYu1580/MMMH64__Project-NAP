@@ -257,7 +257,7 @@ $pageName = '活動購物車'; // 頁面名稱
         let total = 0; //總價
         $('.per-cart-item').each(function(){
             const item = $(this);
-            const item_price = item.find('.per_price'); //單價，頁面中隱藏為取值
+            const item_price = item.find('.per_price'); //單價
             // console.log(item_price);
 
             const item_sub = item.find('.sub-total');

@@ -26,7 +26,12 @@ if (!empty($sid)) {
 
         if (!empty($_SESSION['room_order'][$sid])) {
             // 如果項目已經存在，不用再查資料表，直接變更
-            $_SESSION['room_order'][$sid]['num'] = $num;
+            $_SESSION['room_order']['room_info']['num'] = $num;
+            // $_SESSION['room_order'][$sid]['days'] = $days;
+
+            foreach ($_SESSION['room_order'] as $rSid => $value) {
+                $_SESSION['room_order'][$rSid]['days'] = $days;
+            }
         } else {
             // 新增
             // TODO: 檢查資料表是不是有這個商品
@@ -35,6 +40,10 @@ if (!empty($sid)) {
             if (!empty($room)) {
                 $room['num'] = $num;  // 先把數量放進去
                 $_SESSION['room_order'][$sid] = $room;
+
+                foreach ($_SESSION['room_order'] as $rSid => $value) {
+                    $_SESSION['room_order'][$rSid]['days'] = $days;
+                }
             }
         }
     } else {
