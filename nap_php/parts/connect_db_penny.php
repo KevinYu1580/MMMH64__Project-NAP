@@ -1,12 +1,12 @@
 <?php
 
 $db_host = 'localhost';
-// $db_user = 'penny';
-// $db_pass = 'Aa123456';
+$db_user = 'penny';
+$db_pass = 'Aa123456';
 $db_name = 'nap_penny';
 
-$db_user = 'root';
-$db_pass = '';
+// $db_user = 'root';
+// $db_pass = '';
 
 $dsn = "mysql:host={$db_host};dbname={$db_name};charset=utf8"; // data source name
 
