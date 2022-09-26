@@ -45,7 +45,7 @@ $pageName = '活動購物車'; // 頁面名稱
                     </svg>
                 </div>
             </a>
-            <a class="inactive-cart" href="#">
+            <a class="inactive-cart" href="room-cart.php">
                 <div class="room-cart">訂房結帳</div>
             </a>
         </div>
@@ -214,10 +214,11 @@ $pageName = '活動購物車'; // 頁面名稱
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
-
     function removeItem(event){
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
+        console.log('div');
+                
         $.get(
             'handle-event-cart.php',
             {sid}, function(data){
@@ -226,9 +227,12 @@ $pageName = '活動購物車'; // 頁面名稱
                 // console.log('delete before');
                 div.animate({ right: '800px'}, "fast").fadeOut(100, function() {
                 div.remove();
+                checkDisabled();
+                
                 });
                 // console.log('delete after');
                 updatePrices();
+                
 
             },
             'json');
@@ -242,8 +246,9 @@ $pageName = '活動購物車'; // 頁面名稱
             'handle-event-cart.php',
             {sid, qty}, function(data){
                 console.log(data);
-                showCartCount(obj); //總數量
+                showCartCount(data); //總數量
                 updatePrices();
+                checkDisabled();
             },
             'json');
     };
@@ -252,7 +257,7 @@ $pageName = '活動購物車'; // 頁面名稱
         let total = 0; //總價
         $('.per-cart-item').each(function(){
             const item = $(this);
-            const item_price = item.find('.per_price'); //單價，頁面中隱藏為取值
+            const item_price = item.find('.per_price'); //單價
             // console.log(item_price);
 
             const item_sub = item.find('.sub-total');
@@ -270,8 +275,20 @@ $pageName = '活動購物車'; // 頁面名稱
         $('#total-price').html(total);
     };
     updatePrices(); //一進來就要執行一次
+    checkDisabled();
 
-
+    function checkDisabled() {
+        const itemNum = $('.per-cart-item').length;
+        console.log(itemNum);
+        if (itemNum < 1) {
+            // 判斷數量，去顯示disable狀態
+            
+            $('.step-rate').hide();
+            $('.final-cart-price').hide();
+            $('.cart-btn').addClass('disabled');
+            $('.form-control, .form-select').attr('disabled', true);
+        }
+    }
 
     // $(document).ready(function() {
 
@@ -307,9 +324,7 @@ $pageName = '活動購物車'; // 頁面名稱
 
 
 
-    // function getPerCartItemNum() {
-    //     return $('.per-cart-item').length;
-    // }
+    
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

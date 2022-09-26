@@ -34,13 +34,7 @@ $event = ['# 特別活動', '# 浪浪套裝活動'];
 
 // ---------------貼文裡的留言----------------
 
-$comment_sql = sprintf(
-    "SELECT * FROM chat 
-    LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid 
-    LEFT JOIN member01 on chat_commit.member_sid = member01.id 
-    ORDER BY `comment_date` ASC"
-);
-$comment_rows = $pdo->query($comment_sql)->fetchAll();
+
 
 
 
@@ -79,15 +73,15 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
             </div>
             <div class="napSwitch_three forum_switch">
                 <div class="backmask"></div>
-                <div class="num1 sec">
+                <a class="num1 sec">
                     狗勾
-                </div>
-                <div class="num2 sec">
+                </a>
+                <a class="num2 sec">
                     貓貓
-                </div>
-                <div class="num3 sec">
+                </a>
+                <a class="num3 sec">
                     不限
-                </div>
+                </a>
             </div>
         </div>
         <form class="d-flex napSearchBar searchBar_pc_anchor">
@@ -139,13 +133,14 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
         </div>
         <div class="comtCard_wrap">
             <?php foreach ($rows as $r) : ?>
-                <div id='comtCard' class="comtCard" name='comtCard'>
+                <div id='comtCard' class="comtCard" name='comtCard' type='submit'>
                     <div class="content_wrap">
                         <div class="member_info">
                             <div class="member_pic">
                                 <img src="./img/member/profile-image/<?= $r['avatar'] ?>" alt="">
                             </div>
                             <span><?= $r['name'] ?></span>
+                            <span id='post_sid' class="d-none"><?= $r['sid'] ?></span>
                         </div>
                         <div class="napTitle">
                             <span>
@@ -153,10 +148,11 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
                             </span>
                         </div>
                         <div class="d-flex align-items-center">
-                            <div class="comtLabel">
-                                <span><?= $event[$r['tag']] ?></span>
-                            </div>
-                            <span class="date"><?= $r['date'] ?></span>
+                        <div class="comtLabel">
+                            <span><?= $event[$r['tag']] ?></span>
+                        </div>
+                        <span class="date"><?= $r['date'] ?></span>
+
                         </div>
                         <p class="contentText"><?= $r['content'] ?></p>
                         <div class="iconIndic">
@@ -269,22 +265,7 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
                                         <input class="message_input" type="text" placeholder="我要留言">
                                     </div>
                                     <div class="message_pack">
-                                        <?php foreach ($comment_rows as $cr) : ?>
-                                            <div id="messageCard" class="messageCard d-flex">
-                                                <div style="background-image: url(./img/member/profile-image/<?= $cr['avatar'] ?>);" class="memberPic"></div>
-                                                <div class="content_wrap d-flex">
-                                                    <span class="poster">
-                                                        <?= $cr['name'] ?>
-                                                    </span>
-                                                    <span class="date">
-                                                        <?= $cr['comment_date'] ?>
-                                                    </span>
-                                                    <p class="message_text">
-                                                        <?= $cr['comment'] ?>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
+                                        <!-- 用jqeury的.get新增留言 -->
                                     </div>
                                     <span class="botHint">尚無更多留言</span>
                                 </div>
@@ -454,13 +435,22 @@ $comment_rows = $pdo->query($comment_sql)->fetchAll();
 <!-- 自己的js放在這 -->
 <script src="./nap_js/forum-event.js"></script>
 <script>
+
+
+
     $('.comtCard').click(function() {
-        let comtCardIndex = ($(this).index()) + 1
-        $.post( 
-            'forum-message-api',
-            {index: comtCardIndex},
+
+        const post_sid = $(this).find('#post_sid').html()
+        // console.log(post_sid)
+        $.get(
+            'getMessageId-api.php',
+            {sid: post_sid},
             'json'
         )
+        .done((result)=>{
+            $('.lightBox_comtCard .comtSection .message_pack').html(result)
+        })
+        
     })
 
 

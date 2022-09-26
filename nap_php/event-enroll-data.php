@@ -44,7 +44,7 @@ if (isset($_GET['sid'])) {
 
 
 </head>
-<link rel="stylesheet" href="./nap_css/event-enroll-data1.css">
+<link rel="stylesheet" href="./nap_css/event-enroll-data.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 
