@@ -252,7 +252,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                     </div>
                 </div>
                 <div class="booking-detail-combine">
-                    <div id="single-detail" class="booking-detail-content">
+                    <div id="single-detail" class="booking-detail-content" data-id="<?= $rooms[0]['sid'] ?>">
                         <div class="name-cancel-btn d-flex justify-content-between align-items-center">
                             <div class="room-name">單人房 呼嚕嚕</div>
                             <div class="cancle-btn single-cancle">
@@ -275,7 +275,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                             <p>(房價已包含稅金及其他費用)</p>
                         </div>
                     </div>
-                    <div id="double-detail" class="booking-detail-content">
+                    <div id="double-detail" class="booking-detail-content" data-id="<?= $rooms[1]['sid'] ?>">
                         <div class="name-cancel-btn d-flex justify-content-between align-items-center">
                             <div class="room-name">雙人房 皺皺鼻</div>
                             <div class="cancle-btn double-cancle">
@@ -298,7 +298,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                             <p>(房價已包含稅金及其他費用)</p>
                         </div>
                     </div>
-                    <div id="quadra-detail" class="booking-detail-content">
+                    <div id="quadra-detail" class="booking-detail-content" data-id="<?= $rooms[2]['sid'] ?>">
                         <div class="name-cancel-btn d-flex justify-content-between align-items-center">
                             <div class="room-name">四人房 撓癢癢</div>
                             <div class="cancle-btn quadra-cancle">
@@ -343,7 +343,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                         </div>
                     </div>
                     <div class="booking-btn">
-                        <a href="./room-booking-data.php">填寫訂房資料</a>
+                        <a href="./room-booking-data.php" disabled="disabled">填寫訂房資料</a>
                     </div>
                 </div>
             </div>
@@ -375,8 +375,9 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     // if(+$('.total-num span').text() === 0){
     //     $('.booking-btn a').attr('href','./room_booking.php')
     // }
-    // }); 
+    // });     
     // oopsAlert();
+
 
 
 
@@ -389,8 +390,9 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     }
 
     const handleRoomNum = function(e) {
+        const booking_detail_content = $(e.currentTarget).closest('.booking-detail-content');
         const price_cr_group = $(e.currentTarget).closest('.price-cr-group');
-        const room_id = price_cr_group.attr('data-id');
+        const room_id = price_cr_group.attr('data-id') || booking_detail_content.attr('data-id');
         const num = +(price_cr_group.find('input').val()?price_cr_group.find('input').val():0);
         console.log('hi num',num);
 
