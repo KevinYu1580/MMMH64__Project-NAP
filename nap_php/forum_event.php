@@ -73,15 +73,15 @@ $event = ['# 特別活動', '# 浪浪套裝活動'];
             </div>
             <div class="napSwitch_three forum_switch">
                 <div class="backmask"></div>
-                <div class="num1 sec">
+                <a class="num1 sec">
                     狗勾
-                </div>
-                <div class="num2 sec">
+                </a>
+                <a class="num2 sec">
                     貓貓
-                </div>
-                <div class="num3 sec">
+                </a>
+                <a class="num3 sec">
                     不限
-                </div>
+                </a>
             </div>
         </div>
         <form class="d-flex napSearchBar searchBar_pc_anchor">
@@ -148,10 +148,11 @@ $event = ['# 特別活動', '# 浪浪套裝活動'];
                             </span>
                         </div>
                         <div class="d-flex align-items-center">
-                            <div class="comtLabel">
-                                <span><?= $event[$r['tag']] ?></span>
-                            </div>
-                            <span class="date"><?= $r['date'] ?></span>
+                        <div class="comtLabel">
+                            <span><?= $event[$r['tag']] ?></span>
+                        </div>
+                        <span class="date"><?= $r['date'] ?></span>
+
                         </div>
                         <p class="contentText"><?= $r['content'] ?></p>
                         <div class="iconIndic">
@@ -264,22 +265,7 @@ $event = ['# 特別活動', '# 浪浪套裝活動'];
                                         <input class="message_input" type="text" placeholder="我要留言">
                                     </div>
                                     <div class="message_pack">
-                                        
-                                            <!-- <div id="messageCard" class="messageCard d-flex">
-                                                <div style="background-image: url(./img/member/profile-image/);" class="memberPic"></div>
-                                                <div class="content_wrap d-flex">
-                                                    <span class="poster">
-                                                       
-                                                    </span>
-                                                    <span class="date">
-                                                        
-                                                    </span>
-                                                    <p class="message_text">
-                                                        
-                                                    </p>
-                                                </div>
-                                            </div> -->
-                                        
+                                        <!-- 用jqeury的.get新增留言 -->
                                     </div>
                                     <span class="botHint">尚無更多留言</span>
                                 </div>

@@ -184,7 +184,9 @@ input:focus {
   padding: 14px 30px;
   line-height: 100%;
 }
-
+.napSwitch_three  a {
+  text-decoration: none;
+}
 .selector_wrap .forum_switch {
   margin: auto;
 }
@@ -367,9 +369,7 @@ input:focus {
     margin-bottom: 18px;
   }
 }
-.comtCard_wrap .comtCard .comtLabel {
-  margin-bottom: 4px;
-}
+
 @media screen and (min-width: 992px){
   .comtCard_wrap .comtCard .comtLabel {
     margin-bottom: 0px;
@@ -379,13 +379,15 @@ input:focus {
   }
 }
 .comtCard_wrap .comtCard .date {
-  display: none;
+  display: flex;
+  font-size: 14px;
+  margin-left: 6px;
+  color: var(--black_500);
 }
 @media screen and (min-width: 992px){
   .comtCard_wrap .comtCard .date {
     display: block;
     font-size: 16px;
-    color: var(--black_500);
     margin-left: 10px;
     font-weight: 300;
   }
