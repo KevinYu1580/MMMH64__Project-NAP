@@ -1,33 +1,12 @@
 <?php
-
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '訂房資料填寫'; // 頁面名稱
-$where = ' WHERE 1 ';  // 起頭
-
-//宣告room-cart是陣列
-// if (!isset($_SESSION['room-cart'])) {
-//     $_SESSION['room-cart'] = [];
-// }
-// if (!isset($_SESSION['room_order'])) {
-//     $_SESSION['room_order'] = [];
-// }
+// $where = ' WHERE 1 ';  // 起頭
 
 
-// 取得資料的總筆數
-$t_sql = "SELECT COUNT(1) FROM room_info $where ";
-$total_rooms = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 
-// 確認在 url 中顯示對應 id
-if (isset($_GET['sid'])) {
-
-    $stmt = $pdo->prepare('SELECT * FROM room_info WHERE `sid` = ?');
-    $stmt->execute([$_GET['sid']]);
-
-    // 在 MySQL 中取得活動資料(fetch)並存入陣列
-    $room = $stmt->fetch(PDO::FETCH_ASSOC);
-}
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -106,7 +85,7 @@ if (isset($_GET['sid'])) {
             <?php
             $total = 0;
             foreach ($_SESSION['room_order'] as $key => $value) :
-                $total += $value['room_price'] * $value['num'] * $value['days']; //計算總價
+            
             ?>
                 <div data-sid="<?= $key ?>" class="booking-detail-combine">
                     <div class="booking-detail-content">
@@ -116,7 +95,7 @@ if (isset($_GET['sid'])) {
                         <div class="room-count">
                             <div class="price">NT$ <span class="per_price" data-val="<?= $value['room_price'] ?>"></span></div>
                             <div class="per-room-night">
-                                <p>x<span data-val="<?= $value['days'] ?>"></span> 晚</p>
+                                <p>x <span class="days" data-val="<?= $value['days'] ?>"></span> 晚</p>
                             </div>
                             <div class="per-room-num">
                                 <p>x<span class="num" data-val="<?= $value['num'] ?>"></span> 間</p>
@@ -130,7 +109,8 @@ if (isset($_GET['sid'])) {
                             <p>(房價已包含稅金及其他費用)</p>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
 
                 <div class="booking-detail-content-final">
                     <div class="total-count">
@@ -429,7 +409,7 @@ if (isset($_GET['sid'])) {
     $('.quadraPrice span').html(localData['3'].quadraPrice); //四人房明細總價
 
 */
-
+        updatePrices();
         function addToCart(event) {
             const btn = $(event.currentTarget);
             const num = event.find('.num');
@@ -441,15 +421,57 @@ if (isset($_GET['sid'])) {
             const sid = btn.attr('data-sid');
             //在送出btn上下屬性
 
-            console.log({
-                sid,
-                num,
-                days
-            });
+            // console.log({
+            //     sid,
+            //     num,
+            //     days
+            // });
 
 
 
         }
+
+    function updatePrices(){
+        let total = 0; //總價
+        $('.booking-detail-combine').each(function(){
+            const item = $(this);
+            const item_price = item.find('.per_price'); //單價
+            const price = +item_price.attr('data-val');
+            console.log('price:', price); //ok
+            const item_num = item.find('.num');
+            const num = +item_num.attr('data-val');
+            console.log('room-num:', num); //ok
+
+
+
+            const item_days = item.find('.days');
+            
+
+            const item_sub = item.find('.sub-total');
+            
+            
+            const days = +item_days.attr('data-val');
+            
+
+            console.log('item_sub:', item_sub);
+            
+            console.log('item_days:', item_days);
+            
+            
+            
+            
+            
+            console.log('days:',days); //ok
+
+            item_num.html(num);
+            item_price.html(price);
+            item_sub.html(price * num * days);
+            total += price * num * days;
+
+        });
+        $('#total-price').html(total);
+    };
+    updatePrices();
     </script>
 
     <?php include __DIR__ . '/parts/html-foot.php'; ?>
