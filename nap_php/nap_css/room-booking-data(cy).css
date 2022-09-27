@@ -281,6 +281,10 @@ body{
             font-size: var(--subtitle_16px);
         }
     }
+.room-count .price{
+    margin-right: 10px;
+}
+    
 
 .booking-detail-content .room-detail-num{
     font-size: var(--subtitle_18px);

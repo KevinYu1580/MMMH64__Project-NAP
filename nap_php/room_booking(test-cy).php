@@ -228,11 +228,11 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                                 <img src="../nap_php/img/component/icon/calender.svg" alt="">
                             </div>
                             <div class="date-num">
-                                <span>
+                                <span class="checkInDate">
                                     <!-- 帶入checkIn的日期 -->
                                 </span>
                                 -
-                                <span>
+                                <span class="checkOutDate">
                                     <!-- 帶入checkOut的日期 -->
                                 </span>
                                 <span>(</span>
@@ -421,14 +421,14 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
         // localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
 
-        // Save data to sessionStorage
-        // sessionStorage.setItem('room_order', JSON.stringify(rooms_dict));
 
         $.get(
             'handle-room-order.php', {
+                // day1,
+                // day2,
                 room_id,
                 num,
-                days
+                days,
             },
             function(data) {
                 console.log('RETURN DATA:', data);

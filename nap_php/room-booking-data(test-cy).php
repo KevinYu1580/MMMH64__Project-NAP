@@ -18,7 +18,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/room-booking-data(test-cy).css">
+<link rel="stylesheet" href="./nap_css/room-booking-data(cy).css">
 
 
 <div class="all-container">
@@ -60,9 +60,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                                 <!--check-out-->
                             </span>
                             (
-                            <span>
-                                <!--天數-->
-                            </span>
+                            <span class="night"></span>
                             晚 )
                             <!-- <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p> -->
                         </div>
@@ -72,9 +70,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                             <img src="./img/component/icon/room.svg" alt="">
                         </div>
                         <div class="room-num">
-                            <p><span>
-                                    <!--帶入房間數-->
-                                </span> 間房間</p>
+                            <p><span class="room"></span> 間房間</p>
                         </div>
                     </div>
                 </div>
@@ -118,16 +114,16 @@ $pageName = '訂房資料填寫'; // 頁面名稱
                             <p>總價</p>
                         </div>
                         <div class="total-num">
-                            <p>NT$ <span id="total-price">0</span></p>
+                            <p>NT$ <span id="total-price"></span></p>
                         </div>
                     </div>
                     <div class="deposit-count">
                         <div class="deposit-price">應付訂金金額</div>
-                        <div class="deposit-num">NT$ <span>0</span></div>
+                        <div class="deposit-num">NT$ <span id="deposit-price"></span></div>
                     </div>
                     <div class="rest-count">
                         <div class="rest-price">剩餘尾款</div>
-                        <div class="rest-num">NT$ <span>0</span></div>
+                        <div class="rest-num">NT$ <span id="rest-price"></span></div>
                     </div>
                     <div class="rest-pay-notice">
                         <p>(請於現場付清)</p>
@@ -433,43 +429,47 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 
     function updatePrices(){
         let total = 0; //總價
+        let select_night = 0; //晚
+        let select_num = 0; //房間數
+        
         $('.booking-detail-combine').each(function(){
             const item = $(this);
             const item_price = item.find('.per_price'); //單價
             const price = +item_price.attr('data-val');
-            console.log('price:', price); //ok
+            // console.log('price:', price); //ok
             const item_num = item.find('.num');
             const num = +item_num.attr('data-val');
-            console.log('room-num:', num); //ok
+            // console.log('room-num:', num); //ok
 
 
 
             const item_days = item.find('.days');
-            
+            // console.log('item_days:', item_days);
 
             const item_sub = item.find('.sub-total');
-            
+            // console.log('item_sub:', item_sub);
             
             const days = +item_days.attr('data-val');
-            
+            // console.log('days:',days); //ok
 
-            console.log('item_sub:', item_sub);
-            
-            console.log('item_days:', item_days);
             
             
-            
-            
-            
-            console.log('days:',days); //ok
-
             item_num.html(num);
             item_price.html(price);
+            item_days.html(days);
             item_sub.html(price * num * days);
             total += price * num * days;
+            select_night = days;
+            select_room = num; //要怎麼抓總房間數？
 
         });
         $('#total-price').html(total);
+        $('#deposit-price').html(total/2);
+        $('#rest-price').html(total-(total/2));
+        $('.night').html(select_night);
+        $('.room').html(select_room);
+
+
     };
     updatePrices();
     </script>

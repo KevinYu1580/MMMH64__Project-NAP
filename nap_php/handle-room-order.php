@@ -11,6 +11,7 @@ $sid = isset($_GET['room_id']) ? intval($_GET['room_id']) : 0;
 $num = isset($_GET['num']) ? intval($_GET['num']) : 0;
 $days = isset($_GET['days']) ? intval($_GET['days']) : 0;
 
+
 // C: 加到購物車, sid, num
 // R: 查看購物車內容
 // U: 更新, sid, num
@@ -28,6 +29,8 @@ if (!empty($sid)) {
             // 如果項目已經存在，不用再查資料表，直接變更
             $_SESSION['room_order']['room_info']['num'] = $num;
             // $_SESSION['room_order'][$sid]['days'] = $days;
+            // $_SESSION['room_order']['day1'] = $day1;
+            // $_SESSION['room_order']['day2'] = $day2;
 
             foreach ($_SESSION['room_order'] as $rSid => $value) {
                 $_SESSION['room_order'][$rSid]['days'] = $days;
