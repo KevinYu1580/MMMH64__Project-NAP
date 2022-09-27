@@ -344,7 +344,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                         </div>
                     </div>
                     <div class="booking-btn">
-                        <a href="./room-booking-data(test-cy).php">填寫訂房資料</a>
+                        <a href="room-booking-data(test-cy).php">填寫訂房資料</a>
                     </div>
                 </div>
             </div>
@@ -394,7 +394,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const price_cr_group = $(e.currentTarget).closest('.price-cr-group');
         const room_id = price_cr_group.attr('data-id') || booking_detail_content.attr('data-id');
         const num = +(price_cr_group.find('input').val() ? price_cr_group.find('input').val() : 0);
-        console.log('hi num', num);
+        // console.log('hi num', num);
 
         const day1 = new Date($('.date-num span').eq(0).text());
         const day2 = new Date($('.date-num span').eq(1).text());
@@ -402,19 +402,23 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const doublePrice = $('.double-price span').text();
         const quadraPrice = $('.quadra-price span').text();
 
+        console.log('checkin:', day1);
+        console.log('checkout:', day2);
+
         const difference = Math.abs(day2 - day1);
         const days = difference / (1000 * 3600 * 24)
-        console.log('hi', days);
+        // console.log('hi', days);
         console.log('rooms_dict', rooms_dict);
         console.log('data', {
             room_id,
             num
         });
+
         rooms_dict[room_id].days = days;
         rooms_dict[room_id].num = num;
         // rooms_dict[room_id].singlePrice = singlePrice;
-        rooms_dict[room_id].doublePrice = doublePrice;
-        rooms_dict[room_id].quadraPrice = quadraPrice;
+        // rooms_dict[room_id].doublePrice = doublePrice;
+        // rooms_dict[room_id].quadraPrice = quadraPrice;
         // console.log(rooms_dict);
 
 
@@ -424,8 +428,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
         $.get(
             'handle-room-order.php', {
-                // day1,
-                // day2,
+                day1: dayjs(day1).format('YYYY/MM/DD'), //你去哪裡了~~~~~
+                day2: dayjs(day2).format('YYYY/MM/DD'), //你去哪裡了~~~~~
                 room_id,
                 num,
                 days,
@@ -437,6 +441,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
             'json');
 
     };
+
 
 
 

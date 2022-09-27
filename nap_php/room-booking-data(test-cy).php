@@ -450,7 +450,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
             // console.log('item_sub:', item_sub);
             
             const days = +item_days.attr('data-val');
-            // console.log('days:',days); //ok
+            console.log('days:',days); //ok---------------不ok~~~~~~~~~~~~
 
             
             
@@ -472,6 +472,8 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 
     };
     updatePrices();
+
+    
     </script>
 
     <?php include __DIR__ . '/parts/html-foot.php'; ?>

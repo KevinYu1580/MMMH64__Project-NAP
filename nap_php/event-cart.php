@@ -227,11 +227,12 @@ $pageName = '活動購物車'; // 頁面名稱
                 // console.log('delete before');
                 div.animate({ right: '800px'}, "fast").fadeOut(100, function() {
                 div.remove();
+                updatePrices();
                 checkDisabled();
                 
                 });
                 // console.log('delete after');
-                updatePrices();
+                
                 
 
             },
