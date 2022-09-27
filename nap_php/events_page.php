@@ -5,7 +5,7 @@ $pageName = '活動檔期'; // 頁面名稱
 
 
 // 每頁顯示幾筆活動資料
-$perPage = 6;
+$perPage = 5;
 
 // 顯示在url: page=?
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -337,6 +337,7 @@ if ($total_events > 0) {
 
     }
     getData({}); // first get data
+
 
     <?php if ((isset($_GET['cate']) ? intval($_GET['cate']) : 0) === 1) : ?>
         spacialBtnEvent();
