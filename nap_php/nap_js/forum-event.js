@@ -61,7 +61,6 @@ $('.comtCard .lightBox_pc').click(function(e){
 
 
 // -------------貼文卡片光相
-const post_lightBox = $('.lightBox_comtCard')
 
 // 貼文卡片展開後內部留言 以迴圈新增數量
 // function postLightBox_messageNum(){
@@ -75,7 +74,7 @@ const post_lightBox = $('.lightBox_comtCard')
 
 
 // 打開留言卡片光箱
-$('.comtCard_wrap .comtCard').click(function(e){
+$('.comtCard_wrap').on('click','.comtCard', (function(e){
     $(this).find('.lightBox_comtCard').show();
     document.body.style.overflow='hidden'
 
@@ -84,14 +83,14 @@ $('.comtCard_wrap .comtCard').click(function(e){
         'pointer-events': 'auto',
         'opacity':'1',
     })
-})
+}))
 $('.lightBox_comtCard_mask').click(function(){
     $(this).css({
         'pointer-events': 'none',
         'opacity':'0',
     })
     document.body.style.overflow='visible'
-    $(post_lightBox).hide()
+    $('.lightBox_comtCard').hide()
 })
 
 

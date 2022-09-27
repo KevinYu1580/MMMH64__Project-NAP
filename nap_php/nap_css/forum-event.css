@@ -137,7 +137,7 @@ input:focus {
   .selector_wrap {
     width: fit-content;
     display: flex;
-    gap: 40px;
+    gap: 3rem;
     margin-bottom: 0;
   }
 }

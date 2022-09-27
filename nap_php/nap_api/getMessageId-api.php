@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/parts/connect_db_kevin.php';
+require  '../parts/connect_db_kevin.php';
 
 $sql = [];
 
