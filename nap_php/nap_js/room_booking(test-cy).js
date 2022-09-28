@@ -133,7 +133,7 @@ $('.booking-box').click(function(){
         $('.room-card-group').show();
     }
 
-    console.log('hi',rooms);
+    // console.log('hi',rooms);
     const day1 = new Date($('.date-num span').eq(0).text());
     const day2 = new Date($('.date-num span').eq(1).text());
 

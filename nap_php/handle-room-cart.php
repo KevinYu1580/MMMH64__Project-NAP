@@ -7,8 +7,10 @@ if(! isset($_SESSION['room-cart'])){
 }
 
 //如果有設定的話，就把他的值轉換成整數
-$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-$qty = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
+$sid = isset($_GET['room_id']) ? intval($_GET['room_id']) : 0;
+$num = isset($_GET['num']) ? intval($_GET['num']) : 0;
+$days = isset($_GET['days']) ? intval($_GET['days']) : 0;
+$detailDate = isset($_GET['detailDate']) ? $_GET['detailDate'] : '';
 
 // C: 加到購物車, sid, qty
 // R: 查看購物車內容
@@ -20,19 +22,21 @@ $qty = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
 //如果有設定
 if(! empty($sid)) {
 
-    if(! empty($qty)) {
+    if(! empty($num)) {
         // 新增或變更
+        $_SESSION['detailDate'] = $detailDate;
 
         if(!empty($_SESSION['room-cart'][$sid])){
             // 如果項目已經存在，不用再查資料表，直接變更
-            $_SESSION['room-cart'][$sid]['qty'] = $qty;
-        } else {
-            // 新增
-            // TODO: 檢查資料表是不是有這個商品
+            $_SESSION['room_order'][$sid]['num'] = $num;
 
-            $room = $pdo->query("SELECT * FROM event_detail WHERE sid=$sid")->fetch();
+
+        } else {
+            
+
+            $room = $pdo->query("SELECT * FROM room_info WHERE sid=$sid")->fetch();
             if(! empty($room)){
-                $room['qty'] = $qty;  // 先把數量放進去
+                $room['num'] = $num;  // 先把數量放進去
                 $_SESSION['room-cart'][$sid] = $room;
             }
         }

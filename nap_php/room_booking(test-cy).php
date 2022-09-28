@@ -89,14 +89,14 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
             <div class="room-result-col col-md-7">
                 <div class="room-null">
                     <div class="room-null-imgbox">
-                        <img src="../nap_php/img/component/icon/Search.svg" alt="">
+                        <img src="./img/component/icon/Search.svg" alt="">
                     </div>
                     <div class="room-null-text">請選擇預入住的日期與間數</div>
                 </div>
                 <div class="room-card-group">
                     <div class="room-card d-md-flex align-items-center">
                         <div class="card-imgbox col-md-4">
-                            <img src="../nap_php/img/nap-intro/roomInfo/single-room/single-02.jpg" alt="">
+                            <img src="./img/nap-intro/roomInfo/single-room/single-02.jpg" alt="">
                         </div>
                         <div class="card-textbox col-md-8">
                             <h2><?= $rooms[0]['room_name'] ?></h2>
@@ -244,10 +244,10 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                         </div>
                         <div class="booking-room">
                             <div class="room-icon">
-                                <img src="../nap_php/img/component/icon/room.svg" alt="">
+                                <img src="./img/component/icon/room.svg" alt="">
                             </div>
                             <div class="room-num">
-                                <p><span>0</span> 間房間</p>
+                                <p><span class="totalRoom">0</span> 間房間</p>
                             </div>
                         </div>
                     </div>
@@ -401,18 +401,19 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const singlePrice = $('.single-price span').text();
         const doublePrice = $('.double-price span').text();
         const quadraPrice = $('.quadra-price span').text();
+        const totalNum = $('.totalRoom').text()
 
-        console.log('checkin:', day1);
-        console.log('checkout:', day2);
+        // console.log('checkin:', day1);
+        // console.log('checkout:', day2);
 
         const difference = Math.abs(day2 - day1);
         const days = difference / (1000 * 3600 * 24)
         // console.log('hi', days);
-        console.log('rooms_dict', rooms_dict);
-        console.log('data', {
-            room_id,
-            num
-        });
+        // console.log('rooms_dict', rooms_dict);
+        // console.log('data', {
+        //     room_id,
+        //     num
+        // });
 
         rooms_dict[room_id].days = days;
         rooms_dict[room_id].num = num;
@@ -421,18 +422,20 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         // rooms_dict[room_id].quadraPrice = quadraPrice;
         // console.log(rooms_dict);
 
-
+        const detailDate = $('.date-num').text();
 
         // localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
 
 
         $.get(
             'handle-room-order.php', {
-                day1: dayjs(day1).format('YYYY/MM/DD'), //你去哪裡了~~~~~
-                day2: dayjs(day2).format('YYYY/MM/DD'), //你去哪裡了~~~~~
+                day1: dayjs(day1).format('YYYY/MM/DD'), 
+                day2: dayjs(day2).format('YYYY/MM/DD'), 
+                totalNum,
                 room_id,
                 num,
                 days,
+                // detailDate,
             },
             function(data) {
                 console.log('RETURN DATA:', data);

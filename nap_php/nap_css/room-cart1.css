@@ -474,6 +474,87 @@ body{
         }
     }
 
+/* 當裡面沒有商品的時候，不能點擊 */
+.cart-btn.disabled button {
+    margin: auto;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: var(--headline_20px);
+    background-color: var(--black_500);
+    cursor: not-allowed;
+    color: var(--white);
+    outline: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .cart-btn.disabled button {
+        font-size: var(--headline_24px)
+    }
+}
+
+button {
+    background-color: none;
+    outline: none;
+    padding: 0;
+    border: none 0;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* ---------付款方式按鈕--------- */
+.cart-btn{
+    margin: auto;
+    margin-top: 40px;
+}
+    @media screen and (min-width: 768px){
+        .cart-btn{
+            display: flex;
+            margin: auto;
+            justify-content: space-evenly;
+            margin-top: 40px;
+        }
+    }
+
+.cart-btn .napBtn_fixed_outlined span, .cart-btn .napBtn_fixed_filled span{
+    font-size: var(--headline_20px);
+}
+    @media screen and (min-width: 768px){
+        .cart-btn .napBtn_fixed_outlined span, .cart-btn .napBtn_fixed_filled span{
+            font-size: var(--headline_24px);
+        }
+    }
+
+.credit-card-btn, .atm-btn{
+    width: 180px;
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .credit-card-btn, .atm-btn{
+            width: 45%;
+        }
+    }
+
+
+.cart-btn button{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    text-decoration: none;
+    width: 180px;
+}
+    @media screen and (min-width: 768px){
+        .cart-btn button{
+            margin: auto;
+            margin-top: 10px;
+            height: 55px;
+            width: 100%;
+        }
+    }
+
+    
 /* ---------付款方式按鈕--------- */
 .cart-btn{
     margin: auto;
@@ -522,5 +603,82 @@ body{
             margin-top: 10px;
             height: 55px;
             width: 100%;
+        }
+    }
+
+/* -------------------空購物車區塊------------------- */
+
+/* .empty{
+    display: none;
+} */
+
+.empty-cart{
+    margin-top: 20px;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart{
+            margin-top: 100px;
+        }
+    }
+
+.empty-cart svg{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin: auto;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart svg{
+            height: 150px;
+            width: 150px;
+        }
+    }
+
+.empty-car-text{
+    font-size: var(--subtitle_18px);
+    text-align: center;
+    line-height: 2rem;
+    margin: 10%;
+}
+    @media screen and (min-width: 768px){
+        .empty-car-text{
+            font-size: var(--headline_28px);
+            line-height: 3.5rem;
+            margin: 5%;
+        }
+    }
+
+
+/* ---------查看其他頁面按鈕--------- */
+.empty-cart-btn{
+    margin: auto;
+    margin-bottom: 55px;
+    
+}
+    @media screen and (min-width: 768px){
+        .empty-cart-btn{
+            display: flex;
+            width: 50%;
+            margin-bottom: 65px;
+        }
+    }
+
+
+.empty-cart-btn a{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 170px;
+    height: 40px;
+    text-decoration: none;
+}
+    @media screen and (min-width: 768px){
+        .empty-cart-btn a{
+            margin: auto;
+            margin-top: 10px;
+            width: 230px;
+            height: 55px;
+            text-decoration: none;
+            font-size: var(--headline_24px);
         }
     }
