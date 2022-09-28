@@ -7,7 +7,7 @@ $(".topNav_mobile .menu, .menu_lightBox_pc").click(function () {
 
 // 寵物卡片
 $('.napBtn_likeBtn').click(function(event){
-  event.stopPropagation()
+  event.stopPropagation();
   $(this).toggleClass('likeBtn_activated');
   $(this).find('#white').toggle();
 })

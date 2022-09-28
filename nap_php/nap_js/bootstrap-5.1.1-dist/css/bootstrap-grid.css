@@ -58,6 +58,9 @@
   --bs-body-bg: #fff;
 }
 
+
+
+
 .container,
 .container-fluid,
 .container-xxl,
@@ -70,6 +73,7 @@
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+  
 }
 
 @media (min-width: 576px) {
