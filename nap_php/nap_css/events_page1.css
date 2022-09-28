@@ -503,7 +503,7 @@ body{
     top: 20px;
     right: 20px;
 }
-.card-like a{
+.card-like button{
     position: absolute;
     top: 0px;
     width: 45px;
@@ -518,6 +518,7 @@ body{
 .card-like #cover{
     position: absolute;
     top: 0;
+    left: 10px;
 }
 .card-like .cover{
     display: none;
@@ -643,7 +644,7 @@ body{
     .card-like #cover{
         position: absolute;
         top: 0;
-        left: 8px;
+        left: 10px;
     }
     .card-like .cover{
         display: none;

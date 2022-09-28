@@ -246,17 +246,20 @@ if ($total_events > 0) {
                             </div>
                         </div>
                         <div class="card-like d-flex justify-content-center align-items-center ">
-                            <a href="event-like-api.php?member01=${member_id}&like_type=2&item_sid=${sid}">
+                            <button name="sentLike" type="submit" onclick="sentLike(event)">
                                 <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
                                 <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>`;
     };
 
-
-
+    function sentLike(event){
+        $.get(
+            'event-like-api.php?member01=${member_id}&like_type=2&item_sid=${sid}'
+        ,'json');
+    }
 
     // default selections
     $('.my-option').each(function() {
