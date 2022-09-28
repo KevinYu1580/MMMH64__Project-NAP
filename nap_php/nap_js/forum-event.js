@@ -1,13 +1,13 @@
 // 關閉光箱
 
-$('.comtCard_wrap').on('click','.close_lightBox', function(){
-    $('.lightBox_comtCard').hide()
+$('.close_lightBox').click(function(){
+    $('.lightBox_comtCard').hide();
     $('.lightBox_comtCard_mask').css({
         'pointer-events': 'none',
         'opacity':'0',
     })
-    document.body.style.overflow='visible'
-})
+    document.body.style.overflow='visible';
+});
 
 
 // --------------卡片手機小menu 彈出效果
@@ -77,6 +77,7 @@ $('.comtCard .lightBox_pc').click(function(e){
 $('.comtCard_wrap').on('click','.comtCard', (function(e){
     $(this).find('.lightBox_comtCard').show();
     document.body.style.overflow='hidden'
+
 
     // 打開光箱mask
     $('.lightBox_comtCard_mask').css({
@@ -207,9 +208,21 @@ imgInp.onchange = evt => {
   }
 
 
+//   顯示貼文數量
 
 
+// window.onload = function() {
+//     let comtCard = $('.comtCard_wrap .comtCard')
+//     let messageDiv = $('.comtCard_wrap .messageQty')
+//     comtCard.on('load', function(){
+//         console.log(321)
+//     })
+   
+    
 
+//   };
+  
+  
 
 
 

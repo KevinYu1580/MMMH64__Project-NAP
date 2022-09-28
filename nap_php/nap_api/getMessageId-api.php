@@ -8,15 +8,15 @@ if(empty($_GET['sid'])){
 }
 else{
     $get = $_GET['sid'];
-    $sql_commend ="
+    $sql_command ="
     SELECT * FROM chat 
     LEFT JOIN chat_commit on chat_commit.chat_event_sid = chat.sid 
     LEFT JOIN member01 on chat_commit.member_sid = member01.id 
     WHERE chat.sid = $get
     ORDER BY `comment_date` ASC";
     
-    $sql = sprintf($sql_commend);
-    $rows = $pdo->query($sql_commend)->fetchAll();
+    $sql = sprintf($sql_command);
+    $rows = $pdo->query($sql_command)->fetchAll();
     
     
     foreach ($rows as $r) {
@@ -40,7 +40,4 @@ else{
             </div>
         </div>";
     }
-    
-
-    
 }

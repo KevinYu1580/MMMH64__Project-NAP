@@ -697,7 +697,13 @@ input:focus {
   width: 100%;
   height: fit-content;
   border-radius: 20px;
-  margin-top: 32px;
+  margin: 32px auto auto;
+  display: block;
+}
+@media screen and (min-width: 992px){
+  .lightBox_comtCard article .comtCard_lightBox_pic img {
+    width: 80%;
+  }
 }
 .lightBox_comtCard .comtSection .numIndic {
   gap: 6px;

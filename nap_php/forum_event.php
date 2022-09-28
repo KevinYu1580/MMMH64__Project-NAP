@@ -237,10 +237,10 @@ $pageName = 'Forum-events'; // 頁面名稱
 
 // ---------貼文篩選功能 
 
-// 貼文內圖片php程式碼
+// 呈現貼文內容(尚未開啟光箱)
 
 
-const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail, picInPost})=>{
+const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail, picInPost, c})=>{
 
         return `
         <div id='comtCard' class="comtCard" name='comtCard' type='submit'>
@@ -275,7 +275,7 @@ const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail,
                             </button>
                             <div class="napComt">
                                 <img src="./img/component/icon/Comment-brown.svg" alt="">
-                                <span>12則留言</span>
+                                <span>${c}則留言</span>
                             </div>
                         </div>
 
@@ -397,45 +397,28 @@ function getData(obj) {
         if(obj.type !== undefined) {
             defaultVals.type = obj.type;
         }
-
         $.get('./nap_api/forum_selector-api.php', defaultVals , function(data){
             let str = '';
-
+            console.log(data.messageCount[0].c)
             if(data.rows && data.rows.length){
                 data.rows.forEach(function(obj){
+                    // 圖片
                     obj.thunmNail = ``;
                     obj.picInPost = '';  
-
                     if(obj.articlePic_id){
                         obj.articlePics = obj.articlePic_id.split(',');
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map( f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
                     }
-                    str += post_tpl_func(obj);
 
-                    // obj.articlePics
+                    str += post_tpl_func(obj);
                 });
             }
             comtCardWrap.html(str);
-
-            
         }, 'json');
 
     }
-    
-     getData({}); // first get data(預設值)
-
-
-
-
-
-
-
-
-// ---------貼文留言數量呈現
-
-
-console.log()
+     getData({});
 
 
 
