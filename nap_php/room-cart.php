@@ -68,65 +68,67 @@ $pageName = '訂房購物車'; // 頁面名稱
                     </div>
                 </div>
             <?php else : ?>
-            <div class="step-rate">
-                <img src="./img/component/icon/step1.svg" alt="">
-            </div>
+                <div class="step-rate">
+                    <img src="./img/component/icon/step1.svg" alt="">
+                </div>
 
-            <?php 
+                <?php
                 $total = 0;
-                
+
                 foreach ($_SESSION['room_order'] as $key => $value) :
                     $total += $value['room_price'] * $value['num']; //計算總價格
                 ?>
-            <div data-sid="<?= $key ?>" class="per-cart-item">
-                <div class="room-img">
-                    <img src="./img/room_img/<?= $value['room_img'] ?>.jpg" alt="">
-                </div>
-                <div class="item-list">
-                    <div class="room-name"><?= $value['room_name'] ?></div>
-                    <div class="stay-date"><?= $_SESSION['order_day1'] ?>-<?= $_SESSION['order_day2'] ?>(
-                            <span class="night">
-                            <?= $_SESSION['days'] ?>
-                            </span>
-                            晚 )</div>
-                    <div class="room-night">
-                        <div class="room-num">
-                            <p>x <span class="num" data-val="<?= $value['num'] ?>"></span> 間</p>
+                    <div data-sid="<?= $key ?>" class="per-cart-item">
+                        <div class="room-img">
+                            <img src="./img/room_img/<?= $value['room_img'] ?>.jpg" alt="">
                         </div>
-                        <div class="night-num">
-                            <p>x <span><?= $_SESSION['days'] ?></span> 晚</p>
+                        <div class="item-list">
+                            <div class="room-name"><?= $value['room_name'] ?></div>
+                            <div class="stay-date"><?= $_SESSION['order_day1'] ?> - <?= $_SESSION['order_day2'] ?>(
+                                <span class="night">
+                                    <?= $_SESSION['days'] ?>
+                                </span>
+                                晚 )
+                            </div>
+                            <div class="room-night">
+                                <div class="price">NT$ <span class="per_price" data-val="<?= $value['room_price'] ?>"></span></div>
+                                <div class="room-num">
+                                    <p>x<span class="num" data-val="<?= $value['num'] ?>"></span> 間</p>
+                                </div>
+                                <div class="night-num">
+                                    <p>x<span><?= $_SESSION['days'] ?></span> 晚</p>
+                                </div>
+                            </div>
+                            <div class="item-price">
+                                <p>NT$ <span class="sub-total"></span></p>
+                            </div>
+                        </div>
+                        <div class="delete-btn">
+                            <a class="delete" href="javascript:" type="button" onclick="removeItem(event)">
+                                <img src="./img/component/icon/xmark.svg" alt="">
+                            </a>
                         </div>
                     </div>
-                    <div class="item-price">
-                        <p>NT$ <span class="sub-total"></span></p>
-                    </div>
-                </div>
-                <div class="delete-btn">
-                    <a class="delete" href="javascript:" type="button" onclick="removeItem(event)">
-                        <img src="./img/component/icon/xmark.svg" alt="">
-                    </a>
-                </div>
-            </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
 
-            <div class="final-cart-price">
-                <div class="total-price">
-                    <div class="total-price-text">
-                        <p>總計金額</p>
+                <div class="final-cart-price">
+                    <div class="total-price">
+                        <div class="total-price-text">
+                            <p>總計金額</p>
+                        </div>
+                        <div class="total-price-num">
+                            <p>NT$ <span id="total-price"></span></p>
+                        </div>
                     </div>
-                    <div class="total-price-num">
-                        <p>NT$ <span id="total-price"></span></p>
+                    <div class="deposit-price">
+                        <div class="deposit-price-text">
+                            <p>應付訂金金額</p>
+                        </div>
+                        <div class="deposit-price-num">
+                            <p>NT$ <span id="deposit-price"></span></p>
+                        </div>
                     </div>
                 </div>
-                <div class="deposit-price">
-                    <div class="deposit-price-text">
-                        <p>應付訂金金額</p>
-                    </div>
-                    <div class="deposit-price-num">
-                        <p>NT$ <span id="deposit-price"></span></p>
-                    </div>
-                </div>
-            </div>
             <?php endif ?>
         </div>
     </div>
@@ -182,39 +184,46 @@ $pageName = '訂房購物車'; // 頁面名稱
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
-    function removeItem(event){
+    function removeItem(event) {
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
         // console.log('div');
-                
+
         $.get(
-            'handle-room-order.php',
-            {sid}, function(data){
-                console.log(data);
+            'handle-room-order.php', {
+                sid
+            },
+            function(data) {
+                // console.log(data);
                 showCartCount(data); //總數量
                 // console.log('delete before');
-                div.animate({ right: '800px'}, "fast").fadeOut(100, function() {
-                div.remove();
-                updatePrices();
-                checkDisabled();
-                
+                div.animate({
+                    right: '800px'
+                }, "fast").fadeOut(100, function() {
+                    div.remove();
+                    updatePrices();
+                    checkDisabled();
+
                 });
                 // console.log('delete after');
-                
-                
+
+
 
             },
             'json');
     };
 
     //如果人數有改變，更新數量
-    function updateItem(event){
+    function updateItem(event) {
         const sid = $(event.currentTarget).closest('.per-cart-item').attr('data-sid');
         const num = $(event.currentTarget).val();
         $.get(
-            'handle-room-order.php',
-            {sid, num}, function(data){
-                console.log(data);
+            'handle-room-order.php', {
+                sid,
+                num
+            },
+            function(data) {
+                // console.log(data);
                 showCartCount(data); //總數量
                 updatePrices();
                 checkDisabled();
@@ -222,43 +231,48 @@ $pageName = '訂房購物車'; // 頁面名稱
             'json');
     };
 
-    function updatePrices(){
+    function updatePrices() {
         let total = 0; //總價
-        $('.per-cart-item').each(function(){
+        $('.per-cart-item').each(function() {
             const item = $(this);
             const item_price = item.find('.per_price'); //單價
+            // console.log(num);
             // console.log(item_price);
 
             const item_sub = item.find('.sub-total');
             const price = +item_price.attr('data-val');
             const item_num = item.find('.num');
             const num = +item_num.attr('data-val');
-            console.log(num);
+            // console.log(num);
+            console.log(price);
 
             item_num.html(num);
             item_price.html(price);
             item_sub.html(price * num);
             total += price * num;
+            deposit = total/2;
 
         });
         $('#total-price').html(total);
+        $('#deposit-price').html(deposit);
+
+
     };
     updatePrices(); //一進來就要執行一次
     checkDisabled();
 
     function checkDisabled() {
         const itemNum = $('.per-cart-item').length;
-        console.log(itemNum);
+        // console.log(itemNum);
         if (itemNum < 1) {
             // 判斷數量，去顯示disable狀態
-            
+
             $('.step-rate').hide();
             $('.final-cart-price').hide();
             $('.cart-btn').addClass('disabled');
             $('.form-control, .form-select').attr('disabled', true);
         }
     }
-
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

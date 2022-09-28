@@ -657,6 +657,7 @@ button {
     width: 170px;
     height: 40px;
     text-decoration: none;
+    font-size: var(--headline_20px);
 }
     @media screen and (min-width: 768px){
         .empty-cart-btn a{

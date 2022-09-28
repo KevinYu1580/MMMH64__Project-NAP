@@ -452,6 +452,6 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     // $('.minus-btn').on('click', handleRoomNum);
     // $('.plus-btn').on('click', handleRoomNum);
 </script>
-<script src="./nap_js/room_booking(test-cy).js"></script>
+<script src="./nap_js/room_booking.js"></script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
