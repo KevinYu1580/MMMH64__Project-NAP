@@ -503,12 +503,12 @@ body{
     top: 20px;
     right: 20px;
 }
-
-@media screen and (min-width:768px) {
-    .card-like{
-        top: 265px;
-        right: 230px;
-    }
+.card-like a{
+    position: absolute;
+    top: 0px;
+    width: 45px;
+    aspect-ratio: 1/1;
+    text-align: center;
 }
 .card-like img{
     width: 60%;
@@ -611,8 +611,6 @@ body{
     .card-btn{
         text-align: center;
         padding-bottom: 0px;
-
-        
     }
     .card-btn a{
         text-decoration: none;
@@ -645,6 +643,7 @@ body{
     .card-like #cover{
         position: absolute;
         top: 0;
+        left: 8px;
     }
     .card-like .cover{
         display: none;
