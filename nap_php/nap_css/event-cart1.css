@@ -509,7 +509,7 @@ body{
 
 
 
-/* 當裡面沒有人數的時候，不能點擊 */
+/* 當裡面沒有商品的時候，不能點擊 */
 .cart-btn.disabled button {
     margin: auto;
     margin-top: 10px;
@@ -657,6 +657,7 @@ button {
     width: 170px;
     height: 40px;
     text-decoration: none;
+    font-size: var(--headline_20px);
 }
     @media screen and (min-width: 768px){
         .empty-cart-btn a{

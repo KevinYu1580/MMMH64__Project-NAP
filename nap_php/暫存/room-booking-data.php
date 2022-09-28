@@ -1,215 +1,230 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
+
+
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '訂房資料填寫'; // 頁面名稱
-// $where = ' WHERE 1 ';  // 起頭
-
-
-
-
 ?>
-<?php include __DIR__ . '/parts/html-head.php'; ?>
+<?php include __DIR__. '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 </head>
-<?php include __DIR__ . '/parts/navbar.php'; ?>
+<?php include __DIR__. '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/room-booking-data(cy).css">
+<link rel="stylesheet" href="./nap_css/room-booking-data1.css">
 
 
-<div class="all-container">
-    <!------ 活動 notice 這裡開始 ------>
-    <div class="mobile-backpage">
-        <svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
-        </svg>
-        <a href="#">訂房資料填寫</a>
-    </div>
+    <div class="all-container">
+        <!------ 活動 notice 這裡開始 ------>
+        <div class="mobile-backpage">
+            <svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF"/>
+            </svg>
+            <a href="#">訂房資料填寫</a>
+        </div>
 
-    <!------ 上方返回 ------>
-    <div class="backpage">
-        <a href="./room_booking.php"><img src="./img/component/icon/Exclude.svg" alt=""></a>
-        <a href="./room_booking.php">返回</a>
-    </div>
+        <!------ 上方返回 ------>
+        <div class="backpage">
+            <a href="./room_booking.php"><img src="./img/component/icon/Exclude.svg" alt=""></a>
+            <a href="./room_booking.php">返回</a>
+        </div>
 
-    <!------ 套裝活動報名表頭 ------>
-    <div class="booking-data-title">
-        訂房資料填寫
-    </div>
+        <!------ 套裝活動報名表頭 ------>
+        <div class="booking-data-title">
+            訂房資料填寫
+        </div>
 
-    <!------ 套裝下方內容 ------>
-    <div class="data-content">
-        <div class="booking-data-right col-md-5">
-            <!------- 詳細訂房卡 ------->
-            <div class="booking-detail-card">
-                <div class="left-content">
-                    <div class="booking-date">
-                        <div class="date-icon">
-                            <img src="./img/component/icon/calender.svg" alt="">
+        <!------ 套裝下方內容 ------>
+        <div class="data-content">
+            <div class="booking-data-right col-md-5">
+                <!------- 詳細訂房卡 ------->
+                <div class="booking-detail-card">
+                    <div class="left-content">
+                        <div class="booking-date">
+                            <div class="date-icon">
+                                <img src="./img/component/icon/calender.svg" alt="">
+                            </div>
+                            <div class="date-num">
+                                <span><!--check-in--></span>
+                                -
+                                <span><!--check-out--></span>
+                                (
+                                <span><!--天數--></span>
+                                晚 )
+                                <!-- <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p> -->
+                            </div>
                         </div>
-                        <div class="date-num">
-                            <span>
-                                <!--check-in-->
-                            </span>
-                            -
-                            <span>
-                                <!--check-out-->
-                            </span>
-                            (
-                            <span class="night"></span>
-                            晚 )
-                            <!-- <p>2022/08/26 - 2022/08/27 ( 1 晚 )</p> -->
-                        </div>
-                    </div>
-                    <div class="booking-room">
-                        <div class="room-icon">
-                            <img src="./img/component/icon/room.svg" alt="">
-                        </div>
-                        <div class="room-num">
-                            <p><span class="room"></span> 間房間</p>
+                        <div class="booking-room">
+                            <div class="room-icon">
+                                <img src="./img/component/icon/room.svg" alt="">
+                            </div>
+                            <div class="room-num">
+                                <p><span><!--帶入房間數--></span> 間房間</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="down-expand-btn">
+                        <img src="./img/component/icon/arrow_up.svg" alt="" class="up">
+                    </div>
                 </div>
-                <div class="down-expand-btn">
-                    <img src="./img/component/icon/arrow_up.svg" alt="" class="up">
-                </div>
-            </div>
-            <?php
-            $total = 0;
-            foreach ($_SESSION['room_order'] as $key => $value) :
-            
-            ?>
-                <div data-sid="<?= $key ?>" class="booking-detail-combine">
-                    <div class="booking-detail-content">
-                        <div class="room-name">
-                            <?= $value['room_name'] ?>
-                        </div>
+                <div class="booking-detail-combine">
+                    <div class="booking-detail-content single-detail">
+                        <div class="room-name single-name"><!--帶入單人房名--></div>
                         <div class="room-count">
-                            <div class="price">NT$ <span class="per_price" data-val="<?= $value['room_price'] ?>"></span></div>
                             <div class="per-room-night">
-                                <p>x <span class="days" data-val="<?= $value['days'] ?>"></span> 晚</p>
+                                <p>x<span>1</span> 晚</p>
                             </div>
                             <div class="per-room-num">
-                                <p>x<span class="num" data-val="<?= $value['num'] ?>"></span> 間</p>
+                                <p>x<span>1</span> 間</p>
                             </div>
                         </div>
                         <div class="room-detail-num">
                             <div class="room-detail-text">總價</div>
-                            <div class="room-detail-price">NT$ <span class="sub-total"></span></div>
+                            <div class="room-detail-price singlePrice">NT$ <span><!--帶入單人總價錢--></span></div>
                         </div>
                         <div class="price-include">
                             <p>(房價已包含稅金及其他費用)</p>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
-
-                <div class="booking-detail-content-final">
-                    <div class="total-count">
-                        <div class="total-price">
-                            <p>總價</p>
-                        </div>
-                        <div class="total-num">
-                            <p>NT$ <span id="total-price"></span></p>
-                        </div>
-                    </div>
-                    <div class="deposit-count">
-                        <div class="deposit-price">應付訂金金額</div>
-                        <div class="deposit-num">NT$ <span id="deposit-price"></span></div>
-                    </div>
-                    <div class="rest-count">
-                        <div class="rest-price">剩餘尾款</div>
-                        <div class="rest-num">NT$ <span id="rest-price"></span></div>
-                    </div>
-                    <div class="rest-pay-notice">
-                        <p>(請於現場付清)</p>
-                    </div>
-                </div>
-
-
-                </div>
-
-                <!------- 左方訂房人資料 ------->
-                <div class="booking-data-left col-md-6 order-first">
-                    <div class="booking-title">
-                        <h4>訂房人資料</h4>
-                        <div class="triangle">
-                            <img src="./img/component/icon/down-triangle.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="booking-content">
-                        <div class="member-note">
-                            <div class="warn-img">
-                                <svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M-9.53674e-07 16.9997C-9.53674e-07 7.61091 7.61124 -0.000244141 17 -0.000244141C26.3888 -0.000244141 34 7.61091 34 16.9997C34 19.7924 33.3248 22.4897 32.0537 24.9052L33.9515 32.1955C34.0136 32.4342 34.0136 32.6849 33.9514 32.9238C33.7503 33.6961 32.9611 34.159 32.1889 33.9579L24.8952 32.0588C22.4822 33.3265 19.7887 33.9997 17 33.9997C7.61124 33.9997 -9.53674e-07 26.3886 -9.53674e-07 16.9997ZM17 7.65224C16.2959 7.65224 15.725 8.22308 15.725 8.92724V19.5522C15.725 20.2564 16.2959 20.8272 17 20.8272C17.7041 20.8272 18.275 20.2564 18.275 19.5522V8.92724C18.275 8.22308 17.7041 7.65224 17 7.65224ZM15.3 24.6487C15.3 25.5874 16.0611 26.3487 17 26.3487C17.9389 26.3487 18.7 25.5874 18.7 24.6487C18.7 23.7098 17.9389 22.9487 17 22.9487C16.0611 22.9487 15.3 23.7098 15.3 24.6487Z" fill="var(--subColor_highLightRed)" />
-                                </svg>
+                    <div class="booking-detail-content double-detail">
+                        <div class="room-name double-name"><!--帶入雙人房名--></div>
+                        <div class="room-count">
+                            <div class="per-room-night">
+                                <p>x<span>1</span> 晚</p>
                             </div>
-                            <div class="note-content">
-                                <p>訂房人資料的姓名、手機及生日依照會員註冊自動帶入，如需修改請至會員中心。</p>
+                            <div class="per-room-num">
+                                <p>x<span>1</span> 間</p>
                             </div>
                         </div>
-                        <div class="form">
-                            <form>
+                        <div class="room-detail-num">
+                            <div class="room-detail-text">總價</div>
+                            <div class="room-detail-price doublePrice">NT$ <span><!--帶入雙人總價錢--></span></div>
+                        </div>
+                        <div class="price-include">
+                            <p>(房價已包含稅金及其他費用)</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail-content quadra-detail">
+                        <div class="room-name quadra-name"><!--帶入四人房名--></div>
+                        <div class="room-count">
+                            <div class="per-room-night">
+                                <p>x<span>1</span> 晚</p>
+                            </div>
+                            <div class="per-room-num">
+                                <p>x<span>1</span> 間</p>
+                            </div>
+                        </div>
+                        <div class="room-detail-num">
+                            <div class="room-detail-text">總價</div>
+                            <div class="room-detail-price quadraPrice">NT$ <span><!--帶入四人總價錢--></span></div>
+                        </div>
+                        <div class="price-include">
+                            <p>(房價已包含稅金及其他費用)</p>
+                        </div>
+                    </div>
+                    <div class="booking-detail-content-final">
+                        <div class="total-count">
+                            <div class="total-price">
+                                <p>總價</p>
+                            </div>
+                            <div class="total-num">
+                                <p>NT$ <span>0</span></p>
+                            </div>
+                        </div>
+                        <div class="deposit-count">
+                            <div class="deposit-price">應付訂金金額</div>
+                            <div class="deposit-num">NT$ <span>0</span></div>
+                        </div>
+                        <div class="rest-count">
+                            <div class="rest-price">剩餘尾款</div>
+                            <div class="rest-num">NT$ <span>0</span></div>
+                        </div>
+                        <div class="rest-pay-notice">
+                            <p>(請於現場付清)</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!------- 左方訂房人資料 ------->
+            <div class="booking-data-left col-md-6 order-first">
+                <div class="booking-title">
+                    <h4>訂房人資料</h4>
+                    <div class="triangle">
+                        <img src="./img/down-triangle.svg" alt="">
+                    </div>
+                </div>
+                <div class="booking-content">
+                    <div class="member-note">
+                        <div class="warn-img">
+                            <svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M-9.53674e-07 16.9997C-9.53674e-07 7.61091 7.61124 -0.000244141 17 -0.000244141C26.3888 -0.000244141 34 7.61091 34 16.9997C34 19.7924 33.3248 22.4897 32.0537 24.9052L33.9515 32.1955C34.0136 32.4342 34.0136 32.6849 33.9514 32.9238C33.7503 33.6961 32.9611 34.159 32.1889 33.9579L24.8952 32.0588C22.4822 33.3265 19.7887 33.9997 17 33.9997C7.61124 33.9997 -9.53674e-07 26.3886 -9.53674e-07 16.9997ZM17 7.65224C16.2959 7.65224 15.725 8.22308 15.725 8.92724V19.5522C15.725 20.2564 16.2959 20.8272 17 20.8272C17.7041 20.8272 18.275 20.2564 18.275 19.5522V8.92724C18.275 8.22308 17.7041 7.65224 17 7.65224ZM15.3 24.6487C15.3 25.5874 16.0611 26.3487 17 26.3487C17.9389 26.3487 18.7 25.5874 18.7 24.6487C18.7 23.7098 17.9389 22.9487 17 22.9487C16.0611 22.9487 15.3 23.7098 15.3 24.6487Z" fill="var(--subColor_highLightRed)"/>
+                            </svg>
+                        </div>
+                        <div class="note-content">
+                            <p>訂房人資料的姓名、手機及生日依照會員註冊自動帶入，如需修改請至會員中心。</p>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">姓名</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">手機</label>
+                                <input type="text" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="birthdate" class="form-label">生日</label>
+                                <input type="date" class="form-control" id="birthdate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="car-num" class="form-label">車號</label>
+                                <input type="text" class="form-control" id="car-num">
+                            </div>
+                            <div class="mb-3">
+                                <label for="id-num" class="form-label">攜帶寵物</label>
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">姓名</label>
-                                    <input type="text" class="form-control" id="name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">手機</label>
-                                    <input type="text" class="form-control" id="phone">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="birthdate" class="form-label">生日</label>
-                                    <input type="date" class="form-control" id="birthdate">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="car-num" class="form-label">車號</label>
-                                    <input type="text" class="form-control" id="car-num">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="id-num" class="form-label">攜帶寵物</label>
-                                    <div class="mb-3">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="pet-true" id="pet-true" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">是</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="pet-false" id="pet-false" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">否</label>
-                                        </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pet-true" id="pet-true" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">是</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pet-false" id="pet-false" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">否</label>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="special-need" class="form-label">特殊需求</label>
-                                    <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
-                                </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">我想收到更多 N.A.P. 的活動相關訊息！</label>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="special-need" class="form-label">特殊需求</label>
+                                <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">我想收到更多 N.A.P. 的活動相關訊息！</label>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
         </div>
 
         <!------- 加入購物車按鈕 ------->
-
-
-        <div class="booking-card-btn row">
+        <div class="cart-btn row">
             <div class="col add-to-cart-btn">
-                <button class="napBtn_fixed_filled" name="add-to-cart" form="" type="submit" data-sid="<?= $room['sid'] ?>" onclick="addToCart(event)">
+                <a class="napBtn_fixed_filled" href="#" >
                     <span>前往結帳</span>
-                </button>
+                </a>
             </div>
             <div class="col check-bill-btn">
-                <button class="napBtn_fixed_outlined" name="add-to-cart" form="" type="submit" data-sid="<?= $room['sid'] ?>" onclick="addToCart(event)">
+                <a class="napBtn_fixed_outlined" href="#">
                     <span>加入購物車</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -247,7 +262,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
             <li>▸ 違法行為｜嚴禁嗑藥、毒品等，如經發現將報警處理。</li>
             <li>▸ 其他加購｜加被$100/條、枕頭 $50/個、早餐 $250/份、延遲退房 $500/小時。
             </li>
-            <li>▸ 晚餐預約時段｜18:00、18:30、19:00 請於入住前提早預約（ 訂位後當天時間到僅保留五分鐘 ，或現場候位 ，最後點餐時間 19:30 以前 ）</li>
+            <li>▸ 晚餐預約時段｜18:00、18:30、19:00  請於入住前提早預約（ 訂位後當天時間到僅保留五分鐘 ，或現場候位 ，最後點餐時間 19:30 以前 ）</li>
             <li>▸ 晚餐用餐時間｜18:00~20:00</li>
         </p>
     </div>
@@ -314,7 +329,7 @@ $pageName = '訂房資料填寫'; // 頁面名稱
             <li>▸ 違法行為｜嚴禁嗑藥、毒品等，如經發現將報警處理。</li>
             <li>▸ 其他加購｜加被$100/條、枕頭 $50/個、早餐 $250/份、延遲退房 $500/小時。
             </li>
-            <li>▸ 晚餐預約時段｜18:00、18:30、19:00 請於入住前提早預約（ 訂位後當天時間到僅保留五分鐘 ，或現場候位 ，最後點餐時間 19:30 以前 ）</li>
+            <li>▸ 晚餐預約時段｜18:00、18:30、19:00  請於入住前提早預約（ 訂位後當天時間到僅保留五分鐘 ，或現場候位 ，最後點餐時間 19:30 以前 ）</li>
             <li>▸ 晚餐用餐時間｜18:00~20:00</li>
         </p>
     </div>
@@ -349,39 +364,41 @@ $pageName = '訂房資料填寫'; // 頁面名稱
     <div id="info"></div>
 
 
-    <?php include __DIR__ . '/parts/nap-footer.php'; ?>
-    <!-- bootstrap擇一使用 -->
-    <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
-    <?php include __DIR__ . '/parts/scripts.php'; ?>
-    <script src="./nap_js/component.js"></script>
-    <!-- 自己的js放在這 -->
-    <script>
-        /*
-    const localData = JSON.parse(sessionStorage.getItem('rooms_order'))
+<?php include __DIR__. '/parts/nap-footer.php'; ?>
+<!-- bootstrap擇一使用 -->
+<!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
+<script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+<?php include __DIR__. '/parts/scripts.php'; ?>
+<script src="./nap_js/component.js"></script>
+<!-- 自己的js放在這 -->
+<script>
+
+    const localData = JSON.parse(localStorage.getItem('rooms_order'))
 
     $('.date-num span').eq(0).text(new Date(localData['1'].day1).toLocaleDateString()); //check-in日期
     $('.date-num span').eq(1).text(new Date(localData['1'].day2).toLocaleDateString()); //check-out日期
     $('.date-num span').eq(2).text(localData['1'].days); //計算共幾晚
     $('.room-num span').text(+(localData['1'].num ? localData['1'].num : 0) + +(localData['2'].num ? localData['2'].num : 0) + +(localData['3'].num ? localData['3'].num : 0)); //計算幾間房
     $('.total-num span').text(+(localData['1'].singlePrice ? localData['1'].singlePrice : 0) + +(localData['2'].doublePrice ? localData['2'].doublePrice : 0) + +(localData['3'].quadraPrice ? localData['3'].quadraPrice : 0)); //計算全部訂單的總價
-    $('.deposit-num span').text(+$('.total-num span').text() / 2);
-    $('.rest-num span').text(+$('.total-num span').text() / 2);
+    $('.deposit-num span').text( +$('.total-num span').text() / 2 );
+    $('.rest-num span').text( +$('.total-num span').text() / 2 );
 
 
-    if (localData['1'].num === 0) {
+    if(localData['1'].num === 0){
         $('.single-detail').hide();
-    } else {
+    }else{
 
     }
-    if (localData['2'].num === 0) {
+    if(localData['2'].num === 0){
         $('.double-detail').hide();
-    } else {
+    }
+    else{
 
     }
-    if (localData['3'].num === 0) {
+    if(localData['3'].num === 0){
         $('.quadra-detail').hide();
-    } else {
+    }
+    else{
 
     }
 
@@ -404,76 +421,8 @@ $pageName = '訂房資料填寫'; // 頁面名稱
     $('.quadra-detail span').eq(1).html(localData['3'].num); //抓取四人房明細，幾間
     $('.quadraPrice span').html(localData['3'].quadraPrice); //四人房明細總價
 
-*/
-        updatePrices();
-        function addToCart(event) {
-            const btn = $(event.currentTarget);
-            const num = event.find('.num');
-            //num 數量這裡是用$('.booking-detail-content').length算人數
-            const days = event.find('.days');
+</script>
+
+<?php include __DIR__. '/parts/html-foot.php'; ?>
 
 
-            // const qty = btn.closest('.card-body').find('select').val();
-            const sid = btn.attr('data-sid');
-            //在送出btn上下屬性
-
-            // console.log({
-            //     sid,
-            //     num,
-            //     days
-            // });
-
-
-
-        }
-
-    function updatePrices(){
-        let total = 0; //總價
-        let select_night = 0; //晚
-        let select_num = 0; //房間數
-        
-        $('.booking-detail-combine').each(function(){
-            const item = $(this);
-            const item_price = item.find('.per_price'); //單價
-            const price = +item_price.attr('data-val');
-            // console.log('price:', price); //ok
-            const item_num = item.find('.num');
-            const num = +item_num.attr('data-val');
-            // console.log('room-num:', num); //ok
-
-
-
-            const item_days = item.find('.days');
-            // console.log('item_days:', item_days);
-
-            const item_sub = item.find('.sub-total');
-            // console.log('item_sub:', item_sub);
-            
-            const days = +item_days.attr('data-val');
-            console.log('days:',days); //ok---------------不ok~~~~~~~~~~~~
-
-            
-            
-            item_num.html(num);
-            item_price.html(price);
-            item_days.html(days);
-            item_sub.html(price * num * days);
-            total += price * num * days;
-            select_night = days;
-            select_room = num; //要怎麼抓總房間數？
-
-        });
-        $('#total-price').html(total);
-        $('#deposit-price').html(total/2);
-        $('#rest-price').html(total-(total/2));
-        $('.night').html(select_night);
-        $('.room').html(select_room);
-
-
-    };
-    updatePrices();
-
-    
-    </script>
-
-    <?php include __DIR__ . '/parts/html-foot.php'; ?>

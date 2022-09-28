@@ -12,7 +12,8 @@ $num = isset($_GET['num']) ? intval($_GET['num']) : 0;
 $days = isset($_GET['days']) ? intval($_GET['days']) : 0;
 $day1 = isset($_GET['day1']) ? $_GET['day1'] : '';
 $day2 = isset($_GET['day2']) ? $_GET['day2'] : '';
-// $day2 = isset($_GET['day2']);
+$totalNum = isset($_GET['totalNum']) ? intval($_GET['totalNum']) : 0;
+// $detailDate = isset($_GET['detailDate']) ? $_GET['detailDate'] : '';
 
 
 // C: 加到購物車, sid, num
@@ -28,6 +29,8 @@ if (!empty($sid)) {
     if (!empty($num)) {
         // 新增或變更
 
+        // $_SESSION['detailDate'] = $detailDate;
+        $_SESSION['total_num'] = $totalNum;
         $_SESSION['order_day1'] = $day1;
         $_SESSION['order_day2'] = $day2;
         $_SESSION['days'] = (strtotime($day2) - strtotime($day1)) / (24 * 60 * 60);
@@ -35,14 +38,7 @@ if (!empty($sid)) {
         if (!empty($_SESSION['room_order'][$sid])) {
             // 如果項目已經存在，不用再查資料表，直接變更
             $_SESSION['room_order'][$sid]['num'] = $num;
-            // $_SESSION['room_order'][$sid]['days'] = $days;
 
-
-            /*
-            foreach ($_SESSION['room_order'] as $rSid => $value) {
-                $_SESSION['room_order'][$rSid]['days'] = $days;
-            }
-            */
         } else {
             // 新增
             // TODO: 檢查資料表是不是有這個商品
@@ -52,13 +48,7 @@ if (!empty($sid)) {
                 $room['num'] = $num;  // 先把數量放進去
                 $_SESSION['room_order'][$sid] = $room;
 
-                //$_SESSION['room_order'][$sid]['day1'] = $day1;
-                //$_SESSION['room_order'][$sid]['day2'] = $day2;
-                /*
-                foreach ($_SESSION['room_order'] as $rSid => $value) {
-                    $_SESSION['room_order'][$rSid]['days'] = $days;
-                }
-                */
+
             }
         }
     } else {

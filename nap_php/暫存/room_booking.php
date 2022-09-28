@@ -1,9 +1,9 @@
 <?php
 
+
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
-$pageName = '訂房'; // 頁面名稱
-
+$pageName = 'room_booking'; // 頁面名稱
 
 // 在 MySQL 中取得房間的資料表，並抓取(fetch)全部資料表的欄位
 $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
@@ -228,11 +228,11 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                                 <img src="../nap_php/img/component/icon/calender.svg" alt="">
                             </div>
                             <div class="date-num">
-                                <span class="checkInDate">
+                                <span>
                                     <!-- 帶入checkIn的日期 -->
                                 </span>
                                 -
-                                <span class="checkOutDate">
+                                <span>
                                     <!-- 帶入checkOut的日期 -->
                                 </span>
                                 <span>(</span>
@@ -344,7 +344,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                         </div>
                     </div>
                     <div class="booking-btn">
-                        <a href="room-booking-data(test-cy).php">填寫訂房資料</a>
+                        <a href="./room-booking-data.php" disabled="disabled">填寫訂房資料</a>
                     </div>
                 </div>
             </div>
@@ -376,8 +376,9 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     // if(+$('.total-num span').text() === 0){
     //     $('.booking-btn a').attr('href','./room_booking.php')
     // }
-    // }); 
+    // });     
     // oopsAlert();
+
 
 
 
@@ -393,8 +394,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const booking_detail_content = $(e.currentTarget).closest('.booking-detail-content');
         const price_cr_group = $(e.currentTarget).closest('.price-cr-group');
         const room_id = price_cr_group.attr('data-id') || booking_detail_content.attr('data-id');
-        const num = +(price_cr_group.find('input').val() ? price_cr_group.find('input').val() : 0);
-        // console.log('hi num', num);
+        const num = +(price_cr_group.find('input').val()?price_cr_group.find('input').val():0);
+        console.log('hi num',num);
 
         const day1 = new Date($('.date-num span').eq(0).text());
         const day2 = new Date($('.date-num span').eq(1).text());
@@ -402,46 +403,22 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         const doublePrice = $('.double-price span').text();
         const quadraPrice = $('.quadra-price span').text();
 
-        console.log('checkin:', day1);
-        console.log('checkout:', day2);
-
         const difference = Math.abs(day2 - day1);
         const days = difference / (1000 * 3600 * 24)
-        // console.log('hi', days);
-        console.log('rooms_dict', rooms_dict);
-        console.log('data', {
-            room_id,
-            num
-        });
-
-        rooms_dict[room_id].days = days;
+        console.log('hi', days);
+        console.log('rooms_dict',rooms_dict);
+        console.log({room_id, num});
         rooms_dict[room_id].num = num;
-        // rooms_dict[room_id].singlePrice = singlePrice;
-        // rooms_dict[room_id].doublePrice = doublePrice;
-        // rooms_dict[room_id].quadraPrice = quadraPrice;
+        rooms_dict[room_id].singlePrice = singlePrice;
+        rooms_dict[room_id].doublePrice = doublePrice;
+        rooms_dict[room_id].quadraPrice = quadraPrice;
         // console.log(rooms_dict);
 
 
 
-        // localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
-
-
-        $.get(
-            'handle-room-order.php', {
-                day1: dayjs(day1).format('YYYY/MM/DD'), //你去哪裡了~~~~~
-                day2: dayjs(day2).format('YYYY/MM/DD'), //你去哪裡了~~~~~
-                room_id,
-                num,
-                days,
-            },
-            function(data) {
-                console.log('RETURN DATA:', data);
-                // showCartCount(data);
-            },
-            'json');
+        localStorage.setItem('rooms_order', JSON.stringify(rooms_dict));
 
     };
-
 
 
 
@@ -449,6 +426,6 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     // $('.minus-btn').on('click', handleRoomNum);
     // $('.plus-btn').on('click', handleRoomNum);
 </script>
-<script src="./nap_js/room_booking(test-cy).js"></script>
+<script src="./nap_js/room_booking.js"></script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

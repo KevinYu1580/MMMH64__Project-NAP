@@ -120,12 +120,11 @@ $('li.select-li').click(function(){
     }
 })
 
-
 // ---------------------按下查詢空房，出現訂房間數選項---------------------
 $('.booking-box').click(function(){
     if( $('.selectRoom h6').html() <= 0){
-        alert('尚未選擇間數');
         $('.room-null').html();
+        oopsAlert();
     }
 
     if($('.selectRoom h6').html() > 0){
@@ -149,6 +148,7 @@ $('.booking-box').click(function(){
     }
 })
 
+  
 
 // ---------------------訂房明細點擊叉叉---------------------
 $('.cancle-btn').click(function(e){
