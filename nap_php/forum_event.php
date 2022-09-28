@@ -409,10 +409,7 @@ function getData(obj) {
                     if(obj.articlePic_id){
                         obj.articlePics = obj.articlePic_id.split(',');
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
-                        //if(obj.articlePics.length >= 2){
-                            obj.picInPost = obj.articlePics.map( f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
-                        //}
-                        
+                        obj.picInPost = obj.articlePics.map( f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
                     }
                     str += post_tpl_func(obj);
 
