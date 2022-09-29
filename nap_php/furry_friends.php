@@ -230,22 +230,7 @@ $pageName = 'furry_friends'; // 頁面名稱
 <!-- 自己的js放在這 -->
 <script>
 
-    $(window).scroll(function(){
-        if($('.topNav_mobile').offset().top > 0){
-            $('.topNav_mobile').css({
-                'backdropFilter':' blur(3px)',
-                'backgroundColor':'rgba(250, 0, 0, 0.15)'
-            })
-        }
-        else{
-            $('.topNav_mobile').css({
-                'backdropFilter':' blur(0px)',
-                'backgroundColor':'transparent'
-            })
-        }
-    })
-
-    // 為什麼要領養浪浪toggle
+   // 為什麼要領養浪浪toggle
     $('.banner-block-up').click(function() {
         $('.banner-block-down-mobile').slideToggle('slow')
         $(".banner-block-icon").toggleClass("active");

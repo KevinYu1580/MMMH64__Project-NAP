@@ -62,10 +62,7 @@ font-family: custom-font;
     height: 68px;
     background-color: var(--white);    
 }
-.topNav_mobile{
-    background-color: transparent;
-    backdrop-filter: blur(0px);
-}
+
 
 @media screen and (min-width:576px){
     .nav-white-block{
@@ -156,7 +153,7 @@ font-family: custom-font;
         width:100%;
         overflow: hidden;
         overflow-x: auto;  
-        -webkit-overflow-scrolling:touch;
+        -webkit-overflow-scrolling:touch; 
     }
     .why-card-box-fram::-webkit-scrollbar{
         width:0; 
@@ -168,7 +165,7 @@ font-family: custom-font;
     width: 400%;
     }
 .why-card{
-         width: 100%;
+        width: 100%;
     }
 .why-card-img{
     width: 70%;
@@ -197,11 +194,6 @@ font-family: custom-font;
 .button-block-pc.changeBackground{
     background-color: var(--subColor_bgc);
     transition: all .3s;
-    /* width: 520px;
-    border-radius: 20px 0px 0px 0px ;
-    position: absolute;
-    margin-top: -40px;
-    left: 72.5%; */
 }
 /* .changeBackground{
     background-color: var(--subColor_bgc);
@@ -220,6 +212,9 @@ font-family: custom-font;
     position: relative;
     
     }
+    /* .why-card-box-fram::-webkit-scrollbar{
+        display: block;
+    } */
     /* 按鈕 */
     
     .button-block-pc{
@@ -301,7 +296,7 @@ font-family: custom-font;
     .banner-why-card-pc p{
         font-size: 18px;
         color: var(--subColor_text);
-        text-align: center;
+        text-align: justify;
         line-height: 1.8rem;
     }
 }
