@@ -13,6 +13,9 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 
 $member_id = $_SESSION['user']['id'];
 
+
+
+
 $where = ' WHERE 1 ';  // 起頭
 
 // 取得資料的總筆數

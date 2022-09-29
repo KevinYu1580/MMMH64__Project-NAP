@@ -108,6 +108,7 @@ text-align: center;
 }
 .button-group .active{
     background-color: var(--primaryColor_dark);
+    color: var(--white);
 }
 @keyframes move-place{
     from{
@@ -317,6 +318,11 @@ text-align: center;
     .button-group .button:hover{
         color: var(--white);
         background-color: var(--primaryColor_dark);
+        transition: 0.3s;
+    }
+    .button-group .active{
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
     }
     .button-doghouse{
         position: absolute;
