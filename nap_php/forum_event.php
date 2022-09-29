@@ -441,13 +441,8 @@ $pageName = 'Forum-events'; // 頁面名稱
     function sendPost(obj) {
 
         $.post(
-            './forum_postInsert-api.php', {
-                petType: '55',
-                boardType: '33',
-
-
-
-            },
+            './forum_postInsert-api.php',
+            $(document.form_postInsert).serialize(),
             function(data) {
                 console.log(data.petType)
             }, 'json'
