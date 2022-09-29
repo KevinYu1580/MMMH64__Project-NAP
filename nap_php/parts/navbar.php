@@ -920,5 +920,18 @@
             },
             'json');
 
-        
+        // navbar滑動時顯示模糊
+        $(window).scroll(function() {
+            if ($('.topNav_mobile').offset().top > 68) {
+                $('.topNav_mobile').css({
+                    'backdropFilter': 'blur(3px)',
+                    'backgroundColor': 'rgba(255, 255, 255, 0.85)'
+                }, )
+            } else {
+                $('.topNav_mobile').css({
+                    'backdropFilter': 'blur(0px)',
+                    'backgroundColor': 'transparent'
+                }, )
+            }
+        })
     </script>

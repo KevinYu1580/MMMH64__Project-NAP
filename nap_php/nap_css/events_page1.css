@@ -57,9 +57,12 @@ body{
     font-family: custom-font;
     color: var(--subColor_text);
 }
+
+/* navbar滑動時顯示模糊 */
 .topNav_mobile{
     background-color: transparent;
-    
+    backdrop-filter: blur(0px);
+    transition: 0.3s;
 }
 
 /* 活動頁面banner | events-banner */
@@ -68,7 +71,7 @@ body{
 }
 .events-banner-row-mb{
     display: block;
-    margin-top: 68px;
+    /* margin-top: 68px; */
 }
 .events-banner-row-pc{
     display: none;
@@ -359,6 +362,9 @@ body{
     border-radius: 50px;   
     cursor: pointer;
 }
+.events-switch-frame a{
+    text-decoration: none;
+}
 .package-switch{
     background-color: var(--primaryColor_dark);
     width: 50%;
@@ -523,6 +529,9 @@ body{
 .card-like .cover{
     display: none;
 }
+.card-like button.show .cover{
+    display: inline-block;
+}
 /*  */
 .events-card-group-pc{
     display: none;
@@ -649,7 +658,9 @@ body{
     .card-like .cover{
         display: none;
     }
-
+    .card-like button.show .cover{
+        display: inline-block;
+    }
 }
 
 

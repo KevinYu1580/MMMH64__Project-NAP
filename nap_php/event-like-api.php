@@ -46,12 +46,8 @@ if(empty($row)){
     $output['error'] = '';
 }
 
-$back = 'events_page(test-p).php';
-
-header('Location:'.$back);
-
 echo json_encode($output);
-exit;
+
 
 
 

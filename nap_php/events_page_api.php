@@ -46,6 +46,16 @@ if ($total_events > 0) {
     );
     $events = $pdo->query($sql)->fetchAll();
 }
+
+$myLikes = [];
+if(isset($_SESSION['user'])){
+
+    $sql = "SELECT item_sid event_sid FROM likes WHERE like_type=2 AND member_sid=". intval($_SESSION['user']['id']);
+    $myLikes = $pdo->query($sql)->fetchAll();
+
+}
+
+
 echo json_encode([
     'page' => $page,
     'perPage' => $perPage,
@@ -54,5 +64,6 @@ echo json_encode([
     'events' => $events,
 
     'cate' => $cate,
+    'myLikes' => $myLikes
 
 ], JSON_UNESCAPED_UNICODE);

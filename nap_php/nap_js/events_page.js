@@ -1,8 +1,3 @@
-//收藏按鈕
-$('#eventCard').on('click', '.card-like', function () {
-	$(this).find('.cover').toggle();
-});
-
 // 活動頁面banner | events-banner
 $('.events-banner').mousemove(function (e) {
 	if (e.pageX >= 960) {

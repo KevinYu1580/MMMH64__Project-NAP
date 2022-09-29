@@ -57,13 +57,13 @@ if ($total_events > 0) {
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/events_page1.css">
+
 
 
 </head>
 
 <?php include __DIR__ . '/parts/navbar.php'; ?>
-
+<link rel="stylesheet" href="./nap_css/events_page1.css">
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 
 
@@ -249,7 +249,7 @@ if ($total_events > 0) {
                             </div>
                         </div>
                         <div class="card-like d-flex justify-content-center align-items-center ">
-                            <button name="sentLike" type="submit" onclick="sentLike(event)">
+                            <button name="sentLike" type="submit" onclick="sentLike(event)" data-id="${sid}">
                                 <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
                                 <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
                             </button>
@@ -258,10 +258,18 @@ if ($total_events > 0) {
                 </div>`;
     };
 
+    // 收藏按鈕顯示開關
     function sentLike(event){
+        const btn = $(event.currentTarget);
+        const sid = btn.attr('data-id');
         $.get(
-            'event-like-api.php?member01=${member_id}&like_type=2&item_sid=${sid}'
-        ,'json');
+            `event-like-api.php?like_type=2&item_sid=${sid}`, function(data){
+                if(btn.hasClass('show')){
+                    btn.removeClass('show');
+                } else {
+                    btn.addClass('show');
+                }
+            },'json');
     }
 
     // default selections
@@ -305,6 +313,16 @@ if ($total_events > 0) {
                 });
             }
             eventCard.html(str);
+        
+            // 收藏按鈕取值
+            for(let i of data.myLikes){
+                const event_sid = i.event_sid;
+                const selectedBtn = $(`button[data-id=${event_sid}]`);
+                if(selectedBtn.length){
+                    selectedBtn.addClass('show');
+                }
+
+            }
 
             const perPage = <?= $perPage ?>;
             const totalPage = Math.ceil(+data.total_events / perPage);
