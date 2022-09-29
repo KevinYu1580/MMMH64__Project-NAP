@@ -2,6 +2,16 @@
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = '活動購物車'; // 頁面名稱
+
+$member_id = $_SESSION['user']['id'];
+
+$sql = "SELECT * FROM `coupon` WHERE `member_sid`= $member_id";
+$rows = $pdo->query($sql)->fetchAll();
+
+$sql_mem = "SELECT * FROM `member01` WHERE `id`= $member_id";
+$rows_mem = $pdo->query($sql_mem)->fetchAll();
+
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -13,7 +23,7 @@ $pageName = '活動購物車'; // 頁面名稱
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/event-cart-step2-atm.css">
+<link rel="stylesheet" href="./nap_css/event-cart-atm.css">
 
 
 <div class="mobile-backpage">
@@ -100,11 +110,9 @@ $pageName = '活動購物車'; // 頁面名稱
                 </div>
             </div>
             <!------- 確認結帳按鈕 ------->
-            <div class="confirm-btn">
-                <a class="napBtn_fixed_filled" href="#">
-                    <span>確認結帳</span>
-                </a>
-            </div>
+            
+            <button type="submit" class="confirm-btn" onclick="location.href='event-cart-final-atm.php'">確認結帳</button>
+            
         </div>
     </div>
 </div>

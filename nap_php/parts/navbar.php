@@ -805,13 +805,13 @@
                     園區介紹 <span>Field Info</span>
                     <ul class="layer2">
                         <li>
-                            <a href="#">
+                            <a href="field_guide.php">
                                 園區地圖
                                 <span>Field Guide</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="furry-friends.php">
                                 園區內的毛孩
                                 <span>Our Furry Friends</span>
                             </a>
@@ -820,10 +820,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">活動檔期 <span>Events</span></a>
+                    <a href="events_page.php">活動檔期 <span>Events</span></a>
                 </li>
                 <li>
-                    <a href="#">房型介紹
+                    <a href="room_info.php">房型介紹
                         <span>Room Info</span></a>
                 </li>
                 <li>交流討論區 <span>ChatChat!</span>

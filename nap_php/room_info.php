@@ -1,6 +1,7 @@
 <?php
-require __DIR__ . '/parts/connect_db_penny.php';
-$pageName = 'room_info'; // 頁面名稱
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
+$pageName = '房型介紹'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -27,7 +28,7 @@ $pageName = 'room_info'; // 頁面名稱
                 訂房前請詳讀訂房規則與須知<span></span><br>訂房即代表完全同意規定</p>
             <h3>本訂房專頁供旅客平日訂房
                 假日則為園區認養活動時間不開放訂房及入園活動<span>如欲參與假日認養活動<span>，</span>請點擊下方按鈕前往活動報名</span></h3>
-            <p class="room-banner-textbox-btn"><a href="./Events_Page.html" target="_blank">前往活動報名</a></p>
+            <p class="room-banner-textbox-btn"><a href="events_page.php" target="_blank">前往活動報名</a></p>
         </div>
         <div class="room-banner-ai01-imgbox">
             <img src="./img/component/illustration/illustration-75.png" alt="">
@@ -146,7 +147,7 @@ $pageName = 'room_info'; // 頁面名稱
                     <div class="room-introduce-textbox">
                         <h5>單人房 呼嚕嚕</h5>
                         <p>房價$2,600/晚<br>*此房不提供加人服務</p>
-                        <p class="room-introduce-btn"><a href="./Each_Room_single.html" target="_blank">查看詳情</a></p>
+                        <p class="room-introduce-btn"><a href="each_room_single.php" target="_blank">查看詳情</a></p>
                     </div>
                 </div>
             </div>
@@ -158,7 +159,7 @@ $pageName = 'room_info'; // 頁面名稱
                     <div class="room-introduce-textbox">
                         <h5>雙人房 皺皺鼻</h5>
                         <p>房價$3,600/晚<br>*此房不提供加人服務</p>
-                        <p><a href="./Each_Room_double.html" target="_blank">查看詳情</a></p>
+                        <p><a href="each_room_double.php" target="_blank">查看詳情</a></p>
                     </div>
                 </div>
             </div>

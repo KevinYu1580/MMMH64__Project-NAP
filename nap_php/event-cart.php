@@ -10,12 +10,9 @@ if(empty($_SESSION['user'])){
 $member_id = $_SESSION['user']['id'];
 
 $sql = "SELECT * FROM `coupon` WHERE `member_sid`= $member_id AND `coupon_status`= 0 ";
-
 $rows = $pdo->query($sql)->fetchAll();
 
 $sql_mem = "SELECT * FROM `member01` WHERE `id`= $member_id";
-
-
 $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
 
@@ -205,7 +202,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
         <!------- 付款方式按鈕 ------->
         <div class="cart-btn">
             <div class="credit-card-btn">
-                <button class="napBtn_fixed_filled" href="#">
+                <button class="napBtn_fixed_filled" onclick="location.href='event-cart-credit.php'">
                     <span>信用卡付款</span>
                 </button>
             </div>

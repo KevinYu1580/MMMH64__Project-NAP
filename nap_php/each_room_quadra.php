@@ -1,7 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
-$pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
+// require __DIR__ . '/parts/connect_db.php';
+$pageName = '房型介紹 - 四人房撓癢癢'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -11,8 +10,9 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
 
 </head>
 <?php include __DIR__ . '/parts/navbar.php'; ?>
+
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/each_room_single.css">
+<link rel="stylesheet" href="./nap_css/each_room_quadra.css">
 
 
 <!-- 各房型介紹 | each-room -->
@@ -21,14 +21,14 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
         <div class="each-room-row d-md-flex">
             <div class="each-room-col col-md-6">
                 <div class="room-btn-group d-flex justify-content-sm-around justify-content-md-end">
-                    <div class="single-btn default d-flex">
-                        <a href="#">單人房 呼嚕嚕</a>
+                    <div class="single-btn d-flex">
+                        <a href="each_room_single.php">單人房 呼嚕嚕</a>
                     </div>
-                    <div class="double-btn d-flex">
+                    <div class="double-btn  d-flex">
                         <a href="each_room_double.php">雙人房 皺皺鼻</a>
                     </div>
-                    <div class="four-btn d-flex">
-                        <a href="each_room_quadra.php">四人房 撓癢癢 </a>
+                    <div class="four-btn default d-flex">
+                        <a href="#">四人房 撓癢癢 </a>
                     </div>
                 </div>
                 <div class="room-imgbox">
@@ -40,13 +40,13 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="./img/nap-intro/roomInfo/single-room/single-06.jpg" class="d-block w-100" alt="...">
+                                <img src="./img/nap-intro/roomInfo/quadra-room/quadra-06.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="./img/nap-intro/roomInfo/single-room/single-01.jpg" class="d-block w-100" alt="...">
+                                <img src="./img/nap-intro/roomInfo/quadra-room/quadra-11.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="./img/nap-intro/roomInfo/single-room/single-05.jpg" class="d-block w-100" alt="...">
+                                <img src="./img/nap-intro/roomInfo/quadra-room/quadra-09.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -60,18 +60,20 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
                     </div>
                 </div>
                 <div class="each-room-title">
-                    <h5>單人房 呼嚕嚕</h5>
+                    <h5>四人房 撓癢癢</h5>
                 </div>
             </div>
             <div class="each-room-col col-md-6 d-md-flex ">
                 <div class="room-textbox">
-                    <p>呼嚕嚕單人房型位於一樓，室內約 8 坪大小，一張 6 尺加大單人床( 6×6.2尺)。獨立房間、獨立衛浴，獨立放鬆休憩的露台房型。<br><br>靠近山邊，夜晚時打開窗門能聽到山羌、貓頭鷹、夜鷺等各種野生動物療癒叫聲，還有滿天的星斗。<br><br> <span>(房型樣式每房空間格局略有不同，以實際排房為主)</span></p>
+                    <p>撓癢癢四人房型，寵物友善房型位於二樓，室內約14坪大小，二張5尺加大雙人床(5×6.2尺)，室外有提供給寵物專用的獨立空曠休憩露台房型。<br><br>面對海景，聽得到海浪拍打的療育聲，螢火蟲季時，關上房內燈火，螢火蟲會不請自來，在草地上飛舞閃閃發亮。
+                        <br><br> <span>(房型樣式每房空間格局略有不同，以實際排房為主)</span>
+                    </p>
                     <div class="check-time">
                         <p class="line">
                             全館全面禁菸<br>
                             入住時間：14:00後<br>
                             退房時間：12:00前<br>
-                            住宿人數：1人 (歡迎攜帶寵物一同入住，上限2隻)
+                            住宿人數：4人 (歡迎攜帶寵物一同入住，上限2隻)
                         </p>
                     </div>
                     <div class="room-textbox-row d-md-flex">
@@ -82,7 +84,7 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
                                         <div class="detail-imgbox">
                                             <img src="./img/component/icon/File-1.svg" alt="">
                                         </div>
-                                        <small>加大單人床*1</small>
+                                        <small>加大雙人床*2</small>
                                     </div>
                                     <div class="each-detail d-flex align-items-center">
                                         <div class="detail-imgbox">
@@ -108,7 +110,7 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
                                         <div class="detail-imgbox">
                                             <img src="./img/component/icon/Coffee.svg" alt="">
                                         </div>
-                                        <small>含早餐乙客</small>
+                                        <small>含早餐四客</small>
                                     </div>
                                     <div class="each-detail d-flex align-items-center">
                                         <div class="detail-imgbox">
@@ -132,7 +134,7 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
                             </div>
                         </div>
                         <div class="room-text-col col-md-6 d-md-flex align-items-md-center justify-content-md-end price">
-                            <h3>NT$ <h2>2,600</h2> 元 / 晚</h3>
+                            <h3>NT$ <h2>6,600</h2> 元 / 晚</h3>
                         </div>
                     </div>
                     <div class="booking-btn d-md-flex justify-content-md-end">
@@ -278,6 +280,7 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
 
     </p>
 </div>
+
 
 
 

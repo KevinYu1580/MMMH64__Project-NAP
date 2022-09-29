@@ -474,60 +474,32 @@ body{
         }
     }
 
-
-/* ---------確認結帳按鈕--------- */
-.confirm-btn{
-    margin-top: 30px;
-    width: 100%;
-}
-    @media screen and (min-width: 768px){
-        .confirm-btn{
-            margin-top: 35px;
-            width: 100%;
-        }
-    }
-
-.confirm-btn .napBtn_fixed_filled {
-    font-size: var(--headline_20px);
-    border-radius: 5px;
-    width: 100%;
-}
-
-.confirm-btn .napBtn_fixed_filled span{
-    font-size: var(--headline_20px);
-}
-    @media screen and (min-width: 768px){
-        .confirm-btn .napBtn_fixed_filled span{
-            font-size: var(--headline_24px);
-        }
-    }
-
-.credit-card-btn, .atm-btn{
-    width: 180px;
-    margin: auto;
-}
-    @media screen and (min-width: 768px){
-        .credit-card-btn, .atm-btn{
-            width: 45%;
-        }
-    }
-
-.confirm-btn a{
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 40px;
+/*-------------------- Buttons --------------------*/
+.confirm-btn {
+    display: block;
+    background: var(--primaryColor_dark);
+    color: var(--white);
     text-decoration: none;
-    width: 180px;
+    margin: 50px 0 10px 0;
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    font-size: var(--headline_20px);
+    border: 0;
 }
-    @media screen and (min-width: 768px){
-        .confirm-btn a{
-            margin: auto;
-            margin-top: 10px;
-            height: 55px;
-            width: 100%;
-        }
-    }
+.confirm-btn:focus, 
+.confirm-btn:active:focus,
+.confirm-btn.active:focus,
+.confirm-btn.focus,
+.confirm-btn:active.focus,
+.confirm-btn.active.focus {
+outline: none !important; box-shadow:none !important; 
+}
+.confirm-btn:hover {
+    background: var(--primaryColor_light);
+}
+
 
 .price_qty{
     display: flex;
