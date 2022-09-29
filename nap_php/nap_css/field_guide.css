@@ -106,6 +106,9 @@ text-align: center;
     transform: translate(0px, 0px) rotate(0deg) ;
     animation: move-place 1.5s infinite alternate;
 }
+.button-group .active{
+    background-color: var(--primaryColor_dark);
+}
 @keyframes move-place{
     from{
 }

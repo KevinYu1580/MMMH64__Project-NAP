@@ -221,5 +221,11 @@ $pageName = 'field-guide'; // 頁面名稱
     $('.close img').click(function() {
         $('.lightBox').hide();
     })
+
+$('.button-group .button').click(function(){
+    console.log('123');
+    $(this).addClass('active');
+})
+
 </script>
 <?php include __DIR__. '/parts/html-foot.php'; ?>
