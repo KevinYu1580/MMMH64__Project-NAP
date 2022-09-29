@@ -208,20 +208,6 @@ imgInp.onchange = evt => {
   }
 
 
-//   顯示貼文數量
-
-
-// window.onload = function() {
-//     let comtCard = $('.comtCard_wrap .comtCard')
-//     let messageDiv = $('.comtCard_wrap .messageQty')
-//     comtCard.on('load', function(){
-//         console.log(321)
-//     })
-   
-    
-
-//   };
-  
   
 
 

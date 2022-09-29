@@ -94,7 +94,7 @@ $pageName = 'Forum-events'; // 頁面名稱
         </div>
         <div id='comtCard_wrap' class="comtCard_wrap">
 
-            
+
         </div>
     </div>
     <!-- 手機板的留言卡片menu 光箱背景遮罩(透明黑)) -->
@@ -103,9 +103,9 @@ $pageName = 'Forum-events'; // 頁面名稱
     <!-- 留言卡片展開的光箱 -->
 
     <div class="lightBox_comtCard_mask"></div>
-  
-   
- 
+
+
+
 
 
     <!-- 右下發文提示 -->
@@ -134,54 +134,58 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <span>翁同學</span>
             </div>
         </div>
-        <div class="petSelec_wrap d-flex align-items-center">
-            <div class="secIndic">
-                寵物類別:
+        <form name="form_postInsert" id='form_postInsert' method="post">
+            <div class="petSelec_wrap d-flex align-items-center">
+                <div class="secIndic">
+                    寵物類別:
+                </div>
+                <div class="petSelec d-flex justify-content-between align-items-center">
+                    <label class="iconWrap d-flex align-items-center">
+                        <img id='default' class="" src="./img/self/k/post_dogIcon_default.svg" alt="">
+                        <img id='activated' src="./img/self/k/post_dogIcon_activated.svg" alt="">
+                        <input class='d-none' type="radio" name="petSelec" onclick="getSelectType({petType:'1'})">
+
+                    </label>
+                    <div class="line"></div>
+                    <label class="iconWrap d-flex align-items-center">
+                        <img id='default' class="" src="./img/self/k/post_catIcon_default.svg" alt="">
+                        <img id='activated' src="./img/self/k/post_catIcon_activated.svg" alt="">
+                        <input class='d-none' type="radio" name="petSelec" onclick="getSelectType({petType:'0'})">
+                    </label>
+                    <div class="line"></div>
+                    <label class="iconWrap slectAll">
+                        <span>不限</span>
+                        <input class='d-none' type="radio" name="petSelec" onclick="getSelectType({petType:'2'})">
+                    </label>
+                </div>
             </div>
-            <div class="petSelec d-flex justify-content-between align-items-center">
-                <button class="iconWrap d-flex align-items-center">
-                    <img id='default' class="" src="./img/self/k/post_dogIcon_default.svg" alt="">
-                    <img id='activated' src="./img/self/k/post_dogIcon_activated.svg" alt="">
-                </button>
-                <div class="line"></div>
-                <button class="iconWrap d-flex align-items-center">
-                    <img id='default' class="" src="./img/self/k/post_catIcon_default.svg" alt="">
-                    <img id='activated' src="./img/self/k/post_catIcon_activated.svg" alt="">
-                </button>
-                <div class="line"></div>
-                <button class="iconWrap slectAll">
-                    <span>不限</span>
-                </button>
+            <div class="boardSelec_wrap d-flex align-items-center ">
+                <div class="secIndic">
+                    選擇看板:
+                </div>
+                <div class="boardSelec d-flex justify-content-between align-items-center">
+                    <button id="qa" class="selec">
+                        閒聊 Q&A
+                    </button>
+                    <div class="line"></div>
+                    <button id="event" class="selec">
+                        活動討論區
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="boardSelec_wrap d-flex align-items-center ">
-            <div class="secIndic">
-                選擇看板:
+            <div class="eventSelec_wrap d-flex align-items-center ">
+                <div class="secIndic">
+                    活動類別:
+                </div>
+                <div class="eventSelec d-flex align-items-center">
+                    <button id="num1" class="comtLabel">
+                        <span># 浪浪套裝活動</span>
+                    </button>
+                    <button id="num2" class="comtLabel">
+                        <span># 每月特別活動</span>
+                    </button>
+                </div>
             </div>
-            <div class="boardSelec d-flex justify-content-between align-items-center">
-                <button id="qa" class="selec">
-                    閒聊 Q&A
-                </button>
-                <div class="line"></div>
-                <button id="event" class="selec">
-                    活動討論區
-                </button>
-            </div>
-        </div>
-        <div class="eventSelec_wrap d-flex align-items-center ">
-            <div class="secIndic">
-                活動類別:
-            </div>
-            <div class="eventSelec d-flex align-items-center">
-                <button id="num1" class="comtLabel">
-                    <span># 浪浪套裝活動</span>
-                </button>
-                <button id="num2" class="comtLabel">
-                    <span># 每月特別活動</span>
-                </button>
-            </div>
-        </div>
-        <form id="inputArea" class="inputArea" runat="server" name="postForm_summit">
 
             <textarea class="napHeadline textArea" placeholder="請輸入標題" name="headline" id=""></textarea>
 
@@ -207,8 +211,6 @@ $pageName = 'Forum-events'; // 頁面名稱
 
 
 
-
-
 <?php include __DIR__ . '/parts/nap-footer.php'; ?>
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
@@ -218,29 +220,37 @@ $pageName = 'Forum-events'; // 頁面名稱
 <!-- 自己的js放在這 -->
 <script src="./nap_js/forum-event.js"></script>
 <script>
-
-// ---------貼文中留言數量
+    // ---------貼文中留言數量
     $('.comtCard_wrap').on('click', '.comtCard', (function() {
-
         const post_sid = $(this).find('#post_sid').html()
+
         $.get(
-            './nap_api/getMessageId-api.php',
-            {sid: post_sid},
-            'json'
-        )
-        .done((result)=>{
-            $('.lightBox_comtCard .comtSection .message_pack').html(result)
-        })
-        
+                './nap_api/getMessageId-api.php', {
+                    sid: post_sid
+                },
+                'json'
+            )
+            .done((result) => {
+                $('.lightBox_comtCard .comtSection .message_pack').html(result);
+
+            })
     }))
 
-
-// ---------貼文篩選功能 
-
-// 呈現貼文內容(尚未開啟光箱)
+    // 呈現貼文內容(尚未開啟光箱)
 
 
-const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail, picInPost, c})=>{
+    const post_tpl_func = ({
+        sid,
+        avatar,
+        name,
+        title,
+        tag,
+        date,
+        content,
+        thunmNail,
+        picInPost,
+        num
+    }) => {
 
         return `
         <div id='comtCard' class="comtCard" name='comtCard' type='submit'>
@@ -275,7 +285,7 @@ const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail,
                             </button>
                             <div class="napComt">
                                 <img src="./img/component/icon/Comment-brown.svg" alt="">
-                                <span>${c}則留言</span>
+                                <span class='messageQty'>${num}則留言</span>
                             </div>
                         </div>
 
@@ -358,7 +368,7 @@ const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail,
                                 <div class="comtSection">
                                     <div class="numIndic d-flex align-items-end">
                                         <img src="./img/component/icon/Comment-brown.svg" alt="">
-                                        <span>12則留言</span>
+                                        <span class='messageQty'>${num}則留言</span>
                                     </div>
                                     <div class="messageLev d-flex align-items-center">
                                         <div class="memberPic">
@@ -377,50 +387,73 @@ const post_tpl_func = ({sid, avatar, name, title, tag, date, content, thunmNail,
                         </div>
                     </div>
                 </div>`;
+
     };
 
-const comtCardWrap = $('#comtCard_wrap')
+    const comtCardWrap = $('#comtCard_wrap')
 
-let defaultVals = {
+    let defaultVals = {
         type: 1, // dog
     }
 
-function getData(obj) {
-        try{
-            if(typeof defaultVals === 'undefined'){
+    function getData(obj) {
+
+        try {
+            if (typeof defaultVals === 'undefined') {
                 return;
             }
-        }catch(ex){
+        } catch (ex) {
             return;
         }
 
-        if(obj.type !== undefined) {
+        if (obj.type !== undefined) {
             defaultVals.type = obj.type;
         }
-        $.get('./nap_api/forum_selector-api.php', defaultVals , function(data){
+        $.get('./nap_api/forum_selector-api.php', defaultVals, function(data) {
+
             let str = '';
-            console.log(data.messageCount[0].c)
-            if(data.rows && data.rows.length){
-                data.rows.forEach(function(obj){
+
+            if (data.rows && data.rows.length) {
+                data.rows.forEach(function(obj) {
                     // 圖片
                     obj.thunmNail = ``;
-                    obj.picInPost = '';  
-                    if(obj.articlePic_id){
+                    obj.picInPost = '';
+                    if (obj.articlePic_id) {
                         obj.articlePics = obj.articlePic_id.split(',');
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
-                        obj.picInPost = obj.articlePics.map( f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
+                        obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
                     }
 
                     str += post_tpl_func(obj);
+
                 });
             }
+
             comtCardWrap.html(str);
         }, 'json');
 
     }
-     getData({});
+    getData({});
 
+    // ---------表格提交
+    
+    $('#form_postInsert').submit(function(){
+        
+        function getSelectType(obj){
+        let petType = obj.petType
 
+        $.post(
+            './forum_postInsert-api.php',
+            {petType : petType},
+            function(data){
+                console.log(data.petType)
+            },'json'
+        )
+    }
+    })
+    
+    
+    
 
 
 </script>
