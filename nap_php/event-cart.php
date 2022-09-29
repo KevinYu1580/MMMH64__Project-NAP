@@ -3,8 +3,20 @@ require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = '活動購物車'; // 頁面名稱
 
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
+$member_id = $_SESSION['user']['id'];
+
+$sql = "SELECT * FROM `coupon` WHERE `member_sid`= $member_id AND `coupon_status`= 0 ";
+
+$rows = $pdo->query($sql)->fetchAll();
+
+$sql_mem = "SELECT * FROM `member01` WHERE `id`= $member_id";
 
 
+$rows_mem = $pdo->query($sql_mem)->fetchAll();
 
 
 ?>
@@ -49,7 +61,7 @@ $pageName = '活動購物車'; // 頁面名稱
                 <div class="room-cart">訂房結帳</div>
             </a>
         </div>
-        
+
         <div class="cart-detail-content">
             <?php if (empty($_SESSION['event-cart'])) : ?>
                 <div class="empty">
@@ -77,11 +89,11 @@ $pageName = '活動購物車'; // 頁面名稱
                 </div>
             <?php else : ?>
                 <div class="step-rate">
-                <img src="./img/component/icon/step1.svg" alt="">
+                    <img src="./img/component/icon/step1.svg" alt="">
                 </div>
-                <?php 
+                <?php
                 $total = 0;
-                
+
                 foreach ($_SESSION['event-cart'] as $key => $value) :
                     $total += $value['event_price'] * $value['qty']; //計算總價格
                 ?>
@@ -99,7 +111,7 @@ $pageName = '活動購物車'; // 頁面名稱
                                     <p>x <span class="qty" data-val="<?= $value['qty'] ?>"></span> 人</p>
                                 </div>
                             </div>
-                            
+
                             <div class="item-price">
                                 <p>NT$ <span class="sub-total"></span></p>
                             </div>
@@ -150,24 +162,28 @@ $pageName = '活動購物車'; // 頁面名稱
                 </defs>
             </svg>
         </div>
-        <div class="mycoupon mb-3">
-            <label for="select-coupon" class="select-coupon">我的折價券</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>選擇要使用的折價券</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="mydata mb-3">
-            <label for="member-data" class="member-data">訂購人資料</label>
-        </div>
+
         <div class="form">
             <form>
+                <div class="mycoupon mb-3">
+                    <label for="select-coupon" class="select-coupon">我的折價券</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>選擇要使用的折價券</option>
+                        <?php
+                        foreach ($rows as $r) :
+                        ?>
+                            <option value="<?= $r['discount'] ?>"><?= $r['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <?php foreach ($rows_mem as $rm):?>
+                <div class="mydata mb-3">
+                    <label for="member-data" class="member-data">訂購人資料</label>
+                </div>
                 <div class="name-phone">
                     <div class="name mb-3">
                         <label for="name" class="form-label">訂購人姓名</label>
-                        <input type="text" class="form-control" id="name" value="name" disabled readonly>
+                        <input type="text" class="form-control" id="name" value="<?=$rm['name']?>" disabled readonly>
                     </div>
                     <div class="phone mb-3">
                         <label for="phone" class="form-label">手機</label>
@@ -182,6 +198,7 @@ $pageName = '活動購物車'; // 頁面名稱
                     <label for="special-need" class="form-label">備註</label>
                     <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
                 </div>
+                <?php endforeach; ?>
             </form>
         </div>
 
@@ -193,7 +210,7 @@ $pageName = '活動購物車'; // 頁面名稱
                 </button>
             </div>
             <div class="atm-btn">
-                <button class="napBtn_fixed_filled" href="#">
+                <button class="napBtn_fixed_filled" onclick="location.href='event-cart-atm.php'">
                     <span>ATM 轉帳付款</span>
                 </button>
             </div>
@@ -214,38 +231,45 @@ $pageName = '活動購物車'; // 頁面名稱
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
-    function removeItem(event){
+    function removeItem(event) {
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
         console.log('div');
-                
+
         $.get(
-            'handle-event-cart.php',
-            {sid}, function(data){
+            'handle-event-cart.php', {
+                sid
+            },
+            function(data) {
                 console.log(data);
                 showCartCount(data); //總數量
                 // console.log('delete before');
-                div.animate({ right: '800px'}, "fast").fadeOut(100, function() {
-                div.remove();
-                updatePrices();
-                checkDisabled();
-                
+                div.animate({
+                    right: '800px'
+                }, "fast").fadeOut(100, function() {
+                    div.remove();
+                    updatePrices();
+                    checkDisabled();
+
                 });
                 // console.log('delete after');
-                
-                
+
+
 
             },
             'json');
     };
 
     //如果人數有改變，更新數量
-    function updateItem(event){
+    function updateItem(event) {
         const sid = $(event.currentTarget).closest('.per-cart-item').attr('data-sid');
         const qty = $(event.currentTarget).val();
         $.get(
-            'handle-event-cart.php',
-            {sid, qty}, function(data){
+            'handle-event-cart.php', {
+                sid,
+                qty
+            },
+            function(data) {
                 console.log(data);
                 showCartCount(data); //總數量
                 updatePrices();
@@ -254,9 +278,9 @@ $pageName = '活動購物車'; // 頁面名稱
             'json');
     };
 
-    function updatePrices(){
+    function updatePrices() {
         let total = 0; //總價
-        $('.per-cart-item').each(function(){
+        $('.per-cart-item').each(function() {
             const item = $(this);
             const item_price = item.find('.per_price'); //單價
             // console.log(item_price);
@@ -283,18 +307,13 @@ $pageName = '活動購物車'; // 頁面名稱
         console.log(itemNum);
         if (itemNum < 1) {
             // 判斷數量，去顯示disable狀態
-            
+
             $('.step-rate').hide();
             $('.final-cart-price').hide();
             $('.cart-btn').addClass('disabled');
             $('.form-control, .form-select').attr('disabled', true);
         }
     }
-
-
-
-
-    
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

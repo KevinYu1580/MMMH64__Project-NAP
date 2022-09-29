@@ -290,12 +290,12 @@ body{
 
 .per-cart-item .item-list .event-name{
     font-size: var(--p_14px);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list .event-name{
             font-size: var(--headline_24px);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
     }
 
@@ -312,12 +312,12 @@ body{
     
 .per-cart-item .item-list .stay-date, .enroll-people, .price{
     font-size: var(--p_12px);
-    margin-top: 5px;
+    margin-bottom: 5px;
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list .stay-date, .enroll-people, .price{
             font-size: var(--subtitle_18px);
-            margin-top: 4px;
+            margin-bottom: 10 px;
         }
     }
 

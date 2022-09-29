@@ -6,6 +6,11 @@ $pageName = '活動報名'; // 頁面名稱
 
 $where = ' WHERE 1 ';  // 起頭
 
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
+
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM event_detail $where ";
 $total_events = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
@@ -95,7 +100,7 @@ if (isset($_GET['sid'])) {
                     <div class="enroll-card-btn">
 
                         <div class="add-to-cart-btn">
-                            <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="addToCart(event)">
+                            <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="goPay(event)">
                                 <span>前往結帳</span>
                             </button>
                         </div>
@@ -207,6 +212,27 @@ if (isset($_GET['sid'])) {
 
 <script src="./nap_js/event-enroll-data.js"></script>
 <script>
+    function goPay(event) {
+        const btn = $(event.currentTarget);
+        const qty = getEnrollContentFormNum();
+        //qty 數量這裡是用$('.enroll-content-form').length算人數
+
+
+        // const qty = btn.closest('.card-body').find('select').val();
+        const sid = btn.attr('data-sid');
+        //在送出btn上下屬性
+
+        console.log({sid, qty});
+        $.get(
+            'handle-event-cart.php',
+            {sid, qty}, function(data){
+                console.log(data);
+                showCartCount(data);
+            },
+            'json');
+        window.location.replace("event_cart.php");
+            
+    }
     function addToCart(event) {
         const btn = $(event.currentTarget);
         const qty = getEnrollContentFormNum();
@@ -226,7 +252,7 @@ if (isset($_GET['sid'])) {
             },
             'json');
             
-            
+        window.location.replace("events_page.php");
     }
 </script>
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
