@@ -922,7 +922,7 @@
 
         // navbar滑動時顯示模糊
         $(window).scroll(function() {
-            if ($('.topNav_mobile').offset().top > 68) {
+            if ($('.topNav_mobile').offset().top > 0) {
                 $('.topNav_mobile').css({
                     'backdropFilter': 'blur(3px)',
                     'backgroundColor': 'rgba(255, 255, 255, 0.85)'
