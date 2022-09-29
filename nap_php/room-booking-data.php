@@ -362,6 +362,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
+    updatePrices();
+    
     // 手機版左方訂房人資料(預設展開)toggle
     $('.down-expand-btn').click(function() {
         $('.booking-detail').slideToggle('slow');
@@ -426,7 +428,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     $('.quadraPrice span').html(localData['3'].quadraPrice); //四人房明細總價
 
 */
-    updatePrices();
+    
 
 
     function updatePrices() {

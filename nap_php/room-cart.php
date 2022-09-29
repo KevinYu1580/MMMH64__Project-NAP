@@ -14,7 +14,7 @@ $pageName = '訂房購物車'; // 頁面名稱
 
 <!-- 加自己的css -->
 
-<link rel="stylesheet" href="./nap_css/room-cart1.css">
+<link rel="stylesheet" href="./nap_css/room-cart2.css">
 
 <div class="all-container">
     <div class="cart-detail">

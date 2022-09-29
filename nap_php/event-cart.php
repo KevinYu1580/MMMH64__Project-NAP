@@ -291,37 +291,6 @@ $pageName = '活動購物車'; // 頁面名稱
         }
     }
 
-    // $(document).ready(function() {
-
-    //     $(document).on('click', '.delete-btn', function() {
-    //         $(this).closest('.per-cart-item').animate({
-    //             right: '800px'
-    //         }, "fast").fadeOut(100, function() {
-    //             $(this).closest('.per-cart-item').remove();
-
-
-    //             // console.log("remove-animate");
-    //             const CartItemNum = getPerCartItemNum();
-    //             console.log(CartItemNum);
-    //             if (CartItemNum < 1) {
-    //                 // $('.empty').show();
-    //                 // $('.step-rate').hide();
-    //                 // $('.final-cart-price').hide();
-
-    //                 // 判斷數量，去顯示disable狀態
-    //                 $('.cart-btn').addClass('disabled');
-    //                 $('.form-control, .form-select').attr('disabled', true);
-    //             }
-    //         });
-
-
-
-
-
-    //     });
-
-
-    // });
 
 
 
