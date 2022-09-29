@@ -1,7 +1,13 @@
 <?php
+<<<<<<< HEAD
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_vera.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
+=======
+
+// require __DIR__ . '/parts/connect_db_vera.php';
+require __DIR__ . '/parts/connect_db_penny.php';
+>>>>>>> 612e0e4e7eed0cd12a584a6c732159643344d064
 
 $output = [
     'success' => false,

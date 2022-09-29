@@ -106,6 +106,10 @@ text-align: center;
     transform: translate(0px, 0px) rotate(0deg) ;
     animation: move-place 1.5s infinite alternate;
 }
+.button-group .active{
+    background-color: var(--primaryColor_dark);
+    color: var(--white);
+}
 @keyframes move-place{
     from{
 }
@@ -314,6 +318,11 @@ text-align: center;
     .button-group .button:hover{
         color: var(--white);
         background-color: var(--primaryColor_dark);
+        transition: 0.3s;
+    }
+    .button-group .active{
+        background-color: var(--primaryColor_dark);
+        color: var(--white);
     }
     .button-doghouse{
         position: absolute;

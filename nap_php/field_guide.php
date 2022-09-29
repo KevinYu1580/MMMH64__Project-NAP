@@ -21,7 +21,7 @@ $pageName = 'field-guide'; // 頁面名稱
                 <div class="button button-doghouse-2">狗勾宿舍</div>
                 <div class="button button-cat-2">貓貓宿舍</div>
                 <div class="button button-room-2">N.A.P.園區住宿</div>
-                <div class="button button-run-2">奔跑大草原</div>
+                <div class="button button-run-2 active">奔跑大草原</div>
                 <div class="button button-pool-2">漂漂戲水區</div>
                 <div class="button button-playground-2">活動體驗區</div>
                 <div class="button button-wash-2">戶外梳洗區</div>
@@ -44,7 +44,7 @@ $pageName = 'field-guide'; // 頁面名稱
                     <div class="button button-doghouse">狗勾宿舍</div>
                     <div class="button button-cat">貓貓宿舍</div>
                     <div class="button button-room">N.A.P.園區住宿</div>
-                    <div class="button button-run">奔跑大草原</div>
+                    <div class="button button-run active">奔跑大草原</div>
                     <div class="button button-pool">漂漂戲水區</div>
                     <div class="button button-playground">活動體驗區</div>
                     <div class="button button-wash">戶外梳洗區</div>
@@ -74,7 +74,7 @@ $pageName = 'field-guide'; // 頁面名稱
                                         </div>
                                         <div class="carousel-item">
                                             <img src="./img/nap-intro/pet-outdoor/pet-outdoor-06.jpeg" class="d-block w-100 photo3" alt="...">
-                                        </div>./img_H/.mapBox-card-info h5
+                                        </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon " aria-hidden="true"></span>
@@ -221,5 +221,11 @@ $pageName = 'field-guide'; // 頁面名稱
     $('.close img').click(function() {
         $('.lightBox').hide();
     })
+
+    // 顯示被點擊區域的顏色
+    $('.button-group .button').click(function(){
+        $(this).addClass('button-group active').siblings().removeClass('button-group active');
+    })
+
 </script>
 <?php include __DIR__. '/parts/html-foot.php'; ?>
