@@ -61,12 +61,12 @@
         padding: 16px 0px;
         display: flex;
         justify-content: space-between;
-        background: rgba(255, 255, 255, 0.85);
+        background:transparent;
         position: fixed;
         width: 100%;
         z-index: 999;
         top: 0;
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(0px);
         transition: 0.3s;
     }
 
@@ -99,7 +99,7 @@
 
     @media screen and (min-width: 992px) {
         .topNav_mobile {
-            background: rgba(255, 255, 255, 0.85);
+            background: transparent;
             backdrop-filter: none;
         }
 

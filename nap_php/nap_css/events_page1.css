@@ -59,11 +59,11 @@ body{
 }
 
 /* navbar滑動時顯示模糊 */
-.topNav_mobile{
+/* .topNav_mobile{
     background-color: transparent;
     backdrop-filter: blur(0px);
     transition: 0.3s;
-}
+} */
 
 /* 活動頁面banner | events-banner */
 .events-banner{
