@@ -134,7 +134,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <span>翁同學</span>
             </div>
         </div>
-        <form name="form_postInsert" id='form_postInsert' method="post">
+        <form name="form_postInsert" id='form_postInsert' method="post"  onsubmit="sendPost();return false">
             <div class="petSelec_wrap d-flex align-items-center">
                 <div class="secIndic">
                     寵物類別:
@@ -143,19 +143,19 @@ $pageName = 'Forum-events'; // 頁面名稱
                     <label class="iconWrap d-flex align-items-center">
                         <img id='default' class="" src="./img/self/k/post_dogIcon_default.svg" alt="">
                         <img id='activated' src="./img/self/k/post_dogIcon_activated.svg" alt="">
-                        <input class='d-none' type="radio" name="petSelec" onclick="getSelectType({petType:'1'})">
-
+                        <input class='d-none' type="radio" name="petSelec" value="1">
+                        <!-- onclick="getSelectType({petType:'1'})" -->
                     </label>
                     <div class="line"></div>
                     <label class="iconWrap d-flex align-items-center">
                         <img id='default' class="" src="./img/self/k/post_catIcon_default.svg" alt="">
                         <img id='activated' src="./img/self/k/post_catIcon_activated.svg" alt="">
-                        <input class='d-none' type="radio" name="petSelec" onclick="getSelectType({petType:'0'})">
+                        <input class='d-none' type="radio" name="petSelec" value="0">
                     </label>
                     <div class="line"></div>
                     <label class="iconWrap slectAll">
                         <span>不限</span>
-                        <input class='d-none' type="radio" name="petSelec" onclick="getSelectType({petType:'2'})">
+                        <input class='d-none' type="radio" name="petSelec" value="2">
                     </label>
                 </div>
             </div>
@@ -164,13 +164,14 @@ $pageName = 'Forum-events'; // 頁面名稱
                     選擇看板:
                 </div>
                 <div class="boardSelec d-flex justify-content-between align-items-center">
-                    <button id="qa" class="selec">
-                        閒聊 Q&A
-                    </button>
+                    <label id="qa" class="selec">
+                        <span>閒聊 Q&A</span>
+                        <input class='d-none' type="radio" name="boardSelec" value="2">
+                    </label>
                     <div class="line"></div>
-                    <button id="event" class="selec">
-                        活動討論區
-                    </button>
+                    <label id="event" class="selec">
+                        <span>活動討論區</span>
+                    </label>
                 </div>
             </div>
             <div class="eventSelec_wrap d-flex align-items-center ">
@@ -178,12 +179,14 @@ $pageName = 'Forum-events'; // 頁面名稱
                     活動類別:
                 </div>
                 <div class="eventSelec d-flex align-items-center">
-                    <button id="num1" class="comtLabel">
+                    <label id="num1" class="comtLabel">
                         <span># 浪浪套裝活動</span>
-                    </button>
-                    <button id="num2" class="comtLabel">
+                        <input class='d-none' type="radio" name="boardSelec" value="1">
+                    </label>
+                    <label id="num2" class="comtLabel">
                         <span># 每月特別活動</span>
-                    </button>
+                        <input class='d-none' type="radio" name="boardSelec" value="0">
+                    </label>
                 </div>
             </div>
 
@@ -194,13 +197,11 @@ $pageName = 'Forum-events'; // 頁面名稱
 
             <!-- 上傳圖片 -->
             <input name="picture" class="" accept="image/*" type='file' id="imgInp" />
-
-
-            <button class="summitBtn napBtn_padding_filled" href="#">
+            <button type="submit"  class="summitBtn napBtn_padding_filled" form="form_postInsert">
                 <span>發佈貼文</span>
             </button>
-
         </form>
+
 
 
     </div>
@@ -436,26 +437,22 @@ $pageName = 'Forum-events'; // 頁面名稱
     getData({});
 
     // ---------表格提交
-    
-    $('#form_postInsert').submit(function(){
-        
-        function getSelectType(obj){
-        let petType = obj.petType
+
+    function sendPost(obj) {
 
         $.post(
-            './forum_postInsert-api.php',
-            {petType : petType},
-            function(data){
+            './forum_postInsert-api.php', {
+                petType: '55',
+                boardType: '33',
+
+
+
+            },
+            function(data) {
                 console.log(data.petType)
-            },'json'
+            }, 'json'
         )
     }
-    })
-    
-    
-    
-
-
 </script>
 
 

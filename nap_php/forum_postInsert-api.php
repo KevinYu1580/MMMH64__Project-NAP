@@ -1,22 +1,19 @@
 <?php
 
 require __DIR__ . '/parts/connect_db_kevin.php';
-$output = [
-    'petType' => '',
-];
-
-$petType = isset($_POST['petType']) ? intval($_POST['petType']) : NULL;
 
 
+// $petType = isset($_POST['petType']) ? intval($_POST['petType']) : 2;
 
 
+$petType = isset($_POST['form_postInsert']) ? intval($_POST['form_postInsert']) : NULL;
 
 
-
-echo json_encode ($output);
+echo ('suffff') ;
 
 
 
+// header('Location: ./forum_event.php');
 
 
 
