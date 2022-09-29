@@ -62,6 +62,10 @@ font-family: custom-font;
     height: 68px;
     background-color: var(--white);    
 }
+.topNav_mobile{
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+}
 
 @media screen and (min-width:576px){
     .nav-white-block{
@@ -70,7 +74,7 @@ font-family: custom-font;
 }
 .banner {
     width: 100%;
-    height: 140px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     
@@ -596,7 +600,7 @@ button:focus{
 }
 .lightBox-card-img{
     width: 100%;
-    height: 220px;
+    height: 180px;
     overflow: hidden;
     padding: 0;
     

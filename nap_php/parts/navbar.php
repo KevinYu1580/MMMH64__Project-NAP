@@ -67,6 +67,7 @@
         z-index: 999;
         top: 0;
         backdrop-filter: blur(3px);
+        transition: 0.3s;
     }
 
     .topNav_mobile .logo {
@@ -918,4 +919,6 @@
                 showCartCount(data);
             },
             'json');
+
+        
     </script>

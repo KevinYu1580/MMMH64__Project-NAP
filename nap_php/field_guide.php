@@ -37,7 +37,7 @@ $pageName = 'field-guide'; // 頁面名稱
     <div class="nap-map-container">
         <div class="nap-map-row-pc">
             <!-- 左邊地圖 -->
-            <div class="nap-map-col-left col-md-5">
+            <div class="nap-map-col-left col-md-7 ">
             <h3>園區地圖｜Field Guide</h3>
             <!-- <h4>Field Guide</h4> -->
                 <div class="button-group">
@@ -54,7 +54,7 @@ $pageName = 'field-guide'; // 頁面名稱
                 </div>
             </div>
             <!-- 右邊文字介紹 -->
-            <div class="nap-map-col-rihgt col-md-6">
+            <div class="nap-map-col-rihgt col-md-5">
                 <div class="mapBox-container">
                     <div class="mapBox-row">
                         <div class="mapBox-card-img">
