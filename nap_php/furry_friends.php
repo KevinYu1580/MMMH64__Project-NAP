@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_vera.php';
+// require __DIR__ . '/parts/connect_db_vera.php';
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'furry_friends'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -161,8 +162,6 @@ $pageName = 'furry_friends'; // 頁面名稱
                     短毛
                 </a>
             </div>
-
-            <br>
             <!-- 三格 -->
             <div class="napSwitch_three my-option old" data-val="1">
                 <div class="backmask"></div>
@@ -229,8 +228,7 @@ $pageName = 'furry_friends'; // 頁面名稱
 
 <!-- 自己的js放在這 -->
 <script>
-
-   // 為什麼要領養浪浪toggle
+    // 為什麼要領養浪浪toggle
     $('.banner-block-up').click(function() {
         $('.banner-block-down-mobile').slideToggle('slow')
         $(".banner-block-icon").toggleClass("active");
@@ -289,6 +287,7 @@ $pageName = 'furry_friends'; // 頁面名稱
     const petCard = $('#petCard');
 
     const card_tpl_func = ({
+        sid,
         pet_id,
         name,
         age,
@@ -315,14 +314,10 @@ $pageName = 'furry_friends'; // 頁面名稱
                 <div class="personality">${personality}</div>
             </div> 
             
-            <button class="napBtn_likeBtn" onclick="showBox1(event);"  >
+            <button name="showBox1" type="submit" class="napBtn_likeBtn" onclick="showBox1(event);" data-id="${sid}" >
                 <div class="svgs">
                     <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#CCCCCC"/>
-                </svg>
-                    <svg id='white' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
-                    <path d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" fill="#FFFFFF"/>
-                    </svg>
+                    <path class="gray" d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" />
                 </div>
                 <span>關注</span>
             </button>
@@ -330,6 +325,48 @@ $pageName = 'furry_friends'; // 頁面名稱
     </div>
 </div>`;
     };
+
+    // 收藏按鈕
+    function showBox1(event) {
+        // const div = $(event.currentTarget).closest('.napBtn_likeBtn').find('#white');
+        // div.toggle();
+        // const div1 = $(event.currentTarget).closest('.napBtn_likeBtn');
+        // div1.toggleClass('likeBtn_activated');
+
+        const btn = $(event.currentTarget);
+        const sid = btn.attr('data-id');
+        $.get(
+            `like-api.php?like_type=1&item_sid=${sid}`,
+            function(data) {
+                if (btn.hasClass('likeBtn_activated')) {
+                    btn.removeClass('likeBtn_activated');
+                    $(`button[data-id="${sid}"] path`).removeClass('white');
+                } else {
+                    btn.addClass('likeBtn_activated');
+                    $(`button[data-id="${sid}"] path`).addClass('white');
+                }
+            }, 'json');
+    }
+
+    // 收藏按鈕，判斷顯示已收藏過的
+    function likeData() {
+        $.get('furry_friends-api.php', function(data) {
+            console.log('data', data);
+            for (let i of data.myLikes) {
+                const pet_sid = i.pet_sid;
+                const selectedBtn = $(`button[data-id="${pet_sid}"]`);
+
+                if (selectedBtn.length) {
+                    selectedBtn.addClass('likeBtn_activated');
+                    $(`button[data-id="${pet_sid}"] path`).addClass('white');
+                }
+            }
+        }, 'json')
+    }
+    
+
+
+
 
     // default selections
     $('.my-option').each(function() {
@@ -378,7 +415,7 @@ $pageName = 'furry_friends'; // 頁面名稱
                 });
             }
             petCard.html(str);
-
+            likeData();
 
         }, 'json');
 
@@ -396,20 +433,6 @@ $pageName = 'furry_friends'; // 頁面名稱
         $('.lightBox-card-age span').text($(me).parent().find('.pet-info .age').text());
         $('.lightBox-card-personality span').text($(me).parent().find('.pet-info .personality').text());
         $('.lightBox').show();
-    }
-
-
-
-
-
-
-    // 收藏按鈕
-    function showBox1(event) {
-        const div = $(event.currentTarget).closest('.napBtn_likeBtn').find('#white');
-        div.toggle();
-        const div1 = $(event.currentTarget).closest('.napBtn_likeBtn');
-        div1.toggleClass('likeBtn_activated');
-
     }
 
 

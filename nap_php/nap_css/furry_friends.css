@@ -63,6 +63,12 @@ font-family: custom-font;
     background-color: var(--white);    
 }
 
+path.gray{
+    fill: #cccccc;
+}
+path.white{
+    fill: #ffffff;
+}
 
 @media screen and (min-width:576px){
     .nav-white-block{

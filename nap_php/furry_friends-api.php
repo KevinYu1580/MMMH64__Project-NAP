@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_vera.php';
+// require __DIR__ . '/parts/connect_db_vera.php';
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'Furry Friends'; // 頁面名稱
 
 $perPage = 6;  // 每頁最多有幾筆
@@ -54,6 +55,16 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
+
+$myLikes = [];
+if(isset($_SESSION['user'])){
+
+    $sql = "SELECT item_sid pet_sid FROM likes WHERE like_type=1 AND member_sid=". intval($_SESSION['user']['id']);
+    $myLikes = $pdo->query($sql)->fetchAll();
+
+}
+
+
 //位置開始---------
 
 echo json_encode([
@@ -67,6 +78,7 @@ echo json_encode([
     'gender' => $gender,
     'fur' => $fur,
     'old' => $old,
+    'myLikes' => $myLikes
 
 ], JSON_UNESCAPED_UNICODE);
 
