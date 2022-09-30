@@ -32,7 +32,7 @@ $(function () {
     timeback();
 });
 function timeback() {
-    const timer = null;
+    let timer = null;
     let i = 2;
 
     function overturn() {
