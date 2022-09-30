@@ -230,7 +230,7 @@ if (isset($_GET['sid'])) {
                 showCartCount(data);
             },
             'json');
-        window.location.replace("event_cart.php");
+        window.location.replace("event-cart.php");
             
     }
     function addToCart(event) {

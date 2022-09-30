@@ -188,6 +188,11 @@ $pageName = 'home'; // 頁面名稱
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
+     //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
     //輸入卡號的時候當數字等於4跳下一格
     $('.input-cart-number').on('keyup change', function() {
         if ($(this).val().length == 4) {
@@ -248,13 +253,13 @@ $pageName = 'home'; // 頁面名稱
             // console.log(qty);
 
             item_qty.html(qty);
-            item_price.html(price);
-            item_sub.html(price * qty);
+            item_price.html(dollarCommas(price));
+            item_sub.html(dollarCommas(price * qty));
             total += price * qty;
             
 
         });
-        $('#total-price').html(total);
+        $('#total-price').html(dollarCommas(total));
 
     };
     updatePrices(); //一進來就要執行一次

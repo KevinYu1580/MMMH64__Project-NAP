@@ -1,7 +1,59 @@
 <?php
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '活動訂單明細'; // 頁面名稱
+
+//確認會員登入
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
+
+//訂單亂碼 https://www.twblogs.net/a/5baa90e82b7177781a0e4a82
+$yCode = array('E','R');
+
+$orderSn = $yCode[0] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
+
+
+//判斷狀態陣列
+$payArray = ['信用卡', 'ATM 轉帳'];
+$statusArray = ['已付款', '尚未付款'];
+$enrollArray = ['已完成', '名額保留'];
+
+$paydate  = date('Y-m-d', strtotime('+2 days'));
+
+
+$total = 0;
+
+foreach($_SESSION['event_cart'] as $k=>$v){
+    $total += $v['price']*$v['qty'];
+}
+$order_sql = sprintf("INSERT INTO `event_order`( 
+    `member_sid`, 
+    `coupon_sid`, 
+    `event_order_origin_price`, 
+    `event_order_price`, 
+    `event_order_note`, 
+    `event_order_id`, 
+    `order_status`, 
+    `payment_way`, 
+    `enroll-status`, 
+    `payment_deadline`, 
+    `created_at`
+    ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", $_SESSION['user']['id'],'','','','',$orderSn,'0','0','0',$paydate);
+
+/*
+$stmt = $pdo->prepare($order_sql);
+
+echo json_encode([
+    $stmt->rowCount(), // 影響的資料筆數
+    $pdo->lastInsertId(), // 最新的新增資料主鍵
+]);
+
+*/
+
+
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -27,7 +79,7 @@ $pageName = 'home'; // 頁面名稱
                 <div class="atm-info-text">
                     <p>銀行代碼：822</p>
                     <p>虛擬帳號：<span class="atm-num">2397-6666-1798-4444</span></p>
-                    <p>繳費期限：<span class="pay-deadline">2022/08/16 23:59:59</span></p>
+                    <p>繳費期限：<span class="pay-deadline"><?= $paydate ?> 23:59:59</span></p>
                 </div>
             </div>
             <div class="atm-note">
@@ -135,7 +187,7 @@ $pageName = 'home'; // 頁面名稱
                         訂單編號
                     </div>
                     <div class="content order-id-num">
-                        <p>E202208140000001</p>
+                        <p><?= $orderSn ?></p>
                     </div>
                 </div>
                 <div class="order-date">
@@ -143,7 +195,7 @@ $pageName = 'home'; // 頁面名稱
                         訂單日期
                     </div>
                     <div class="content order-date-text-num">
-                        <p><?=date("Y-m-d H:i:s");?></p>
+                        <p><?= date("Y-m-d H:i:s"); ?></p>
                     </div>
                 </div>
                 <div class="pay-way">
@@ -151,15 +203,15 @@ $pageName = 'home'; // 頁面名稱
                         付款方式
                     </div>
                     <div class="content pay-way-result">
-                        ATM 付款
+                        <?= $payArray[1] ?>
                     </div>
                 </div>
                 <div class="order-status">
                     <div class="text order-status-text">
                         訂單狀態
                     </div>
-                    <div class="content oder-status-result">
-                        尚未付款
+                    <div class="content order-status-result">
+                        <?= $statusArray[1] ?>
                     </div>
                 </div>
                 <div class="enroll-status">
@@ -167,7 +219,7 @@ $pageName = 'home'; // 頁面名稱
                         報名狀態
                     </div>
                     <div class="content enroll-status-result">
-                        已保留
+                        <?= $enrollArray[1] ?>
                     </div>
                 </div>
                 <div class="order-note">
@@ -196,7 +248,15 @@ $pageName = 'home'; // 頁面名稱
 <!-- 自己的js放在這 -->
 
 <script>
-        function updatePrices() {
+
+
+
+    //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+    function updatePrices() {
         let total = 0; //總價
         let discount = 0; //折價
         $('.per-cart-item').each(function() {
@@ -213,16 +273,15 @@ $pageName = 'home'; // 頁面名稱
             // console.log(qty);
 
             item_qty.html(qty);
-            item_price.html(price);
-            item_sub.html(price * qty);
+            item_price.html(dollarCommas(price));
+            item_sub.html(dollarCommas(price * qty));
             total += price * qty;
-            
+
 
         });
-        $('#total-price').html(total);
+        $('#total-price').html(dollarCommas(total));
 
     };
     updatePrices(); //一進來就要執行一次
-    
 </script>
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

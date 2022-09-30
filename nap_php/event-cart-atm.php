@@ -129,6 +129,11 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
+    //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
     function updatePrices() {
         let total = 0; //總價
         let discount = 0; //折價
@@ -146,13 +151,13 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             // console.log(qty);
 
             item_qty.html(qty);
-            item_price.html(price);
-            item_sub.html(price * qty);
+            item_price.html(dollarCommas(price));
+            item_sub.html(dollarCommas(price * qty));
             total += price * qty;
             
 
         });
-        $('#total-price').html(total);
+        $('#total-price').html(dollarCommas(total));
 
     };
     updatePrices(); //一進來就要執行一次

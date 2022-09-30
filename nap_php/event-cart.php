@@ -3,7 +3,8 @@ require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = '活動購物車'; // 頁面名稱
 
-if(empty($_SESSION['user'])){
+//確認會員登入
+if (empty($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
@@ -90,7 +91,6 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                 </div>
                 <?php
                 $total = 0;
-
                 foreach ($_SESSION['event-cart'] as $key => $value) :
                     $total += $value['event_price'] * $value['qty']; //計算總價格
                 ?>
@@ -164,37 +164,37 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             <form>
                 <div class="mycoupon mb-3">
                     <label for="select-coupon" class="select-coupon">我的折價券</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select coupon" aria-label="Default select example">
                         <option selected>選擇要使用的折價券</option>
                         <?php
                         foreach ($rows as $r) :
                         ?>
-                            <option value="<?= $r['discount'] ?>"><?= $r['name'] ?></option>
+                            <option value="<?= $r['discount'] ?>"><?= $r['coupon_name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <?php foreach ($rows_mem as $rm):?>
-                <div class="mydata mb-3">
-                    <label for="member-data" class="member-data">訂購人資料</label>
-                </div>
-                <div class="name-phone">
-                    <div class="name mb-3">
-                        <label for="name" class="form-label">訂購人姓名</label>
-                        <input type="text" class="form-control" id="name" value="<?=$rm['name']?>" disabled readonly>
+                <?php foreach ($rows_mem as $rm) : ?>
+                    <div class="mydata mb-3">
+                        <label for="member-data" class="member-data">訂購人資料</label>
                     </div>
-                    <div class="phone mb-3">
-                        <label for="phone" class="form-label">手機</label>
-                        <input type="text" class="form-control" id="phone" value="mobile" disabled readonly>
+                    <div class="name-phone">
+                        <div class="name mb-3">
+                            <label for="name" class="form-label">訂購人姓名</label>
+                            <input type="text" class="form-control" id="name" value="<?= $rm['name'] ?>" disabled readonly>
+                        </div>
+                        <div class="phone mb-3">
+                            <label for="phone" class="form-label">手機</label>
+                            <input type="text" class="form-control" id="phone" value="<?= $rm['mobile'] ?>" disabled readonly>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="car-num" class="form-label">電子郵件信箱</label>
-                    <input type="text" class="form-control" id="car-num" value="e-mail" disabled readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="special-need" class="form-label">備註</label>
-                    <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
-                </div>
+                    <div class="mb-3">
+                        <label for="car-num" class="form-label">電子郵件信箱</label>
+                        <input type="text" class="form-control" id="car-num" value="<?= $rm['email'] ?>" disabled readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="special-need" class="form-label">備註</label>
+                        <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
+                    </div>
                 <?php endforeach; ?>
             </form>
         </div>
@@ -202,12 +202,12 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
         <!------- 付款方式按鈕 ------->
         <div class="cart-btn">
             <div class="credit-card-btn">
-                <button class="napBtn_fixed_filled" onclick="location.href='event-cart-credit.php'">
+                <button class="napBtn_fixed_filled" onclick="goCredit()">
                     <span>信用卡付款</span>
                 </button>
             </div>
             <div class="atm-btn">
-                <button class="napBtn_fixed_filled" onclick="location.href='event-cart-atm.php'">
+                <button class="napBtn_fixed_filled" onclick="goATM()">
                     <span>ATM 轉帳付款</span>
                 </button>
             </div>
@@ -228,10 +228,19 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
+    //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+    const discount = $(".coupon option:selected").val();
+    console.log(discount); 
+
+    //刪除購物車項目
     function removeItem(event) {
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
-        console.log('div');
+        console.log('div', div);
 
         $.get(
             'handle-event-cart.php', {
@@ -247,15 +256,12 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                     div.remove();
                     updatePrices();
                     checkDisabled();
-
                 });
                 // console.log('delete after');
-
-
-
             },
             'json');
     };
+
 
     //如果人數有改變，更新數量
     function updateItem(event) {
@@ -289,12 +295,12 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             console.log(qty);
 
             item_qty.html(qty);
-            item_price.html(price);
-            item_sub.html(price * qty);
+            item_price.html(dollarCommas(price));
+            item_sub.html(dollarCommas(price * qty));
             total += price * qty;
 
         });
-        $('#total-price').html(total);
+        $('#total-price').html(dollarCommas(total));
     };
     updatePrices(); //一進來就要執行一次
     checkDisabled();
@@ -310,6 +316,26 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             $('.cart-btn').addClass('disabled');
             $('.form-control, .form-select').attr('disabled', true);
         }
+    }
+
+    function goATM() {
+        console.log('special-need:', $('#special-need').val());
+        $.post('handle-event-cart-note.php', {
+            note: $('#special-need').val()
+        }, function(res) {
+            console.log('res:', res);
+        })
+        location.href = 'event-cart-atm.php';
+    }
+
+    function goCredit() {
+        console.log('special-need:', $('#special-need').val());
+        $.post('handle-event-cart-note.php', {
+            note: $('#special-need').val()
+        }, function(res) {
+            console.log('res:', res);
+        })
+        location.href = 'event-cart-credit.php';
     }
 </script>
 
