@@ -12,6 +12,7 @@ function sentLike(event){
         },'json');
 }
 
+// 收藏按鈕，判斷顯示已收藏過的
 function getData(){
     $.get('events_page_api.php',function(data){
         for (let i of data.myLikes) {
