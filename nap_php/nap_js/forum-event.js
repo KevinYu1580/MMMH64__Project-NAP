@@ -25,6 +25,7 @@ $('.comtCard .pointMenu').click(function(e){
 $('.lightBox_mb_mask').click(function(){
     $(this).hide()
     $('.lightBox_mb').css('transform', 'translateY(102%)')
+    
 })
 // mb 刪除&編輯功能
 $('.comtCard .lightBox_mb').click(function(e){
@@ -138,7 +139,7 @@ $('.lightBox_post_mask').click(function(){
     })
     $('.lightBox_post').hide()
     document.body.style.overflow='visible'
-
+    $('#form_postInsert')[0].reset()
 })
 
 
@@ -153,11 +154,12 @@ $('.lightBox_post .iconWrap').click(function(){
 })
 // 看板類別選擇器
 $('.lightBox_post .boardSelec .selec').click(function(){
-    $('.lightBox_post .boardSelec .selec').css('color', 'var(--black_500)')
-    $(this).css('color', 'var(--primaryColor_dark)');
+    $('.lightBox_post .boardSelec .selec span').css('color', 'var(--black_500)')
+    $(this).find('span').css('color', 'var(--primaryColor_dark)');
+    
 
     // 判斷是否已經點選活動討論區
-    const eventBtn = $('.lightBox_post .boardSelec #event')
+    const eventBtn = $('.lightBox_post .boardSelec #event span')
     if(eventBtn.css('color') == 'rgb(124, 140, 56)'){
         $('.lightBox_post .eventSelec .comtLabel').css('background-color', '#F8EEE8');
         eventSelecClickable();

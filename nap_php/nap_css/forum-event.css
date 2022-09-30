@@ -944,7 +944,7 @@ input:focus {
 }
 @media screen and (min-width: 992px){
   .lightBox_post .petSelec .iconWrap {
-    height: 26px;
+    height: fit-content;
   }
 }
 .lightBox_post .petSelec .iconWrap img {
@@ -990,7 +990,7 @@ input:focus {
 }
  
 .lightBox_post .eventSelec_wrap {
-  gap: 20px;
+  gap: 8px;
   margin-bottom: 38px;
 }
 @media screen and (min-width: 992px){
@@ -1004,7 +1004,7 @@ input:focus {
   }
 }
 .lightBox_post .eventSelec {
-  gap: 8px;
+  gap: 4px;
 }
 @media screen and (min-width: 992px){
   .lightBox_post .eventSelec {
@@ -1015,6 +1015,11 @@ input:focus {
   height: 28px;
   background-color: #eeeeee;
   pointer-events: none;
+}
+@media screen and (max-width: 991px){
+  .lightBox_post .eventSelec .comtLabel {
+    padding: 4px 10px;
+  }
 }
 .lightBox_post .eventSelec .comtLabel span {
   font-size: 14px;
@@ -1073,10 +1078,10 @@ input:focus {
     padding: 8px 18px 0px 18px;
   }
 }
-.lightBox_post .inputArea .summitBtn {
+.lightBox_post .summitBtn {
   margin-left: auto;
 }
-.lightBox_post .inputArea #imgInp {
+.lightBox_post  #imgInp {
   margin-top: 18px;
   margin-bottom: 18px;
 }
@@ -1086,6 +1091,14 @@ input:focus {
   width: 100%;
   border-radius: 20px;
   margin-bottom: 8px;
+  display: block;
+}
+@media screen and (min-width: 992px){
+  .lightBox_post .inputArea img {
+    width: 80%;
+    padding: 16px 0;
+    margin: auto;
+  }
 }
 /* 包住圖片的div */
 .lightBox_post .inputArea .imgInsert {
