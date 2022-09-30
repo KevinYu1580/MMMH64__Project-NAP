@@ -1,6 +1,6 @@
 <?php
-// require __DIR__ . '/parts/connect_db_nora.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db_nora.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 
 if(empty($_SESSION['user'])){
     header('Location: login.php');
@@ -52,7 +52,7 @@ $pageName = 'home'; // 頁面名稱
  <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
      
          
-     <div class="titlebox "><h2>會員中心</h2></div>
+     <div class="titlebox pb-2"><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
