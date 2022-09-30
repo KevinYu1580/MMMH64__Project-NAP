@@ -1,11 +1,11 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
+// require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動檔期介紹'; // 頁面名稱
 
 // 確認在 url 中顯示對應 id
 if (isset($_GET['sid'])) {
-    
+
     $stmt = $pdo->prepare('SELECT * FROM event_detail WHERE `sid` = ?');
     $stmt->execute([$_GET['sid']]);
 
@@ -49,12 +49,10 @@ if (isset($_GET['sid'])) {
             <div class="events-detail-col col-md-6">
                 <div class="detail-textbox">
                     <div class="like-btn">
-                        <svg id="outline" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.0625 6.56257L19.9297 7.50007L20.8672 6.56413C23.4844 4.01335 27.1094 2.85241 30.6719 3.44538C36.0547 4.34226 40 9.00007 40 14.461V14.9141C40 18.1563 38.6562 21.2579 36.2812 23.4688L22.1641 36.6485C21.5781 37.1954 20.8047 37.5001 20 37.5001C19.1953 37.5001 18.4219 37.1954 17.8359 36.6485L3.71797 23.4688C1.34609 21.2579 0 18.1563 0 14.9141V14.461C0 9.00007 3.94688 4.34226 9.32812 3.44538C12.8203 2.85241 16.5156 4.01335 19.0625 6.56257C18.9922 6.56257 19.0625 6.56335 19.0625 6.56257ZM19.9297 12.8048L16.4141 9.14851C14.7188 7.52194 12.3125 6.75007 9.94531 7.14382C6.37109 7.73991 3.75 10.836 3.75 14.461V14.9141C3.75 17.1173 4.66484 19.2266 6.27656 20.7266L20 33.5391L33.7266 20.7266C35.3359 19.2266 36.25 17.1173 36.25 14.9141V14.461C36.25 10.836 33.625 7.73991 30.0547 7.14382C27.6875 6.75007 25.2812 7.52194 23.5859 9.14851L19.9297 12.8048Z" fill="#7C8C38" />
-                        </svg>
-                        <svg id="cover" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 14.9141V14.461C0 9.00006 3.94688 4.34225 9.32812 3.44537C12.8203 2.85241 16.5156 4.01334 19.0625 6.56412L20 7.50006L20.8672 6.56412C23.4844 4.01334 27.1094 2.85241 30.6719 3.44537C36.0547 4.34225 40 9.00006 40 14.461V14.9141C40 18.1563 38.6562 21.2579 36.2812 23.4688L22.1641 36.6485C21.5781 37.1954 20.8047 37.5001 20 37.5001C19.1953 37.5001 18.4219 37.1954 17.8359 36.6485L3.71797 23.4688C1.34609 21.2579 2.34375e-05 18.1563 2.34375e-05 14.9141H0Z" fill="#7C8C38" />
-                        </svg>
+                        <button name="sentLike" type="submit" onclick="sentLike(event)">
+                            <img id="outline" class="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
+                            <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                        </button>
                     </div>
                     <h3><?= $event['event_date'] ?></h3>
                     <h2><?= $event['event_name'] ?></h2>

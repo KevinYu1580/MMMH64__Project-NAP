@@ -103,27 +103,36 @@ body {
     align-items: center;
     cursor: pointer;
 }
-
-.like-btn svg {
+.like-btn #outline {
     width: 70%;
     height: 100%;
     object-fit: contain;
 }
 
-.like-btn #outline path {
-    fill: var(--subColor_lightRed);
-}
-
-.like-btn #cover path {
-    fill: var(--subColor_lightRed);
-    display: none;
-}
-
 .like-btn #cover {
     position: absolute;
     top: 0;
+    left: 6px;
+    width: 70%;
+    height: 100%;
+    object-fit: contain;
 }
-
+.like-btn .cover{
+    display: none;
+}
+.like-btn button.show .cover{
+    display: inline-block;
+}
+button {
+    background-color: none;
+    outline: none;
+    padding: 0;
+    border: none 0;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
 /* ---------活動詳細頁-標題---------- */
 .detail-textbox h3,
 .detail-textbox h2 {
@@ -261,8 +270,8 @@ body {
         cursor: pointer;
     }
 
-    .like-btn svg {
-        width: 70%;
+    .like-btn img {
+        width: 60%;
         height: 100%;
         object-fit: contain;
     }
