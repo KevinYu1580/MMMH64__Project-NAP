@@ -729,7 +729,7 @@ input:focus {
 }
 .lightBox_comtCard .comtSection .messageLev {
   padding: 24px 0px;
-  gap: 8px;
+  justify-content:space-between;
 }
 @media screen and (min-width: 992px){
   .lightBox_comtCard .comtSection .messageLev {
@@ -738,8 +738,9 @@ input:focus {
   }
 }
 .lightBox_comtCard .comtSection .messageLev .memberPic {
-  width: 36px;
+  width: 44px;
   aspect-ratio: 1 / 1;
+  object-fit: fill;
   background-image: url(../img/chatchat/chat/chat-02.jpeg);
   background-position: 50% 50%;
   background-size: cover;
@@ -752,9 +753,14 @@ input:focus {
   }
 }
 .lightBox_comtCard .comtSection .messageLev .message_input {
-  width: 85%;
+  width: 72%;
   border: none;
   border-bottom: 1px solid var(--black_500);
+}
+@media screen and (min-width: 992px){
+  .lightBox_comtCard .comtSection .messageLev .message_input {
+    width: 90%;
+  }
 }
 
 .lightBox_comtCard .comtSection .messageLev .message_input::placeholder {
@@ -762,10 +768,25 @@ input:focus {
   font-size: 14px;
   font-weight: 300;
 }
+.lightBox_comtCard .comtSection .messageLev .sendMessageBtn {
+  width: 100%;
+  height: 30px;
+  background-color: var(--black_400) ;
+  color: #fff;
+  border-radius: 20px;
+}
+@media screen and (min-width: 992px){
+  .lightBox_comtCard .comtSection .messageLev .sendMessageBtn {
+    width: 72px;
+    height: 30px;
+    background-color: var(--black_400) ;
+    color: #fff;
+  }
+}
 .lightBox_comtCard .comtSection .message_pack .memberPic {
-  width: 36px;
-  height: 36px;
-  /* background-image: url(../img/chatchat/chat/chat-02.jpeg); */
+  width: 44px;
+  aspect-ratio: 1 / 1;
+  background-image: url(../img/chatchat/chat/chat-02.jpeg);
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -779,12 +800,16 @@ input:focus {
 }
 
 .lightBox_comtCard .comtSection .message_pack .messageCard {
-  gap: 8px;
+  gap: 16px;
   padding: 24px 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 @media screen and (min-width: 992px){
   .lightBox_comtCard .comtSection .message_pack .messageCard {
-    gap: 18px;
+    gap: 20px;
     padding: 36px 0;
   }
 }

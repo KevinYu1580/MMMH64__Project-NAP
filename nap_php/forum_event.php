@@ -128,7 +128,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z" fill="#2D2D2D" />
             </svg>
         </button>
-        <form name="form_postInsert" id='form_postInsert' method="post" onsubmit="sendPost();return false">
+        <form name="form_postInsert" id='form_postInsert' onsubmit="sendPost();return false">
             <div class="member_info">
                 <div class="member_pic"></div>
                 <div class="member_name">
@@ -377,11 +377,17 @@ $pageName = 'Forum-events'; // 頁面名稱
                                         <img src="./img/component/icon/Comment-brown.svg" alt="">
                                         <span class='messageQty'>${num? num:0}則留言</span>
                                     </div>
-                                    <div class="messageLev d-flex align-items-center">
+                                    <form id='form_sendMessage${sid}' name='form_sendMessage${sid}' class="messageLev d-flex align-items-center" onsubmit='return false'>
+                                        <div class=" d-flex align-items-center col-10 gap-3">
                                         <div class="memberPic">
                                         </div>
-                                        <input class="message_input" type="text" placeholder="我要留言">
-                                    </div>
+                                        <input name="message" class="message_input" type="text" placeholder="我要留言">
+                                        </div>
+                                        
+                                        <button type='submit' class="sendMessageBtn"  onclick="sendMessage()">
+                                        送出
+                                        </button>   
+                                    </form>
                                     <div class="message_pack">
                                         <!-- 用jqeury的.get新增留言 -->
                                     </div>
@@ -393,8 +399,8 @@ $pageName = 'Forum-events'; // 頁面名稱
                             </article>
                         </div>
                     </div>
-                </div>`;
-
+                </div>`
+        
     };
 
     const comtCardWrap = $('#comtCard_wrap')
@@ -448,11 +454,11 @@ $pageName = 'Forum-events'; // 頁面名稱
     
 
     // ---------表格提交
-
+    // 貼文
     function sendPost(obj) {
 
         $.post(
-            './forum_postInsert-api.php',
+            './nap_api/forum_postInsert-api.php',
             $(document.form_postInsert).serialize(),
             function(data) {
                 console.log(data)
@@ -464,7 +470,22 @@ $pageName = 'Forum-events'; // 頁面名稱
             window.location.reload();
         });
     }
+    // 留言
+    function sendMessage(){
+        $.post(
+            './forum_MessageInsert-api.php',
+            $(document.form_sendMessage).serialize(),
+            function(data) {
+                console.log(data)
+            },
+            'json'
+        )
+    }
     
+
+
+
+
 </script>
 
 
