@@ -799,7 +799,7 @@
 
             <ul class="menu_link">
                 <li>
-                    <a href="#">首頁<span>Home Page</span></a>
+                    <a href="homepage.php">首頁<span>Home Page</span></a>
                 </li>
                 <li>
                     園區介紹 <span>Field Info</span>
@@ -834,7 +834,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="forum_event.php">
                                 活動討論
                                 <span>Event Forum</span>
                             </a>

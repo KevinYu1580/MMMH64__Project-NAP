@@ -31,10 +31,11 @@ WHERE (cc.tag = 0 OR cc.tag = 1) $where;
 $sql = sprintf("
 SELECT cc.*, mm.*, cc2.num   FROM  chat cc LEFT JOIN member01 mm on mm.id = cc.po_sid
 
-JOIN (SELECT `chat_event_sid`, COUNT(1) num FROM `chat_commit` GROUP BY `chat_event_sid`) cc2
+LEFT JOIN (SELECT `chat_event_sid`, COUNT(1) num FROM `chat_commit` GROUP BY `chat_event_sid`) cc2
 ON cc.sid=cc2.chat_event_sid
 
-WHERE (tag = 0 OR tag = 1) $where;
+WHERE (tag = 0 OR tag = 1) $where 
+ORDER BY `date` DESC;
 ");
 
 

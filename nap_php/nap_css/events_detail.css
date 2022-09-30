@@ -269,15 +269,18 @@ button {
         align-items: center;
         cursor: pointer;
     }
-
     .like-btn img {
         width: 60%;
         height: 100%;
         object-fit: contain;
     }
-
     .like-btn #cover {
-        fill: var(--subColor_lightRed);
+        position: absolute;
+        top: 0;
+        left: 9px;
+        width: 60%;
+        height: 100%;
+        object-fit: contain;
     }
 
     /* ---------活動詳細頁-標題---------- */

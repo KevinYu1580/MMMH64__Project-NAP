@@ -1,18 +1,30 @@
-//收藏按鈕
-// $('.like-btn').click(function(){
-//     $('.like-btn #cover path').toggle();
-// })
-
-
+// 收藏按鈕顯示開關
 function sentLike(event){
-    console.log('123');
     const btn = $(event.currentTarget);
-    if(btn.hasClass('show')){
-        btn.removeClass('show');
-    } else {
-        btn.addClass('show');
-    }
+    const sid = btn.attr('data-id');
+    $.get(
+        `event-like-api.php?like_type=2&item_sid=${sid}`, function(data){
+            if(btn.hasClass('show')){
+                btn.removeClass('show');
+            } else {
+                btn.addClass('show');
+            }
+        },'json');
 }
+
+// 收藏按鈕，判斷顯示已收藏過的
+function getData(){
+    $.get('events_page_api.php',function(data){
+        for (let i of data.myLikes) {
+            const event_sid = i.event_sid;
+            const selectedBtn = $(`button[data-id="${event_sid}"]`);
+            if (selectedBtn.length) {
+                selectedBtn.addClass('show');
+            }
+        }
+    },'json')
+}
+getData({});
 
 
 //桌機 | 比外表重要的事-(插圖定時翻轉)
@@ -20,7 +32,7 @@ $(function () {
     timeback();
 });
 function timeback() {
-    const timer = null;
+    let timer = null;
     let i = 2;
 
     function overturn() {

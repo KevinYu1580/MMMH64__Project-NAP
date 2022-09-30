@@ -128,13 +128,15 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z" fill="#2D2D2D" />
             </svg>
         </button>
-        <div class="member_info">
-            <div class="member_pic"></div>
-            <div class="member_name">
-                <span>翁同學</span>
+        <form name="form_postInsert" id='form_postInsert' method="post" onsubmit="sendPost();return false">
+            <div class="member_info">
+                <div class="member_pic"></div>
+                <div class="member_name">
+                    <span>翁同學</span>
+                    <!-- <input class="d-none" name='memberId' type="radio" value=''> -->
+                </div>
             </div>
-        </div>
-        <form name="form_postInsert" id='form_postInsert' method="post"  onsubmit="sendPost();return false">
+
             <div class="petSelec_wrap d-flex align-items-center">
                 <div class="secIndic">
                     寵物類別:
@@ -143,19 +145,19 @@ $pageName = 'Forum-events'; // 頁面名稱
                     <label class="iconWrap d-flex align-items-center">
                         <img id='default' class="" src="./img/self/k/post_dogIcon_default.svg" alt="">
                         <img id='activated' src="./img/self/k/post_dogIcon_activated.svg" alt="">
-                        <input class='d-none' type="radio" name="petSelec" value="1">
+                        <input class='d-none' type="radio" name="petSelec" value="petSelec1">
                         <!-- onclick="getSelectType({petType:'1'})" -->
                     </label>
                     <div class="line"></div>
                     <label class="iconWrap d-flex align-items-center">
                         <img id='default' class="" src="./img/self/k/post_catIcon_default.svg" alt="">
                         <img id='activated' src="./img/self/k/post_catIcon_activated.svg" alt="">
-                        <input class='d-none' type="radio" name="petSelec" value="0">
+                        <input class='d-none' type="radio" name="petSelec" value="petSelec0">
                     </label>
                     <div class="line"></div>
                     <label class="iconWrap slectAll">
                         <span>不限</span>
-                        <input class='d-none' type="radio" name="petSelec" value="2">
+                        <input class='d-none' type="radio" name="petSelec" value="petSelec2">
                     </label>
                 </div>
             </div>
@@ -166,7 +168,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <div class="boardSelec d-flex justify-content-between align-items-center">
                     <label id="qa" class="selec">
                         <span>閒聊 Q&A</span>
-                        <input class='d-none' type="radio" name="boardSelec" value="2">
+                        <input class='d-none' type="radio" name="boardSelec" value="boardSelec2">
                     </label>
                     <div class="line"></div>
                     <label id="event" class="selec">
@@ -181,23 +183,24 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <div class="eventSelec d-flex align-items-center">
                     <label id="num1" class="comtLabel">
                         <span># 浪浪套裝活動</span>
-                        <input class='d-none' type="radio" name="boardSelec" value="1">
+                        <input class='d-none' type="radio" name="boardSelec" value="boardSelec1">
                     </label>
                     <label id="num2" class="comtLabel">
                         <span># 每月特別活動</span>
-                        <input class='d-none' type="radio" name="boardSelec" value="0">
+                        <input class='d-none' type="radio" name="boardSelec" value="boardSelec0">
                     </label>
                 </div>
             </div>
+            <div class="inputArea">
+                <textarea class="napHeadline textArea" placeholder="請輸入標題" name="headline" id=""></textarea>
 
-            <textarea class="napHeadline textArea" placeholder="請輸入標題" name="headline" id=""></textarea>
+                <textarea class="napContent textArea" placeholder="請輸入內容" name="content" id=""></textarea>
 
-            <textarea class="napContent textArea" placeholder="請輸入內容" name="content" id=""></textarea>
-            <div class="imgInsert"></div>
-
+                <div class="imgInsert"></div>
+            </div>
             <!-- 上傳圖片 -->
-            <input name="picture" class="" accept="image/*" type='file' id="imgInp" />
-            <button type="submit"  class="summitBtn napBtn_padding_filled" form="form_postInsert">
+            <input name="picture" class="imgInp" type='file' id="imgInp" />
+            <button type="submit" class="summitBtn napBtn_padding_filled" form="form_postInsert">
                 <span>發佈貼文</span>
             </button>
         </form>
@@ -286,7 +289,10 @@ $pageName = 'Forum-events'; // 頁面名稱
                             </button>
                             <div class="napComt">
                                 <img src="./img/component/icon/Comment-brown.svg" alt="">
-                                <span class='messageQty'>${num}則留言</span>
+                                <span class='messageQty'>
+                                ${num? num:0}
+                                則留言
+                                </span>
                             </div>
                         </div>
 
@@ -369,7 +375,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                                 <div class="comtSection">
                                     <div class="numIndic d-flex align-items-end">
                                         <img src="./img/component/icon/Comment-brown.svg" alt="">
-                                        <span class='messageQty'>${num}則留言</span>
+                                        <span class='messageQty'>${num? num:0}則留言</span>
                                     </div>
                                     <div class="messageLev d-flex align-items-center">
                                         <div class="memberPic">
@@ -424,17 +430,22 @@ $pageName = 'Forum-events'; // 頁面名稱
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
                     }
-
+                    
                     str += post_tpl_func(obj);
 
+                    
                 });
             }
 
             comtCardWrap.html(str);
+            
+
         }, 'json');
 
     }
-    getData({});
+    getData({})
+
+    
 
     // ---------表格提交
 
@@ -444,10 +455,16 @@ $pageName = 'Forum-events'; // 頁面名稱
             './forum_postInsert-api.php',
             $(document.form_postInsert).serialize(),
             function(data) {
-                console.log(data.petType)
-            }, 'json'
+                console.log(data)
+            },
+            'json'
         )
+
+        alert('成功發出貼文').done(function(){
+            window.location.reload();
+        });
     }
+    
 </script>
 
 

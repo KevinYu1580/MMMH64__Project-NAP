@@ -49,7 +49,7 @@ if (isset($_GET['sid'])) {
             <div class="events-detail-col col-md-6">
                 <div class="detail-textbox">
                     <div class="like-btn">
-                        <button name="sentLike" type="submit" onclick="sentLike(event)">
+                        <button name="sentLike" type="submit" onclick="sentLike(event)" data-id="<?= $event['sid'] ?>">
                             <img id="outline" class="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
                             <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
                         </button>
@@ -411,6 +411,5 @@ if (isset($_GET['sid'])) {
 <script src="./nap_js/component.js"></script>
 <script src="./nap_js/events_detail.js"></script>
 <!-- 自己的js放在這 -->
-
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

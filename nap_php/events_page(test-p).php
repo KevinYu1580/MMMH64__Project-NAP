@@ -259,17 +259,18 @@ if ($total_events > 0) {
     };
 
     // 收藏按鈕顯示開關
-    function sentLike(event){
+    function sentLike(event) {
         const btn = $(event.currentTarget);
         const sid = btn.attr('data-id');
         $.get(
-            `event-like-api.php?like_type=2&item_sid=${sid}`, function(data){
-                if(btn.hasClass('show')){
+            `event-like-api.php?like_type=2&item_sid=${sid}`,
+            function(data) {
+                if (btn.hasClass('show')) {
                     btn.removeClass('show');
                 } else {
                     btn.addClass('show');
                 }
-            },'json');
+            }, 'json');
     }
 
     // default selections
@@ -313,12 +314,12 @@ if ($total_events > 0) {
                 });
             }
             eventCard.html(str);
-        
-            // 收藏按鈕取值
-            for(let i of data.myLikes){
+
+            // 收藏按鈕，判斷顯示已收藏過的
+            for (let i of data.myLikes) {
                 const event_sid = i.event_sid;
                 const selectedBtn = $(`button[data-id=${event_sid}]`);
-                if(selectedBtn.length){
+                if (selectedBtn.length) {
                     selectedBtn.addClass('show');
                 }
 
