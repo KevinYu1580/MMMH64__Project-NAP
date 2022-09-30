@@ -25,7 +25,7 @@ else{
         $date = $r['comment_date'];
         $comment = $r['comment'];
         echo "
-        <div id='messageCard' class='messageCard d-flex'>
+        <div id='messageCard' class='messageCard'>
             <div style='background-image: url(./img/member/profile-image/$userPic);' class='memberPic'></div>
                 <div class='content_wrap d-flex'>
                     <span class='poster'>

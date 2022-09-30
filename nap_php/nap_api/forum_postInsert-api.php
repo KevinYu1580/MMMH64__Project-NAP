@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/parts/connect_db_kevin.php';
+require '../parts/connect_db_kevin.php';
 
 $memberId = !empty($_POST['memberId']) ? $_POST['memberId'] : 1;
 // 測試會員帳號ID為1
