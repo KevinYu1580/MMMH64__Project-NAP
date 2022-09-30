@@ -21,7 +21,7 @@ $pageName = 'home'; // 頁面名稱
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 
-
+    <link rel="stylesheet" href="./nap_css/reset.css">
 
 <link rel="stylesheet" href="./nap_css/login5.css">
     

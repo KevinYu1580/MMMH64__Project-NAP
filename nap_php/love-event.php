@@ -1,6 +1,5 @@
 <?php
-require __DIR__ . '/parts/connect_db.php';
-
+require __DIR__ . '/parts/connect_db_nora.php';
 
 if(empty($_SESSION['user'])){
     header('Location: login.php');
@@ -10,10 +9,7 @@ $member_id = $_SESSION['user']['id'];
 
 // $sql = "SELECT * FROM `likes` WHERE `member_sid`=1 AND `like_type` = 1";
 // $sql_t = "SELECT * FROM `likes` WHERE `member_sid`= 1";
-$sql = "SELECT * FROM `likes` 
-LEFT join chat on chat.sid = likes.item_sid 
-LEFT join member01 on member01.id = chat.po_sid 
-WHERE `member_sid`= $member_id AND `like_type` = 3";
+$sql = "SELECT * FROM `likes` Inner join event_detail on event_detail.sid = likes.item_sid WHERE `member_sid`= $member_id AND `like_type` = 2";
 
 
 $rows = $pdo->query($sql)->fetchAll();
@@ -33,12 +29,21 @@ $pageName = 'home'; // 頁面名稱
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 
-    <link rel="stylesheet" href="./nap_css/component_mobile2.css">
-    <link rel="stylesheet" href="./nap_css/member-nav.css">
-    <link rel="stylesheet" href="./nap_css/love3.css">
+    <!-- <link rel="stylesheet" href="./nap_css/component_mobile.css"> -->
+    <!-- <link rel="stylesheet" href="./nap_css/member-nav.css">
+    <link rel="stylesheet" href="./nap_css/love3.css"> -->
     
 </head>
+
 <?php include __DIR__. '/parts/navbar.php'; ?>
+
+<link rel="stylesheet" href="./nap_css/member-nav1.css">
+
+<link rel="stylesheet" href="./nap_css/love3.css">
+
+
+
+    
 
 
 
@@ -88,15 +93,14 @@ $pageName = 'home'; // 頁面名稱
             </div>
         </a>
         <a href=".">
-            <div class="page " >
-            
+            <div class="page atpage" >
+            <img class="decorate-big" src="./img/self/n/member/triangle.svg" alt="">
+                <img class="decorate-sm" src="./img/self/n/member/triangle-s.svg" alt="">
                 <h5>活動</h5>
             </div>
         </a>
         <a href="./gift-used.html">
-            <div class="page atpage" >
-            <img class="decorate-big" src="./img/self/n/member/triangle.svg" alt="">
-                <img class="decorate-sm" src="./img/self/n/member/triangle-s.svg" alt="">
+            <div class="page " >
                 <h5>文章</h5>
             </div>
         </a>
@@ -107,35 +111,53 @@ $pageName = 'home'; // 頁面名稱
 
  <!------ content ------>
 
-<div class="container ">
+ <!-- <div class="container ">
     <?php foreach($rows as $r): ?>
+    <div class="love-card love-card-pet d-flex flex-column flex-sm-row align-items-center mb-5">
+    <a href="javascript: removeItem(<?= $r['likes_sid'] ?>)"
+                     data-onclick="event.currentTarget.closest('tr').remove()">
+                     <img class="love-close" src="./img/self/n/love/close.svg" alt="">
+    </a>
+        
+        <div class="pic">
+            <img class="pic-size" src="./img/pet/<?= $r['pet_id'] ?>.jpg" alt="">
+            
+        </div>
+        <div class="card-info card-info-pet">
+            <h4><?= $r['name'] ?> <span><?= $genderArray[$r['gender']] ?></span> </h4>
+            <h5>個性： <span>活潑外向</span> </h5>
+            <h5>年齡： <span><?= $r['age'] ?>歲</span> </h5>
+            
+        </div>
+    </div>
+    <?php endforeach ?>
+    
+ </div> -->
+ <div class="container ">
+ <?php foreach($rows as $r): ?>
     <div class="love-card d-flex flex-column flex-sm-row align-items-center mb-5">
     <a href="javascript: removeItem(<?= $r['likes_sid'] ?>)"
                      data-onclick="event.currentTarget.closest('tr').remove()">
                      <img class="love-close" src="./img/self/n/love/close.svg" alt="">
     </a>
         <div class="pic">
-            <img src="./img/chatchat/event/<?= $r['article_id'] ?>" alt="">
-            
-        </div>
-        <div class="card-info card-info-chat d-flex flex-column justify-content-center">
-            <div class="person d-flex">
-                <div class="avatar">
-                    <img src="./img/member/profile-image/<?= $r['avatar'] ?>" alt="">
-                </div>
-                <p><?= $r['name'] ?></p>
+            <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="">
+            <div class="time">
+                <h5><?= $r['event_date'] ?></h5>
             </div>
-            <h4><?= $r['title'] ?></h4>
-            <h5><?= $r['date'] ?></h5>
-            <div class="summarybox summarybox-chat">
-                <p><?= $r['content'] ?></p>
+        </div>
+        <div class="card-info">
+            <h4><?= $r['event_name'] ?></h4>
+            <div class="summarybox ">
+                <p><?= $r['event_outline'] ?></p>
+            </div>
+            <div class="btn-box d-flex flex-column  ">        
+                <button type="button" class="btn btn-primary" onclick="location.href='#'"><p>立即報名</p> </button>
             </div>
         </div>
     </div>
     <?php endforeach ?>
-    
- </div>
-
+</div>
 
 
 
@@ -152,7 +174,7 @@ $pageName = 'home'; // 頁面名稱
 <script>
     function removeItem(likes_sid){
         if(confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)){
-            location.href = `./nap_api/chatlove-del.php?sid=${likes_sid}`;
+            location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
         }
     }
 
