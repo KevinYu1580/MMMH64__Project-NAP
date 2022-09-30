@@ -19,7 +19,7 @@ $pageName = 'home'; // 頁面名稱
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/register6.css">
+<link rel="stylesheet" href="./nap_css/register7.css">
     
     <title><?= $title ?></title>
 </head>
@@ -32,8 +32,8 @@ $pageName = 'home'; // 頁面名稱
             <div class="close"><img src="./img/self/n/close.png" alt=""></div>
             <div class="content content1 d-flex flex-column" id="content1">
                 <div class="part part1 ">
-                    <div class="logo d-flex justify-content-center"><img src="./img/self/n/logo.png" alt=""></div>
-                    <div class="title d-flex justify-content-center mx-5"><h3>註冊</h3></div>
+                    <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
+                    <div class="title d-flex justify-content-center mx-5 mb-4"><h3>註冊</h3></div>
                 </div>
                 <div class="part2 w-100  ">
                     
@@ -147,7 +147,7 @@ $pageName = 'home'; // 頁面名稱
 
 
                     
-                <div class="alldown">
+                <div class="alldown mt-4">
                     <div class="line mx-5">
                             <div class="title-sm d-flex align-items-center justify-content-center " style="pointer-events:none" ><p>快速註冊</p></div>
                     </div>
@@ -170,7 +170,7 @@ $pageName = 'home'; // 頁面名稱
                     </div>
                     <div class="say d-flex pt-4 justify-content-center">
                                 <div class="left " style="pointer-events:none" > <p>等不及想見到園區的毛孩嗎？</p> </div>
-                                <div class="right"><a href="./loginend.php"><p>立即登入</p></a></div>
+                                <div class="right"><a href="./login.php"><p>立即登入</p></a></div>
                     </div>
                 </div>
 
