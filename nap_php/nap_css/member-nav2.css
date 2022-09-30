@@ -113,17 +113,17 @@
     border-right: none
 }
 
-li a{
+.container1 li a{
     color: var(--subColor_text);
     text-decoration: none;
 }
 
-li a:hover{
+.container1 li a:hover{
   color: var(--primaryColor_light);
 
 }
 
-li .inhere{
+.container1 li .inhere{
     color: var(--secondaryColor_default);
     
 }
@@ -247,7 +247,7 @@ li .inhere{
 }
 
 @media (max-width: 1110px) {
-    li{
+  .container1 li{
         font-size: 24px; 
         padding-right: 10px;
        padding-left: 10px;
@@ -258,7 +258,7 @@ li .inhere{
 
   @media (max-width: 576px) {
     
-li{
+    .container1 li{
     font-size: 18px; 
     padding-right: 15px;
    padding-left: 15px;

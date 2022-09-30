@@ -38,7 +38,7 @@ $pageName = 'home'; // 頁面名稱
 
 <?php include __DIR__. '/parts/navbar.php'; ?>
 
-<link rel="stylesheet" href="./nap_css/member-nav1.css">
+<link rel="stylesheet" href="./nap_css/member-nav2.css">
 
 <link rel="stylesheet" href="./nap_css/love3.css">
 

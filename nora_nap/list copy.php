@@ -35,7 +35,7 @@ $pageName = 'home'; // 頁面名稱
 
     <link rel="stylesheet" href="./nap_css/component_mobile2.css">
     <link rel="stylesheet" href="./nap_css/member-nav.css">
-    <link rel="stylesheet" href="./nap_css/list.css">
+    <link rel="stylesheet" href="./nap_css/list1.css">
     
 </head>
 <?php include __DIR__. '/parts/navbar.php'; ?>

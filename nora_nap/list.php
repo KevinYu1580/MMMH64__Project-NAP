@@ -2,8 +2,6 @@
 require __DIR__ . '/parts/connect_db.php';
 
 
-// $sql = "SELECT * FROM `likes` WHERE `member_sid`=1 AND `like_type` = 1";
-// $sql_t = "SELECT * FROM `likes` WHERE `member_sid`= 1";
 $sql = "SELECT * FROM `event_order_detail` LEFT join event_order on event_order.sid = event_order_detail.event_order_sid LEFT join event_detail on event_detail.sid = event_order_detail.event_order_sid where member_sid=1 AND `order_status` = 1 AND `payment_way` = 1";
 
 
@@ -35,7 +33,7 @@ $pageName = 'home'; // 頁面名稱
 
     <link rel="stylesheet" href="./nap_css/component_mobile2.css">
     <link rel="stylesheet" href="./nap_css/member-nav.css">
-    <link rel="stylesheet" href="./nap_css/list.css">
+    <link rel="stylesheet" href="./nap_css/list1.css">
     
 </head>
 <?php include __DIR__. '/parts/navbar.php'; ?>
