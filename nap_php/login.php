@@ -9,7 +9,7 @@ if (!empty($_SESSION['user'])) {
 ?>
 
 <?php
-// require __DIR__ . '/parts/connect_db.php';
+require __DIR__ . '/parts/connect_db_nora.php';
 $pageName = 'home'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
@@ -21,9 +21,9 @@ $pageName = 'home'; // 頁面名稱
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 
+    <link rel="stylesheet" href="./nap_css/reset.css">
 
-
-<link rel="stylesheet" href="./nap_css/login3.css">
+<link rel="stylesheet" href="./nap_css/login5.css">
     
     <title><?= $title ?></title>
 </head>
@@ -36,17 +36,25 @@ $pageName = 'home'; // 頁面名稱
 <div class="wrap">
     
     <!-- <div class="outcut"> -->
-        <div class="login-pc d-flex">
+        <div class="login-pc d-flex justify-content-end">
         <div class="textbox d-flex flex-column align-items-center justify-content-center">
+            <div class="play-people">
+                <img src="./img/self/n/member/bg/man.png" alt="" class="people-man ">
+                <img src="./img/self/n/member/bg/ball.png" alt=""class="people-ball">
+                <img src="./img/self/n/member/bg/girl1.png" alt=""class="people-girl1">
+                <img src="./img/self/n/member/bg/girl2.png" alt=""class="people-girl2">
+                <img src="./img/self/n/member/bg/dog.png" alt=""class="people-dog">
+                <img src="./img/self/n/member/bg/logo-white.png" alt=""class="people-logo">
+            </div>
             <div class="close"><img src="./img/self/n/close.png" alt=""></div>
             <div class="content d-flex flex-column align-items-center">
                 <div class="part">
-                    <div class="logo d-flex justify-content-center"><img src="./img/self/n/logo.png" alt=""></div>
-                    <div class="title d-flex justify-content-center mx-5"><h3>登入</h3></div>
+                    <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
+                    <div class="title d-flex justify-content-center mx-5 mb-4"><h3>登入</h3></div>
                 </div>
                 <form class="form needs-validation  "name="form1" method="post" onsubmit="checkForm(); return false;">
                     <div class="up-part d-flex flex-column align-items-center mx-4">
-                        <div class="email-box w-100 mb-2  ">
+                        <div class="email-box w-100 mb-3  ">
                         <label for="email" class="form-label">帳號 (email)</label>
                         <input type="email" class="form-control " id="email" name="email" placeholder="請輸入帳號" required>
                         <div class="invalid-feedback">

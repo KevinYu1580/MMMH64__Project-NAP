@@ -4,7 +4,7 @@
 // exit;
 
 // require __DIR__. '/../parts/connect_db.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+require '../parts/connect_db_nora.php';
 
 if(isset($_GET['sid'])){
     $sid =  intval($_GET['sid']);
