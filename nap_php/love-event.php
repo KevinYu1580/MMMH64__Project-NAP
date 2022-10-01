@@ -87,20 +87,20 @@ $pageName = 'home'; // 頁面名稱
 <!-- 分頁 -->
 <div class="top-pages">
     <div class="top-page d-flex w-100 justify-content-center">
-        <a href="./love-pet.html" >
+        <a href="./love-pet.php" >
             <div class="page  " >
                 
                 <h5>園區孩子</h5>
             </div>
         </a>
-        <a href=".">
+        <a href="./love-event.php">
             <div class="page atpage" >
             <img class="decorate-big" src="./img/self/n/member/triangle.svg" alt="">
                 <img class="decorate-sm" src="./img/self/n/member/triangle-s.svg" alt="">
                 <h5>活動</h5>
             </div>
         </a>
-        <a href="./gift-used.html">
+        <a href="./love-chat.php">
             <div class="page " >
                 <h5>文章</h5>
             </div>

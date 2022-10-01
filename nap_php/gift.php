@@ -42,7 +42,7 @@ $pageName = 'home'; // 頁面名稱
  <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
      
          
-     <div class="titlebox  "><h2>會員中心</h2></div>
+     <div class="titlebox pb-2 "><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
@@ -77,19 +77,19 @@ $pageName = 'home'; // 頁面名稱
 <!-- 分頁 -->
 <div class="top-pages">
 <div class="top-page d-flex w-100 justify-content-center">
-    <a href="./gift.html" >
+    <a href="./gift.php" >
         <div class="page  atpage" >
         <img class="decorate-big" src="./img/self/n/member/triangle.svg" alt="">
             <img class="decorate-sm" src="./img/self/n/member/triangle-s.svg" alt="">
             <h5>即將到期</h5>
         </div>
     </a>
-    <a href="./gift-expired.html">
+    <a href="./gift-expired.php">
         <div class="page " >
             <h5>已過期</h5>
         </div>
     </a>
-    <a href="./gift-used.html">
+    <a href="./gift-used.php">
         <div class="page " >
             <h5>已使用</h5>
         </div>
