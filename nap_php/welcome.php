@@ -109,26 +109,6 @@ $pageName = 'home'; // 頁面名稱
 <!-- <script src="./nap_js/component.js"></script> -->
 <script>
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
 
 
 
@@ -137,23 +117,7 @@ $pageName = 'home'; // 頁面名稱
 
 // -----------------------
     function checkForm() {
-        // TODO: 欄位檢查
-        // if (!$('#email').val()) {
-        //     form.classList.add('was-validated')
-        //     return;
-        // }
-        // if (!$('#password').val()) {
-        //     $("#myAlert").alert();
-        //     return;
-        // }
-        // if (!$('#email1').val()) {
-        //     form.classList.add('was-validated')
-        //     return;
-        // }
-        // if (!$('#password1').val()) {
-        //     $("#myAlert").alert();
-        //     return;
-        // }
+        
         $.post(
             'login-api.php',
             $(document.form1).serialize(),
