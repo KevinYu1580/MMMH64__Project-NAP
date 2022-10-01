@@ -19,7 +19,7 @@ $pageName = 'home'; // 頁面名稱
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/register10.css">
+<link rel="stylesheet" href="./nap_css/register15.css">
     
     <title><?= $title ?></title>
 </head>
@@ -54,8 +54,9 @@ $pageName = 'home'; // 頁面名稱
                             <!-- <img src="./img/self/n/member/bg/illustaror-81.png" alt=""class="people-dog"> -->
                             
                         </div>
-                        <img src="./img/self/n/member/bg/logo-white.png" alt=""class="people-logo">
+                        
                     </div>
+                    <img src="./img/self/n/member/bg/logo-white.png" alt=""class="people-logo">
                 </div>
                 
                 
@@ -64,7 +65,7 @@ $pageName = 'home'; // 頁面名稱
                 <div class="content content1 d-flex flex-column my-auto" id="content1">
                     <div class="part part1 ">
                         <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
-                        <div class="title d-flex justify-content-center mx-5 mb-4"><h3>註冊</h3></div>
+                        <div class="title d-flex justify-content-center mx-5 pb-2"><h3>註冊</h3></div>
                     </div>
                     <div class="part2 w-100  ">
             
@@ -112,8 +113,8 @@ $pageName = 'home'; // 頁面名稱
             
                         </div>
                     </div>
-                    <form class="form" name="form1" onsubmit="checkForm(); return false;" method="post" novalidate>
-                        <div class="mt-5 mb-3 email mx-5">
+                    <form class="form mt-3" name="form1" onsubmit="checkForm(); return false;" method="post" novalidate>
+                        <div class=" mb-3 email mx-5">
                                 <label for="email" class="form-label mb-2 ">註冊新帳號</label>
                                 <input type="text" class="form-control" id="email" name="email" placeholder="請輸入電子信箱" >
                         </div>
@@ -161,7 +162,8 @@ $pageName = 'home'; // 頁面名稱
                                     A simple danger alert—check it out!
                             </div> -->
                         </div>
-                        <button type="submit" class="btn btn-primary endbtn">確認</button>
+                        <button type="submit" class="btn endbtn">
+                           <p>確認</p> </button>
                     </form>
             
                     <div class="alldown mt-4">
@@ -195,7 +197,7 @@ $pageName = 'home'; // 頁面名稱
             
             
             
-                </div>
+                
             
     
             
@@ -204,9 +206,9 @@ $pageName = 'home'; // 頁面名稱
             </div>
         
     
+        </div>
     </div>
 </div>
-
 
 
 

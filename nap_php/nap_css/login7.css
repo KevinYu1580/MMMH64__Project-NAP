@@ -51,10 +51,11 @@
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
 *{
-    font-family: custom-font;        
+    font-family: custom-font;     
 }
-html{
+body{
     width: 100%;
+    font-family: custom-font;  
 }
 .wrap{
     /* background-color: var(--subColor_text); */
@@ -68,6 +69,7 @@ html{
     justify-content: center;
     box-sizing: border-box;
     position: relative;
+    
     
 }
 
@@ -211,8 +213,8 @@ html{
 .close {
     
     position: absolute;
-    top: 20px;
-    right: 5%;
+    top: 190px;
+    right: 20%;
     
 }
 
@@ -234,6 +236,7 @@ html{
     /* margin-left: 5%;
     margin-right: 5%; */
     margin-bottom: 4px;
+    font-family: custom-font; 
     
     
 }
@@ -247,8 +250,9 @@ html{
 
 h3{
     font-size: var(--headline_24px);
-    font-weight: 900;
-    color: #4C4C4C;
+    font-weight: 600;
+    color: var(--subColor_text);
+    font-family: custom-font; 
 }
 
 .up-part{
@@ -259,7 +263,7 @@ h3{
 form{
     font-size: 18px;
     color: var(--subColor_text);
-    font-weight: 700;
+    font-weight: 500;
     /* text-shadow: 0 0 0.5px #000; */
     position: relative;
 }
@@ -310,12 +314,17 @@ input{
 
 .title-sm{
     color:var(--subColor_text);
-    font-weight: 900;
+    font-weight: 600;
+    padding-bottom: 12px;
+    font-family: custom-font; 
+
 }
 .title-sm p{
     margin-bottom: 0;
-    padding-bottom: 4px;
+    
     font-size: 16px;
+    font-family: custom-font; 
+    line-height: 1;
 }
 
 .line{
@@ -355,20 +364,21 @@ a{
 .community .text p{
     margin-bottom: 0;
     font-size: 16px;
+    font-family: custom-font;  
 }
 
 .say  p{
     color: var(--black_600);
-    font-weight: 700;
+    /* font-weight: 700; */
     font-size: 16px;
     margin-bottom: 0;
 }
 
 .say .right p{
-    color: #6F6F6F;
-    font-weight: 900;
-    padding-left: 20px;
-    text-shadow: 0 0 0.5px #000;
+    color: var(--subColor_text);
+    font-weight: 700;
+    padding-left: 15px;
+    /* text-shadow: 0 0 0.5px #000; */
     
 }
 
@@ -405,10 +415,9 @@ a{
     }
 
     .close {
-    
         position: absolute;
-        top: 50px;
-        right: 8%;
+        top: 60px;
+        right: 50px;
         
     }
 

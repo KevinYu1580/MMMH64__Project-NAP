@@ -23,7 +23,7 @@ $pageName = 'home'; // 頁面名稱
 
     <link rel="stylesheet" href="./nap_css/reset.css">
 
-<link rel="stylesheet" href="./nap_css/login5.css">
+<link rel="stylesheet" href="./nap_css/login7.css">
     
     <title><?= $title ?></title>
 </head>
@@ -48,14 +48,14 @@ $pageName = 'home'; // 頁面名稱
             </div>
             <div class="close"><img src="./img/self/n/close.png" alt=""></div>
             <div class="content d-flex flex-column align-items-center">
-                <div class="part">
+                <div class="part ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
-                    <div class="title d-flex justify-content-center mx-5 mb-4"><h3>登入</h3></div>
+                    <div class="title d-flex justify-content-center  mx-sm-5 mx-4 pb-3 mb-4"><h3>登入</h3></div>
                 </div>
                 <form class="form needs-validation  "name="form1" method="post" onsubmit="checkForm(); return false;">
-                    <div class="up-part d-flex flex-column align-items-center mx-4">
+                    <div class="up-part d-flex flex-column align-items-center mx-4 mx-sm-4 ">
                         <div class="email-box w-100 mb-3  ">
-                        <label for="email" class="form-label">帳號 (email)</label>
+                        <label for="email" class="form-label mb-2">帳號 (email)</label>
                         <input type="email" class="form-control " id="email" name="email" placeholder="請輸入帳號" required>
                         <div class="invalid-feedback">
                             此處不可空值
@@ -65,7 +65,7 @@ $pageName = 'home'; // 頁面名稱
                             
                         </div>
                         <div class="password-box w-100">
-                            <label for="password" class="form-label">密碼</label>
+                            <label for="password" class="form-label mb-2">密碼</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="請輸入密碼" required>
                             <div class="invalid-feedback">
                             此處不可空值或格式錯誤
@@ -79,7 +79,7 @@ $pageName = 'home'; // 頁面名稱
                     </div>
                     
                         <div class="line mx-4">
-                        <div class="title-sm d-flex flex-column align-items-center"><p>快速登入</p></div>
+                        <div class="title-sm d-flex flex-column align-items-center "><p>快速登入</p></div>
                         </div>
                         <div class="community d-flex flex
                         justify-content-center align-items-center">

@@ -19,10 +19,8 @@ $pageName = 'home'; // 頁面名稱
 
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
-
-
-
-<link rel="stylesheet" href="./nap_css/welcome.css">
+<?php include __DIR__ . '/parts/html-head.php'; ?>
+<link rel="stylesheet" href="./nap_css/welcome1.css">
     
     <title><?= $title ?></title>
 </head>
@@ -32,65 +30,76 @@ $pageName = 'home'; // 頁面名稱
 
 
 
-<div class="wrap">
-    <div class="login-pc d-flex justify-content-end">
-        <div class="textbox d-flex  align-items-center justify-content-center">
-            <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+<div class="wrap">     
+        <div class="login-pc d-flex justify-content-end">
+            <div class="textbox d-flex  align-items-center justify-content-center">
             
-            <div class="content content4 d-flex flex-column align-items-center  w-100">
-                <div class="part w-100 ">
-                    
-                    <div class="title d-flex justify-content-center "><h3>STEP1</h3></div>
-                    <div class="stepbox mx-5 d-flex justify-content-center">
-                        <div class="stepline"></div>
-                        <div class="steps d-flex justify-content-between">
+                <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+                <div class="bikegirl">
+                        <div class="play-people">
+                                <img src="./img/self/n/member/bg/girl.png" alt="" class="girl ">
+                                <img src="./img/self/n/member/bg/bike-body.png" alt=""class="bike-body">
+                       
+
+                                <img src="./img/self/n/member/bg/svg/leg-up-f_1.svg" alt=""class="legup-f">
+                                <img src="./img/self/n/member/bg/svg/leg-down-f.svg" alt=""class="legdown-f">
+                                <img src="./img/self/n/member/bg/svg/foot-f.svg" alt=""class="foot-f">
+
+                                <img src="./img/self/n/member/bg/svg/leg-up.svg" alt=""class="legup-b">
+                                <img src="./img/self/n/member/bg/svg/leg-down.svg" alt=""class="legdown-b">
+                                <img src="./img/self/n/member/bg/svg/foot.svg" alt=""class="foot-b">
+                                
+
+                                <img src="./img/self/n/member/bg/wheel.png" alt=""class="wheel1">
+                                <img src="./img/self/n/member/bg/wheel.png" alt=""class="wheel2">
+                                
+                                
+                            </div>
                             
-                            <div class="step step1 d-flex flex-column align-items-center">
-                                <div class="dot"></div>
-                                <div class="text">輸入密碼</div>
-                            </div>
-                            <div class="step step2 d-flex flex-column align-items-center">
-                                <div class="dot"></div>
-                                <div class="text">填寫資料</div>
-                            </div>
-                            <div class="step step3 d-flex flex-column align-items-center">
-                                <div class="dot"></div>
-                                <div class="text">完成註冊</div>
+                        </div>
+                        <img src="./img/self/n/member/bg/logo-white.png" alt=""class="people-logo">
+            
+                <div class="content content4 d-flex flex-column align-items-center  m-auto">
+                    <div class="part  ">
+                        <div class="title d-flex justify-content-center ">
+                            <h3>STEP1</h3>
+                        </div>
+                        <div class="stepbox mx-5 d-flex justify-content-center">
+                            <div class="stepline"></div>
+                            <div class="steps d-flex justify-content-between">
+                                <div class="step step1 d-flex flex-column align-items-center">
+                                    <div class="dot"></div>
+                                    <div class="text">輸入密碼</div>
+                                </div>
+                                <div class="step step2 d-flex flex-column align-items-center">
+                                    <div class="dot"></div>
+                                    <div class="text">填寫資料</div>
+                                </div>
+                                <div class="step step3 d-flex flex-column align-items-center">
+                                    <div class="dot"></div>
+                                    <div class="text">完成註冊</div>
+                                </div>
                             </div>
                         </div>
-                        
+
+
                     </div>
-
-
-                </div>
-                <form class="form needs-validation d-flex flex-column align-items-center" >
-                    <div class="up-part d-flex flex-column align-items-center   w-100">
-                        
-                       <img src="./img/self/n/check.png" alt="">
-                       <p>完成註冊</p>
-
+                    <form class="form needs-validation d-flex flex-column align-items-center" >
+                        <div class="up-part d-flex flex-column align-items-center   w-100">
+                        <img src="./img/self/n/check.png" alt="">
+                        <p>完成註冊</p>
                         </div>
-                        
                         <div class="btn-box d-flex flex-column  ">
-                            
-                            <button type="button" class="btn btn-primary"
-                            onclick="location.href='./register-2.php'"><p>確認</p> </button>
-                            
+                            <button type="button" class="btn btn-primary" onclick="location.href='./register-2.php'"><p>確認</p> </button>    
                         </div>
+                    </form>
                 </div>
-                
-                
-                </form>
-            </div>
-        
-        
-                    
-                
-                
-    </div>
-    
-
+                </div>
+        </div>
 </div>
+
+   
+
 
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->

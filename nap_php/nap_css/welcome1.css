@@ -57,23 +57,410 @@ html{
     width: 100%;
 }
 .wrap{
-    background-color: var(--subColor_text);
+    background: url(../img/self/n/member/bg/bgc-grassland.png);
+    background-repeat: no-repeat;
+    background-position:  0;
+    background-size: cover;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
     
 }
 
+/* * ---------------------------------------- */ 
+
+.bikegirl{
+    width: 250px;
+    height: 600px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    animation: peopleGO 25s  infinite linear;
+
+}
+
+
+
+.play-people{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 200px;
+
+
+}
+
+.play-people .girl{
+    width: 140px;
+    position: absolute;
+    top: 118px;
+    left: 202px;
+    animation: peopleMove 2.5s  infinite ;
+    z-index: 5;
+
+}
+
+.play-people .bike-body{
+    width: 245px;
+    position: absolute;
+    top: 163px;
+    left: 180px;
+    animation: ballFly 10s  infinite ;
+    z-index: 2;
+}
+
+.play-people .legup-b{
+    width: 70px;
+    position: absolute;
+    top: 226px;
+    left: 225px;
+    animation: legupMove 3s  infinite ;
+    z-index: 1;
+}
+.play-people .legup-f{
+    width: 80px;
+    position: absolute;
+    top: 220px;
+    left: 220px;
+    transform: rotate(-10deg);
+    animation: legup-fMove 3s  infinite ;
+    z-index: 2;
+}
+
+.play-people .legdown-b{
+    width: 63px;
+    position: absolute;
+    top: 247px;
+    left: 248px;
+    animation: legdownMove 3s  infinite ;
+    z-index: 1;
+}
+.play-people .legdown-f{
+    width: 40px;
+    position: absolute;
+    top: 265px;
+    left: 272px;
+    /* transform: rotate(20deg); */
+    animation: legdown-fMove 3s  infinite ;
+    z-index: 2;
+}
+
+.play-people .foot-b{
+    width: 27px;
+    position: absolute;
+    top: 323px;
+    left: 238px;
+    animation: footMove 3s infinite ;
+    z-index:1;
+}
+.play-people .foot-f{
+    width: 38px;
+    position: absolute;
+    top: 351px;
+    left: 290px;
+    /* transform: rotate(-40deg); */
+    animation: foot-fMove 3s infinite ;
+    z-index: 2;
+}
+
+
+
+
+
+.play-people .leg-01{
+    width: 150px;
+    position: absolute;
+    top: 215px;
+    left: 194px;
+    animation: legMove 5s 1s infinite ;
+    z-index: 1;
+}
+.play-people .leg-02{
+    width: 150px;
+    position: absolute;
+    top: 213px;
+    left: 194px;
+    animation: peopleMove 2s 1s infinite ;
+    z-index: 2;
+}
+
+
+
+
+.play-people .wheel1{
+    width: 150px;
+    position: absolute;
+    top: 285px;
+    left: 304px;
+    animation: wheelTurn  2s infinite linear;
+}
+
+.play-people .wheel2{
+    width: 150px;
+    position: absolute;
+    top: 280px;
+    left: 115px;
+    z-index: 1;
+    animation: wheelTurn 2s infinite linear;
+}
+
+.play-people .shadow1{
+    width: 300px;
+    position: absolute;
+    top: 450px;
+    left: 22%;
+    animation: wheelTurn 10s -1s infinite ;
+}
+
+.wrap .people-logo{
+    width: 250px;
+    position: absolute;
+    top: 680px;
+    left: 31%;
+}
+
+
+/* ------------動畫------------------- */
+
+
+
+  @keyframes peopleGO {
+
+      0% {
+        transform: translate(-500px, -190px);
+      }
+
+      25% {
+        transform: translate(200px, -200px) rotate(5deg);
+      }
+
+      50% {
+        transform: translate(700px, -225px) rotate(-8deg); 
+      }
+
+      75% {
+        transform: translate(1200px,-200px)rotate(8deg);
+      }
+
+      100% {
+        transform: translate(1920px, -180px) rotate(0deg);
+      }
+      
+
+      
+
+    }
+
+    
+
+
+    @keyframes peopleMove {
+
+        0%, 100% {
+          /* transform: translate(-200px, 0px); */
+          
+        }
+        50% {
+          /* transform: translate(900px, 3px); */
+        }
+        
+  
+        
+  
+      }
+
+    /* @keyframes peopleHit {
+
+        0%, 100% {
+          transform: translate(0px, 0px);
+          
+        }
+        50% {
+          transform: translate(0px, 20px);
+        }
+  
+        0%, 100% {
+          transform: rotate(0deg);
+          
+        }
+        50% {
+          transform: rotate(20deg);
+        }
+  
+      } */
+
+      @keyframes wheelTurn {
+
+       
+
+        0% {
+          /* transform: rotate(0deg); */
+        }
+
+        100% {
+            transform: rotate(359deg);
+          }
+  
+        
+  
+      }
+
+      @keyframes legup-fMove {
+
+       
+
+        0%,100% {
+            transform:  rotate(0deg);
+        }
+        
+
+        50% {
+          transform:  translate(0px, -8px)rotate(-20deg);
+        }
+
+        75% {
+            transform:  translate(0px, -8px)rotate(-15deg);
+          }
+ 
+  
+      }
+
+      @keyframes legdown-fMove {
+
+       
+
+        0%,100% {
+            transform:  translate(0px, 5px) rotate(0deg);
+        }
+        
+
+        50% {
+            
+            
+          transform: translate(-10px, -20px) rotate(30deg);
+        }
+        75% {
+            
+            
+            transform: translate(0px, -10px) rotate(15deg);
+          }
+
+
+      }
+
+      @keyframes foot-fMove {
+
+       
+
+        0% {
+            transform:  rotate(0deg);
+        }
+        
+
+        50% {
+            
+            
+          transform: translate(-40px, -20px) rotate(30deg);
+        }
+        75% {
+            
+            
+            transform: translate(-20px, -20px) rotate(20deg);
+          }
+
+          100% {
+            transform:  translate(-2px, 0px);
+        }
+        
+        
+    }
+
+
+
+    @keyframes legupMove {
+
+       
+
+        0%,100% {
+            transform:  rotate(0deg);
+        }
+        
+
+        50% {
+          transform:  translate(0px, 0px)rotate(10deg);
+        }
+
+        75% {
+            transform:  translate(0px, 0px)rotate(5deg);
+          }
+ 
+  
+      }
+
+      @keyframes legdownMove {
+
+       
+
+        0%,100% {
+            transform:  translate(0px, -3px) rotate(0deg);
+        }
+        
+
+        50% {
+            
+            
+          transform: translate(10px, 0px) rotate(-50deg);
+        }
+        75% {
+            
+            
+            transform: translate(-2px, -2px) rotate(-15deg);
+          }
+
+
+      }
+
+      @keyframes footMove {
+
+       
+
+        0% {
+            transform:  rotate(0deg);
+        }
+        
+
+        50% {
+            
+            
+          transform: translate(50px, 10px) rotate(-30deg);
+        }
+        75% {
+            
+            
+            transform: translate(20px, 5px) rotate(-20deg);
+          }
+
+          100% {
+            transform:  translate(2px, 0px);
+        }
+        
+        
+    }
+
+
+/* ------------動畫------------------- */
 
 
 .close {
     
     position: absolute;
-    top: 60px;
-    right: 5%;
+    top: 210px;
+    right: 20%;
+    z-index: 12;
     
 }
 
@@ -85,6 +472,13 @@ html{
     width: 100%;
 }
 
+
+.content4{
+    width: 375px;
+    height: 586px;
+    position: relative;
+    
+}
 
 .content2{
     /* position: absolute; */
@@ -243,7 +637,7 @@ a{
 
     .login-pc{
         /* background-color:var(--subColor_text); */
-        background-image: url(../img/self/n/bg/bg-2.png);
+        /* background-image: url(../img/self/n/bg/bg-2.png); */
         width: 70%;
         /* height: 750px; */
         background-repeat: no-repeat;
