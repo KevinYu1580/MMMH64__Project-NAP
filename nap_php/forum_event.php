@@ -378,13 +378,13 @@ $pageName = 'Forum-events'; // 頁面名稱
                                         <span class='messageQty'>${num? num:0}則留言</span>
                                     </div>
                                     <form id='form_sendMessage${sid}' name='form_sendMessage${sid}' class="messageLev d-flex align-items-center" onsubmit='return false'>
-                                        <div class=" d-flex align-items-center col-10 gap-3">
+                                        <div class="memberInfo_wrap d-flex align-items-center col-10 gap-3">
                                         <div class="memberPic">
                                         </div>
                                         <input name="message" class="message_input" type="text" placeholder="我要留言">
                                         </div>
                                         
-                                        <button type='submit' class="sendMessageBtn"  onclick="sendMessage()">
+                                        <button type='submit' class="sendMessageBtn" onclick="">
                                         送出
                                         </button>   
                                     </form>
@@ -400,7 +400,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                         </div>
                     </div>
                 </div>`
-        
+
     };
 
     const comtCardWrap = $('#comtCard_wrap')
@@ -436,22 +436,22 @@ $pageName = 'Forum-events'; // 頁面名稱
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
                     }
-                    
+
                     str += post_tpl_func(obj);
 
-                    
+
                 });
             }
 
             comtCardWrap.html(str);
-            
+
 
         }, 'json');
 
     }
     getData({})
 
-    
+
 
     // ---------表格提交
     // 貼文
@@ -466,26 +466,38 @@ $pageName = 'Forum-events'; // 頁面名稱
             'json'
         )
 
-        alert('成功發出貼文').done(function(){
+        alert('成功發出貼文').done(function() {
             window.location.reload();
         });
     }
     // 留言
-    function sendMessage(){
+    // function sendMessage(){
+    //     console.log($(this).parent().html())
+    //     // $.post(
+    //     //     './forum_MessageInsert-api.php',
+    //     //     $(document.form_sendMessage).serialize(),
+    //     //     function(data) {
+    //     //         console.log(data)
+    //     //     },
+    //     //     'json'
+    //     // )
+    // }
+    $('.comtCard_wrap').on('click', '.sendMessageBtn', (function() {
+        const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
+        const contentVal = $(this).siblings('.memberInfo_wrap').find('.message_input').val()
+
+        // $(`#form_sendMessage${post_sid}`).serialize()
         $.post(
-            './forum_MessageInsert-api.php',
-            $(document.form_sendMessage).serialize(),
+            'forum_MessageInsert-api.php', {
+                post_sid: post_sid,
+                member_sid: '',
+                message: contentVal
+            },
             function(data) {
                 console.log(data)
-            },
-            'json'
+            }
         )
-    }
-    
-
-
-
-
+    }))
 </script>
 
 
