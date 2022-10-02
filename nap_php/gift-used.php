@@ -29,10 +29,10 @@ $pageName = 'home'; // 頁面名稱
 
 <?php include __DIR__. '/parts/navbar.php'; ?>
 
-<link rel="stylesheet" href="./nap_css/member-nav2.css">
+<link rel="stylesheet" href="./nap_css/member-nav.css">
 
 
-<link rel="stylesheet" href="./nap_css/gift.css">
+<link rel="stylesheet" href="./nap_css/gift2.css">
 
 
 
@@ -54,7 +54,7 @@ $pageName = 'home'; // 頁面名稱
         <li class="">
             <a href="" class="">毛孩資料</a>  
         </li>
-        <li class="bd-none1"">
+        <li class="bd-none1">
             <a href="" class="#">訂單查詢</a>  
         </li>
         <li class="">
@@ -63,7 +63,7 @@ $pageName = 'home'; // 頁面名稱
         <li class="">
             <a href="./gift.html" class="">我的關注</a>  
         </li>
-        <li class="bd-none ">
+        <li class="bd-none">
             <a href="" class="inhere">優惠專區</a>  
         </li>
         

@@ -57,7 +57,7 @@ $pageName = 'home'; // 頁面名稱
         <li class="">
             <a href="" class="">毛孩資料</a>  
         </li>
-        <li class="bd-none1"">
+        <li class="bd-none1">
             <a href="./list.php" class="inhere">訂單查詢</a>  
         </li>
         <li class="">
@@ -117,7 +117,7 @@ $pageName = 'home'; // 頁面名稱
             <div class="text d-flex justify-content-between ">
                 <h3 ><?= $r['event_order_id'] ?></h3>
                 <h3><?= $r['payment_deadline'] ?> 23:49:30</h3>
-                <h3>2345-6789-0000-1234</h3>
+                <h3>2397-6666-1798-4444</h3>
                 <h3 class="h3-sm pricered">NT$ <?= $r['event_order_price'] ?></h3>
                 <h3 class="h3-sm"><?= $statusArray[$r['order_status']] ?></h3>
                 <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
@@ -189,7 +189,7 @@ $pageName = 'home'; // 頁面名稱
             </tr>
             <tr>
                 <td>虛擬帳號</td>
-                <td>2345-6789-0000-1234</td>
+                <td>2397-6666-1798-4444</td>
             </tr>
             <tr>
                 <td>金額</td>

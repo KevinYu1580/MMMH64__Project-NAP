@@ -33,7 +33,7 @@ $pageName = '會員中心'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/member-nav2.css">
 
 
-<link rel="stylesheet" href="./nap_css/gift.css">
+<link rel="stylesheet" href="./nap_css/gift1.css">
 
 
  <!------ menber-nav ------>

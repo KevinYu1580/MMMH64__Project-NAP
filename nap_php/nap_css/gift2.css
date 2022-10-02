@@ -83,15 +83,15 @@
     color: var(--black_200);
     position: absolute;
     top: 50%;
-    right: 0%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 
 .gift p{
     position: absolute;
-    top: 18px;
-    right: 55px;
+    top: 20px;
+    right: 49px;
     margin-bottom: 0;
     font-size: var(--p_12px);
     color: var(--subColor_highLightRed)
@@ -100,13 +100,14 @@
 
 .gift h3{
     position: absolute;
-    bottom: 18px;
-    right: 40px;
+    bottom: 27px;
+    right: 25px;
     margin-bottom: 0;
     font-size: 72px;
     color: var(--subColor_highLightRed)
 
 }
+
 
 @media (min-width: 1200px){
 

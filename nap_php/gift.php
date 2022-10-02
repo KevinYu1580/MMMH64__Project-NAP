@@ -32,7 +32,7 @@ $pageName = 'home'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/member-nav2.css">
 
 
-<link rel="stylesheet" href="./nap_css/gift.css">
+<link rel="stylesheet" href="./nap_css/gift1.css">
     
 
 
@@ -109,9 +109,9 @@ $pageName = 'home'; // 頁面名稱
         <div class="gift  mb-5 col-sm-6 col-md-6 col-xl-6 ">
             <p><?= $r['valid_time'] ?></p>
             <h3><?= $r['discount'] ?></h3>
-            <div class="gift-expired">
-                <h4><?= $stateArray[$r['coupon_status']] ?></5></h4>
-            </div>
+            <!-- <div class="gift-expired">
+                <h4></5></h4>
+            </div> -->
         </div>
     <?php endforeach ?>
         <!-- <div class="gift  mb-5 col-sm-6 col-md-6 col-xl-6 ">

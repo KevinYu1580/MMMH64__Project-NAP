@@ -65,9 +65,8 @@
 .line{
     border-bottom: 1px solid var(--secondaryColor_default);
     min-width: 50%;
-    
     max-width: 60px;
-    height: 30px;
+    height: 25px;
     margin-bottom: 50px;
     
     
@@ -110,7 +109,9 @@
 }
 
 .bd-none{
-    border-right: none
+   
+    border: none;
+    /* background-color: rgb(248, 58, 58); */
 }
 
 .container1 li a{
@@ -262,6 +263,7 @@
     font-size: 18px; 
     padding-right: 15px;
    padding-left: 15px;
+   padding-bottom: 10px;
    font-weight: 900;
 }
 
