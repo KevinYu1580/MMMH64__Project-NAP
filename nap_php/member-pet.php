@@ -27,7 +27,7 @@ $pageName = 'home'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/member-nav2.css">
 
 
-<link rel="stylesheet" href="./nap_css/pet7.css">
+<link rel="stylesheet" href="./nap_css/pet8.css">
 
 
 
@@ -47,7 +47,7 @@ $pageName = 'home'; // 頁面名稱
             <a href="./info-index.html" class="" >基本資料</a>  
         </li>
         <li class="">
-            <a href="" class="">毛孩資料</a>  
+            <a href="member-pet.php" class="">毛孩資料</a>  
         </li>
         <li class="bd-none1">
             <a href="" class="#">訂單查詢</a>  

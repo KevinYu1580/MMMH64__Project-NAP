@@ -26,6 +26,9 @@ $payArray=['信用卡','ATM'];
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = 'home'; // 頁面名稱
 ?>
+<?php include __DIR__. '/parts/html-head.php'; ?>
+
+<!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 
     
@@ -44,7 +47,7 @@ $pageName = 'home'; // 頁面名稱
  <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
      
          
-     <div class="titlebox "><h2>會員中心</h2></div>
+     <div class="titlebox pb-2"><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
@@ -58,8 +61,8 @@ $pageName = 'home'; // 頁面名稱
         <li class="">
             <a href="" class="">毛孩資料</a>  
         </li>
-        <li class="bd-none1"">
-            <a href="" class="#">訂單查詢</a>  
+        <li class="bd-none1">
+            <a href="./list.php" class="inhere">訂單查詢</a>  
         </li>
         <li class="">
             <a href="" class="#">歷史發佈</a>  
@@ -68,7 +71,7 @@ $pageName = 'home'; // 頁面名稱
             <a href="./gift.html" class="">我的關注</a>  
         </li>
         <li class="bd-none ">
-            <a href="" class="inhere">優惠專區</a>  
+            <a href="" class="">優惠專區</a>  
         </li>
         
 
@@ -99,9 +102,9 @@ $pageName = 'home'; // 頁面名稱
 
  <!------ content ------>
 
-<div class="container ">
+<div class="container">
 
-<div class="container-pc ">
+<div class="container-pc m-auto">
     <div class="ul ">
         <li class="d-flex justify-content-between bd-none p top-li">
             <h3 class="">訂單編號</h3>

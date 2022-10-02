@@ -1,6 +1,5 @@
 <?php session_start();
-// require __DIR__ . '/parts/connect_db.php';
-require __DIR__. '/parts/connect_db_nora.php';
+require __DIR__ . '/parts/connect_db_nora.php';
 
 $id = $_SESSION['user']['id'];
 
@@ -24,6 +23,9 @@ $rows = $pdo->query($sql)->fetch();
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = 'home'; // 頁面名稱
 ?>
+<?php include __DIR__. '/parts/html-head.php'; ?>
+
+<!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 
     
@@ -34,7 +36,8 @@ $pageName = 'home'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/member-nav2.css">
 
 
-<link rel="stylesheet" href="./nap_css/pet7.css">
+<link rel="stylesheet" href="./nap_css/pet8.css">
+
 
 
 
@@ -42,7 +45,7 @@ $pageName = 'home'; // 頁面名稱
  <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
      
          
-     <div class="titlebox  "><h2>會員中心</h2></div>
+     <div class="titlebox  pb-2"><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
@@ -54,7 +57,7 @@ $pageName = 'home'; // 頁面名稱
             <a href="./info-index.html" class="" >基本資料</a>  
         </li>
         <li class="">
-            <a href="" class="">毛孩資料</a>  
+            <a href="member-pet.php" class="">毛孩資料</a>  
         </li>
         <li class="bd-none1">
             <a href="" class="#">訂單查詢</a>  
@@ -92,6 +95,15 @@ $pageName = 'home'; // 頁面名稱
 <!------ content ------>
 
 <div class="album py-2 ">
+
+<div id="msgContainer" class="" style=" position: absolute; z-index: 900;top: 50%; left: 50%; transform: translate(-50%, -50%); display:none; width: 100%; height: 100vh; background-color: #4C4C4C; ">
+        <!-- <div class="alert " role="alert" style=" width: 100%; height: 100vh;" >
+            <p style=" position: absolute; z-index: 22;top: 56%;left: 51%; transform: translate(-50%, -50%); width: 100px;">新增成功
+            </p> 
+            <img id="myimg1" src="./img/member/profile-image/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> -->
+    </div>
+
     <div class="container m-auto">
     
       <div class="row row-cols-1 row-cols-sm-2 row-cols-mb-3 d-flex  ">
@@ -117,10 +129,7 @@ $pageName = 'home'; // 頁面名稱
                 <div class="imgbox">
                     <img src="./uploads/<?=$rows['img'] ?>" alt="" class="photo" >
                 </div>
-                <!-- <div class="plusbox d-flex flex-column align-items-center">
-                    <img src="./img/self/n/pet/plus.png" alt="">
-                    <p>新增毛孩照片</p>
-                </div> -->
+                
             
             </div>
 
@@ -190,15 +199,6 @@ $pageName = 'home'; // 頁面名稱
                         <img src="" alt="">
                     </div>
                     </div>
-                    
-                    
-                <div id="msgContainer" class="msgContainer" >
-            
-                <!-- <div class="alert alert-danger" role="alert">
-                     新增成功
-                </div> -->
-               
-            </div>
 
                     <div class=" btn-group1 d-flex justify-content-end align-items-center mt-3">
                           <div class="btn-box   ">
@@ -345,17 +345,29 @@ $('.pet-color .c4').click(function(s){
 
 const msgc = $('#msgContainer');
 
-function genAlert(msg, type='danger') {
-    const a = $(`
-    <div class="alert alert-${type}" role="alert">
-        ${msg}
-    </div>
-    `);
+function genAlert(msg,ccc) {
 
+    $(' #msgContainer').css('display','block');
+
+    const a = $(`
+    <div class="alert " role="alert" style=" width: 100%; height: 100vh;" >
+            <p style=" position: absolute; z-index: 22;top: 56%;left: 51%; transform: translate(-50%, -50%); width: 100px;">${msg}
+            </p> 
+            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div>
+
+    `);
     msgc.append(a);
     setTimeout(()=>{
         a.fadeOut(400, function(){
             a.remove();
+        });
+        
+    }, 2000);
+    msgc.append(msgc);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $(' #msgContainer').css('display','none');
         });
         
     }, 2000);
@@ -386,9 +398,10 @@ function checkForm1() {
             function(data) {
                 console.log(data);
                 if(data.success){
-                    genAlert('修改完成', 'success');
+                    genAlert('修改完成', './img/self/n/fix.gif');
+                    
                 } else {
-                    genAlert(data.error);
+                    genAlert('尚未修改', './img/self/n/none.gif');
                 }
 
 

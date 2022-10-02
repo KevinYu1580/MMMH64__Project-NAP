@@ -1,0 +1,328 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radius: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+*{
+    font-family: custom-font;        
+}
+
+.info-content{
+    /* background-image: url(../img_n/member/big-bg-all.png); */
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    border: 10px solid var(--primaryColor_light);
+    box-shadow: 0px 0px 0px 1px var(--primaryColor_light) inset;
+    width: 960px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--border-radious)
+    
+}
+
+.control{
+    width: 40%;
+    height: 100%;
+    /* border-radius: 10px; */
+    /* background-color: var(--primaryColor_light); */
+    background-image: url(../img/self/n/member/left-bg.png);
+    background-position:  100% ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+
+.photoup{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 240px;
+    left: 215px;
+    border-radius: 80px;
+    background: var(--primaryColor_dark);
+    border: 5px solid rgb(255, 255, 255);
+    z-index: 6;
+}
+
+.upload{
+    width: 20px;
+    padding-bottom: 2px;
+}
+
+#myimg{
+    
+    border-radius: 80px;
+    position: absolute;
+    top: 151px;
+    left: 114px;
+    max-width: 148px;
+    min-height: 148px;
+    object-fit: cover;
+    outline: var(--primaryColor_default);
+    
+    z-index: 5;
+}
+
+
+.control .old-avatar{
+    border-radius: 80px;
+    border: 5px solid rgb(255, 255, 255);
+    width: 157px;
+    height: 157px;
+    object-fit: cover;
+}
+
+.control .name{
+    font-size: var(--headline_28px);
+    font-weight: 900;
+    border-bottom: 1px solid #000;
+    padding: 15px;
+
+    
+}
+
+.control ul{
+    padding-left: 0;
+}
+
+.control li{
+    border: none;
+    list-style:none;
+    font-size: var(--headline_20px);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    font-weight: 700;
+    
+}
+
+
+.texthover:hover{
+    color: var(--subColor_bgc)
+}
+
+
+.control a{
+    color: var(--subColor_bgc);
+    text-decoration: none;
+    
+    
+}
+
+
+.list{
+    width: 60%;
+    /* margin-top: auto; */
+}
+.list .inlong{
+    width: 70%;
+}
+
+.btn-box{
+    /* height: 40px; */
+    padding-top: 70px;
+    /* margin-bottom: 30px; */
+    width: 150px;
+    
+
+}
+
+.btn-box .btn{
+    background-color: var(--primaryColor_dark);
+    border-radius: var(--btn-radius);
+    border: 1px solid var(--primaryColor_dark);
+    font-size: 18px;
+    
+}
+.form-control:disabled{
+    background-color: var(--primaryColor_tint)
+}
+
+
+  @media (max-width: 576px) {
+    
+    .control{
+        width: 100%;
+        height:145px;
+        /* margin: auto; */
+        /* border-radius: 10px; */
+        /* background-color: var(--primaryColor_light); */
+        background-image: url(../img/self/n/member/up-bg1.png);
+        background-position:  center 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .photoup{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 60px;
+        left: 110px;
+        border-radius: 80px;
+        background: var(--primaryColor_dark);
+        border: 1px solid rgb(255, 255, 255);
+        z-index: 6;
+        
+    }
+    
+    .upload{
+        width: 10px;
+        margin-bottom: 10px;
+        margin-left: -2px;
+        /* padding-bottom: 10px;
+        padding-right: 5px; */
+    }
+    
+    #myimg{
+        max-width: 47px;
+        max-height: 47px;
+        border-radius: 80px;
+        position: absolute;
+        top: 9.1px;
+        left: 74.6px;
+        outline: var(--primaryColor_default);
+        /* border: 2px solid rgb(255, 255, 255); */
+        z-index: 5;
+    }
+    
+
+
+
+    .control .name{
+        font-weight: 900;
+        border-bottom: none;
+        padding: 15px;
+        font-size: 18px;
+    
+        
+    }
+
+    .control .old-avatar{
+        border-radius: 80px;
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgb(255, 255, 255);
+    }
+
+    .info-content{
+        width: 80%;
+        box-shadow: 0px 0px 0px 3px var(--primaryColor_light) inset;
+        
+        
+        
+    }
+
+    .info-content-1{
+        height: 500px;
+    }
+    .info-content-2{
+        height: 550px;
+    }
+
+
+
+    .control li{
+        font-size: var(--p_16px);
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: 700;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        
+        
+        
+    }
+
+    .control a{
+        color: var(--subColor_bgc);
+        
+        
+        
+    }
+
+    .control .bdr{
+        border-right: 1px solid var(--subColor_bgc);
+        
+    }
+
+    .list{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .list .inlong{
+        width: 90%;
+    }
+
+    .btn-box{
+        /* height: 40px; */
+        padding-top: 40px;
+        margin-bottom: 40px;
+        
+        
+    
+    }
+
+  }
+
+  @media (min-width: 576px){
+    .list{
+        width: 60%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+
+    
+  }

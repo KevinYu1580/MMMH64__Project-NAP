@@ -33,7 +33,7 @@ $pageName = 'home'; // 頁面名稱
 
 <link rel="stylesheet" href="./nap_css/member-nav2.css">
 
-<link rel="stylesheet" href="./nap_css/info2.css">
+<link rel="stylesheet" href="./nap_css/info4.css">
 
 
  <!------ menber-nav ------>
@@ -74,7 +74,7 @@ $pageName = 'home'; // 頁面名稱
  </div>
  <!------ content ------>
  <?php foreach($rows as $r): ?>
- <div class="info-content d-flex flex-column flex-sm-row">
+ <div class="info-content info-content-1 d-flex flex-column flex-sm-row">
     <div class="control d-flex flex-column justify-content-center align-items-center">
         <div class="person d-flex flex-sm-column flex-row justify-content-center align-items-center">
             <div class="imgbox">

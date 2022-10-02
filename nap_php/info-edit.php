@@ -45,7 +45,7 @@ $pageName = 'home'; // 頁面名稱
 
 <link rel="stylesheet" href="./nap_css/member-nav2.css">
 
-<link rel="stylesheet" href="./nap_css/info2.css">
+<link rel="stylesheet" href="./nap_css/info4.css">
 
 
 
@@ -88,6 +88,13 @@ $pageName = 'home'; // 頁面名稱
  <!------ content ------>
 
  <div class="info-content d-flex flex-column flex-sm-row">
+    <div id="msgContainer" class="" style=" position: absolute; z-index: 900;top: 50%; left: 50%; transform: translate(-50%, -50%); display: none; height: 100vh; width: 100%;   background-color: #4C4C4C; ">
+        <!-- <div class="alert " role="alert" style=" width: 100%; height: 100vh;" >
+            <p style=" position: absolute; z-index: 22;top: 56%;left: 51%; transform: translate(-50%, -50%); width: 100px;">新增成功
+            </p> 
+            <img id="myimg1" src="./img/member/profile-image/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> -->
+    </div>
     <div class="control d-flex flex-column justify-content-center align-items-center">
         <div class="person d-flex flex-sm-column flex-row justify-content-center align-items-center">
         
@@ -125,7 +132,7 @@ $pageName = 'home'; // 頁面名稱
                 </div>
                 <div class="email-box inlong mb-3 ">
                 <label for="email" class="form-label">帳號 (email)</label>
-                <input type="email "  class="form-control "  id="email" name="email" value="<?=htmlentities($r['email']) ?> "required>
+                <input type="email "  class="form-control "  id="email" name="email" value="<?=htmlentities($r['email']) ?> "required >
                 <div class="invalid-feedback">
                     此處不可空值
                 </div>
@@ -196,19 +203,32 @@ document.form2.avatar.addEventListener('change', function(){
 
 
 
-        const msgc = $('#msgContainer');
+    const msgc = $('#msgContainer');
 
-function genAlert(msg, type='danger') {
+function genAlert(msg,ccc) {
+
+    $('.info-content #msgContainer').css('display','block');
+
     const a = $(`
-    <div class="alert alert-${type}" role="alert">
-        ${msg}
-    </div>
+    <div class="alert " role="alert" style=" width: 100%; height: 100vh; " >
+            <p style=" position: absolute; z-index: 22;top: 56%;left: 51%; transform: translate(-50%, -50%); width: 100px;">${msg}
+            </p> 
+            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div>
+
     `);
 
     msgc.append(a);
     setTimeout(()=>{
         a.fadeOut(400, function(){
             a.remove();
+        });
+        
+    }, 2000);
+    msgc.append(msgc);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $('.info-content #msgContainer').css('display','none');
         });
         
     }, 2000);
@@ -241,9 +261,9 @@ function checkForm1() {
             function(data) {
                 console.log(data);
                 if(data.success){
-                    genAlert('修改完成', 'success');
+                    genAlert('修改完成', './img/self/n/fix.gif');
                 } else {
-                    genAlert(data.error);
+                    genAlert('尚無修改', './img/self/n/none.gif');
                 }
 
 
