@@ -13,11 +13,12 @@ $pageName = 'Forum-events'; // 頁面名稱
 </head>
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 <!-- kevin的css -->
-<link rel="stylesheet" href="./nap_css/forum-event.css">
+<link rel="stylesheet" href="./nap_css/forum-event.css?version=&lt;?php echo time(); ?&gt;">
 
 <!------ coverPic ------>
 <div class="coverPic"></div>
 <!-- selector_wrap -->
+
 <div class="contentWrap">
     <button class="postBtn_pc napBtn_padding_filled">
         <span>我要發文</span>
@@ -220,9 +221,10 @@ $pageName = 'Forum-events'; // 頁面名稱
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
 <?php include __DIR__ . '/parts/scripts.php'; ?>
-<script src="./nap_js/component.js"></script>
+<script src="./nap_js/forum-event.js?version=&lt;?php echo time(); ?&gt;"></script>
+<script src="./nap_js/component.js?version=&lt;?php echo time(); ?&gt;"></script>
 <!-- 自己的js放在這 -->
-<script src="./nap_js/forum-event.js"></script>
+
 <script>
     // ---------貼文中留言數量
     $('.comtCard_wrap').on('click', '.comtCard', (function() {
@@ -403,6 +405,8 @@ $pageName = 'Forum-events'; // 頁面名稱
 
     };
 
+
+    // 貼文內容(含留言)
     const comtCardWrap = $('#comtCard_wrap')
 
     let defaultVals = {
@@ -456,7 +460,6 @@ $pageName = 'Forum-events'; // 頁面名稱
     // ---------表格提交
     // 貼文
     function sendPost(obj) {
-
         $.post(
             './nap_api/forum_postInsert-api.php',
             $(document.form_postInsert).serialize(),
@@ -470,36 +473,51 @@ $pageName = 'Forum-events'; // 頁面名稱
             window.location.reload();
         });
     }
+
+
+
     // 留言
-    // function sendMessage(){
-    //     console.log($(this).parent().html())
-    //     // $.post(
-    //     //     './forum_MessageInsert-api.php',
-    //     //     $(document.form_sendMessage).serialize(),
-    //     //     function(data) {
-    //     //         console.log(data)
-    //     //     },
-    //     //     'json'
-    //     // )
-    // }
-    
     $('.comtCard_wrap').on('click', '.sendMessageBtn', (function() {
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
         const contentVal = $(this).siblings('.memberInfo_wrap').find('.message_input').val()
 
         // $(`#form_sendMessage${post_sid}`).serialize()
         if ($.post(
-                'forum_MessageInsert-api.php', {
+                './nap_api/forum_MessageInsert-api.php', {
                     post_sid: post_sid,
                     member_sid: '',
                     message: contentVal
                 }
             )) {
-                alert('新增成功')
+            alert('新增成功');
+            $('.comtCard_wrap .message_input').val("");
         }
 
 
     }))
+
+    // 刪除貼文功能
+    $('.comtCard_wrap').on('click', '.lightBox_pc', (function(e) {
+        // 防止光箱以下物件冒泡
+        e.stopPropagation();
+    }))
+
+    $('.comtCard_wrap').on('click', '.cardDelete', (function(e) {
+        const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
+
+        $.post(
+            './nap_api/forum_delete-api.php',
+            {post_sid : post_sid},
+            (data)=> {
+                // console.log(data)
+                window.location.reload();
+                alert('刪除成功');
+            }
+        )
+
+    }))
+
+
 </script>
 
 

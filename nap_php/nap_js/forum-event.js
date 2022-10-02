@@ -1,5 +1,4 @@
 // 關閉光箱
-
 $('.close_lightBox').click(function(){
     $('.lightBox_comtCard').hide();
     $('.lightBox_comtCard_mask').css({
@@ -14,6 +13,7 @@ $('.close_lightBox').click(function(){
 
 // ---mb
 if(document.body.clientWidth < 992){
+    
 $('.comtCard .pointMenu').click(function(e){
     e.stopPropagation();
     $(this).next().css({
@@ -36,28 +36,23 @@ $('.comtCard .lightBox_mb').click(function(e){
 //---pc
 // 小menu hover效果
 if(document.body.clientWidth >= 992){
-    $('.comtCard_wrap .comtCard').mouseover(function(){
-        $(this).find('.pointMenu').show()
-    })
-    $('.comtCard_wrap .comtCard').mouseout(function(){
-        $(this).find('.pointMenu').hide()
-    })
-
+    
     // 點擊顯示lightBox_pc
-    $('.comtCard .pointMenu').click(function(e){
+    $('.comtCard_wrap').on('click','.pointMenu', (function(e){
         e.stopPropagation();
         $(this).siblings('.lightBox_pc').css('opacity', '1')
-    })
+    }))
     // 點籍非lightBox_pc, 及關閉
     $('body').click(function(){
         $('.comtCard .lightBox_pc').css('opacity', '0')
     })
+
 } 
 // pc 刪除&編輯功能
-$('.comtCard .lightBox_pc').click(function(e){
-    // 防止光箱以下物件冒泡
-    e.stopPropagation();
-})
+// $('.comtCard .lightBox_pc').click(function(e){
+//     // 防止光箱以下物件冒泡
+//     e.stopPropagation();
+// })
 
 
 
@@ -78,7 +73,6 @@ $('.comtCard .lightBox_pc').click(function(e){
 $('.comtCard_wrap').on('click','.comtCard', (function(e){
     $(this).find('.lightBox_comtCard').show();
     document.body.style.overflow='hidden'
-
 
     // 打開光箱mask
     $('.lightBox_comtCard_mask').css({
@@ -113,6 +107,7 @@ $(window).on('wheel', function(event){
  
     }
 });
+
 
 
 // ------lightBox_post 發文光箱
@@ -193,21 +188,21 @@ function eventSelecClickable(){
 // ------發文光箱  
 // 上傳圖片功能  預覽&新增div
 
-let picNum = 0
-imgInp.onchange = evt => {
+// let picNum = 0
+// imgInp.onchange = evt => {
 
-    picNum += 1
+//     picNum += 1
 
-    const [file] = imgInp.files
+//     const [file] = imgInp.files
     
 
-    if (file) {
+//     if (file) {
         
-        $('.lightBox_post .inputArea .imgInsert').append(`<img id="postPic${picNum}" src="" alt="" />`);
+//         $('.lightBox_post .inputArea .imgInsert').append(`<img id="postPic${picNum}" src="" alt="" />`);
 
-        document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
-    }
-  }
+//         document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
+//     }
+// }
 
 
   
