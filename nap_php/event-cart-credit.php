@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '活動購物車'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -64,14 +64,17 @@ $pageName = 'home'; // 頁面名稱
                 <?php endforeach; ?>
 
                 <div class="final-cart-price">
-                    <div class="discount">
-                        <div class="discount-text">
-                            <p>已使用折價券</p>
+                    <?php if ($_SESSION['evt-coupon']['value'] == '0') : ?>
+                    <?php else : ?>
+                        <div class="discount">
+                            <div class="discount-text">
+                                <p>已使用折價券</p>
+                            </div>
+                            <div class="discount-num">
+                                <p>-NT$ <span class="discount-price"><?= $_SESSION['evt-coupon']['value'] ?></span></p>
+                            </div>
                         </div>
-                        <div class="discount-num">
-                            <p>-NT$ <span class="discount-price">50</span></p>
-                        </div>
-                    </div>
+                    <?php endif ?>
                     <div class="total-price">
                         <div class="total-price-text">
                             <p>總計金額</p>
@@ -188,7 +191,7 @@ $pageName = 'home'; // 頁面名稱
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
-     //三位數一個逗號
+    //三位數一個逗號
     const dollarCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     };
@@ -235,10 +238,10 @@ $pageName = 'home'; // 頁面名稱
         $('.cvv div').html($(this).val());
     });
 
-    
+
     function updatePrices() {
         let total = 0; //總價
-        let discount = 0; //折價
+        // let discount = 0; //折價
         $('.per-cart-item').each(function() {
             const item = $(this);
             const item_price = item.find('.per_price'); //單價
@@ -248,18 +251,28 @@ $pageName = 'home'; // 頁面名稱
             const price = +item_price.attr('data-val');
             const item_qty = item.find('.qty');
             const qty = +item_qty.attr('data-val');
-            // const discount = item.find('.discount-price');
+
+
             // console.log('discount:', discount);
             // console.log(qty);
+            const discount = $('.discount-price').text();
 
             item_qty.html(qty);
             item_price.html(dollarCommas(price));
             item_sub.html(dollarCommas(price * qty));
             total += price * qty;
-            
+            discount_tol = total - discount;
+
+            $.get('handle-event-cart-total.php', {
+                event_order_origin_price: total,
+                event_order_price: discount_tol,
+            });
 
         });
-        $('#total-price').html(dollarCommas(total));
+
+        // console.log(discount);
+
+        $('#total-price').html(dollarCommas(discount_tol));
 
     };
     updatePrices(); //一進來就要執行一次

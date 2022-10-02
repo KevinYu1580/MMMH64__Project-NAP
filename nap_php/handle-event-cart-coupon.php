@@ -3,10 +3,10 @@ if(! isset($_SESSION)){
     session_start();
 }
 
-$note = isset($_GET['coupon']) ? $_GET['coupon'] : '';
-if (!empty($coupon)) {
-    $_SESSION['coupon']['value'] = $coupon;
-}
+$sid = isset($_GET['sid']) ? $_GET['sid'] : '';
+$coupon = isset($_GET['coupon']) ? $_GET['coupon'] : '';
 
-echo json_encode($_SESSION['coupon']['value']);
-?>
+$_SESSION['evt-coupon']['value'] = $coupon;
+$_SESSION['evt-coupon']['sid'] = $sid;
+
+echo json_encode($_SESSION['evt-coupon']['value']);

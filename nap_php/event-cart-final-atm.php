@@ -22,37 +22,69 @@ $enrollArray = ['已完成', '名額保留'];
 
 $paydate  = date('Y-m-d', strtotime('+2 days'));
 
+$event_order_origin_price = $_SESSION['evt-total']['total'];
+$event_order_price = $_SESSION['evt-total']['discount_tol'];
+$event_order_note = $_SESSION['evt-note']['content'];
+$event_order_id = $orderSn;
 
-$total = 0;
-
-foreach($_SESSION['event_cart'] as $k=>$v){
-    $total += $v['price']*$v['qty'];
-}
-$order_sql = sprintf("INSERT INTO `event_order`( 
-    `member_sid`, 
-    `coupon_sid`, 
-    `event_order_origin_price`, 
-    `event_order_price`, 
-    `event_order_note`, 
-    `event_order_id`, 
-    `order_status`, 
-    `payment_way`, 
-    `enroll-status`, 
+$order_sql =sprintf("INSERT INTO `event_order`( 
+    `member_sid`,  /*int*/
+    `coupon_sid`,  /*int*/
+    `event_order_origin_price`,  /*chr*/
+    `event_order_price`, /*chr*/
+    `event_order_note`, /*chr*/
+    `event_order_id`, /*chr*/
+    `order_status`, /*int*/
+    `payment_way`, /*int*/
+    `enroll-status`, /*int*/
     `payment_deadline`, 
     `created_at`
-    ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())", $_SESSION['user']['id'],'','','','',$orderSn,'0','0','0',$paydate);
+    ) VALUES (%s, %s, $event_order_origin_price, $event_order_price, '$event_order_note', '$event_order_id', %s, %s, %s, '$paydate', Now())", $_SESSION['user']['id'],$_SESSION['evt-coupon']['sid'],'1','1','1');
 
-/*
+
 $stmt = $pdo->prepare($order_sql);
-
-echo json_encode([
-    $stmt->rowCount(), // 影響的資料筆數
-    $pdo->lastInsertId(), // 最新的新增資料主鍵
-]);
-
-*/
+$stmt->execute();
 
 
+// echo json_encode([
+//     $stmt->rowCount(), // 影響的資料筆數
+//     $pdo->lastInsertId(), // 最新的新增資料主鍵
+// ]);
+
+
+$evt_order_sid = $pdo->lastInsertId(); // 訂單編號(event_order的sid)
+
+// 訂單明細
+$order_d_sql = "INSERT INTO `event_order_detail`(`event_order_sid`, `event_sid`,`quantity`) VALUES (?, ?, ?)";
+$stmt = $pdo->prepare($order_d_sql);
+
+foreach($_SESSION['event-cart'] as $key => $value){
+    $stmt->execute([
+        $evt_order_sid,
+        $value['sid'],
+        $value['qty'],
+    ]);
+}
+
+// 訂單資料進入db後清除session中購物車內容
+unset($_SESSION['event-cart'],$_SESSION['evt-note'],$_SESSION['evt-total'],$_SESSION['evt-coupon']); 
+
+$member_id = $_SESSION['user']['id'];
+
+$sql = "SELECT * FROM `event_order`
+LEFT JOIN coupon on coupon.sid = event_order.coupon_sid
+INNER JOIN event_order_detail on event_order_detail.event_order_sid = event_order.sid
+INNER JOIN event_detail on event_detail.sid = event_order_detail.event_sid
+WHERE `event_order_sid`=$evt_order_sid";
+
+
+$rows = $pdo->query($sql)->fetchAll();
+
+// foreach($rows as $r)
+// {
+//     echo $r['event_order_sid'];
+//     echo '<br>';
+// }
 
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -132,24 +164,19 @@ echo json_encode([
         </div>
         <div class="order-content">
             <div class="cart-detail-content">
-
-                <?php
-                $total = 0;
-                foreach ($_SESSION['event-cart'] as $key => $value) :
-                    $total += $value['event_price'] * $value['qty']; //計算總價格
-                ?>
-
-                    <div data-sid="<?= $key ?>" class="per-cart-item">
+                <?php foreach($rows as $r): ?>
+                    
+                    <div class="per-cart-item">
                         <div class="event-img">
-                            <img src="./img/events/<?= $value['event_img'] ?>.jpg" alt="<?= $value['event_name'] ?>">
+                            <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="<?= $r['event_name'] ?>">
                         </div>
                         <div class="item-list">
-                            <div class="event-name"><?= $value['event_name'] ?></div>
-                            <div class="stay-date"><?= $value['event_date'] ?></div>
+                            <div class="event-name"><?= $r['event_name'] ?></div>
+                            <div class="stay-date"><?= $r['event_date'] ?></div>
                             <div class="price_qty">
-                                <div class="price">NT$ <span class="per_price" data-val="<?= $value['event_price'] ?>"></span></div>
+                                <div class="price">NT$<span class="per_price" data-val="<?= $r['event_price'] ?>"></span></div>
                                 <div class="enroll-people">
-                                    <p>x <span class="qty" data-val="<?= $value['qty'] ?>"></span> 人</p>
+                                    <p>x <span class="qty" data-val="<?= $r['quantity'] ?>"></span> 人</p>
                                 </div>
                             </div>
 
@@ -163,14 +190,17 @@ echo json_encode([
                 <?php endforeach; ?>
 
                 <div class="final-cart-price">
+                    <?php if ($r['coupon_sid'] == null) : ?>
+                    <?php else : ?>
                     <div class="discount">
                         <div class="discount-text">
                             <p>已使用折價券</p>
                         </div>
                         <div class="discount-num">
-                            <p>-NT$ <span class="discount-price">50</span></p>
+                            <p>-NT$ <span class="discount-price"><?= $r['discount'] ?></span></p>
                         </div>
                     </div>
+                    <?php endif ?>
                     <div class="total-price">
                         <div class="total-price-text">
                             <p>總計金額</p>
@@ -187,7 +217,7 @@ echo json_encode([
                         訂單編號
                     </div>
                     <div class="content order-id-num">
-                        <p><?= $orderSn ?></p>
+                        <p><?= $r['event_order_id'] ?></p>
                     </div>
                 </div>
                 <div class="order-date">
@@ -228,7 +258,7 @@ echo json_encode([
                     </div>
                     <div class="order-note-content">
                         <p>
-                            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        <?= $r['event_order_note'] ?>
                         </p>
                     </div>
                 </div>
@@ -248,7 +278,6 @@ echo json_encode([
 <!-- 自己的js放在這 -->
 
 <script>
-
 
 
     //三位數一個逗號
@@ -271,15 +300,17 @@ echo json_encode([
             // const discount = item.find('.discount-price');
             // console.log('discount:', discount);
             // console.log(qty);
+            const discount = $('.discount-price').text();
 
             item_qty.html(qty);
             item_price.html(dollarCommas(price));
             item_sub.html(dollarCommas(price * qty));
             total += price * qty;
+            discount_tol = total-discount;
 
 
         });
-        $('#total-price').html(dollarCommas(total));
+        $('#total-price').html(dollarCommas(discount_tol));
 
     };
     updatePrices(); //一進來就要執行一次

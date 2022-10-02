@@ -74,14 +74,17 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                 <?php endforeach; ?>
 
                 <div class="final-cart-price">
+                <?php if ($_SESSION['evt-coupon']['value']=='0') : ?>
+                <?php else : ?>
                     <div class="discount">
                         <div class="discount-text">
                             <p>已使用折價券</p>
                         </div>
                         <div class="discount-num">
-                            <p>-NT$ <span class="discount-price">50</span></p>
+                            <p>-NT$ <span class="discount-price"><?= $_SESSION['evt-coupon']['value'] ?></span></p>
                         </div>
                     </div>
+                <?php endif ?>
                     <div class="total-price">
                         <div class="total-price-text">
                             <p>總計金額</p>
@@ -136,7 +139,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
     function updatePrices() {
         let total = 0; //總價
-        let discount = 0; //折價
+        // let discount = 0; //折價
         $('.per-cart-item').each(function() {
             const item = $(this);
             const item_price = item.find('.per_price'); //單價
@@ -149,15 +152,22 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             // const discount = item.find('.discount-price');
             // console.log('discount:', discount);
             // console.log(qty);
+            const discount = $('.discount-price').text();
 
             item_qty.html(qty);
             item_price.html(dollarCommas(price));
             item_sub.html(dollarCommas(price * qty));
             total += price * qty;
+            discount_tol = total-discount;
+
+            $.get('handle-event-cart-total.php',{
+            event_order_origin_price: total,
+            event_order_price: discount_tol,
+            });
             
 
         });
-        $('#total-price').html(dollarCommas(total));
+        $('#total-price').html(dollarCommas(discount_tol));
 
     };
     updatePrices(); //一進來就要執行一次

@@ -5,8 +5,11 @@ if(! isset($_SESSION)){
 
 $note = isset($_POST['note']) ? $_POST['note'] : '';
 if (!empty($note)) {
-    $_SESSION['note']['content'] = $note;
+    $_SESSION['evt-note']['content'] = $note;
+}else
+{
+    $_SESSION['evt-note']['content'] = null;
 }
 
-echo json_encode($_SESSION['note']['content']);
+echo json_encode($_SESSION['evt-note']['content']);
 ?>

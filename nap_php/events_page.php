@@ -200,12 +200,12 @@ if ($total_events > 0) {
 <script src="./nap_js/component.js"></script>
 <script src="./nap_js/events_page.js"></script>
 <script>
+    //----------控制畫面呈現字數----------
     const eventCard = $('#eventCard');
     $(function() {
         cutTextInto44();
     });
 
-    //----------控制畫面呈現字數----------
     function cutTextInto44() {
         var len = 44; // 超過44個字以"..."取代
         $(".card-textbox-mb p").each(function(i) {
@@ -236,7 +236,7 @@ if ($total_events > 0) {
                             <h3>${event_name}</h3>
                             <p>${event_outline}</p>
                             <div class="people-cardBtn d-md-flex justify-content-md-between ">
-                                <h5>剩餘名額：<span>${event_remain}</span> / ${event_quota}</h5>
+                                <h5>剩餘名額：<span class="remain">${event_remain}</span> / ${event_quota}</h5>
 
                                 <div class="card-btn">
                                     <a href="events_detail.php?sid=${sid}" class="event">查看活動</a>
@@ -250,6 +250,17 @@ if ($total_events > 0) {
                     </div>
                 </div>`;
     };
+
+    function changeColor() {
+        $(".remain").each(function(i) {
+            if ($(this).text() > 10) {
+                $(this).css({
+                    color: "#7C8C38",
+                });
+            }
+        });
+    };
+    changeColor();
 
 
 
@@ -332,6 +343,7 @@ if ($total_events > 0) {
             }
 
             cutTextInto44();
+            changeColor();
 
         }, 'json');
 
