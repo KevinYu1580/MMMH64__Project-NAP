@@ -4,7 +4,7 @@ require './parts/connect_db_kevin.php';
 
 $post_sid = $_POST['post_sid'];
 $member_sid = $_POST['member_sid']? $_POST['member_sid'] : NULL;
-$message = $_POST['message'];
+$message = ((string)$_POST['message']);
 
 
 
@@ -18,9 +18,9 @@ INSERT INTO chat_commit
 )
 
 VALUES 
-($post_sid,
- $member_sid,
- $message
+('$post_sid',
+ '$member_sid',
+ '$message'
 )
 ");
 
