@@ -482,21 +482,23 @@ $pageName = 'Forum-events'; // 頁面名稱
     //     //     'json'
     //     // )
     // }
+    
     $('.comtCard_wrap').on('click', '.sendMessageBtn', (function() {
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
         const contentVal = $(this).siblings('.memberInfo_wrap').find('.message_input').val()
 
         // $(`#form_sendMessage${post_sid}`).serialize()
-        $.post(
-            'forum_MessageInsert-api.php', {
-                post_sid: post_sid,
-                member_sid: '',
-                message: contentVal
-            },
-            function(data) {
-                console.log(data)
-            }
-        )
+        if ($.post(
+                'forum_MessageInsert-api.php', {
+                    post_sid: post_sid,
+                    member_sid: '',
+                    message: contentVal
+                }
+            )) {
+                alert('新增成功')
+        }
+
+
     }))
 </script>
 
