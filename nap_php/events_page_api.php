@@ -1,5 +1,9 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+if(! isset($_SESSION)){
+    session_start();
+}
+
+// require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動檔期'; // 頁面名稱
 

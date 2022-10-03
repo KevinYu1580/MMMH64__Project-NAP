@@ -769,7 +769,7 @@
 
 <body>
     <div class="topNav_mobile">
-        <a class="logo" href="#">
+        <a class="logo" href="homepage.php">
             <img class='mb' src="./img/component/logo/logo-1.svg" alt="">
             <img class='pc' src="./img/component/logo/logo-2.svg" alt="">
         </a>
@@ -783,7 +783,7 @@
 
                 </a>
 
-                <a id="memberPic" href=""></a>
+                <a id="memberPic" href="info-info.php"></a>
             </div>
             <button class="menu sec2">
                 <img src="./img/component/icon/hamburger.svg" alt="">

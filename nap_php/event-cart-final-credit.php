@@ -1,6 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db.php';
+// require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db.php';
 $pageName = '活動訂單明細'; // 頁面名稱
 
 //確認會員登入

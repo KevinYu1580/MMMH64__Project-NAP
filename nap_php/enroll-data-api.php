@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(! isset($_SESSION)){
+    session_start();
+}
 
 $connect = mysqli_connect("localhost", "chiyin_niyihc", "Admin_chiyin0209", "test-enroll");
 

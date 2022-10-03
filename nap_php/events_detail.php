@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db.php';
+// require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動檔期介紹'; // 頁面名稱
 
