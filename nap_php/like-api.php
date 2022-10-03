@@ -40,7 +40,7 @@ if(empty($row)){
 
 } else {
     // delete
-    $sql = "DELETE FROM `likes` WHERE sid=". $row['sid'];
+    $sql = "DELETE FROM `likes` WHERE `likes_sid`=". $row['likes_sid'];
     $stmt = $pdo->query(($sql));
     $output['handle'] = 'delete';
     $output['success'] = $stmt->rowCount() ? true : false;
