@@ -465,7 +465,7 @@ height: 40px;
 }
 .napBtn_likeBtn_comt span{
     font-size: 14px;
-    color: #8A7171;
+    color: var();
 }
 .napBtn_likeBtn_comt .svgs img{
     position: absolute;
@@ -474,9 +474,7 @@ height: 40px;
     width: 100%;
     aspect-ratio: 1 / 1;
 }
-.napBtn_likeBtn_comt #napActivate {
-    display: none;
-}
+
 
 
 

@@ -3,7 +3,8 @@
 require  '../parts/connect_db_kevin.php';
 
 $post_sid = $_POST['post_sid'];
-$member_sid = $_POST['member_sid']? $_POST['member_sid'] : NULL;
+$member_sid = $_POST['member_sid']? $_POST['member_sid'] : 1;
+// 會員預設為sid = 1
 $message = ((string)$_POST['message']);
 
 
@@ -27,11 +28,3 @@ VALUES
 
 $pdo->query($sql);
 
-
-
-
-echo $post_sid;
-echo "/";
-echo $member_sid;
-echo "/";
-echo $message;

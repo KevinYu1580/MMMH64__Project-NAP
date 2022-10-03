@@ -134,7 +134,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <div class="member_pic"></div>
                 <div class="member_name">
                     <span>翁同學</span>
-                    <!-- <input class="d-none" name='memberId' type="radio" value=''> -->
                 </div>
             </div>
 
@@ -265,7 +264,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                             <div class="member_pic">
                                 <img src="./img/member/profile-image/${avatar}" alt="">
                             </div>
-                            <span>${name}</span>
+                            <span>${name== null ? '' : name}</span>
                             <span id='post_sid' class="d-none">${sid}</span>
                         </div>
                         <div class="napTitle">
@@ -275,17 +274,17 @@ $pageName = 'Forum-events'; // 頁面名稱
                         </div>
                         <div class="d-flex align-items-center">
                         <div class="comtLabel">
-                            <span>${tag==1 ? '# 浪浪套裝活動' : '# 特別活動' }</span>
+                            <span>${tag==1 ? '# 浪浪套裝活動' : '# 每月特別活動' }</span>
                         </div>
                         <span class="date">${date}</span>
 
                         </div>
                         <p class="contentText">${content}</p>
                         <div class="iconIndic">
-                            <button class="napBtn_likeBtn_comt">
+                            <button class="napBtn_likeBtn_comt" name="sentLike" data-id="${sid}">
                                 <div class="svgs">
                                     <img id="napDefault" src="./img/component/icon/red-Heart-outline.svg" alt="">
-                                    <img id="napActivate" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                                    <img style="display: none" id="napActivate" src="./img/component/icon/red-Heart-filled.svg" alt="">
                                 </div>
                                 <span>關注</span>
                             </button>
@@ -356,10 +355,10 @@ $pageName = 'Forum-events'; // 頁面名稱
                                             </div>
                                             <span class="date"> ${date}</span>
                                         </div>
-                                        <button class="napBtn_likeBtn_comt">
+                                        <button class="napBtn_likeBtn_comt" data-id="${sid}">
                                             <div class="svgs">
                                                 <img id="napDefault" src="./img/component/icon/red-Heart-outline.svg" alt="">
-                                                <img id="napActivate" src="./img/component/icon/red-Heart-filled.svg" alt="">
+                                                <img id="napActivate" style="display:none" src="./img/component/icon/red-Heart-filled.svg" alt="">
                                             </div>
                                             <span>關注</span>
                                         </button>
@@ -446,9 +445,17 @@ $pageName = 'Forum-events'; // 頁面名稱
 
                 });
             }
-
             comtCardWrap.html(str);
 
+
+            for (let i of data.myLikes) {
+                const post_sid = i.post_sid;
+                const selectedBtn = $(`button[data-id=${post_sid}]`);
+                if (selectedBtn.length) {
+                    selectedBtn.find('#napActivate').addClass('d-block');
+                }
+
+            }
 
         }, 'json');
 
@@ -463,21 +470,19 @@ $pageName = 'Forum-events'; // 頁面名稱
         $.post(
             './nap_api/forum_postInsert-api.php',
             $(document.form_postInsert).serialize(),
-            function(data) {
-                console.log(data)
-            },
             'json'
         )
 
-        alert('成功發出貼文').done(function() {
-            window.location.reload();
-        });
+        alert('成功發出貼文');
+        window.location.reload();
+
     }
 
 
 
-    // 留言
+    // --------留言
     $('.comtCard_wrap').on('click', '.sendMessageBtn', (function() {
+
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
         const contentVal = $(this).siblings('.memberInfo_wrap').find('.message_input').val()
 
@@ -492,11 +497,27 @@ $pageName = 'Forum-events'; // 頁面名稱
             alert('新增成功');
             $('.comtCard_wrap .message_input').val("");
         }
-
-
     }))
 
-    // 刪除貼文功能
+    // 按鈕顏色判斷&可點擊
+    $('.comtCard_wrap').on('input', '.message_input', () => {
+        if ($('.message_input').val() == '') {
+            $('.sendMessageBtn').css({
+                'background-color': 'var(--black_400)',
+                'pointer-events': 'none',
+            })
+        } else {
+            $('.sendMessageBtn').css({
+                'background-color': 'var(--primaryColor_default)',
+                'pointer-events': 'auto',
+            })
+        }
+
+
+    })
+
+
+    // ----------刪除貼文功能
     $('.comtCard_wrap').on('click', '.lightBox_pc', (function(e) {
         // 防止光箱以下物件冒泡
         e.stopPropagation();
@@ -506,9 +527,10 @@ $pageName = 'Forum-events'; // 頁面名稱
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
 
         $.post(
-            './nap_api/forum_delete-api.php',
-            {post_sid : post_sid},
-            (data)=> {
+            './nap_api/forum_delete-api.php', {
+                post_sid: post_sid
+            },
+            (data) => {
                 // console.log(data)
                 window.location.reload();
                 alert('刪除成功');
@@ -517,7 +539,45 @@ $pageName = 'Forum-events'; // 頁面名稱
 
     }))
 
+    // ---------收藏貼文功能
+    // function sentLike(event) {
 
+    //     const btn = $(event.currentTarget);
+    //     const sid = btn.attr('data-id');
+    //     $.get(
+    //         `./nap_api/forum_likes-api.php?like_type=3&item_sid=${sid}`,
+    //         function(data) {
+    //             if (btn.hasClass('show')) {
+    //                 btn.removeClass('show');
+    //             } else {
+    //                 btn.addClass('show');
+    //             }
+    //         }, 'json');
+    // }
+
+    $('.comtCard_wrap').on('click', '.napBtn_likeBtn_comt', function(e) {
+        e.stopPropagation()
+        const btn = $(this);
+        const lightBox = btn.parents('.comtCard').find('.lightBox_comtCard')
+        const sid = btn.attr('data-id');
+        $.get(
+            './nap_api/forum_likes-api.php',
+            { 
+                like_type: 3,
+                item_sid: sid
+             },
+            function(data) {
+                console.log(data)
+                if (btn.find('#napActivate').hasClass('d-block')) {
+                    btn.find('#napActivate').removeClass('d-block');
+                    lightBox.find('#napActivate').removeClass('d-block');
+                    // napActivate
+                } else {
+                    btn.find('#napActivate').addClass('d-block');
+                    lightBox.find('#napActivate').addClass('d-block');
+                }
+            }, 'json');
+    })
 </script>
 
 

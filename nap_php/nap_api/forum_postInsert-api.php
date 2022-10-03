@@ -33,21 +33,5 @@ $pdo->query($sql);
 
 
 
-$output = [
-    $memberId,
-    $petSelec,
-    $boardSelec,
-    $headline,
-    $content,
-    $picture
-];
-
-
-echo json_encode ($output) ;
-
-
-
-// header('Location: ./forum_event.php');
-
 
 

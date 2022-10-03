@@ -773,6 +773,7 @@ input:focus {
   background-color: var(--black_400) ;
   color: #fff;
   border-radius: 20px;
+  pointer-events: none;
 }
 @media screen and (min-width: 992px){
   .lightBox_comtCard .comtSection .messageLev .sendMessageBtn {

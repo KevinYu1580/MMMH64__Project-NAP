@@ -523,7 +523,7 @@
 
     .napBtn_likeBtn_comt span {
         font-size: 14px;
-        color: #8A7171;
+        color: #909090;
     }
 
     .napBtn_likeBtn_comt .svgs img {
