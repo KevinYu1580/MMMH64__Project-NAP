@@ -113,7 +113,6 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                 </div>
             </div>
             <!------- 確認結帳按鈕 ------->
-            
             <button type="submit" class="confirm-btn" onclick="location.href='event-cart-final-atm.php'">確認結帳</button>
             
         </div>

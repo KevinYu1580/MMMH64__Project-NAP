@@ -4,7 +4,7 @@ require __DIR__ . '/parts/connect_db_cy.php';
 $pageName = '活動訂單明細'; // 頁面名稱
 
 //確認會員登入
-if(empty($_SESSION['user'])){
+if (empty($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
@@ -13,7 +13,7 @@ if(empty($_SESSION['user'])){
 date_default_timezone_set("Asia/Taipei");
 
 //訂單亂碼 https://www.twblogs.net/a/5baa90e82b7177781a0e4a82
-$yCode = array('E','R');
+$yCode = array('E', 'R');
 
 $orderSn = $yCode[0] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
 
@@ -30,7 +30,7 @@ $event_order_price = $_SESSION['evt-total']['discount_tol'];
 $event_order_note = $_SESSION['evt-note']['content'];
 $event_order_id = $orderSn;
 
-$order_sql =sprintf("INSERT INTO `event_order`( 
+$order_sql = sprintf("INSERT INTO `event_order`( 
     `member_sid`,  /*int*/
     `coupon_sid`,  /*int*/
     `event_order_origin_price`,  /*chr*/
@@ -42,7 +42,7 @@ $order_sql =sprintf("INSERT INTO `event_order`(
     `enroll-status`, /*int*/
     `payment_deadline`, 
     `created_at`
-    ) VALUES (%s, %s, $event_order_origin_price, $event_order_price, '$event_order_note', '$event_order_id', %s, %s, %s, '$paydate', Now())", $_SESSION['user']['id'],$_SESSION['evt-coupon']['sid'],'1','1','1');
+    ) VALUES (%s, %s, $event_order_origin_price, $event_order_price, '$event_order_note', '$event_order_id', %s, %s, %s, '$paydate', Now())", $_SESSION['user']['id'], $_SESSION['evt-coupon']['sid'], '0', '0', '0');
 
 
 $stmt = $pdo->prepare($order_sql);
@@ -61,7 +61,7 @@ $evt_order_sid = $pdo->lastInsertId(); // 訂單編號(event_order的sid)
 $order_d_sql = "INSERT INTO `event_order_detail`(`event_order_sid`, `event_sid`,`quantity`) VALUES (?, ?, ?)";
 $stmt = $pdo->prepare($order_d_sql);
 
-foreach($_SESSION['event-cart'] as $key => $value){
+foreach ($_SESSION['event-cart'] as $key => $value) {
     $stmt->execute([
         $evt_order_sid,
         $value['sid'],
@@ -70,7 +70,7 @@ foreach($_SESSION['event-cart'] as $key => $value){
 }
 
 // 訂單資料進入db後清除session中購物車內容
-unset($_SESSION['event-cart'],$_SESSION['evt-note'],$_SESSION['evt-total'],$_SESSION['evt-coupon']); 
+unset($_SESSION['event-cart'], $_SESSION['evt-note'], $_SESSION['evt-total'], $_SESSION['evt-coupon']);
 
 $member_id = $_SESSION['user']['id'];
 
@@ -100,7 +100,7 @@ $rows = $pdo->query($sql)->fetchAll();
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/event-cart-final-step-atm.css">
+<link rel="stylesheet" href="./nap_css/event-cart-final-step-credit.css">
 
 
 <div class="all-container">
@@ -108,19 +108,10 @@ $rows = $pdo->query($sql)->fetchAll();
         <div class="complete-icon">
             <img src="./img/component/icon/complete-icon.svg" alt="">
         </div>
-        <div class="order-content-text-atm">
-            <div class="atm-info">
-                <div class="atm-info-deco col-2"></div>
-                <div class="atm-info-text">
-                    <p>銀行代碼：822</p>
-                    <p>虛擬帳號：<span class="atm-num">2397-6666-1798-4444</span></p>
-                    <p>繳費期限：<span class="pay-deadline"><?= $paydate ?> 23:59:59</span></p>
-                </div>
-            </div>
-            <div class="atm-note">
-                <p>※ 此帳號僅供本次交易使用，無法重複繳費。</p>
-                <p>※ 訂購完成不代表報名完成，請於期限內完成繳費。</p>
-            </div>
+        <div class="order-content-text">
+            <h4>
+                園區浪浪們期待<br>與您的相見
+            </h4>
         </div>
         <!------- 查看其他訂單按鈕 ------->
         <div class="other-btn">
@@ -130,7 +121,7 @@ $rows = $pdo->query($sql)->fetchAll();
                 </a>
             </div>
             <div class="back-btn">
-                <a class="napBtn_fixed_outlined" href="homepage.php">
+                <a class="napBtn_fixed_outlined" href="#">
                     <span>回首頁</span>
                 </a>
             </div>
@@ -167,8 +158,8 @@ $rows = $pdo->query($sql)->fetchAll();
         </div>
         <div class="order-content">
             <div class="cart-detail-content">
-                <?php foreach($rows as $r): ?>
-                    
+                <?php foreach ($rows as $r) : ?>
+
                     <div class="per-cart-item">
                         <div class="event-img">
                             <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="<?= $r['event_name'] ?>">
@@ -195,14 +186,14 @@ $rows = $pdo->query($sql)->fetchAll();
                 <div class="final-cart-price">
                     <?php if ($r['coupon_sid'] == null) : ?>
                     <?php else : ?>
-                    <div class="discount">
-                        <div class="discount-text">
-                            <p>已使用折價券</p>
+                        <div class="discount">
+                            <div class="discount-text">
+                                <p>已使用折價券</p>
+                            </div>
+                            <div class="discount-num">
+                                <p>-NT$ <span class="discount-price"><?= $r['discount'] ?></span></p>
+                            </div>
                         </div>
-                        <div class="discount-num">
-                            <p>-NT$ <span class="discount-price"><?= $r['discount'] ?></span></p>
-                        </div>
-                    </div>
                     <?php endif ?>
                     <div class="total-price">
                         <div class="total-price-text">
@@ -236,7 +227,7 @@ $rows = $pdo->query($sql)->fetchAll();
                         付款方式
                     </div>
                     <div class="content pay-way-result">
-                        <?= $payArray[1] ?>
+                        <?= $payArray[0] ?>
                     </div>
                 </div>
                 <div class="order-status">
@@ -244,7 +235,7 @@ $rows = $pdo->query($sql)->fetchAll();
                         訂單狀態
                     </div>
                     <div class="content order-status-result">
-                        <?= $statusArray[1] ?>
+                        <?= $statusArray[0] ?>
                     </div>
                 </div>
                 <div class="enroll-status">
@@ -252,7 +243,7 @@ $rows = $pdo->query($sql)->fetchAll();
                         報名狀態
                     </div>
                     <div class="content enroll-status-result">
-                        <?= $enrollArray[1] ?>
+                        <?= $enrollArray[0] ?>
                     </div>
                 </div>
                 <div class="order-note">
@@ -261,7 +252,7 @@ $rows = $pdo->query($sql)->fetchAll();
                     </div>
                     <div class="order-note-content">
                         <p>
-                        <?= $r['event_order_note'] ?>
+                            <?= $r['event_order_note'] ?>
                         </p>
                     </div>
                 </div>
@@ -281,8 +272,6 @@ $rows = $pdo->query($sql)->fetchAll();
 <!-- 自己的js放在這 -->
 
 <script>
-
-
     //三位數一個逗號
     const dollarCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -309,7 +298,7 @@ $rows = $pdo->query($sql)->fetchAll();
             item_price.html(dollarCommas(price));
             item_sub.html(dollarCommas(price * qty));
             total += price * qty;
-            discount_tol = total-discount;
+            discount_tol = total - discount;
 
 
         });

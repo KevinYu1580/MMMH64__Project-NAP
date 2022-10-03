@@ -2,6 +2,16 @@
 require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db.php';
 $pageName = '活動購物車'; // 頁面名稱
+
+
+$member_id = $_SESSION['user']['id'];
+
+$sql = "SELECT * FROM `coupon` WHERE `member_sid`= $member_id";
+$rows = $pdo->query($sql)->fetchAll();
+
+$sql_mem = "SELECT * FROM `member01` WHERE `id`= $member_id";
+$rows_mem = $pdo->query($sql_mem)->fetchAll();
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -172,9 +182,9 @@ $pageName = '活動購物車'; // 頁面名稱
                         <label for="card-holder" class="form-label">持卡人姓名</label>
                         <input type="text" class="form-control" id="card-holder">
                     </div>
-                    <button type="submit" class="confirm-btn">確認結帳</button>
                 </fieldset>
             </form>
+            <button type="submit" class="confirm-btn" onclick="location.href='event-cart-final-credit.php'">確認結帳</button>
         </div>
     </div>
 </div>
