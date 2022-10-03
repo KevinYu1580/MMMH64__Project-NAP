@@ -1,0 +1,190 @@
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #D6D48A;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radious: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+*{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.start{
+    background-image: url(../img/self/n/game/game_bg-QA.png);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    position: relative;
+    display: none;
+}
+
+.start .title{
+    position: relative;
+    top: 38%;
+    left: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+}
+
+
+.start h2{
+   font-size: 6rem;
+   font-weight: 900;
+   color: var(--subColor_text);
+   letter-spacing: 0.1px;
+
+   
+}
+
+.start h2 .green{
+    font-size: 8rem;
+    color: var(--primaryColor_dark);
+}
+.start h2 .brown{
+    font-size: 8rem;
+    color: var(--secondaryColor_default);
+}
+
+.start h3{
+    font-size: 2.8rem;
+    color: var(--secondaryColor_default);
+    font-weight: 900;
+    text-shadow: 0 0 1px  var(--secondaryColor_default);
+}
+
+.start h4{
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
+/* ---------------------------------------- */
+
+
+
+.wrap{
+    background-color: var(--primaryColor_tint);
+    /* background: url(../img/self/n/member/bg/bgc-grassland.png); */
+    /* /* background-repeat: no-repeat; */
+    background-position:  0;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+}
+.wrap .pic{
+    background: url(../img/self/n/game/game_bg-1.png);
+    background-size: cover;
+    width: 50%;
+    height: 1100px;
+
+}
+
+
+
+/* * ---------------------------------------- */ 
+
+.que{
+    width: 1080px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+}
+form{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+form h2{
+    font-size: 8rem;
+    font-weight: 900;
+    
+    color: var(--secondaryColor_default);
+}
+
+
+
+.que .balls{
+    position: absolute;
+    display: flex;
+    top: 300px;
+
+
+    
+
+
+}
+
+.que .ball1{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primaryColor_dark);
+}
+
+.que .ball2{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondaryColor_default);
+}
