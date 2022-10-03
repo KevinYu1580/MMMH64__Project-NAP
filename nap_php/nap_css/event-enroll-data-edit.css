@@ -1,0 +1,440 @@
+@font-face {
+    font-family: custom-font;
+
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px: 80px;
+    --headline_60px: 60px;
+    --headline_40px: 40px;
+    --headline_32px: 32px;
+    --headline_28px: 28px;
+    --headline_24px: 24px;
+    --headline_20px: 20px;
+    --subtitle_18px: 18px;
+    --subtitle_16px: 16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radius: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif !important;
+}
+
+
+/* -------------------------------------event-enroll-data-css------------------------------------- */
+body {
+    font-family: custom-font;
+    color: var(--subColor_text);
+    position: relative;
+
+
+}
+
+.all-container {
+    min-width: 375px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .all-container {
+        padding: 0 5%;
+        max-width: 1440px;
+        /* background-color: #B14F42; */
+        margin: auto;
+    }
+}
+
+/* ---------手機上方返回--------- */
+.mobile-backpage {
+    height: 45px;
+    margin-top: 68px;
+    background-color: var(--secondaryColor_default);
+    width: 100%;
+    color: var(--white);
+    font-size: var(--headline_24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .mobile-backpage {
+        display: none;
+    }
+}
+
+.mobile-backpage a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.mobile-backpage svg {
+    position: absolute;
+    height: 12px;
+    transform: rotate(-90deg);
+    left: 0;
+    margin-left: 10%;
+}
+
+/* -------------------------上方返回------------------------ */
+.backpage {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .backpage {
+        /* position: absolute; */
+        font-size: var(--headline_28px);
+        display: flex;
+        align-items: center;
+        /* top: 100px; */
+        margin-top: 132px;
+    }
+    .backpage:hover {
+        transform: translateX(-3px);
+        transition: all .3s;
+    }
+}
+
+.backpage img {
+    transform: rotate(-90deg);
+    margin-right: 15px;
+}
+
+.backpage a {
+    text-decoration: none;
+    color: var(--subColor_text);
+}
+
+
+
+/* -------------------------套裝下方內容---------------------- */
+.data-content {
+    margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .data-content {
+        display: flex;
+        margin-bottom: 80px;
+
+    }
+}
+
+
+
+
+
+/* ----------套裝活動報名表頭---------- */
+.enroll-data-title {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-data-title {
+        color: var(--white);
+        font-size: var(--headline_32px);
+        background-color: var(--secondaryColor_default);
+        width: 365px;
+        height: 60px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        justify-content: center;
+        position: relative;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .enroll-data-title::after,
+    .enroll-data-title::before {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 380px;
+        background-color: var(--secondaryColor_default);
+        top: 50%;
+    }
+
+    .enroll-data-title::after {
+        right: 90%;
+    }
+
+    .enroll-data-title::before {
+        left: 90%;
+    }
+}
+
+
+/* -----------左邊新增參與人列---------- */
+.enroll-data-left {
+    margin: auto;
+    /* width: 327px; */
+    padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-data-left {
+        padding: 0;
+        /* margin: 0; */
+        margin-top: 55px;
+        /* margin-left: 5%; */
+    }
+}
+
+
+
+
+/* ----------參與人資料---------- */
+.enroll {
+    margin-top: 35px;
+    margin-bottom: 55px;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll {
+        /* padding-top: 170px; */
+        margin-top: 20px;
+        margin-bottom: 65px;
+    }
+}
+
+.enroll-title {
+    background-color: var(--primaryColor_light);
+    height: 55px;
+    border-radius: 20px 20px 0 0;
+    /* margin: auto; */
+
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-title {
+        height: 65px;
+        margin-left: 0;
+    }
+}
+
+.enroll-title h4 {
+    display: flex;
+    font-size: var(--headline_20px);
+    text-align: left;
+    margin-left: 15px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.4rem;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-title h4 {
+        font-size: var(--headline_28px);
+        text-align: center;
+        height: 55px;
+        justify-content: center;
+        line-height: 2rem;
+    }
+}
+
+
+.enroll-content-form {
+    background-color: var(--subColor_bgc);
+    padding: 40px 20px;
+    position: relative;
+    border-bottom: solid 1px var(--black_500);
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-content-form {
+        padding: 40px 20px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        border-bottom: solid 1px var(--black_500);
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .enroll-other {
+        width: 65%;
+    }
+}
+
+
+
+
+.enroll-content-null {
+    /* height: 590px; */
+    background-color: var(--subColor_bgc);
+    padding: 5%;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-content-null {
+        /* background-color: var(--subColor_bgc); */
+        /* height: 535px; */
+        padding: 5%;
+    }
+}
+
+.enroll-content-null p {
+    padding: 10px 20px 20px;
+    text-align: center;
+    color: var(--primaryColor_dark);
+    font-size: var(--headline_20px);
+    line-height: 1.6rem;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-content-null p {
+        margin-top: 10px;
+        text-align: center;
+        font-size: var(--headline_28px);
+        line-height: 2rem;
+    }
+}
+
+.enroll p {
+    padding: 10px 20px 20px;
+    color: var(--primaryColor_dark);
+    font-size: var(--headline_20px);
+    line-height: 1.6rem;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll p {
+        /* margin-top: 10px; */
+        text-align: center;
+        font-size: var(--headline_28px);
+        line-height: 2rem;
+    }
+}
+
+.enroll-content-form .count-num {
+    color: var(--primaryColor_dark);
+    text-align: center;
+    font-size: var(--headline_40px);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-content-form .count-num {
+        /* margin-top: 10px; */
+        text-align: center;
+        font-size: var(--headline_60px);
+        font-weight: 500;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-content-form {
+
+        width: 100%;
+    }
+}
+
+.form-check {
+    margin-top: 20px;
+}
+
+.triangle {
+    display: flex;
+    width: 100%;
+}
+
+.triangle img {
+    width: 21px;
+    margin: 0 auto;
+    z-index: 30;
+}
+
+@media screen and (min-width: 768px) {
+    .triangle img {
+        width: 35px;
+    }
+}
+
+.enroll-content-bottom {
+    background-color: var(--primaryColor_light);
+    border-radius: 0 0 20px 20px;
+    height: 45px;
+}
+
+@media screen and (min-width: 768px) {
+    .enroll-content-bottom {
+        height: 60px;
+    }
+}
+
+.delete-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 80;
+}
+
+.delete-btn img {
+    width: 20px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .delete-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+
+    .delete-btn img {
+        width: 30px;
+
+    }
+}

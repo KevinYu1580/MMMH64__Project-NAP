@@ -1,6 +1,6 @@
 <?php
-// require __DIR__ . '/parts/connect_db_cy.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動檔期'; // 頁面名稱
 
 
@@ -14,9 +14,9 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 $member_id = $_SESSION['user']['id'];
 
 
+$where ='WHERE event_status=1';
 
-
-$where = ' WHERE 1 ';  // 起頭
+// $where = ' WHERE 1 ';  // 起頭
 
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM event_detail $where ";
@@ -258,6 +258,18 @@ if ($total_events > 0) {
                 </div>`;
     };
 
+    //判斷remain人數少於10換色
+    function changeColor() {
+        $(".remain").each(function(i) {
+            if ($(this).text() < 10) {
+                $(this).css({
+                    color: "#B14F42",
+                });
+            }
+        });
+    };
+    changeColor();
+
     // 收藏按鈕顯示開關
     function sentLike(event) {
         const btn = $(event.currentTarget);
@@ -361,6 +373,7 @@ if ($total_events > 0) {
             }
 
             cutTextInto44();
+            changeColor();
 
         }, 'json');
 

@@ -46,8 +46,6 @@ if (isset($_GET['sid'])) {
 
 
 
-
-
 </head>
 <link rel="stylesheet" href="./nap_css/event-enroll-data.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
@@ -62,13 +60,13 @@ if (isset($_GET['sid'])) {
             <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
         </svg></a>
         
-        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>">活動報名</a>
+        <a href="enroll-event-notice.php?sid=<?= $event['sid'] ?>">活動報名</a>
     </div>
 
     <!------ 上方返回 ------>
     <div class="backpage">
-        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>"><img src="./img/component/icon/Exclude.svg" alt=""></a>
-        <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>">返回</a>
+        <a href="enroll-event-notice.php?sid=<?= $event['sid'] ?>"><img src="./img/component/icon/Exclude.svg" alt=""></a>
+        <a href="enroll-event-notice.php?sid=<?= $event['sid'] ?>">返回</a>
     </div>
 
     <!------ 活動報名表頭 ------>

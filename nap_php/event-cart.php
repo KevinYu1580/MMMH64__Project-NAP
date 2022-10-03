@@ -113,7 +113,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                                 <p>NT$ <span class="sub-total"></span></p>
                             </div>
                             <div class="edit-enroll-btn">
-                                <a class="napBtn_fixed_filled" href="#" onchange="updateItem(event)">
+                                <a class="napBtn_fixed_filled" href="event-enroll-data-edit.php?sid=<?=$value['sid']?>">
                                     <span>修改參與人</span>
                                 </a>
                             </div>
