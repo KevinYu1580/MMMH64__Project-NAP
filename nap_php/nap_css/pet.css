@@ -399,7 +399,7 @@ outline: none !important; box-shadow:none !important;
 }
 .pet-color{
     position: absolute;
-    top: 720px;
+    top: 700px;
     right: 45px;
     
 }
@@ -494,7 +494,21 @@ pet-color-cat{
     cursor: pointer;
 }
 
+.btn:focus, 
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus{
+    background-color:var(--primaryColor_dark)
 
+}
+
+.btn-group1 .btn-box .btn{
+    width: 92px;
+    height: 40px;
+    color: rgb(255, 255, 255);
+}
 
 
 .btn-group{
@@ -515,9 +529,13 @@ pet-color-cat{
     
 }
 
+.btn-group2 .btn-box .btn{
+    color: rgb(255, 255, 255);
+}
+
 .btn-group1 .btn-box {
     position: absolute;
-    top: 540px;
+    top: 528px;
     left: 110px;
     z-index: 20;
 }
@@ -532,7 +550,7 @@ pet-color-cat{
 
 .album3 .card-plus{
     position: absolute;
-    top: -50px;
+    top: -65px;
     left: 0;
     width: 326px;
     height: 275px;
@@ -680,7 +698,7 @@ pet-color-cat{
 
 .btn-group1 .btn-box {
     position: absolute;
-    top: 175px;
+    top: 150px;
     left: 790px;
     z-index: 20;
 }
@@ -875,7 +893,6 @@ label{
      .backtopet{
         max-width: 200px;
     } 
-
     
 
 }
@@ -936,6 +953,8 @@ label{
         /* border: 5px solid rgb(255, 255, 255); */
         z-index: 3;
     }
+
+   
 }
 
 @media (max-width: 400px){

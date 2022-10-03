@@ -50,7 +50,7 @@
     --btn-radius: 1200px;
     --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
 }
-*{
+html{
     font-family: custom-font;        
 }
 
@@ -98,7 +98,7 @@
 
 
 .container1 li {
-   border-right: 1px solid var(--subColor_text); 
+   
    padding-right: 35px;
    padding-left: 35px;
    font-size: 28px;
@@ -108,11 +108,13 @@
     
 }
 
-.bd-none{
-   
-    border: none;
-    /* background-color: rgb(248, 58, 58); */
+
+
+.bd{
+  border-right: 1px solid var(--subColor_text); 
+  /* background-color: rgb(206, 59, 59); */
 }
+
 
 .container1 li a{
     color: var(--subColor_text);
@@ -244,6 +246,7 @@
         display: none;
       }
 
+      
    
 }
 
@@ -253,6 +256,7 @@
         padding-right: 10px;
        padding-left: 10px;
     }
+
 }
 
 
@@ -326,8 +330,10 @@
     left: 52px
   }
 
-  .bd-none1{
-    border-right: none
+  .bd-none{
+   
+    border: none;
+    /* background-color: rgb(248, 58, 58); */
 }
 
   }

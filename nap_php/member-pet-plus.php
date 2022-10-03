@@ -2,6 +2,11 @@
 // require __DIR__ . '/parts/connect_db.php';
 require __DIR__. '/parts/connect_db_nora.php';
 
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
+
 
 $id = $_SESSION['user']['id'];
 // echo json_encode([
@@ -33,18 +38,16 @@ $pageName = 'home'; // 頁面名稱
 
 <?php include __DIR__. '/parts/navbar.php'; ?>
 
-<link rel="stylesheet" href="./nap_css/member-nav2.css">
+<link rel="stylesheet" href="./nap_css/member-nav.css?version=&lt;?php echo time(); ?&gt;">
 
 
-<link rel="stylesheet" href="./nap_css/pet7.css">
+<link rel="stylesheet" href="./nap_css/pet.css?version=&lt;?php echo time(); ?&gt;">
 
 
 
- <!------ menber-nav ------>
- <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
-     
-         
-     <div class="titlebox pb-2 "><h2>會員中心</h2></div>
+<!------ menber-nav ------>
+<div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
+     <div class="titlebox  pb-2"><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
@@ -52,23 +55,23 @@ $pageName = 'home'; // 頁面名稱
 </div>
  <div class="container1 d-flex justify-content-center mt-4">
     <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
-        <li class="">
-            <a href="./info-index.html" class="" >基本資料</a>  
+        <li class="bd">
+            <a href="./info-info.php" class="" >基本資料</a>  
+        </li>
+        <li class="bd">
+            <a href="./member-pet.php" class="inhere">毛孩資料</a>  
+        </li>
+        <li class="bd bd-none">
+            <a href="./list.php" class="#">訂單查詢</a>  
+        </li>
+        <li class=" bd">
+            <a href="./post.php" class="#">歷史發佈</a>  
+        </li>
+        <li class=" bd">
+            <a href="./love-pet.php" class="">我的關注</a>  
         </li>
         <li class="">
-            <a href="" class="">毛孩資料</a>  
-        </li>
-        <li class="bd-none1"">
-            <a href="" class="#">訂單查詢</a>  
-        </li>
-        <li class="">
-            <a href="" class="#">歷史發佈</a>  
-        </li>
-        <li class="">
-            <a href="./gift.html" class="">我的關注</a>  
-        </li>
-        <li class="bd-none ">
-            <a href="" class="inhere">優惠專區</a>  
+            <a href="./gift.php" class="">優惠專區</a>  
         </li>
         
 
@@ -76,6 +79,9 @@ $pageName = 'home'; // 頁面名稱
  </div>
  
 </div>
+
+
+ <!------ menber-nav ------>
 <!-- 分頁 -->
 <div class="top-pages">
     <div class="top-page d-flex w-100 justify-content-center">
@@ -148,30 +154,19 @@ $pageName = 'home'; // 頁面名稱
                             <label for="age" class="form-label d-flex align-items-center">年齡</label>
                             <input type="age" class="form-control" id="age" name="age" placeholder="成年"  required>
                         </div>
-                        <!-- <div class="petname-box pet-box  mb-3  d-flex ">
-                            <label for="img" class="form-label d-flex align-items-center">毛孩姓名</label>
-                            <input type="file"  class="form-control" id="img" name="img" placeholder="李菜菜"  required> -->
-  
-                        </div>
                         
                     </div>
 
                     <div class="d-flex justify-content-end align-items-center mt-3">
                         <div class="btn-group2">
                           <div class="btn-box   ">
-                            <button type="submit" class="btn btn-primary">儲存</button>
+                            <button type="submit" class="btn">儲存</button>
                         </div>
                         </div>
                         
                       </div>
                 </form>
-                <div id="msgContainer">
-            <!--
-                <div class="alert alert-danger" role="alert">
-                     新增成功
-                </div>
-                -->
-            </div>
+                
               
             </div>
           </div>
@@ -187,6 +182,27 @@ $pageName = 'home'; // 頁面名稱
 
        
 </div>
+
+<div class="bg" style="position: fixed;
+    top: 0;
+     left: 0; 
+    z-index: 900;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4C4C4C; opacity: 0.5; display:none;"
+></div>
+
+
+<div id="msgContainer1" class="" style=" position: fixed; z-index: 1055;top: 0%; left: 0%; display:none;
+  width: 100vw;
+    height: 100vh;">
+        <!-- <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">修改完成
+            </p> 
+            <img id="myimg1" src="./img/self/n/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> -->
+     </div> 
+
 
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
@@ -213,13 +229,22 @@ function theimage(){
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    const msgc = $('#msgContainer');
+    const msgc = $('#msgContainer1');
+    const msgc1 = $('.bg');
 
-function genAlert(msg, type='danger') {
+function genAlert(msg,ccc) {
+    $('.bg').css('display','block');
+    $(' #msgContainer1').css('display','block');
+    
+
     const a = $(`
-    <div class="alert alert-${type}" role="alert">
-        ${msg}
-    </div>
+    
+        <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
+            </p> 
+            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> 
+
     `);
 
     msgc.append(a);
@@ -229,7 +254,21 @@ function genAlert(msg, type='danger') {
         });
         
     }, 2000);
-}
+    msgc.append(msgc);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $(' #msgContainer1').css('display','none');
+        });
+        
+    }, 2000);
+    msgc.append(msgc1);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $('#msgContainer1').css('display','none');
+        });
+        
+    }, 2000);
+    }
 
 
 
@@ -248,10 +287,9 @@ function checkForm1() {
             function(data) {
                 console.log(data);
                 if(data.success){
-                    genAlert('修改完成', 'success');
-                    // location.href = './member-pet.php';
+                    genAlert('修改完成', './img/self/n/fix.gif');
                 } else {
-                    genAlert(data.error);
+                    genAlert('尚未修改', './img/self/n/none.gif');
                 }
 
 

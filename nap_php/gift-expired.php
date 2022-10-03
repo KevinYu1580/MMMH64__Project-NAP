@@ -1,8 +1,13 @@
 <?php
 require __DIR__ . '/parts/connect_db_nora.php';
 
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
+$member_id = $_SESSION['user']['id'];
 
-$sql = "SELECT * FROM `coupon` WHERE `member_sid`=1 AND `coupon_status` = 2";
+$sql = "SELECT * FROM `coupon` WHERE `member_sid`=$member_id AND `coupon_status` = 2";
 
 $rows = $pdo->query($sql)->fetchAll();
 
@@ -30,17 +35,15 @@ $pageName = '會員中心'; // 頁面名稱
 
 <?php include __DIR__. '/parts/navbar.php'; ?>
 
-<link rel="stylesheet" href="./nap_css/member-nav2.css">
+<link rel="stylesheet" href="./nap_css/member-nav.css?version=&lt;?php echo time(); ?&gt;">
 
 
-<link rel="stylesheet" href="./nap_css/gift1.css">
+<link rel="stylesheet" href="./nap_css/gift.css?version=&lt;?php echo time(); ?&gt;">
 
 
  <!------ menber-nav ------>
- <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
-     
-         
-     <div class="titlebox pb-2 "><h2>會員中心</h2></div>
+<div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
+     <div class="titlebox  pb-2"><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
@@ -48,23 +51,23 @@ $pageName = '會員中心'; // 頁面名稱
 </div>
  <div class="container1 d-flex justify-content-center mt-4">
     <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
-        <li class="">
-            <a href="./info-index.html" class="" >基本資料</a>  
+        <li class="bd">
+            <a href="./info-info.php" class="" >基本資料</a>  
+        </li>
+        <li class="bd">
+            <a href="./member-pet.php" class="">毛孩資料</a>  
+        </li>
+        <li class="bd bd-none">
+            <a href="./list.php" class="#">訂單查詢</a>  
+        </li>
+        <li class=" bd">
+            <a href="./post.php" class="#">歷史發佈</a>  
+        </li>
+        <li class=" bd">
+            <a href="./love-pet.php" class="">我的關注</a>  
         </li>
         <li class="">
-            <a href="" class="">毛孩資料</a>  
-        </li>
-        <li class="bd-none1"">
-            <a href="" class="#">訂單查詢</a>  
-        </li>
-        <li class="">
-            <a href="" class="#">歷史發佈</a>  
-        </li>
-        <li class="">
-            <a href="./gift.html" class="">我的關注</a>  
-        </li>
-        <li class="bd-none ">
-            <a href="" class="inhere">優惠專區</a>  
+            <a href="./gift.php" class="inhere">優惠專區</a>  
         </li>
         
 
@@ -72,6 +75,9 @@ $pageName = '會員中心'; // 頁面名稱
  </div>
  
 </div>
+
+
+ <!------ menber-nav ------>
 <!-- 分頁 -->
 <div class="top-pages">
 <div class="top-page d-flex w-100 justify-content-center">

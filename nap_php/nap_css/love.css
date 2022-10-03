@@ -50,7 +50,12 @@
     --btn-radius: 1200px;
     --box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.15);
 }
+
 *{
+    font-family: custom-font;        
+}
+
+html{
     font-family: custom-font;        
 }
 
@@ -74,6 +79,15 @@
     z-index: 5;
 }
 
+.end-close{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 25px;
+    top: 30px;
+    z-index: 5;
+}
+
 .love-card .pic {
     width: 325px;
     position: relative;
@@ -86,6 +100,9 @@
     width: 325px;
     height: 236px;
     border-radius: 15px 15px 0px 0px;
+    object-fit: cover;
+    /* object-position: 0px -60px; */
+    
     /* position: relative; */
     /* z-index: inherit; */
 }
@@ -101,8 +118,8 @@
 
 .love-card  .time{
     position: absolute;
-    bottom: 0
-    ;right: 0;
+    bottom: 2px;
+    right: 0;
     background-color: var(--primaryColor_dark);
     padding: 10px;
     border-radius: 20px 0 0 0;
@@ -147,6 +164,7 @@
     font-size: 14px;
     color:var(--subColor_text);
     padding-top: 8px;
+    line-height: 1.5;
     
 }
 
@@ -201,7 +219,7 @@
     padding-right: 40px;
     margin-bottom: 0;
     padding-top: 3px;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .card-info-pet h5 span{
@@ -236,7 +254,8 @@
 .card-info-chat h4{
     font-size: 22px;
     font-weight: 900;
-    
+    margin-bottom: 10px;
+    line-height: 1.3;
 
 }
 .card-info-chat h5{
@@ -456,14 +475,15 @@
     .love-card-pet .pic .pic-size{
         width: 388px;
         height: 316px;
+        object-fit: cover;
         border-radius: 15px 0px 0px 15px;
     }
 
 
     .love-card  .time{
         position: absolute;
-        bottom: 0
-        ;right: 0;
+        bottom: 2px;
+        right: 0;
         background-color: var(--primaryColor_dark);
         padding: 10px;
         border-radius: 20px 0 0 0;
@@ -584,7 +604,7 @@
     }
     
     .card-info-chat .person p{
-        font-size: var(--subtitle_16px);
+        font-size: var(--headline_20px);
         font-weight: 900;
         color: var(--subColor_text)
     }
@@ -609,4 +629,83 @@
         
     }
 
+}
+
+
+.bg{
+    position: fixed;
+    top: 0;
+     left: 0; 
+    z-index: 900;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4C4C4C;
+     opacity: 0.5;
+     display: none;
+    
+}
+
+.lightbox-del{
+    width: 326px;
+    position: fixed; 
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 1055;
+    display: none;
+    
+}
+
+
+
+.lightbox-del .modal-content{
+    width: 326px;
+    height: 200px;
+    border-radius: 20px;
+    
+}
+
+.lightbox-del .modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--subtitle_18px);
+    padding: 0;
+    }
+
+.lightbox-del .modal-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.lightbox-del .modal-footer p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primaryColor_dark);
+    outline: #7C8C38;
+    color: rgb(255, 255, 255);
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+}
+
+.lightbox-del .modal-footer .white{
+   background-color: #fff;
+    border: 1px solid var(--primaryColor_dark);
+    color: var(--primaryColor_dark);
+    
+    
+}
+
+.lightbox-del .modal-footer a{
+    text-decoration: none;
 }

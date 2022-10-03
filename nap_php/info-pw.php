@@ -6,6 +6,10 @@ require __DIR__ . '/parts/connect_db_nora.php';
 //     exit;
 // }
 
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
 
 
 
@@ -43,59 +47,54 @@ $pageName = 'home'; // 頁面名稱
 
 <?php include __DIR__. '/parts/navbar.php'; ?>
 
-<link rel="stylesheet" href="./nap_css/member-nav2.css">
+<link rel="stylesheet" href="./nap_css/member-nav.css?version=&lt;?php echo time(); ?&gt;">
 
-<link rel="stylesheet" href="./nap_css/info4.css">
+<link rel="stylesheet" href="./nap_css/info.css?version=&lt;?php echo time(); ?&gt;">
 
 
 
 
  <!------ menber-nav ------>
  <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
-     
-         
-         <div class="titlebox pb-2 "><h2>會員中心</h2></div>
-         <div class="line"></div>
-     
-     <div class="partname-mb w-100">
-        <div class="titlemb d-flex justify-content-center align-items-center"><h2>會員中心</h2></div>
-    </div>
-     <div class="container1 d-flex justify-content-center mt-4">
-        <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
-            <li class="">
-                <a href="./info-info.php" class="inhere" >基本資料</a>  
-            </li>
-            <li class="">
-                <a href="./member-pet.php" class="">毛孩資料</a>  
-            </li>
-            <li class="bd-none1">
-                <a href="./list.php" class="#">訂單查詢</a>  
-            </li>
-            <li class="">
-                <a href="./post.php" class="#">歷史發佈</a>  
-            </li>
-            <li class="">
-                <a href="./love-pet.php" class="#">我的關注</a>  
-            </li>
-            <li class="bd-none">
-                <a href="./gift.php" class="">優惠專區</a>  
-            </li>
-            
+     <div class="titlebox  pb-2"><h2>會員中心</h2></div>
+     <div class="line"></div>
+ 
+ <div class="partname-mb w-100">
+    <div class="titlemb d-flex justify-content-center align-items-center"><h2>會員中心</h2></div>
+</div>
+ <div class="container1 d-flex justify-content-center mt-4">
+    <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
+        <li class="bd">
+            <a href="./info-info.php" class="inhere" >基本資料</a>  
+        </li>
+        <li class="bd">
+            <a href="./member-pet.php" class="">毛孩資料</a>  
+        </li>
+        <li class="bd bd-none">
+            <a href="./list.php" class="#">訂單查詢</a>  
+        </li>
+        <li class=" bd">
+            <a href="./post.php" class="#">歷史發佈</a>  
+        </li>
+        <li class=" bd">
+            <a href="./love-pet.php" class="">我的關注</a>  
+        </li>
+        <li class="">
+            <a href="./gift.php" class="">優惠專區</a>  
+        </li>
+        
 
-        </ul>
-     </div>
-     
+    </ul>
  </div>
+ 
+</div>
+
+
+ <!------ menber-nav ------>
  <!------ content ------>
 
  <div class="info-content info-content-2 d-flex flex-column flex-sm-row">
- <div id="msgContainer" class="" style=" position: absolute; z-index: 900;top: 50%; left: 50%; transform: translate(-50%, -50%); display:none; width: 100%; height: 100vh; background-color: #4C4C4C; ">
-        <!-- <div class="alert " role="alert" style=" width: 100%; height: 100vh;" >
-            <p style=" position: absolute; z-index: 22;top: 56%;left: 51%; transform: translate(-50%, -50%); width: 100px;">新增成功
-            </p> 
-            <img id="myimg1" src="./img/member/profile-image/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
-        </div> -->
-    </div>
+ 
     <div class="control d-flex flex-column justify-content-center align-items-center">
         <div class="person d-flex flex-sm-column flex-row justify-content-center align-items-center">
         
@@ -136,14 +135,7 @@ $pageName = 'home'; // 頁面名稱
                             此處不可空值或格式錯誤
                         </div>
                         </div>
-                
-                <div id="msgContainer">
-            <!--
-                <div class="alert alert-danger" role="alert">
-                     新增成功
-                </div>
-                -->
-            </div>
+            
                 
                 <div class="btn-box d-flex flex-column  ">
                     <button type="submit" class="btn btn-primary">修改</button>
@@ -157,6 +149,26 @@ $pageName = 'home'; // 頁面名稱
     
  </div>
 
+ <div class="bg" style="position: fixed;
+    top: 0;
+     left: 0; 
+    z-index: 900;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4C4C4C; opacity: 0.5; display:none;"
+></div>
+
+
+<div id="msgContainer1" class="" style=" position: fixed; z-index: 1055;top: 0%; left: 0%; display:none;
+  width: 100vw;
+    height: 100vh;">
+        <!-- <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">修改完成
+            </p> 
+            <img id="myimg1" src="./img/self/n/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> -->
+     </div> 
+
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
@@ -165,20 +177,24 @@ $pageName = 'home'; // 頁面名稱
 <?php include __DIR__. '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script>
-    const msgc = $('#msgContainer');
+    const msgc = $('#msgContainer1');
+    const msgc1 = $('.bg');
 
 function genAlert(msg,ccc) {
-
-    $('.info-content #msgContainer').css('display','block');
+    $('.bg').css('display','block');
+    $(' #msgContainer1').css('display','block');
+    
 
     const a = $(`
-    <div class="alert " role="alert" style=" width: 100%; height: 100vh;" >
-            <p style=" position: absolute; z-index: 22;top: 56%;left: 51%; transform: translate(-50%, -50%); width: 100px;">${msg}
+    
+        <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
             </p> 
             <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
-        </div>
+        </div> 
 
     `);
+
     msgc.append(a);
     setTimeout(()=>{
         a.fadeOut(400, function(){
@@ -189,12 +205,18 @@ function genAlert(msg,ccc) {
     msgc.append(msgc);
     setTimeout(()=>{
         msgc.fadeOut(400, function(){
-            $('.info-content #msgContainer').css('display','none');
+            $(' #msgContainer1').css('display','none');
+        });
+        
+    }, 2000);
+    msgc.append(msgc1);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $('#msgContainer1').css('display','none');
         });
         
     }, 2000);
 }
-
 
 function checkForm1() {
     // TODO: 檢查欄位資料格式是不是符合
