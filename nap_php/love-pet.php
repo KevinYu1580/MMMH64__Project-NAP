@@ -113,17 +113,13 @@ $pageName = 'home'; // 頁面名稱
     <?php foreach ($rows as $r) : ?>
         <div class="love-card love-card-pet d-flex flex-column flex-sm-row align-items-center mb-5">
             <img class="love-close" src="./img/self/n/love/close.svg" alt="" onclick="showBox(event);">
-            <a id="nnn" href="javascript: removeItem(<?= $r['likes_sid'] ?>)" > </a>
-            <!-- <img class="love-close" src="./img/self/n/love/close.svg" alt="" onclick="showBox(event);"> -->
-            <!-- </a> -->
-
+            <a id="number" class="d-none" href="javascript: removeItem(<?= $r['likes_sid'] ?>)" ></a>
             <div class="pic">
                 <img class="pic-size" src="./img/pet/<?= $r['pet_id'] ?>.jpg" alt="">
-
             </div>
             <div class="card-info card-info-pet">
                 <h4 ><?= $r['name'] ?><span><?= $genderArray[$r['gender']] ?></span>  </h4>
-                <h5 class="vvv"><?= $r['likes_sid'] ?></h5>
+                <h5 class="who d-none"><?= $r['likes_sid'] ?></h5>
                 <h5 class="mt-3 mb-2">個性： <span>活潑外向</span> </h5>
                 <h5 class="mb-2">年齡： <span><?= $r['age'] ?>歲</span> </h5>
 
@@ -136,18 +132,18 @@ $pageName = 'home'; // 頁面名稱
                         <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <img class="end-close" src="./img/self/n/love/close.svg" alt=""> 
                     </div>
-                    <div class="modal-body1 "><?= $r['likes_sid'] ?></div>
-                    <div class="modal-body">確定不再關注  <span><?= $r['likes_sid'] ?></span>?</div>
+                    
+                    <div class="modal-body">確定刪除?</div>
                     <div class="modal-footer" style="border:none ">
                         <p class="white">取消</p>
-                        <a id="ccc" href="#" >
+                        <a id="gowhere" href="javascript: removeItem(<?= $r['likes_sid'] ?>)" >
                             <p >確定</p>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="bg"></div> -->
+        <div class="bg"></div>
     <?php endforeach ?>
 </div>
 
@@ -186,18 +182,14 @@ function showBox(event) {
         const me = event.currentTarget;
 
 
-        $('.modal-body span').text($(me).parent().find('.card-info .vvv').text());
-        $('.modal-body1').text($(me).parent().find('.card-info .vvv').text());
-        $(' #ccc').attr('href', $(me).parents().find('#nnn').attr('href'));
+        // $('.modal-body span').text($(me).parent().find('.card-info .vvv').text());
+        // $('.modal-body1').text($(me).parent().find('.card-info .who').text());
+        // $('.lightbox-del a').text($(me).parent().find('.card-info .who').text());
+        $(' #gowhere').attr('href', $(me).parent().find('#number').attr('href'));
         $('.lightbox-del').parents().find('.lightbox-del').css('display','block');
         $('.bg').css('display','block');
     }
 
-//     function removeItem(likes_sid) {
-//          location.href = `./nap_api/petlove-del.php?sid=${likes_sid}`;
-//          $('.lightbox-del').css('display','none');
-// $('.bg').css('display','none');
-//     }
 
 function removeItem(likes_sid){
         if(13){
