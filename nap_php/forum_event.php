@@ -199,7 +199,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <div class="imgInsert"></div>
             </div>
             <!-- 上傳圖片 -->
-            <input name="picture" class="imgInp" type='file' id="imgInp" />
+            <input name="picture" class="imgInp" type='file' id="imgInp" accept="image/" enctype="multipart/form-data"   multiple/>
             <button type="submit" class="summitBtn napBtn_padding_filled" form="form_postInsert">
                 <span>發佈貼文</span>
             </button>
@@ -467,11 +467,17 @@ $pageName = 'Forum-events'; // 頁面名稱
     // ---------表格提交
     // 貼文
     function sendPost(obj) {
+        var pic = new FormData($("#form_postInsert")['picture']);
+        console.log(pic)
         $.post(
             './nap_api/forum_postInsert-api.php',
             $(document.form_postInsert).serialize(),
+            function(data){
+                console.log(data)
+            },
             'json'
         )
+
 
         alert('成功發出貼文');
         window.location.reload();
@@ -540,20 +546,7 @@ $pageName = 'Forum-events'; // 頁面名稱
     }))
 
     // ---------收藏貼文功能
-    // function sentLike(event) {
 
-    //     const btn = $(event.currentTarget);
-    //     const sid = btn.attr('data-id');
-    //     $.get(
-    //         `./nap_api/forum_likes-api.php?like_type=3&item_sid=${sid}`,
-    //         function(data) {
-    //             if (btn.hasClass('show')) {
-    //                 btn.removeClass('show');
-    //             } else {
-    //                 btn.addClass('show');
-    //             }
-    //         }, 'json');
-    // }
 
     $('.comtCard_wrap').on('click', '.napBtn_likeBtn_comt', function(e) {
         e.stopPropagation()
@@ -567,7 +560,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                 item_sid: sid
              },
             function(data) {
-                console.log(data)
                 if (btn.find('#napActivate').hasClass('d-block')) {
                     btn.find('#napActivate').removeClass('d-block');
                     lightBox.find('#napActivate').removeClass('d-block');
@@ -578,6 +570,36 @@ $pageName = 'Forum-events'; // 頁面名稱
                 }
             }, 'json');
     })
+
+
+    // ----------上傳圖片功能
+
+    // ------發文光箱  
+// 上傳圖片功能  預覽&新增div
+
+let picNum = 0
+imgInp.onchange = evt => {
+    // 前端預覽圖片
+    picNum += 1
+
+    const [file] = imgInp.files
+    
+
+    if (file) {
+        
+        $('.lightBox_post .inputArea .imgInsert').append(`<img id="postPic${picNum}" src="" alt="" />`);
+
+        document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
+    }
+
+    // 新增檔案至後端
+    let form = new FormData();
+    form.append("product[photos][]", evt.target.files[0]['name'])
+    console.log(form)
+
+
+}
+
 </script>
 
 

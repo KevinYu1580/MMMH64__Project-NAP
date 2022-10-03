@@ -32,6 +32,7 @@ VALUES
 $pdo->query($sql);
 
 
+echo $picture;
 
 
 
