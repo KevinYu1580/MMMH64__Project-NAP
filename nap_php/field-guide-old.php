@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_vera.php';
+require __DIR__ . '/parts/connect_db.php';
+// require __DIR__ . '/parts/connect_db_vera.php';
 $pageName = 'filed-guide'; // 頁面名稱
 
 $perPage = 12;  // 每頁最多有幾筆

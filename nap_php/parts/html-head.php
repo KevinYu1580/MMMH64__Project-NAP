@@ -1,8 +1,8 @@
 <?php
 if(! isset($title)){
-    $title = 'N.A.P.';
+    $title = 'N.A.P';
 } else {
-    $title = 'N.A.P.| '.$title;
+    $title = 'N.A.P | '. $title;
 }
 
 ?>

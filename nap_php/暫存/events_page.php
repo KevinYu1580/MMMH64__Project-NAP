@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db.php';
+// require __DIR__ . '/parts/connect_db_cy.php';
 // require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = '活動檔期'; // 頁面名稱
 
@@ -11,15 +12,19 @@ $perPage = 5;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 
 
-$member_id = $_SESSION['user']['id'];
-
-
-$where ='WHERE event_status=1';
 
 // $where = ' WHERE 1 ';  // 起頭
 
+$where ='WHERE event_status=1';
+
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM event_detail $where ";
+
+// $t_sql="SELECT * FROM `event_detail` WHERE `event_status`=1 ORDER BY `sid`";
+
+// SELECT * FROM `event_detail` WHERE `event_status`=1
+
+
 $total_events = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 // 計算總頁數用無條件進位
@@ -40,7 +45,8 @@ if ($total_events > 0) {
 
     // 取得該頁面的資料
     $sql = sprintf(
-        "SELECT * FROM `event_detail` %s ORDER BY `sid` ASC LIMIT %s, %s",
+        
+        "SELECT * FROM `event_detail` %s ORDER BY `sid` ASC LIMIT %s ,%s",
         $where,
         ($page - 1) * $perPage,
         $perPage
@@ -57,13 +63,13 @@ if ($total_events > 0) {
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 <!-- 加自己的css -->
-
+<link rel="stylesheet" href="./nap_css/events_page1.css?version=&lt;?php echo time(); ?&gt;">
 
 
 </head>
 
 <?php include __DIR__ . '/parts/navbar.php'; ?>
-<link rel="stylesheet" href="./nap_css/events_page1.css">
+
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 
 
@@ -204,12 +210,12 @@ if ($total_events > 0) {
 <script src="./nap_js/component.js"></script>
 <script src="./nap_js/events_page.js"></script>
 <script>
+    //----------控制畫面呈現字數----------
     const eventCard = $('#eventCard');
     $(function() {
         cutTextInto44();
     });
 
-    //----------控制畫面呈現字數----------
     function cutTextInto44() {
         var len = 44; // 超過44個字以"..."取代
         $(".card-textbox-mb p").each(function(i) {
@@ -229,7 +235,6 @@ if ($total_events > 0) {
         event_outline,
         event_remain,
         event_quota,
-        member_id
     }) => {
         return `<div class="events-card-col-mb flex-shrink-0">
                     <div class="events-card-mb d-md-flex">
@@ -241,7 +246,7 @@ if ($total_events > 0) {
                             <h3>${event_name}</h3>
                             <p>${event_outline}</p>
                             <div class="people-cardBtn d-md-flex justify-content-md-between ">
-                                <h5>剩餘名額：<span>${event_remain}</span> / ${event_quota}</h5>
+                                <h5>剩餘名額：<span class="remain">${event_remain}</span> / ${event_quota}</h5>
 
                                 <div class="card-btn">
                                     <a href="events_detail.php?sid=${sid}" class="event">查看活動</a>
@@ -249,16 +254,13 @@ if ($total_events > 0) {
                             </div>
                         </div>
                         <div class="card-like d-flex justify-content-center align-items-center ">
-                            <button name="sentLike" type="submit" onclick="sentLike(event)" data-id="${sid}">
-                                <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
-                                <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
-                            </button>
+                            <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
+                            <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
                         </div>
                     </div>
                 </div>`;
     };
 
-    //判斷remain人數少於10換色
     function changeColor() {
         $(".remain").each(function(i) {
             if ($(this).text() < 10) {
@@ -270,20 +272,8 @@ if ($total_events > 0) {
     };
     changeColor();
 
-    // 收藏按鈕顯示開關
-    function sentLike(event) {
-        const btn = $(event.currentTarget);
-        const sid = btn.attr('data-id');
-        $.get(
-            `event-like-api.php?like_type=2&item_sid=${sid}`,
-            function(data) {
-                if (btn.hasClass('show')) {
-                    btn.removeClass('show');
-                } else {
-                    btn.addClass('show');
-                }
-            }, 'json');
-    }
+
+
 
     // default selections
     $('.my-option').each(function() {
@@ -326,16 +316,6 @@ if ($total_events > 0) {
                 });
             }
             eventCard.html(str);
-
-            // 收藏按鈕，判斷顯示已收藏過的
-            for (let i of data.myLikes) {
-                const event_sid = i.event_sid;
-                const selectedBtn = $(`button[data-id=${event_sid}]`);
-                if (selectedBtn.length) {
-                    selectedBtn.addClass('show');
-                }
-
-            }
 
             const perPage = <?= $perPage ?>;
             const totalPage = Math.ceil(+data.total_events / perPage);

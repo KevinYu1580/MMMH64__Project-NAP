@@ -1,6 +1,7 @@
 <?php
+require __DIR__ . '/parts/connect_db.php';
 // require __DIR__ . '/parts/connect_db_vera.php';
-require __DIR__ . '/parts/connect_db_penny.php';
+// require __DIR__ . '/parts/connect_db_penny.php';
 $pageName = 'furry_friends'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>

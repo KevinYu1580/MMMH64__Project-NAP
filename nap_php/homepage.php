@@ -1,6 +1,8 @@
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'Homepage'; // 頁面名稱
+
+
+$pageName = 'Home'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
