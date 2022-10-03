@@ -749,12 +749,13 @@
 
     .cart {
         position: relative;
+        margin-right: 10px;
     }
 
     #cartCount {
         background-color: #B14F42;
         position: absolute;
-        right: -15px;
+        right: -12px;
         border-radius: 20px;
     }
 </style>
