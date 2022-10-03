@@ -484,9 +484,9 @@ body{
     padding-bottom: 25px;
     text-align: center;
 }
-.card-textbox-mb span{
-    color: var(--subColor_highLightRed);
-}
+/* .card-textbox-mb span{
+    color: var(--black_900);
+} */
 .card-btn{
     text-align: center;
     padding-bottom: 30px;
@@ -615,9 +615,9 @@ body{
         padding-bottom: 0px;
         text-align: center;
     }
-    .card-textbox-mb span{
-        color: var(--subColor_highLightRed);
-    }
+    /* .card-textbox-mb span{
+        color: var(--black_700);
+    } */
     .card-btn{
         text-align: center;
         padding-bottom: 0px;

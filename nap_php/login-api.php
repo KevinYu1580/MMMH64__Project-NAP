@@ -1,6 +1,6 @@
 <?php
-
-require __DIR__ . '/parts/connect_db_nora.php';
+require __DIR__ . '/parts/connect_db_cy.php';
+// require __DIR__ . '/parts/connect_db_nora.php';
 
 $output = [
     'success' => false,

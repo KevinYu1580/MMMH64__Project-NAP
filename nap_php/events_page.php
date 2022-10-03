@@ -12,10 +12,18 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 
 
 
-$where = ' WHERE 1 ';  // 起頭
+// $where = ' WHERE 1 ';  // 起頭
+
+$where ='WHERE event_status=1';
 
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM event_detail $where ";
+
+// $t_sql="SELECT * FROM `event_detail` WHERE `event_status`=1 ORDER BY `sid`";
+
+// SELECT * FROM `event_detail` WHERE `event_status`=1
+
+
 $total_events = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 // 計算總頁數用無條件進位
@@ -36,7 +44,8 @@ if ($total_events > 0) {
 
     // 取得該頁面的資料
     $sql = sprintf(
-        "SELECT * FROM `event_detail` %s ORDER BY `sid` ASC LIMIT %s, %s",
+        
+        "SELECT * FROM `event_detail` %s ORDER BY `sid` ASC LIMIT %s ,%s",
         $where,
         ($page - 1) * $perPage,
         $perPage
@@ -53,7 +62,7 @@ if ($total_events > 0) {
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/events_page1.css">
+<link rel="stylesheet" href="./nap_css/events_page1.css?version=&lt;?php echo time(); ?&gt;">
 
 
 </head>
@@ -253,9 +262,9 @@ if ($total_events > 0) {
 
     function changeColor() {
         $(".remain").each(function(i) {
-            if ($(this).text() > 10) {
+            if ($(this).text() < 10) {
                 $(this).css({
-                    color: "#7C8C38",
+                    color: "#B14F42",
                 });
             }
         });

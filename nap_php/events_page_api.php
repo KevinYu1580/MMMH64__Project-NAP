@@ -12,7 +12,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0; // 浪浪套裝活動
 
 
-$where = ' WHERE 1 ';  // 起頭
+$where = ' WHERE event_status=1';  // 起頭
 $where .= " AND `event_cate`=$cate ";
 
 
