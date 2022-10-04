@@ -237,14 +237,15 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
     //取折價券的初始值
     let coupon = $('#select-coupon').val();
-    function getCoupon(){
+
+    function getCoupon() {
         coupon_sid = $('#select-coupon').children('option:selected').attr('data-sid');
     };
     getCoupon();
-    
+
     // console.log(coupon_sid);
     // console.log(coupon);
-    
+
     //取折價券的value,sid
     $('#select-coupon').change(function() {
         coupon = $(this).val();
@@ -253,7 +254,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
         console.log(coupon_sid);
         console.log(coupon);
     });
-    
+
     function removeItem(event) {
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
@@ -261,7 +262,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
         $.get(
             'handle-room-order.php', {
-                sid
+                room_id: sid
             },
             function(data) {
                 // console.log(data);

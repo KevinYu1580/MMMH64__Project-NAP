@@ -7,8 +7,8 @@ if (!isset($_SESSION['room_order'])) {
 }
 
 //如果有設定的話，就把他的值轉換成整數
-// $sid: room_sid
-$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $sid: room_id
+$sid = isset($_GET['room_id']) ? intval($_GET['room_id']) : 0;
 $num = isset($_GET['num']) ? intval($_GET['num']) : 0;
 $days = isset($_GET['days']) ? intval($_GET['days']) : 0;
 $day1 = isset($_GET['day1']) ? $_GET['day1'] : '';

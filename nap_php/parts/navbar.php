@@ -903,15 +903,18 @@
                         function(data) {
                             data2 = data;
 
-                            for (let key in obj) {
-                                const item = Object.keys(obj).length;
-                                count = +item;
-                                
-
-                                // count += +item.qty;
-
+                            for (let key in data1) {
+                                count++;
+                            }
+                            for (let key in data2) {
+                                count++;
                             }
                             $('#cartCount').html(count);
+
+                            console.log({
+                                data1,
+                                data2
+                            })
 
                         },
                         'json');
