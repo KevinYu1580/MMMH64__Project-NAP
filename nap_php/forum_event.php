@@ -475,7 +475,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                 body: form_data,
             }).then(r => r.json())
             .then(result => {
-                console.log(result)
                 alert('發文成功');
                 window.location.reload();
 
@@ -589,20 +588,22 @@ $pageName = 'Forum-events'; // 頁面名稱
             confirmButtonText: '刪除貼文!'
         }).then((result) => {
             if (result.isConfirmed) {
+                // 點選確認後執行以下功能(範例是post功能)
                 $.post(
                     './nap_api/forum_delete-api.php', {
                         post_sid: post_sid
-                    },
-                    (data) => {
-                        // console.log(data)          
                     }
                 )
-                Swal.fire(
-                    '已刪除!',
-                    '已刪除您的貼文',
-                    'success'
-                );
-                
+                // 以下為執行成功框框
+                Swal.fire({
+                    icon: 'success',
+                    title: '已成功刪除',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then((result) => {
+                    window.location.reload();
+                });
+
             }
         })
 
