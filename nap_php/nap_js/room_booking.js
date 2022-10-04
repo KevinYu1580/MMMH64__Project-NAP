@@ -124,7 +124,8 @@ $('li.select-li').click(function(){
 // ---------------------按下查詢空房，出現訂房間數選項---------------------
 $('.booking-box').click(function(){
     if( $('.selectRoom h6').html() <= 0){
-        alert('尚未選擇間數');
+        // alert('尚未選擇間數');
+        // oopsAlert();
         $('.room-null').html();
     }
 

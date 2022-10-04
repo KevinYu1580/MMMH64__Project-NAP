@@ -5,7 +5,7 @@ $pageName = '活動報名'; // 頁面名稱
 
 $where = ' WHERE 1 ';  // 起頭
 
-if(empty($_SESSION['user'])){
+if (empty($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
@@ -17,7 +17,7 @@ $total_events = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 // 確認在 url 中顯示對應 id
 if (isset($_GET['sid'])) {
-    
+
     $stmt = $pdo->prepare('SELECT * FROM event_detail WHERE `sid` = ?');
     $stmt->execute([$_GET['sid']]);
 
@@ -56,9 +56,9 @@ if (isset($_GET['sid'])) {
     <!------ 活動 notice 這裡開始 ------>
     <div class="mobile-backpage">
         <a href="enroll-event-notice.php?page=event&sid=<?= $event['sid'] ?>"><svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
-        </svg></a>
-        
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
+            </svg></a>
+
         <a href="enroll-event-notice.php?sid=<?= $event['sid'] ?>">活動報名</a>
     </div>
 
@@ -207,7 +207,7 @@ if (isset($_GET['sid'])) {
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 
-<script src="./nap_js/event-enroll-data.js"></script>
+<script src="./nap_js/event-enroll-data.js?version=&lt;?php echo time(); ?&gt;"></script>
 <script>
     function goPay(event) {
         const btn = $(event.currentTarget);
@@ -219,18 +219,32 @@ if (isset($_GET['sid'])) {
         const sid = btn.attr('data-sid');
         //在送出btn上下屬性
 
-        console.log({sid, qty});
+        console.log({
+            sid,
+            qty
+        });
         $.get(
-            'handle-event-cart.php',
-            {sid, qty}, function(data){
+            'handle-event-cart.php', {
+                sid,
+                qty
+            },
+            function(data) {
                 console.log(data);
                 showCartCount(data);
             },
             'json');
         window.location.replace("event-cart.php");
-            
+
     }
+
     function addToCart(event) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
         const btn = $(event.currentTarget);
         const qty = getEnrollContentFormNum();
         //qty 數量這裡是用$('.enroll-content-form').length算人數
@@ -240,15 +254,22 @@ if (isset($_GET['sid'])) {
         const sid = btn.attr('data-sid');
         //在送出btn上下屬性
 
-        console.log({sid, qty});
+        console.log({
+            sid,
+            qty
+        });
         $.get(
-            'handle-event-cart.php',
-            {sid, qty}, function(data){
+            'handle-event-cart.php', {
+                sid,
+                qty
+            },
+            function(data) {
                 console.log(data);
                 showCartCount(data);
             },
             'json');
-            
+
+
         window.location.replace("events_page.php");
     }
 </script>

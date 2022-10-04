@@ -61,7 +61,7 @@
         padding: 16px 0px;
         display: flex;
         justify-content: space-between;
-        background:transparent;
+        background: transparent;
         position: fixed;
         width: 100%;
         z-index: 999;
@@ -762,6 +762,8 @@
 
 <link rel="stylesheet" href="./nap_css/reset.css">
 <script src="./nap_js/jquery-3.6.0.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
 
 
 <title><?= 'N.A.P. | ' . $pageName ?></title>
@@ -889,6 +891,46 @@
     </div>
 
     <script>
+        function showCartCount() {
+            let count = 0;
+            let data1, data2;
+            $.get(
+                'handle-event-cart.php',
+                function(data) {
+                    data1 = data;
+                    $.get(
+                        'handle-room-order.php',
+                        function(data) {
+                            data2 = data;
+
+                            for (let key in obj) {
+                                const item = Object.keys(obj).length;
+                                count = +item;
+                                
+
+                                // count += +item.qty;
+
+                            }
+                            $('#cartCount').html(count);
+
+                        },
+                        'json');
+                },
+                'json');
+
+
+        }
+
+        showCartCount();
+
+
+
+
+
+
+
+
+        /*
         function showCartCount(obj) {
             let count = 0;
 
@@ -920,7 +962,7 @@
                 showCartCount(data);
             },
             'json');
-
+*/
         // navbar滑動時顯示模糊
         $(window).scroll(function() {
             if ($('.topNav_mobile').offset().top > 0) {

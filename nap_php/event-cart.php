@@ -111,11 +111,11 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                             <div class="item-price">
                                 <p>NT$ <span class="sub-total"></span></p>
                             </div>
-                            <div class="edit-enroll-btn">
+                            <!-- <div class="edit-enroll-btn">
                                 <a class="napBtn_fixed_filled" href="event-enroll-data-edit.php?sid=<?=$value['sid']?>">
                                     <span>修改參與人</span>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="delete-btn">
                             <a class="delete" href="javascript:" type="button" onclick="removeItem(event)">
@@ -187,7 +187,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="car-num" class="form-label">電子郵件信箱</label>
+                        <label for="email" class="form-label">電子郵件信箱</label>
                         <input type="text" class="form-control" id="car-num" value="<?= $rm['email'] ?>" disabled readonly>
                     </div>
                     <div class="mb-3">

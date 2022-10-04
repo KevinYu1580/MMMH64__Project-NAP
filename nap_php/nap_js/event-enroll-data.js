@@ -1,8 +1,13 @@
 var amount = 0;
 
 CheckAmount();
+// const evt_id =  $_SESSION['event-cart']['sid'];
+// console.log(evt_id);
 
-const tpl_func = (n) => {
+const tpl_func = ({
+	n,
+	// evt_id,
+}) => {
 	return `
 	<div class="enroll-content-form">
 		<div class="delete-btn">
@@ -12,11 +17,10 @@ const tpl_func = (n) => {
 		</div>
 		<div class="count-num"></div>
 		<div class="enroll-other">
-			<div class="mb-3 form-check">
-				<input type="checkbox" class="form-check-input" name="add-member-data">
-				<label class="form-check-label" for="exampleCheck1">加入會員資料（會員為活動參與者）</label>
-			</div>
+			
 			<div class="mb-3">
+				<input type="text" class="form-control" id="event_sid_${n}" name="event_sid[]"  value="test///////" readonly>
+
 				<label for="name_${n}" class="form-label">姓名</label>
 				<input type="text" class="form-control" id="name_${n}" name="name[]" required>
 			</div>

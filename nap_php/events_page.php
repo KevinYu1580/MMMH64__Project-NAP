@@ -60,10 +60,11 @@ if ($total_events > 0) {
 
 
 </head>
-
-<link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
-<link rel="stylesheet" href="./nap_css/events_page1.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
+<link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
+
+
+<link rel="stylesheet" href="./nap_css/events_page1.css?version=&lt;?php echo time(); ?&gt;">
 
 
 <!-- 活動頁面banner | events-banner -->

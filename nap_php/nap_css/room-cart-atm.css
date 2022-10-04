@@ -1,0 +1,545 @@
+@font-face {
+    font-family: custom-font;
+    
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap') format("opentype");
+    unicode-range: U+4E00-9FFF;
+}
+@font-face {
+    font-family: custom-font;
+    src: local(Arial), url('./font/Arial.ttf') format("truetype");
+    unicode-range: U+00-024F;
+}
+:root {
+    --primaryColor_default: #BFBD4A;
+    --primaryColor_dark: #7C8C38;
+    --primaryColor_light: #D6D48A;
+    --primaryColor_tint: #E8E7D1;
+    --secondaryColor_default: #B18042;
+    --secondaryColor_light: #EDDCCE;
+
+    --subColor_bgc: #F7F5F0;
+    --subColor_yellow: #FFE266;
+    --subColor_lightRed: #F67557;
+    --subColor_highLightRed: #B14F42;
+    --subColor_text: #4C4C4C;
+    
+    --black_core: #000000;
+    --black_900: #2D2D2D;
+    --black_800: #4B4B4B;
+    --black_600: #909090;
+    --black_500: #CCCCCC;
+    --black_400: #ECECEC;
+    --black_200: #F6F6F6;
+    --white: #ffffff;
+
+    --headline_50px:80px;
+    --headline_60px:60px;
+    --headline_40px:40px;
+    --headline_32px:32px;
+    --headline_28px:28px;
+    --headline_24px:24px;
+    --headline_20px:20px;
+    --subtitle_18px:18px;
+    --subtitle_16px:16px;
+    --p_16px: 16px;
+    --p_14px: 14px;
+    --p_12px: 12px;
+    --p_10px: 10px;
+
+    --border-radious: 20px;
+    --btn-radius: 1200px;
+    --box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: custom-font;
+    color: var(--subColor_text);
+}
+
+.outer-container{
+    position: relative;
+    margin: auto;
+    min-width: 375px;
+}
+    @media screen and (min-width: 768px){
+        .outer-container{
+            max-width: 1440px;
+        }
+    }
+
+.all-container{
+    min-width: 375px;
+    margin-top: 40px;
+}
+    @media screen and (min-width: 768px){
+        .all-container{
+            /* padding: 0 5%; */
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0;
+        }
+    }
+
+.mobile-backpage{
+    height: 45px;
+    margin-top: 68px;
+    background-color: var(--primaryColor_dark);
+    width: 100%;
+    color: var(--white);
+    font-size: var(--headline_24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    @media screen and (min-width: 768px){
+        .mobile-backpage{
+            display: none;
+        }
+    }
+
+.mobile-backpage a{
+    text-decoration: none;
+    color: var(--white);
+}
+.mobile-backpage svg{
+    position: absolute;
+    height: 12px;
+    transform: rotate(-90deg);
+    left: 0;
+    margin-left: 10%;
+}
+
+.backpage{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .backpage {
+            font-size: var(--headline_28px);
+            /* padding-left: 8%; */
+            display: flex;
+            align-items: center;
+            margin-top: 132px;
+        }
+        .backpage:hover {
+            transform: translateX(-3px);
+            transition: all .3s;
+        }
+    }
+
+.backpage img{
+    transform: rotate(-90deg);
+    margin-right: 15px;
+}
+
+.backpage a{
+    text-decoration: none;
+    color: var(--subColor_text);
+}
+
+.cart-detail{
+    width: 90%;
+    margin: 0 auto;
+}
+    @media screen and (min-width: 768px){
+        .cart-detail{
+            width: 50%;
+            margin: 0;
+        }
+    }
+
+
+/* -------------步驟進度------------ */
+.step-rate{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin: 15px 0;
+}
+    @media screen and (min-width: 768px){
+        .step-rate{
+            display: flex;
+            justify-content:right;
+            /* width: 100%; */
+            margin: 30px 0;
+        }
+    }
+
+.step-rate img{
+    margin: auto;
+    display: flex;
+}
+    @media screen and (min-width: 768px){
+        .step-rate img{
+            width: 296px;
+            height: 57px;
+            justify-content: right;
+        }
+    }
+/* -------------明細內容------------ */
+.cart-detail-content{
+    margin-bottom: 55px;
+}
+    @media screen and (min-width: 768px){
+        .cart-detail-content{
+            margin-bottom: 65px;
+        }
+    }
+.per-cart-item{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item{
+            margin: 40px 0;
+        }
+    }
+
+.per-cart-item::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--primaryColor_dark);
+    bottom: -10px;
+    
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item::after{
+            bottom: -20px;
+            
+        }
+    }
+
+.per-cart-item .room-img img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .room-img img{
+            width: 230px;
+            height: 158px;
+            object-fit: cover;
+        }
+    }
+
+.per-cart-item .item-list .room-name{
+    font-size: var(--subtitle_18px);
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .room-name{
+            font-size: var(--headline_28px);
+            margin-bottom: 25px;
+        }
+    }
+
+.per-cart-item .item-list{
+    margin-left: 8px;
+    width: 100%;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list{
+            margin-left: 20px;
+            width: 100%;
+        }
+    }
+    
+.per-cart-item .item-list .room-night{
+    display: flex;
+}
+
+.per-cart-item .item-list .stay-date, .room-night{
+    font-size: var(--p_12px);
+    margin-top: 8px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .stay-date, .room-night{
+            font-size: var(--subtitle_18px);
+            margin-top: 10px;
+        }
+    }
+
+.per-cart-item .item-list .room-night .price, .room-num{
+    margin-right: 10px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .room-night .price, .room-num{
+            margin-right: 20px;
+        }
+    }
+    
+.per-cart-item .item-list .item-price{
+    font-size: var(--subtitle_18px);
+    margin-top: 10px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .item-price{
+            font-size: var(--headline_28px);
+            margin-top: 15px;
+        }
+    }
+
+.per-cart-item .item-list .item-price span{
+    color: var(--subColor_highLightRed);
+}
+
+.per-cart-item .item-list .stay-date{
+    font-weight: 300;
+    line-height: 0.8rem;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .stay-date{
+            font-weight: 300;
+            line-height: 1.4rem;
+        }
+    }
+
+.delete-btn img{
+    width: 15px;
+    margin-left: 30px;
+}
+    @media screen and (min-width: 768px){
+        .delete-btn img{
+            width: 28px;
+            margin-left: 120px;
+        }
+    }
+
+
+/* --------------總結算列------------- */
+.final-cart-price{
+    position: relative;
+}
+    .final-cart-price::before{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: var(--primaryColor_dark);
+        top: -20px;
+    }
+
+.total-price{
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-top: 30px;
+}
+
+.deposit-price{
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+.final-cart-price .discount{
+    display: flex;
+    background-color: var(--secondaryColor_light);
+    padding: 5px;
+    font-size: var(--p_14px);
+    width: 50%;
+    justify-content: center;
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+    @media screen and (min-width: 768px){
+        .final-cart-price .discount{
+            font-size: var(--headline_20px);
+            width: 35%;
+        }
+    }
+
+.final-cart-price .discount-num{
+    margin-left: 10px;
+}
+
+.total-price{
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-top: 10px;
+}
+    @media screen and (min-width: 768px){
+        .total-price{
+            margin-top: 20px;
+        }
+    }
+
+
+.total-price p, .deposit-price p{
+    text-align: right;
+}
+
+.total-price p{
+    font-size: var(--subtitle_16px);
+}
+    @media screen and (min-width: 768px){
+        .total-price p{
+            font-size: var(--headline_24px);
+        }
+    }
+
+.deposit-price p{
+    font-size: var(--headline_20px);
+}
+    @media screen and (min-width: 768px){
+        .deposit-price p{
+            font-size: var(--headline_28px);
+        }
+    }
+
+.deposit-price p span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
+}
+
+.total-price-num, .deposit-price-num{
+    margin-left: 20px;
+}
+
+
+/* ---------ATM 注意事項--------- */
+.pay-atm{
+    background-color: var(--subColor_bgc);
+    padding: 20px 30px;
+    border-radius: 20px;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 55px;
+}
+    @media screen and (min-width: 768px){
+        .pay-atm{
+            margin: auto;
+            padding: 5%;
+            width: 50%;
+            margin-left: 50px;
+            margin-top: 0;
+        }
+    }
+.pay-atm .pay-atm-title h4{
+    display: none;
+}
+    @media screen and (min-width: 768px){
+        .pay-atm .pay-atm-title h4{
+            display: flex;
+            font-size: var(--headline_32px);
+            text-align: center;
+            justify-content: center;
+        }
+    }
+
+.pay-atm .atm-notice{
+    background-color: var(--white);
+    margin: 20px 0;
+    padding: 20px;
+}
+    @media screen and (min-width: 768px){
+        .pay-atm .atm-notice{
+            padding: 40px;
+            margin: 30px 0;
+        }
+    }
+
+.pay-atm .atm-notice .notice-title{
+    font-size: var(--headline_20px);
+    position: relative;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+    @media screen and (min-width: 768px){
+        .pay-atm .atm-notice .notice-title{
+            font-size: var(--headline_24px);
+            margin: 0 0 40px 0;
+        }
+    }
+
+.pay-atm .atm-notice .notice-title::after{
+    position: absolute;
+    content: '';
+    background-color: var(--black_600);
+    width: 50%;
+    height: 1px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.atm-notice-content{
+    font-size: var(--p_16px);
+    line-height: 1.4rem;
+    margin: 0 8px;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .atm-notice-content{
+            font-size: var(--headline_20px);
+            line-height: 1.8rem;
+            margin: 20px;
+            margin-bottom: 20px;
+            
+
+        }
+    }
+
+.atm-notice-content span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
+}
+
+.atm-notice-example{
+    font-size: var(--p_12px);
+    line-height: 1rem;
+    margin: 0 8px;
+    margin-bottom: 10px;
+}
+    @media screen and (min-width: 768px){
+        .atm-notice-example{
+            font-size: var(--subtitle_16px);
+            line-height: 1.2rem;
+            margin: 0 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+/*-------------------- Buttons --------------------*/
+.confirm-btn {
+    display: block;
+    background: var(--primaryColor_dark);
+    color: var(--white);
+    text-decoration: none;
+    margin: 50px 0 10px 0;
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    font-size: var(--headline_20px);
+    border: 0;
+}
+.confirm-btn:focus, 
+.confirm-btn:active:focus,
+.confirm-btn.active:focus,
+.confirm-btn.focus,
+.confirm-btn:active.focus,
+.confirm-btn.active.focus {
+outline: none !important; box-shadow:none !important; 
+}
+.confirm-btn:hover {
+    background: var(--primaryColor_light);
+}
+
+/* .price_qty{
+    display: flex;
+}
+.per_price{
+    margin-right: 10px;
+} */

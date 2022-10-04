@@ -3,6 +3,22 @@
 require __DIR__ . '/parts/connect_db.php';
 
 $pageName = '訂房購物車'; // 頁面名稱
+
+
+//確認會員登入
+if (empty($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+$member_id = $_SESSION['user']['id'];
+
+$sql = "SELECT * FROM `coupon` WHERE `member_sid`= $member_id AND `coupon_status`= 0 ";
+$rows = $pdo->query($sql)->fetchAll();
+
+$sql_mem = "SELECT * FROM `member01` WHERE `id`= $member_id";
+$rows_mem = $pdo->query($sql_mem)->fetchAll();
+
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -15,7 +31,7 @@ $pageName = '訂房購物車'; // 頁面名稱
 
 <!-- 加自己的css -->
 
-<link rel="stylesheet" href="./nap_css/room-cart2.css">
+<link rel="stylesheet" href="./nap_css/room-cart2.css?version=&lt;?php echo time(); ?&gt;">
 
 <div class="all-container">
     <div class="cart-detail">
@@ -62,7 +78,7 @@ $pageName = '訂房購物車'; // 頁面名稱
                     <!------- 查看其他頁面按鈕 ------->
                     <div class="empty-cart-btn row">
                         <div class="col check-event-btn">
-                            <a class="napBtn_fixed_filled" href="events_page.php">
+                            <a class="napBtn_fixed_filled" href="room_info.php">
                                 <span>查看訂房</span>
                             </a>
                         </div>
@@ -148,24 +164,53 @@ $pageName = '訂房購物車'; // 頁面名稱
                 </defs>
             </svg>
         </div>
-        <div class="mb-3">
-            <label for="select-coupon" class="form-label">我的折價券</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>選擇要使用的折價券</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+        <div class="form">
+            <form>
+                <div class="mycoupon mb-3">
+                    <label for="select-coupon" class="select-coupon">我的折價券</label>
+                    <select class="form-select coupon" aria-label="Default select example" id="select-coupon">
+                        <option value="0" data-sid=null>選擇要使用的折價券</option>
+                        <?php
+                        foreach ($rows as $r) :
+                        ?>
+                            <option value="<?= $r['discount'] ?>" data-sid="<?= $r['sid'] ?>"><?= $r['coupon_name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <?php foreach ($rows_mem as $rm) : ?>
+                    <div class="mydata mb-3">
+                        <label for="member-data" class="member-data">訂購人資料</label>
+                    </div>
+                    <div class="name-phone">
+                        <div class="name mb-3">
+                            <label for="name" class="form-label">訂購人姓名</label>
+                            <input type="text" class="form-control" id="name" value="<?= $rm['name'] ?>" disabled readonly>
+                        </div>
+                        <div class="phone mb-3">
+                            <label for="phone" class="form-label">手機</label>
+                            <input type="text" class="form-control" id="phone" value="<?= $rm['mobile'] ?>" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">電子郵件信箱</label>
+                        <input type="text" class="form-control" id="car-num" value="<?= $rm['email'] ?>" disabled readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="special-need" class="form-label">備註</label>
+                        <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
+                    </div>
+                <?php endforeach; ?>
+            </form>
         </div>
         <!------- 付款方式按鈕 ------->
         <div class="cart-btn">
             <div class="credit-card-btn">
-                <button class="napBtn_fixed_filled" href="#">
+                <button class="napBtn_fixed_filled" onclick="goCredit()">
                     <span>信用卡付款</span>
                 </button>
             </div>
             <div class="atm-btn">
-                <button class="napBtn_fixed_filled" href="#">
+                <button class="napBtn_fixed_filled" onclick="goATM()">
                     <span>ATM 轉帳付款</span>
                 </button>
             </div>
@@ -185,6 +230,30 @@ $pageName = '訂房購物車'; // 頁面名稱
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
+    //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+    //取折價券的初始值
+    let coupon = $('#select-coupon').val();
+    function getCoupon(){
+        coupon_sid = $('#select-coupon').children('option:selected').attr('data-sid');
+    };
+    getCoupon();
+    
+    // console.log(coupon_sid);
+    // console.log(coupon);
+    
+    //取折價券的value,sid
+    $('#select-coupon').change(function() {
+        coupon = $(this).val();
+        coupon_sid = $(this).children('option:selected').attr('data-sid');
+
+        console.log(coupon_sid);
+        console.log(coupon);
+    });
+    
     function removeItem(event) {
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
@@ -248,14 +317,14 @@ $pageName = '訂房購物車'; // 頁面名稱
             console.log(price);
 
             item_num.html(num);
-            item_price.html(price);
-            item_sub.html(price * num);
+            item_price.html(dollarCommas(price));
+            item_sub.html(dollarCommas(price * num));
             total += price * num;
-            deposit = total/2;
+            deposit = total / 2;
 
         });
-        $('#total-price').html(total);
-        $('#deposit-price').html(deposit);
+        $('#total-price').html(dollarCommas(total));
+        $('#deposit-price').html(dollarCommas(deposit));
 
 
     };
@@ -273,6 +342,35 @@ $pageName = '訂房購物車'; // 頁面名稱
             $('.cart-btn').addClass('disabled');
             $('.form-control, .form-select').attr('disabled', true);
         }
+    }
+
+    function goATM() {
+        // console.log('special-need:', $('#special-need').val());
+        $.post('handle-room-cart-note.php', {
+            note: $('#special-need').val()
+        }, function(res) {
+            // console.log('res:', res);
+        });
+
+        $.get('handle-room-cart-coupon.php', {
+            sid: coupon_sid,
+            coupon: coupon,
+        });
+
+        location.href = 'room-cart-atm.php';
+    }
+
+    function goCredit() {
+        // console.log('special-need:', $('#special-need').val());
+        $.post('handle-room-cart-note.php', {
+            note: $('#special-need').val()
+        });
+
+        $.get('handle-room-cart-coupon.php', {
+            sid: coupon_sid,
+            coupon: coupon,
+        });
+        location.href = 'room-cart-credit.php';
     }
 </script>
 

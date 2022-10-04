@@ -376,7 +376,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     //     $('.booking-btn a').attr('href','./room_booking.php')
     // }
     // }); 
-    // oopsAlert();
+
 
 
 
@@ -451,6 +451,6 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     // $('.minus-btn').on('click', handleRoomNum);
     // $('.plus-btn').on('click', handleRoomNum);
 </script>
-<script src="./nap_js/room_booking.js"></script>
+<script src="./nap_js/room_booking.js?version=&lt;?php echo time(); ?&gt;"></script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
