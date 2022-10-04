@@ -22,10 +22,10 @@ $db_name = 'new_nap';
 
 //---- nora DB -----
 
-// $db_host = 'localhost';
-// $db_user = 'nora';
-// $db_pass = 'nap2321';
-// $db_name = 'nap_n';
+$db_host = 'localhost';
+$db_user = 'nora';
+$db_pass = 'nap2321';
+$db_name = 'nap_n';
 
 
 

@@ -117,7 +117,7 @@ $pageName = 'home'; // 頁面名稱
                 <img class="pic-size" src="./img/pet/<?= $r['pet_id'] ?>.jpg" alt="">
             </div>
             <div class="card-info card-info-pet">
-                <h4 ><?= $r['name'] ?><span><?= $genderArray[$r['gender']] ?></span>  </h4>
+                <h4 ><?= $r['name'] ?>  <span><?= $genderArray[$r['gender']] ?></span>  </h4>
                 <h5 class="who d-none"><?= $r['likes_sid'] ?></h5>
                 <h5 class="mt-3 mb-2">個性： <span>活潑外向</span> </h5>
                 <h5 class="mb-2">年齡： <span><?= $r['age'] ?>歲</span> </h5>

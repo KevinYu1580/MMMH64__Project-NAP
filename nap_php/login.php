@@ -23,7 +23,7 @@ $pageName = 'home'; // 頁面名稱
 
     <link rel="stylesheet" href="./nap_css/reset.css">
 
-<link rel="stylesheet" href="./nap_css/login7.css">
+<link rel="stylesheet" href="./nap_css/login.css?version=&lt;?php echo time(); ?&gt;">
     
     <title><?= $title ?></title>
 </head>

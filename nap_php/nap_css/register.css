@@ -471,8 +471,9 @@ html{
 .close {
     
     position: absolute;
-    top: 190px;
+    top: 250px;
     right: 20%;
+    z-index: 60;
     
 }
 
@@ -744,7 +745,7 @@ a{
     .close {
     
         position: absolute;
-        top: 80px;
+        top: 140px;
         right: 50px;
         
     }

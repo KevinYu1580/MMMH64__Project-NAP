@@ -146,7 +146,7 @@ html{
 
 .card-info h4{
     font-size: 24px;
-    font-weight: 900;
+    font-weight: 500;
     color: var(--secondaryColor_default);
 }
 
@@ -203,7 +203,7 @@ html{
     padding-left: 40px;
     padding-right: 40px;
     border-bottom: 1px solid var(--primaryColor_light);
-    font-weight: 900;
+    font-weight: 500;
 }
 
 .card-info-pet h4 span{
@@ -219,7 +219,7 @@ html{
     padding-right: 40px;
     margin-bottom: 0;
     padding-top: 3px;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 .card-info-pet h5 span{
@@ -247,13 +247,13 @@ html{
 
 .card-info-chat .person p{
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 500;
     color: var(--subColor_text)
 }
 
 .card-info-chat h4{
     font-size: 22px;
-    font-weight: 900;
+    font-weight: 500;
     margin-bottom: 10px;
     line-height: 1.3;
 
@@ -265,7 +265,7 @@ html{
 }
 .card-info-chat p{
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 500;
     
     
 }
@@ -340,7 +340,7 @@ html{
     }
     .card-info h4{
         font-size: 22px;
-        font-weight: 900;
+        font-weight: 500;
         color: var(--secondaryColor_default);
     }
     
@@ -399,7 +399,7 @@ html{
             padding-right: 90px;
             padding-top: 20px;
             border-bottom: 1px solid var(--primaryColor_light);
-            font-weight: 900;
+            font-weight: 500;
         }
         
 
@@ -411,7 +411,7 @@ html{
             padding-right: 40px;
             margin-bottom: 0;
             padding-top: 3px;
-            font-weight: 700;
+            /* font-weight: 700; */
         }
         /* --------------------------------- */
 
@@ -424,7 +424,7 @@ html{
         }
         .card-info-chat p{
             font-size: 14px;
-            font-weight: 900;
+            font-weight: 500;
             
             
         }
@@ -507,7 +507,7 @@ html{
     }
     .card-info h4{
         font-size: 40px;
-        font-weight: 900;
+        font-weight: 500;
         color: var(--secondaryColor_default);
     }
     
@@ -567,7 +567,7 @@ html{
         padding-right: 150px;
         padding-top: 20px;
         border-bottom: 1px solid var(--primaryColor_light);
-        font-weight: 900;
+        font-weight: 500;
     }
     
     .card-info-pet h4 span{
@@ -583,7 +583,7 @@ html{
         padding-right: 40px;
         margin-bottom: 0;
         padding-top: 3px;
-        font-weight: 700;
+        /* font-weight: 700; */
     }
     
     .card-info-pet h5 span{
@@ -605,7 +605,7 @@ html{
     
     .card-info-chat .person p{
         font-size: var(--headline_20px);
-        font-weight: 900;
+        font-weight: 500;
         color: var(--subColor_text)
     }
     
@@ -613,7 +613,7 @@ html{
         font-size: var(--headline_28px);
         margin-bottom: 14px;
         margin-top: 14px;
-        font-weight: 900;
+        font-weight: 700;
         
     
     }
@@ -624,7 +624,7 @@ html{
     }
     .card-info-chat p{
         font-size: var(--subtitle_16px);
-        font-weight: 900;
+        font-weight: 500;
         
         
     }
