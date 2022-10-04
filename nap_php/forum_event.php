@@ -199,7 +199,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <div class="imgInsert"></div>
             </div>
             <!-- 上傳圖片 -->
-            <input name="picture" class="imgInp" type='file' id="imgInp"  />
+            <input name="picture" class="imgInp" type='file' id="imgInp" />
             <button type="submit" class="summitBtn napBtn_padding_filled" form="form_postInsert">
                 <span>發佈貼文</span>
             </button>
@@ -471,15 +471,15 @@ $pageName = 'Forum-events'; // 頁面名稱
         let form_data = new FormData(document.form_postInsert);
 
         fetch('./nap_api/forum_postInsert-api.php', {
-            method: 'POST',
-            body: form_data,
-        }).then(r=>r.json())
-        .then(result=>{
-            console.log(result)
-            alert('發文成功');
-            window.location.reload();
+                method: 'POST',
+                body: form_data,
+            }).then(r => r.json())
+            .then(result => {
+                console.log(result)
+                alert('發文成功');
+                window.location.reload();
 
-        })
+            })
 
         // form_data.append('file', file_data);
 
@@ -579,16 +579,36 @@ $pageName = 'Forum-events'; // 頁面名稱
     $('.comtCard_wrap').on('click', '.cardDelete', (function(e) {
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
 
-        $.post(
-            './nap_api/forum_delete-api.php', {
-                post_sid: post_sid
-            },
-            (data) => {
-                // console.log(data)
-                window.location.reload();
-                alert('刪除成功');
+        Swal.fire({
+            title: '確認刪除貼文?',
+            text: "刪除後將無法復原",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f67557',
+            cancelButtonColor: '#bfbd4a',
+            confirmButtonText: '刪除貼文!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post(
+                    './nap_api/forum_delete-api.php', {
+                        post_sid: post_sid
+                    },
+                    (data) => {
+                        // console.log(data)          
+                    }
+                )
+                Swal.fire(
+                    '已刪除!',
+                    '已刪除您的貼文',
+                    'success'
+                );
+                
             }
-        )
+        })
+
+
+
+
 
     }))
 

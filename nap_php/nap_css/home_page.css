@@ -71,13 +71,14 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 .skipBtn span {
   font-size: 24px;
   color: var(--black_500);
 }
 .skipBtn .skipIcon {
-  animation: skipMovingIcon 1.3s infinite cubic-bezier(.03,.97,.41,.98);
+  animation: skipMovingIcon 2.3s infinite ;
 }
 @keyframes skipMovingIcon {
   0%{
@@ -85,7 +86,7 @@ body {
     opacity: 0%;
   }
   100% {
-    transform: translateY(200%);
+    transform: translateY(150%);
     opacity: 100%;
   }
 

@@ -6,7 +6,26 @@ const first_page_height = first_page.height();
 const aniCover = $(".aniCover");
 const ani_anchor = $(".ani_anchor");
 
-// nav bar的透明度控制(超過)
+// skip視覺動畫按鈕
+$('.skipBtn').click(() => {
+
+  $(window).animate(
+     $(this).scrollTop(first_page_height * 4)
+    ,3000);
+  ;
+});
+$(window).scroll(()=>{
+  if($(this).scrollTop()>0){
+    $('.skipBtn').css('opacity', '0')
+  }
+  else{
+    $('.skipBtn').css('opacity', '1')
+  }
+})
+
+
+
+// nav bar的透明度控制
 $(window).scroll(function () {
   const window_top = $(window).scrollTop();
 
