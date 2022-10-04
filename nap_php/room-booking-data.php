@@ -188,14 +188,6 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="special-need" class="form-label">特殊需求</label>
-                            <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">我想收到更多 N.A.P. 的活動相關訊息！</label>
-                        </div>
                     </form>
                 </div>
             </div>
