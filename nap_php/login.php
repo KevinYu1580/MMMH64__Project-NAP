@@ -9,8 +9,7 @@ if (!empty($_SESSION['user'])) {
 ?>
 
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db_nora.php';
+require __DIR__ . '/parts/connect_db.php';
 $pageName = 'home'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>

@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
-// require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
+
 $pageName = '房型介紹'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>

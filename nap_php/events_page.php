@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
-// require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
+
 $pageName = '活動檔期'; // 頁面名稱
 
 
@@ -242,7 +241,7 @@ if ($total_events > 0) {
                             <h3>${event_name}</h3>
                             <p>${event_outline}</p>
                             <div class="people-cardBtn d-md-flex justify-content-md-between ">
-                                <h5>剩餘名額：<span>${event_remain}</span> / ${event_quota}</h5>
+                                <h5>剩餘名額：<span class="remain">${event_remain}</span> / ${event_quota}</h5>
 
                                 <div class="card-btn">
                                     <a href="events_detail.php?sid=${sid}" class="event">查看活動</a>

@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db.php';
 
 $output = [
     'success' => false,

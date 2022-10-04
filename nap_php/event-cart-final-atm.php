@@ -1,11 +1,10 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
-// require __DIR__ . '/parts/connect_db_cy.php';
-// require __DIR__ . '/parts/connect_db.php';
+
 $pageName = '活動訂單明細'; // 頁面名稱
 
 //確認會員登入
-if(empty($_SESSION['user'])){
+if (empty($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
@@ -14,7 +13,7 @@ if(empty($_SESSION['user'])){
 date_default_timezone_set("Asia/Taipei");
 
 //訂單亂碼 https://www.twblogs.net/a/5baa90e82b7177781a0e4a82
-$yCode = array('E','R');
+$yCode = array('E', 'R');
 
 $orderSn = $yCode[0] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
 
@@ -31,7 +30,7 @@ $event_order_price = $_SESSION['evt-total']['discount_tol'];
 $event_order_note = $_SESSION['evt-note']['content'];
 $event_order_id = $orderSn;
 
-$order_sql =sprintf("INSERT INTO `event_order`( 
+$order_sql = sprintf("INSERT INTO `event_order`( 
     `member_sid`,  /*int*/
     `coupon_sid`,  /*int*/
     `event_order_origin_price`,  /*chr*/
@@ -43,7 +42,7 @@ $order_sql =sprintf("INSERT INTO `event_order`(
     `enroll-status`, /*int*/
     `payment_deadline`, 
     `created_at`
-    ) VALUES (%s, %s, $event_order_origin_price, $event_order_price, '$event_order_note', '$event_order_id', %s, %s, %s, '$paydate', Now())", $_SESSION['user']['id'],$_SESSION['evt-coupon']['sid'],'1','1','1');
+    ) VALUES (%s, %s, $event_order_origin_price, $event_order_price, '$event_order_note', '$event_order_id', %s, %s, %s, '$paydate', Now())", $_SESSION['user']['id'], $_SESSION['evt-coupon']['sid'], '1', '1', '1');
 
 
 $stmt = $pdo->prepare($order_sql);
@@ -62,7 +61,7 @@ $evt_order_sid = $pdo->lastInsertId(); // 訂單編號(event_order的sid)
 $order_d_sql = "INSERT INTO `event_order_detail`(`event_order_sid`, `event_sid`,`quantity`) VALUES (?, ?, ?)";
 $stmt = $pdo->prepare($order_d_sql);
 
-foreach($_SESSION['event-cart'] as $key => $value){
+foreach ($_SESSION['event-cart'] as $key => $value) {
     $stmt->execute([
         $evt_order_sid,
         $value['sid'],
@@ -71,7 +70,7 @@ foreach($_SESSION['event-cart'] as $key => $value){
 }
 
 // 訂單資料進入db後清除session中購物車內容
-unset($_SESSION['event-cart'],$_SESSION['evt-note'],$_SESSION['evt-total'],$_SESSION['evt-coupon']); 
+unset($_SESSION['event-cart'], $_SESSION['evt-note'], $_SESSION['evt-total'], $_SESSION['evt-coupon']);
 
 $member_id = $_SESSION['user']['id'];
 
@@ -90,7 +89,53 @@ $rows = $pdo->query($sql)->fetchAll();
 //     echo '<br>';
 // }
 
+
+// $evt_name = $rows['event_name'];
+// $evt_date = $rows['event_date'];
+// $evt_qty = $rows['quantity'];
+
+
+
+
+// 設定收件者
+$to = "nap.service2022@gmail.com";
+
+// 設定郵件主旨
+$subject = "謝謝您對 N.A.P 的支持，請查收訂單明細";
+$subject = "=?utf-8?B?" . base64_encode($subject) . "?=";
+
+//設定郵件標頭資訊
+$headers  = "MIME-Version: 1.0" . PHP_EOL;
+$headers .= "Content-type: text/html; charset=utf-8" . PHP_EOL;
+$headers .= "To: nap.service2022@gmail.com" . PHP_EOL;
+$headers .= "From: N.A.P<nap.service2022@gmail.com>" . PHP_EOL;
+
+
+// 設定郵件內容
+// $message = "
+
+// 銀行代碼：822
+// 虛擬帳號：2397-6666-1798-4444
+// 繳費期限：$paydate
+
+// 活動名稱：$evt_name
+// 活動日期：$evt_date
+// 活動人數：$evt_qty
+
+// ";
+$message .='<html><body>';
+
+foreach($rows as $r){
+    $message .= $r['event_name'];
+    $message .= '<br>';
+}
+$message .='</body></html>';
+
+
+// 傳送郵件
+mail($to, $subject, $message,$headers);
 ?>
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
@@ -168,8 +213,8 @@ $rows = $pdo->query($sql)->fetchAll();
         </div>
         <div class="order-content">
             <div class="cart-detail-content">
-                <?php foreach($rows as $r): ?>
-                    
+                <?php foreach ($rows as $r) : ?>
+
                     <div class="per-cart-item">
                         <div class="event-img">
                             <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="<?= $r['event_name'] ?>">
@@ -196,14 +241,14 @@ $rows = $pdo->query($sql)->fetchAll();
                 <div class="final-cart-price">
                     <?php if ($r['coupon_sid'] == null) : ?>
                     <?php else : ?>
-                    <div class="discount">
-                        <div class="discount-text">
-                            <p>已使用折價券</p>
+                        <div class="discount">
+                            <div class="discount-text">
+                                <p>已使用折價券</p>
+                            </div>
+                            <div class="discount-num">
+                                <p>-NT$ <span class="discount-price"><?= $r['discount'] ?></span></p>
+                            </div>
                         </div>
-                        <div class="discount-num">
-                            <p>-NT$ <span class="discount-price"><?= $r['discount'] ?></span></p>
-                        </div>
-                    </div>
                     <?php endif ?>
                     <div class="total-price">
                         <div class="total-price-text">
@@ -262,7 +307,7 @@ $rows = $pdo->query($sql)->fetchAll();
                     </div>
                     <div class="order-note-content">
                         <p>
-                        <?= $r['event_order_note'] ?>
+                            <?= $r['event_order_note'] ?>
                         </p>
                     </div>
                 </div>
@@ -279,11 +324,11 @@ $rows = $pdo->query($sql)->fetchAll();
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
+<script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 <!-- 自己的js放在這 -->
 
 <script>
-
-
     //三位數一個逗號
     const dollarCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -310,7 +355,7 @@ $rows = $pdo->query($sql)->fetchAll();
             item_price.html(dollarCommas(price));
             item_sub.html(dollarCommas(price * qty));
             total += price * qty;
-            discount_tol = total-discount;
+            discount_tol = total - discount;
 
 
         });
@@ -318,5 +363,8 @@ $rows = $pdo->query($sql)->fetchAll();
 
     };
     updatePrices(); //一進來就要執行一次
+
+    
 </script>
+
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

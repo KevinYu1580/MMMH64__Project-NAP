@@ -1,5 +1,5 @@
 <?php
-require __DIR__. '/parts/connect_db_nora.php';
+require __DIR__ . '/parts/connect_db.php';
 
 $folder = __DIR__. '/img/member/profile-image/'; // 上傳檔案的資料夾
 

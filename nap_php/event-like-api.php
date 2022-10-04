@@ -3,9 +3,6 @@ if(! isset($_SESSION)){
     session_start();
 }
 
-// require __DIR__ . '/parts/connect_db_penny.php';
-// require __DIR__ . '/parts/connect_db_cy.php';
-
 $output = [
     'success' => false,
     'handle' => '',
