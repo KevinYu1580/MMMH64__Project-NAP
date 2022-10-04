@@ -12,10 +12,10 @@
 
 //---- chiyin DB -----
 
-$db_host = 'localhost';
-$db_name = 'nap_cy_v2';
-$db_user = 'chiyin_niyihc';
-$db_pass = 'Admin_chiyin0209';
+// $db_host = 'localhost';
+// $db_name = 'nap_cy_v2';
+// $db_user = 'chiyin_niyihc';
+// $db_pass = 'Admin_chiyin0209';
 
 
 
@@ -50,10 +50,10 @@ $db_pass = 'Admin_chiyin0209';
 
 
 //---- vera DB -----
-// $db_host='localhost';
-// $db_user='Vera6690';
-// $db_pass='Aa123456';
-// $db_name='nap_vera';
+$db_host='localhost';
+$db_user='Vera6690';
+$db_pass='Aa123456';
+$db_name='nap_vera';
 
 
 
