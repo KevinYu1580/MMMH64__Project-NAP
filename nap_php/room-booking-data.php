@@ -5,9 +5,16 @@ $pageName = '訂房資料填寫'; // 頁面名稱
 // $where = ' WHERE 1 ';  // 起頭
 
 // 在 MySQL 中取得房間的資料表，並抓取(fetch)全部資料表的欄位
-$rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
+// $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
-
+//確認會員登入
+if (empty($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+$member_id = $_SESSION['user']['id'];
+$sql_mem = "SELECT * FROM `member01` WHERE `id`= $member_id";
+$rows_mem = $pdo->query($sql_mem)->fetchAll();
 
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -159,21 +166,23 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                 </div>
                 <div class="form">
                     <form>
+                    <?php foreach ($rows_mem as $rm) : ?>
                         <div class="mb-3">
                             <label for="name" class="form-label">姓名</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" value="<?= $rm['name'] ?>" disabled readonly>
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">手機</label>
-                            <input type="text" class="form-control" id="phone">
+                            <input type="text" class="form-control" id="phone" value="<?= $rm['mobile'] ?>" disabled readonly>
                         </div>
                         <div class="mb-3">
                             <label for="birthdate" class="form-label">生日</label>
-                            <input type="date" class="form-control" id="birthdate">
+                            <input type="text" class="form-control" id="birthdate" value="<?= $rm['birthdate'] ?>" disabled readonly>
                         </div>
+                        <?php endforeach; ?>
                         <div class="mb-3">
                             <label for="car-num" class="form-label">車號</label>
-                            <input type="text" class="form-control" id="car-num">
+                            <input type="text" class="form-control" id="car-num" placeholder="如自行開車請請填寫車號，無則免填！">
                         </div>
                         <div class="mb-3">
                             <label for="id-num" class="form-label">攜帶寵物</label>
@@ -422,6 +431,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 */
     
 
+    
 
     function updatePrices() {
         let total = 0; //總價
@@ -467,30 +477,66 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     };
     updatePrices();
 
-    function addToCart(event) {
+/*
+    function goPay(event) {
         const btn = $(event.currentTarget);
         const num = +item_num.attr('data-val');
+        
+        const sid = btn.attr('data-sid');
+        //在送出btn上下屬性
 
+        console.log({
+            sid,
+            qty
+        });
+        $.get(
+            'handle-event-cart.php', {
+                sid,
+                qty
+            },
+            function(data) {
+                console.log(data);
+                // showCartCount(data);
+            },
+            'json');
+        window.location.replace("event-cart.php");
+
+    }
+
+*/
+
+    function addToCart(event) {
+        const btn = $(event.currentTarget);
+
+        console.log(btn+"99999999");
+        const num = +$('.booking-detail-combine').find('.num').attr('data-val');
+        // console.log($_SESSION['room_order']['sid']);
 
         // const qty = btn.closest('.card-body').find('select').val();
         const sid = btn.attr('data-sid');
         //在送出btn上下屬性
+        // const a = $_SESSION['room_order'];
+        console.log(sid+'888888888');
+        const room_id = $('.booking-detail-combine').length;
 
 
         $.get(
-            'handle-room-order.php', {
-                day1: dayjs(day1).format('YYYY/MM/DD'), 
-                day2: dayjs(day2).format('YYYY/MM/DD'), 
-                totalNum,
+            'handle-room-cart.php', {
+                // day1: dayjs(day1).format('YYYY/MM/DD'), 
+                // day2: dayjs(day2).format('YYYY/MM/DD'), 
+                // totalNum,
                 room_id,
                 num,
-                days,
+                // days,
+                // a,
             },
             function(data) {
                 console.log('RETURN DATA:', data);
-                showCartCount(data);
+                // showCartCount(data);
             },
             'json');
+
+        
     }
 </script>
 

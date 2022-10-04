@@ -222,6 +222,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             $.get('handle-room-cart-total.php', {
                 room_order_origin_price: total,
                 room_order_price: discount_tol,
+                room_order_deposit: deposit,
             });
 
         });

@@ -122,7 +122,7 @@ $rows = $pdo->query($sql)->fetchAll();
                 </a>
             </div>
             <div class="back-btn">
-                <a class="napBtn_fixed_outlined" href="#">
+                <a class="napBtn_fixed_outlined" href="homepage.php">
                     <span>回首頁</span>
                 </a>
             </div>

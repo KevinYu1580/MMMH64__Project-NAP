@@ -123,17 +123,17 @@ $headers .= "From: N.A.P<nap.service2022@gmail.com>" . PHP_EOL;
 // 活動人數：$evt_qty
 
 // ";
-$message .='<html><body>';
+$message .= '<html><body>';
 
-foreach($rows as $r){
+foreach ($rows as $r) {
     $message .= $r['event_name'];
     $message .= '<br>';
 }
-$message .='</body></html>';
+$message .= '</body></html>';
 
 
 // 傳送郵件
-mail($to, $subject, $message,$headers);
+mail($to, $subject, $message, $headers);
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -363,8 +363,6 @@ mail($to, $subject, $message,$headers);
 
     };
     updatePrices(); //一進來就要執行一次
-
-    
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

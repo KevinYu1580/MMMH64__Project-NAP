@@ -230,7 +230,7 @@ if (isset($_GET['sid'])) {
             },
             function(data) {
                 console.log(data);
-                showCartCount(data);
+                // showCartCount(data);
             },
             'json');
         window.location.replace("event-cart.php");
@@ -238,12 +238,12 @@ if (isset($_GET['sid'])) {
     }
 
     function addToCart(event) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        })
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Your work has been saved',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        // })
 
         const btn = $(event.currentTarget);
         const qty = getEnrollContentFormNum();

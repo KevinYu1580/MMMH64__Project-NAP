@@ -47,7 +47,7 @@ $order_sql = sprintf("INSERT INTO `room_order`(
     `check_out`, /*chr*/
     `payment_deadline`, 
     `create_at`
-    ) VALUES (%s, %s, $room_order_origin_price, $room_order_price,'$room_order_deposit','$room_order_note', '$room_order_id', %s, %s,'$check_in', '$check_out', '$paydate', Now())", $_SESSION['user']['id'], $_SESSION['rm-coupon']['sid'], '1', '1');
+    ) VALUES (%s, %s, $room_order_origin_price, $room_order_price,'$room_order_deposit','$room_order_note', '$room_order_id', %s, %s,'$check_in', '$check_out', '$paydate', Now())", $_SESSION['user']['id'], $_SESSION['rm-coupon']['sid'], '0', '0');
 
 
 $stmt = $pdo->prepare($order_sql);
@@ -154,7 +154,7 @@ mail($to, $subject, $message,$headers);
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/room-cart-final-step-atm.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/room-cart-final-step-credit.css?version=&lt;?php echo time(); ?&gt;">
 
 
 <div class="all-container">
@@ -162,19 +162,10 @@ mail($to, $subject, $message,$headers);
         <div class="complete-icon">
             <img src="./img/component/icon/complete-icon.svg" alt="">
         </div>
-        <div class="order-content-text-atm">
-            <div class="atm-info">
-                <div class="atm-info-deco col-2"></div>
-                <div class="atm-info-text">
-                    <p>銀行代碼：822</p>
-                    <p>虛擬帳號：<span class="atm-num">2397-6666-1798-4444</span></p>
-                    <p>繳費期限：<span class="pay-deadline"><?= $paydate ?> 23:59:59</span></p>
-                </div>
-            </div>
-            <div class="atm-note">
-                <p>※ 此帳號僅供本次交易使用，無法重複繳費。</p>
-                <p>※ 訂購完成不代表報名完成，請於期限內完成繳費。</p>
-            </div>
+        <div class="order-content-text">
+            <h4>
+                園區浪浪們期待<br>與您的相見
+            </h4>
         </div>
         <!------- 查看其他訂單按鈕 ------->
         <div class="other-btn">

@@ -2,30 +2,30 @@
 
 //---- nap主機 -----
 
-$db_host = '192.168.33.108';
-$db_user = 'nap';
-$db_pass = '123456789';
-$db_name = 'new_nap';
+// $db_host = '192.168.33.108';
+// $db_user = 'nap';
+// $db_pass = '123456789';
+// $db_name = 'new_nap';
 
 
 
 
 //---- chiyin DB -----
 
-// $db_host = 'localhost';
-// $db_name = 'nap_cy_v2';
-// $db_user = 'chiyin_niyihc';
-// $db_pass = 'Admin_chiyin0209';
+$db_host = 'localhost';
+$db_name = 'nap_cy_v2';
+$db_user = 'chiyin_niyihc';
+$db_pass = 'Admin_chiyin0209';
 
 
 
 
 //---- nora DB -----
 
-$db_host = 'localhost';
-$db_user = 'nora';
-$db_pass = 'nap2321';
-$db_name = 'nap_n';
+// $db_host = 'localhost';
+// $db_user = 'nora';
+// $db_pass = 'nap2321';
+// $db_name = 'nap_n';
 
 
 

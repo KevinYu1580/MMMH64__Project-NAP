@@ -365,12 +365,11 @@ body{
             width: 70%;
         }
     }
-
 .per-cart-item{
-display: flex;
-align-items: center;
-margin: 20px 0;
-position: relative;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
 }
     @media screen and (min-width: 768px){
         .per-cart-item{
@@ -379,12 +378,13 @@ position: relative;
     }
 
 .per-cart-item::after{
-position: absolute;
-content: '';
-width: 100%;
-height: 1px;
-background-color: var(--primaryColor_dark);
-bottom: -10px;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--primaryColor_dark);
+    bottom: -10px;
+    
 }
     @media screen and (min-width: 768px){
         .per-cart-item::after{
@@ -393,34 +393,33 @@ bottom: -10px;
         }
     }
 
-.per-cart-item .event-img img{
-width: 100px;
-height: 100px;
-object-fit: cover;
+.per-cart-item .room-img img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
     @media screen and (min-width: 768px){
-        .per-cart-item .event-img img{
+        .per-cart-item .room-img img{
             width: 230px;
             height: 158px;
             object-fit: cover;
         }
     }
 
-.per-cart-item .item-list .event-name{
-font-size: var(--p_14px);
-margin-bottom: 10px;
+.per-cart-item .item-list .room-name{
+    font-size: var(--subtitle_18px);
+    margin-bottom: 10px;
 }
     @media screen and (min-width: 768px){
-        .per-cart-item .item-list .event-name{
+        .per-cart-item .item-list .room-name{
             font-size: var(--headline_28px);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
     }
 
 .per-cart-item .item-list{
-margin-left: 8px;
-position: relative;
-width: calc(100% - 100px);
+    margin-left: 8px;
+    width: calc(100% - 100px);
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list{
@@ -428,21 +427,51 @@ width: calc(100% - 100px);
             width: calc(100% - 230px);
         }
     }
+    
+.per-cart-item .item-list .room-night{
+    display: flex;
+}
 
-.per-cart-item .item-list .stay-date, .enroll-people, .price{
-font-size: var(--p_12px);
-margin-bottom: 5px;
+.per-cart-item .item-list .stay-date, .room-night{
+    font-size: var(--p_12px);
+    margin-top: 8px;
 }
     @media screen and (min-width: 768px){
-        .per-cart-item .item-list .stay-date, .enroll-people, .price{
+        .per-cart-item .item-list .stay-date, .room-night{
             font-size: var(--subtitle_18px);
-            margin-bottom: 10 px;
+            margin-top: 10px;
         }
     }
 
+.per-cart-item .item-list .room-night .price, .room-num{
+    margin-right: 10px;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .room-night .price, .room-num{
+            margin-right: 20px;
+        }
+    }
+    
+.per-cart-item .item-list .item-price{
+    font-size: var(--subtitle_18px);
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+}
+    @media screen and (min-width: 768px){
+        .per-cart-item .item-list .item-price{
+            font-size: var(--headline_28px);
+            margin-top: 15px;
+        }
+    }
+
+.per-cart-item .item-list .item-price span{
+    color: var(--subColor_highLightRed);
+}
+
 .per-cart-item .item-list .stay-date{
-font-weight: 300;
-line-height: 0.8rem;
+    font-weight: 300;
+    line-height: 0.8rem;
 }
     @media screen and (min-width: 768px){
         .per-cart-item .item-list .stay-date{
@@ -450,23 +479,6 @@ line-height: 0.8rem;
             line-height: 1.4rem;
         }
     }
-
-.per-cart-item .item-list .item-price{
-font-size: var(--subtitle_18px);
-margin-top: 5px;
-display: flex;
-justify-content: right;
-}
-    @media screen and (min-width: 768px){
-        .per-cart-item .item-list .item-price{
-            font-size: var(--headline_28px);
-            margin-top: 8px;
-        }
-    }
-
-.per-cart-item .item-list .item-price span{
-color: var(--subColor_highLightRed);
-}
 
 
 /* --------------總結算列------------- */
@@ -510,38 +522,61 @@ margin-left: 10px;
 }
 
 .total-price{
-display: flex;
-text-align: right;
-justify-content: right;
-margin-top: 10px;
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-top: 10px;
 }
     @media screen and (min-width: 768px){
         .total-price{
-            margin-top: 20px;
+            margin-top: 15px;
         }
     }
 
-.total-price p{
-text-align: right;
+.deposit-price{
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    margin-top: 10px;
+}
+    @media screen and (min-width: 768px){
+        .deposit-price{
+            margin-top: 15px;
+        }
+    }
+
+.total-price p, .deposit-price p{
+    text-align: right;
 }
 
 .total-price p{
-font-size: var(--headline_20px);
+    font-size: var(--subtitle_16px);
 }
     @media screen and (min-width: 768px){
         .total-price p{
+            font-size: var(--headline_24px);
+        }
+    }
+
+.deposit-price p{
+    font-size: var(--headline_20px);
+}
+    @media screen and (min-width: 768px){
+        .deposit-price p{
             font-size: var(--headline_28px);
         }
     }
 
-.total-price p span{
-color: var(--subColor_highLightRed);
-font-weight: 500;
+.deposit-price p span{
+    color: var(--subColor_highLightRed);
+    font-weight: 500;
 }
 
-.total-price-num{
-margin-left: 20px;
+.total-price-num, .deposit-price-num{
+    margin-left: 20px;
 }
+
+
 
 /* --------------訂單明細下方資訊------------- */
 .order-content{
@@ -560,7 +595,7 @@ margin-left: 20px;
         }
     }
 
-.order-id, .order-date, .pay-way, .order-status, .enroll-status{
+.order-id, .order-date, .pay-way, .order-status{
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -574,7 +609,7 @@ margin-left: 20px;
     /* background-color: #B14F42; */
 }
     @media screen and (min-width: 768px){
-        .order-id, .order-date, .pay-way, .order-status, .enroll-status{
+        .order-id, .order-date, .pay-way, .order-status{
             font-size: var(--headline_28px);
         }
     }
@@ -614,9 +649,9 @@ margin-left: 20px;
         }
     }
 
-.price_qty{
+/* .price_qty{
     display: flex;
 }
 .per_price{
     margin-right: 5px;
-}
+} */

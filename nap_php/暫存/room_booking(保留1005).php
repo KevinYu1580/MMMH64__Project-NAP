@@ -21,7 +21,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 </head>
 <link rel="stylesheet" href="https://tainan.chamcham.com.tw/public/js/jqueryui/datepicker/datepicker.css">
 <!-- <link rel="stylesheet" href="./nap_css/reset.css"> -->
-<link rel="stylesheet" href="./nap_css/room_booking1.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/room_booking.css?version=&lt;?php echo time(); ?&gt;">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
@@ -342,17 +342,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                             <p>(請於現場付清)</p>
                         </div>
                     </div>
-                    <div class="booking-card-btn">
-                        <div class="add-to-cart-btn">
-                            <button class="napBtn_fixed_filled" name="add-to-cart" onclick="goPay(event)">
-                                <span>前往結帳</span>
-                            </button>
-                        </div>
-                        <div class="check-bill-btn">
-                            <button class="napBtn_fixed_outlined" name="add-to-cart" onclick="addToCart(event)">
-                                <span>加入購物車</span>
-                            </button>
-                        </div>
+                    <div class="booking-btn">
+                        <a href="room-booking-data.php">填寫訂房資料</a>
                     </div>
                 </div>
             </div>
@@ -462,24 +453,6 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
             'json');
 
     };
-    
-
-    function goPay(event) {
-
-        window.location.replace("room-cart.php");
-
-    }
-
-    function addToCart(event) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        })
-
-        window.location.replace("room_info.php");
-    }
 
 
 

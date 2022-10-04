@@ -195,9 +195,10 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                         <label for="email" class="form-label">電子郵件信箱</label>
                         <input type="text" class="form-control" id="car-num" value="<?= $rm['email'] ?>" disabled readonly>
                     </div>
+                    
                     <div class="mb-3">
                         <label for="special-need" class="form-label">備註</label>
-                        <textarea class="form-control" aria-label="With textarea" id="special-need"></textarea>
+                        <textarea class="form-control" aria-label="With textarea" id="special-need" placeholder="如自行開車或有攜帶寵物，可於此處備註車號及註明需備寵物用品，無則免填！"></textarea>
                     </div>
                 <?php endforeach; ?>
             </form>
