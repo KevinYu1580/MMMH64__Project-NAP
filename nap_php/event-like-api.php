@@ -1,4 +1,7 @@
 <?php
+require __DIR__ . '/parts/connect_db.php';
+
+
 if(! isset($_SESSION)){
     session_start();
 }

@@ -847,7 +847,7 @@
                 </li>
                 <li>
                     <div class="logout">
-                        <a class="" href="#">登出<span>Logout</span></a>
+                        <a class="" href="./logout.php">登出<span>Logout</span></a>
                     </div>
                 </li>
             </ul>

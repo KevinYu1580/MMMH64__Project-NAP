@@ -19,7 +19,7 @@ $pageName = 'home'; // 頁面名稱
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/register15.css">
+<link rel="stylesheet" href="./nap_css/register.css?version=&lt;?php echo time(); ?&gt;">
     
     <title><?= $title ?></title>
 </head>
