@@ -717,6 +717,18 @@ input{
 
 
 /* ----------訂房按鈕---------- */
+
+/* 當沒有選房間的時候，不能點擊 */
+.booking-btn.disabled a{
+    background-color: var(--black_500);
+    cursor: not-allowed;
+}
+.booking-btn.disabled a:hover{
+    background-color: var(--black_500);
+    cursor: not-allowed;
+    
+}
+
 .booking-btn{
     padding-top: 20px;
     height: 100px;

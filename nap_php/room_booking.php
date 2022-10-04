@@ -21,7 +21,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 </head>
 <link rel="stylesheet" href="https://tainan.chamcham.com.tw/public/js/jqueryui/datepicker/datepicker.css">
 <!-- <link rel="stylesheet" href="./nap_css/reset.css"> -->
-<link rel="stylesheet" href="./nap_css/room_booking.css">
+<link rel="stylesheet" href="./nap_css/room_booking.css?version=&lt;?php echo time(); ?&gt;">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
@@ -367,17 +367,27 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <script>
-    // function oopsAlert(){
-    //     swal("汪汪汪汪!", "翻譯蒟蒻：您尚未選擇房間喔~", "warning");
+    function oopsAlert() {
+        swal("汪汪汪汪!", "翻譯蒟蒻：您尚未選擇房間喔~", "warning");
+    };
+
+    // $('.booking-btn a').click(function() {
+    //     if (+$('.total-num span').text() === 0) {
+    //         $('.booking-btn a').attr('href', './room_booking.php')
+    //         oopsAlert();
+    //     }
+    // });
+
+
+
+    // function checkDisabled() {
+    //     const roomNum = $('.selectRoom h6').html();
+    //     console.log(roomNum);
+    //     if ( roomNum < 1) {
+    //         $('.booking-btn').addClass('disabled');
+    //     }
     // };
-
-    // $('.booking-btn a').click(function(){
-    // if(+$('.total-num span').text() === 0){
-    //     $('.booking-btn a').attr('href','./room_booking.php')
-    // }
-    // }); 
-
-
+    // checkDisabled();
 
 
     const rooms = <?= json_encode($rooms, JSON_UNESCAPED_UNICODE) ?>;
@@ -428,8 +438,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
         $.get(
             'handle-room-order.php', {
-                day1: dayjs(day1).format('YYYY/MM/DD'), 
-                day2: dayjs(day2).format('YYYY/MM/DD'), 
+                day1: dayjs(day1).format('YYYY/MM/DD'),
+                day2: dayjs(day2).format('YYYY/MM/DD'),
                 totalNum,
                 room_id,
                 num,

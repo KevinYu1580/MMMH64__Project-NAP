@@ -8,7 +8,7 @@ if(isset($_POST['add-to-cart'])){
     $birthdate = $_POST["birthdate"];
     $idnum = $_POST["id-num"];
     // $eat = $_POST["eating-habit"];
-    $event_order_sid = $_POST["event_sid"];
+    // $event_order_sid = $_POST["event_sid"];
 
     foreach($name as $index => $names){
         // echo $names. ' - '.$mobile[$index].' - '.$birthdate[$index].' - '.$idnum[$index].' - '.$eat[$index];
@@ -17,9 +17,9 @@ if(isset($_POST['add-to-cart'])){
         $s_birthdate = $birthdate[$index];
         $s_idnum = $idnum[$index];
         // $s_eat = $eat[$index];
-        $s_event_sid = $event_sid;
+        // $s_event_sid = $event_sid;
 
-        $enroll_query = "INSERT INTO event_enroll_list(name,mobile,birthdate,id_num,eating_habit,event_order_sid) VALUES('$s_name','$s_mobile','$s_birthdate','$s_idnum','','$s_event_order_sid')";
+        $enroll_query = "INSERT INTO event_enroll_list(name,mobile,birthdate,id_num,eating_habit,event_sid) VALUES('$s_name','$s_mobile','$s_birthdate','$s_idnum','','')";
 
         $stmt = $pdo->prepare($enroll_query );
         $stmt->execute();

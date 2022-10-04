@@ -19,7 +19,7 @@ const tpl_func = ({
 		<div class="enroll-other">
 			
 			<div class="mb-3">
-				<input type="text" class="form-control" id="event_sid_${n}" name="event_sid[]"  value="test///////" readonly>
+				<input type="hidden" class="form-control" id="event_sid_${n}" name="event_sid[]"  value="test----" readonly>
 
 				<label for="name_${n}" class="form-label">姓名</label>
 				<input type="text" class="form-control" id="name_${n}" name="name[]" required>

@@ -125,7 +125,7 @@ $('li.select-li').click(function(){
 $('.booking-box').click(function(){
     if( $('.selectRoom h6').html() <= 0){
         // alert('尚未選擇間數');
-        // oopsAlert();
+        oopsAlert();
         $('.room-null').html();
     }
 
