@@ -764,7 +764,7 @@
 <script src="./nap_js/jquery-3.6.0.min.js"></script>
 
 
-<title><?= 'N.A.P | ' . $pageName ?></title>
+<title><?= 'N.A.P. | ' . $pageName ?></title>
 </head>
 
 <body>
