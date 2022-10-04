@@ -11,7 +11,6 @@ $perPage = 5;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 
 
-$member_id = $_SESSION['user']['id'];
 
 
 $where ='WHERE event_status=1';
@@ -62,9 +61,9 @@ if ($total_events > 0) {
 
 </head>
 
-<?php include __DIR__ . '/parts/navbar.php'; ?>
-<link rel="stylesheet" href="./nap_css/events_page1.css">
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
+<link rel="stylesheet" href="./nap_css/events_page1.css">
+<?php include __DIR__ . '/parts/navbar.php'; ?>
 
 
 <!-- 活動頁面banner | events-banner -->
