@@ -8,7 +8,6 @@ const ani_anchor = $('.ani_anchor');
 
 // skip視覺動畫按鈕
 $('.skipBtn').click(() => {
-	// $(window).animate($(document).scrollTop(first_page_height * 4), 3000);
 	$(document).scrollTop(first_page_height * 4);
 });
 $(window).scroll(() => {
