@@ -175,7 +175,7 @@ $pageName = 'home'; // 頁面名稱
             $(document.form1).serialize(),
             function(data) {
                 if(data.success){
-                    location.href = './';
+                    location.href = './homepage.php';
                 } else {
                     alert(data.error);
                 }

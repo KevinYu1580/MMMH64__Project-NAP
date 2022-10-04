@@ -627,9 +627,11 @@ $pageName = 'Forum-events'; // 頁面名稱
                 item_sid: sid
             },
             function(data) {
+                
                 if (btn.find('#napActivate').hasClass('d-block')) {
                     btn.find('#napActivate').removeClass('d-block');
                     lightBox.find('#napActivate').removeClass('d-block');
+                    
                     // napActivate
                 } else {
                     btn.find('#napActivate').addClass('d-block');
