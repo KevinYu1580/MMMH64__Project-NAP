@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="zh">
+<?php
+require __DIR__ . '/parts/connect_db.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/component/logo/favicon.ico" type="image/x-icon">
+if(empty($_SESSION['user'])){
+    header('Location: login.php');
+    exit;
+}
+?>
+
+
+<?php
+// require __DIR__ . '/parts/connect_db.php';
+$pageName = 'home'; // 頁面名稱
+?>
+
+
+<?php include __DIR__. '/parts/html-head.php'; ?>
+
+<!-- bootstrap擇一使用 -->
+<link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
+
+    
+</head>
 
 <link rel="stylesheet" href="./nap_css/reset.css">
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
@@ -14,12 +29,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="./nap_css/game5.css">
+<link rel="stylesheet" href="./nap_css/game5.css?version=&lt;?php echo time(); ?&gt;">
     
     <title><?= $title ?></title>
-</head>
 
-<body>
 
 
 <div class="start ">
@@ -298,13 +311,31 @@
     <img class="img2" src="./img/self/n/game/event2.svg" alt="">
     
     <div class="recommend-2">
-        <h5>領取獎勵</h5>
+        <h5> <button onclick="checkForm1()" class="btn1" >領取獎勵</button> </h5>
     </div> 
 </div>
 
 
 
+<div class="bg" style="position: fixed;
+    top: 0;
+     left: 0; 
+    z-index: 900;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4C4C4C; opacity: 0.5; display:none;"
+></div>
 
+
+<div id="msgContainer1" class="" style=" position: fixed; z-index: 1055;top: 0%; left: 0%; display:none;
+  width: 100vw;
+    height: 100vh;">
+        <!-- <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">修改完成
+            </p> 
+            <img id="myimg1" src="./img/self/n/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> -->
+     </div> 
 
    
 
@@ -314,6 +345,73 @@
 <script src="./nap_js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/dayjs.min.js"></script>
 <script>
+
+
+const msgc = $('#msgContainer1');
+    const msgc1 = $('.bg');
+
+function genAlert(msg,ccc) {
+    $('.bg').css('display','block');
+    $(' #msgContainer1').css('display','block');
+    
+
+    const a = $(`
+    
+        <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
+            </p> 
+            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        </div> 
+
+    `);
+
+    msgc.append(a);
+    setTimeout(()=>{
+        a.fadeOut(400, function(){
+            a.remove();
+        });
+        
+    }, 2000);
+    msgc.append(msgc);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $(' #msgContainer1').css('display','none');
+        });
+        
+    }, 2000);
+    msgc.append(msgc1);
+    setTimeout(()=>{
+        msgc.fadeOut(400, function(){
+            $('#msgContainer1').css('display','none');
+        });
+        
+    }, 2000);
+    }
+
+
+function checkForm1() {
+    // TODO: 檢查欄位資料格式是不是符合
+
+    let isPass = true; // 預設表單的資料是沒問題的
+    if (isPass) {
+        // 送出表單資料
+
+        $.post(
+            'game-api.php',
+            $(document.form1).serialize(),
+            function(data) {
+                console.log(data);
+                if(data.success){
+                    genAlert('修改完成', './img/self/n/fix.gif');
+                } else {
+                    genAlert('尚未修改', './img/self/n/none.gif');
+                }
+
+
+            }, 'json');
+    }
+}
+    
 
 
 $('.start h4').click(function(s){
