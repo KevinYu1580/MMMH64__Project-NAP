@@ -1,6 +1,6 @@
 <?php
 
-require  '../parts/connect_db_kevin.php';
+require  '../parts/connect_db.php';
 
 $post_sid = $_POST['post_sid'];
 $member_sid = $_POST['member_sid']? $_POST['member_sid'] : 1;

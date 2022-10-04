@@ -1,6 +1,6 @@
 <?php
 
-require  '../parts/connect_db_kevin.php';
+require  '../parts/connect_db.php';
 
 
 

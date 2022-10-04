@@ -2,10 +2,10 @@
 
 //---- nap主機 -----
 
-// $db_host = '192.168.33.108';
-// $db_user = 'nap';
-// $db_pass = '123456789';
-// $db_name = 'new_nap';
+$db_host = '192.168.33.108';
+$db_user = 'nap';
+$db_pass = '123456789';
+$db_name = 'new_nap';
 
 
 
@@ -50,10 +50,10 @@
 
 
 //---- vera DB -----
-$db_host='localhost';
-$db_user='Vera6690';
-$db_pass='Aa123456';
-$db_name='nap_vera';
+// $db_host='localhost';
+// $db_user='Vera6690';
+// $db_pass='Aa123456';
+// $db_name='nap_vera';
 
 
 

@@ -62,14 +62,39 @@ body {
   background-color: var(--subColor_bgc);
 }
 
-/* navbar */
+/* skipBtn(跳過主視覺動畫) */
+.skipBtn {
+  position: fixed;
+  bottom: 10%;
+  right: 8%;
+  z-index: 2000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.skipBtn span {
+  font-size: 24px;
+  color: var(--black_500);
+}
+.skipBtn .skipIcon {
+  animation: skipMovingIcon 1.3s infinite cubic-bezier(.03,.97,.41,.98);
+}
+@keyframes skipMovingIcon {
+  0%{
+    transform: translateY(0);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 100%;
+  }
 
-.topNav_mobile {
-  transition: 0.3s;
-} 
+}
 
 
 /* ------ */
+
+
 .aniCover {
   background-color: #fff;
   width: 100%;
