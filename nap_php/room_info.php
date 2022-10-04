@@ -171,7 +171,7 @@ $pageName = '房型介紹'; // 頁面名稱
                     <div class="room-introduce-textbox">
                         <h5>四人房 撓癢癢</h5>
                         <p>房價$6,600/晚<br>*此房不提供加人服務</p>
-                        <p><a href="./Each_Room_quadra.html" target="_blank">查看詳情</a></p>
+                        <p><a href="each_room_quadra.php" target="_blank">查看詳情</a></p>
                     </div>
                 </div>
             </div>
