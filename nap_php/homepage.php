@@ -12,6 +12,15 @@ $pageName = 'Home'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/home_page.css">
 
 
+
+<!-- 跳過視覺動畫按鈕 -->
+<button class="skipBtn d-flex flex-column align-items-center justify-content-center gap-2">
+    <span>S K I P</span>
+    <img class="skipIcon" width='24px' src="./img/component/icon/arrow_down-grey.svg" alt="">
+</button>
+
+
+<!-- 視覺動畫定位 -->
 <div class="ani_anchor">
     <div class="aniCover">
 
@@ -23,8 +32,8 @@ $pageName = 'Home'; // 頁面名稱
                 <img src="./img/self/k/visualText.png" alt="">
             </div>
         </div>
-
     </div>
+
 </div>
 
 <!-- first page -->
@@ -159,7 +168,7 @@ $pageName = 'Home'; // 頁面名稱
 <!-- explain -->
 <div class="explain">
     <div class="cause">
-    <div class="sec3">
+        <div class="sec3">
             <p>
                 每年約有<br>
                 <span class="hintNum">

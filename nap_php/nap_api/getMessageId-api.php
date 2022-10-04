@@ -1,6 +1,6 @@
 <?php
 // 顯示留言功能
-require  '../parts/connect_db_kevin.php';
+require  '../parts/connect_db.php';
 
 $sql = [];
 

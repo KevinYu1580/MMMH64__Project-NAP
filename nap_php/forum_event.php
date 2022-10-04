@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/parts/connect_db_kevin.php';
+require __DIR__ . '/parts/connect_db.php';
 $pageName = 'Forum-events'; // 頁面名稱
 
 
@@ -129,7 +129,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3731 7.29289C21.7636 7.68342 21.7636 8.31658 21.3731 8.70711L14.0802 16L21.3731 23.2929C21.7636 23.6834 21.7636 24.3166 21.3731 24.7071C20.9826 25.0976 20.3494 25.0976 19.9589 24.7071L11.9589 16.7071C11.5684 16.3166 11.5684 15.6834 11.9589 15.2929L19.9589 7.29289C20.3494 6.90237 20.9826 6.90237 21.3731 7.29289Z" fill="#2D2D2D" />
             </svg>
         </button>
-        <form name="form_postInsert" id='form_postInsert' onsubmit="sendPost();return false">
+        <form name="form_postInsert" id='form_postInsert' onsubmit="sendPost();return false" enctype="multipart/form-data">
             <div class="member_info">
                 <div class="member_pic"></div>
                 <div class="member_name">
@@ -199,7 +199,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 <div class="imgInsert"></div>
             </div>
             <!-- 上傳圖片 -->
-            <input name="picture" class="imgInp" type='file' id="imgInp" accept="image/" enctype="multipart/form-data"   multiple/>
+            <input name="picture" class="imgInp" type='file' id="imgInp"  />
             <button type="submit" class="summitBtn napBtn_padding_filled" form="form_postInsert">
                 <span>發佈貼文</span>
             </button>
@@ -467,23 +467,70 @@ $pageName = 'Forum-events'; // 頁面名稱
     // ---------表格提交
     // 貼文
     function sendPost(obj) {
-        var pic = new FormData($("#form_postInsert")['picture']);
-        console.log(pic)
+        let file_data = $('#imgInp').prop('files')[0];
+        let form_data = new FormData(document.form_postInsert);
+
+        fetch('./nap_api/forum_postInsert-api.php', {
+            method: 'POST',
+            body: form_data,
+        }).then(r=>r.json())
+        .then(result=>{
+            console.log(result)
+            alert('發文成功');
+            window.location.reload();
+
+        })
+
+        // form_data.append('file', file_data);
+
+        /*
         $.post(
             './nap_api/forum_postInsert-api.php',
             $(document.form_postInsert).serialize(),
-            function(data){
-                console.log(data)
-            },
             'json'
         )
+        $.ajax({
+                url: './nap_api/forum_postInsert-api.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,     
+                type: 'post',
+               success: function(data){
+                    console.log(data)
+                }
+        });
 
 
         alert('成功發出貼文');
         window.location.reload();
-
+        */
     }
+    // ----------上傳圖片功能
 
+    // ------發文光箱  
+    // 上傳圖片功能  預覽&新增div
+
+    let picNum = 0
+    imgInp.onchange = evt => {
+        // 前端預覽圖片
+        picNum += 1
+
+        const [file] = imgInp.files
+
+
+        if (file) {
+
+            $('.lightBox_post .inputArea .imgInsert').append(`<img id="postPic${picNum}" src="" alt="" />`);
+
+            document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
+        }
+
+        // 新增檔案至後端
+        // let form = new FormData();
+        // form.append("product[photos][]", evt.target.files[0]['name'])
+        // console.log(form)
+    }
 
 
     // --------留言
@@ -554,11 +601,10 @@ $pageName = 'Forum-events'; // 頁面名稱
         const lightBox = btn.parents('.comtCard').find('.lightBox_comtCard')
         const sid = btn.attr('data-id');
         $.get(
-            './nap_api/forum_likes-api.php',
-            { 
+            './nap_api/forum_likes-api.php', {
                 like_type: 3,
                 item_sid: sid
-             },
+            },
             function(data) {
                 if (btn.find('#napActivate').hasClass('d-block')) {
                     btn.find('#napActivate').removeClass('d-block');
@@ -570,36 +616,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                 }
             }, 'json');
     })
-
-
-    // ----------上傳圖片功能
-
-    // ------發文光箱  
-// 上傳圖片功能  預覽&新增div
-
-let picNum = 0
-imgInp.onchange = evt => {
-    // 前端預覽圖片
-    picNum += 1
-
-    const [file] = imgInp.files
-    
-
-    if (file) {
-        
-        $('.lightBox_post .inputArea .imgInsert').append(`<img id="postPic${picNum}" src="" alt="" />`);
-
-        document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
-    }
-
-    // 新增檔案至後端
-    let form = new FormData();
-    form.append("product[photos][]", evt.target.files[0]['name'])
-    console.log(form)
-
-
-}
-
 </script>
 
 

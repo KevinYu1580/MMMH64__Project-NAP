@@ -1,5 +1,5 @@
 <?php
-require  '../parts/connect_db_kevin.php';
+require  '../parts/connect_db.php';
 $pageName = 'Forum-events'; // 頁面名稱
 
 $type = isset($_GET['type']) ? intval($_GET['type']) : 1; // 預設dog
@@ -15,7 +15,7 @@ LEFT JOIN (SELECT `chat_event_sid`, COUNT(1) num FROM `chat_commit` GROUP BY `ch
 ON cc.sid=cc2.chat_event_sid
 
 WHERE (tag = 0 OR tag = 1) $where 
-ORDER BY `date` DESC;
+ORDER BY `date` ASC;
 ");
 
 
