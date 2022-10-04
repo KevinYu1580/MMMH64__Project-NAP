@@ -1,6 +1,7 @@
 <?php
-// require __DIR__ . '/parts/connect_db_cy.php';
+
 require __DIR__ . '/parts/connect_db.php';
+
 $pageName = '活動購物車'; // 頁面名稱
 
 

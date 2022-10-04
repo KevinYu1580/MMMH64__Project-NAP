@@ -1,8 +1,7 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
-// require __DIR__ . '/parts/connect_db_vera.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
-$pageName = 'Furry Friends'; // 頁面名稱
+
+// $pageName = 'Furry Friends'; // 頁面名稱
 
 $perPage = 6;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;

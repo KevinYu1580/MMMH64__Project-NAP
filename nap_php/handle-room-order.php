@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/parts/connect_db_cy.php';
+require __DIR__ . '/parts/connect_db.php';
 
 //宣告購物車是陣列
 if (!isset($_SESSION['room_order'])) {

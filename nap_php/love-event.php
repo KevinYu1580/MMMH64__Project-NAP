@@ -1,6 +1,5 @@
 <?php
-require __DIR__ . '/parts/connect_db_nora.php';
-// require __DIR__ . '/parts/connect_db_penny.php';
+require __DIR__ . '/parts/connect_db.php';
 
 if(empty($_SESSION['user'])){
     header('Location: login.php');
