@@ -95,7 +95,7 @@ $rows = $pdo->query($sql)->fetchAll();
 // $evt_qty = $rows['quantity'];
 
 
-
+/*
 
 // 設定收件者
 $to = "nap.service2022@gmail.com";
@@ -134,6 +134,9 @@ $message .= '</body></html>';
 
 // 傳送郵件
 mail($to, $subject, $message, $headers);
+
+*/
+
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>

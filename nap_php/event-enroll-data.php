@@ -97,14 +97,20 @@ if (isset($_GET['sid'])) {
                     <div class="enroll-card-btn">
 
                         <div class="add-to-cart-btn">
-                            <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="goPay(event)">
+                            <button class="napBtn_fixed_filled" name="add-to-cart" data-sid="<?= $event['sid'] ?>" onclick="goPay(event)">
                                 <span>前往結帳</span>
                             </button>
+                            <!-- <button class="napBtn_fixed_filled" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="goPay(event)">
+                                <span>前往結帳</span>
+                            </button> -->
                         </div>
                         <div class="check-bill-btn">
-                            <button class="napBtn_fixed_outlined" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="addToCart(event)">
+                            <button class="napBtn_fixed_outlined" name="add-to-cart" data-sid="<?= $event['sid'] ?>" onclick="addToCart(event)">
                                 <span>加入購物車</span>
                             </button>
+                            <!-- <button class="napBtn_fixed_outlined" name="add-to-cart" form="enroll-list" type="submit" data-sid="<?= $event['sid'] ?>" onclick="addToCart(event)">
+                                <span>加入購物車</span>
+                            </button> -->
                         </div>
                     </div>
                 </div>

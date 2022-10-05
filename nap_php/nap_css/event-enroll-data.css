@@ -299,16 +299,17 @@ body {
     text-decoration: none;
     font-size: var(--headline_20px);
     background-color: var(--black_500);
-    cursor: not-allowed;
     color: var(--white);
     outline: 0;
+    pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {
     .enroll-card-btn.disabled button {
         width: 180px;
         height: 55px;
-        font-size: var(--headline_24px)
+        font-size: var(--headline_24px);
+        pointer-events: none;
     }
 }
 

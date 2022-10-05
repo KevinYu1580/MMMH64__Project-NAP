@@ -389,14 +389,14 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
 
 
-    function checkDisabled() {
-        const roomNum = $('.selectRoom h6').html();
-        console.log(roomNum);
-        if ( roomNum < 1) {
-            $('.booking-btn').addClass('disabled');
-        }
-    };
-    checkDisabled();
+    // function checkDisabled() {
+    //     const roomNum = $('.selectRoom h6').html();
+    //     console.log(roomNum);
+    //     if ( roomNum < 1) {
+    //         $('.booking-card-btn').addClass('disabled');
+    //     }
+    // };
+    // checkDisabled();
 
 
     const rooms = <?= json_encode($rooms, JSON_UNESCAPED_UNICODE) ?>;
