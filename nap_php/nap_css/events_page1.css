@@ -58,12 +58,6 @@ body{
     color: var(--subColor_text);
 }
 
-/* navbar滑動時顯示模糊 */
-/* .topNav_mobile{
-    background-color: transparent;
-    backdrop-filter: blur(0px);
-    transition: 0.3s;
-} */
 
 /* 活動頁面banner | events-banner */
 .events-banner{
@@ -96,26 +90,27 @@ body{
 .events-banner-package-textbox{
     width: 75%;
     margin: auto;
-    padding-top: 30px;
+    padding-top: 55px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 .events-banner-package-textbox h3{
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+    /* margin-bottom: 0; */
 }
 .events-banner-package-textbox h2{
     font-size: var(--headline_28px);
     font-weight: 600;
     color: var(--primaryColor_dark);
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 .events-banner-package-textbox p{
     width: 75%;
     font-size: var(--p_16px);
     text-align: justify;
     line-height: 1.6;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
 }
 .events-banner-package-textbox span{
     display: none;
@@ -141,13 +136,13 @@ body{
 .events-banner-special-textbox{
     width: 75%;
     margin: auto;
-    padding-top: 30px;
+    padding-top: 45px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 .events-banner-special-textbox h3{
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     color: var(--white);
     /* font-weight: 300; */
 }
@@ -155,7 +150,7 @@ body{
     font-size: var(--headline_28px);
     font-weight: 600;
     color: var(--secondaryColor_default);
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 .events-banner-special-textbox p{
     width: 100%;
@@ -164,7 +159,7 @@ body{
     font-weight: 300;
     text-align: justify;
     line-height: 1.6;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
 }
 .events-banner-special-textbox span{
     display: none;
@@ -473,16 +468,19 @@ body{
     text-align: center;
     color: var(--primaryColor_dark);
     font-weight: 600;
-    padding-bottom: 10px;
+}
+.card-textbox-mb h3{
+    padding-bottom: 5px;
 }
 .card-textbox-mb p{
     line-height: 1.6;
     padding-bottom: 10px;
+    margin-bottom: 0px;
 }
 .card-textbox-mb h5{
     color: var(--primaryColor_dark);
     font-weight: 600;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
     text-align: center;
 }
 /* .card-textbox-mb span{
@@ -589,8 +587,12 @@ body{
         margin: 0;
         padding: 20px 20px 20px 50px;
     }
+    .card-textbox-mb h3{
+        margin-bottom: 0px;
+    }
     .card-textbox-mb h4{
         margin-top: 20px;
+        margin-bottom: 0px;
     }
     .card-textbox-mb h4 , .card-textbox-mb h3{
         font-size: var(--headline_32px);
@@ -603,7 +605,7 @@ body{
         width:95%;
         line-height: 1.8;
         font-size: var(--headline_20px);
-        padding-bottom: 15px;
+        padding-bottom: 45px;
     }
     .people-cardBtn{
         width: 95%;
