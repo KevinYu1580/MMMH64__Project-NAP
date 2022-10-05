@@ -377,7 +377,11 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
 <script>
     function oopsAlert() {
-        swal("汪汪汪汪!", "翻譯蒟蒻：您尚未選擇房間喔~", "warning");
+        swal("汪汪汪汪！", "翻譯蒟蒻：您尚未選擇房間喔～", "warning");
+    };
+
+    function oopsAlertlimit() {
+        swal("喵～", "翻譯蒟蒻：房間數已達選擇上限！", "warning");
     };
 
     // $('.booking-btn a').click(function() {
@@ -510,6 +514,6 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     // $('.minus-btn').on('click', handleRoomNum);
     // $('.plus-btn').on('click', handleRoomNum);
 </script>
-<script src="./nap_js/room_booking.js?version=&lt;?php echo time(); ?&gt;"></script>
+<script src="./nap_js/room_booking2.js?version=&lt;?php echo time(); ?&gt;"></script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

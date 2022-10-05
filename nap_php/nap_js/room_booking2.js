@@ -120,11 +120,13 @@ $('li.select-li').click(function(){
     }
 })
 
+
 // ---------------------按下查詢空房，出現訂房間數選項---------------------
 $('.booking-box').click(function(){
     if( $('.selectRoom h6').html() <= 0){
-        $('.room-null').html();
+        // alert('尚未選擇間數');
         oopsAlert();
+        $('.room-null').html();
     }
 
     if($('.selectRoom h6').html() > 0){
@@ -132,7 +134,7 @@ $('.booking-box').click(function(){
         $('.room-card-group').show();
     }
 
-    console.log('hi',rooms);
+    // console.log('hi',rooms);
     const day1 = new Date($('.date-num span').eq(0).text());
     const day2 = new Date($('.date-num span').eq(1).text());
 
@@ -148,7 +150,6 @@ $('.booking-box').click(function(){
     }
 })
 
-  
 
 // ---------------------訂房明細點擊叉叉---------------------
 $('.cancle-btn').click(function(e){
@@ -209,7 +210,8 @@ $('#single-plus').click(function (e) {
         $('#double-plus svg circle').css('fill','var(--black_500)');
         $('#quadra-plus svg circle').css('fill','var(--black_500)');
         $('.singleNum').val(--plusNum);
-        alert('超過選擇間數')
+        oopsAlertlimit();
+        // alert('超過選擇間數')
         $('.single-room-num span').html(plusNum);
         return;
     }
@@ -311,7 +313,8 @@ $('#double-plus').click(function (e) {
         $('#double-plus svg circle').css('fill','var(--black_500)');
         $('#quadra-plus svg circle').css('fill','var(--black_500)');
         $('.doubleNum').val(--plusNum);
-        alert('超過選擇間數')
+        // alert('超過選擇間數')
+        oopsAlertlimit();
         $('.double-room-num span').html(plusNum);
         return;
     }
@@ -413,7 +416,8 @@ $('#quadra-plus').click(function (e) {
         $('#double-plus svg circle').css('fill','var(--black_500)');
         $('#quadra-plus svg circle').css('fill','var(--black_500)');
         $('.quadraNum').val(--plusNum);
-        alert('超過選擇間數')
+        oopsAlertlimit();
+        // alert('超過選擇間數')
         $('.quadra-room-num span').html(plusNum);
         return;
     }
