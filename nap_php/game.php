@@ -404,7 +404,7 @@ function checkForm1() {
                 if(data.success){
                     genAlert('修改完成', './img/self/n/fix.gif');
                 } else {
-                    genAlert('尚未修改', './img/self/n/none.gif');
+                    genAlert('已領取優惠券', './img/self/n/none.gif');
                 }
 
 

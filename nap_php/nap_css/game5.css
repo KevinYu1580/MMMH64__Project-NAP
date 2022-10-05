@@ -435,21 +435,21 @@ form h2{
 
 .end .recommend{
     position: absolute;
-    top: 210px;
-    right:450px;
+    top: 160px;
+    right:400px;
 }
 
 .end .img1{
     width: 350px;
     position: absolute;
-    top: 330px;
-    right: 195px;
+    top: 280px;
+    right: 145px;
 }
 .end .img2{
     width: 350px;
     position: absolute;
-    top: 330px;
-    right: 576px;
+    top: 280px;
+    right: 526px;
 }
 
 
@@ -466,7 +466,7 @@ form h2{
 
 .end .recommend-2{
     position: absolute;
-    top: 810px;
+    top: 780px;
     left: 600px;
 }
 

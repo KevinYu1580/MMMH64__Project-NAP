@@ -115,7 +115,7 @@ $pageName = 'home'; // 頁面名稱
                      <img class="love-close" src="./img/self/n/love/close.svg" alt="">
     </a>
         <div class="pic">
-            <img src="./img/chatchat/event/<?= $r['article_id'] ?>" alt="">
+            <img src="./img/chatchat/event/<?= $r['articlePic_id'] ?>" alt="">
             
         </div>
         <div class="card-info card-info-chat d-flex flex-column justify-content-center">

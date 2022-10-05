@@ -1,5 +1,5 @@
 <?php 
-require '../parts/connect_db_nora.php';
+require '../parts/connect_db.php';
 
 
 $output = [

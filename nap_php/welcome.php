@@ -20,7 +20,7 @@ $pageName = 'home'; // 頁面名稱
 
     <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/welcome1.css">
+<link rel="stylesheet" href="./nap_css/welcome1.css?version=&lt;?php echo time(); ?&gt;">
     
     <title><?= $title ?></title>
 </head>
@@ -68,15 +68,15 @@ $pageName = 'home'; // 頁面名稱
                             <div class="stepline"></div>
                             <div class="steps d-flex justify-content-between">
                                 <div class="step step1 d-flex flex-column align-items-center">
-                                    <div class="dot"></div>
+                                    <div class="dot mb-2"></div>
                                     <div class="text">輸入密碼</div>
                                 </div>
                                 <div class="step step2 d-flex flex-column align-items-center">
-                                    <div class="dot"></div>
+                                    <div class="dot mb-2"></div>
                                     <div class="text">填寫資料</div>
                                 </div>
                                 <div class="step step3 d-flex flex-column align-items-center">
-                                    <div class="dot"></div>
+                                    <div class="dot mb-2"></div>
                                     <div class="text">完成註冊</div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ $pageName = 'home'; // 頁面名稱
                         <p>完成註冊</p>
                         </div>
                         <div class="btn-box d-flex flex-column  ">
-                            <button type="button" class="btn btn-primary" onclick="location.href='./register-2.php'"><p>確認</p> </button>    
+                            <button type="button" class="btn btn-primary" onclick="location.href='./login.php'"><p>確認</p> </button>    
                         </div>
                     </form>
                 </div>

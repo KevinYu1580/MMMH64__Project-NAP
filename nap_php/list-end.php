@@ -157,7 +157,7 @@ $pageName = 'home'; // 頁面名稱
         <li class="d-flex flex-column bd-none">
             <div class="text d-flex justify-content-between ">
                 <h3 ><?= $n['room_order_id'] ?></h3>
-                <h3><?= $n['created_at'] ?> </h3>
+                <h3><?= $n['create_at'] ?> </h3>
                 <h3><?= $statusArray[$r['payment_way']] ?></h3>
                 <h3 class="h3-sm pricered">NT$ <?= $n['room_order_deposit'] ?></h3>
                 <h3 class="h3-sm"><?= $statusArray[$n['order_status']] ?></h3>
@@ -173,7 +173,7 @@ $pageName = 'home'; // 頁面名稱
                           <img src="./img/room_img/<?= $n['room_img'] ?>.jpg" alt="">
                           <div class="buy-list my-auto ">
                                 <h4><?= $n['room_name'] ?></h4>
-                                <p><?= $n['stay_date'] ?></p>
+                                <p><?= $n['check_in'] ?> ~ <?= $n['check_in'] ?> </p>
                                 <p>X <?= $n['stay_night'] ?>晚   X <?= $n['room_quantity'] ?>間</p>
                           </div> 
                       </div>
@@ -196,7 +196,7 @@ $pageName = 'home'; // 頁面名稱
             </tr>
             <tr>
                 <td>訂單成立時間</td>
-                <td><?= $r['created_at'] ?></td>
+                <td><?= $r['create_at'] ?></td>
             </tr>
             <tr>
                 <td>付款方式</td>
@@ -242,7 +242,7 @@ $pageName = 'home'; // 頁面名稱
             </tr>
             <tr>
                 <td>訂單成立時間</td>
-                <td><?= $n['created_at'] ?></td>
+                <td><?= $n['create_at'] ?></td>
             </tr>
             <tr>
                 <td>付款方式</td>
@@ -268,7 +268,7 @@ $pageName = 'home'; // 頁面名稱
                       <img src="./img/room_img/<?= $n['room_img'] ?>.jpg" alt="">
                       <div class="buy-list my-auto ">
                             <h4><?= $n['room_name'] ?></h4>
-                            <p><?= $n['stay_date'] ?></p>
+                            <p><?= $n['check_in'] ?> ~ <?= $n['check_in'] ?> </p>
                             <p>X <?= $n['stay_night'] ?>晚   X <?= $n['room_quantity'] ?>間</p>
                             <div class="price d-flex justify-content-end"><h3>NT$ <?= $n['room_order_origin_price'] ?></h3></div>
                       </div>
