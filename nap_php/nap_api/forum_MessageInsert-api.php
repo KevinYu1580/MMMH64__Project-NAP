@@ -12,7 +12,6 @@ $message = ((string)$_POST['message']);
 
 $sql = sprintf("
 INSERT INTO chat_commit
-
 (chat_event_sid,
  member_sid,
  comment

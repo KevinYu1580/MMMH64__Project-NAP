@@ -9,13 +9,17 @@ $output = [
 
 ];
 
-$memberId = !empty($_POST['memberId']) ? $_POST['memberId'] : 1;
+$memberId = !empty($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 1;
 // 測試會員帳號ID為1
 $petSelec = !empty($_POST['petSelec']) ? str_replace ('petSelec','',$_POST['petSelec']) : NULL;
 $boardSelec = !empty($_POST['boardSelec']) ? str_replace ('boardSelec','',$_POST['boardSelec']) : NULL;
 $headline = !empty($_POST['headline']) ? $_POST['headline'] : NULL;
 $content = !empty($_POST['content']) ? $_POST['content']: NULL;
-$picture_name = $_FILES["picture"]['name'];
+
+
+// 如果沒上傳圖片，就帶入預設圖片
+$picture_name = !empty($_FILES["picture"]['name']) ? $_FILES["picture"]['name'] : 'paw_defaultBG.svg';
+// $picture_name = $_FILES["picture"]['name'];
 
 
 
@@ -47,7 +51,6 @@ VALUES
 '$headline',
 '$content',
 '$picture_name'
-
 )");
 
 $pdo->query($sql);

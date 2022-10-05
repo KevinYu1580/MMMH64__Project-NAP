@@ -23,7 +23,7 @@ else{
     foreach ($rows as $r) {
         $userPic = $r['avatar'];
         $userName = $r['name'];
-        $date = $r['comment_date'];
+        $date = substr($r['comment_date'],5);;
         $comment = $r['comment'];
         echo "
         <div id='messageCard' class='messageCard'>
@@ -33,7 +33,7 @@ else{
                     $userName     
                     </span>
                     <span class='date'>
-                    $date                      
+                    $date                   
                     </span>
                     <p class='message_text'>
                     $comment            

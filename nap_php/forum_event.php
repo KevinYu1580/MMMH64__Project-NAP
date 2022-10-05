@@ -290,10 +290,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                             </button>
                             <div class="napComt">
                                 <img src="./img/component/icon/Comment-brown.svg" alt="">
-                                <span class='messageQty'>
-                                ${num? num:0}
-                                則留言
-                                </span>
+                                <span class='messageQty'>${num? num:0}則留言</span>
                             </div>
                         </div>
 
@@ -434,10 +431,18 @@ $pageName = 'Forum-events'; // 頁面名稱
                     // 圖片
                     obj.thunmNail = ``;
                     obj.picInPost = '';
-                    if (obj.articlePic_id) {
+                    if (obj.articlePic_id ) {
+                        console.log(obj.articlePic_id)
                         obj.articlePics = obj.articlePic_id.split(',');
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
+
+                        // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片
+                        if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`){
+                            obj.thunmNail = ``;
+                            obj.picInPost = '';
+
+                        }
                     }
 
                     str += post_tpl_func(obj);
