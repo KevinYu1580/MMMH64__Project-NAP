@@ -458,7 +458,7 @@ html{
 .close {
     
     position: absolute;
-    top: 260px;
+    top: 200px;
     right: 20%;
     z-index: 12;
     
@@ -517,6 +517,16 @@ h3{
 .up-part{
     padding-left: 2%;
     padding-right: 2%;
+}
+
+.up-part p{
+    font-weight: 500;
+    font-size: 28px;
+}
+.up-part .say{
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--secondaryColor_default);
 }
 
 form{

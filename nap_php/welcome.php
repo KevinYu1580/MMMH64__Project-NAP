@@ -62,7 +62,7 @@ $pageName = 'home'; // 頁面名稱
                 <div class="content content4 d-flex flex-column align-items-center  m-auto">
                     <div class="part  ">
                         <div class="title d-flex justify-content-center ">
-                            <h3>STEP1</h3>
+                            <h3>STEP3</h3>
                         </div>
                         <div class="stepbox mx-5 d-flex justify-content-center">
                             <div class="stepline"></div>
@@ -88,6 +88,7 @@ $pageName = 'home'; // 頁面名稱
                         <div class="up-part d-flex flex-column align-items-center   w-100">
                         <img src="./img/self/n/check.png" alt="">
                         <p>完成註冊</p>
+                        <p class="say">你已獲得一張優惠券，趕緊登入吧</p>
                         </div>
                         <div class="btn-box d-flex flex-column  ">
                             <button type="button" class="btn btn-primary" onclick="location.href='./login.php'"><p>確認</p> </button>    

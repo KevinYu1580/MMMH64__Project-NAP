@@ -58,7 +58,7 @@
     /* background-image: url(../img_n/member/big-bg-all.png); */
     background-position: 0 0;
     background-repeat: no-repeat;
-    border: 10px solid var(--primaryColor_light);
+    border: 5px solid var(--primaryColor_light);
     box-shadow: 0px 0px 0px 1px var(--primaryColor_light) inset;
     width: 960px;
     height: 600px;
@@ -247,7 +247,7 @@
 
 
     .control .name{
-        font-weight: 900;
+        font-weight: 700;
         border-bottom: none;
         padding: 15px;
         font-size: 18px;
@@ -264,7 +264,7 @@
 
     .info-content{
         width: 80%;
-        box-shadow: 0px 0px 0px 3px var(--primaryColor_light) inset;
+        /* box-shadow: 0px 0px 0px 3px var(--primaryColor_light) inset; */
         
         
         

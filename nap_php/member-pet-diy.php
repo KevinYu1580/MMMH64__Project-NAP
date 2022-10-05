@@ -48,7 +48,7 @@ $pageName = 'home'; // 頁面名稱
 
  <!------ menber-nav ------>
  <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
-     <div class="titlebox  pb-2"><h2>會員中心</h2></div>
+     <div class="titlebox  "><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
@@ -217,8 +217,8 @@ $pageName = 'home'; // 頁面名稱
              ">
               <div class="control flex-column  align-items-center
               ">
-                <p class="pb-1" >A. 選擇卡片外觀樣式</p>
-                <div class="kind d-flex  pb-3">
+                <p class="pb-1" >A 選擇卡片外觀樣式</p>
+                <div class="kind d-flex  py-3">
                     <div class="img-dog d-flex justify-content-center align-items-center mx-3">
                         <img src="./img/self/n/pet/diy/card-kind/Dog.svg" alt="">
                     </div>
@@ -226,7 +226,7 @@ $pageName = 'home'; // 頁面名稱
                         <img src="./img/self/n/pet/diy/card-kind/Cat.svg" alt="">
                     </div>
                 </div>
-                <p class="pb-1" >B. 選擇卡片顏色</p>
+                <p class="py-4" >B 選擇卡片顏色</p>
                 
 
               </div>

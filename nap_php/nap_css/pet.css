@@ -568,7 +568,7 @@ pet-color-cat{
 
     .pet-color{
         position: absolute;
-        top: 350px;
+        top: 370px;
         right: -594px;
         
     }
@@ -657,8 +657,8 @@ pet-color-cat{
 }
 
 .choose-ball{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     /* content: url('http://i.stack.imgur.com/M3EkO.png'); */
     border-radius: 20px;
     -webkit-appearance: none;

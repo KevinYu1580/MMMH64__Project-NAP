@@ -213,7 +213,7 @@ body{
 .close {
     
     position: absolute;
-    top: 250px;
+    top: 180px;
     right: 20%;
     
 }
@@ -249,8 +249,8 @@ body{
 
 
 h3{
-    font-size: var(--headline_24px);
-    font-weight: 600;
+    font-size: var(--headline_28px);
+    /* font-weight: 600; */
     color: var(--subColor_text);
     font-family: custom-font; 
 }

@@ -66,7 +66,7 @@ html{
     border-bottom: 1px solid var(--secondaryColor_default);
     min-width: 50%;
     max-width: 60px;
-    height: 25px;
+    height: 30px;
     margin-bottom: 50px;
     
     
@@ -76,8 +76,8 @@ html{
     background-color: var(--secondaryColor_default);
     padding-left: 35px;
     padding-right: 35px;
-    padding-top: 7px;
-    padding-top: 7px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     color: rgb(255, 255, 255);
     border-radius: var(--btn-radius);
     position: absolute;
@@ -122,7 +122,7 @@ html{
 }
 
 .container1 li a:hover{
-  color: var(--primaryColor_light);
+  color: var(--primaryColor_dark)
 
 }
 

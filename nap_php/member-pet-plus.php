@@ -46,7 +46,7 @@ $pageName = 'home'; // 頁面名稱
 
 <!------ menber-nav ------>
 <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
-     <div class="titlebox  pb-2"><h2>會員中心</h2></div>
+     <div class="titlebox  "><h2>會員中心</h2></div>
      <div class="line"></div>
  
  <div class="partname-mb w-100">
