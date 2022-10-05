@@ -1115,22 +1115,30 @@ input:focus {
 .lightBox_post .inputArea img {
   width: 100%;
   border-radius: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   display: block;
 }
 @media screen and (min-width: 992px){
   .lightBox_post .inputArea img {
     width: 80%;
-    padding: 16px 0;
-    margin: auto;
   }
 }
 /* 包住圖片的div */
 .lightBox_post .inputArea .imgInsert {
   width: 100%;
   height: fit-content;
-  padding: 0 16px 8px;
+  padding: 0 16px 18px;
   background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 992px){
+  .lightBox_post .inputArea .imgInsert {
+    padding: 0 16px 28px;
+
+  }
+
 }
 
 /* lightBox Mask */

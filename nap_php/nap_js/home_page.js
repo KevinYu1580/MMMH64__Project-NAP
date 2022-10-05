@@ -11,10 +11,16 @@ $('.skipBtn').click(() => {
 	$(document).scrollTop(first_page_height * 4);
 });
 $(window).scroll(() => {
-	if ($(this).scrollTop() > 0) {
-		$('.skipBtn').css('opacity', '0');
+	if ($(this).scrollTop() > first_page_height) {
+		$('.skipBtn').css({
+			'opacity': '0',
+			'pointer-events':'none'
+		});
 	} else {
-		$('.skipBtn').css('opacity', '1');
+		$('.skipBtn').css({
+			'opacity': '1',
+			'pointer-events':'auto'
+		});
 	}
 });
 

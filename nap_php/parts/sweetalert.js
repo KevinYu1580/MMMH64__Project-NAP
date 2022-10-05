@@ -18,7 +18,7 @@ Swal.fire({
                 post_sid: post_sid
             }
         )
-        // 以下為執行成功框框
+        // 以下為執行成功框框(也可單獨使用,作為操作成功通知)
         Swal.fire({
             icon: 'success',
             title: '已成功刪除',
@@ -31,6 +31,17 @@ Swal.fire({
 
     }
 })
+
+
+
+
+
+
+
+
+
+
+
 
 
 

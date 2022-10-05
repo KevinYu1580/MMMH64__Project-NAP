@@ -15,7 +15,7 @@ LEFT JOIN (SELECT `chat_event_sid`, COUNT(1) num FROM `chat_commit` GROUP BY `ch
 ON cc.sid=cc2.chat_event_sid
 
 WHERE (tag = 0 OR tag = 1) $where 
-ORDER BY `date` ASC;
+ORDER BY `date` DESC;
 ");
 
 

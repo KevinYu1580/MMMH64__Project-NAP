@@ -14,8 +14,8 @@ $pageName = 'Home'; // 頁面名稱
 
 
 <!-- 跳過視覺動畫按鈕 -->
-<button class="skipBtn d-flex flex-column align-items-center justify-content-center gap-2">
-    <span>S K I P</span>
+<button class="skipBtn  flex-column align-items-center justify-content-center gap-2">
+    <span class="skipText">S K I P</span>
     <img class="skipIcon" width='24px' src="./img/component/icon/arrow_down-grey.svg" alt="">
 </button>
 
@@ -331,7 +331,9 @@ $pageName = 'Home'; // 頁面名稱
     </a>
 
 </div>
-
+<a class="gameLink" href="./game.php" target="blank">
+    <img src="./img/component/icon/joystick.svg" alt="">
+</a>
 
 
 

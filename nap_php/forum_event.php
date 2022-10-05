@@ -475,8 +475,13 @@ $pageName = 'Forum-events'; // 頁面名稱
                 body: form_data,
             }).then(r => r.json())
             .then(result => {
-                alert('發文成功');
-                window.location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: '已成功發佈',
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(() => window.location.reload())
+
 
             })
 
@@ -546,14 +551,28 @@ $pageName = 'Forum-events'; // 頁面名稱
                     message: contentVal
                 }
             )) {
-            alert('新增成功');
-            $('.comtCard_wrap .message_input').val("");
+            Swal.fire({
+                icon: 'success',
+                title: '留言成功!',
+                showConfirmButton: false,
+                timer: 1500
+                // 以下為框框消失後執行的功能(可不加)
+            }).then(function() {
+                $('.comtCard_wrap .message_input').val("");
+                $('.sendMessageBtn').css({
+                    'background-color': 'var(--black_400)',
+                    'pointer-events': 'none',
+                })
+            })
+
         }
     }))
 
     // 按鈕顏色判斷&可點擊
     $('.comtCard_wrap').on('input', '.message_input', () => {
+
         if ($('.message_input').val() == '') {
+
             $('.sendMessageBtn').css({
                 'background-color': 'var(--black_400)',
                 'pointer-events': 'none',
@@ -627,11 +646,11 @@ $pageName = 'Forum-events'; // 頁面名稱
                 item_sid: sid
             },
             function(data) {
-                
+
                 if (btn.find('#napActivate').hasClass('d-block')) {
                     btn.find('#napActivate').removeClass('d-block');
                     lightBox.find('#napActivate').removeClass('d-block');
-                    
+
                     // napActivate
                 } else {
                     btn.find('#napActivate').addClass('d-block');

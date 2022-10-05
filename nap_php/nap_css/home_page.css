@@ -72,10 +72,20 @@ body {
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  display: flex;
 }
-.skipBtn span {
+@media screen and (max-width: 991px){
+  .skipBtn {
+    display: none;
+  }
+}
+
+.skipBtn .skipText {
   font-size: 24px;
   color: var(--black_500);
+}
+.skipBtn:hover .skipText {
+  color: var(--primaryColor_default);
 }
 .skipBtn .skipIcon {
   animation: skipMovingIcon 2.3s infinite ;
@@ -1074,5 +1084,37 @@ body {
   .footer-mobile .branch {
     display: none;
   }
+}
+
+
+.gameLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color:#dcdbaf;
+  bottom: 3%;
+  left: 2%;
+  width: 80px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  animation: gamelink 1.5s infinite linear;
+  z-index: 998;
+  transition: .3s;
+}
+@media screen and (max-width: 991px){
+  .gameLink {
+    display: none;
+  }
+}
+.gameLink img{
+  width: 70%;
+}
+@keyframes gamelink {
+  0%{transform: rotate(0deg);}
+  40%{transform: rotate(0deg);}
+  60%{transform: rotate(10deg);}
+  80%{transform: rotate(-10deg);}
+  100%{transform: rotate(0deg);}
 }
 
