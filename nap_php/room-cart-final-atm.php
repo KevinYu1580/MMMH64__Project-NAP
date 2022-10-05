@@ -75,6 +75,13 @@ foreach ($_SESSION['room_order'] as $key => $value) {
     ]);
 }
 
+//變更優惠券狀態
+$coupon_sid = $_SESSION['rm-coupon']['sid'];
+$order_c_sql ="UPDATE `coupon` SET `coupon_status`='1' WHERE `sid`='$coupon_sid'";
+$stmt = $pdo->prepare($order_c_sql);
+$stmt->execute();
+
+
 // 訂單資料進入db後清除session中購物車內容
 unset($_SESSION['room_order'], $_SESSION['rm-note'], $_SESSION['rm-total'], $_SESSION['rm-coupon'], $_SESSION['total_num'], $_SESSION['order_day1'], $_SESSION['order_day2'], $_SESSION['days']);
 

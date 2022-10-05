@@ -70,6 +70,14 @@ foreach ($_SESSION['event-cart'] as $key => $value) {
     ]);
 }
 
+
+//變更優惠券狀態
+$coupon_sid = $_SESSION['evt-coupon']['sid'];
+$order_c_sql ="UPDATE `coupon` SET `coupon_status`='1' WHERE `sid`='$coupon_sid'";
+$stmt = $pdo->prepare($order_c_sql);
+$stmt->execute();
+
+
 // 訂單資料進入db後清除session中購物車內容
 unset($_SESSION['event-cart'], $_SESSION['evt-note'], $_SESSION['evt-total'], $_SESSION['evt-coupon']);
 
