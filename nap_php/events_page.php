@@ -68,7 +68,7 @@ if ($total_events > 0) {
 
 
 <!-- 活動頁面banner | events-banner -->
-<section class="events-banner">
+<section class="events-banner" id="events-banner">
     <div class="events-banner-row-mb">
         <div class="events-banner-col col-lg-6">
             <div class="events-banner-package">
@@ -132,7 +132,7 @@ if ($total_events > 0) {
 </section>
 
 <!-- 選擇器 | events-switch -->
-<section class="events-switch">
+<section class="events-switch" id="events-switch">
     <div class="events-switch-frame my-option cate" data-val="0">
         <a id="package-switch" class="package-switch d-flex justify-content-center align-items-center" onclick="getData({cate:0,page:1})">
             浪浪套裝活動
@@ -194,6 +194,10 @@ if ($total_events > 0) {
     </nav>
 </div>
 
+<!-- Scroll Top Btn -->
+<div class="backtop-btn">
+    <img src="./img/component/icon/Exclude.svg" alt="">
+</div>
 
 
 <!-- bootstrap擇一使用 -->
