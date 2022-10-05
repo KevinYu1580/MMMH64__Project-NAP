@@ -103,7 +103,7 @@ $pageName = 'home'; // 頁面名稱
 
  <!------ content ------>
 
-<div class="container ">
+<div class="container " style="min-height:400px">
 
 <div class="container-pc m-auto">
     <div class="ul ">
