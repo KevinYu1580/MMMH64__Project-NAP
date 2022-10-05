@@ -127,8 +127,8 @@ $pageName = 'home'; // 頁面名稱
                 <h3 class="h3-sm pricered">NT$ <?= $r['event_order_price'] ?></h3>
                 <h3 class="h3-sm"><?= $statusArray[$r['order_status']] ?></h3>
                 <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                    <img class="menu__icon--open" src="./img/self/n/list/Vector.svg" alt="">
-                    <img src="./img/self/n/list/Vector-up.svg" alt="" class="menu__icon--close down " ></button>
+                    <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
+                    <img src="./img/component/icon/arrow_up.svg" alt="" class="menu__icon--close down " ></button>
             </div>
               
               <div class="collapse" id="collapseExample1">
@@ -157,8 +157,8 @@ $pageName = 'home'; // 頁面名稱
                 <h3 class="h3-sm pricered">NT$ <?= $n['room_order_deposit'] ?></h3>
                 <h3 class="h3-sm"><?= $statusArray[$n['order_status']] ?></h3>
                 <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
-                    <img class="menu__icon--open" src="./img/self/n/list/Vector.svg" alt="">
-                    <img src="./img/self/n/list/Vector-up.svg" alt="" class="menu__icon--close down " ></button>
+                    <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
+                    <img src="./img/component/icon/arrow_up.svg" alt="" class="menu__icon--close down " ></button>
             </div>
               
               <div class="collapse" id="collapseExample3">

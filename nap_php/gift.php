@@ -110,7 +110,7 @@ $pageName = 'home'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="container ">
+<div class="container "style="min-height:200px">
 <div class="row ">
     <?php foreach($rows as $r): ?>
         <div class="gift  mb-5 col-sm-6 col-md-6 col-xl-6 ">

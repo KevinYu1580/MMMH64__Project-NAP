@@ -152,8 +152,8 @@
     
     .gift h3{
         position: absolute;
-        bottom: 38px;
-        right: 70px;
+        bottom: 55px;
+        right: 60px;
         margin-bottom: 0;
         font-size: 110px;
         color: var(--subColor_highLightRed)

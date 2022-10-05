@@ -3,7 +3,7 @@
 // echo $_SERVER['HTTP_REFERER'];  // 人從哪裡來
 // exit;
 
-require '../parts/connect_db_nora.php';
+require '../parts/connect_db.php';
 
 if(isset($_GET['sid'])){
     $sid =  intval($_GET['sid']);

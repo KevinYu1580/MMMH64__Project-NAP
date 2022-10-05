@@ -99,7 +99,7 @@ body{
     top: 340px;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 25px 80px;
+    padding: 10px 80px;
     border-radius: 120px;
     color: var(--white);
     background-color: var(--primaryColor_dark);
@@ -429,45 +429,46 @@ form h2{
 .end .flag{
     position: absolute;
     top: 70px;
-    left: 20%;
+    left: 15%;
     width: 600px;
 }
 
 .end .recommend{
     position: absolute;
     top: 160px;
-    right:400px;
+    right:325px;
 }
 
 .end .img1{
-    width: 350px;
+    width: 300px;
     position: absolute;
     top: 280px;
-    right: 145px;
+    right: 320px;
 }
 .end .img2{
-    width: 350px;
+    width: 300px;
     position: absolute;
     top: 280px;
-    right: 526px;
+    right: 638px;
 }
 
 
 .end .recommend h5{
     font-size: 2rem;
     font-weight: 400;
-    letter-spacing: 4px;
-    background-color: var(--secondaryColor_default);
-    color: rgb(255, 255, 255);
-    padding: 20px 40px;
-    border-radius: 90px;
+    /* letter-spacing: 4px; */
+    /* background-color: var(--secondaryColor_default); */
+    /* border-bottom: 2px solid var(--secondaryColor_default); */
+    color: var(--secondaryColor_default);
+    padding: 10px 200px;
+    /* border-radius: 90px; */
     text-align: center;
 }
 
 .end .recommend-2{
     position: absolute;
-    top: 780px;
-    left: 600px;
+    top: 700px;
+    left: 510px;
 }
 
 .end .recommend-2 h5{
@@ -476,9 +477,11 @@ form h2{
     letter-spacing: 4px;
     background-color: var(--secondaryColor_default);
     color: rgb(255, 255, 255);
-    padding: 20px 40px;
+    padding: 10px 40px;
     border-radius: 90px;
     text-align: center;
+    margin: 0;
+    vertical-align: auto;
 }
 
 
@@ -486,13 +489,13 @@ form h2{
 
 
 .end h3{
-    font-size: 6rem;
+    font-size:4.5rem;
     color: var(--secondaryColor_default);
     font-weight: 700;
     text-shadow: 0 0 1px  var(--secondaryColor_default);
     position: absolute;
     top: 235px;
-    left: 35%;
+    left: 32%;
     transform: translate(-50%, -50%);
     /* width: 100%; */
     height: 300px;
@@ -504,11 +507,11 @@ form h2{
 
 .end h4{
     position: absolute;
-    top: 490px;
-    left: 35%;
+    top: 450px;
+    left: 32%;
     transform: translate(-50%, -50%);
-    width: 650px; height: 500px;
-    font-size: 1.6rem; 
+    width: 600px; height: 500px;
+    font-size: 1.4rem; 
     line-height: 1.8;
     text-align:justify;
     color: var(--subColor_text);
@@ -518,6 +521,7 @@ form h2{
 .btn1{
     color: rgb(255, 255, 255);
     font-size: 1.6rem; 
+    padding-bottom: 6px;
     background-color: var(--secondaryColor_default);
     border: none;
 }

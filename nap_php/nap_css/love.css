@@ -75,7 +75,7 @@ html{
     height: 20px;
     position: absolute;
     right: 20px;
-    top: 10px;
+    top: 20px;
     z-index: 5;
 }
 
@@ -148,7 +148,16 @@ html{
     font-size: 24px;
     font-weight: 500;
     color: var(--secondaryColor_default);
+    
 }
+
+@media (max-width: 576px){
+    .card-info h4{
+        text-align: center;
+    }
+}
+
+
 
 .summarybox{
     width: 260px;
@@ -165,13 +174,14 @@ html{
     color:var(--subColor_text);
     padding-top: 8px;
     line-height: 1.5;
+    text-align: justify;
     
 }
 
 .btn-box{
     /* height: 40px; */
     
-    width: 178px;
+    width: 140px;
     
     margin: auto;
     margin-top: 23px;
@@ -184,8 +194,7 @@ html{
     border-radius: var(--btn-radius);
     border: 1px solid var(--secondaryColor_default);
     font-size: 18px;
-    height: 48px;
-    
+    /* height: 48px; */
 }
 
 .btn-box .btn p{
@@ -193,6 +202,8 @@ html{
     padding-bottom: 0;
     margin-bottom: 0;
     color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-align: center;
 }
 
 /* ----------card-info-pet----------- */
@@ -407,7 +418,7 @@ html{
         .card-info-pet h5{
 
             padding-bottom: 10px;
-            padding-left: 10px;
+            padding-left: 0px;
             padding-right: 40px;
             margin-bottom: 0;
             padding-top: 3px;
@@ -492,7 +503,7 @@ html{
     .love-card  .time h5{
         margin-bottom: 0;
         color: var(--black_200);
-        font-size: var(--headline_28px)
+        
         
     }
 
@@ -506,19 +517,21 @@ html{
     
     }
     .card-info h4{
-        font-size: 40px;
+        font-size: 32px;
         font-weight: 500;
         color: var(--secondaryColor_default);
+        
     }
     
     .summarybox{
-        width: 400px;
+        width: 590px;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         word-break: break-all;
+        text-align: justify;    
     }
     
     .card-info p{
@@ -530,7 +543,7 @@ html{
     .btn-box{
         /* height: 40px; */
         
-        width: 200px;
+        width: 140px;
         
         /* margin: auto; */
         margin-top: 23px;
@@ -545,7 +558,7 @@ html{
         background-color: var(--secondaryColor_default);
         border-radius: var(--btn-radius);
         
-        height: 60px;
+        height: 50px;
         
         
     }
@@ -562,24 +575,24 @@ html{
 
     .card-info-pet h4{
         font-size: var(--headline_40px);
-        padding-bottom: 10px;
+        padding-bottom: 15px;
         padding-left: 0px;
-        padding-right: 150px;
+        padding-right: 440px;
         padding-top: 20px;
-        border-bottom: 1px solid var(--primaryColor_light);
+        border-bottom: 2px solid var(--secondaryColor_default);
         font-weight: 500;
     }
     
     .card-info-pet h4 span{
-        font-size: var(--headline_24px);
+        font-size: var(--headline_28px);
         color:var(--subColor_text);
         
     }
     
     .card-info-pet h5{
-        font-size: var(--headline_20px);
+        font-size: var(--headline_28px);
         padding-bottom: 10px;
-        padding-left: 10px;
+        /* padding-left: 10px; */
         padding-right: 40px;
         margin-bottom: 0;
         padding-top: 3px;
@@ -587,7 +600,7 @@ html{
     }
     
     .card-info-pet h5 span{
-        font-size: var(--headline_20px);
+        font-size: var(--headline_28px);
         color:var(--subColor_text);
     }
 
@@ -610,10 +623,10 @@ html{
     }
     
     .card-info-chat h4{
-        font-size: var(--headline_28px);
+        font-size: var(--headline_32px);
         margin-bottom: 14px;
         margin-top: 14px;
-        font-weight: 700;
+        font-weight: 500;
         
     
     }
@@ -623,7 +636,7 @@ html{
         margin-bottom: 0;
     }
     .card-info-chat p{
-        font-size: var(--subtitle_16px);
+        font-size: var(--headline_20px);
         font-weight: 500;
         
         
