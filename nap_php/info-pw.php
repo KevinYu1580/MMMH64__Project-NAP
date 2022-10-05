@@ -180,43 +180,43 @@ $pageName = 'home'; // 頁面名稱
     const msgc = $('#msgContainer1');
     const msgc1 = $('.bg');
 
-function genAlert(msg,ccc) {
-    $('.bg').css('display','block');
-    $(' #msgContainer1').css('display','block');
+// function genAlert(msg,ccc) {
+//     $('.bg').css('display','block');
+//     $(' #msgContainer1').css('display','block');
     
 
-    const a = $(`
+//     const a = $(`
     
-        <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
-            <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
-            </p> 
-            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
-        </div> 
+//         <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+//             <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
+//             </p> 
+//             <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+//         </div> 
 
-    `);
+//     `);
 
-    msgc.append(a);
-    setTimeout(()=>{
-        a.fadeOut(400, function(){
-            a.remove();
-        });
+//     msgc.append(a);
+//     setTimeout(()=>{
+//         a.fadeOut(400, function(){
+//             a.remove();
+//         });
         
-    }, 2000);
-    msgc.append(msgc);
-    setTimeout(()=>{
-        msgc.fadeOut(400, function(){
-            $(' #msgContainer1').css('display','none');
-        });
+//     }, 2000);
+//     msgc.append(msgc);
+//     setTimeout(()=>{
+//         msgc.fadeOut(400, function(){
+//             $(' #msgContainer1').css('display','none');
+//         });
         
-    }, 2000);
-    msgc.append(msgc1);
-    setTimeout(()=>{
-        msgc.fadeOut(400, function(){
-            $('#msgContainer1').css('display','none');
-        });
+//     }, 2000);
+//     msgc.append(msgc1);
+//     setTimeout(()=>{
+//         msgc.fadeOut(400, function(){
+//             $('#msgContainer1').css('display','none');
+//         });
         
-    }, 2000);
-}
+//     }, 2000);
+// }
 
 function checkForm1() {
     // TODO: 檢查欄位資料格式是不是符合
@@ -247,9 +247,23 @@ function checkForm1() {
             function(data) {
                 console.log(data);
                 if(data.success){
-                    genAlert('修改完成', './img/self/n/fix.gif');
+                    Swal.fire({
+                            icon: 'success',
+                            title: '修改完成!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(()=>{
+                            location.href ='./info-info.php';
+                        })
+                    // genAlert('修改完成', './img/self/n/fix.gif');
                 } else {
-                    genAlert('尚未修改', './img/self/n/none.gif');
+                    Swal.fire({
+                            icon: 'success',
+                            title: '尚未修改!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    // genAlert('尚未修改', './img/self/n/none.gif');
                 }
 
 
