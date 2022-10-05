@@ -110,7 +110,7 @@ $pageName = 'home'; // 頁面名稱
     <?php foreach($rows as $r): ?>
     <div class="love-card d-flex flex-column flex-sm-row align-items-center mb-5">
         <div class="pic">
-            <img src="./img/chatchat/event/<?= $r['article_id'] ?>" alt="">
+            <img src="./img/chatchat/event/<?= $r['articlePic_id'] ?>" alt="">
             
         </div>
         <div class="card-info card-info-chat d-flex flex-column justify-content-center">

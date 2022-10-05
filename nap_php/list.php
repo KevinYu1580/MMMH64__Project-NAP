@@ -103,7 +103,7 @@ $pageName = 'home'; // 頁面名稱
 
  <!------ content ------>
 
-<div class="container ">
+<div class="container " style="min-height:400px">
 
 <div class="container-pc m-auto">
     <div class="ul ">
@@ -122,7 +122,7 @@ $pageName = 'home'; // 頁面名稱
         <li class="d-flex flex-column bd-none">
             <div class="text d-flex justify-content-between ">
                 <h3 ><?= $r['event_order_id'] ?></h3>
-                <h3><?= $r['payment_deadline'] ?> 23:49:30</h3>
+                <h3><?= $r['payment_deadline'] ?> 23:59:59</h3>
                 <h3>2397-6666-1798-4444</h3>
                 <h3 class="h3-sm pricered">NT$ <?= $r['event_order_price'] ?></h3>
                 <h3 class="h3-sm"><?= $statusArray[$r['order_status']] ?></h3>
@@ -138,7 +138,7 @@ $pageName = 'home'; // 頁面名稱
                           <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="">
                           <div class="buy-list my-auto ">
                                 <h4><?= $r['event_name'] ?></h4>
-                                <p><?= $r['event_date'] ?></p>
+                                <p><?= $r['event_date'] ?></p>	
                                 <p>人數x<?= $r['quantity'] ?></p>
                           </div>
                       </div>
@@ -152,7 +152,7 @@ $pageName = 'home'; // 頁面名稱
         <li class="d-flex flex-column bd-none">
             <div class="text d-flex justify-content-between ">
                 <h3 ><?= $n['room_order_id'] ?></h3>
-                <h3><?= $n['payment_deadline'] ?> 23:49:30</h3>
+                <h3><?= $n['payment_deadline'] ?> 23:59:59</h3>
                 <h3>2345-6789-0000-1234</h3>
                 <h3 class="h3-sm pricered">NT$ <?= $n['room_order_deposit'] ?></h3>
                 <h3 class="h3-sm"><?= $statusArray[$n['order_status']] ?></h3>
@@ -168,7 +168,7 @@ $pageName = 'home'; // 頁面名稱
                           <img src="./img/room_img/<?= $n['room_img'] ?>.jpg" alt="">
                           <div class="buy-list my-auto ">
                                 <h4><?= $n['room_name'] ?></h4>
-                                <p><?= $n['stay_date'] ?></p>
+                                <p><?= $n['check_in'] ?> ~ <?= $n['check_in'] ?> </p>
                                 <p>X <?= $n['stay_night'] ?>晚   X <?= $n['room_quantity'] ?>間</p>
                           </div> 
                       </div>
@@ -263,7 +263,7 @@ $pageName = 'home'; // 頁面名稱
                       <img src="./img/room_img/<?= $n['room_img'] ?>.jpg" alt="">
                       <div class="buy-list my-auto ">
                             <h4><?= $n['room_name'] ?></h4>
-                            <p><?= $n['stay_date'] ?></p>
+                            <p><?= $n['check_in'] ?> ~ <?= $n['check_in'] ?> </p>
                             <p>X <?= $n['stay_night'] ?>晚   X <?= $n['room_quantity'] ?>間</p>
                             <div class="price d-flex justify-content-end"><h3>NT$ <?= $n['room_order_origin_price'] ?></h3></div>
                       </div>
