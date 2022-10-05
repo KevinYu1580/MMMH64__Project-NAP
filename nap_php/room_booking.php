@@ -389,14 +389,14 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
 
 
-    // function checkDisabled() {
-    //     const roomNum = $('.selectRoom h6').html();
-    //     console.log(roomNum);
-    //     if ( roomNum < 1) {
-    //         $('.booking-btn').addClass('disabled');
-    //     }
-    // };
-    // checkDisabled();
+    function checkDisabled() {
+        const roomNum = $('.selectRoom h6').html();
+        console.log(roomNum);
+        if ( roomNum < 1) {
+            $('.booking-btn').addClass('disabled');
+        }
+    };
+    checkDisabled();
 
 
     const rooms = <?= json_encode($rooms, JSON_UNESCAPED_UNICODE) ?>;
@@ -471,16 +471,38 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     }
 
     function addToCart(event) {
+        
+        // 以下為執行成功框框
+        // 加入 alert 樣式
         Swal.fire({
             icon: 'success',
-            title: 'Your work has been saved',
+            title: '已成功加入購物車',
             showConfirmButton: false,
             timer: 1500
-        })
+            // 以下為框框消失後執行的功能(可不加)
+        }).then(() => {
+            window.location.replace("room_info.php");
+        });
 
-        window.location.replace("room_info.php");
     }
 
+
+
+
+
+
+
+
+
+        // Swal.fire({
+        //     icon: 'success',
+        //     title: 'Your work has been saved',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        // })
+
+        // window.location.replace("room_info.php");
+    
 
 
 

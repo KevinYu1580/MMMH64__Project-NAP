@@ -238,26 +238,18 @@ if (isset($_GET['sid'])) {
     }
 
     function addToCart(event) {
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Your work has been saved',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        // })
 
         const btn = $(event.currentTarget);
         const qty = getEnrollContentFormNum();
         //qty 數量這裡是用$('.enroll-content-form').length算人數
 
-
-        // const qty = btn.closest('.card-body').find('select').val();
         const sid = btn.attr('data-sid');
         //在送出btn上下屬性
 
-        console.log({
-            sid,
-            qty
-        });
+        // console.log({
+        //     sid,
+        //     qty
+        // });
         $.get(
             'handle-event-cart.php', {
                 sid,
@@ -269,8 +261,17 @@ if (isset($_GET['sid'])) {
             },
             'json');
 
-
-        window.location.replace("events_page.php");
+        // 以下為執行成功框框
+        // 加入 alert 樣式
+        Swal.fire({
+            icon: 'success',
+            title: '已成功加入購物車',
+            showConfirmButton: false,
+            timer: 1500
+            // 以下為框框消失後執行的功能(可不加)
+        }).then(() => {
+            window.location.replace("events_page.php");
+        });
     }
 </script>
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
