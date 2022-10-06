@@ -33,6 +33,50 @@ $pageName = 'field-guide'; // 頁面名稱
         </div>
     </div>
 </section>
+    <!-- 手機黑色光箱 -->
+    <section class="lightBox">
+        <!-- 手機輪播照片 -->
+        <div class="lightBox-container">
+            <div class="lightBox-row">
+                <div class="close">
+                    <img src="./img/component/icon/xmark.svg" alt="">
+                </div>
+                <div class="lightBox-card-img">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="./img_H/nap-intro/pet-outdoor/pet-outdoor-05.jpeg" class="d-block w-100 photo1 " alt="...">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="./img_H/nap-intro/pet-outdoor/pet-outdoor-07.jpeg" class="d-block w-100 photo2"  alt="...">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="./img_H/nap-intro/pet-outdoor/pet-outdoor-06.jpeg" class="d-block w-100 photo3" alt="...">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="lightBox-card-info">
+                    <div class="title">
+                        <h4>奔跑大草原</h4>
+                        <p>戶外狗狗運動公園，大約為400坪及200坪分開的獨立草地，可以放開牽繩讓狗狗盡情自由奔跑、玩樂。主人們盡情享受鄉間田園的寧謐感，聽得到風聲、水聲和鳥叫聲，及空氣裡源源不絕狗狗的歡笑聲。</p>
+                    </div>
+                    
+                    <div class="opentime">
+                        <h5>開放時間</h5>
+                        <p>週二至週六：  08:30 ~ 18:00</p>
+                        <p>週日至週一：  09:00 ~ 18:00</p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </section>
 <!-- pc版地圖 -->
 <section class="nap-map-pc">
     <div class="nap-map-container">
