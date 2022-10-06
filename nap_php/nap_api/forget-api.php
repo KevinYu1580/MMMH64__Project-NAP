@@ -32,5 +32,8 @@ if(($_POST['email'])){
     $output['success'] = '成功';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
+
+
+
 }
 echo json_encode($output, JSON_UNESCAPED_UNICODE);

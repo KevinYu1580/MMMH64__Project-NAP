@@ -127,6 +127,7 @@ body{
     position: relative;
     overflow: hidden;
     display: none;
+    
 
 }
 .wrap .pic{
@@ -166,6 +167,7 @@ body{
     bottom: 190px;
     left: 520px;
     display: none;
+    transition: all 10s 0s;
 }
 .wrap .pic .pet-3{
     width: 120px;
@@ -173,6 +175,7 @@ body{
     bottom: 300px;
     left: 750px;
     display: none;
+    transition: all 1s -.3s;
 
 }
 .wrap .pic .pet-4{
@@ -282,6 +285,7 @@ form{
     flex-direction: column; 
     width: 100%;
     display:none;
+    
     
 }
 

@@ -17,7 +17,7 @@ $headers .= "From: N.A.P.<nap.service2022@gmail.com>" . PHP_EOL;
 
 
 // 設定郵件內容
-foreach ($rows as $r) {
+
 $message = '
 
 <!DOCTYPE html>
@@ -80,7 +80,6 @@ $message = '
 	</body>
 </html>
 ';
-}
 
 // 傳送郵件
 mail($to, $subject, $message, $headers);

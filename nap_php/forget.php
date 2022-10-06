@@ -73,7 +73,7 @@ $pageName = 'home'; // 頁面名稱
                     <div class="msgerror3 mx-5">
                         <p>帳號請輸入電子郵件有誤請檢查--</p>
                     </div>
-                    <button type="submit" class="btn forget">
+                    <button type="submit" class="btn forget" onclick="getemail()">
                         <p>送出驗證</p>
                     </button>
 
@@ -193,14 +193,19 @@ $pageName = 'home'; // 頁面名稱
             $(document.form1).serialize(),
             function(data) {
                 if(data.success){
-                    location.href = './forget_back.php';
+                    // location.href = './forget_back.php';
                 } else {
                     
                 }
             },
             'json'
         );
+        
 
+    }
+
+    function getemail(){
+        location.href = './forget_email.php';
     }
 
     </script>

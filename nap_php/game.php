@@ -298,8 +298,12 @@ $pageName = 'home'; // 頁面名稱
     <div class="recommend">
         <h5>【 推薦活動 】</h5>
     </div>
+    <a  href="./events_detail.php?sid=4">
     <img class="img1" id="img1" src="./img/self/n/game/event-all.svg" alt="">
+    </a>
+    <a id="goevent" href="./events_detail.php?sid=27">
     <img class="img2" id="img2" src="./img/self/n/game/event-dog.svg" alt="">
+    </a>
     
     <div class="recommend-2">
         <h5> <button onclick="checkForm1()" class="btn1" >領取獎勵</button> </h5>
@@ -530,15 +534,18 @@ function processForm() {
                     if (sum <= 0) document.getElementById("endtitle").innerHTML= "100％貓派";
                     if (sum <= 0) document.getElementById("endcontent").innerHTML= "你喜歡自由的生活，給人不善交際、內向的感覺。嫉妒心理強，你認為自己就是世界中心，不允許他人將注意力轉到別的地方；倘若遇到不喜歡或不合意的人事物，你會頭也不回地拂袖而去。如果世界只有你，你的生活應該會很開心，但現實是，朋友們面對你這樣的性格需要極大的包容力喔！現在就去和他們說聲感謝吧！";
                     if (sum <= 0) document.getElementById("img2").src= "./img/self/n/game/event-cat.svg";
+                    if (sum <= 0) document.getElementById("goevent").href= "./events_detail.php?sid=26";
 
 
                     if (sum <= 3  && sum >= 1) document.getElementById("endtitle").innerHTML= "80％貓派20％狗派";
                     if (sum <= 3  && sum >= 1) document.getElementById("endcontent").innerHTML= "你的外表給人很冷漠、偏激但又矜持的感覺。雖生性不合群，但在有需要時，你還是可以在人群中過著安靜的群體生活，優雅、自負、忠於自己，這些是你希望別人眼中所看到的你。至於藏在內心的那股熱情，則堅持等待適當的時間、遇見適當的人時才肯發揮出來，只是好像等了很久也沒能遇到對的那個人；若能偶爾將自己固有的行為與熱度改變一下，可能會有不錯的結果喔！";
                     if (sum <= 3  && sum >= 1) document.getElementById("img2").src= "./img/self/n/game/event-cat.svg";
+                    if (sum <= 0) document.getElementById("goevent").href= "./events_detail.php?sid=26";
 
 
                     if (sum <= 6 && sum >= 4)document.getElementById("endtitle").innerHTML= "50％貓派50％狗派";
                     if (sum <= 6 && sum >= 4) document.getElementById("endcontent").innerHTML= "乾淨、衛生是你的名字，這讓你很在意自己的房間與辦公室的擺設方式。雖然你的好奇心很強，對於周圍發生的變化相當在意，但由於你比較喜歡孤獨，因此不常將自己的感情表露出來；若可以選擇的話，你比較喜歡一個人獨處，或與1、2個朋友的小活動。集結貓與狗的特徵，你可以舒服地穿梭於交際工作之間，不慍不火地維繫氣氛，會被大家視為可交的朋友首選。";
+                    
                     if (sum <= 9 && sum >= 7) document.getElementById("endtitle").innerHTML= "20％貓派80％狗派";
                     if (sum <= 9 && sum >= 7) document.getElementById("endcontent").innerHTML= "個性隨和，給人一種開放、爽朗以及富有人情味的感覺，當遇到不如意的事情，時常容易遷就他人。外表敏捷和直率，個性自律甚嚴，會跟著規則行事，給人可以信任的印象。開心或不開心都會表現在臉上，從不掩飾；雖說坦率的性格並無不妥，但有時需適當地調節，可能會讓你的生活與工作更順暢。";
                     if (sum >= 10 ) document.getElementById("endtitle").innerHTML= "100％狗派";
