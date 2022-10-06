@@ -216,6 +216,7 @@ text-align: center;
     display: flex;
     justify-content: space-between;
     margin: auto;
+    top:210px;
 }
 .carousel li{
     background-color:var(--white);
