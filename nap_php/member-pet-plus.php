@@ -87,7 +87,7 @@ $pageName = 'home'; // 頁面名稱
     <div class="page2 d-flex backtopet mx-2" style="margin-top: 1px; background-color:#7C8C38; border-radius: 20px; " >
                 <a href="member-pet.php" class="d-flex ">
                 <img class="back mx-2 " src="./img/self/n/pet/arrow_back.svg" alt=""> 
-                <h5 class="bye" style="color: #fff;"> 保留此次新增</h5>
+                <h5 class="bye" style="color: #fff;">返回上一頁</h5>
                 </a>
             </div>
         <button onclick="clickEvent()" class="plus-top px-0 mx-2"  >
