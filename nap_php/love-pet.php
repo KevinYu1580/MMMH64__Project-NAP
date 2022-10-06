@@ -111,7 +111,9 @@ $pageName = 'home'; // 頁面名稱
 <div class="container ">
     <?php foreach ($rows as $r) : ?>
         <div class="love-card love-card-pet d-flex flex-column flex-sm-row align-items-center mb-5">
-            <img style="cursor: pointer" class="love-close" src="./img/self/n/close.png" alt="" onclick="showBox(event);">
+        <a id="gowhere" href="javascript: removeItem(<?= $r['likes_sid'] ?>)" >
+            <img style="cursor: pointer" class="love-close" src="./img/self/n/close.png" alt="" >
+        </a>
             <a id="number" class="d-none" href="javascript: removeItem(<?= $r['likes_sid'] ?>)" ></a>
             <div class="pic">
                 <img class="pic-size" src="./img/pet/<?= $r['pet_id'] ?>.jpg" alt="">
@@ -124,7 +126,7 @@ $pageName = 'home'; // 頁面名稱
 
             </div>
         </div>
-        <div class="lightbox-del"  id="exampleModal1">
+        <!-- <div class="lightbox-del"  id="exampleModal1">
             <div class="modal-dialog modal-dialog modal-dialog-centered ">
                 <div class="modal-content">
                     <div class="modal-header" style="border:none">
@@ -142,7 +144,7 @@ $pageName = 'home'; // 頁面名稱
                 </div>
             </div>
         </div>
-        <div class="bg"></div>
+        <div class="bg"></div> -->
     <?php endforeach ?>
 </div>
 
@@ -165,34 +167,42 @@ $pageName = 'home'; // 頁面名稱
 <script>
 
 
-$('.end-close').click(function(s){
+// $('.end-close').click(function(s){
 // $(this).parents().find('#exampleModal1').css('display','block');
-$('.lightbox-del').css('display','none');
-$('.bg').css('display','none');
-})
+// $('.lightbox-del').css('display','none');
+// $('.bg').css('display','none');
+// })
 
-$('.white').click(function(s){
-// $(this).parents().find('#exampleModal1').css('display','block');
-$('.lightbox-del').css('display','none');
-$('.bg').css('display','none');
-})
+// $('.white').click(function(s){
+// // $(this).parents().find('#exampleModal1').css('display','block');
+// $('.lightbox-del').css('display','none');
+// $('.bg').css('display','none');
+// })
 
-function showBox(event) {
-        const me = event.currentTarget;
+// function showBox(event) {
+//         const me = event.currentTarget;
 
 
-        // $('.modal-body span').text($(me).parent().find('.card-info .vvv').text());
-        // $('.modal-body1').text($(me).parent().find('.card-info .who').text());
-        // $('.lightbox-del a').text($(me).parent().find('.card-info .who').text());
-        $(' #gowhere').attr('href', $(me).parent().find('#number').attr('href'));
-        $('.lightbox-del').parents().find('.lightbox-del').css('display','block');
-        $('.bg').css('display','block');
-    }
+//         // $('.modal-body span').text($(me).parent().find('.card-info .vvv').text());
+//         // $('.modal-body1').text($(me).parent().find('.card-info .who').text());
+//         // $('.lightbox-del a').text($(me).parent().find('.card-info .who').text());
+//         $(' #gowhere').attr('href', $(me).parent().find('#number').attr('href'));
+//         $('.lightbox-del').parents().find('.lightbox-del').css('display','block');
+//         $('.bg').css('display','block');
+//     }
 
+
+// function removeItem(likes_sid){
+//         location.href = `./nap_api/petlove-del.php?sid=${likes_sid}`;
+//     }
 
 function removeItem(likes_sid){
-        location.href = `./nap_api/petlove-del.php?sid=${likes_sid}`;
+        if(confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)){
+            location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
+        }
     }
+
+
 
 </script>
 
