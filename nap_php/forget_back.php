@@ -15,7 +15,7 @@ $pageName = '重設密碼'; // 頁面名稱
 
 <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/register.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/forget.css?version=&lt;?php echo time(); ?&gt;">
 
 <title><?= $title ?></title>
 </head>
@@ -25,32 +25,11 @@ $pageName = '重設密碼'; // 頁面名稱
     <div class="wrap">
         <div class="login-pc d-flex justify-content-end">
             <div class="textbox d-flex  align-items-center justify-content-center ">
-
-
-
-                <div class="bikegirl">
-                    <div class="play-people">
-                        <img src="./img/self/n/member/bg/girl.png" alt="" class="girl ">
-                        <img src="./img/self/n/member/bg/bike-body.png" alt="" class="bike-body">
-                        <!-- <img src="./img/self/n/member/bg/leg-01.png" alt=""class="leg-01"> -->
-                        <!-- <img src="./img/self/n/member/bg/leg-02.png" alt=""class="leg-02"> -->
-
-                        <img src="./img/self/n/member/bg/svg/leg-up-f_1.svg" alt="" class="legup-f">
-                        <img src="./img/self/n/member/bg/svg/leg-down-f.svg" alt="" class="legdown-f">
-                        <img src="./img/self/n/member/bg/svg/foot-f.svg" alt="" class="foot-f">
-
-                        <img src="./img/self/n/member/bg/svg/leg-up.svg" alt="" class="legup-b">
-                        <img src="./img/self/n/member/bg/svg/leg-down.svg" alt="" class="legdown-b">
-                        <img src="./img/self/n/member/bg/svg/foot.svg" alt="" class="foot-b">
-
-
-                        <img src="./img/self/n/member/bg/wheel.png" alt="" class="wheel1">
-                        <img src="./img/self/n/member/bg/wheel.png" alt="" class="wheel2">
-                        <!-- <img src="./img/self/n/member/bg/shadow.png" alt=""class="shadow1"> -->
-                        <!-- <img src="./img/self/n/member/bg/illustaror-81.png" alt=""class="people-dog"> -->
-
-                    </div>
-
+                <div class="fires">
+                        <img src="./img/self/n/game/fire-1.png" alt="" class="fire1">
+                        <img src="./img/self/n/game/fire-2.png" alt="" class="fire2">
+                        <img src="./img/self/n/game/fire-3.png" alt="" class="fire3">
+                        <img src="./img/self/n/game/fire-4.png" alt="" class="fire4">
                 </div>
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
             </div>

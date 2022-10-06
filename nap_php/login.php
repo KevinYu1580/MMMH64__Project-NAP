@@ -9,19 +9,13 @@ if (!empty($_SESSION['user'])) {
 
 <?php
 require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '登入'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
-<!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
-
-
-<!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
-
 <link rel="stylesheet" href="./nap_css/reset.css">
-
 <link rel="stylesheet" href="./nap_css/login.css?version=&lt;?php echo time(); ?&gt;">
 
 <title><?= $title ?></title>
@@ -33,8 +27,6 @@ $pageName = 'home'; // 頁面名稱
 
 
     <div class="wrap">
-
-        <!-- <div class="outcut"> -->
         <div class="login-pc d-flex justify-content-end">
             <div class="textbox d-flex flex-column align-items-center justify-content-center">
                 <div class="play-people">
@@ -45,7 +37,11 @@ $pageName = 'home'; // 頁面名稱
                     <img src="./img/self/n/member/bg/dog.png" alt="" class="people-dog">
                     <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
                 </div>
-                <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+                <div class="close">
+                    <a href="./homepage.php">
+                    <img src="./img/self/n/close.png" alt="">
+                    </a>
+                </div>
                 <div class="content d-flex flex-column align-items-center">
                     <div class="part ">
                         <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
@@ -61,9 +57,6 @@ $pageName = 'home'; // 頁面名稱
                                 <div class="invalid-feedback">
                                     此處不可空值
                                 </div>
-
-
-
                             </div>
                             <div class="password-box w-100">
                                 <label for="password" class="form-label mb-2">密碼</label>
@@ -72,13 +65,14 @@ $pageName = 'home'; // 頁面名稱
                                     此處不可空值或格式錯誤
                                 </div>
                             </div>
+                            <p class="forget">
+                                <a href="./forget.php">忘記密碼</a></p>
                             <div class="btn-box d-flex flex-column  ">
                                 <button type="submit" class="btn btn-primary">登入</button>
 
                             </div>
 
                         </div>
-
                         <div class="line mx-4">
                             <div class="title-sm d-flex flex-column align-items-center ">
                                 <p>快速登入</p>
@@ -105,7 +99,6 @@ $pageName = 'home'; // 頁面名稱
                             </div>
 
                         </div>
-
                         <div class="say d-flex pt-4 justify-content-center">
                             <div class="left ">
                                 <p>等不及想見到園區的毛孩嗎？</p>
@@ -114,27 +107,18 @@ $pageName = 'home'; // 頁面名稱
                                     <p>立即註冊</p>
                                 </a></div>
                         </div>
-
+                    </form>
                 </div>
-
-
-                </form>
-            </div>
-
-
-
-
         </div>
     </div>
-    </div>
+    
 
     <!-- bootstrap擇一使用 -->
-    <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
+   
     <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
 
 
     <?php include __DIR__ . '/parts/scripts.php'; ?>
-    <!-- <script src="./nap_js/component.js"></script> -->
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -192,7 +176,7 @@ $pageName = 'home'; // 頁面名稱
             );
 
 
-            
+
 
         }
     </script>

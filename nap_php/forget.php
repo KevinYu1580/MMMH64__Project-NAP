@@ -15,7 +15,7 @@ $pageName = '忘記密碼'; // 頁面名稱
 
 <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/register.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/forget.css?version=&lt;?php echo time(); ?&gt;">
 
 <title><?= $title ?></title>
 </head>
@@ -25,32 +25,24 @@ $pageName = '忘記密碼'; // 頁面名稱
     <div class="wrap">
         <div class="login-pc d-flex justify-content-end">
             <div class="textbox d-flex  align-items-center justify-content-center ">
-
-
-
-                <div class="bikegirl">
-                    <div class="play-people">
-                        <img src="./img/self/n/member/bg/girl.png" alt="" class="girl ">
-                        <img src="./img/self/n/member/bg/bike-body.png" alt="" class="bike-body">
-                        <!-- <img src="./img/self/n/member/bg/leg-01.png" alt=""class="leg-01"> -->
-                        <!-- <img src="./img/self/n/member/bg/leg-02.png" alt=""class="leg-02"> -->
-
-                        <img src="./img/self/n/member/bg/svg/leg-up-f_1.svg" alt="" class="legup-f">
-                        <img src="./img/self/n/member/bg/svg/leg-down-f.svg" alt="" class="legdown-f">
-                        <img src="./img/self/n/member/bg/svg/foot-f.svg" alt="" class="foot-f">
-
-                        <img src="./img/self/n/member/bg/svg/leg-up.svg" alt="" class="legup-b">
-                        <img src="./img/self/n/member/bg/svg/leg-down.svg" alt="" class="legdown-b">
-                        <img src="./img/self/n/member/bg/svg/foot.svg" alt="" class="foot-b">
-
-
-                        <img src="./img/self/n/member/bg/wheel.png" alt="" class="wheel1">
-                        <img src="./img/self/n/member/bg/wheel.png" alt="" class="wheel2">
-                        <!-- <img src="./img/self/n/member/bg/shadow.png" alt=""class="shadow1"> -->
-                        <!-- <img src="./img/self/n/member/bg/illustaror-81.png" alt=""class="people-dog"> -->
-
-                    </div>
-
+            <div class="stars">
+                        
+                        <div class="star star11"> </div>
+                        <div class="star star12"> </div>
+                        <div class="star star13"> </div>
+                        <div class="star star14"> </div>
+                        <div class="star star15"> </div>
+                        <div class="star star16"> </div>
+                        <div class="star star17"> </div>
+                        <div class="star star18"> </div>
+                        <div class="star star19"> </div>
+                        <div class="star star20"> </div>
+                        <div class="star star21"> </div>
+                        <div class="star star22"> </div>
+                        <div class="star star23"> </div>
+                        <div class="star star24"> </div>
+                        <div class="star star25"> </div>
+                        <div class="star star26"> </div>
                 </div>
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
             </div>
@@ -94,13 +86,13 @@ $pageName = '忘記密碼'; // 頁面名稱
                         <p>密碼有誤請檢查--密碼請與確認密碼一致</p>
                     </div> -->
 
-                    
-                    
+
+
                     <!-- <div class="msgerror2 mb-1 mx-2">
                         <p>請填寫完整資訊</p>
                     </div>
                     <div id="msgContainer "> -->
-                        <!-- <div class="alert alert-danger" role="alert">
+                    <!-- <div class="alert alert-danger" role="alert">
                                     A simple danger alert—check it out!
                             </div> -->
                     <!-- </div> -->
@@ -170,54 +162,46 @@ $pageName = '忘記密碼'; // 頁面名稱
 
     <?php include __DIR__ . '/parts/scripts.php'; ?>
     <script>
-
-
-
-
-
         function checkForm() {
-        // TODO: 欄位檢查
-        // if (!$('#email').val()) {
-        //     form.classList.add('was-validated')
-        //     return;
+            // TODO: 欄位檢查
+            // if (!$('#email').val()) {
+            //     form.classList.add('was-validated')
+            //     return;
+            // }
+            // console.log('email',$('#email').val());
+            $.post('./nap_api/emailcatch-api.php', {
+                    email: $('#email').val()
+                })
+                .done(function(res) {
+                    console.log('res');
+                })
+
+
+
+            $.post(
+                './nap_api/forget-api.php',
+                $(document.form1).serialize(),
+                function(data) {
+                    if (data.success) {
+                        // location.href = './forget_back.php';
+                    } else {
+
+                    }
+                },
+                'json'
+            );
+
+            $.post('forget_email.php', {
+                    email: $('#email').val()
+                })
+                .done(function(res) {
+                    console.log('get----email');
+                })
+
+        }
+
+        // function getemail(){
+        //     location.href = './forget_email.php';
         // }
-        // console.log('email',$('#email').val());
-        $.post('./nap_api/emailcatch-api.php',
-        {
-            email: $('#email').val()
-        })
-        .done(function(res){
-            console.log('res');
-        })
-       
-
-
-        $.post(
-            './nap_api/forget-api.php',
-            $(document.form1).serialize(),
-            function(data) {
-                if(data.success){
-                    // location.href = './forget_back.php';
-                } else {
-                    
-                }
-            },
-            'json'
-        );
-
-        $.post('forget_email.php',
-        {
-            email: $('#email').val()
-        })
-        .done(function(res){
-            console.log('get----email');
-        })
-
-    }
-
-    // function getemail(){
-    //     location.href = './forget_email.php';
-    // }
-
     </script>
     <?php include __DIR__ . '/parts/html-foot.php'; ?>

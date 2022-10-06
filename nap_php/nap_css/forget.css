@@ -58,7 +58,7 @@ html{
     font-family: custom-font; 
 }
 .wrap{
-    background: url(../img/self/n/member/bg/bgc-grassland.png);
+    background: url(../img/self/n/game/new-19.png);
     background-repeat: no-repeat;
     background-position:  0;
     background-size: cover;
@@ -75,393 +75,345 @@ html{
 /* ---------------------------------------- */
 
 .bikegirl{
-    /* width: 250px; */
-    /* height: 600px; */
     position: absolute;
-    top: 0;
-    left: 0;
-    animation: peopleGO 25s  infinite linear;
+    top: 80px;
+    left: 20px;
+    width: 100%;
+    height: 100vh;
+}
+.fires{
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: 100%;
+    height: 100vh;
     
-    
-
-    /* background-color: #fff; */
-    /* animation: peopleHit 10s  infinite ; */
-
 }
 
 
-
-.play-people{
-    width: 500px;
+.fire1{
+    width: 60%;
     height: 500px;
-    position: relative;
-    top: 200px;
     
-
-
-    
-
-    /* background-color: #fff; */
-    /* animation: peopleHit 10s  infinite ; */
-
-}
-
-.play-people .girl{
-    width: 140px;
     position: absolute;
-    top: 118px;
-    left: 202px;
-    animation: peopleMove 2.5s  infinite ;
-    z-index: 5;
-
+    animation: fire1 16s 2s  infinite reverse;
+    opacity: 0;
 }
-
-.play-people .bike-body{
-    width: 245px;
+.fire2{
+    width: 60%;
+    height: 500px;
     position: absolute;
-    top: 163px;
-    left: 180px;
-    animation: ballFly 10s  infinite ;
-    z-index: 2;
+    animation: fire2 12s 3s infinite reverse;
+    opacity: 0;
 }
 
-.play-people .legup-b{
-    width: 70px;
+.fire3{
+    width: 60%;
+    height: 500px;
     position: absolute;
-    top: 226px;
-    left: 225px;
-    animation: legupMove 3s  infinite ;
-    z-index: 1;
+    animation: fire3 8s 4s infinite reverse;
+    opacity: 0;
 }
-.play-people .legup-f{
-    width: 80px;
+
+.fire4{
+    width: 60%;
+    height: 500px;
     position: absolute;
-    top: 220px;
-    left: 220px;
-    transform: rotate(-10deg);
-    animation: legup-fMove 3s  infinite ;
-    z-index: 2;
+    animation: fire4 4s 5s infinite reverse;
+    opacity: 0;
 }
 
-.play-people .legdown-b{
-    width: 63px;
-    position: absolute;
-    top: 247px;
-    left: 248px;
-    animation: legdownMove 3s  infinite ;
-    z-index: 1;
-}
-.play-people .legdown-f{
-    width: 40px;
-    position: absolute;
-    top: 265px;
-    left: 272px;
-    /* transform: rotate(20deg); */
-    animation: legdown-fMove 3s  infinite ;
-    z-index: 2;
-}
-
-.play-people .foot-b{
-    width: 27px;
-    position: absolute;
-    top: 323px;
-    left: 238px;
-    animation: footMove 3s infinite ;
-    z-index:1;
-}
-.play-people .foot-f{
-    width: 38px;
-    position: absolute;
-    top: 351px;
-    left: 290px;
-    /* transform: rotate(-40deg); */
-    animation: foot-fMove 3s infinite ;
-    z-index: 2;
-}
-
-
-
-
-
-.play-people .leg-01{
-    width: 150px;
-    position: absolute;
-    top: 215px;
-    left: 194px;
-    animation: legMove 5s 1s infinite ;
-    z-index: 1;
-}
-.play-people .leg-02{
-    width: 150px;
-    position: absolute;
-    top: 213px;
-    left: 194px;
-    animation: peopleMove 2s 1s infinite ;
-    z-index: 2;
-}
-
-
-
-
-.play-people .wheel1{
-    width: 150px;
-    position: absolute;
-    top: 285px;
-    left: 304px;
-    animation: wheelTurn  2s infinite linear;
-}
-
-.play-people .wheel2{
-    width: 150px;
-    position: absolute;
-    top: 280px;
-    left: 115px;
-    z-index: 1;
-    animation: wheelTurn 2s infinite linear;
-}
-
-.play-people .shadow1{
-    width: 300px;
-    position: absolute;
-    top: 450px;
-    left: 22%;
-    animation: wheelTurn 10s -1s infinite ;
-}
 
 .wrap .people-logo{
     width: 250px;
     position: absolute;
     top: 680px;
-    left: 31%;
+    left: 40%;
 }
 
+.stars {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .stars .star{
+    background-color: #fff;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    z-index: 50;
+    animation: starDown 2s  infinite reverse;
+  }
+  .stars .star1 {
+    position: absolute;
+    left: 85%;
+    top: 52%;
+    animation-delay: -0.1s;
+  }
+  .stars .star2 {
+    position: absolute;
+    left: 90%;
+    top: 36%;
+    animation-delay: -0.2s;
+  }
+  .stars .star3 {
+    position: absolute;
+    left: 4%;
+    top: 22%;
+    animation-delay: -0.3s;
+  }
+  .stars .star4 {
+    position: absolute;
+    left: 10%;
+    top: 8%;
+    animation-delay: -0.4s;
+  }
+  .stars .star5 {
+    position: absolute;
+    left: 67%;
+    top: 55%;
+    animation-delay: -0.5s;
+  }
+  
+  
+  .stars .star6 {
+    position: absolute;
+    left: 87%;
+    top: 0%;
+    animation-delay: -0.8s;
+  }
+  .stars .star7 {
+    position: absolute;
+    left: 5%;
+    top: 59%;
+    animation-delay: -0.9s;
+  }
+  .stars .star8 {
+    position: absolute;
+    left: 52%;
+    top: 55%;
+    animation-delay: -0.1s;
+  }
+  .stars .star9 {
+    position: absolute;
+    left: 9;
+    top: 36;
+    animation-delay: -0.2s;
+  }
+  .stars .star10 {
+    position: absolute;
+    left: 75%;
+    top: 27%;
+    animation-delay: -0.3s;
+  }
+  .stars .star11 {
+    position: absolute;
+    left: 38%;
+    top: 62%;
+    animation-delay: -0.4s;
+  }
+  .stars .star12 {
+    position: absolute;
+    left: 55%;
+    top: 3%;
+    animation-delay: -0.5s;
+  }
+  .stars .star13 {
+    position: absolute;
+    left: 74%;
+    top: 40%;
+    animation-delay: -0.6s;
+  }
+  .stars .star14 {
+    position: absolute;
+    left: 25%;
+    top: 48%;
+    animation-delay: -0.7s;
+  }
+  .stars .star15 {
+    position: absolute;
+    left: 44%;
+    top: 39%;
+    animation-delay: -0.8s;
+  }
+  .stars .star16 {
+    position: absolute;
+    left: 94%;
+    top: 14%;
+    animation-delay: -0.9s;
+  }
+  .stars .star17 {
+    position: absolute;
+    left: 44%;
+    top: 17%;
+    animation-delay: -1.0s;
+  }
+
+  .stars .star18 {
+    position: absolute;
+    left: 10%;
+    top: 42%;
+    animation-delay: -2.1s;
+  }
+  .stars .star19 {
+    position: absolute;
+    left: 80%;
+    top: 70%;
+    animation-delay: -2.2s;
+  }
+  .stars .star20 {
+    position: absolute;
+    left: 83%;
+    top: 13%;
+    animation-delay: -2.3s;
+  }
+  .stars .star21 {
+    position: absolute;
+    left: 23%;
+    top: 12%;
+    animation-delay: -2.4s;
+  }
+  .stars .star22 {
+    position: absolute;
+    left: 33%;
+    top: 27%;
+    animation-delay: -2.5s;
+  }
+  .stars .star23 {
+    position: absolute;
+    left: 60%;
+    top: 18%;
+    animation-delay: -2.6s;
+  }
+  .stars .star24 {
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    animation-delay: -2.7s;
+  }
+  
+  .stars .star25 {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    animation-delay: -2.9s;
+  }
+  .stars .star26 {
+    position: absolute;
+    left: 26%;
+    top: 2%;
+    animation-delay: -1.5s;
+  }
 
 /* ------------動畫------------------- */
 
 
-
-  @keyframes peopleGO {
-
-      0% {
-        transform: translate(-500px, -90px);
-      }
-
-      25% {
-        transform: translate(200px, -80px) rotate(5deg);
-      }
-
-      50% {
-        transform: translate(700px, -125px) rotate(-12deg); 
-      }
-
-      75% {
-        transform: translate(1200px,-100px)rotate(8deg);
-      }
-
-      100% {
-        transform: translate(1920px, -80px) rotate(0deg);
-      }
-      
-
-      
-
+@keyframes starDown {
+    0%, 100% {
+      opacity: 0;
     }
+    100% {
+      opacity: 1;
+    }
+   
+   
+      0%{
+        width: 3px;
+        height: 80px;
+        /* transform:rotate(0deg); */
+      }
+      3% {
+        height: 50px;
+        width: 3px;
+        /* transform:rotate(40deg); */
+        
+
+      }
+
+      80%{
+        /* height: 100px; */
+        width: 3px;
+        /* transform:rotate(40deg); */
+        
+
+      }
+
+      100%{
+        height: 3px;
+        width: 3px;
+        
+      }
+
+
+      0%, 100% {
+        transform:rotate(40deg);
+      }
+      50% {
+        transform:rotate(40deg);
+        
+
+      }
 
     
+   
+  }
 
 
-    @keyframes peopleMove {
-
-        0%, 100% {
-          /* transform: translate(-200px, 0px); */
-          
-        }
-        50% {
-          /* transform: translate(900px, 3px); */
-        }
-        
-  
-        
-  
-      }
-
-    /* @keyframes peopleHit {
-
-        0%, 100% {
-          transform: translate(0px, 0px);
-          
-        }
-        50% {
-          transform: translate(0px, 20px);
-        }
-  
-        0%, 100% {
-          transform: rotate(0deg);
-          
-        }
-        50% {
-          transform: rotate(20deg);
-        }
-  
-      } */
-
-      @keyframes wheelTurn {
-
-       
-
-        0% {
-          /* transform: rotate(0deg); */
-        }
-
-        100% {
-            transform: rotate(359deg);
-          }
-  
-        
-  
-      }
-
-      @keyframes legup-fMove {
-
-       
-
-        0%,100% {
-            transform:  rotate(0deg);
-        }
-        
-
-        50% {
-          transform:  translate(0px, -8px)rotate(-20deg);
-        }
-
-        75% {
-            transform:  translate(0px, -8px)rotate(-15deg);
-          }
- 
-  
-      }
-
-      @keyframes legdown-fMove {
-
-       
-
-        0%,100% {
-            transform:  translate(0px, 5px) rotate(0deg);
-        }
-        
-
-        50% {
-            
-            
-          transform: translate(-10px, -20px) rotate(30deg);
-        }
-        75% {
-            
-            
-            transform: translate(0px, -10px) rotate(15deg);
-          }
-
-
-      }
-
-      @keyframes foot-fMove {
-
-       
-
-        0% {
-            transform:  rotate(0deg);
-        }
-        
-
-        50% {
-            
-            
-          transform: translate(-40px, -20px) rotate(30deg);
-        }
-        75% {
-            
-            
-            transform: translate(-20px, -20px) rotate(20deg);
-          }
-
-          100% {
-            transform:  translate(-2px, 0px);
-        }
-        
-        
+    @keyframes fireup {
+    0% {
+        transform:  translate(0px, 0px);
+    }
+      100% {
+        transform:  translate(0px, 200px);
+    }
+    0% {
+        opacity: 1;
+    }
+      100% {
+        opacity: 0;
+    }
+    
+    
     }
 
-
-
-    @keyframes legupMove {
-
-       
-
-        0%,100% {
-            transform:  rotate(0deg);
+    @keyframes fire1 {
+        0%, 100% {
+            opacity: 1;
         }
-        
-
-        50% {
-          transform:  translate(0px, 0px)rotate(10deg);
+        50%{
+            opacity: 0;
         }
-
-        75% {
-            transform:  translate(0px, 0px)rotate(5deg);
-          }
- 
-  
-      }
-
-      @keyframes legdownMove {
-
-       
-
-        0%,100% {
-            transform:  translate(0px, -3px) rotate(0deg);
-        }
-        
-
-        50% {
-            
-            
-          transform: translate(10px, 0px) rotate(-50deg);
-        }
-        75% {
-            
-            
-            transform: translate(-2px, -2px) rotate(-15deg);
-          }
-
-
-      }
-
-      @keyframes footMove {
-
-       
-
-        0% {
-            transform:  rotate(0deg);
-        }
-        
-
-        50% {
-            
-            
-          transform: translate(50px, 10px) rotate(-30deg);
-        }
-        75% {
-            
-            
-            transform: translate(20px, 5px) rotate(-20deg);
-          }
-
-          100% {
-            transform:  translate(2px, 0px);
-        }
-        
-        
     }
+    @keyframes fire2 {
+        0%, 100% {
+            opacity: 1;
+        }
+        50%{
+            opacity: 0;
+        }
+    }
+    @keyframes fire3 {
+        0%, 100% {
+            opacity: 1;
+        }
+        50%{
+            opacity: 0;
+        }
+    }
+    @keyframes fire4 {
+        0%, 100% {
+            opacity: 1;
+        }
+        50%{
+            opacity: 0;
+        }
+    }
+
+   
+
 
 
 /* ------------動畫------------------- */
@@ -593,7 +545,7 @@ form .endbtn{
     /* margin: auto; */
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     
     color: #ffffff;
 
