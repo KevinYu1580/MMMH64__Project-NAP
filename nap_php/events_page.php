@@ -13,7 +13,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 
 
 
-$where ='WHERE event_status=1';
+$where = 'WHERE event_status=1';
 
 // $where = ' WHERE 1 ';  // 起頭
 
@@ -269,6 +269,7 @@ if ($total_events > 0) {
         });
     };
     changeColor();
+
 
     // 收藏按鈕顯示開關
     function sentLike(event) {
