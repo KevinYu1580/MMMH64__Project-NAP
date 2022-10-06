@@ -166,15 +166,16 @@ body{
     position: absolute;
     bottom: 190px;
     left: 520px;
-    display: none;
-    transition: all 10s 0s;
+    opacity: 0;
+    transition: all 1s -.3s;
+    
 }
 .wrap .pic .pet-3{
     width: 120px;
     position: absolute;
     bottom: 300px;
     left: 750px;
-    display: none;
+    opacity: 0;
     transition: all 1s -.3s;
 
 }
@@ -183,7 +184,8 @@ body{
     position: absolute;
     bottom: 460px;
     left: 800px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 
 .wrap .pic .pet-5{
@@ -191,49 +193,56 @@ body{
     position: absolute;
     bottom: 550px;
     left: 590px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 .wrap .pic .pet-6{
     width: 160px;
     position: absolute;
     bottom: 450px;
     left: 390px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 .wrap .pic .pet-7{
     width: 160px;
     position: absolute;
     bottom: 550px;
     left: 200px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 .wrap .pic .pet-8{
     width: 160px;
     position: absolute;
     bottom: 750px;
     left: 360px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 .wrap .pic .pet-9{
     width: 160px;
     position: absolute;
     bottom: 790px;
     left: 600px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 .wrap .pic .pet-10{
     width: 160px;
     position: absolute;
     bottom: 800px;
-    left: 850px;
-    display: none;
+    left: 810px;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 .wrap .pic .butterfly{
     width: 160px;
     position: absolute;
     top: 100px;
     left: 750px;
-    display: none;
+    opacity: 0;
+    transition: all 1s -.3s;
 }
 
 .wrap .pic .tree{
@@ -284,7 +293,7 @@ form{
     align-items: center;
     flex-direction: column; 
     width: 100%;
-    display:none;
+    display: none;
     
     
 }

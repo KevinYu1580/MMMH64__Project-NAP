@@ -419,58 +419,58 @@ $('.start h4').click(function(s){
 $('.qq1 input').click(function(s){
     $('.qq1').css('display','none');
     $('.qq2').css('display','block');
-    $('.pet-2').css('display','block');
+    $('.pet-2').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-2.png)');
 })
 
 $('.qq2 input').click(function(s){
     $('.qq2').css('display','none');
     $('.qq3').css('display','block');
-    $('.pet-3').css('display','block');
+    $('.pet-3').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-3.png)');
 })
 
 $('.qq3 input').click(function(s){
     $('.qq3').css('display','none');
     $('.qq4').css('display','block');
-    $('.pet-4').css('display','block');
+    $('.pet-4').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-4.png)');
 })
 $('.qq4 input').click(function(s){
     $('.qq4').css('display','none');
     $('.qq5').css('display','block');
-    $('.pet-5').css('display','block');
+    $('.pet-5').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-5.png)');
 })
 $('.qq5 input').click(function(s){
     $('.qq5').css('display','none');
     $('.qq6').css('display','block');
-    $('.pet-6').css('display','block');
+    $('.pet-6').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-6.png)');
 })
 $('.qq6 input').click(function(s){
     $('.qq6').css('display','none');
     $('.qq7').css('display','block');
-    $('.pet-7').css('display','block');
+    $('.pet-7').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-7.png)');
 })
 $('.qq7 input').click(function(s){
     $('.qq7').css('display','none');
     $('.qq8').css('display','block');
-    $('.pet-8').css('display','block');
+    $('.pet-8').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-8.png)');
 })
 $('.qq8 input').click(function(s){
     $('.qq8').css('display','none');
     $('.qq9').css('display','block');
-    $('.pet-9').css('display','block');
+    $('.pet-9').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-9.png)');
 })
 $('.qq9 input').click(function(s){
     $('.qq9').css('display','none');
     $('.qq10').css('display','block');
-    $('.pet-10').css('display','block');
-    $('.butterfly').css('display','block');
+    $('.pet-10').css('opacity','1');
+    $('.butterfly').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-10.png)');
 })
 $('.qq10 input').click(function(s){
@@ -545,7 +545,6 @@ function processForm() {
 
                     if (sum <= 6 && sum >= 4)document.getElementById("endtitle").innerHTML= "50％貓派50％狗派";
                     if (sum <= 6 && sum >= 4) document.getElementById("endcontent").innerHTML= "乾淨、衛生是你的名字，這讓你很在意自己的房間與辦公室的擺設方式。雖然你的好奇心很強，對於周圍發生的變化相當在意，但由於你比較喜歡孤獨，因此不常將自己的感情表露出來；若可以選擇的話，你比較喜歡一個人獨處，或與1、2個朋友的小活動。集結貓與狗的特徵，你可以舒服地穿梭於交際工作之間，不慍不火地維繫氣氛，會被大家視為可交的朋友首選。";
-                    
                     if (sum <= 9 && sum >= 7) document.getElementById("endtitle").innerHTML= "20％貓派80％狗派";
                     if (sum <= 9 && sum >= 7) document.getElementById("endcontent").innerHTML= "個性隨和，給人一種開放、爽朗以及富有人情味的感覺，當遇到不如意的事情，時常容易遷就他人。外表敏捷和直率，個性自律甚嚴，會跟著規則行事，給人可以信任的印象。開心或不開心都會表現在臉上，從不掩飾；雖說坦率的性格並無不妥，但有時需適當地調節，可能會讓你的生活與工作更順暢。";
                     if (sum >= 10 ) document.getElementById("endtitle").innerHTML= "100％狗派";
