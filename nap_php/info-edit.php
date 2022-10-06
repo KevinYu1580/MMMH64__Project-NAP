@@ -312,7 +312,7 @@ $pageName = 'home'; // 頁面名稱
                 $(document.form1).serialize(),
                 function(data) {
                     console.log(data);
-                    if (data.success) {
+                    if (data.success == true ) {
                         Swal.fire({
                             icon: 'success',
                             title: '修改完成!',
@@ -329,7 +329,6 @@ $pageName = 'home'; // 頁面名稱
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        // genAlert('尚無修改', './img/self/n/none.gif');
                     }
 
 

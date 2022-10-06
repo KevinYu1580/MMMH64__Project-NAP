@@ -111,7 +111,7 @@ $pageName = 'home'; // 頁面名稱
 <div class="container ">
     <?php foreach ($rows as $r) : ?>
         <div class="love-card love-card-pet d-flex flex-column flex-sm-row align-items-center mb-5">
-            <img class="love-close" src="./img/self/n/love/close.svg" alt="" onclick="showBox(event);">
+            <img style="cursor: pointer" class="love-close" src="./img/self/n/close.png" alt="" onclick="showBox(event);">
             <a id="number" class="d-none" href="javascript: removeItem(<?= $r['likes_sid'] ?>)" ></a>
             <div class="pic">
                 <img class="pic-size" src="./img/pet/<?= $r['pet_id'] ?>.jpg" alt="">

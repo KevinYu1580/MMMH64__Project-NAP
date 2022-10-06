@@ -50,16 +50,13 @@ $stmt->execute([
         
         $birthdate,
 
-    
-        
-    
 ]);
 
 if($stmt->rowCount()){
     $output['success'] = true;
     
 } else {
-    $output['error'] = '資料沒有修改';
+    $output['error'] = 'false';
 }
 
 

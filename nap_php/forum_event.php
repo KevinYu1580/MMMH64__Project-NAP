@@ -299,37 +299,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                     
                     ${thunmNail}
                     
-                    <button class="pointMenu">
-                        <img src="./img/component/icon/Small Menu.svg" alt="">
-                    </button>
-                    <div class="lightBox_mb">
-                        <button class="cardDelete">
-                            <div class="deleteIcon">
-                                <img width="28px" src="./img/component/icon/Trash can.svg" alt="">
-                            </div>
-                            <span>刪除</span>
-                        </button>
-                        <button class="cardEdit">
-                            <div class="editIcon">
-                                <img width="28px" src="./img/component/icon/Pencil.svg" alt="">
-                            </div>
-                            <span>編輯</span>
-                        </button>
-                    </div>
-                    <div class="lightBox_pc">
-                        <button class="cardDelete">
-                            <div class="deleteIcon">
-                                <img width="28px" src="./img/component/icon/Trash can.svg" alt="">
-                            </div>
-                            <span>刪除</span>
-                        </button>
-                        <button class="cardEdit">
-                            <div class="editIcon">
-                                <img width="28px" src="./img/component/icon/Pencil.svg" alt="">
-                            </div>
-                            <span>編輯</span>
-                        </button>
-                    </div>
                     <div class="lightBox_comtCard">
                         <button class="close_lightBox">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -463,10 +432,6 @@ $pageName = 'Forum-events'; // 頁面名稱
 
         }, 'json');
 
-        const posterName = $('.comtCard_wrap .member_info .member_pic span').html()
-
-        console.log(posterName)
-
     }
     getData({})
 
@@ -486,8 +451,8 @@ $pageName = 'Forum-events'; // 頁面名稱
                 Swal.fire({
                     icon: 'success',
                     title: '已成功發佈',
+                    timer: 1500,
                     showConfirmButton: false,
-                    timer: 2000
                 }).then(() => window.location.reload())
 
 
@@ -562,8 +527,8 @@ $pageName = 'Forum-events'; // 頁面名稱
             Swal.fire({
                 icon: 'success',
                 title: '留言成功!',
+                timer: 1500,
                 showConfirmButton: false,
-                timer: 1500
                 // 以下為框框消失後執行的功能(可不加)
             }).then(function() {
                 $('.comtCard_wrap .message_input').val("");
