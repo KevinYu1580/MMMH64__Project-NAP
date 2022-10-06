@@ -1,9 +1,11 @@
 <?php
+if(! isset($_SESSION)){
+    session_start();
+}
 
 
 // 設定收件者
-// 待以真實 user email 測試
-$to = "chiyin0209@yahoo.com";
+$to = $_SESSION['email'];
 
 // 設定郵件主旨
 $subject = "N.A.P. 會員密碼重設";
@@ -12,7 +14,8 @@ $subject = "=?utf-8?B?" . base64_encode($subject) . "?=";
 //設定郵件標頭資訊
 $headers  = "MIME-Version: 1.0" . PHP_EOL;
 $headers .= "Content-type: text/html; charset=utf-8" . PHP_EOL;
-$headers .= "To: chiyin0209@yahoo.com" . PHP_EOL;
+$headers .= 'To:';
+$headers .= $to . PHP_EOL;
 $headers .= "From: N.A.P.<nap.service2022@gmail.com>" . PHP_EOL;
 
 
@@ -42,7 +45,7 @@ $message = '
                                             <font style="font-family: 微軟正黑體;">請點擊下方「重設密碼」連結以重設您的密碼。<br></font>
                                         </p>
                                         <p>
-                                            <font style="font-family: 微軟正黑體;">【<a href="http://localhost/MMMH64__Project-NAP/nap_php/list-end.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">重設密碼</a>】</font>
+                                            <font style="font-family: 微軟正黑體;">【<a href="http://localhost/MMMH64__Project-NAP/nap_php/forget_back.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">重設密碼</a>】</font>
                                         </p>
                                         
                                     </td>

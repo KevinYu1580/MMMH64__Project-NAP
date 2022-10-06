@@ -4,7 +4,7 @@ session_start();
 
 
 require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '忘記密碼'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -73,7 +73,7 @@ $pageName = 'home'; // 頁面名稱
                     <div class="msgerror3 mx-5">
                         <p>帳號請輸入電子郵件有誤請檢查--</p>
                     </div>
-                    <button type="submit" class="btn forget" onclick="getemail()">
+                    <button type="submit" class="btn forget" onclick="">
                         <p>送出驗證</p>
                     </button>
 
@@ -168,7 +168,7 @@ $pageName = 'home'; // 頁面名稱
 
 
 
-    <?php include __DIR__ . './parts/scripts.php'; ?>
+    <?php include __DIR__ . '/parts/scripts.php'; ?>
     <script>
 
 
@@ -181,10 +181,14 @@ $pageName = 'home'; // 頁面名稱
         //     form.classList.add('was-validated')
         //     return;
         // }
+        // console.log('email',$('#email').val());
         $.post('./nap_api/emailcatch-api.php',
         {
             email: $('#email').val()
-        });
+        })
+        .done(function(res){
+            console.log('res');
+        })
        
 
 
@@ -200,13 +204,20 @@ $pageName = 'home'; // 頁面名稱
             },
             'json'
         );
-        
+
+        $.post('forget_email.php',
+        {
+            email: $('#email').val()
+        })
+        .done(function(res){
+            console.log('get----email');
+        })
 
     }
 
-    function getemail(){
-        location.href = './forget_email.php';
-    }
+    // function getemail(){
+    //     location.href = './forget_email.php';
+    // }
 
     </script>
     <?php include __DIR__ . '/parts/html-foot.php'; ?>
