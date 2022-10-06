@@ -191,9 +191,7 @@ function showBox(event) {
 
 
 function removeItem(likes_sid){
-        if(13){
-            location.href = `./nap_api/petlove-del.php?sid=${likes_sid}`;
-        }
+        location.href = `./nap_api/petlove-del.php?sid=${likes_sid}`;
     }
 
 </script>

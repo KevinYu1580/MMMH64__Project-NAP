@@ -190,11 +190,10 @@
     }
 
     .topNav_mobile .icon_wrap #memberPic {
-        border: 4px solid var(--primaryColor_dark);
+        box-shadow: inset 0 0 8px var(--primaryColor_dark);
         border-radius: 50%;
         width: 38px;
         height: 38px;
-        background-image: url(./img/component/icon/circle-people.svg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
@@ -818,7 +817,8 @@
 
                 </a>
 
-                <a id="memberPic" href="info-info.php"></a>
+                <a style="background-image: url(./img/member/profile-image/<?php echo !empty($SESSION['user']) ? $SESSION['user']['userPic'] : 'pi000.jpg';?>)" 
+                id="memberPic" href="info-info.php"></a>
             </div>
             <button class="menu sec2">
                 <img src="./img/component/icon/hamburger.svg" alt="">
