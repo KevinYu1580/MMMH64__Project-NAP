@@ -205,7 +205,7 @@ $message = '
                                 <tr>
                                     <td align="left">
                                         <p>
-                                            <font style="font-family: 微軟正黑體;">欲查看詳細訂單資料，請回會員中心<span>【<a href="http://localhost/MMMH64__Project-NAP/nap_php/list.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">訂單查詢</a>】</span>，發票將於活動當日開立提供。</font>
+                                            <font style="font-family: 微軟正黑體;">欲查看詳細訂單資料，請回會員中心<span>【<a href="http://localhost/MMMH64__Project-NAP/nap_php/list-end.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">訂單查詢</a>】</span>，發票將於活動當日開立提供。</font>
                                         </p>
                                         <p>
                                             <font style="font-family: 微軟正黑體;">園區的浪浪期待與您的相遇！</font>

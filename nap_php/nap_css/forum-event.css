@@ -629,7 +629,6 @@ input:focus {
 .lightBox_comtCard .member_info .member_pic {
   width: 32px;
   aspect-ratio: 1 / 1;
-  background-image: url(../img/component/icon/circle-people.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -740,7 +739,7 @@ input:focus {
   width: 44px;
   aspect-ratio: 1 / 1;
   object-fit: fill;
-  background-image: url(../img/chatchat/chat/chat-02.jpeg);
+
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -921,7 +920,6 @@ input:focus {
 .lightBox_post .member_info .member_pic {
   width: 32px;
   height: 32px;
-  background-image: url(../img/component/icon/circle-people.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
