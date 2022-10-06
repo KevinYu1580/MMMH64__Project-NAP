@@ -131,9 +131,9 @@ $pageName = 'Forum-events'; // 頁面名稱
         </button>
         <form name="form_postInsert" id='form_postInsert' onsubmit="sendPost();return false" enctype="multipart/form-data">
             <div class="member_info">
-                <div class="member_pic"></div>
+                <div class="member_pic" style="background-image: url(./img/member/profile-image/<?php echo $_SESSION['user']['userPic']?>)"></div>
                 <div class="member_name">
-                    <span>翁同學</span>
+                    <span><?php echo $_SESSION['user']['userName']?></span>
                 </div>
             </div>
 
@@ -237,6 +237,7 @@ $pageName = 'Forum-events'; // 頁面名稱
             )
             .done((result) => {
                 $('.lightBox_comtCard .comtSection .message_pack').html(result);
+                console.log(result)
 
             })
     }))
@@ -337,7 +338,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                         </button>
                         <div class="content_wrap">
                             <div class="member_info">
-                                <div class="member_pic"></div>
+                                <div class="member_pic" style="background-image: url(./img/member/profile-image/${avatar})"></div>
                                 <span class="member_name">
                                     ${name}
                                 </span>
@@ -377,7 +378,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                                     </div>
                                     <form id='form_sendMessage${sid}' name='form_sendMessage${sid}' class="messageLev d-flex align-items-center" onsubmit='return false'>
                                         <div class="memberInfo_wrap d-flex align-items-center col-10 gap-3">
-                                        <div class="memberPic">
+                                        <div class="memberPic" style="background-image: url(./img/member/profile-image/${avatar})">
                                         </div>
                                         <input name="message" class="message_input" type="text" placeholder="我要留言">
                                         </div>
@@ -402,7 +403,7 @@ $pageName = 'Forum-events'; // 頁面名稱
     };
 
 
-    // 貼文內容(含留言)
+    // ---------貼文內容(含留言)
     const comtCardWrap = $('#comtCard_wrap')
 
     let defaultVals = {
@@ -410,7 +411,6 @@ $pageName = 'Forum-events'; // 頁面名稱
     }
 
     function getData(obj) {
-
         try {
             if (typeof defaultVals === 'undefined') {
                 return;
@@ -423,16 +423,15 @@ $pageName = 'Forum-events'; // 頁面名稱
             defaultVals.type = obj.type;
         }
         $.get('./nap_api/forum_selector-api.php', defaultVals, function(data) {
-
+            
             let str = '';
-
             if (data.rows && data.rows.length) {
                 data.rows.forEach(function(obj) {
                     // 圖片
                     obj.thunmNail = ``;
                     obj.picInPost = '';
                     if (obj.articlePic_id ) {
-                        console.log(obj.articlePic_id)
+                        
                         obj.articlePics = obj.articlePic_id.split(',');
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
@@ -463,6 +462,10 @@ $pageName = 'Forum-events'; // 頁面名稱
             }
 
         }, 'json');
+
+        const posterName = $('.comtCard_wrap .member_info .member_pic span').html()
+
+        console.log(posterName)
 
     }
     getData({})

@@ -33,7 +33,9 @@ if( password_verify($_POST['password'], $row['password']) ){
     $output['success'] = true;
     $_SESSION['user'] = [
         'id' => $row['id'],
-        'email' => $row['email']
+        'userName' => $row['name'],
+        'email' => $row['email'],
+        'userPic' => $row['avatar']
     ];
 
 } else {
