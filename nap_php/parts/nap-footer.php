@@ -86,6 +86,11 @@
 
 </style>
 
+<!-- Scroll Top Btn -->
+
+<div class="backtop-btn">
+    <img src="./img/component/icon/Exclude.svg" alt="">
+</div>
 
 <div class="footer-mobile">
 

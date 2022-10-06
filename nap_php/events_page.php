@@ -106,7 +106,7 @@ if ($total_events > 0) {
                 <h2>每月特別活動</h2>
                 <p>N.A.P.精心準備的主題活動，不僅有配合節慶的每月活動外，還有專業動物醫學講師開班舉辦講座課程，快與您的毛孩子一同參加並留下美好回憶吧！</p>
                 <div class="events-banner-special-btn">
-                    <a href="#switchChange" onclick="getData({cate:1,page:1})">查看活動</a>
+                    <a href="#Anchor" onclick="getData({cate:1,page:1})">查看活動</a>
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@ if ($total_events > 0) {
                     <h2>浪浪套裝活動</h2>
                     <p>歡迎你來到N.A.P.園區，尋找你命定的另一「伴」！<span> N.A.P.透過各種活動與知識課程，</span>讓你與浪浪們在兩日的相處下能透過活動更加的了解彼此。</p>
                     <div class="events-banner-package-btn">
-                        <a href="#switchChange" onclick="getData({cate:0,page:1})">查看活動</a>
+                        <a href="#Anchor" onclick="getData({cate:0,page:1})">查看活動</a>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ if ($total_events > 0) {
             <img src="./img/component/illustration/illustration-66.png" alt="">
         </div>
     </div>
-    <div id="switchChange"></div>
+    <div id="Anchor"></div>
 </section>
 
 <!-- 選擇器 | events-switch -->
@@ -192,11 +192,6 @@ if ($total_events > 0) {
             </li>
         </ul>
     </nav>
-</div>
-
-<!-- Scroll Top Btn -->
-<div class="backtop-btn">
-    <img src="./img/component/icon/Exclude.svg" alt="">
 </div>
 
 

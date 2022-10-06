@@ -98,24 +98,3 @@ $('.events-card-row-mb').css(
 	'width',
 	`${$('.events-card-mb').outerWidth(true) * $('.events-card-mb').length}px`
 );
-
-// 回到首頁按鈕
- $('.backtop-btn').click(function(){
-    //  $('html, body').animate({scrollTop:0}, 0000);
-     $('html, body').scrollTop(0);
- })
-
- $(window).scroll(function(){
-	if($(window).scrollTop() >= ($('#switchChange').offset().top - $(window).height() * 1/2)){
-		$('.backtop-btn').css({
-		transform: 'translateX(0px)',
-		opacity: 1,
-		})
-	}
-	 else{
-		$('.backtop-btn').css({
-		transform: 'translateX(200px)',
-		opacity: 0,
-		})
-	}
- })

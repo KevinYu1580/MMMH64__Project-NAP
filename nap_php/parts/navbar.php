@@ -758,6 +758,30 @@
         right: -12px;
         border-radius: 20px;
     }
+
+    /* 回到首頁按鈕 || backtop-btn */
+    .backtop-btn {
+        display: none;
+    }
+
+    @media screen and (min-width:768px) {
+        .backtop-btn {
+            display: block;
+            width: 50px;
+            position: fixed;
+            right: 2%;
+            bottom: 5%;
+            cursor: pointer;
+            transition: 0.5s;
+            opacity: 0;
+            z-index: 50;
+        }
+
+        .backtop-btn img {
+            width: 100%;
+            vertical-align: top;
+        }
+    }
 </style>
 
 <link rel="stylesheet" href="./nap_css/reset.css">
