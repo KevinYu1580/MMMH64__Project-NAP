@@ -9,7 +9,7 @@ $pageName = 'Home'; // 頁面名稱
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
-<link rel="stylesheet" href="./nap_css/home_page.css">
+<link rel="stylesheet" href="./nap_css/home_page.css?version=&lt;?php echo time(); ?&gt;">
 
 
 
@@ -336,7 +336,11 @@ $pageName = 'Home'; // 頁面名稱
 </a>
 
 
+<!-- Scroll Top Btn -->
 
+<div class="backtop-btn">
+    <img src="./img/component/icon/Exclude-white.svg" alt="">
+</div>
 
 <div class="footer-mobile">
     <div class="illustration">
@@ -398,7 +402,7 @@ $pageName = 'Home'; // 頁面名稱
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="./nap_js/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
 <?php include __DIR__ . '/parts/scripts.php'; ?>
-<script src="./nap_js/component.js"></script>
+<script src="./nap_js/component.js?version=&lt;?php echo time(); ?&gt;"></script>
 <script src="./nap_js/home_page.js"></script>
 <!-- 自己的js放在這 -->
 

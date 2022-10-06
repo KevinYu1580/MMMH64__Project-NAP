@@ -278,3 +278,29 @@ $(window).scroll(function () {
 	}
 });
 // });
+
+
+// 回到首頁按鈕
+$('.backtop-btn').click(function(){
+    //  $('html, body').animate({scrollTop:0}, 0000);
+     $('html, body').scrollTop(0);
+ })
+
+ $(window).scroll(function(){
+	if($(window).scrollTop() >= (2150 - $(window).height() * 1/20)){
+		$('.backtop-btn').css({
+		transform: 'translateX(0px)',
+		opacity: 1,
+		})
+		$('.gameLink').css({
+			transform: 'translateX(0px)',
+			opacity: 1,
+		})
+	}
+	 else{
+		$('.backtop-btn').css({
+		transform: 'translateX(200px)',
+		opacity: 0,
+		})
+	}
+ })
