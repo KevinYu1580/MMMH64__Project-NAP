@@ -770,7 +770,7 @@
             width: 50px;
             position: fixed;
             right: 2%;
-            bottom: 5%;
+            bottom: 6%;
             cursor: pointer;
             transition: 0.5s;
             opacity: 0;

@@ -1093,7 +1093,7 @@ body {
   align-items: center;
   position: fixed;
   background-color:#dcdbaf;
-  bottom: 3%;
+  bottom: 6%;
   left: 2%;
   width: 80px;
   aspect-ratio: 1 / 1;
@@ -1117,4 +1117,5 @@ body {
   80%{transform: rotate(-10deg);}
   100%{transform: rotate(0deg);}
 }
+
 
