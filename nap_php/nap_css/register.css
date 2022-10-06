@@ -1101,3 +1101,39 @@ button:hover{
     color: rgb(255, 255, 255);
 
 }
+
+
+
+/* ------------------password forget---------------------- */
+.forget{
+    background-color:var(--primaryColor_dark);
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: var(--btn-radius);
+    color: rgb(255, 255, 255);
+    margin: auto;
+    text-align: center;
+    padding-top: 7px;
+    margin-top: 40px;
+    margin-bottom: 85px;
+    margin-left: 112.5px;
+    
+    font-weight: normal;
+}
+.forget_change{
+    background-color:var(--primaryColor_dark);
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: var(--btn-radius);
+    color: rgb(255, 255, 255);
+    margin: auto;
+    text-align: center;
+    padding-top: 7px;
+    margin-top: 50px;
+    margin-bottom: 155px;
+    margin-left: 112.5px;
+    
+    font-weight: normal;
+}

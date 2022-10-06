@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./bootstrap-5.1.1-dist/js/bootstrap.js">
 
-    <link rel="stylesheet" href="./css_n/register123.css">
+    <link rel="stylesheet" href="./nap_css/register123.css">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -125,25 +125,9 @@
 
 // -----------------------
     function checkForm() {
-        // TODO: 欄位檢查
-        // if (!$('#email').val()) {
-        //     form.classList.add('was-validated')
-        //     return;
-        // }
-        // if (!$('#password').val()) {
-        //     $("#myAlert").alert();
-        //     return;
-        // }
-        // if (!$('#email1').val()) {
-        //     form.classList.add('was-validated')
-        //     return;
-        // }
-        // if (!$('#password1').val()) {
-        //     $("#myAlert").alert();
-        //     return;
-        // }
+        
         $.post(
-            'login-api.php',
+            './nap_api/login1-api.php',
             $(document.form1).serialize(),
             function(data) {
                 if(data.success){

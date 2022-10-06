@@ -16,55 +16,6 @@ if(empty($_POST['password'])) {
 
 
 
-// $sql_t = "SELECT * FROM member01 WHERE id=?";
-// $stmta = $pdo->prepare($sql_t);
-// $stmta->execute([ $_POST['id'] ]);
-// $rowa = $stmta->fetch();
-
-// // 2. 以 email 去查詢資料
-// if(empty($rowa)){
-//     $output['error'] = '帳號或密碼錯誤';
-//     $output['code'] = 400;
-//     echo json_encode($output, JSON_UNESCAPED_UNICODE);
-//     exit;
-// }
-
-// // 3. 驗證密碼
-// if( password_verify($_POST['password'], $rowa['password']) ){
-//     // 密碼是正確的
-//     $output['success'] = true;
-//     $_SESSION['user'] = [
-//         'id' => $row['id'],
-//         'email' => $row['email']
-//     ];
-    
-
-// } else {
-//     // 密碼是錯誤的
-//     $output['error'] = '帳號或密碼錯誤';
-//     $output['code'] = 420;
-    
-
-// }
-// TODO: 欄位資料要驗證
-
-
-// 如果時間的字串無法轉換成 timestamp, 表示格式錯誤
-
-
-// $hash = sha1( $_POST['email']. uniqid() );
-
-// $sql = "UPDATE `member01` SET 
-//     `name`=?,
-//     `email`=?,
-//     `mobile`=?,
-//     `birthdate`=?
-//     `password`=?,
-//     `hash`=?,
-//     `created_at`= NOW()
-
-// WHERE `id`=?";
-
 
 $id = $_SESSION['user']['id'];
 
