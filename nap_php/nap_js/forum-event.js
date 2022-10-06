@@ -9,50 +9,6 @@ $('.close_lightBox').click(function(){
 });
 
 
-// --------------卡片手機小menu 彈出效果
-
-// ---mb
-if(document.body.clientWidth < 992){
-    
-$('.comtCard .pointMenu').click(function(e){
-    e.stopPropagation();
-    $(this).next().css({
-        'transform': 'none',
-    })
-    $('.lightBox_mb_mask').show()
-})
-
-$('.lightBox_mb_mask').click(function(){
-    $(this).hide()
-    $('.lightBox_mb').css('transform', 'translateY(102%)')
-    
-})
-// mb 刪除&編輯功能
-$('.comtCard .lightBox_mb').click(function(e){
-    // 防止光箱以下物件冒泡
-    e.stopPropagation();
-})
-}
-//---pc
-// 小menu hover效果
-if(document.body.clientWidth >= 992){
-    
-    // 點擊顯示lightBox_pc
-    $('.comtCard_wrap').on('click','.pointMenu', (function(e){
-        e.stopPropagation();
-        $(this).siblings('.lightBox_pc').css('opacity', '1')
-    }))
-    // 點籍非lightBox_pc, 及關閉
-    $('body').click(function(){
-        $('.comtCard .lightBox_pc').css('opacity', '0')
-    })
-
-} 
-// pc 刪除&編輯功能
-// $('.comtCard .lightBox_pc').click(function(e){
-//     // 防止光箱以下物件冒泡
-//     e.stopPropagation();
-// })
 
 
 

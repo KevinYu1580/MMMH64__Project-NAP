@@ -281,8 +281,6 @@ html{
     
 }
 
-
-
 /* ------------------------------ */
 
 @media (min-width: 576px){
@@ -506,6 +504,7 @@ html{
         
         
     }
+ 
 
     .card-info{
         background-color: var(--subColor_bgc);
@@ -722,3 +721,5 @@ html{
 .lightbox-del .modal-footer a{
     text-decoration: none;
 }
+
+

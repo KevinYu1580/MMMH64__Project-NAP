@@ -140,7 +140,7 @@ $pageName = 'home'; // 頁面名稱
     <div class="love-card d-flex flex-column flex-sm-row align-items-center mb-5">
     <a href="javascript: removeItem(<?= $r['likes_sid'] ?>)"
                      data-onclick="event.currentTarget.closest('tr').remove()">
-                     <img class="love-close" src="./img/self/n/love/close.svg" alt="">
+                     <img class="love-close" src="./img/self/n/close.png" alt="">
     </a>
         <div class="pic">
             <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="">

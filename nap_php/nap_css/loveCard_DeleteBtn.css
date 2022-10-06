@@ -1,0 +1,22 @@
+.love-card .deletePostBtn {
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    right: 25px;
+    top: 30px;
+    /* cursor: pointer; */
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+.love-card .deletePostBtn img {
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 991px){
+    .love-card .deletePostBtn {
+        width: 22px;
+        right: 20px;
+        top: 20px;
+    }
+}
