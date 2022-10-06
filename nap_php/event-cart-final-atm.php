@@ -311,7 +311,7 @@ mail($to, $subject, $message, $headers);
         <!------- 查看其他訂單按鈕 ------->
         <div class="other-btn">
             <div class="check-order-btn">
-                <a class="napBtn_fixed_filled" href="#">
+                <a class="napBtn_fixed_filled" href="list.php">
                     <span>查看歷史訂單</span>
                 </a>
             </div>
