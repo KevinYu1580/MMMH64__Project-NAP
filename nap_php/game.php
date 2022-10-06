@@ -40,7 +40,11 @@ $pageName = 'home'; // 頁面名稱
         <h2>你屬於<span class="green">貓派</span>還是<span class="brown">狗派</span>呢?</h2>
         <h3>Are you a dog person or a cat person ?</h3>
         <h4>START</h4>
-    </div>    
+    </div> 
+    <div class="cloud w-100 h-100">
+        <img src="./img/self/n/game/game_cloud-1.png" alt="" class="cloud">
+        <img src="./img/self/n/game/game_cloud-2.png" alt="" class="cloud2">
+    </div>   
 </div>
  <!-- ----------------------------->
 

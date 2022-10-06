@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
 // require __DIR__ . '/parts/connect_db_vera.php';
-$pageName = 'field-guide'; // 頁面名稱
+$pageName = '園區地圖'; // 頁面名稱
 ?>
 <?php include __DIR__. '/parts/html-head.php'; ?>
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->

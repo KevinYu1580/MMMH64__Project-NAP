@@ -50,6 +50,7 @@ body{
     width: 100%;
     height: 100vh;
     position: relative;
+    overflow: hidden;
     /* display: none; */
 }
 
@@ -63,6 +64,7 @@ body{
     align-items: center;
     flex-direction: column;
     transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 
@@ -112,6 +114,68 @@ body{
 
 }
 
+.start .cloud{
+    position: absolute;
+    width: 1920px;
+    left: 0px;
+    top: 50px;
+    animation: foot-fMove1 60s  infinite ;
+    z-index: 9;
+}
+
+.start .cloud2{
+    position: absolute;
+    width: 1920px;
+    left: 0px;
+    animation: foot-fMove 60s 15s  infinite ;
+    z-index: 9;
+    opacity: 1;
+}
+
+
+@keyframes foot-fMove {
+    0% {
+        transform:  translate(0px, 0px);
+    }
+
+      100% {
+        transform:  translate(1920px, 0px);
+    }
+
+    0% {
+        opacity: 0;
+      }
+    5% {
+        opacity: 1;
+      }
+    100% {
+        opacity: 0;
+      }
+    
+}
+
+@keyframes foot-fMove1 {
+    0% {
+        transform:  translate(100px, 0px);
+    }
+
+      100% {
+        transform:  translate(1520px, 0px);
+    }
+    0% {
+        opacity: 0;
+      }
+    5% {
+        opacity: 1;
+      }
+    100% {
+        opacity: 0;
+      }
+}
+
+
+
+
 /* ---------------------------------------- */
 
 
@@ -137,6 +201,7 @@ body{
     height: 1100px;
     position: relative;
     /* display: none; */
+    transition: all 1s -.3s;
     
 
 }
@@ -294,6 +359,7 @@ form{
     flex-direction: column; 
     width: 100%;
     display: none;
+    
     
     
 }

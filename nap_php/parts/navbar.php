@@ -1,3 +1,9 @@
+<?php
+
+    if(! isset($_SESSION)){
+        session_start();
+    }
+?>
 <style>
     @font-face {
         font-family: custom-font;
@@ -324,6 +330,9 @@
         font-size: 24px;
         margin: 70px 0 0 auto;
         width: fit-content;
+    }
+    .logoutHide{
+        display: none;
     }
 
     @media screen and (min-width: 992px) {
@@ -870,7 +879,7 @@
                     </ul>
                 </li>
                 <li>
-                    <div class="logout">
+                    <div class="logout <?= empty($_SESSION['user']) ? 'logoutHide':'' ?>" >
                         <a class="" href="./logout.php">登出<span>Logout</span></a>
                     </div>
                 </li>
