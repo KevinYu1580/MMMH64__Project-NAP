@@ -96,59 +96,177 @@ WHERE `room_order_sid`=$rm_order_sid";
 
 $rows = $pdo->query($sql)->fetchAll();
 
-// foreach($rows as $r)
-// {
-//     echo $r['room_order_sid'];
-//     echo '<br>';
-// }
-
-
-// $rm_name = $rows['room_name'];
-// $rm_date = $rows['room_date'];
-// $rm_num = $rows['quantity'];
-
-
-/*
-
 // 設定收件者
-$to = "nap.service2022@gmail.com";
+// 待以真實 user email 測試
+// $to = "chiyin0209@gmail.com";
+$to = "chiyin0209@yahoo.com";
 
 // 設定郵件主旨
-$subject = "謝謝您對 N.A.P 的支持，請查收訂單明細";
+$subject = "謝謝您對 N.A.P. 的支持，已收到您的訂單！";
 $subject = "=?utf-8?B?" . base64_encode($subject) . "?=";
 
 //設定郵件標頭資訊
 $headers  = "MIME-Version: 1.0" . PHP_EOL;
 $headers .= "Content-type: text/html; charset=utf-8" . PHP_EOL;
-$headers .= "To: nap.service2022@gmail.com" . PHP_EOL;
-$headers .= "From: N.A.P<nap.service2022@gmail.com>" . PHP_EOL;
+$headers .= "To: chiyin0209@yahoo.com" . PHP_EOL;
+$headers .= "From: N.A.P.<nap.service2022@gmail.com>" . PHP_EOL;
 
 
 // 設定郵件內容
-// $message = "
-
-// 銀行代碼：822
-// 虛擬帳號：2397-6666-1798-4444
-// 繳費期限：$paydate
-
-// 活動名稱：$rm_name
-// 活動日期：$rm_date
-// 活動人數：$rm_num
-
-// ";
-$message .='<html><body>';
-
-foreach($rows as $r){
-    $message .= $r['room_name'];
-    $message .= '<br>';
+foreach ($rows as $r) {
+$message = '
+<!DOCTYPE html>
+<html>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="15" style="background-color:#ffffff;" >
+            <tbody>
+                <tr>
+                    <td align="center" width="700">
+                        <table width="650" border="0" cellspacing="5" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td align="center">
+                                        <h1><span><font style="font-family: 微軟正黑體;">訂單通知信</font></span>
+                                        </h1>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <font style="font-family: 微軟正黑體;">親愛的 N.A.P. 會員，您好：</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <p><font style="font-family: 微軟正黑體;">N.A.P. 感謝您的支持與愛護，您的訂單明細如下：</font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" >
+                                        <table width="100%" border="1" cellspacing="0" cellpadding="5" style="background-color:#ffffff;">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        訂單編號
+                                                    </td>
+                                                    <td width="77%">';
+                                                        $message .= $r['room_order_id'];
+                                                        $message .= '
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        訂購日期
+                                                    </td>
+                                                    <td width="77%">';
+                                                        $message .= $r['create_at'];
+                                                        $message .= '
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        付款方式
+                                                    </td>
+                                                    <td width="77%">
+                                                        ATM 轉帳付款
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        訂單狀態
+                                                    </td>
+                                                    <td width="77%" style="color: #f00;">
+                                                        尚未付款
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        繳費期限
+                                                    </td>
+                                                    <td width="77%">';
+                                                        $message .= $paydate;
+                                                        $message .= ' 23:59:59
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        訂單總額
+                                                    </td>
+                                                    <td width="77%">NT$ ';
+                                                        $message .= $r['room_order_price'];
+                                                        $message .= '
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                        訂金總額
+                                                    </td>
+                                                    <td width="77%">NT$ ';
+                                                        $message .= $r['room_order_deposit'];
+                                                        $message .= '
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <p>
+                                            <font style="font-family: 微軟正黑體;">欲查看詳細訂單資料，請回會員中心<span>【<a href="http://localhost/MMMH64__Project-NAP/nap_php/list.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">訂單查詢</a>】</span>，發票將於活動當日開立提供。</font>
+                                        </p>
+                                        <p>
+                                            <font style="font-family: 微軟正黑體;">園區的浪浪期待與您的相遇！</font>
+                                        </p>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="650" border="0" cellspacing="5" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td height="40">
+                                        <p>
+                                            <font style="font-family: 微軟正黑體;">祝　美好的一天！</font><br/>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <div>
+                                            <font style="font-family: 微軟正黑體; font-size: 14px; color: #f00;">本信件由系統自動發送通知，請勿直接回覆，<wbr />如訂單內容有問題，請直接與 N.A.P. 聯絡。</font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <div style="margin: 30px;">
+                                            <img src="/nap_php/img/component/logo/logo-2.svg" alt="">
+                                            <br />
+                                            <div style="margin: 6px;">
+                                            <span>客服信箱：
+                                                <a href="nap.service2022@gmail.com" target="_blank">nap.service2022@gmail.com</a>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+	</body>
+</html>
+';
 }
-$message .='</body></html>';
-
 
 // 傳送郵件
-mail($to, $subject, $message,$headers);
+mail($to, $subject, $message, $headers);
 
-*/
+
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -334,9 +452,6 @@ mail($to, $subject, $message,$headers);
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
 </div>
