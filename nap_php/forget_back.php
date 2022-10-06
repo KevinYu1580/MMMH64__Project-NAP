@@ -4,7 +4,7 @@ session_start();
 
 
 require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '重設密碼'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -112,7 +112,7 @@ $pageName = 'home'; // 頁面名稱
 
 
 
-    <?php include __DIR__ . './parts/scripts.php'; ?>
+    <?php include __DIR__ . '/parts/scripts.php'; ?>
     <script>
         function checkForm() {
     // TODO: 檢查欄位資料格式是不是符合

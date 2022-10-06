@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
 
-$pageName = '活動檔期介紹'; // 頁面名稱
+$pageName = '活動檔期'; // 頁面名稱
 
 // 確認在 url 中顯示對應 id
 if (isset($_GET['sid'])) {

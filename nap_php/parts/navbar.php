@@ -1,3 +1,9 @@
+<?php
+
+    if(! isset($_SESSION)){
+        session_start();
+    }
+?>
 <style>
     @font-face {
         font-family: custom-font;
@@ -324,6 +330,9 @@
         font-size: 24px;
         margin: 70px 0 0 auto;
         width: fit-content;
+    }
+    .logoutHide{
+        display: none;
     }
 
     @media screen and (min-width: 992px) {
@@ -758,6 +767,30 @@
         right: -12px;
         border-radius: 20px;
     }
+
+    /* 回到首頁按鈕 || backtop-btn */
+    .backtop-btn {
+        display: none;
+    }
+
+    @media screen and (min-width:768px) {
+        .backtop-btn {
+            display: block;
+            width: 50px;
+            position: fixed;
+            right: 2%;
+            bottom: 6%;
+            cursor: pointer;
+            transition: 0.5s;
+            opacity: 0;
+            z-index: 50;
+        }
+
+        .backtop-btn img {
+            width: 100%;
+            vertical-align: top;
+        }
+    }
 </style>
 
 <link rel="stylesheet" href="./nap_css/reset.css">
@@ -846,7 +879,7 @@
                     </ul>
                 </li>
                 <li>
-                    <div class="logout">
+                    <div class="logout <?= empty($_SESSION['user']) ? 'logoutHide':'' ?>" >
                         <a class="" href="./logout.php">登出<span>Logout</span></a>
                     </div>
                 </li>

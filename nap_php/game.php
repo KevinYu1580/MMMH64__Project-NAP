@@ -40,7 +40,11 @@ $pageName = 'home'; // 頁面名稱
         <h2>你屬於<span class="green">貓派</span>還是<span class="brown">狗派</span>呢?</h2>
         <h3>Are you a dog person or a cat person ?</h3>
         <h4>START</h4>
-    </div>    
+    </div> 
+    <div class="cloud w-100 h-100">
+        <img src="./img/self/n/game/game_cloud-1.png" alt="" class="cloud">
+        <img src="./img/self/n/game/game_cloud-2.png" alt="" class="cloud2">
+    </div>   
 </div>
  <!-- ----------------------------->
 
@@ -298,8 +302,12 @@ $pageName = 'home'; // 頁面名稱
     <div class="recommend">
         <h5>【 推薦活動 】</h5>
     </div>
+    <a  href="./events_detail.php?sid=4">
     <img class="img1" id="img1" src="./img/self/n/game/event-all.svg" alt="">
+    </a>
+    <a id="goevent" href="./events_detail.php?sid=27">
     <img class="img2" id="img2" src="./img/self/n/game/event-dog.svg" alt="">
+    </a>
     
     <div class="recommend-2">
         <h5> <button onclick="checkForm1()" class="btn1" >領取獎勵</button> </h5>
@@ -415,58 +423,58 @@ $('.start h4').click(function(s){
 $('.qq1 input').click(function(s){
     $('.qq1').css('display','none');
     $('.qq2').css('display','block');
-    $('.pet-2').css('display','block');
+    $('.pet-2').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-2.png)');
 })
 
 $('.qq2 input').click(function(s){
     $('.qq2').css('display','none');
     $('.qq3').css('display','block');
-    $('.pet-3').css('display','block');
+    $('.pet-3').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-3.png)');
 })
 
 $('.qq3 input').click(function(s){
     $('.qq3').css('display','none');
     $('.qq4').css('display','block');
-    $('.pet-4').css('display','block');
+    $('.pet-4').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-4.png)');
 })
 $('.qq4 input').click(function(s){
     $('.qq4').css('display','none');
     $('.qq5').css('display','block');
-    $('.pet-5').css('display','block');
+    $('.pet-5').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-5.png)');
 })
 $('.qq5 input').click(function(s){
     $('.qq5').css('display','none');
     $('.qq6').css('display','block');
-    $('.pet-6').css('display','block');
+    $('.pet-6').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-6.png)');
 })
 $('.qq6 input').click(function(s){
     $('.qq6').css('display','none');
     $('.qq7').css('display','block');
-    $('.pet-7').css('display','block');
+    $('.pet-7').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-7.png)');
 })
 $('.qq7 input').click(function(s){
     $('.qq7').css('display','none');
     $('.qq8').css('display','block');
-    $('.pet-8').css('display','block');
+    $('.pet-8').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-8.png)');
 })
 $('.qq8 input').click(function(s){
     $('.qq8').css('display','none');
     $('.qq9').css('display','block');
-    $('.pet-9').css('display','block');
+    $('.pet-9').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-9.png)');
 })
 $('.qq9 input').click(function(s){
     $('.qq9').css('display','none');
     $('.qq10').css('display','block');
-    $('.pet-10').css('display','block');
-    $('.butterfly').css('display','block');
+    $('.pet-10').css('opacity','1');
+    $('.butterfly').css('opacity','1');
     $('.wrap .pic').css('background-image','url(./img/self/n/game/game_bg-10.png)');
 })
 $('.qq10 input').click(function(s){
@@ -530,11 +538,13 @@ function processForm() {
                     if (sum <= 0) document.getElementById("endtitle").innerHTML= "100％貓派";
                     if (sum <= 0) document.getElementById("endcontent").innerHTML= "你喜歡自由的生活，給人不善交際、內向的感覺。嫉妒心理強，你認為自己就是世界中心，不允許他人將注意力轉到別的地方；倘若遇到不喜歡或不合意的人事物，你會頭也不回地拂袖而去。如果世界只有你，你的生活應該會很開心，但現實是，朋友們面對你這樣的性格需要極大的包容力喔！現在就去和他們說聲感謝吧！";
                     if (sum <= 0) document.getElementById("img2").src= "./img/self/n/game/event-cat.svg";
+                    if (sum <= 0) document.getElementById("goevent").href= "./events_detail.php?sid=26";
 
 
                     if (sum <= 3  && sum >= 1) document.getElementById("endtitle").innerHTML= "80％貓派20％狗派";
                     if (sum <= 3  && sum >= 1) document.getElementById("endcontent").innerHTML= "你的外表給人很冷漠、偏激但又矜持的感覺。雖生性不合群，但在有需要時，你還是可以在人群中過著安靜的群體生活，優雅、自負、忠於自己，這些是你希望別人眼中所看到的你。至於藏在內心的那股熱情，則堅持等待適當的時間、遇見適當的人時才肯發揮出來，只是好像等了很久也沒能遇到對的那個人；若能偶爾將自己固有的行為與熱度改變一下，可能會有不錯的結果喔！";
                     if (sum <= 3  && sum >= 1) document.getElementById("img2").src= "./img/self/n/game/event-cat.svg";
+                    if (sum <= 0) document.getElementById("goevent").href= "./events_detail.php?sid=26";
 
 
                     if (sum <= 6 && sum >= 4)document.getElementById("endtitle").innerHTML= "50％貓派50％狗派";
