@@ -3,10 +3,15 @@
 require __DIR__ . '/parts/connect_db.php';
 $pageName = '訂房'; // 頁面名稱
 
+//刷新頁面就清空SESSION裡的room相關
+unset($_SESSION['room_order']);
+unset($_SESSION['total_num']);
+unset($_SESSION['order_day1']);
+unset($_SESSION['order_day2']);
+unset($_SESSION['days']);
 
 // 在 MySQL 中取得房間的資料表，並抓取(fetch)全部資料表的欄位
 $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
-
 
 ?>
 
@@ -112,7 +117,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                                 <p>上限 1 人 | 此房間不提供加人服務</p>
                             </div>
                             <div class="price-cr-group d-md-flex" data-id="<?= $rooms[0]['sid'] ?>">
-                                <div class="price singleprice">NT$ <span><?= $rooms[0]['room_price'] ?></span> 元 / 晚</div>
+                                <div class="price singleprice">NT$ <span><?= number_format($rooms[0]['room_price']) ?></span> 元 / 晚</div>
                                 <div class="choose-room d-flex justify-content-center align-items-center">
                                     <div id="single-minus" class="minus-btn">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +158,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                                 <p>上限 2 人 | 此房間不提供加人服務</p>
                             </div>
                             <div class="price-cr-group d-md-flex" data-id="<?= $rooms[1]['sid'] ?>">
-                                <div class="price doubleprice">NT$ <span><?= $rooms[1]['room_price'] ?></span> 元 / 晚</div>
+                                <div class="price doubleprice">NT$ <span><?= number_format($rooms[1]['room_price']) ?></span> 元 / 晚</div>
                                 <div class="choose-room d-flex justify-content-center align-items-center">
                                     <div id="double-minus" class="minus-btn">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +185,9 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                             <img src="../nap_php/img/nap-intro/roomInfo/quadra-room/quadra-05.jpg" alt="">
                         </div>
                         <div class="card-textbox col-md-8">
-                            <h2><?= $rooms[2]['room_name'] ?></h2>
+                            <h2><?php $rooms[2]['room_name']
+                                ?></h2>
+
                             <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                 <div class="icon-imgbox">
                                     <img src="../nap_php/img/component/icon/Bed.svg" alt="">
@@ -194,7 +201,8 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                                 <p>上限 4 人 | 此房間不提供加人服務</p>
                             </div>
                             <div class="price-cr-group d-md-flex" data-id="<?= $rooms[2]['sid'] ?>">
-                                <div class="price quadraprice">NT$ <span><?= $rooms[2]['room_price'] ?></span> 元 / 晚</div>
+                                <div class="price quadraprice">NT$ <span>
+                                        <?= preg_replace('/\B(?=(\d{3})+(?!\d))/', ',', $rooms[2]['room_price']) ?></span> 元 / 晚</div>
                                 <div class="choose-room d-flex justify-content-center align-items-center">
                                     <div id="quadra-minus" class="minus-btn">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -373,6 +381,13 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <script>
+    //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+
+
     function oopsAlert() {
         Swal.fire({
             title: '汪汪汪汪！',
@@ -411,14 +426,13 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
             cancelButtonColor: '#7C8C38',
             confirmButtonText: '立馬快速登入',
             cancelButtonText: '先去註冊會員',
-            reverseButtons:true,
+            reverseButtons: true,
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = "register.php"
-            }
-            else if(result.dismiss === Swal.DismissReason.cancel){
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
                 window.location.href = "login.php"
-            }    
+            }
         })
     }
 
@@ -504,16 +518,14 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
             'json');
 
     };
-    
+
 
     function goPay(event) {
-        if(+$('.totalRoom').text() > 0){
+        if (+$('.totalRoom').text() > 0) {
             window.location.replace("room-cart.php");
-        }
-        else if(+$('.selectRoom h6').text() == 0){
+        } else if (+$('.selectRoom h6').text() == 0) {
             oopsAlert();
-        }
-        else  if(+$('.totalRoom').text() == 0){
+        } else if (+$('.totalRoom').text() == 0) {
             noneChooseRoom();
         }
 
@@ -521,23 +533,21 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     }
 
     function addToCart(event) {
-        if(+$('.totalRoom').text() > 0){
-        // 以下為執行成功框框
-        // 加入 alert 樣式
-        Swal.fire({
-            icon: 'success',
-            title: '已成功加入購物車',
-            showConfirmButton: false,
-            timer: 1500
-            // 以下為框框消失後執行的功能(可不加)
-        }).then(() => {
-            window.location.replace("room_info.php");
-        });
-        }
-        else if(+$('.selectRoom h6').text() == 0){
+        if (+$('.totalRoom').text() > 0) {
+            // 以下為執行成功框框
+            // 加入 alert 樣式
+            Swal.fire({
+                icon: 'success',
+                title: '已成功加入購物車',
+                showConfirmButton: false,
+                timer: 1500
+                // 以下為框框消失後執行的功能(可不加)
+            }).then(() => {
+                window.location.replace("room_info.php");
+            });
+        } else if (+$('.selectRoom h6').text() == 0) {
             oopsAlert();
-        }
-        else  if(+$('.totalRoom').text() == 0){
+        } else if (+$('.totalRoom').text() == 0) {
             noneChooseRoom();
         }
     }
@@ -550,15 +560,15 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 
 
 
-        // Swal.fire({
-        //     icon: 'success',
-        //     title: 'Your work has been saved',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        // })
+    // Swal.fire({
+    //     icon: 'success',
+    //     title: 'Your work has been saved',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    // })
 
-        // window.location.replace("room_info.php");
-    
+    // window.location.replace("room_info.php");
+
 
 
 
