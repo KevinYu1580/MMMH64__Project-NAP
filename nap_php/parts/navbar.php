@@ -190,7 +190,8 @@
     }
 
     .topNav_mobile .icon_wrap #memberPic {
-        box-shadow: inset 0 0 8px var(--primaryColor_dark);
+        
+        border: 1px solid var(--primaryColor_default);
         border-radius: 50%;
         width: 38px;
         height: 38px;
@@ -352,7 +353,7 @@
         background-color: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(2px);
         opacity: 0;
-        transition: 0.8s;
+        transition: 0.3s;
         z-index: 9999;
         pointer-events: none;
         /* display: none; */
@@ -866,8 +867,8 @@
                 <li>交流討論區 <span>ChatChat!</span>
                     <ul class="layer2">
                         <li>
-                            <a href="#">
-                                Q & A
+                            <a href="forum_qa.php">
+                                閒聊Q & A
                             </a>
                         </li>
                         <li>

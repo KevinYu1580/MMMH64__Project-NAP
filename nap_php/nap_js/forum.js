@@ -1,6 +1,8 @@
 // 關閉光箱
-$('.close_lightBox').click(function(){
-    $('.lightBox_comtCard').hide();
+$('.close_lightBox').click(function(e){
+    e.stopPropagation()
+
+    $('.lightBox_post').hide();
     $('.lightBox_comtCard_mask').css({
         'pointer-events': 'none',
         'opacity':'0',
@@ -27,6 +29,7 @@ $('.close_lightBox').click(function(){
 
 // 打開留言卡片光箱
 $('.comtCard_wrap').on('click','.comtCard', (function(e){
+
     $(this).find('.lightBox_comtCard').show();
     document.body.style.overflow='hidden'
 
@@ -37,6 +40,7 @@ $('.comtCard_wrap').on('click','.comtCard', (function(e){
     })
 }))
 $('.lightBox_comtCard_mask').click(function(){
+
     $(this).css({
         'pointer-events': 'none',
         'opacity':'0',
@@ -113,13 +117,16 @@ $('.lightBox_post .boardSelec .selec').click(function(){
     const eventBtn = $('.lightBox_post .boardSelec #event span')
     if(eventBtn.css('color') == 'rgb(124, 140, 56)'){
         $('.lightBox_post .eventSelec .comtLabel').css('background-color', '#F8EEE8');
+        $('.lightBox_post .eventSelec_wrap').css('opacity', '1');
         eventSelecClickable();
         // 判斷成功後先觸發下方function (使可點擊)
     }
     else{
         $('.lightBox_post .eventSelec .comtLabel').css('background-color', '#eeeeee');
-        $('.lightBox_post .eventSelec .comtLabel span').css('color', '#bbbbbb')
-        $('.lightBox_post .eventSelec .comtLabel').css('pointer-events', 'none')
+        $('.lightBox_post .eventSelec .comtLabel span').css('color', '#bbbbbb');
+        $('.lightBox_post .eventSelec .comtLabel').css('pointer-events', 'none');
+        $('.lightBox_post .eventSelec_wrap').css('opacity', '0');
+        
     }
 })
 

@@ -118,25 +118,7 @@ $pageName = '會員中心'; // 頁面名稱
 <!------ content ------>
 
 <!-- <div class="container ">
-    <?php foreach ($rows as $r) : ?>
-    <div class="love-card love-card-pet d-flex flex-column flex-sm-row align-items-center mb-5">
-    <a href="javascript: removeItem(<?= $r['likes_sid'] ?>)"
-                     data-onclick="event.currentTarget.closest('tr').remove()">
-                     <img class="love-close" src="./img/self/n/love/close.svg" alt="">
-    </a>
-        
-        <div class="pic">
-            <img class="pic-size" src="./img/pet/<?= $r['pet_id'] ?>.jpg" alt="">
-            
-        </div>
-        <div class="card-info card-info-pet">
-            <h4><?= $r['name'] ?> <span><?= $genderArray[$r['gender']] ?></span> </h4>
-            <h5>個性： <span>活潑外向</span> </h5>
-            <h5>年齡： <span><?= $r['age'] ?>歲</span> </h5>
-            
-        </div>
-    </div>
-    <?php endforeach ?>
+
     
  </div> -->
 <div class="container "style="min-height:300px">
@@ -179,10 +161,28 @@ $pageName = '會員中心'; // 頁面名稱
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script>
+    // function removeItem(likes_sid) {
+    //     if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
+    //         location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
+    //     }
+    // }
+
+
+
     function removeItem(likes_sid) {
-        if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
-            location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
-        }
+                $.get(
+                    './nap_api/eventlove-del.php',
+                    {sid : likes_sid}
+                ).then(()=>{
+                    Swal.fire({
+                    icon: 'success',
+                    title: '已取消關注!',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.reload();
+                });
+                })
     }
 </script>
 

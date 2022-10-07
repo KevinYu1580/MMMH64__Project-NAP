@@ -42,8 +42,8 @@ $pageName = '心理測驗'; // 頁面名稱
 
 <div class="start ">
     <div class="title">
-        <h2>你屬於<span class="green">貓派</span>還是<span class="brown">狗派</span>呢?</h2>
-        <h3>Are you a dog person or a cat person ?</h3>
+        <h2>你屬於<span class="brown">狗派</span>還是<span class="green">貓派</span>呢?</h2>
+        <h3>Are you a <span class="brown">dog person</span> or a <span class="green">cat person</span> ?</h3>
         <h4>START</h4>
     </div> 
     <div class="cloud w-100 h-100">

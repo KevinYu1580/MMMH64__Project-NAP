@@ -135,7 +135,7 @@ $pageName = '會員中心'; // 頁面名稱
                         <h3><?= $r['event_order_id'] ?></h3>
                         <h3><?= $r['payment_deadline'] ?> 23:59:59</h3>
                         <h3>2397-6666-1798-4444</h3>
-                        <h3 class="h3-sm pricered">NT$ <?= $r['event_order_price'] ?></h3>
+                        <h3 class="h3-sm pricered">NT$ <?= number_format($r['event_order_price']) ?></h3>
                         <h3 class="h3-sm"><?= $statusArray[$r['order_status']] ?></h3>
                         <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                             <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
@@ -154,7 +154,7 @@ $pageName = '會員中心'; // 頁面名稱
                                     </div>
                                 </div>
                                 <div class="price d-flex align-items-center">
-                                    <h3>NT$ <?= $r['event_order_origin_price'] ?></h3>
+                                    <h3>NT$ <?= number_format($r['event_order_origin_price']) ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ $pageName = '會員中心'; // 頁面名稱
                         <h3><?= $n['room_order_id'] ?></h3>
                         <h3><?= $n['payment_deadline'] ?> 23:59:59</h3>
                         <h3>2345-6789-0000-1234</h3>
-                        <h3 class="h3-sm pricered">NT$ <?= $n['room_order_deposit'] ?></h3>
+                        <h3 class="h3-sm pricered">NT$ <?= number_format($n['room_order_deposit']) ?></h3>
                         <h3 class="h3-sm"><?= $statusArray[$n['order_status']] ?></h3>
                         <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
                             <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
@@ -186,7 +186,7 @@ $pageName = '會員中心'; // 頁面名稱
                                     </div>
                                 </div>
                                 <div class="price d-flex align-items-center">
-                                    <h3>NT$ <?= $n['room_order_origin_price'] ?></h3>
+                                    <h3>NT$ <?= number_format($n['room_order_origin_price']) ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ $pageName = '會員中心'; // 頁面名稱
                     </tr>
                     <tr>
                         <td>金額</td>
-                        <td class="pricered">NT$ <?= $r['event_order_price'] ?></td>
+                        <td class="pricered">NT$ <?= number_format($r['event_order_price']) ?></td>
                     </tr>
                     <tr>
                         <td>付款狀態</td>
@@ -240,7 +240,7 @@ $pageName = '會員中心'; // 頁面名稱
                                     <p><?= $r['event_date'] ?></p>
                                     <p>人數x<?= $r['quantity'] ?></p>
                                     <div class="price d-flex justify-content-end">
-                                        <h3>NT$ <?= $r['event_order_origin_price'] ?></h3>
+                                        <h3>NT$ <?= number_format($r['event_order_origin_price']) ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@ $pageName = '會員中心'; // 頁面名稱
                     </tr>
                     <tr>
                         <td>金額</td>
-                        <td class="pricered">NT$ <?= $n['room_order_deposit'] ?></td>
+                        <td class="pricered">NT$ <?= number_format($n['room_order_deposit']) ?></td>
                     </tr>
                     <tr>
                         <td>付款狀態</td>
@@ -288,7 +288,7 @@ $pageName = '會員中心'; // 頁面名稱
                                     <p><?= $n['check_in'] ?> ~ <?= $n['check_in'] ?> </p>
                                     <p>X <?= $n['stay_night'] ?>晚 X <?= $n['room_quantity'] ?>間</p>
                                     <div class="price d-flex justify-content-end">
-                                        <h3>NT$ <?= $n['room_order_origin_price'] ?></h3>
+                                        <h3>NT$ <?= number_format($n['room_order_origin_price']) ?></h3>
                                     </div>
                                 </div>
                             </div>

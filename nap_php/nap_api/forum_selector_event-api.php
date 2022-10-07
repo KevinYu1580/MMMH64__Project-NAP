@@ -19,13 +19,7 @@ ORDER BY `date` DESC;
 ");
 
 
-
-
-
-
 $rows = $pdo->query($sql)->fetchAll();
-
-
 
 
 $myLikes = [];
