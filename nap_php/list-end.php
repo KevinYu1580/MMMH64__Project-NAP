@@ -9,7 +9,10 @@ $member_id = $_SESSION['user']['id'];
 
 // $sql = "SELECT * FROM `likes` WHERE `member_sid`=1 AND `like_type` = 1";
 // $sql_t = "SELECT * FROM `likes` WHERE `member_sid`= 1";
-$sql = "SELECT * FROM `event_order_detail` LEFT join event_order on event_order.sid = event_order_detail.event_order_sid LEFT join event_detail on event_detail.sid = event_order_detail.event_order_sid where member_sid=$member_id AND `order_status` = 0 ";
+$sql = "SELECT * FROM `event_order_detail` 
+LEFT join event_order on event_order.sid = event_order_detail.event_order_sid 
+LEFT join event_detail on event_detail.sid = event_order_detail.event_sid 
+where member_sid=$member_id AND `order_status` = 0 ";
 
 
 $rows = $pdo->query($sql)->fetchAll();
@@ -206,7 +209,7 @@ $pageName = '會員中心'; // 頁面名稱
                     </tr>
                     <tr>
                         <td>訂單成立時間</td>
-                        <td><?= $r['create_at'] ?></td>
+                        <td><?= $r['created_at'] ?></td>
                     </tr>
                     <tr>
                         <td>付款方式</td>

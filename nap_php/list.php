@@ -7,7 +7,10 @@ if (empty($_SESSION['user'])) {
 }
 $member_id = $_SESSION['user']['id'];
 
-$sql = "SELECT * FROM `event_order_detail` LEFT join event_order on event_order.sid = event_order_detail.event_order_sid LEFT join event_detail on event_detail.sid = event_order_detail.event_order_sid where member_sid=$member_id AND `order_status` = 1 AND `payment_way` = 1";
+$sql = "SELECT * FROM `event_order_detail` 
+LEFT join event_order on event_order.sid = event_order_detail.event_order_sid 
+LEFT join event_detail on event_detail.sid = event_order_detail.event_sid 
+where member_sid=$member_id AND `order_status` = 1";
 
 
 $rows = $pdo->query($sql)->fetchAll();

@@ -427,7 +427,6 @@ function checkForm1() {
                     genAlert('已領取優惠券, 無法再次領取', './img/self/n/none.gif');
                 }
 
-
             }, 'json');
     }
 }
