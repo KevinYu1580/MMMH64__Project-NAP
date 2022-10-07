@@ -38,7 +38,9 @@ $pageName = '重設密碼'; // 頁面名稱
 
             
             <div class="content content1 d-flex flex-column my-auto" id="content1">
+            <a href="./homepage.php">
             <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+            </a>
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">

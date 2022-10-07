@@ -59,7 +59,9 @@ $pageName = 'home'; // 頁面名稱
                 </div>
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
                 <div class="content content4 d-flex flex-column align-items-center  m-auto">
+                <a href="./homepage.php">
                 <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+                </a>
                     <div class="part  ">
                         <div class="title d-flex justify-content-center ">
                             <h3>STEP3</h3>
