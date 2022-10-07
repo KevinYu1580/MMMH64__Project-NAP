@@ -316,7 +316,6 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             item_price.html(dollarCommas(price));
             item_sub.html(dollarCommas(price * qty));
             total += price * qty;
-
         });
         $('#total-price').html(dollarCommas(total));
     };
