@@ -247,6 +247,7 @@ $pageName = 'Forum-events'; // 頁面名稱
 
     const post_tpl_func = ({
         sid,
+        po_sid,
         avatar,
         name,
         title,
@@ -261,7 +262,7 @@ $pageName = 'Forum-events'; // 頁面名稱
         return `
         <div id='comtCard' class="comtCard" name='comtCard' type='submit'>
                     <div class="content_wrap">
-                        <div class="member_info">
+                        <div class="member_info" >
                             <div class="member_pic">
                                 <img src="./img/member/profile-image/${avatar}" alt="">
                             </div>
@@ -306,12 +307,12 @@ $pageName = 'Forum-events'; // 頁面名稱
                             </svg>
                         </button>
                         <div class="content_wrap">
-                            <div class="member_info">
+                            <a class="member_info" href="member-pet-share.php?id=${po_sid}">
                                 <div class="member_pic" style="background-image: url(./img/member/profile-image/${avatar})"></div>
                                 <span class="member_name">
                                     ${name}
                                 </span>
-                            </div>
+                            </a>
                             <article>
                                 <div class="content">
                                     <h3> ${title}</h3>
@@ -545,7 +546,6 @@ $pageName = 'Forum-events'; // 頁面名稱
         let thisContent = $(this).val()
 
         if (thisContent == null) {
-
            sendBtn.css({
                 'background-color': 'var(--black_400)',
                 'pointer-events': 'none',
@@ -556,8 +556,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                 'pointer-events': 'auto',
             })
         }
-
-
     })
 
 
@@ -631,6 +629,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                 }
             }, 'json');
     })
+
 </script>
 
 

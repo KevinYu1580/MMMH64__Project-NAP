@@ -344,7 +344,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                     </div>
                     <div class="booking-card-btn">
                         <div class="add-to-cart-btn">
-                            <button class="napBtn_fixed_filled" name="add-to-cart" onclick="goPay(event)">
+                            <button class="napBtn_fixed_filled" name="add-to-cart" onclick="<?= empty($_SESSION['user']) ? 'loginNotice()' : 'goPay(event)' ?>">
                                 <span>前往結帳</span>
                             </button>
                         </div>
@@ -368,21 +368,59 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 
 <script src="./nap_js/room_booking.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <script>
     function oopsAlert() {
-        swal("汪汪汪汪！", "翻譯蒟蒻：您尚未選擇房間喔～", "warning");
+        Swal.fire({
+            title: '汪汪汪汪！',
+            text: "翻譯蒟蒻：您尚未選擇房間數喔～",
+            icon: 'warning',
+            confirmButtonColor: '#bfbd4a',
+        })
+    };
+
+    function noneChooseRoom() {
+        Swal.fire({
+            title: '喵喵～',
+            text: "翻譯蒟蒻：您尚未選擇想入住的房型喔～",
+            icon: 'warning',
+            confirmButtonColor: '#bfbd4a',
+        })
     };
 
     function oopsAlertlimit() {
-        swal("喵～", "翻譯蒟蒻：房間數已達選擇上限！", "warning");
+        Swal.fire({
+            title: '凹嗚～',
+            text: "翻譯蒟蒻：房間數已達選擇上限！",
+            icon: 'warning',
+            confirmButtonColor: '#bfbd4a',
+        })
     };
+
+    // 未登入收藏按鈕提醒
+    function loginNotice() {
+        Swal.fire({
+            title: '尚未登入會員',
+            text: "快帶我去登入，我已等不及要訂房了～",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#bfbd4a',
+            cancelButtonColor: '#7C8C38',
+            confirmButtonText: '立馬快速登入',
+            cancelButtonText: '先去註冊會員',
+            reverseButtons:true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "register.php"
+            }
+            else if(result.dismiss === Swal.DismissReason.cancel){
+                window.location.href = "login.php"
+            }    
+        })
+    }
 
     // $('.booking-btn a').click(function() {
     //     if (+$('.total-num span').text() === 0) {
@@ -469,13 +507,21 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
     
 
     function goPay(event) {
+        if(+$('.totalRoom').text() > 0){
+            window.location.replace("room-cart.php");
+        }
+        else if(+$('.selectRoom h6').text() == 0){
+            oopsAlert();
+        }
+        else  if(+$('.totalRoom').text() == 0){
+            noneChooseRoom();
+        }
 
-        window.location.replace("room-cart.php");
 
     }
 
     function addToCart(event) {
-        
+        if(+$('.totalRoom').text() > 0){
         // 以下為執行成功框框
         // 加入 alert 樣式
         Swal.fire({
@@ -487,7 +533,13 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
         }).then(() => {
             window.location.replace("room_info.php");
         });
-
+        }
+        else if(+$('.selectRoom h6').text() == 0){
+            oopsAlert();
+        }
+        else  if(+$('.totalRoom').text() == 0){
+            noneChooseRoom();
+        }
     }
 
 

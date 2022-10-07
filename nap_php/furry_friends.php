@@ -314,7 +314,7 @@ $pageName = '園區內的毛孩'; // 頁面名稱
                 <div class="personality">${personality}</div>
             </div> 
             
-            <button name="showBox1" type="submit" class="napBtn_likeBtn" onclick="showBox1(event);" data-id="${sid}" >
+            <button name="showBox1" type="submit" class="napBtn_likeBtn" onclick="<?= empty($_SESSION['user']) ? 'loginNotice()' : 'showBox1(event);' ?>" data-id="${sid}" >
                 <div class="svgs">
                     <svg id='gray' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 19 19" fill="none">
                     <path class="gray" d="M0 7.08414V6.86891C0 4.27496 1.87477 2.0625 4.43086 1.63649C6.08965 1.35483 7.84492 1.90627 9.05469 3.11789L9.5 3.56246L9.91191 3.11789C11.1551 1.90627 12.877 1.35483 14.5691 1.63649C17.126 2.0625 19 4.27496 19 6.86891V7.08414C19 8.62418 18.3617 10.0974 17.2336 11.1476L10.5279 17.408C10.2496 17.6677 9.88223 17.8125 9.5 17.8125C9.11777 17.8125 8.75039 17.6677 8.47207 17.408L1.76604 11.1476C0.639395 10.0974 1.11328e-05 8.62418 1.11328e-05 7.08414H0Z" />
@@ -325,6 +325,28 @@ $pageName = '園區內的毛孩'; // 頁面名稱
     </div>
 </div>`;
     };
+
+    // 未登入收藏按鈕提醒
+    function loginNotice() {
+        Swal.fire({
+            title: '尚未登入會員',
+            text: "快帶我去登入，我好喜歡這位可愛的孩子(✪ω✪)",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#bfbd4a',
+            cancelButtonColor: '#7C8C38',
+            confirmButtonText: '立馬快速登入',
+            cancelButtonText: '先去註冊會員',
+            reverseButtons:true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "register.php"
+            }
+            else if(result.dismiss === Swal.DismissReason.cancel){
+                window.location.href = "login.php"
+            }    
+        })
+    }
 
     // 收藏按鈕
     function showBox1(event) {

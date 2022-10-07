@@ -112,7 +112,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="container ">
+<div class="container "style="min-height:300px">
     <?php foreach ($rows as $r) : ?>
         <div class="love-card love-card-pet d-flex flex-column flex-sm-row align-items-center mb-5">
             <a id="gowhere" href="javascript: removeItem(<?= $r['likes_sid'] ?>)">
@@ -198,10 +198,37 @@ $pageName = '會員中心'; // 頁面名稱
     //         location.href = `./nap_api/petlove-del.php?sid=${likes_sid}`;
     //     }
 
+
+
     function removeItem(likes_sid) {
-        if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
-            location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
-        }
+        Swal.fire({
+            title: '忍心刪除這則貼文?',
+            text: "汪喵提醒：刪除後就不能復原囉～",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f67557',
+            cancelButtonColor: '#bfbd4a',
+            confirmButtonText: '直接果斷刪除',
+            cancelButtonText: '那再考慮一下',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: '已成功刪除',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    
+                    location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
+                    window.location.reload();
+                });
+
+            }
+        })
+        // if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
+           
+        // }
     }
 </script>
 

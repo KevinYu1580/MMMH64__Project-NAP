@@ -45,12 +45,13 @@ $pageName = 'home'; // 頁面名稱
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
             </div>
 
-            <div class="close">
+            
+            <div class="content content1 d-flex flex-column my-auto" id="content1">
+                <div class="close">
                 <a href="./homepage.php">
                     <img src="./img/self/n/close.png" alt="">
                 </a>
             </div>
-            <div class="content content1 d-flex flex-column my-auto" id="content1">
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">

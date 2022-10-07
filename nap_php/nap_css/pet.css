@@ -64,11 +64,16 @@
 }
 
 
-
-
-.up-img .photo{
+.card .up-img .imgbox {
     height: 214px;
     width: 326px;
+}
+
+.up-img .photo{
+    /* height: 214px;
+    width: 326px; */
+    /* height: 100%; */
+    width: 100%;
     background-color: var(--black_400) ;
     border-radius: 20px;
  }

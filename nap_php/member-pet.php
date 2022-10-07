@@ -96,7 +96,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="album py-2 ">
+<div class="album py-2 " style="min-height:400px">
     <div class="container m-auto">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-mb-3 d-flex  ">
@@ -191,24 +191,26 @@ $pageName = '會員中心'; // 頁面名稱
 <script>
     function removeItem(sid) {
         Swal.fire({
-            title: '是否刪除此毛孩卡片?',
-            text: "刪除後將無法復原",
+            title: '忍心刪除這張毛孩卡片?',
+            text: "汪喵提醒：刪除後就不能復原囉～",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#f67557',
             cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '刪除卡片!'
+            confirmButtonText: '直接果斷刪除',
+            cancelButtonText: '那再考慮一下',
         }).then((result) => {
             if (result.isConfirmed) {
                 // 點選確認後執行以下功能(範例是post功能)
-                location.href = `./nap_api/memberpet-del.php?sid=${sid}`;
+                
                 // 以下為執行成功框框(出現1.5s後消失)
                 Swal.fire({
                     icon: 'success',
                     title: '已成功刪除',
                     timer: 1500,
                     showConfirmButton: false,
-                }).then((result) => {
+                }).then(() => {
+                    location.href = `./nap_api/memberpet-del.php?sid=${sid}`;
                     window.location.reload();
                 });
 

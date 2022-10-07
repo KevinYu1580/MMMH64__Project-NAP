@@ -111,7 +111,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="container ">
+<div class="container "style="min-height:300px">
     <?php foreach ($rows as $r) : ?>
 
         <div class="love-card d-flex flex-column flex-sm-row align-items-center mb-5" data-post_sid="<?= $r['sid'] ?>">
@@ -163,15 +163,15 @@ $pageName = '會員中心'; // 頁面名稱
     $('.love-card .deletePostBtn').on('click', (e) => {
         let postSid = $(e.target).closest('.love-card').data('post_sid')
 
-
         Swal.fire({
-            title: '確認刪除貼文?',
-            text: "刪除後將無法復原",
+            title: '忍心刪除這則貼文?',
+            text: "汪喵提醒：刪除後就不能復原囉～",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#f67557',
             cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '刪除貼文!'
+            confirmButtonText: '直接果斷刪除',
+            cancelButtonText: '那再考慮一下',
         }).then((result) => {
             if (result.isConfirmed) {
                 // 點選確認後執行以下功能(範例是post功能)

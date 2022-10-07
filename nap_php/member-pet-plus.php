@@ -140,22 +140,22 @@ $pageName = '會員中心'; // 頁面名稱
                                 <div class="diypart">
                                     <img src="./img/self/n/pet/d-color-1.svg" alt="" class="card-plus">
                                     <div class="petname-box pet-box  mb-3  d-flex ">
-                                        <label for="name" class="form-label d-flex align-items-center">毛孩姓名</label>
-                                        <input type="name" class="form-control" id="name" name="name" placeholder="李菜菜" required>
+                                        <label for="name" class="form-label d-flex align-items-center">毛孩名稱</label>
+                                        <input type="name" class="form-control" id="name" name="name" placeholder="" required>
 
                                     </div>
 
                                     <div class="petname-box pet-box pet-box3 mb-3  d-flex ">
                                         <label for="type" class="form-label d-flex align-items-center">種類</label>
-                                        <input type="type" class="form-control" id="type" name="type" placeholder="狗狗" required>
+                                        <input type="type" class="form-control" id="type" name="type" placeholder="" required>
                                     </div>
                                     <div class="petname-box pet-box pet-box4  mb-3  d-flex ">
                                         <label for="gender" class="form-label d-flex align-items-center">性別</label>
-                                        <input type="gender" class="form-control" id="gender" name="gender" placeholder="女生" required>
+                                        <input type="gender" class="form-control" id="gender" name="gender" placeholder="" required>
                                     </div>
                                     <div class="petname-box pet-box pet-box2  mb-3  d-flex ">
                                         <label for="age" class="form-label d-flex align-items-center">年齡</label>
-                                        <input type="age" class="form-control" id="age" name="age" placeholder="成年" required>
+                                        <input type="age" class="form-control" id="age" name="age" placeholder="" required>
                                     </div>
 
                                 </div>
@@ -289,7 +289,15 @@ $pageName = '會員中心'; // 頁面名稱
                 function(data) {
                     console.log(data);
                     if (data.success) {
-                        genAlert('修改完成', './img/self/n/fix.gif');
+                        Swal.fire({
+                            icon: 'success',
+                            title: '已成功新增!',
+                            showConfirmButton: false,
+                            timer: 1500
+                            // 以下為框框消失後執行的功能(可不加)
+                        }).then((result) => {
+                            location.href = './member-pet.php'
+                        })
                     } else {
                         genAlert('尚未修改', './img/self/n/none.gif');
                     }
