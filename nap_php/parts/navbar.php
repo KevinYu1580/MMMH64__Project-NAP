@@ -817,13 +817,14 @@
 
                 </a>
 
-                <a style="background-image: url(./img/member/profile-image/<?php echo !empty($SESSION['user']) ? $SESSION['user']['userPic'] : 'pi000.jpg';?>)" 
+                <a style="background-image: url(./img/member/profile-image/<?php echo !empty($_SESSION['user']) ? $_SESSION['user']['userPic'] : 'pi000.jpg';?>)" 
                 id="memberPic" href="info-info.php"></a>
             </div>
             <button class="menu sec2">
                 <img src="./img/component/icon/hamburger.svg" alt="">
             </button>
         </div>
+        
 
     </div>
 
@@ -886,7 +887,7 @@
             </ul>
             <ul class="icon_link">
                 <li>
-                    <a href="">
+                    <a href="event-cart.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40" fill="none">
                             <g clip-path="url(#clip0_30_489)">
                                 <path d="M14.609 33.7363C12.9197 33.7363 11.5491 35.1416 11.5491 36.8627C11.5491 38.5838 12.9197 39.9891 14.609 39.9891C16.2983 39.9891 17.6689 38.5838 17.6689 36.8627C17.6689 35.1416 16.2983 33.7363 14.609 33.7363V33.7363ZM30.0147 33.7363C28.3254 33.7363 26.9548 35.1416 26.9548 36.8627C26.9548 38.5838 28.3254 39.9891 30.0147 39.9891C31.7041 39.9891 33.0746 38.5838 33.0746 36.8627C33.0746 35.1416 31.7041 33.7363 30.0147 33.7363V33.7363Z" fill="#ffffff" />
@@ -902,7 +903,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="info-info.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="31" viewBox="0 0 32 40" fill="none">
                             <g clip-path="url(#clip0_30_488)">
                                 <path d="M19.9697 24.0026C25.2335 21.7179 27.7234 15.4187 25.5313 9.93294C23.3391 4.44714 17.295 1.85209 12.0313 4.13673C6.76757 6.42137 4.27758 12.7206 6.46972 18.2064C8.66187 23.6922 14.706 26.2872 19.9697 24.0026Z" fill="#ffffff" />

@@ -381,7 +381,7 @@ if (isset($_GET['sid'])) {
             </div>
         </div>
         <div class="five-things-btn">
-            <a href='enroll-event-notice.php'>手刀報名 GO</a>
+            <a href='enroll-event-notice.php?sid=<?= $event['sid'] ?>'>手刀報名 GO</a>
         </div>
         <div class="five-things-notic">
             <p>《注意事項》</p>
