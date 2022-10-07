@@ -579,15 +579,41 @@ $pageName = '活動討論區'; // 頁面名稱
 
     }))
 
-    // ---------收藏貼文功能
+    // 未登入收藏按鈕提醒
+    function loginNotice() {
+        Swal.fire({
+            title: '尚未登入會員',
+            text: "快帶我去登入，我想要收藏這則貼文(✪ω✪)",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#bfbd4a',
+            cancelButtonColor: '#7C8C38',
+            confirmButtonText: '立馬快速登入',
+            cancelButtonText: '先去註冊會員',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "register.php"
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                window.location.href = "login.php"
+            }
+        })
+    }
 
+    // ---------收藏貼文功能
+ 
 
     $('.comtCard_wrap').on('click', '.napBtn_likeBtn_comt', function(e) {
         e.stopPropagation()
         const btn = $(this);
         const lightBox = btn.parents('.comtCard').find('.lightBox_comtCard')
         const sid = btn.attr('data-id');
-        $.get(
+        const noUser = <?= empty($_SESSION['user']) ? 'true' : 'false' ?>;
+        if(noUser){
+            loginNotice();
+        }
+        else{
+            $.get(
             './nap_api/forum_likes-api.php', {
                 like_type: 3,
                 item_sid: sid
@@ -604,6 +630,10 @@ $pageName = '活動討論區'; // 頁面名稱
                     lightBox.find('#napActivate').addClass('d-block');
                 }
             }, 'json');
+        }
+
+
+
     })
 
 </script>
