@@ -139,7 +139,7 @@ $pageName = 'Home'; // 頁面名稱
             <h3>特別活動課程
             </h3>
             <p>園區提供完善專業的貓狗教育流程與專人陪同，也提供手作鮮食、浪浪回娘家...等等特別活動， 讓您學習之餘也能輕鬆玩樂。</p>
-            <a class="napBtn_padding_filled" href="#">
+            <a class="napBtn_padding_filled" href="events_page.php">
                 <span>查看更多</span>
             </a>
         </div>
@@ -147,7 +147,7 @@ $pageName = 'Home'; // 頁面名稱
             <h3>寵物知識課程
             </h3>
             <p>我們提供完善專業的貓狗教育課程，協助建立貓狗飼養知識與訓練，讓新手第一次飼養，也能輕鬆上手，另外我們也提供手作鮮食。</p>
-            <a class="napBtn_padding_filled" href="#">
+            <a class="napBtn_padding_filled" href="events_page.php">
                 <span>查看更多</span>
             </a>
         </div>
@@ -155,7 +155,7 @@ $pageName = 'Home'; // 頁面名稱
             <h3>寵物友善環境
             </h3>
             <p>我們園區平日為休憩時間，並不提供相關領養活動與流程，但園區依然有開放場地與部分館舍，還是很歡迎大家可以平日來訪。</p>
-            <a class="napBtn_padding_filled" href="#">
+            <a class="napBtn_padding_filled" href="field_guide.php">
                 <span>查看更多</span>
             </a>
         </div>
@@ -326,7 +326,7 @@ $pageName = 'Home'; // 頁面名稱
             我們應該彼此互相理解、認同，因為動物的存在從不該建立在自身的利益上！
         </p>
     </div>
-    <a class="napBtn_fixed_filled" href="#">
+    <a class="napBtn_fixed_filled" href="register.php">
         <span>加入會員 Join Us!</span>
     </a>
 
