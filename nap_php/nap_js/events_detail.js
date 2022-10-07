@@ -12,6 +12,28 @@ function sentLike(event){
         },'json');
 }
 
+// 未登入收藏按鈕提醒
+function loginNotice() {
+    Swal.fire({
+        title: '尚未登入會員',
+        text: "快帶我去登入，我不想錯過這個活動(✪ω✪)",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#bfbd4a',
+        cancelButtonColor: '#7C8C38',
+        confirmButtonText: '立馬快速登入',
+        cancelButtonText: '先去註冊會員',
+        reverseButtons:true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "register.php"
+        }
+        else if(result.dismiss === Swal.DismissReason.cancel){
+            window.location.href = "login.php"
+        }    
+    })
+}
+
 // 收藏按鈕，判斷顯示已收藏過的
 function getData(){
     $.get('events_page_api.php',function(data){

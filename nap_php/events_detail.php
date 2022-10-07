@@ -49,7 +49,7 @@ if (isset($_GET['sid'])) {
             <div class="events-detail-col col-md-6">
                 <div class="detail-textbox">
                     <div class="like-btn">
-                        <button name="sentLike" type="submit" onclick="sentLike(event)" data-id="<?= $event['sid'] ?>">
+                        <button name="sentLike" type="submit" onclick="<?= empty($_SESSION['user']) ? 'loginNotice()' : 'sentLike(event)' ?>" data-id="<?= $event['sid'] ?>">
                             <img id="outline" class="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
                             <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
                         </button>

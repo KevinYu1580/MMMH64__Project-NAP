@@ -270,6 +270,7 @@ if ($total_events > 0) {
     };
     changeColor();
 
+
     // 未登入收藏按鈕提醒
     function loginNotice() {
         Swal.fire({
@@ -281,14 +282,13 @@ if ($total_events > 0) {
             cancelButtonColor: '#7C8C38',
             confirmButtonText: '立馬快速登入',
             cancelButtonText: '先去註冊會員',
-            reverseButtons:true,
+            reverseButtons: true,
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = "register.php"
-            }
-            else if(result.dismiss === Swal.DismissReason.cancel){
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
                 window.location.href = "login.php"
-            }    
+            }
         })
     }
 
