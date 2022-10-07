@@ -249,7 +249,7 @@ if ($total_events > 0) {
                             </div>
                         </div>
                         <div class="card-like d-flex justify-content-center align-items-center ">
-                            <button name="sentLike" type="submit" onclick="sentLike(event)" data-id="${sid}">
+                            <button name="sentLike" type="submit" onclick="<?= empty($_SESSION['user']) ? 'loginNotice()' : 'sentLike(event)' ?>" data-id="${sid}">
                                 <img id="outline" src="./img/component/icon/red-Heart-outline.svg" alt="">
                                 <img id="cover" class="cover" src="./img/component/icon/red-Heart-filled.svg" alt="">
                             </button>
@@ -270,6 +270,26 @@ if ($total_events > 0) {
     };
     changeColor();
 
+    // 未登入收藏按鈕提醒
+    function loginNotice() {
+        Swal.fire({
+            title: '尚未登入會員',
+            text: "快帶我去登入，我不想錯過這個活動(✪ω✪)",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f67557',
+            cancelButtonColor: '#bfbd4a',
+            confirmButtonText: '先去註冊會員',
+            cancelButtonText: '立馬快速登入'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "register.php"
+            }
+            else if(result.dismiss === Swal.DismissReason.cancel){
+                window.location.href = "login.php"
+            }    
+        })
+    }
 
     // 收藏按鈕顯示開關
     function sentLike(event) {
