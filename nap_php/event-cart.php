@@ -112,7 +112,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                                 <p>NT$ <span class="sub-total"></span></p>
                             </div>
                             <!-- <div class="edit-enroll-btn">
-                                <a class="napBtn_fixed_filled" href="event-enroll-data-edit.php?sid=<?=$value['sid']?>">
+                                <a class="napBtn_fixed_filled" href="event-enroll-data-edit.php?sid=<?= $value['sid'] ?>">
                                     <span>修改參與人</span>
                                 </a>
                             </div> -->
@@ -227,22 +227,23 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 <script src="./nap_js/component.js"></script>
 <!-- 自己的js放在這 -->
 <script>
-
     //三位數一個逗號
     const dollarCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     };
 
+
     //取折價券的初始值
     let coupon = $('#select-coupon').val();
-    function getCoupon(){
+
+    function getCoupon() {
         coupon_sid = $('#select-coupon').children('option:selected').attr('data-sid');
     };
     getCoupon();
-    
+
     // console.log(coupon_sid);
     // console.log(coupon);
-    
+
     //取折價券的value,sid
     $('#select-coupon').change(function() {
         coupon = $(this).val();
@@ -341,27 +342,27 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             note: $('#special-need').val()
         }, function(res) {
             // console.log('res:', res);
+            $.get('handle-event-cart-coupon.php', {
+                sid: coupon_sid,
+                coupon: coupon,
+            }, function(data) {
+                location.href = 'event-cart-atm.php';
+            });
         });
-
-        $.get('handle-event-cart-coupon.php',{
-            sid: coupon_sid,
-            coupon: coupon,
-        });
-
-        location.href = 'event-cart-atm.php';
     }
 
     function goCredit() {
         // console.log('special-need:', $('#special-need').val());
         $.post('handle-event-cart-note.php', {
             note: $('#special-need').val()
+        }, function(res) {
+            $.get('handle-event-cart-coupon.php', {
+                sid: coupon_sid,
+                coupon: coupon,
+            }, function(data) {
+                location.href = 'event-cart-credit.php';
+            });
         });
-        
-        $.get('handle-event-cart-coupon.php',{
-            sid: coupon_sid,
-            coupon: coupon,
-        });
-        location.href = 'event-cart-credit.php';
     }
 </script>
 

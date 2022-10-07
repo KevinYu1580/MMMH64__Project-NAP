@@ -411,5 +411,12 @@ if (isset($_GET['sid'])) {
 <script src="./nap_js/component.js"></script>
 <script src="./nap_js/events_detail.js"></script>
 <!-- 自己的js放在這 -->
+<script>
+    //三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+</script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

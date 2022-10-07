@@ -195,7 +195,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                         <label for="email" class="form-label">電子郵件信箱</label>
                         <input type="text" class="form-control" id="car-num" value="<?= $rm['email'] ?>" disabled readonly>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="special-need" class="form-label">備註</label>
                         <textarea class="form-control" aria-label="With textarea" id="special-need" placeholder="如自行開車或有攜帶寵物，可於此處備註車號及註明需備寵物用品，無則免填！"></textarea>
@@ -352,28 +352,29 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             note: $('#special-need').val()
         }, function(res) {
             // console.log('res:', res);
-        });
 
-        $.get('handle-room-cart-coupon.php', {
-            sid: coupon_sid,
-            coupon: coupon,
+            $.get('handle-room-cart-coupon.php', {
+                sid: coupon_sid,
+                coupon: coupon,
+            }, function(data) {
+                location.href = 'room-cart-atm.php';
+            });
         });
-
-        location.href = 'room-cart-atm.php';
-    }
+    };
 
     function goCredit() {
         // console.log('special-need:', $('#special-need').val());
         $.post('handle-room-cart-note.php', {
             note: $('#special-need').val()
+        }, function(res) {
+            $.get('handle-room-cart-coupon.php', {
+                sid: coupon_sid,
+                coupon: coupon,
+            }, function(data) {
+                location.href = 'room-cart-credit.php';
+            });
         });
-
-        $.get('handle-room-cart-coupon.php', {
-            sid: coupon_sid,
-            coupon: coupon,
-        });
-        location.href = 'room-cart-credit.php';
-    }
+    };
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
