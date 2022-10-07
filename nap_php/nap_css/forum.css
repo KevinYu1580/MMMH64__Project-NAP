@@ -166,6 +166,10 @@ input:focus {
   margin-top: 36px;
   margin-bottom: 22px;
 }
+.selector_wrap .secSelec a{
+  text-decoration: none;
+  font-size: 18px;
+}
 @media screen and (min-width: 992px) {
   .selector_wrap .secSelec {
     display: none;
@@ -175,14 +179,17 @@ input:focus {
 .selector_wrap .secSelec #num2 {
   color: var(--secondaryColor_default);
 }
-.selector_wrap .secSelec button {
-  padding: 6px;
-  background-color: #fff;
-  border: none;
-}
+
 .napSwitch_three .sec {
-  padding: 14px 30px;
+  padding: 8px 28px;
   line-height: 100%;
+  font-size: 20px;
+}
+@media screen and (min-width: 992px){
+  .napSwitch_three .sec {
+    padding: 8px 40px;
+    font-size: 24px;
+  }
 }
 .napSwitch_three  a {
   text-decoration: none;
@@ -269,9 +276,8 @@ input:focus {
   font-weight: 400;
   color: var(--black_600);
 }
-.chat_bordSlec_PC .bot {
-  font-weight: 600;
-  color: var(--secondaryColor_default);
+.chat_bordSlec_PC .napBtn a {
+  text-decoration: none;
 }
 
 .comtCard_wrap {
@@ -926,6 +932,7 @@ input:focus {
 .lightBox_post .eventSelec_wrap {
   gap: 8px;
   margin-bottom: 38px;
+  opacity: 0;
 }
 @media screen and (min-width: 992px){
   .lightBox_post .eventSelec_wrap {

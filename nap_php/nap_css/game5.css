@@ -84,7 +84,14 @@ body{
 .start h2 .brown{
     font-size: 8rem;
     color: var(--secondaryColor_default);
-    
+}
+.start h3 .green{
+    font-size: 4rem;
+    color: var(--primaryColor_dark);
+}
+.start h3 .brown{
+    font-size: 4rem;
+    color: var(--secondaryColor_default);
 }
 
 .start h3{

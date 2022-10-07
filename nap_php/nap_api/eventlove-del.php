@@ -12,9 +12,9 @@ if(isset($_GET['sid'])){
     $pdo->query($sql);
 }
 
-$comeFrom = 'love-event.php';
-if(! empty($_SERVER['HTTP_REFERER'])){
-    $comeFrom = $_SERVER['HTTP_REFERER'];
-}
+// $comeFrom = 'love-event.php';
+// if(! empty($_SERVER['HTTP_REFERER'])){
+//     $comeFrom = $_SERVER['HTTP_REFERER'];
+// }
 
-header('Location: '. $comeFrom);
+// header('Location: '. $comeFrom);

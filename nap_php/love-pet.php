@@ -201,34 +201,19 @@ $pageName = '會員中心'; // 頁面名稱
 
 
     function removeItem(likes_sid) {
-        Swal.fire({
-            title: '忍心刪除這則貼文?',
-            text: "汪喵提醒：刪除後就不能復原囉～",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#f67557',
-            cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '直接果斷刪除',
-            cancelButtonText: '那再考慮一下',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                
-                Swal.fire({
+                $.get(
+                    './nap_api/eventlove-del.php',
+                    {sid : likes_sid}
+                ).then(()=>{
+                    Swal.fire({
                     icon: 'success',
-                    title: '已成功刪除',
+                    title: '已取消關注!',
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    
-                    location.href = `./nap_api/eventlove-del.php?sid=${likes_sid}`;
                     window.location.reload();
                 });
-
-            }
-        })
-        // if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
-           
-        // }
+                })
     }
 </script>
 
