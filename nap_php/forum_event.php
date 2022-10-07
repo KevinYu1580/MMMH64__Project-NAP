@@ -488,7 +488,11 @@ $pageName = '活動討論區'; // 頁面名稱
 
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
         const contentVal = $(this).siblings('.memberInfo_wrap').find('.message_input').val()
-
+        const noUser = <?= empty($_SESSION['user']) ? 'true' : 'false' ?>;
+        if(noUser){
+            loginNotice();
+        }
+        else{
         // $(`#form_sendMessage${post_sid}`).serialize()
         if ($.post(
                 './nap_api/forum_MessageInsert-api.php', {
@@ -511,6 +515,7 @@ $pageName = '活動討論區'; // 頁面名稱
                 })
             })
 
+        }
         }
     }))
 
