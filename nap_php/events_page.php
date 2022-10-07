@@ -278,7 +278,7 @@ if ($total_events > 0) {
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#bfbd4a',
-            cancelButtonColor: '#f67557',
+            cancelButtonColor: '#7C8C38',
             confirmButtonText: '立馬快速登入',
             cancelButtonText: '先去註冊會員',
             reverseButtons:true,
