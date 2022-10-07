@@ -47,7 +47,7 @@ $pageName = 'home'; // 頁面名稱
 
             
             <div class="content content1 d-flex flex-column my-auto" id="content1">
-            <div class="close">
+                <div class="close">
                 <a href="./homepage.php">
                     <img src="./img/self/n/close.png" alt="">
                 </a>
