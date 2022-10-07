@@ -196,6 +196,7 @@ text-align: center;
     width: 20px;
     cursor: pointer;
     margin-right: 15px;
+    opacity: 1;
 }
 .close img{
     width: 100%;
@@ -216,7 +217,8 @@ text-align: center;
     display: flex;
     justify-content: space-between;
     margin: auto;
-    top:210px;
+    /* top:210px; */
+    align-items: end;
 }
 .carousel li{
     background-color:var(--white);

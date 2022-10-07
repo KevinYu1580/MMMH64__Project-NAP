@@ -10,7 +10,7 @@ $a_stmt = $pdo->prepare($a_sql);
 $a_stmt->execute([$id]);
 
 if ($a_stmt->rowCount()) {
-    // $output['error'] = '此 email 已經註冊過';
+    $output['error'] = '此 email 已經註冊過';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;  // 程式結束
 }

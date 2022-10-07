@@ -149,27 +149,31 @@ $pageName = '登入'; // 頁面名稱
         // -----------------------
         function checkForm() {
 
-            $.post(
-                'newmember-api.php',
-                $(document.form1).serialize(),
-                function(data) {
-                    if (data.success) {
-                        location.href = './homepage.php';
-                    } else {
-                        alert(data.error);
-                    }
-                },
-                'json'
-            );
+            const myData = $(document.form1).serialize();
 
             $.post(
                 'login-api.php',
-                $(document.form1).serialize(),
+                myData,
                 function(data) {
                     if (data.success) {
-                        location.href = './homepage.php';
+                        // location.href = './homepage.php';
+
+                        $.post(
+                            'newmember-api.php',
+                            myData,
+                            function(data) {
+                                if (data.success) {
+                                    location.href = './homepage.php';
+                                } else {
+                                    location.href = './homepage.php';
+                                }
+                            },
+                            'json'
+                        );
+                        
                     } else {
-                        location.href = './homepage.php';
+                        // location.href = './homepage.php';
+                        alert(data.error);
                     }
                 },
                 'json'
