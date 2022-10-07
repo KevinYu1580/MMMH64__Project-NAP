@@ -237,7 +237,7 @@ $pageName = 'Forum-events'; // 頁面名稱
             )
             .done((result) => {
                 $('.lightBox_comtCard .comtSection .message_pack').html(result);
-                console.log(result)
+                
 
             })
     }))
@@ -347,7 +347,7 @@ $pageName = 'Forum-events'; // 頁面名稱
                                     </div>
                                     <form id='form_sendMessage${sid}' name='form_sendMessage${sid}' class="messageLev d-flex align-items-center" onsubmit='return false'>
                                         <div class="memberInfo_wrap d-flex align-items-center col-10 gap-3">
-                                        <div class="memberPic" style="background-image: url(./img/member/profile-image/${avatar})">
+                                        <div class="memberPic" style="background-image: url(./img/member/profile-image/<?php echo !empty($_SESSION['user']) ? $_SESSION['user']['userPic'] : 'pi000.jpg'; ?>)">
                                         </div>
                                         <input name="message" class="message_input" type="text" placeholder="我要留言">
                                         </div>
@@ -503,10 +503,6 @@ $pageName = 'Forum-events'; // 頁面名稱
             document.getElementById(`postPic${picNum}`).src = URL.createObjectURL(file)
         }
 
-        // 新增檔案至後端
-        // let form = new FormData();
-        // form.append("product[photos][]", evt.target.files[0]['name'])
-        // console.log(form)
     }
 
 
@@ -542,16 +538,20 @@ $pageName = 'Forum-events'; // 頁面名稱
     }))
 
     // 按鈕顏色判斷&可點擊
-    $('.comtCard_wrap').on('input', '.message_input', () => {
+    $('.comtCard_wrap').on('input', '.message_input',function() {
+        
+        let sendBtn = $(this).parents('.memberInfo_wrap').siblings('.sendMessageBtn')
 
-        if ($('.message_input').val() == '') {
+        let thisContent = $(this).val()
 
-            $('.sendMessageBtn').css({
+        if (thisContent == null) {
+
+           sendBtn.css({
                 'background-color': 'var(--black_400)',
                 'pointer-events': 'none',
             })
         } else {
-            $('.sendMessageBtn').css({
+            sendBtn.css({
                 'background-color': 'var(--primaryColor_default)',
                 'pointer-events': 'auto',
             })
