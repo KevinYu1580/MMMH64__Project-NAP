@@ -5,8 +5,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+$mail_key = '';
+
+@include __DIR__ . '/keys.php';
+
+echo $mail_key;
+
 //Load Composer's autoloader
-require __DIR__. '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -19,7 +25,7 @@ try {
     $mail->Host       = 'smtp.mailgun.org';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'shinder@mg.riarock.com';                     //SMTP username
-    $mail->Password   = '4127afeb4b8906b247dbd30bd66a34ee-381f2624-3ba2a865';                               //SMTP password
+    $mail->Password   = $mail_key;                               //SMTP password
     $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
     // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
