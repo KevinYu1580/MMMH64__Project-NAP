@@ -582,11 +582,11 @@ html{
         font-size: 36px;
         padding-bottom: 15px;
         padding-left: 0px;
-        padding-right: 440px;
+        /* padding-right: 440px; */
         padding-top: 20px;
         border-bottom: 2px solid var(--secondaryColor_default);
         font-weight: 500;
-        /* max-width: 500px; */
+        min-width: 550px;
     }
     
     .card-info-pet h4 span{
