@@ -42,7 +42,7 @@ $pageName = '重設密碼'; // 頁面名稱
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">
-                        <h3>忘記密碼</h3>
+                        <h3>重製密碼</h3>
                     </div>
                 </div>
                 <form class="form" name="form1" onsubmit="checkForm(); return false;" method="post" novalidate>
