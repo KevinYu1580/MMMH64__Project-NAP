@@ -817,13 +817,14 @@
 
                 </a>
 
-                <a style="background-image: url(./img/member/profile-image/<?php echo !empty($SESSION['user']) ? $SESSION['user']['userPic'] : 'pi000.jpg';?>)" 
+                <a style="background-image: url(./img/member/profile-image/<?php echo !empty($_SESSION['user']) ? $_SESSION['user']['userPic'] : 'pi000.jpg';?>)" 
                 id="memberPic" href="info-info.php"></a>
             </div>
             <button class="menu sec2">
                 <img src="./img/component/icon/hamburger.svg" alt="">
             </button>
         </div>
+        
 
     </div>
 

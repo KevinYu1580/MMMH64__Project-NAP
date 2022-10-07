@@ -16,7 +16,7 @@ $rows = $pdo->query($sql)->fetchAll();
 
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '會員中心'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -211,7 +211,7 @@ $pageName = 'home'; // 頁面名稱
                 }).then((result) => {
                     window.location.reload();
                 });
-                
+
             }
         })
         // if (confirm(`是否要刪除編號為 ${sid} 的資料?`)) {

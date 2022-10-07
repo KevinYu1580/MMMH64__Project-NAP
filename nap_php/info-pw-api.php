@@ -8,7 +8,7 @@ $output = [
     'postData' => $_POST,
 ];
 
-if(empty($_POST['password'])) {
+if (empty($_POST['password'])) {
     $output['error'] = '欄位資料不足';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
@@ -27,14 +27,11 @@ $stmt->execute([
 
 ]);
 
-if($stmt->rowCount()){
+if ($stmt->rowCount()) {
     $output['success'] = true;
-    
 } else {
     $output['error'] = '資料沒有修改';
 }
 
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-
-

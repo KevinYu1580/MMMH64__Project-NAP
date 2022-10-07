@@ -26,7 +26,7 @@ $rows = $pdo->query($sql)->fetch();
 
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '會員中心'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -105,27 +105,18 @@ $pageName = 'home'; // 頁面名稱
 <!------ content ------>
 
 <div class="album py-2 ">
-
-
-
     <div class="container m-auto">
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-mb-3 d-flex  ">
-
             <div class="col mx-5 mb-4 col-pc ">
                 <div class="outup">
                     <form name="form2" method="post" enctype="multipart/form-data" style="display: none;">
                         <input type="file" name="img" accept="image/png,image/jpeg">
                     </form>
-
-
                     <button class="photoup" onclick="document.form2.img.click()">
                         <img src="./img/self/n/pet/camera.svg" alt="" class="upload">
                     </button>
-
                     <img id="myimg" src="" alt="">
                 </div>
-
                 <form class="form needs-validation" name="form1" method="post" onsubmit="checkForm1(); return false;">
                     <input type="hidden" name="sid" value="<?= $sid ?>">
                     <div class="card1 ">
@@ -133,15 +124,9 @@ $pageName = 'home'; // 頁面名稱
                             <div class="imgbox">
                                 <img src="./uploads/<?= $rows['img'] ?>" alt="" class="photo">
                             </div>
-
-
                         </div>
-
                         <div class="card-body1">
-
-
                             <div class="diypart">
-
                                 <img src="./img/self/n/pet/<?= $rows['card_style'] ?>.svg" alt="" class="card-pc">
                                 <div class="petname-box pet-box  mb-3  d-flex ">
                                     <label for="name" class="form-label d-flex align-items-center">毛孩姓名</label>
@@ -159,93 +144,77 @@ $pageName = 'home'; // 頁面名稱
                                     <label for="age" class="form-label d-flex align-items-center">年齡</label>
                                     <input type="age" class="form-control" id="age" name="age" value="<?= htmlentities($rows['age']) ?>" required>
                                 </div>
-
-
                             </div>
-
                             <div class="pet-color  d-flex  pb-3">
-
                                 <div class="pet-color-gray d1 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball" value="d-color-1" required>
                                 </div>
-
                                 <div class="pet-color-brown d2 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball" value="d-color-2" required>
                                     <img src="" alt="">
                                 </div>
-
                                 <div class="pet-color-yellow d3 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball" value="d-color-3" required>
                                     <img src="" alt="">
                                 </div>
-
                                 <div class="pet-color-red d4 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball " value="d-color-4" required>
                                     <img src="" alt="">
                                 </div>
-
                                 <div class="pet-color-gray c1 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball-cat" value="c-color-1" required>
                                 </div>
-
                                 <div class="pet-color-brown c2 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball-cat" value="c-color-2" required>
                                     <img src="" alt="">
                                 </div>
-
                                 <div class="pet-color-yellow c3 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball-cat" value="c-color-3" required>
                                     <img src="" alt="">
                                 </div>
-
                                 <div class="pet-color-red c4 mx-3">
                                     <input type="radio" name="card_style" class="choose-ball-cat" value="c-color-4" required>
                                     <img src="" alt="">
                                 </div>
                             </div>
-
                             <div class=" btn-group1 d-flex justify-content-end align-items-center mt-3">
-                                <div class="btn-box   ">
+                                <div class="btn-box">
                                     <button type="submit" name="save_radio" class="btn">確認修改</button>
-
                                 </div>
-
                             </div>
+                        </div>
                 </form>
-
             </div>
         </div>
-    </div>
-    <div class="col mx-5 mb-4 ">
-        <div class="card2
-             ">
-            <div class="control flex-column  align-items-center
+        <div class="col mx-5 mb-4 ">
+            <div class="card2">
+                <div class="control flex-column  align-items-center
               ">
-                <p class="pb-1">A 選擇卡片外觀樣式</p>
-                <div class="kind d-flex  py-3">
-                    <div class="img-dog d-flex justify-content-center align-items-center mx-3">
-                        <img src="./img/self/n/pet/diy/card-kind/Dog.svg" alt="">
+                    <p class="pb-1">A 選擇卡片外觀樣式</p>
+                    <div class="kind d-flex  py-3">
+                        <div class="img-dog d-flex justify-content-center align-items-center mx-3">
+                            <img src="./img/self/n/pet/diy/card-kind/Dog.svg" alt="">
+                        </div>
+                        <div class="img-cat d-flex justify-content-center align-items-center mx-3 ">
+                            <img src="./img/self/n/pet/diy/card-kind/Cat.svg" alt="">
+                        </div>
                     </div>
-                    <div class="img-cat d-flex justify-content-center align-items-center mx-3 ">
-                        <img src="./img/self/n/pet/diy/card-kind/Cat.svg" alt="">
-                    </div>
+                    <p class="py-2 py-sm-4">B 選擇卡片顏色</p>
+
+
                 </div>
-                <p class="py-4">B 選擇卡片顏色</p>
-
-
             </div>
+
+
+
+
         </div>
 
 
 
 
+
     </div>
-
-
-
-
-
-</div>
 </div>
 </div>
 
