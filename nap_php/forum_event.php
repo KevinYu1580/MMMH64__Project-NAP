@@ -545,7 +545,6 @@ $pageName = 'Forum-events'; // 頁面名稱
         let thisContent = $(this).val()
 
         if (thisContent == null) {
-
            sendBtn.css({
                 'background-color': 'var(--black_400)',
                 'pointer-events': 'none',
@@ -556,8 +555,6 @@ $pageName = 'Forum-events'; // 頁面名稱
                 'pointer-events': 'auto',
             })
         }
-
-
     })
 
 
