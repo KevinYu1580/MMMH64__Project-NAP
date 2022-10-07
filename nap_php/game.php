@@ -424,7 +424,7 @@ function checkForm1() {
                 if(data.success){
                     genAlert('領取成功', './img/self/n/fix.gif');
                 } else {
-                    genAlert('已領取優惠券', './img/self/n/none.gif');
+                    genAlert('已領取優惠券, 無法再次領取', './img/self/n/none.gif');
                 }
 
 
