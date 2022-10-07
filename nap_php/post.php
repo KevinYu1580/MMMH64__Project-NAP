@@ -163,7 +163,6 @@ $pageName = '會員中心'; // 頁面名稱
     $('.love-card .deletePostBtn').on('click', (e) => {
         let postSid = $(e.target).closest('.love-card').data('post_sid')
 
-
         Swal.fire({
             title: '忍心刪除這則貼文?',
             text: "汪喵提醒：刪除後就不能復原囉～",
@@ -171,10 +170,10 @@ $pageName = '會員中心'; // 頁面名稱
             showCancelButton: true,
             confirmButtonColor: '#f67557',
             cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '那再考慮一下',
-            cancelButtonText: '直接果斷刪除',
+            confirmButtonText: '直接果斷刪除',
+            cancelButtonText: '那再考慮一下',
         }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.cancel) {
+            if (result.isConfirmed) {
                 // 點選確認後執行以下功能(範例是post功能)
                 $.post(
                     './nap_api/forum_delete-api.php', {
