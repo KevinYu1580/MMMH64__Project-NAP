@@ -39,14 +39,14 @@ $pageName = '園區地圖'; // 頁面名稱
         <div class="lightBox-container">
             <div class="lightBox-row">
                 <div class="close">
-                    <img src="./img/component/icon/xmark.svg" alt="">
+                    <img src="./img/component/icon/xmark.svg"  alt="">
                 </div>
                 <div class="lightBox-card-img">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
