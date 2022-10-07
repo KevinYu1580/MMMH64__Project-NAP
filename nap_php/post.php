@@ -165,15 +165,16 @@ $pageName = '會員中心'; // 頁面名稱
 
 
         Swal.fire({
-            title: '確認刪除貼文?',
-            text: "刪除後將無法復原",
+            title: '忍心刪除這則貼文?',
+            text: "汪喵提醒：刪除後就不能復原囉～",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#f67557',
             cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '刪除貼文!'
+            confirmButtonText: '那再考慮一下',
+            cancelButtonText: '直接果斷刪除',
         }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.dismiss === Swal.DismissReason.cancel) {
                 // 點選確認後執行以下功能(範例是post功能)
                 $.post(
                     './nap_api/forum_delete-api.php', {

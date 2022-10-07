@@ -277,10 +277,11 @@ if ($total_events > 0) {
             text: "快帶我去登入，我不想錯過這個活動(✪ω✪)",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#f67557',
-            cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '先去註冊會員',
-            cancelButtonText: '立馬快速登入'
+            confirmButtonColor: '#bfbd4a',
+            cancelButtonColor: '#f67557',
+            confirmButtonText: '立馬快速登入',
+            cancelButtonText: '先去註冊會員',
+            reverseButtons:true,
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = "register.php"
