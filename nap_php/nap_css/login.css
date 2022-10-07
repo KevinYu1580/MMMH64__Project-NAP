@@ -415,11 +415,12 @@ a{
         border-radius: 20px;
         width: 88%;
         position: relative;
+        height: 586px;
     }
 
     .close {
         position: absolute;
-        top: 30px;
+        top: 32px;
         right: 40px;
         
     }

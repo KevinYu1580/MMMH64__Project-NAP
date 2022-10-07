@@ -49,8 +49,9 @@ $pageName = '忘記密碼'; // 頁面名稱
 
 
 
-            <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+            
             <div class="content content1 d-flex flex-column my-auto" id="content1">
+            <div class="close"><img src="./img/self/n/close.png" alt=""></div>
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">
@@ -101,7 +102,7 @@ $pageName = '忘記密碼'; // 頁面名稱
                     </button> -->
                 </form>
 
-                <div class="alldown mt-4">
+                <div class="alldown mt-2">
                     <div class="line mx-5">
                         <div class="title-sm d-flex align-items-center justify-content-center " style="pointer-events:none">
                             <p>快速登入</p>
