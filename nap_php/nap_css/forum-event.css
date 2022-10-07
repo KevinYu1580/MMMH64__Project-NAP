@@ -532,6 +532,8 @@ input:focus {
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+  cursor: pointer;
+  text-decoration: none;
 }
 .lightBox_comtCard .member_info .member_pic {
   width: 32px;
@@ -549,11 +551,12 @@ input:focus {
 .lightBox_comtCard .member_info span {
   font-size: 14px;
   margin-left: 8px;
+  color: var(--subColor_text);
 }
 @media screen and (min-width: 992px){
   .lightBox_comtCard .member_info span {
     font-size: 18px;
-    margin-left: 12px;
+    margin-left: 8px;
   }
 }
 .lightBox_comtCard article .content {
@@ -692,7 +695,7 @@ input:focus {
 .lightBox_comtCard .comtSection .message_pack .memberPic {
   width: 44px;
   aspect-ratio: 1 / 1;
-  background-image: url(../img/chatchat/chat/chat-02.jpeg);
+  /* background-image: url(../img/chatchat/chat/chat-02.jpeg); */
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -727,6 +730,7 @@ input:focus {
 .lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .poster {
   font-size: 16px;
   color: var(--black_800);
+  text-decoration: none;
 }
 @media screen and (min-width: 992px){
   .lightBox_comtCard .comtSection .message_pack .messageCard .content_wrap .poster {
