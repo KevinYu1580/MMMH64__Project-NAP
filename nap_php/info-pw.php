@@ -35,7 +35,7 @@ if (empty($r)) {
 
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '會員中心'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -165,12 +165,12 @@ $pageName = 'home'; // 頁面名稱
 <div id="msgContainer1" class="" style=" position: fixed; z-index: 1055;top: 0%; left: 0%; display:none;
   width: 100vw;
     height: 100vh;">
-    <!-- <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
+     <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
             <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">修改完成
             </p> 
             <img id="myimg1" src="./img/self/n/fix.gif" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
         </div> -->
-</div> -->
+<!-- </div>  -->
 
 <!-- bootstrap擇一使用 -->
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->

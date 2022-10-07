@@ -10,7 +10,7 @@ if(empty($_SESSION['user'])){
 
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '心理測驗'; // 頁面名稱
 ?>
 
 
@@ -33,7 +33,12 @@ $pageName = 'home'; // 頁面名稱
     
     <title><?= $title ?></title>
 
-
+    <!-- <audio src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" controls allow="autoplay">
+	<h3>遇到不支援的瀏覽器會出現這行字</h3>
+</audio> -->
+<audio preload autoplay loop id="vd">
+     <source src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" type="audio/mpeg">
+</audio>
 
 <div class="start ">
     <div class="title">
@@ -343,7 +348,23 @@ $pageName = 'home'; // 頁面名稱
 
 <script src="./nap_js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/dayjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function(){
+             setInterval("toggleSound()",100);
+        }
+
+    function toggleSound() {
+                var music = document.getElementById("vd");//獲取ID  
+                    
+                if (music.paused) { //判讀是否播放  
+                    music.paused=false;
+                    music.play(); //沒有就播放 
+                }    
+        }
+</script>
 <script>
+
 
 
 const msgc = $('#msgContainer1');
@@ -359,7 +380,7 @@ function genAlert(msg,ccc) {
         <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
             <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
             </p> 
-            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);">
+            <img id="myimg1" src="${ccc}" alt="" width="300" style=" position: absolute; z-index: 21;top: 50%;left: 50%; transform: translate(-50%, -50%);border-radius: 10px;">
         </div> 
 
     `);
@@ -401,7 +422,7 @@ function checkForm1() {
             function(data) {
                 console.log(data);
                 if(data.success){
-                    genAlert('修改完成', './img/self/n/fix.gif');
+                    genAlert('領取成功', './img/self/n/fix.gif');
                 } else {
                     genAlert('已領取優惠券', './img/self/n/none.gif');
                 }
@@ -548,7 +569,7 @@ function processForm() {
 
 
                     if (sum <= 6 && sum >= 4)document.getElementById("endtitle").innerHTML= "50％貓派50％狗派";
-                    if (sum <= 6 && sum >= 4) document.getElementById("endcontent").innerHTML= "乾淨、衛生是你的名字，這讓你很在意自己的房間與辦公室的擺設方式。雖然你的好奇心很強，對於周圍發生的變化相當在意，但由於你比較喜歡孤獨，因此不常將自己的感情表露出來；若可以選擇的話，你比較喜歡一個人獨處，或與1、2個朋友的小活動。集結貓與狗的特徵，你可以舒服地穿梭於交際工作之間，不慍不火地維繫氣氛，會被大家視為可交的朋友首選。";
+                    if (sum <= 6 && sum >= 4) document.getElementById("endcontent").innerHTML= "乾淨、衛生是你的習慣，這讓你很在意自己的房間與辦公室的擺設方式。雖然你的好奇心很強，對於周圍發生的變化相當在意，但由於你比較喜歡孤獨，因此不常將自己的感情表露出來；若可以選擇的話，你比較喜歡一個人獨處，或與1、2個朋友的小活動。集結貓與狗的特徵，你可以舒服地穿梭於交際工作之間，不慍不火地維繫氣氛，會被大家視為可交的朋友首選。";
                     if (sum <= 9 && sum >= 7) document.getElementById("endtitle").innerHTML= "20％貓派80％狗派";
                     if (sum <= 9 && sum >= 7) document.getElementById("endcontent").innerHTML= "個性隨和，給人一種開放、爽朗以及富有人情味的感覺，當遇到不如意的事情，時常容易遷就他人。外表敏捷和直率，個性自律甚嚴，會跟著規則行事，給人可以信任的印象。開心或不開心都會表現在臉上，從不掩飾；雖說坦率的性格並無不妥，但有時需適當地調節，可能會讓你的生活與工作更順暢。";
                     if (sum >= 10 ) document.getElementById("endtitle").innerHTML= "100％狗派";

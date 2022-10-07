@@ -18,7 +18,7 @@ $rows = $pdo->query($sql)->fetchAll();
 
 <?php
 // require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '會員中心'; // 頁面名稱
 ?>
 
 
