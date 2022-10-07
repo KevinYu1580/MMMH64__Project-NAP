@@ -211,7 +211,7 @@ $pageName = 'home'; // 頁面名稱
                 }).then((result) => {
                     window.location.reload();
                 });
-                
+
             }
         })
         // if (confirm(`是否要刪除編號為 ${sid} 的資料?`)) {

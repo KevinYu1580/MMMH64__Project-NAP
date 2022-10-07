@@ -1,5 +1,5 @@
 <?php
-require __DIR__. '/parts/connect_db.php';
+require __DIR__ . '/parts/connect_db.php';
 
 $output = [
     'success' => false, // 是否修改成功
@@ -8,7 +8,7 @@ $output = [
     'postData' => $_POST,
 ];
 
-if(empty($_POST['sid']) or empty($_POST['name'])) {
+if (empty($_POST['sid']) or empty($_POST['name'])) {
     $output['error'] = '欄位資料不足';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
@@ -46,25 +46,22 @@ $sql = "UPDATE `member_pet_card` SET `name` = ?, `type` = ?, `gender` = ?, `age`
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
-        $_POST['name'],
-        $_POST['type'],
-        $_POST['gender'],
-        $_POST['age'],
-        $_POST['card_style']
+    $_POST['name'],
+    $_POST['type'],
+    $_POST['gender'],
+    $_POST['age'],
+    $_POST['card_style']
 
-    
-        
-    
+
+
+
 ]);
 
-if($stmt->rowCount()){
+if ($stmt->rowCount()) {
     $output['success'] = true;
-    
 } else {
     $output['error'] = '資料沒有修改';
 }
 
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-
-

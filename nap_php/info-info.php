@@ -106,7 +106,7 @@ $pageName = 'home'; // 頁面名稱
                     <div class="email-box inlong mb-3 ">
                         <label for="email" class="form-label">帳號 (email)</label>
                         <input type="email " class="form-control " id="email" name="email" value="<?= $r['email'] ?> " disabled="disabled">
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback ">
                             此處不可空值
                         </div>
 

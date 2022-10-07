@@ -8,7 +8,7 @@ $output = [
     'postData' => $_POST,
 ];
 
-if(empty($_POST['name'])) {
+if (empty($_POST['name'])) {
     $output['error'] = '欄位資料不足';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
@@ -37,13 +37,13 @@ if(empty($_POST['name'])) {
 //         'id' => $row['id'],
 //         'email' => $row['email']
 //     ];
-    
+
 
 // } else {
 //     // 密碼是錯誤的
 //     $output['error'] = '帳號或密碼錯誤';
 //     $output['code'] = 420;
-    
+
 
 // }
 // TODO: 欄位資料要驗證
@@ -78,23 +78,20 @@ $sql = "INSERT INTO `member_pet_card`(
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
 
-$_POST['name'],
-$_POST['type'],
-$_POST['gender'],
+    $_POST['name'],
+    $_POST['type'],
+    $_POST['gender'],
 
-$_POST['age']
-// $_POST['img']
+    $_POST['age']
+    // $_POST['img']
 
 ]);
 
-if($stmt->rowCount()){
+if ($stmt->rowCount()) {
     $output['success'] = true;
-    
 } else {
     $output['error'] = '資料沒有修改';
 }
 
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-
-
