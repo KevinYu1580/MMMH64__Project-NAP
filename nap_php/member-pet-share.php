@@ -43,13 +43,13 @@ $pageName = '會員中心'; // 頁面名稱
 <!------ menber-nav ------>
 <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
     <div class="titlebox  ">
-        <h2>毛孩分享</h2>
+        <h2>個人檔案</h2>
     </div>
     <div class="line"></div>
 
     <div class="partname-mb w-100">
         <div class="titlemb d-flex justify-content-center align-items-center">
-            <h2>毛孩分享</h2>
+            <h2>個人檔案</h2>
         </div>
     </div>
     
