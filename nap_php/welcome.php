@@ -34,7 +34,7 @@ $pageName = 'home'; // 頁面名稱
         <div class="login-pc d-flex justify-content-end">
             <div class="textbox d-flex  align-items-center justify-content-center">
 
-                <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+                
                 <div class="bikegirl">
                     <div class="play-people">
                         <img src="./img/self/n/member/bg/girl.png" alt="" class="girl ">
@@ -59,6 +59,7 @@ $pageName = 'home'; // 頁面名稱
                 </div>
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
                 <div class="content content4 d-flex flex-column align-items-center  m-auto">
+                <div class="close"><img src="./img/self/n/close.png" alt=""></div>
                     <div class="part  ">
                         <div class="title d-flex justify-content-center ">
                             <h3>STEP3</h3>

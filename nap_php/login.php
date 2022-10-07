@@ -37,12 +37,12 @@ $pageName = '登入'; // 頁面名稱
                     <img src="./img/self/n/member/bg/dog.png" alt="" class="people-dog">
                     <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
                 </div>
+                <div class="content d-flex flex-column align-items-center">
                 <div class="close">
                     <a href="./homepage.php">
                     <img src="./img/self/n/close.png" alt="">
                     </a>
                 </div>
-                <div class="content d-flex flex-column align-items-center">
                     <div class="part ">
                         <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                         <div class="title d-flex justify-content-center  mx-sm-5 mx-4 pb-3 mb-4">
