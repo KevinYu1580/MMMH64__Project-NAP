@@ -883,6 +883,9 @@
                     <div class="logout <?= empty($_SESSION['user']) ? 'logoutHide':'' ?>" >
                         <a class="" href="./logout.php">登出<span>Logout</span></a>
                     </div>
+                    <div class="logout <?= !empty($_SESSION['user']) ? 'logoutHide':'' ?>" >
+                        <a class="" href="./login.php">登入<span>Login</span></a>
+                    </div>
                 </li>
             </ul>
             <ul class="icon_link">
