@@ -129,7 +129,7 @@ $pageName = '會員中心'; // 頁面名稱
         <div class="up-part d-flex flex-column align-items-center ">
             <div class="name-box inlong mb-3 ">
                 <label for="name" class="form-label">姓名</label>
-                <input type="name" class="form-control" id="name" name="name" value="<?= htmlentities($r['name']) ?>  " required>
+                <input type="name" class="form-control" id="name" name="name" value="<?= htmlentities($r['name']) ?>" required>
 
                 <div class="invalid-feedback">
                     此處不可空值或格式錯誤
@@ -137,7 +137,7 @@ $pageName = '會員中心'; // 頁面名稱
             </div>
             <div class="email-box inlong mb-3 ">
                 <label for="email" class="form-label">帳號 (email)</label>
-                <input type="email " class="form-control " id="email" name="email" value="<?= htmlentities($r['email']) ?> " required readonly>
+                <input type="email " class="form-control " id="email" name="email" value="<?= htmlentities($r['email']) ?>" required readonly>
                 <div class="invalid-feedback">
                     此處不可空值
                 </div>
@@ -147,7 +147,7 @@ $pageName = '會員中心'; // 頁面名稱
             </div>
             <div class="mobile-box inlong mb-3">
                 <label for="mobile" class="form-label">手機</label>
-                <input type="mobile" class="form-control" id="mobile" name="mobile" value="<?= htmlentities($r['mobile']) ?> " required>
+                <input type="mobile" class="form-control" id="mobile" name="mobile" value="<?= htmlentities($r['mobile']) ?>" required>
                 <div class="invalid-feedback">
                     此處不可空值或格式錯誤
                 </div>
