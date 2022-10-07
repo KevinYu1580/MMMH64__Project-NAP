@@ -20,6 +20,13 @@ where member_sid=1 AND `order_status` = $member_id AND `payment_way` = 1";
 
 $rowsA = $pdo->query($sql_t)->fetchAll();
 
+$sql_n = "SELECT COUNT(*) FROM `room_order_detail` 
+LEFT join room_order on room_order.sid = room_order_detail.room_order_sid 
+LEFT join room_info on room_info.sid = room_order_detail.room_sid 
+where member_sid=1 AND `order_status` = $member_id AND `payment_way` = 1";
+
+$rowsB = $pdo->query($sql_n)->fetchAll();
+
 $statusArray = ['已付款', '尚未付款'];
 $payArray = ['信用卡', 'ATM'];
 
@@ -186,7 +193,12 @@ $pageName = '會員中心'; // 頁面名稱
                     </div>
                 </li>
             <?php endforeach ?>
-
+            <?php
+            if(!($sql_n)){echo "SQL succeeded";}
+            ?>
+            <h5 class="d-flex pt-5 justify-content-center" style="color:darkgray">
+                尚無更多訂單
+            </h5>
         </div>
     </div>
     <div class="container-mb">
@@ -286,6 +298,9 @@ $pageName = '會員中心'; // 頁面名稱
                 </div>
             </div>
         <?php endforeach ?>
+        <h5 class="d-flex pt-5 justify-content-center" style="color:darkgray">
+                尚無更多訂單
+            </h5>
     </div>
 
 

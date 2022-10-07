@@ -191,7 +191,9 @@ $pageName = '會員中心'; // 頁面名稱
                     </div>
                 </li>
             <?php endforeach ?>
-
+            <h5 class="d-flex pt-5 justify-content-center" style="color:darkgray">
+                尚無更多訂單
+            </h5>
         </div>
     </div>
     <div class="container-mb">
@@ -291,6 +293,9 @@ $pageName = '會員中心'; // 頁面名稱
                 </div>
             </div>
         <?php endforeach ?>
+        <h5 class="d-flex pt-3 justify-content-center" style="color:darkgray">
+                尚無更多訂單
+            </h5>
     </div>
 
 
