@@ -724,8 +724,25 @@ a{
     position: relative;
     height: 40px;
     width: 279px;
+    left: -15px;
+    
+    
     color: var(--black_500);
 }
+
+@media (min-width: 1200px) {
+    .stepbox{
+        
+        width: 279px;
+        left: 0px;
+        
+        
+    }
+}
+
+
+
+
 .steps .dot{
     width: 12px;
     height: 12px;
