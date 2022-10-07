@@ -147,7 +147,7 @@ $pageName = '房型介紹'; // 頁面名稱
                     <div class="room-introduce-textbox">
                         <h5>單人房 呼嚕嚕</h5>
                         <p>房價$2,600/晚<br>*此房不提供加人服務</p>
-                        <p class="room-introduce-btn"><a href="each_room_single.php" target="_blank">查看詳情</a></p>
+                        <p class="room-introduce-btn"><a href="each_room_single.php">查看詳情</a></p>
                     </div>
                 </div>
             </div>
@@ -159,7 +159,7 @@ $pageName = '房型介紹'; // 頁面名稱
                     <div class="room-introduce-textbox">
                         <h5>雙人房 皺皺鼻</h5>
                         <p>房價$3,600/晚<br>*此房不提供加人服務</p>
-                        <p><a href="each_room_double.php" target="_blank">查看詳情</a></p>
+                        <p><a href="each_room_double.php">查看詳情</a></p>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@ $pageName = '房型介紹'; // 頁面名稱
                     <div class="room-introduce-textbox">
                         <h5>四人房 撓癢癢</h5>
                         <p>房價$6,600/晚<br>*此房不提供加人服務</p>
-                        <p><a href="each_room_quadra.php" target="_blank">查看詳情</a></p>
+                        <p><a href="each_room_quadra.php">查看詳情</a></p>
                     </div>
                 </div>
             </div>

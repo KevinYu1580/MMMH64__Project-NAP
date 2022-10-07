@@ -334,7 +334,7 @@ $pageName = '園區內的毛孩'; // 頁面名稱
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#bfbd4a',
-            cancelButtonColor: '#f67557',
+            cancelButtonColor: '#7C8C38',
             confirmButtonText: '立馬快速登入',
             cancelButtonText: '先去註冊會員',
             reverseButtons:true,
