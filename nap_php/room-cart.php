@@ -217,7 +217,6 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             </div>
         </div>
 
-
     </div>
 </div>
 
