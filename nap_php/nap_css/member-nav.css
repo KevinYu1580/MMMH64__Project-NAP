@@ -337,3 +337,30 @@ html{
 }
 
   }
+
+
+.left-share .avatar{
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media (max-width: 576px){
+.left-share .avatar{
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+}
+.share-name{
+  font-size: 32px;
+  color: var(--secondaryColor_default);
+
+}
+
+.share-text{
+  font-size: 20px;
+  font-weight: 300;
+}
