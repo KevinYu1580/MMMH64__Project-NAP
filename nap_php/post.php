@@ -126,7 +126,7 @@ $pageName = '會員中心'; // 頁面名稱
                     </div>
                     <p><?= $r['name'] ?></p>
                 </div>
-                <h4><?= $r['title'] ?></h4>
+                <h4 style=""><?= $r['title'] ?></h4>
                 <h5 class="my-1 my-sm-2 "><?= $r['date'] ?></h5>
                 <div class="summarybox summarybox-chat">
                     <p><?= $r['content'] ?></p>
