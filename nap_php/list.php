@@ -107,7 +107,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="container " style="min-height:400px">
+<div class="container " style="min-height:300px">
 
     <div class="container-pc m-auto">
         <div class="ul ">
