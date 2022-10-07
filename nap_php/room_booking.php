@@ -368,20 +368,28 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
 <!-- <script src="./nap_js/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script> -->
 
 <script src="./nap_js/room_booking.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <script>
     function oopsAlert() {
-        swal("汪汪汪汪！", "翻譯蒟蒻：您尚未選擇房間喔～", "warning");
+        Swal.fire({
+            title: '汪汪汪汪！',
+            text: "翻譯蒟蒻：您尚未選擇房間數喔～",
+            icon: 'warning',
+            confirmButtonColor: '#bfbd4a',
+
+        })
     };
 
     function oopsAlertlimit() {
-        swal("喵～", "翻譯蒟蒻：房間數已達選擇上限！", "warning");
+        Swal.fire({
+            title: '凹嗚～',
+            text: "翻譯蒟蒻：房間數已達選擇上限！",
+            icon: 'warning',
+            confirmButtonColor: '#bfbd4a',
+        })
     };
 
     // $('.booking-btn a').click(function() {
