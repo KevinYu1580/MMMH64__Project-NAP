@@ -197,19 +197,20 @@ $pageName = '會員中心'; // 頁面名稱
             showCancelButton: true,
             confirmButtonColor: '#f67557',
             cancelButtonColor: '#bfbd4a',
-            confirmButtonText: '那再考慮一下',
-            cancelButtonText: '直接果斷刪除'
+            confirmButtonText: '直接果斷刪除',
+            cancelButtonText: '那再考慮一下',
         }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.cancel) {
+            if (result.isConfirmed) {
                 // 點選確認後執行以下功能(範例是post功能)
-                location.href = `./nap_api/memberpet-del.php?sid=${sid}`;
+                
                 // 以下為執行成功框框(出現1.5s後消失)
                 Swal.fire({
                     icon: 'success',
                     title: '已成功刪除',
                     timer: 1500,
                     showConfirmButton: false,
-                }).then((result) => {
+                }).then(() => {
+                    location.href = `./nap_api/memberpet-del.php?sid=${sid}`;
                     window.location.reload();
                 });
 
