@@ -77,7 +77,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="album py-2">
+<div class="album py-2 " style="min-height:400px">
     <div class="container m-auto">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-mb-3 d-flex  ">
             <?php foreach ($rows as $r) : ?>
