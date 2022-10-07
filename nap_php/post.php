@@ -111,7 +111,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <!------ content ------>
 
-<div class="container "style="min-height:200px">
+<div class="container "style="min-height:300px">
     <?php foreach ($rows as $r) : ?>
 
         <div class="love-card d-flex flex-column flex-sm-row align-items-center mb-5" data-post_sid="<?= $r['sid'] ?>">

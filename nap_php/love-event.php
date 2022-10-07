@@ -139,7 +139,7 @@ $pageName = '會員中心'; // 頁面名稱
     <?php endforeach ?>
     
  </div> -->
-<div class="container ">
+<div class="container "style="min-height:300px">
     <?php foreach ($rows as $r) : ?>
         <div class="love-card d-flex flex-column flex-sm-row align-items-center mb-5">
             <a href="javascript: removeItem(<?= $r['likes_sid'] ?>)" data-onclick="event.currentTarget.closest('tr').remove()">
