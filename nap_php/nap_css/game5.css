@@ -84,12 +84,19 @@ body{
 .start h2 .brown{
     font-size: 8rem;
     color: var(--secondaryColor_default);
-    
+}
+.start h3 .green{
+    font-size: 3rem;
+    color: var(--primaryColor_dark);
+}
+.start h3 .brown{
+    font-size: 3rem;
+    color: var(--secondaryColor_default);
 }
 
 .start h3{
     font-size: 2.8rem;
-    color: var(--secondaryColor_default);
+    color: var(--subColor_text);
     font-weight: 700;
    
 }
@@ -105,6 +112,7 @@ body{
     border-radius: 120px;
     color: var(--white);
     background-color: var(--primaryColor_dark);
+    transition: 0.3s;
 }
 
 .start h4:hover{
@@ -407,6 +415,7 @@ form h2{
     background-color: var(--primaryColor_dark);
     margin-left: 90px;
     margin-right: 102px;
+    transition: 0.3s;
 }
 
 .que .ball2{
@@ -419,7 +428,7 @@ form h2{
     background-color: var(--secondaryColor_default);
     margin-left: 90px;
     margin-right: 102px;
-    
+    transition: 0.3s;
 }
 
 .que .ball2:hover{
@@ -443,7 +452,7 @@ form h2{
     height: 160px;
     width: 160px;
     opacity: 0;
-
+    cursor: pointer;
 }
 
 .choosewho{

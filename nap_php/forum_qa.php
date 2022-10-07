@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
-$pageName = '活動討論區'; // 頁面名稱
+$pageName = '閒聊Q&A'; // 頁面名稱
 
 
 ?>
@@ -29,9 +29,9 @@ $pageName = '活動討論區'; // 頁面名稱
                 <span>ChatChat!</span>
             </h2>
             <div class="secSelec">
-            <a style=" color: #909090 ; font-weight: 400" href="./forum_qa.php" id="num1">閒聊Q&A</a>
+                <a style="color: #b18042 ; font-weight: 600 " href="./forum_qa.php" id="num1">閒聊Q&A</a>
                 <div class="line"></div>
-                <a style="color: #b18042 ; font-weight: 600 " href="./forum_event.php" id="num2">活動討論區</a>
+                <a style=" color: #909090 ; font-weight: 400" href="./forum_event.php" id="num2">活動討論區</a>
             </div>
             <div class="napSwitch_three forum_switch">
                 <div class="backmask"></div>
@@ -85,12 +85,12 @@ $pageName = '活動討論區'; // 頁面名稱
     <!-- comtCard -->
     <div class="d-flex gap-5">
         <div class="chat_bordSlec_PC">
-            <button class="top napBtn" href="#">
-                <a href="./forum_qa.php" style=" color: #909090 ; font-weight: 400 ">閒聊Q&A</a>
+            <button class="top napBtn " href="#">
+                <a href="./forum_qa.php" style="color: #b18042 ; font-weight: 600 ">閒聊Q&A</a>
             </button>
             <div class="line"></div>
             <button class="bot napBtn" href="#">
-                <a href="./forum_event.php" style="color: #b18042 ; font-weight: 600 ">活動討論區</a>
+                <a href="./forum_event.php" style=" color: #909090 ; font-weight: 400 ">活動討論區</a>
             </button>
         </div>
         <div id='comtCard_wrap' class="comtCard_wrap">
@@ -145,19 +145,19 @@ $pageName = '活動討論區'; // 頁面名稱
                     <label class="iconWrap d-flex align-items-center">
                         <img id='default' class="" src="./img/self/k/post_dogIcon_default.svg" alt="">
                         <img id='activated' src="./img/self/k/post_dogIcon_activated.svg" alt="">
-                        <input class='d-none' type="radio" name="petSelec" value="petSelec1" >
+                        <input class='d-none' type="radio" name="petSelec" value="petSelec1">
                         <!-- onclick="getSelectType({petType:'1'})" -->
                     </label>
                     <div class="line"></div>
                     <label class="iconWrap d-flex align-items-center">
                         <img id='default' class="" src="./img/self/k/post_catIcon_default.svg" alt="">
                         <img id='activated' src="./img/self/k/post_catIcon_activated.svg" alt="">
-                        <input class='d-none' type="radio" name="petSelec" value="petSelec0" >
+                        <input class='d-none' type="radio" name="petSelec" value="petSelec0">
                     </label>
                     <div class="line"></div>
                     <label class="iconWrap slectAll">
                         <span>不限</span>
-                        <input class='d-none' type="radio" name="petSelec" value="petSelec2" >
+                        <input class='d-none' type="radio" name="petSelec" value="petSelec2">
                     </label>
                 </div>
             </div>
@@ -275,9 +275,6 @@ $pageName = '活動討論區'; // 頁面名稱
                             </span>
                         </div>
                         <div class="d-flex align-items-center">
-                        <div class="comtLabel">
-                            <span>${tag==1 ? '# 浪浪套裝活動' : '# 每月特別活動' }</span>
-                        </div>
                         <span class="date">${date}</span>
 
                         </div>
@@ -392,7 +389,7 @@ $pageName = '活動討論區'; // 頁面名稱
         if (obj.type !== undefined) {
             defaultVals.type = obj.type;
         }
-        $.get('./nap_api/forum_selector_event-api.php', defaultVals, function(data) {
+        $.get('./nap_api/forum_selector_qa-api.php', defaultVals, function(data) {
             
             let str = '';
             if (data.rows && data.rows.length) {
@@ -459,6 +456,30 @@ $pageName = '活動討論區'; // 頁面名稱
 
             })
 
+        // form_data.append('file', file_data);
+
+        /*
+        $.post(
+            './nap_api/forum_postInsert-api.php',
+            $(document.form_postInsert).serialize(),
+            'json'
+        )
+        $.ajax({
+                url: './nap_api/forum_postInsert-api.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,     
+                type: 'post',
+               success: function(data){
+                    console.log(data)
+                }
+        });
+
+
+        alert('成功發出貼文');
+        window.location.reload();
+        */
     }
     // ----------上傳圖片功能
 

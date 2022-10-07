@@ -153,10 +153,25 @@ $pageName = '會員中心'; // 頁面名稱
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 <script src="./nap_js/component.js"></script>
 <script>
+    // function removeItem(likes_sid) {
+    //     if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
+    //         location.href = `./nap_api/chatlove-del.php?sid=${likes_sid}`;
+    //     }
+    // }
     function removeItem(likes_sid) {
-        if (confirm(`是否要刪除編號為 ${likes_sid} 的資料?`)) {
-            location.href = `./nap_api/chatlove-del.php?sid=${likes_sid}`;
-        }
+                $.get(
+                    './nap_api/eventlove-del.php',
+                    {sid : likes_sid}
+                ).then(()=>{
+                    Swal.fire({
+                    icon: 'success',
+                    title: '已取消關注!',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.reload();
+                });
+                })
     }
 </script>
 

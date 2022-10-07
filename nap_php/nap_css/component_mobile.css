@@ -496,7 +496,7 @@ height: 40px;
     font-size: 18px;
 }
 .napSwitch_two .sec {
-    padding: 8px 24px;
+    padding: 8px 40px;
     cursor: pointer;
     color: var(--black_600);
     transition: 0.3s;
