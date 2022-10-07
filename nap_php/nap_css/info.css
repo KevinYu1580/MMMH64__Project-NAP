@@ -103,8 +103,8 @@
     
     border-radius: 80px;
     position: absolute;
-    top: 151px;
-    left: 114px;
+    top: 156px;
+    left: 116px;
     max-width: 148px;
     min-height: 148px;
     object-fit: cover;
@@ -215,7 +215,7 @@
         width: 20px;
         height: 20px;
         top: 66px;
-        left: 110px;
+        left: 118px;
         border-radius: 80px;
         background: var(--primaryColor_dark);
         border: 1px solid rgb(255, 255, 255);
@@ -232,8 +232,8 @@
     }
     
     #myimg{
-        max-width: 47px;
-        max-height: 47px;
+        max-width: 20px;
+        max-height: 20px;
         border-radius: 80px;
         position: absolute;
         top: 9.1px;

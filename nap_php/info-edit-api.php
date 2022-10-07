@@ -8,7 +8,7 @@ $output = [
     'postData' => $_POST,
 ];
 
-if(empty($_POST['id']) or empty($_POST['name']) or empty($_POST['email'])) {
+if (empty($_POST['id']) or empty($_POST['name']) or empty($_POST['email'])) {
     $output['error'] = '欄位資料不足';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
@@ -17,7 +17,7 @@ if(empty($_POST['id']) or empty($_POST['name']) or empty($_POST['email'])) {
 // TODO: 欄位資料要驗證
 
 // 如果時間的字串無法轉換成 timestamp, 表示格式錯誤
-if(strtotime($_POST['birthdate'])===false){
+if (strtotime($_POST['birthdate']) === false) {
     $birthdate = null;
 } else {
     $birthdate = date('Y-m-d', strtotime($_POST['birthdate']));
@@ -43,23 +43,20 @@ $sql = "UPDATE `member01` SET `email` = ?, `name` = ?, `mobile` = ?, `birthdate`
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
     $_POST['email'],
-        
-        $_POST['name'],
-        
-        $_POST['mobile'],
-        
-        $birthdate,
+
+    $_POST['name'],
+
+    $_POST['mobile'],
+
+    $birthdate,
 
 ]);
 
-if($stmt->rowCount()){
+if ($stmt->rowCount()) {
     $output['success'] = true;
-    
 } else {
     $output['error'] = 'false';
 }
 
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-
-

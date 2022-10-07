@@ -254,7 +254,7 @@ $pageName = 'home'; // 頁面名稱
 
 
     //     const a = $(`
-    
+
     //     <div class="alert modal-dialog modal-dialog-centered" role="alert" style="z-index: 1056;" >
     //         <p style=" position: absolute; z-index: 1057;top: 57%;left: 50%; transform: translate(-50%, -50%); ">${msg}
     //         </p> 
@@ -312,14 +312,14 @@ $pageName = 'home'; // 頁面名稱
                 $(document.form1).serialize(),
                 function(data) {
                     console.log(data);
-                    if (data.success == true ) {
+                    if (data.success == true) {
                         Swal.fire({
                             icon: 'success',
                             title: '修改完成!',
                             showConfirmButton: false,
                             timer: 1500
-                        }).then(()=>{
-                            location.href ='./info-info.php';
+                        }).then(() => {
+                            location.href = './info-info.php';
                         })
                         // genAlert('修改完成', './img/self/n/fix.gif');
                     } else {
