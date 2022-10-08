@@ -5,6 +5,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+// $mail_key = '';
+
+// @include __DIR__ . '/keys.php';
+
+// echo $mail_key;
+
 //Load Composer's autoloader
 require __DIR__ . '/vendor/autoload.php';
 
@@ -13,18 +19,20 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
+    // $mail->SMTPDebug = 3;                      //Enable verbose debug output
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.mailgun.org';                     //Set the SMTP server to send through
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'postmaster@sandboxadc3f828107746f6a8b62d0578f2c62d.mailgun.org';                     //SMTP username
-    $mail->Password   = '8e807aee13658145a02ec2e7e97d6385-381f2624-68143b6a';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Username   = 'nap.service2022@gmail.com';                     //SMTP username
+    $mail->Password   = '';                               //SMTP password
+    $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('chiyin0209@yahoo.com', 'Joe User');     //Add a recipient
+    $mail->setFrom('nap.service2022@gmail.com', 'N.A.P.');
+    $mail->addAddress('chiyin0209@yahoo.com', 'chiyin');     //Add a recipient
     // $mail->addAddress('ellen@example.com');               //Name is optional
     // $mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
