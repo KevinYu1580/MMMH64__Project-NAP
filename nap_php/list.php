@@ -51,7 +51,7 @@ $pageName = '會員中心'; // 頁面名稱
 
 <link rel="stylesheet" href="./nap_css/member-nav.css?version=&lt;?php echo time(); ?&gt;">
 
-<link rel="stylesheet" href="./nap_css/list.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/list1.css?version=&lt;?php echo time(); ?&gt;">
 
 
 <!------ menber-nav ------>
@@ -118,9 +118,8 @@ $pageName = '會員中心'; // 頁面名稱
 <!------ content ------>
 
 <div class="container " style="min-height:300px">
-
     <div class="container-pc m-auto">
-        <div class="ul ">
+        <ul>
             <li class="d-flex justify-content-between bd-none p top-li">
                 <h3 class="">訂單編號</h3>
                 <h3 class="">繳費期限</h3>
@@ -202,7 +201,7 @@ $pageName = '會員中心'; // 頁面名稱
             <h5 class="d-flex pt-5 justify-content-center" style="color:darkgray">
                 尚無更多訂單
             </h5>
-        </div>
+        </ul>
     </div>
     <div class="container-mb">
         <?php foreach ($rows as $r) : ?>

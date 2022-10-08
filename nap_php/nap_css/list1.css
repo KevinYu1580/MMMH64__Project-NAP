@@ -70,7 +70,7 @@
 }
 
 .container-pc li{
-    width: 1400px;
+    /* width: 1400px; */
     padding-top: 20px;
     padding-bottom: 20px;
     /* padding-left: 20px;
@@ -85,7 +85,7 @@
 .container-pc h3{
     font-size: 24px;
     margin: 10px;
-    width: 270px;
+    width: 260px;
     margin-left: 30px;
     color: var(--subColor_text);
     
@@ -93,7 +93,7 @@
 
 
 .container-pc .h3-sm{
-    width: 180px;
+    width: 150px;
 }
 
 .container-pc .btn{
