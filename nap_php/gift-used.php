@@ -38,7 +38,7 @@ $pageName = '會員中心'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/member-nav.css?version=&lt;?php echo time(); ?&gt;">
 
 
-<link rel="stylesheet" href="./nap_css/gift.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/gift1.css?version=&lt;?php echo time(); ?&gt;">
 
 
 

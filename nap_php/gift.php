@@ -38,14 +38,14 @@ $pageName = '會員中心'; // 頁面名稱
 <link rel="stylesheet" href="./nap_css/member-nav.css?version=&lt;?php echo time(); ?&gt;">
 
 
-<link rel="stylesheet" href="./nap_css/gift.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/gift1.css?version=&lt;?php echo time(); ?&gt;">
 
 
 
 
 
 <!------ menber-nav ------>
-<div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
+<!-- <div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
     <div class="titlebox ">
         <h2>會員中心</h2>
     </div>
@@ -75,6 +75,43 @@ $pageName = '會員中心'; // 頁面名稱
             </li>
             <li class="">
                 <a href="./gift.php" class="inhere">優惠專區</a>
+            </li>
+
+
+        </ul>
+    </div>
+
+</div> -->
+<div class="wrap d-flex flex-column justify-content-center align-items-center w-100">
+    <div class="titlebox ">
+        <h2>會員中心</h2>
+    </div>
+    <div class="line"></div>
+
+    <div class="partname-mb w-100">
+        <div class="titlemb d-flex justify-content-center align-items-center">
+            <h2>會員中心</h2>
+        </div>
+    </div>
+    <div class="container1 d-flex justify-content-center mt-4">
+        <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
+            <li class="bd">
+                <a href="./info-info.php" class="inhere">基本資料</a>
+            </li>
+            <li class="bd">
+                <a href="./member-pet.php" class="">毛孩資料</a>
+            </li>
+            <li class="bd bd-none">
+                <a href="./list.php" class="#">訂單查詢</a>
+            </li>
+            <li class=" bd">
+                <a href="./post.php" class="#">歷史發佈</a>
+            </li>
+            <li class=" bd">
+                <a href="./love-pet.php" class="">我的關注</a>
+            </li>
+            <li class="">
+                <a href="./gift.php" class="">優惠專區</a>
             </li>
 
 

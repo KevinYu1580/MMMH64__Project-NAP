@@ -138,12 +138,12 @@ $pageName = '會員中心'; // 頁面名稱
                         <h3><?= $statusArray[$r['payment_way']] ?></h3>
                         <h3 class="h3-sm pricered">NT$ <?= $r['event_order_price'] ?></h3>
                         <h3 class="h3-sm"><?= $statusArray[$r['order_status']] ?></h3>
-                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?= $r['event_order_sid'] ?>" aria-expanded="false" aria-controls="collapseExample">
                             <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
                             <img src="./img/component/icon/arrow_up.svg" alt="" class="menu__icon--close down "></button>
                     </div>
 
-                    <div class="collapse" id="collapseExample1">
+                    <div class="collapse" id="collapseExample<?= $r['event_order_sid'] ?>">
                         <div class="card card-body">
                             <div class="all-list d-flex justify-content-between">
                                 <div class="info d-flex">
@@ -170,12 +170,12 @@ $pageName = '會員中心'; // 頁面名稱
                         <h3><?= $statusArray[$r['payment_way']] ?></h3>
                         <h3 class="h3-sm pricered">NT$ <?= $n['room_order_deposit'] ?></h3>
                         <h3 class="h3-sm"><?= $statusArray[$n['order_status']] ?></h3>
-                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?= $n['room_order_sid'] ?>" aria-expanded="false" aria-controls="collapseExample">
                             <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
                             <img src="./img/component/icon/arrow_up.svg" alt="" class="menu__icon--close down "></button>
                     </div>
 
-                    <div class="collapse" id="collapseExample3">
+                    <div class="collapse" id="collapseExample<?= $n['room_order_sid'] ?>">
                         <div class="card card-body">
                             <div class="all-list d-flex justify-content-between">
                                 <div class="info d-flex">
@@ -224,11 +224,11 @@ $pageName = '會員中心'; // 頁面名稱
                         <td class="priceblod"><?= $statusArray[$r['order_status']] ?></td>
                     </tr>
                 </table>
-                <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                    <img class="menu__icon--open" src="./img/component/icon/arrow_down.svg" alt="">
+                <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?= $r['event_order_sid'] ?>" aria-expanded="false" aria-controls="collapseExample">
+                    <img class="menu__icon--open" src="./img/self/n/list/Vector-mb.svg" alt="">
                     <img src="./img/self/n/list/Vector-up-mb.svg" alt="" class="menu__icon--close down ">
                 </button>
-                <div class="collapse " id="collapseExample1">
+                <div class="collapse " id="collapseExample<?= $r['event_order_sid'] ?>">
                     <div class="card card-body d-flex justify-content-center">
                         <div class="all-list d-flex justify-content-center">
                             <div class="info d-flex">
@@ -272,11 +272,11 @@ $pageName = '會員中心'; // 頁面名稱
                         <td class="priceblod"><?= $statusArray[$n['order_status']] ?></td>
                     </tr>
                 </table>
-                <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?= $n['room_order_sid'] ?>" aria-expanded="false" aria-controls="collapseExample">
                     <img class="menu__icon--open" src="./img/self/n/list/Vector-mb.svg" alt="">
                     <img src="./img/self/n/list/Vector-up-mb.svg" alt="" class="menu__icon--close down ">
                 </button>
-                <div class="collapse " id="collapseExample3">
+                <div class="collapse " id="collapseExample<?= $n['room_order_sid'] ?>">
                     <div class="card card-body d-flex justify-content-center">
                         <div class="all-list d-flex justify-content-center">
                             <div class="info d-flex">

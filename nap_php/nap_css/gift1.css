@@ -54,6 +54,11 @@
     font-family: custom-font;        
 }
 
+.row{
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+}
 
 
 .gift{
@@ -142,7 +147,7 @@
 
     .gift p{
         position: absolute;
-        top: 36px;
+        top: 39px;
         right: 115px;
         margin-bottom: 0;
         font-size: var(--p_16px);
