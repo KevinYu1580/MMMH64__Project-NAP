@@ -7,6 +7,8 @@ require __DIR__ . '/parts/connect_db.php';
 $pageName = '重設密碼'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
@@ -14,10 +16,10 @@ $pageName = '重設密碼'; // 頁面名稱
 
 
 <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
-<?php include __DIR__ . '/parts/html-head.php'; ?>
+
 <link rel="stylesheet" href="./nap_css/forget.css?version=&lt;?php echo time(); ?&gt;">
 
-<title><?= $title ?></title>
+<title><?= 'N.A.P. | ' . $pageName ?></title>
 </head>
 
 <body>
@@ -44,7 +46,7 @@ $pageName = '重設密碼'; // 頁面名稱
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">
-                        <h3>重製密碼</h3>
+                        <h3>重設密碼</h3>
                     </div>
                 </div>
                 <form class="form" name="form1" onsubmit="checkForm(); return false;" method="post" novalidate>
@@ -123,25 +125,27 @@ $pageName = '重設密碼'; // 頁面名稱
             './nap_api/change-pw-api.php',
             $(document.form1).serialize(),
             function(data) {
-                console.log(data);
+                // console.log(data);
+
+
                 if(data.success){
-                    // Swal.fire({
-                    //         icon: 'success',
-                    //         title: '修改完成!',
-                    //         showConfirmButton: false,
-                    //         timer: 1500
-                    //     }).then(()=>{
-                    //         location.href ='./info-info.php';
-                    //     })
-                    genAlert('修改完成', './img/self/n/fix.gif');
-                } else {
                     Swal.fire({
                             icon: 'success',
+                            title: '修改完成!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(()=>{
+                            location.href ='./login.php';
+                        })
+                    // genAlert('修改完成', './img/self/n/fix.gif');
+                } else {
+                    Swal.fire({
+                            icon: 'warning',
                             title: '尚未修改!',
                             showConfirmButton: false,
                             timer: 1500
                         })
-                    genAlert('尚未修改', './img/self/n/none.gif');
+                    // genAlert('尚未修改', './img/self/n/none.gif');
                 }
 
 

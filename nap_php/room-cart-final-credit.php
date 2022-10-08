@@ -1,3 +1,4 @@
+<link rel="shortcut icon" href="./img/component/logo/favicon.ico" type="image/x-icon">
 <?php
 require __DIR__ . '/parts/connect_db.php';
 
@@ -96,21 +97,6 @@ WHERE `room_order_sid`=$rm_order_sid";
 
 
 $rows = $pdo->query($sql)->fetchAll();
-
-// 設定收件者
-// 待以真實 user email 測試
-// $to = "chiyin0209@gmail.com";
-$to = "chiyin0209@yahoo.com";
-
-// 設定郵件主旨
-$subject = "謝謝您對 N.A.P. 的支持，已收到您的訂單！";
-$subject = "=?utf-8?B?" . base64_encode($subject) . "?=";
-
-//設定郵件標頭資訊
-$headers  = "MIME-Version: 1.0" . PHP_EOL;
-$headers .= "Content-type: text/html; charset=utf-8" . PHP_EOL;
-$headers .= "To: chiyin0209@yahoo.com" . PHP_EOL;
-$headers .= "From: N.A.P.<nap.service2022@gmail.com>" . PHP_EOL;
 
 
 // 設定郵件內容
@@ -255,8 +241,72 @@ $message = '
 ';
 }
 
-// 傳送郵件
-mail($to, $subject, $message, $headers);
+// 設定收件者
+$to = $_SESSION['user']['email'];
+
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$mail_key2 = '';
+
+// @include __DIR__ . '/../keys.php';
+include __DIR__ . '/../keys.php';
+
+// echo $mail_key2;
+
+//Load Composer's autoloader
+require __DIR__ . '/../vendor/autoload.php';
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    $mail->Encoding = 'base64';
+    $mail->CharSet = 'UTF-8';
+    //Server settings
+    // $mail->SMTPDebug = 3;                      //Enable verbose debug output
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'nap.service2022@gmail.com';                     //SMTP username
+    $mail->Password   =  $mail_key2;                               //SMTP password
+    $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+    $mail ->SMTPOptions = array (
+        'ssl' => array (
+            'verify_peer' => false ,
+            'verify_peer_name' => false ,
+            'allow_self_signed' => true
+            )
+        );
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('nap.service2022@gmail.com', 'N.A.P.');
+    $mail->addAddress($to);     //Add a recipient
+    // $mail->addAddress('ellen@example.com');               //Name is optional
+    // $mail->addReplyTo('info@example.com', 'Information');
+    // $mail->addCC('cc@example.com');
+    // $mail->addBCC('bcc@example.com');
+
+    //Attachments
+    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = '謝謝您對 N.A.P. 的支持，已收到您的訂單！';
+    $mail->Body    = $message;
+
+    $mail->send();
+    // echo 'Message has been sent';
+} catch (Exception $e) {
+    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>

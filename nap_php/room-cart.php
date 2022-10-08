@@ -259,29 +259,42 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
         // console.log('div');
+        Swal.fire({
+            title: '真的要刪除訂房嗎？',
+            text: "N.A.P. 汪喵：這裡真的很好玩欸！(☍﹏⁰。)",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f67557',
+            cancelButtonColor: '#bfbd4a',
+            confirmButtonText: '狠心刪除',
+            cancelButtonText: '我要保留',
+            // reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.get(
+                    'handle-room-order.php', {
+                        room_id: sid
+                    },
+                    function(data) {
+                        // console.log(data);
+                        showCartCount(data); //總數量
+                        // console.log('delete before');
+                        div.animate({
+                            right: '800px'
+                        }, "fast").fadeOut(100, function() {
+                            div.remove();
+                            updatePrices();
+                            checkDisabled();
 
-        $.get(
-            'handle-room-order.php', {
-                room_id: sid
-            },
-            function(data) {
-                // console.log(data);
-                showCartCount(data); //總數量
-                // console.log('delete before');
-                div.animate({
-                    right: '800px'
-                }, "fast").fadeOut(100, function() {
-                    div.remove();
-                    updatePrices();
-                    checkDisabled();
-
-                });
-                // console.log('delete after');
-
-
-
-            },
-            'json');
+                        });
+                        // console.log('delete after');
+                        window.location.reload()
+                    },
+                    'json');
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                window.location.reload()
+            }
+        })
     };
 
     //如果人數有改變，更新數量

@@ -1,3 +1,4 @@
+<link rel="shortcut icon" href="./img/component/logo/favicon.ico" type="image/x-icon">
 <?php
 
 require __DIR__ . '/parts/connect_db.php';
@@ -93,166 +94,218 @@ WHERE `event_order_sid`=$evt_order_sid";
 $rows = $pdo->query($sql)->fetchAll();
 
 
-// 設定收件者
-// 待以真實 user email 測試
-$to = "chiyin0209@yahoo.com";
-
-// 設定郵件主旨
-$subject = "謝謝您對 N.A.P. 的支持，已收到您的訂單！";
-$subject = "=?utf-8?B?" . base64_encode($subject) . "?=";
-
-//設定郵件標頭資訊
-$headers  = "MIME-Version: 1.0" . PHP_EOL;
-$headers .= "Content-type: text/html; charset=utf-8" . PHP_EOL;
-$headers .= "To: chiyin0209@yahoo.com" . PHP_EOL;
-$headers .= "From: N.A.P.<nap.service2022@gmail.com>" . PHP_EOL;
-
-
 // 設定郵件內容
 foreach ($rows as $r) {
-$message = '
-<!DOCTYPE html>
-<html>
-	<body>
-		<table border="1" cellspacing="0" cellpadding="15" style="background-color:#ffffff;" >
-            <tbody>
-                <tr>
-                    <td align="center" width="700">
-                        <table width="650" border="0" cellspacing="5" cellpadding="5">
-                            <tbody>
-                                <tr>
-                                    <td align="center">
-                                        <h1><span><font style="font-family: 微軟正黑體;">訂單通知信</font></span>
-                                        </h1>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="left">
-                                        <font style="font-family: 微軟正黑體;">親愛的 N.A.P. 會員，您好：</font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="left">
-                                        <p><font style="font-family: 微軟正黑體;">N.A.P. 感謝您的支持與愛護，您的訂單明細如下：</font>
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="left" >
-                                        <table width="100%" border="1" cellspacing="0" cellpadding="5" style="background-color:#ffffff;">
-                                            <tbody>
-                                                <tr>
-                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        訂單編號
-                                                    </td>
-                                                    <td width="77%">';
-                                                        $message .= $r['event_order_id'];
-                                                        $message .= '
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        訂購日期
-                                                    </td>
-                                                    <td width="77%">';
-                                                        $message .= $r['created_at'];
-                                                        $message .= '
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        付款方式
-                                                    </td>
-                                                    <td width="77%">
-                                                        信用卡付款
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        訂單狀態
-                                                    </td>
-                                                    <td width="77%">
-                                                        已完成
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        報名狀態
-                                                    </td>
-                                                    <td width="77%">
-                                                        已完成
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        訂單總額
-                                                    </td>
-                                                    <td width="77%">NT$ ';
-                                                        $message .= $r['event_order_price'];
-                                                        $message .= '
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="left">
-                                        <p>
-                                            <font style="font-family: 微軟正黑體;">欲查看詳細訂單資料，請回會員中心<span>【<a href="http://localhost/MMMH64__Project-NAP/nap_php/list-end.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">訂單查詢</a>】</span>，發票將於活動當日開立提供。</font>
-                                        </p>
-                                        <p>
-                                            <font style="font-family: 微軟正黑體;">園區的浪浪期待與您的相遇！</font>
-                                        </p>
-                                        
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table width="650" border="0" cellspacing="5" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td height="40">
-                                        <p>
-                                            <font style="font-family: 微軟正黑體;">祝　美好的一天！</font><br/>
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <div>
-                                            <font style="font-family: 微軟正黑體; font-size: 14px; color: #f00;">本信件由系統自動發送通知，請勿直接回覆，<wbr />如訂單內容有問題，請直接與 N.A.P. 聯絡。</font>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <div style="margin: 30px;">
-                                            <img src="./img/component/logo/logo-2.svg" alt="">
-                                            <br />
-                                            <div style="margin: 6px;">
-                                            <span>客服信箱：
-                                                <a href="nap.service2022@gmail.com" target="_blank">nap.service2022@gmail.com</a>
-                                            </span>
+    $message = '
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <table border="1" cellspacing="0" cellpadding="15" style="background-color:#ffffff;" >
+                <tbody>
+                    <tr>
+                        <td align="center" width="700">
+                            <table width="650" border="0" cellspacing="5" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td align="center">
+                                            <h1><span><font style="font-family: 微軟正黑體;">訂單通知信</font></span>
+                                            </h1>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <font style="font-family: 微軟正黑體;">親愛的 N.A.P. 會員，您好：</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><font style="font-family: 微軟正黑體;">N.A.P. 感謝您的支持與愛護，您的訂單明細如下：</font>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" >
+                                            <table width="100%" border="1" cellspacing="0" cellpadding="5" style="background-color:#ffffff;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                            訂單編號
+                                                        </td>
+                                                        <td width="77%">';
+                                                            $message .= $r['event_order_id'];
+                                                            $message .= '
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                            訂購日期
+                                                        </td>
+                                                        <td width="77%">';
+                                                            $message .= $r['created_at'];
+                                                            $message .= '
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                            付款方式
+                                                        </td>
+                                                        <td width="77%">
+                                                            信用卡付款
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                            訂單狀態
+                                                        </td>
+                                                        <td width="77%">
+                                                            已完成
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                            報名狀態
+                                                        </td>
+                                                        <td width="77%">
+                                                            已完成
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
+                                                            訂單總額
+                                                        </td>
+                                                        <td width="77%">NT$ ';
+                                                            $message .= $r['event_order_price'];
+                                                            $message .= '
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>
+                                                <font style="font-family: 微軟正黑體;">欲查看詳細訂單資料，請回會員中心<span>【<a href="http://localhost/MMMH64__Project-NAP/nap_php/list-end.php" style="font-weight:bold; text-decoration: none; color: blue;"  target="_blank">訂單查詢</a>】</span>，發票將於活動當日開立提供。</font>
+                                            </p>
+                                            <p>
+                                                <font style="font-family: 微軟正黑體;">園區的浪浪期待與您的相遇！</font>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="650" border="0" cellspacing="5" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td height="40">
+                                            <p>
+                                                <font style="font-family: 微軟正黑體;">祝　美好的一天！</font><br/>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div>
+                                                <font style="font-family: 微軟正黑體; font-size: 14px; color: #f00;">本信件由系統自動發送通知，請勿直接回覆，<wbr />如訂單內容有問題，請直接與 N.A.P. 聯絡。</font>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-	</body>
-</html>
-';
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <div style="margin: 30px;">
+                                                <img src="./img/component/logo/logo-2.svg" alt="">
+                                                <br />
+                                                <div style="margin: 6px;">
+                                                <span>客服信箱：
+                                                    <a href="nap.service2022@gmail.com" target="_blank">nap.service2022@gmail.com</a>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </body>
+    </html>
+    ';
+    };
+
+
+// 設定收件者
+$to = $_SESSION['user']['email'];
+
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$mail_key2 = '';
+
+// @include __DIR__ . '/../keys.php';
+include __DIR__ . '/../keys.php';
+
+// echo $mail_key2;
+
+//Load Composer's autoloader
+require __DIR__ . '/../vendor/autoload.php';
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    $mail->Encoding = 'base64';
+    $mail->CharSet = 'UTF-8';
+    //Server settings
+    // $mail->SMTPDebug = 3;                      //Enable verbose debug output
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'nap.service2022@gmail.com';                     //SMTP username
+    $mail->Password   =  $mail_key2;                               //SMTP password
+    $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+    $mail ->SMTPOptions = array (
+        'ssl' => array (
+            'verify_peer' => false ,
+            'verify_peer_name' => false ,
+            'allow_self_signed' => true
+            )
+        );
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('nap.service2022@gmail.com', 'N.A.P.');
+    $mail->addAddress($to);     //Add a recipient
+    // $mail->addAddress('ellen@example.com');               //Name is optional
+    // $mail->addReplyTo('info@example.com', 'Information');
+    // $mail->addCC('cc@example.com');
+    // $mail->addBCC('bcc@example.com');
+
+    //Attachments
+    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = '謝謝您對 N.A.P. 的支持，已收到您的訂單！';
+    $mail->Body    = $message;
+
+    $mail->send();
+
+    // echo 'Message has been sent';
+} catch (Exception $e) {
+    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
-// 傳送郵件
-mail($to, $subject, $message, $headers);
-
 ?>
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <!-- bootstrap擇一使用 -->

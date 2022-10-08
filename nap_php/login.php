@@ -17,8 +17,8 @@ $pageName = '登入'; // 頁面名稱
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <link rel="stylesheet" href="./nap_css/reset.css">
 <link rel="stylesheet" href="./nap_css/login.css?version=&lt;?php echo time(); ?&gt;">
+<title><?= 'N.A.P. | ' . $pageName ?></title>
 
-<title><?= $title ?></title>
 </head>
 
 <body>

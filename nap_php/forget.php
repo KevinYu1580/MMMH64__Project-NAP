@@ -7,6 +7,8 @@ require __DIR__ . '/parts/connect_db.php';
 $pageName = '忘記密碼'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
 
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
@@ -14,10 +16,10 @@ $pageName = '忘記密碼'; // 頁面名稱
 
 
 <!-- <link rel="stylesheet" href="./nap_css/component_mobile2.css"> -->
-<?php include __DIR__ . '/parts/html-head.php'; ?>
-<link rel="stylesheet" href="./nap_css/forget.css?version=&lt;?php echo time(); ?&gt;">
 
-<title><?= $title ?></title>
+
+<link rel="stylesheet" href="./nap_css/forget.css?version=&lt;?php echo time(); ?&gt;">
+<title><?= 'N.A.P. | ' . $pageName ?></title>
 </head>
 
 <body>
@@ -25,35 +27,35 @@ $pageName = '忘記密碼'; // 頁面名稱
     <div class="wrap">
         <div class="login-pc d-flex justify-content-end">
             <div class="textbox d-flex  align-items-center justify-content-center ">
-            <div class="stars">
-                        
-                        <div class="star star11"> </div>
-                        <div class="star star12"> </div>
-                        <div class="star star13"> </div>
-                        <div class="star star14"> </div>
-                        <div class="star star15"> </div>
-                        <div class="star star16"> </div>
-                        <div class="star star17"> </div>
-                        <div class="star star18"> </div>
-                        <div class="star star19"> </div>
-                        <div class="star star20"> </div>
-                        <div class="star star21"> </div>
-                        <div class="star star22"> </div>
-                        <div class="star star23"> </div>
-                        <div class="star star24"> </div>
-                        <div class="star star25"> </div>
-                        <div class="star star26"> </div>
+                <div class="stars">
+
+                    <div class="star star11"> </div>
+                    <div class="star star12"> </div>
+                    <div class="star star13"> </div>
+                    <div class="star star14"> </div>
+                    <div class="star star15"> </div>
+                    <div class="star star16"> </div>
+                    <div class="star star17"> </div>
+                    <div class="star star18"> </div>
+                    <div class="star star19"> </div>
+                    <div class="star star20"> </div>
+                    <div class="star star21"> </div>
+                    <div class="star star22"> </div>
+                    <div class="star star23"> </div>
+                    <div class="star star24"> </div>
+                    <div class="star star25"> </div>
+                    <div class="star star26"> </div>
                 </div>
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
             </div>
 
 
 
-            
+
             <div class="content content1 d-flex flex-column my-auto" id="content1">
-            <a href="./homepage.php">
-            <div class="close"><img src="./img/self/n/close.png" alt=""></div>
-            </a>
+                <a href="./homepage.php">
+                    <div class="close"><img src="./img/self/n/close.png" alt=""></div>
+                </a>
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">
@@ -172,34 +174,44 @@ $pageName = '忘記密碼'; // 頁面名稱
             //     return;
             // }
             // console.log('email',$('#email').val());
-            $.post('./nap_api/emailcatch-api.php', {
-                    email: $('#email').val()
-                })
-                .done(function(res) {
-                    console.log('res');
-                })
-
-
 
             $.post(
-                './nap_api/forget-api.php',
-                $(document.form1).serialize(),
-                function(data) {
-                    if (data.success) {
-                        // location.href = './forget_back.php';
-                    } else {
+                    './nap_api/forget-api.php',
+                    $(document.form1).serialize(),
+                    function(data) {
+                        if (data.success) {
+                            // location.href = './forget_back.php';
+                            $.post('./nap_api/emailcatch-api.php', {
+                                    email: $('#email').val()
+                                }, function() {
+                                    // console.log('res');
+                                    $.post('../forget_email.php', {
+                                        email: $('#email').val()
+                                    });
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: '已發送重設信件',
+                                        text: "快去信箱收信吧！信件可能會稍微延遲，請耐心等候..._〆(°▽°*)",
+                                        showConfirmButton: false,
+                                        timer: 3000,
 
+                                    });
+                                });
+                            }
+                            
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: '你的信箱還沒註冊過喔！',
+                            text: "N.A.P. 期待你的加入！！",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            // console.log('get----email');
+                        });
                     }
                 },
                 'json'
-            );
-
-            $.post('forget_email.php', {
-                    email: $('#email').val()
-                })
-                .done(function(res) {
-                    console.log('get----email');
-                })
+        );
 
         }
 

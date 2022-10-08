@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/parts/connect_db.php';
 
-$pageName = '訂房訂單明細'; // 頁面名稱
+$pageName = '活動訂單明細'; // 頁面名稱
 
 //確認會員登入
 if (empty($_SESSION['user'])) {
@@ -15,39 +15,34 @@ date_default_timezone_set("Asia/Taipei");
 //訂單亂碼 https://www.twblogs.net/a/5baa90e82b7177781a0e4a82
 $yCode = array('E', 'R');
 
-$orderSn = $yCode[1] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
+$orderSn = $yCode[0] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
 
 
 //判斷狀態陣列
 $payArray = ['信用卡', 'ATM 轉帳'];
 $statusArray = ['已付款', '尚未付款'];
+$enrollArray = ['已完成', '名額保留'];
 
 $paydate  = date('Y-m-d', strtotime('+2 days'));
 
-$room_order_origin_price = $_SESSION['rm-total']['total'];
-$room_order_price = $_SESSION['rm-total']['discount_tol'];
-$room_order_note = $_SESSION['rm-note']['content'];
-$room_order_deposit = $_SESSION['rm-total']['deposit'];
-$check_in = $_SESSION['order_day1'];
-$check_out = $_SESSION['order_day2'];
+$event_order_origin_price = $_SESSION['evt-total']['total'];
+$event_order_price = $_SESSION['evt-total']['discount_tol'];
+$event_order_note = $_SESSION['evt-note']['content'];
+$event_order_id = $orderSn;
 
-$room_order_id = $orderSn;
-
-$order_sql = sprintf("INSERT INTO `room_order`( 
+$order_sql = sprintf("INSERT INTO `event_order`( 
     `member_sid`,  /*int*/
     `coupon_sid`,  /*int*/
-    `room_order_origin_price`,  /*chr*/
-    `room_order_price`, /*chr*/
-    `room_order_deposit`, /*chr*/
-    `room_order_note`, /*chr*/
-    `room_order_id`, /*chr*/
+    `event_order_origin_price`,  /*chr*/
+    `event_order_price`, /*chr*/
+    `event_order_note`, /*chr*/
+    `event_order_id`, /*chr*/
     `order_status`, /*int*/
     `payment_way`, /*int*/
-    `check_in`, /*chr*/
-    `check_out`, /*chr*/
+    `enroll-status`, /*int*/
     `payment_deadline`, 
-    `create_at`
-    ) VALUES (%s, %s, $room_order_origin_price, $room_order_price,'$room_order_deposit','$room_order_note', '$room_order_id', %s, %s,'$check_in', '$check_out', '$paydate', Now())", $_SESSION['user']['id'], $_SESSION['rm-coupon']['sid'], '1', '1');
+    `created_at`
+    ) VALUES (%s, %s, $event_order_origin_price, $event_order_price, '$event_order_note', '$event_order_id', %s, %s, %s, '$paydate', Now())", $_SESSION['user']['id'], $_SESSION['evt-coupon']['sid'], '1', '1', '1');
 
 
 $stmt = $pdo->prepare($order_sql);
@@ -60,41 +55,69 @@ $stmt->execute();
 // ]);
 
 
-$rm_order_sid = $pdo->lastInsertId(); // 訂單編號(room_order的sid)
+$evt_order_sid = $pdo->lastInsertId(); // 訂單編號(event_order的sid)
 
 // 訂單明細
-$order_d_sql = "INSERT INTO `room_order_detail`(`room_order_sid`, `room_sid`,`room_quantity`, `stay_night`) VALUES (?, ?, ?, ?)";
+$order_d_sql = "INSERT INTO `event_order_detail`(`event_order_sid`, `event_sid`,`quantity`) VALUES (?, ?, ?)";
 $stmt = $pdo->prepare($order_d_sql);
 
-foreach ($_SESSION['room_order'] as $key => $value) {
+foreach ($_SESSION['event-cart'] as $key => $value) {
     $stmt->execute([
-        $rm_order_sid,
+        $evt_order_sid,
         $value['sid'],
-        $value['num'],
-        $_SESSION['days'],
+        $value['qty'],
     ]);
 }
 
 //變更優惠券狀態
-$coupon_sid = $_SESSION['rm-coupon']['sid'];
+$coupon_sid = $_SESSION['evt-coupon']['sid'];
 $order_c_sql ="UPDATE `coupon` SET `coupon_status`='1' WHERE `sid`='$coupon_sid'";
 $stmt = $pdo->prepare($order_c_sql);
 $stmt->execute();
 
 
 // 訂單資料進入db後清除session中購物車內容
-unset($_SESSION['room_order'], $_SESSION['rm-note'], $_SESSION['rm-total'], $_SESSION['rm-coupon'], $_SESSION['total_num'], $_SESSION['order_day1'], $_SESSION['order_day2'], $_SESSION['days']);
+unset($_SESSION['event-cart'], $_SESSION['evt-note'], $_SESSION['evt-total'], $_SESSION['evt-coupon']);
 
 $member_id = $_SESSION['user']['id'];
 
-$sql = "SELECT * FROM `room_order`
-LEFT JOIN coupon on coupon.sid = room_order.coupon_sid
-LEFT JOIN room_order_detail on room_order_detail.room_order_sid = room_order.sid
-INNER JOIN room_info on room_info.sid = room_order_detail.room_sid
-WHERE `room_order_sid`=$rm_order_sid";
+$sql = "SELECT * FROM `event_order`
+LEFT JOIN coupon on coupon.sid = event_order.coupon_sid
+INNER JOIN event_order_detail on event_order_detail.event_order_sid = event_order.sid
+INNER JOIN event_detail on event_detail.sid = event_order_detail.event_sid
+WHERE `event_order_sid`=$evt_order_sid";
 
 
 $rows = $pdo->query($sql)->fetchAll();
+
+// foreach($rows as $r)
+// {
+//     echo $r['event_order_sid'];
+//     echo '<br>';
+// }
+
+
+// $evt_name = $rows['event_name'];
+// $evt_date = $rows['event_date'];
+// $evt_qty = $rows['quantity'];
+
+
+
+// 設定收件者
+// 待以真實 user email 測試
+// $to = "chiyin0209@gmail.com";
+$to = "chiyin0209@yahoo.com";
+
+// 設定郵件主旨
+$subject = "謝謝您對 N.A.P. 的支持，已收到您的訂單！";
+$subject = "=?utf-8?B?" . base64_encode($subject) . "?=";
+
+//設定郵件標頭資訊
+$headers  = "MIME-Version: 1.0" . PHP_EOL;
+$headers .= "Content-type: text/html; charset=utf-8" . PHP_EOL;
+$headers .= "To: chiyin0209@yahoo.com" . PHP_EOL;
+$headers .= "From: N.A.P.<nap.service2022@gmail.com>" . PHP_EOL;
+
 
 // 設定郵件內容
 foreach ($rows as $r) {
@@ -134,7 +157,7 @@ $message = '
                                                         訂單編號
                                                     </td>
                                                     <td width="77%">';
-                                                        $message .= $r['room_order_id'];
+                                                        $message .= $r['event_order_id'];
                                                         $message .= '
                                                     </td>
                                                 </tr>
@@ -143,7 +166,7 @@ $message = '
                                                         訂購日期
                                                     </td>
                                                     <td width="77%">';
-                                                        $message .= $r['create_at'];
+                                                        $message .= $r['created_at'];
                                                         $message .= '
                                                     </td>
                                                 </tr>
@@ -174,19 +197,18 @@ $message = '
                                                 </tr>
                                                 <tr>
                                                     <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        訂單總額
+                                                        報名狀態
                                                     </td>
-                                                    <td width="77%">NT$ ';
-                                                        $message .= $r['room_order_price'];
-                                                        $message .= '
+                                                    <td width="77%">
+                                                        名額保留
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td width="23%" align="center" valign="top" style="background-color:#E8E7D1;">
-                                                        訂金總額
+                                                        訂單總額
                                                     </td>
                                                     <td width="77%">NT$ ';
-                                                        $message .= $r['room_order_deposit'];
+                                                        $message .= $r['event_order_price'];
                                                         $message .= '
                                                     </td>
                                                 </tr>
@@ -247,72 +269,11 @@ $message = '
 ';
 }
 
-// 設定收件者
-$to = $_SESSION['user']['email'];
+// 傳送郵件
+mail($to, $subject, $message, $headers);
 
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
-$mail_key2 = '';
 
-// @include __DIR__ . '/../keys.php';
-include __DIR__ . '/../keys.php';
-
-// echo $mail_key2;
-
-//Load Composer's autoloader
-require __DIR__ . '/../vendor/autoload.php';
-
-//Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
-
-try {
-    $mail->Encoding = 'base64';
-    $mail->CharSet = 'UTF-8';
-    //Server settings
-    // $mail->SMTPDebug = 3;                      //Enable verbose debug output
-    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'nap.service2022@gmail.com';                     //SMTP username
-    $mail->Password   =  $mail_key2;                               //SMTP password
-    $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
-    $mail ->SMTPOptions = array (
-        'ssl' => array (
-            'verify_peer' => false ,
-            'verify_peer_name' => false ,
-            'allow_self_signed' => true
-            )
-        );
-    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-    //Recipients
-    $mail->setFrom('nap.service2022@gmail.com', 'N.A.P.');
-    $mail->addAddress($to);     //Add a recipient
-    // $mail->addAddress('ellen@example.com');               //Name is optional
-    // $mail->addReplyTo('info@example.com', 'Information');
-    // $mail->addCC('cc@example.com');
-    // $mail->addBCC('bcc@example.com');
-
-    //Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = '謝謝您對 N.A.P. 的支持，已收到您的訂單！';
-    $mail->Body    = $message;
-
-    $mail->send();
-    // echo 'Message has been sent';
-} catch (Exception $e) {
-    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -325,7 +286,7 @@ try {
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/room-cart-final-step-atm.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/event-cart-final-step-atm.css">
 
 
 <div class="all-container">
@@ -350,7 +311,7 @@ try {
         <!------- 查看其他訂單按鈕 ------->
         <div class="other-btn">
             <div class="check-order-btn">
-                <a class="napBtn_fixed_filled" href="#">
+                <a class="napBtn_fixed_filled" href="list.php">
                     <span>查看歷史訂單</span>
                 </a>
             </div>
@@ -395,33 +356,28 @@ try {
                 <?php foreach ($rows as $r) : ?>
 
                     <div class="per-cart-item">
-                        <div class="room-img">
-                            <img src="./img/room_img/<?= $r['room_img'] ?>.jpg" alt="">
+                        <div class="event-img">
+                            <img src="./img/events/<?= $r['event_img'] ?>.jpg" alt="<?= $r['event_name'] ?>">
                         </div>
                         <div class="item-list">
-                            <div class="room-name"><?= $r['room_name'] ?></div>
-                            <div class="stay-date"><?= $r['check_in'] ?> - <?= $r['check_out'] ?>(
-                                <span class="night">
-                                    <?= $r['stay_night'] ?>
-                                </span>
-                                晚 )
-                            </div>
-                            <div class="room-night">
-                                <div class="price">NT$ <span class="per_price" data-val="<?= $r['room_price'] ?>"></span></div>
-                                <div class="room-num">
-                                    <p>x<span class="num" data-val="<?= $r['room_quantity'] ?>"></span> 間</p>
-                                </div>
-                                <div class="night-num">
-                                    <p>x<span><?= $r['stay_night'] ?></span> 晚</p>
+                            <div class="event-name"><?= $r['event_name'] ?></div>
+                            <div class="stay-date"><?= $r['event_date'] ?></div>
+                            <div class="price_qty">
+                                <div class="price">NT$<span class="per_price" data-val="<?= $r['event_price'] ?>"></span></div>
+                                <div class="enroll-people">
+                                    <p>x <span class="qty" data-val="<?= $r['quantity'] ?>"></span> 人</p>
                                 </div>
                             </div>
+
                             <div class="item-price">
                                 <p>NT$ <span class="sub-total"></span></p>
                             </div>
-                        </div>
-                    </div>
 
+                        </div>
+
+                    </div>
                 <?php endforeach; ?>
+
                 <div class="final-cart-price">
                     <?php if ($r['coupon_sid'] == null) : ?>
                     <?php else : ?>
@@ -442,24 +398,15 @@ try {
                             <p>NT$ <span id="total-price"></span></p>
                         </div>
                     </div>
-                    <div class="deposit-price">
-                        <div class="deposit-price-text">
-                            <p>應付訂金金額</p>
-                        </div>
-                        <div class="deposit-price-num">
-                            <p>NT$ <span id="deposit-price"></span></p>
-                        </div>
-                    </div>
                 </div>
             </div>
-
             <div class="order-content-bottom">
                 <div class="order-id">
                     <div class="text order-id-text">
                         訂單編號
                     </div>
                     <div class="content order-id-num">
-                        <p><?= $r['room_order_id'] ?></p>
+                        <p><?= $r['event_order_id'] ?></p>
                     </div>
                 </div>
                 <div class="order-date">
@@ -486,20 +433,27 @@ try {
                         <?= $statusArray[1] ?>
                     </div>
                 </div>
+                <div class="enroll-status">
+                    <div class="text enroll-status-text">
+                        報名狀態
+                    </div>
+                    <div class="content enroll-status-result">
+                        <?= $enrollArray[1] ?>
+                    </div>
+                </div>
                 <div class="order-note">
                     <div class="text order-note-text">
                         備註
                     </div>
                     <div class="order-note-content">
                         <p>
-                            <?= $r['room_order_note'] ?>
+                            <?= $r['event_order_note'] ?>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 
@@ -530,24 +484,22 @@ try {
 
             const item_sub = item.find('.sub-total');
             const price = +item_price.attr('data-val');
-            const item_num = item.find('.num');
-            const num = +item_num.attr('data-val');
+            const item_qty = item.find('.qty');
+            const qty = +item_qty.attr('data-val');
             // const discount = item.find('.discount-price');
             // console.log('discount:', discount);
-            // console.log(num);
+            // console.log(qty);
             const discount = $('.discount-price').text();
 
-            item_num.html(num);
+            item_qty.html(qty);
             item_price.html(dollarCommas(price));
-            item_sub.html(dollarCommas(price * num));
-            total += price * num;
+            item_sub.html(dollarCommas(price * qty));
+            total += price * qty;
             discount_tol = total - discount;
-            deposit = discount_tol / 2;
 
 
         });
         $('#total-price').html(dollarCommas(discount_tol));
-        $('#deposit-price').html(dollarCommas(deposit));
 
     };
     updatePrices(); //一進來就要執行一次

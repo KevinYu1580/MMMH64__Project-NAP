@@ -2,7 +2,8 @@
 
 session_start();
 
-unset($_SESSION['user']); // 清除某個 session 變數
+// unset($_SESSION['user']); // 清除某個 session 變數
+session_unset();
 
 $comeFrom = 'login.php';
 if(! empty($_SERVER['HTTP_REFERER'])){

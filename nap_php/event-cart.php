@@ -258,26 +258,43 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
     function removeItem(event) {
         const div = $(event.currentTarget).closest('.per-cart-item');
         const sid = div.attr('data-sid');
-        console.log('div', div);
-
-        $.get(
-            'handle-event-cart.php', {
-                sid
-            },
-            function(data) {
-                console.log(data);
-                showCartCount(data); //總數量
-                // console.log('delete before');
-                div.animate({
-                    right: '800px'
-                }, "fast").fadeOut(100, function() {
-                    div.remove();
-                    updatePrices();
-                    checkDisabled();
-                });
-                // console.log('delete after');
-            },
-            'json');
+        // console.log('div', div);
+        Swal.fire({
+            title: '真的要刪除活動嗎？',
+            text: "N.A.P. 汪喵：可是我在等你 இдஇ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f67557',
+            cancelButtonColor: '#bfbd4a',
+            confirmButtonText: '狠心刪除',
+            cancelButtonText: '我要保留',
+            // reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.get(
+                    'handle-event-cart.php', {
+                        sid
+                    },
+                    function(data) {
+                        // console.log(data);
+                        showCartCount(data); //總數量
+                        // console.log('delete before');
+                        div.animate({
+                            right: '800px'
+                        }, "fast").fadeOut(100, function() {
+                            div.remove();
+                            updatePrices();
+                            checkDisabled();
+                        });
+                        window.location.reload()
+                        // console.log('delete after');
+                    },
+                    'json');
+                    
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                window.location.reload()
+            }
+        })
     };
 
 

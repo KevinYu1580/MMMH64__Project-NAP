@@ -2,10 +2,10 @@
 // require __DIR__ . '/parts/connect_db.php';
 
 
-$pageName = 'Home'; // 頁面名稱
+// $pageName = 'Home'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-
+<title><?= $title ?></title>
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
