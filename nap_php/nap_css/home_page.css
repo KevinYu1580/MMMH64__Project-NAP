@@ -278,7 +278,7 @@ body {
 @media screen and (min-width: 1024px) {
   .home_info .content_wrap {
     background-image: url(../img/self/k/house_pc.svg);
-    padding: 218px 40px 86px 40px;
+    padding: 218px 40px 80px 40px;
   }
 }
 .home_info .napHeadline {
@@ -332,7 +332,7 @@ body {
 .home_info .bot_img {
   position: relative;
 }
-.home_info .bot_img #hand {
+/* .home_info .bot_img #hand {
   width: 100%;
   height: 172px;
   position: absolute;
@@ -350,7 +350,56 @@ body {
     transform: scale(100%);
     bottom: 65%;
   }
+} */
+.home_info .hand_aniWrap {
+  overflow:visible;
+  position: relative;
 }
+.home_info .hand {
+  overflow: hidden;
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  transform: translateY(-68%);
+}
+@media screen and (max-width: 991px){
+  .home_info .hand {
+    transform: translateY(-82%);
+  }
+  
+}
+/* ---left--- */
+.home_info .hand .left{
+  transition: 1.5s cubic-bezier(.21,.76,.44,1);
+  position: absolute;
+  width: 56vw;
+  top: 0;
+  left: 0;
+  transform: rotate(20deg) translateX(-50%);
+}
+/* ---right--- */
+.home_info .hand .right{
+  transition: 1.5s cubic-bezier(.21,.76,.44,1);
+  position: absolute;
+  width: 56vw;
+  top: 0;
+  right: 0;
+  transform: translateY(2%) rotate(-20deg) translateX(50%);
+}
+@media screen and (max-width: 991px){
+  .home_info .hand .left{
+    width: 66vw;
+    transform:  rotate(20deg) translateX(-50%);
+  }
+  /* ---right--- */
+  .home_info .hand .right{
+    width: 66vw;
+    transform: translateY(2%) rotate(-20deg) translateX(50%);
+  }
+}
+
 /* 輪播牆 */
 .carousel-item {
   position: relative;
