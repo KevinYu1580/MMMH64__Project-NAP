@@ -107,6 +107,7 @@ body {
     width: 70%;
     height: 100%;
     object-fit: contain;
+    margin-top:5px;
 }
 
 .like-btn #cover {
@@ -203,6 +204,7 @@ button {
 
 .price {
     font-size: var(--headline_20px);
+    padding-bottom: 30px;
 }
 
 .price h6 {
@@ -358,6 +360,7 @@ button {
 
     .price {
         font-size: var(--headline_32px);
+        padding-bottom: 0px;
     }
 
     .price h6 {

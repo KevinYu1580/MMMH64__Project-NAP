@@ -31,7 +31,7 @@ if (isset($_GET['sid'])) {
 <!-- <link rel="stylesheet" href="./nap_js/bootstrap-4.2.1-dist/css/bootstrap.css"> -->
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/events_detail.css">
+<link rel="stylesheet" href="./nap_css/events_detail.css?version=&lt;?php echo time(); ?&gt;">
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 
@@ -60,7 +60,7 @@ if (isset($_GET['sid'])) {
                         <div class="icon-box">
                             <img src="./img/component/icon/Clock.svg" alt="">
                         </div>
-                        <p><span>活動時間：</span>活動日每日上午 09:00 ~ 下午 16:00</p>
+                        <p><span>活動時間：</span>活動日每日09:00 ~ 16:00</p>
                     </div>
                     <div class="detail-notice d-flex align-items-center">
                         <div class="icon-box ">
@@ -72,7 +72,7 @@ if (isset($_GET['sid'])) {
                         <div class="icon-box">
                             <img src="./img/component/icon/People-1.svg" alt="">
                         </div>
-                        <p>剩餘名額：<span><?= $event['event_remain'] ?></span> / <?= $event['event_quota'] ?></p>
+                        <p>剩餘名額：<a><?= $event['event_remain'] ?></a> / <?= $event['event_quota'] ?></p>
                     </div>
                     <div class="schedule d-md-flex justify-content-md-between">
                         <div class="day1 col-md-5">
