@@ -406,11 +406,16 @@ $pageName = '活動討論區'; // 頁面名稱
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
 
+<<<<<<< Updated upstream
                         // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片
                         if (obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`) {
                             obj.thunmNail = ``;
+=======
+                        // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片(myadmin設定無上傳時為預設圖片)
+                        if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`){
+                            obj.thunmNail = '';
+>>>>>>> Stashed changes
                             obj.picInPost = '';
-
                         }
                     }
 
