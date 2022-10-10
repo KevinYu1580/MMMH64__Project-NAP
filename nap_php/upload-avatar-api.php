@@ -33,6 +33,11 @@ if(empty($ext)){
 $filename = md5($_FILES['avatar']['name']. uniqid()). $ext;
 $output['filename'] = $filename;
 
+// 將上傳檔名即時更新到SESSION，navbar圖像才能及時更新
+$_SESSION['user']['userPic'] = $filename;
+
+
+
 
 // 接收前端傳來的 DataURL 字串
 // $imagestring = trim($_REQUEST["imagestring"]);
@@ -84,7 +89,6 @@ if(!
     move_uploaded_file(
         $_FILES['avatar']['tmp_name'],
         $folder. $filename
-        
     )
 
     

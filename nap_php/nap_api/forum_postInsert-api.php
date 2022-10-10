@@ -6,7 +6,6 @@ require '../parts/connect_db.php';
 $output = [
     'success' => false,
     'error' => '',
-
 ];
 
 $memberId = !empty($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 1;
@@ -41,7 +40,6 @@ tag,
 title,
 content,
 articlePic_id
-
 )
 VALUES 
 (

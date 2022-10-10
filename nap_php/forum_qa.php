@@ -441,7 +441,24 @@ $pageName = '閒聊Q&A'; // 頁面名稱
         let file_data = $('#imgInp').prop('files')[0];
         let form_data = new FormData(document.form_postInsert);
 
-        fetch('./nap_api/forum_postInsert-api.php', {
+        let petSelect = $('input[name = petSelec]:checked').val() ? 1 : 0;
+        let boardSelect = $('input[name = boardSelec]:checked').val() ? 1 : 0;
+        let contentHeadline = $(document.form_postInsert.headline).val() ? 1 : 0;
+        let contentText = $(document.form_postInsert.content).val() ? 1 : 0;
+
+        // 值為0時代表表單是空的
+        let formSum = petSelect + boardSelect + contentHeadline + contentText;
+
+
+        if(formSum != 4){
+            Swal.fire({
+                    icon: 'warning',
+                    title: '請填寫必要欄位!',
+                    timer: 1500,
+                    showConfirmButton: false,
+                })
+        }else {
+            fetch('./nap_api/forum_postInsert-api.php', {
                 method: 'POST',
                 body: form_data,
             }).then(r => r.json())
@@ -451,35 +468,9 @@ $pageName = '閒聊Q&A'; // 頁面名稱
                     title: '已成功發佈',
                     timer: 1500,
                     showConfirmButton: false,
-                }).then(() => window.location.reload())
-
-
+                }).then(() => {window.location.reload()})
             })
-
-        // form_data.append('file', file_data);
-
-        /*
-        $.post(
-            './nap_api/forum_postInsert-api.php',
-            $(document.form_postInsert).serialize(),
-            'json'
-        )
-        $.ajax({
-                url: './nap_api/forum_postInsert-api.php',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,     
-                type: 'post',
-               success: function(data){
-                    console.log(data)
-                }
-        });
-
-
-        alert('成功發出貼文');
-        window.location.reload();
-        */
+        }
     }
     // ----------上傳圖片功能
 
