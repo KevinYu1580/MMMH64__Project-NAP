@@ -12,7 +12,7 @@ $pageName = '房型介紹 - 單人房呼嚕嚕'; // 頁面名稱
 </head>
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/each_room_single.css">
+<link rel="stylesheet" href="./nap_css/each_room_single.css?version=&lt;?php echo time(); ?&gt;">
 
 
 <!-- 各房型介紹 | each-room -->
