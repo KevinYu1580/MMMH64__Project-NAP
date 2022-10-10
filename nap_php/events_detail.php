@@ -417,6 +417,18 @@ if (isset($_GET['sid'])) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     };
 
+    //判斷detail-notice a人數少於10換色
+    function changeColor() {
+        $(".detail-notice a").each(function(i) {
+            if ($(this).text() < 10) {
+                $(this).css({
+                    color: "#B14F42",
+                });
+            }
+        });
+    };
+    changeColor();
+
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
