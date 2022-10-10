@@ -33,8 +33,8 @@ function changeShowDate(today) {
 		'Dec',
 	];
 
-	const myDate = `${monthOfShortArray[monthOfToday]} / ${yearOfToday}`;
-	const numberDate = `${yearOfToday} / ${monthOfToday + 1} / ${dateOfToday}`;
+	const myDate = `${monthOfShortArray[monthOfToday]}/${yearOfToday}`;
+	const numberDate = `${yearOfToday}/${monthOfToday + 1}/${dateOfToday}`;
 
 	$('.choose-textbox').eq(0).find('h6').text(dateOfToday);
 	$('.choose-textbox').eq(0).find('p').eq(1).text(myDate);
@@ -81,10 +81,10 @@ function changeShowDateTomorrow(tomorrow) {
 		'Dec',
 	];
 
-	const myTomorrow = `${monthOfShortArrayTomorrow[monthOfTomorrow]} / ${yearOfTomorrow}`;
-	const numberDateTomorrow = `${yearOfTomorrow} / ${
+	const myTomorrow = `${monthOfShortArrayTomorrow[monthOfTomorrow]}/${yearOfTomorrow}`;
+	const numberDateTomorrow = `${yearOfTomorrow}/${
 		monthOfTomorrow + 1
-	} / ${dateOfTomorrow}`;
+	}/${dateOfTomorrow}`;
 
 	$('.choose-textbox').eq(1).find('h6').text(dateOfTomorrow);
 	$('.choose-textbox').eq(1).find('p').eq(1).text(myTomorrow);
