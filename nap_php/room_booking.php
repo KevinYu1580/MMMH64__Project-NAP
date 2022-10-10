@@ -185,9 +185,7 @@ $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();
                             <img src="../nap_php/img/nap-intro/roomInfo/quadra-room/quadra-05.jpg" alt="">
                         </div>
                         <div class="card-textbox col-md-8">
-                            <h2><?php $rooms[2]['room_name']
-                                ?></h2>
-
+                            <h2><?= $rooms[2]['room_name'] ?></h2>
                             <div class="room-bed d-flex justify-content-center align-items-center justify-content-md-start">
                                 <div class="icon-imgbox">
                                     <img src="../nap_php/img/component/icon/Bed.svg" alt="">

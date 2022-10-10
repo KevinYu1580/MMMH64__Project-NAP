@@ -72,6 +72,7 @@ body{
     padding: 10px 10.7px;
     border: 2px solid var(--primaryColor_dark);
     background-color: var(--white);
+    white-space: nowrap;
 }
 .default a{
     background-color: var(--primaryColor_dark);

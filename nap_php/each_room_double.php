@@ -12,7 +12,7 @@ $pageName = '房型介紹 - 雙人房皺皺鼻'; // 頁面名稱
 <?php include __DIR__ . '/parts/navbar.php'; ?>
 
 <!-- 加自己的css -->
-<link rel="stylesheet" href="./nap_css/each_room_double.css">
+<link rel="stylesheet" href="./nap_css/each_room_double.css?version=&lt;?php echo time(); ?&gt;">
 
 
 <!-- 各房型介紹 | each-room -->
