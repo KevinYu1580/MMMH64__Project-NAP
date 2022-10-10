@@ -215,6 +215,22 @@ if (isset($_GET['sid'])) {
 
 <script src="./nap_js/event-enroll-data.js?version=&lt;?php echo time(); ?&gt;"></script>
 <script>
+
+//三位數一個逗號
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+
+//一鍵輸入
+    $('.card-deco').click(function(){
+        $('#name').val('Chiyin');
+        $('#mobile').val('0912786616');
+        $('#birthdate').val('1995-02-09');
+        $('#id-num').val('A227890367');
+        $('#inlineRadio1').prop('checked',true);
+    })
+
     function goPay(event) {
         const btn = $(event.currentTarget);
         const qty = getEnrollContentFormNum();

@@ -1,3 +1,8 @@
+//把錢的逗號移除變成字串
+function dollarStr2Num(s) {
+	return +s.split(',').join('');
+}
+
 var amount = 0;
 
 CheckAmount();
@@ -22,34 +27,34 @@ const tpl_func = ({
 				<input type="hidden" class="form-control" id="event_sid_${n}" name="event_sid[]"  value="test----" readonly>
 
 				<label for="name_${n}" class="form-label">姓名</label>
-				<input type="text" class="form-control" id="name_${n}" name="name[]" required>
+				<input type="text" class="form-control" id="name" name="name[]" required>
 			</div>
 			<div class="mb-3">
 				<label for="mobile_${n}" class="form-label">手機</label>
-				<input type="text" class="form-control" id="mobile_${n}" name="mobile[]" maxlength="10" required>
+				<input type="text" class="form-control" id="mobile" name="mobile[]" maxlength="10" required>
 			</div>
 			<div class="mb-3">
 				<label for="birthdate_${n}" class="form-label">生日</label>
-				<input type="date" class="form-control" id="birthdate_${n}" name="birthdate[]" required>
+				<input type="date" class="form-control" id="birthdate" name="birthdate[]" required>
 			</div>
 			<div class="mb-3">
 				<label for="id-num_${n}" class="form-label">身分證字號</label>
-				<input type="text" class="form-control" id="id-num_${n}" name="id-num[]" maxlength="10" required>
+				<input type="text" class="form-control" id="id-num" name="id-num[]" maxlength="10" required>
 			</div>
 			<div class="mb-3">
 				<label for="id-num" class="form-label">飲食習慣</label>
 				<fieldset>
 					<div class="mb-3">
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" id="inlineRadio1_${n}" name="eating_habit[${n}]" value="葷">
+							<input class="form-check-input" type="radio" id="inlineRadio1" name="eating_habit[${n}]" value="葷">
 							<label class="form-check-label" for="inlineRadio1_${n}">葷</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" id="inlineRadio2_${n}" name="eating_habit[${n}]" value="全素">
+							<input class="form-check-input" type="radio" id="inlineRadio2" name="eating_habit[${n}]" value="全素">
 							<label class="form-check-label" for="inlineRadio2_${n}">全素</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" id="inlineRadio3_${n}" name="eating_habit[${n}]" value="奶蛋素">
+							<input class="form-check-input" type="radio" id="inlineRadio3" name="eating_habit[${n}]" value="奶蛋素">
 							<label class="form-check-label" for="inlineRadio3_${n}">奶蛋素</label>
 						</div>
 					</div>
@@ -75,7 +80,7 @@ $(document).ready(function () {
 		var eventPrice = $('.per span').text();
 		var enrollNum = amount;
 		var total = eventPrice * enrollNum;
-		$('.total-price').html(total);
+		$('.total-price').html(dollarCommas(total));
 		$('.enroll-num').html(amount);
 	});
 
@@ -98,7 +103,7 @@ $(document).ready(function () {
 			$('.enroll-num').html(amount);
 		});
 		$('.total-price').html(function (index, oldContent) {
-			$('.total-price').html(total);
+			$('.total-price').html(dollarCommas(total));
 		});
 	});
 
