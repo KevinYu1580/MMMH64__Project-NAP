@@ -2,7 +2,7 @@
 
 //---- nap主機 -----
 
-$db_host = 'localhost';
+$db_host = '127.0.0.1';
 // $db_host = '192.168.33.108';
 $db_user = 'nap';
 $db_pass = '123456789';
