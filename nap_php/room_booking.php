@@ -4,11 +4,11 @@ require __DIR__ . '/parts/connect_db.php';
 $pageName = '訂房'; // 頁面名稱
 
 //刷新頁面就清空SESSION裡的room相關
-unset($_SESSION['room_order']);
-unset($_SESSION['total_num']);
-unset($_SESSION['order_day1']);
-unset($_SESSION['order_day2']);
-unset($_SESSION['days']);
+// unset($_SESSION['room_order']);
+// unset($_SESSION['total_num']);
+// unset($_SESSION['order_day1']);
+// unset($_SESSION['order_day2']);
+// unset($_SESSION['days']);
 
 // 在 MySQL 中取得房間的資料表，並抓取(fetch)全部資料表的欄位
 $rooms = $pdo->query("SELECT * FROM `room_info` ORDER BY `sid`")->fetchAll();

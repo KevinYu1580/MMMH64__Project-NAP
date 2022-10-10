@@ -285,10 +285,10 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                             div.remove();
                             updatePrices();
                             checkDisabled();
-
-                        });
+                            window.location.reload();
+                        })
                         // console.log('delete after');
-                        window.location.reload()
+                        
                     },
                     'json');
             } else if (result.dismiss === Swal.DismissReason.cancel) {

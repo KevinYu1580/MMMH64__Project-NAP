@@ -131,9 +131,9 @@ $pageName = '閒聊Q&A'; // 頁面名稱
         </button>
         <form name="form_postInsert" id='form_postInsert' onsubmit="sendPost();return false" enctype="multipart/form-data">
             <div class="member_info">
-                <div class="member_pic" style="background-image: url(./img/member/profile-image/<?php echo $_SESSION['user']['userPic']?>)"></div>
+                <div class="member_pic" style="background-image: url(./img/member/profile-image/<?php echo $_SESSION['user']['userPic'] ?>)"></div>
                 <div class="member_name">
-                    <span><?php echo $_SESSION['user']['userName']?></span>
+                    <span><?php echo $_SESSION['user']['userName'] ?></span>
                 </div>
             </div>
 
@@ -237,7 +237,7 @@ $pageName = '閒聊Q&A'; // 頁面名稱
             )
             .done((result) => {
                 $('.lightBox_comtCard .comtSection .message_pack').html(result);
-                
+
 
             })
     }))
@@ -390,21 +390,21 @@ $pageName = '閒聊Q&A'; // 頁面名稱
             defaultVals.type = obj.type;
         }
         $.get('./nap_api/forum_selector_qa-api.php', defaultVals, function(data) {
-            
+
             let str = '';
             if (data.rows && data.rows.length) {
                 data.rows.forEach(function(obj) {
                     // 圖片
                     obj.thunmNail = ``;
                     obj.picInPost = '';
-                    if (obj.articlePic_id ) {
-                        
+                    if (obj.articlePic_id) {
+
                         obj.articlePics = obj.articlePic_id.split(',');
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/chat/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/chat/${f}' alt=''>`).join('');
 
                         // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片
-                        if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/chat/paw_defaultBG.svg)" class="card_smPic"></div>`){
+                        if (obj.thunmNail == `<div style="background-image: url(./img/chatchat/chat/paw_defaultBG.svg)" class="card_smPic"></div>`) {
                             obj.thunmNail = ``;
                             obj.picInPost = '';
 
@@ -509,41 +509,65 @@ $pageName = '閒聊Q&A'; // 頁面名稱
 
         const post_sid = $(this).parents('#comtCard').find('#post_sid').html()
         const contentVal = $(this).siblings('.memberInfo_wrap').find('.message_input').val()
-
-        // $(`#form_sendMessage${post_sid}`).serialize()
-        if ($.post(
-                './nap_api/forum_MessageInsert-api.php', {
-                    post_sid: post_sid,
-                    member_sid: '',
-                    message: contentVal
-                }
-            )) {
-            Swal.fire({
-                icon: 'success',
-                title: '留言成功!',
-                timer: 1500,
-                showConfirmButton: false,
-                // 以下為框框消失後執行的功能(可不加)
-            }).then(function() {
-                $('.comtCard_wrap .message_input').val("");
-                $('.sendMessageBtn').css({
-                    'background-color': 'var(--black_400)',
-                    'pointer-events': 'none',
+        const noUser = <?= empty($_SESSION['user']) ? 'true' : 'false' ?>;
+        if (noUser) {
+            loginNotice();
+        } else {
+            // $(`#form_sendMessage${post_sid}`).serialize()
+            if ($.post(
+                    './nap_api/forum_MessageInsert-api.php', {
+                        post_sid: post_sid,
+                        member_sid: '',
+                        message: contentVal
+                    }
+                )) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '留言成功!',
+                    timer: 1500,
+                    showConfirmButton: false,
+                    // 以下為框框消失後執行的功能(可不加)
+                }).then(function() {
+                    $('.comtCard_wrap .message_input').val("");
+                    $('.sendMessageBtn').css({
+                        'background-color': 'var(--black_400)',
+                        'pointer-events': 'none',
+                    })
                 })
-            })
 
+            }
         }
     }))
 
+        // 未登入收藏按鈕提醒
+        function loginNotice() {
+        Swal.fire({
+            title: '尚未登入會員',
+            text: "快帶我去登入，我想要收藏這則貼文(✪ω✪)",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#bfbd4a',
+            cancelButtonColor: '#7C8C38',
+            confirmButtonText: '立馬快速登入',
+            cancelButtonText: '先去註冊會員',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "register.php"
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                window.location.href = "login.php"
+            }
+        })
+    }
     // 按鈕顏色判斷&可點擊
-    $('.comtCard_wrap').on('input', '.message_input',function() {
-        
+    $('.comtCard_wrap').on('input', '.message_input', function() {
+
         let sendBtn = $(this).parents('.memberInfo_wrap').siblings('.sendMessageBtn')
 
         let thisContent = $(this).val()
 
         if (thisContent == null) {
-           sendBtn.css({
+            sendBtn.css({
                 'background-color': 'var(--black_400)',
                 'pointer-events': 'none',
             })
@@ -626,7 +650,6 @@ $pageName = '閒聊Q&A'; // 頁面名稱
                 }
             }, 'json');
     })
-
 </script>
 
 

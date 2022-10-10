@@ -36,6 +36,12 @@ $pageName = '心理測驗'; // 頁面名稱
 
 <audio preload autoplay loop id="vd" src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" allow="autoplay">
 	<h3>遇到不支援的瀏覽器會出現這行字</h3>
+<<<<<<< Updated upstream
+=======
+</audio> -->
+<audio preload autoplay loop id="vd">
+    <source src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" type="audio/mpeg">
+>>>>>>> Stashed changes
 </audio>
 <!-- <audio preload autoplay loop id="vd">
     <source src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" type="audio/mpeg" >

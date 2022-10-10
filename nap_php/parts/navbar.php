@@ -868,7 +868,7 @@
                     <ul class="layer2">
                         <li>
                             <a href="forum_qa.php">
-                                閒聊Q & A
+                                閒聊 Q&A
                             </a>
                         </li>
                         <li>

@@ -285,8 +285,8 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
                             div.remove();
                             updatePrices();
                             checkDisabled();
+                            window.location.reload();
                         });
-                        window.location.reload()
                         // console.log('delete after');
                     },
                     'json');
