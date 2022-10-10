@@ -400,11 +400,11 @@ $pageName = '閒聊Q&A'; // 頁面名稱
                     if (obj.articlePic_id ) {
                         
                         obj.articlePics = obj.articlePic_id.split(',');
-                        obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
-                        obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
+                        obj.thunmNail = `<div style="background-image: url(./img/chatchat/chat/${obj.articlePics[0]})" class="card_smPic"></div>`;
+                        obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/chat/${f}' alt=''>`).join('');
 
                         // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片
-                        if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`){
+                        if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/chat/paw_defaultBG.svg)" class="card_smPic"></div>`){
                             obj.thunmNail = ``;
                             obj.picInPost = '';
 
