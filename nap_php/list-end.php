@@ -9,18 +9,12 @@ $member_id = $_SESSION['user']['id'];
 
 // $sql = "SELECT * FROM `likes` WHERE `member_sid`=1 AND `like_type` = 1";
 // $sql_t = "SELECT * FROM `likes` WHERE `member_sid`= 1";
-$sql = "SELECT * FROM `event_order_detail` 
-LEFT join event_order on event_order.sid = event_order_detail.event_order_sid 
-LEFT join event_detail on event_detail.sid = event_order_detail.event_sid 
-where member_sid=$member_id AND `order_status` = 0 ";
+$sql = "SELECT * FROM `event_order_detail` LEFT join event_order on event_order.sid = event_order_detail.event_order_sid LEFT join event_detail on event_detail.sid = event_order_detail.event_sid where member_sid=$member_id AND `order_status` = 0 ORDER BY `event_order`.`created_at` DESC";
 
 
 $rows = $pdo->query($sql)->fetchAll();
 
-$sql_t = "SELECT * FROM `room_order_detail` 
-LEFT join room_order on room_order.sid = room_order_detail.room_order_sid 
-LEFT join room_info on room_info.sid = room_order_detail.room_sid 
-where member_sid=$member_id AND `order_status` = 0 ";
+$sql_t = "SELECT * FROM `room_order_detail` LEFT join room_order on room_order.sid = room_order_detail.room_order_sid LEFT join room_info on room_info.sid = room_order_detail.room_sid where member_sid=$member_id AND `order_status` = 0 ORDER BY `room_order`.`create_at` DESC";
 
 
 $rowsA = $pdo->query($sql_t)->fetchAll();
@@ -135,7 +129,7 @@ $pageName = '會員中心'; // 頁面名稱
                     <div class="text d-flex justify-content-between ">
                         <h3><?= $r['event_order_id'] ?></h3>
                         <h3><?= $r['created_at'] ?></h3>
-                        <h3><?= $statusArray[$r['payment_way']] ?></h3>
+                        <h3><?= $payArray[$r['payment_way']] ?></h3>
                         <h3 class="h3-sm pricered">NT$ <?= $r['event_order_price'] ?></h3>
                         <h3 class="h3-sm"><?= $statusArray[$r['order_status']] ?></h3>
                         <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?= $r['event_order_sid'] ?>" aria-expanded="false" aria-controls="collapseExample">
@@ -167,7 +161,7 @@ $pageName = '會員中心'; // 頁面名稱
                     <div class="text d-flex justify-content-between ">
                         <h3><?= $n['room_order_id'] ?></h3>
                         <h3><?= $n['create_at'] ?> </h3>
-                        <h3><?= $statusArray[$r['payment_way']] ?></h3>
+                        <h3><?= $payArray[$r['payment_way']] ?></h3>
                         <h3 class="h3-sm pricered">NT$ <?= $n['room_order_deposit'] ?></h3>
                         <h3 class="h3-sm"><?= $statusArray[$n['order_status']] ?></h3>
                         <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?= $n['room_order_sid'] ?>" aria-expanded="false" aria-controls="collapseExample">
@@ -213,7 +207,7 @@ $pageName = '會員中心'; // 頁面名稱
                     </tr>
                     <tr>
                         <td>付款方式</td>
-                        <td><?= $statusArray[$r['payment_way']] ?></td>
+                        <td><?= $payArray[$r['payment_way']] ?></td>
                     </tr>
                     <tr>
                         <td>金額</td>
@@ -261,7 +255,7 @@ $pageName = '會員中心'; // 頁面名稱
                     </tr>
                     <tr>
                         <td>付款方式</td>
-                        <td><?= $statusArray[$r['payment_way']] ?></td>
+                        <td><?= $payArray[$r['payment_way']] ?></td>
                     </tr>
                     <tr>
                         <td>金額</td>

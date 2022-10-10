@@ -19,6 +19,7 @@ $pageName = '心理測驗'; // 頁面名稱
 <!-- bootstrap擇一使用 -->
 <link rel="stylesheet" href="./nap_js/bootstrap-5.1.1-dist/css/bootstrap.css">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 </head>
 
@@ -29,16 +30,23 @@ $pageName = '心理測驗'; // 頁面名稱
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="./nap_css/game7.css?version=&lt;?php echo time(); ?&gt;">
+<link rel="stylesheet" href="./nap_css/game9.css?version=&lt;?php echo time(); ?&gt;">
 
 <title><?= $title ?></title>
 
-<!-- <audio src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" controls allow="autoplay">
+<audio preload autoplay loop id="vd" src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" allow="autoplay">
 	<h3>遇到不支援的瀏覽器會出現這行字</h3>
-</audio> -->
-<audio preload autoplay loop id="vd">
-    <!-- <source src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" type="audio/mpeg"> -->
 </audio>
+<!-- <audio preload autoplay loop id="vd">
+    <source src="./img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3" type="audio/mpeg" >
+</audio> -->
+
+<div class="music">
+    <i class="fa-solid fa-volume-off"></i>
+    <i class="fa-solid fa-volume-high"></i>
+</div>
+
+
 
 <div class="start ">
     <div class="title">
@@ -52,6 +60,9 @@ $pageName = '心理測驗'; // 頁面名稱
     </div>
 </div>
 <!-- ----------------------------->
+
+
+
 
 <div class="wrap ">
     <div class="pic">
@@ -355,6 +366,26 @@ $pageName = '心理測驗'; // 頁面名稱
     }
 </script>
 <script>
+
+$('.music .fa-volume-off').click(function(s) {
+    
+        $('.fa-volume-off').css('display', 'none');
+        $('.fa-volume-high').css('display', 'block');
+        $('audio').attr('src', './img/self/n/game/Ziv Grinberg - I Dont Get the Lesson.mp3');
+        
+
+    })
+
+    $('.music .fa-volume-high').click(function(s) {
+        $('.fa-volume-high').css('display', 'none');
+        $('.fa-volume-off').css('display', 'block');
+        $('audio').attr('src', '123');
+    
+
+    })
+
+
+
     const msgc = $('#msgContainer1');
     const msgc1 = $('.bg');
 
@@ -419,6 +450,7 @@ $pageName = '心理測驗'; // 頁面名稱
         }
     }
 
+    
 
 
     $('.start h4').click(function(s) {

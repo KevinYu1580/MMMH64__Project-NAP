@@ -7,18 +7,12 @@ if (empty($_SESSION['user'])) {
 }
 $member_id = $_SESSION['user']['id'];
 
-$sql = "SELECT * FROM `event_order_detail` 
-LEFT join event_order on event_order.sid = event_order_detail.event_order_sid 
-LEFT join event_detail on event_detail.sid = event_order_detail.event_sid 
-where member_sid=$member_id AND `order_status` = 1";
+$sql = "SELECT * FROM `event_order_detail` LEFT join event_order on event_order.sid = event_order_detail.event_order_sid LEFT join event_detail on event_detail.sid = event_order_detail.event_sid where member_sid=$member_id AND `order_status` = 1 ORDER BY `event_order`.`created_at` DESC";
 
 
 $rows = $pdo->query($sql)->fetchAll();
 
-$sql_t = "SELECT * FROM `room_order_detail` 
-LEFT join room_order on room_order.sid = room_order_detail.room_order_sid 
-LEFT join room_info on room_info.sid = room_order_detail.room_sid 
-where member_sid=1 AND `order_status` = $member_id AND `payment_way` = 1";
+$sql_t = "SELECT * FROM `room_order_detail` LEFT join room_order on room_order.sid = room_order_detail.room_order_sid LEFT join room_info on room_info.sid = room_order_detail.room_sid where member_sid=$member_id AND `order_status` = 1 AND `payment_way` = 1 ORDER BY `room_order`.`create_at` DESC";
 
 
 $rowsA = $pdo->query($sql_t)->fetchAll();
