@@ -406,15 +406,9 @@ $pageName = '活動討論區'; // 頁面名稱
                         obj.thunmNail = `<div style="background-image: url(./img/chatchat/event/${obj.articlePics[0]})" class="card_smPic"></div>`;
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
 
-<<<<<<< Updated upstream
-                        // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片
-                        if (obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`) {
-                            obj.thunmNail = ``;
-=======
                         // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片(myadmin設定無上傳時為預設圖片)
                         if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`){
                             obj.thunmNail = '';
->>>>>>> Stashed changes
                             obj.picInPost = '';
                         }
                     }
@@ -449,7 +443,24 @@ $pageName = '活動討論區'; // 頁面名稱
         let file_data = $('#imgInp').prop('files')[0];
         let form_data = new FormData(document.form_postInsert);
 
-        fetch('./nap_api/forum_postInsert-api.php', {
+        let petSelect = $('input[name = petSelec]:checked').val() ? 1 : 0;
+        let boardSelect = $('input[name = boardSelec]:checked').val() ? 1 : 0;
+        let contentHeadline = $(document.form_postInsert.headline).val() ? 1 : 0;
+        let contentText = $(document.form_postInsert.content).val() ? 1 : 0;
+
+        // 值為0時代表表單是空的
+        let formSum = petSelect + boardSelect + contentHeadline + contentText;
+
+
+        if(formSum != 4){
+            Swal.fire({
+                    icon: 'warning',
+                    title: '請填寫必要欄位!',
+                    timer: 1500,
+                    showConfirmButton: false,
+                })
+        }else {
+            fetch('./nap_api/forum_postInsert-api.php', {
                 method: 'POST',
                 body: form_data,
             }).then(r => r.json())
@@ -459,12 +470,11 @@ $pageName = '活動討論區'; // 頁面名稱
                     title: '已成功發佈',
                     timer: 1500,
                     showConfirmButton: false,
-                }).then(() => window.location.reload())
-
-
+                }).then(() => {window.location.reload()})
             })
-
+        }
     }
+    
     // ----------上傳圖片功能
 
     // ------發文光箱  
