@@ -837,7 +837,7 @@
 
             <ul class="menu_link">
                 <li>
-                    <a href="homepage.php">首頁<span>Home Page</span></a>
+                    <a href="homepage.php#pageAnchor">首頁<span>Home Page</span></a>
                 </li>
                 <li>
                     園區介紹 <span>Field Info</span>
