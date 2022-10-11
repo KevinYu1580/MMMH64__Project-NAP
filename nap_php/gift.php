@@ -12,7 +12,7 @@ $sql = "SELECT * FROM `coupon` WHERE `member_sid`=$member_id AND `coupon_status`
 
 $rows = $pdo->query($sql)->fetchAll();
 
-$stateArray = ['可用', '已過期', '已使用'];
+$stateArray = ['可用', '已使用', '已過期'];
 
 ?>
 
