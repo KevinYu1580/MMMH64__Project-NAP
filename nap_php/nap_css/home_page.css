@@ -1000,6 +1000,7 @@ body {
   width: 50vw;
   max-width: 288px;
   margin: auto;
+  cursor: pointer;
 }
 @media screen and (min-width: 1024px){
     .napBtn_fixed_filled{
