@@ -7,7 +7,7 @@ if (!empty($_SESSION['user'])) {
 }
 
 require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
+$pageName = '註冊'; // 頁面名稱
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
@@ -20,7 +20,7 @@ $pageName = 'home'; // 頁面名稱
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <link rel="stylesheet" href="./nap_css/register.css?version=&lt;?php echo time(); ?&gt;">
 
-<title><?= $title ?></title>
+<title><?= 'N.A.P. | ' . $pageName ?></title>
 </head>
 
 <body>
