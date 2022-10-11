@@ -1237,6 +1237,7 @@ p.ft-card-p-mb {
 
 .join-btn:hover {
     background-color: var(--primaryColor_light);
+    transition: 0.3s;
 }
 
 
