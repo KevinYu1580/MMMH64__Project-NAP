@@ -29,11 +29,11 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
 <div class="mobile-backpage">
     <a href="event-cart.php">
-    <svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
-    </svg>
+        <svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8787 0.87868C19.0503 -0.292893 20.9497 -0.292893 22.1213 0.87868L39.1213 17.8787C40.2929 19.0503 40.2929 20.9497 39.1213 22.1213C37.9497 23.2929 36.0502 23.2929 34.8787 22.1213L20 7.24264L5.12132 22.1213C3.94975 23.2929 2.05025 23.2929 0.87868 22.1213C-0.292893 20.9497 -0.292893 19.0503 0.87868 17.8787L17.8787 0.87868Z" fill="#FFFFFF" />
+        </svg>
     </a>
-    
+
     <a href="event-cart.php">信用卡付款</a>
 </div>
 <div class="outer-container">
@@ -212,11 +212,11 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
     //輸入卡號的時候當數字等於4跳下一格
     $('.input-cart-number').on('keyup change', function() {
-        if ($(this).val().length == 4) {
-            $(this).next().focus();
-        } else if ($(this).val().length == 0) {
-            $(this).prev().focus();
-        }
+        // if ($(this).val().length == 4) {
+        //     $(this).next().focus();
+        // } else if ($(this).val().length == 0) {
+        //     $(this).prev().focus();
+        // }
         //輸入卡號同步顯示
         var card_number = '';
         $('.input-cart-number').each(function() {
@@ -251,6 +251,27 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
     }).on('keyup change', function() {
         $('.cvv div').html($(this).val());
     });
+
+
+
+    $(document).ready(function() {
+        $("#card-number").keydown(function() {
+            $("#card-number").val("3214");
+        });
+        $("#card-number-1").keydown(function() {
+            $("#card-number-1").val("0000");
+        });
+        $("#card-number-2").keydown(function() {
+            $("#card-number-2").val("5211");
+        });
+        $("#card-number-3").keydown(function() {
+            $("#card-number-3").val("0889");
+        });
+    });
+
+
+
+
 
 
     function updatePrices() {
