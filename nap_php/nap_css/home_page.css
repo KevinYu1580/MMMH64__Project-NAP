@@ -271,13 +271,6 @@ body {
   }
 }
 /* pageAnchor(外頁連結進來後的錨點) */
-#pageAnchor{
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  top: -100vh;
-  left: 0;
-}
 .home_info .content_wrap {
   padding: 86px 40px 34px 40px;
   background-image: url(../img/self/k/house_mobile.svg);
@@ -1163,7 +1156,8 @@ body {
 }
 @media screen and (max-width: 991px){
   .gameLink {
-    display: none;
+    bottom: 4%;
+    width: 66px;
   }
 }
 .gameLink img{

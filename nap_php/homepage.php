@@ -59,7 +59,6 @@
 </div>
 
 <div class="home_info">
-    <div id="pageAnchor"></div>
     <div class="content_wrap">
         <div class="story_wrap text-center">
             <div class="napHeadline ">
@@ -333,7 +332,7 @@
             我們應該彼此互相理解、認同，因為動物的存在從不該建立在自身的利益上！
         </p>
     </div>
-    <a class="napBtn_fixed_filled" href="register.php">
+    <a class="napBtn_fixed_filled" href="register.php" onclick=loginCheck()>
         <span>加入會員 Join Us!</span>
     </a>
 
@@ -412,5 +411,17 @@
 <script src="./nap_js/component.js?version=&lt;?php echo time(); ?&gt;"></script>
 <script src="./nap_js/home_page.js"></script>
 <!-- 自己的js放在這 -->
+<script>
+
+function loginCheck(){
+    if($_SESSION['user']){
+        
+    }
+}
+
+
+</script>
+
+
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
