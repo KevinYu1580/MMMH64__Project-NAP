@@ -315,6 +315,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             },
             'json');
     };
+    
 
     function updatePrices() {
         let total = 0; //總價

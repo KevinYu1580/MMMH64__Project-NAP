@@ -299,6 +299,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
     //如果人數有改變，更新數量
     function updateItem(event) {
+        
         const sid = $(event.currentTarget).closest('.per-cart-item').attr('data-sid');
         const num = $(event.currentTarget).val();
         $.get(
@@ -314,9 +315,11 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             },
             'json');
     };
+    
 
     function updatePrices() {
         let total = 0; //總價
+        let deposit = 0;
         $('.per-cart-item').each(function() {
             const item = $(this);
             const item_price = item.find('.per_price'); //單價
@@ -343,13 +346,15 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
     };
     updatePrices(); //一進來就要執行一次
-    checkDisabled();
+    
 
     function checkDisabled() {
         const itemNum = $('.per-cart-item').length;
-        // console.log(itemNum);
+        
+        
         if (itemNum < 1) {
             // 判斷數量，去顯示disable狀態
+            
 
             $('.step-rate').hide();
             $('.final-cart-price').hide();
@@ -357,7 +362,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             $('.form-control, .form-select').attr('disabled', true);
         }
     }
-
+    checkDisabled();
     function goATM() {
         // console.log('special-need:', $('#special-need').val());
         $.post('handle-room-cart-note.php', {
