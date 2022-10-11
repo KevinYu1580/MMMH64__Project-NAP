@@ -557,15 +557,15 @@ $pageName = '閒聊Q&A'; // 頁面名稱
 
         let thisContent = $(this).val()
 
-        if (thisContent == null) {
-            sendBtn.css({
-                'background-color': 'var(--black_400)',
-                'pointer-events': 'none',
-            })
-        } else {
+        if (thisContent) {
             sendBtn.css({
                 'background-color': 'var(--primaryColor_default)',
                 'pointer-events': 'auto',
+            })
+        } else {
+            sendBtn.css({
+                'background-color': 'var(--black_400)',
+                'pointer-events': 'none',
             })
         }
     })

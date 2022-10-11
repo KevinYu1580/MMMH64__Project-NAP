@@ -1,14 +1,28 @@
 // 關閉光箱
-$('.close_lightBox').click(function(e){
-    e.stopPropagation()
+// $('.comtCard_wrap').on('click', 'close_lightBox' (function(e){
+//     // comtCard_wrap   close_lightBox
+//     e.stopPropagation()
 
-    $('.lightBox_post').hide();
+//     // $(this),parents('.lightBox_comtCard').hide();
+//     console.log(888)
+//     $('.lightBox_comtCard_mask').css({
+//         'pointer-events': 'none',
+//         'opacity':'0',
+//     })
+//     document.body.style.overflow='visible';
+// }));
+$('.comtCard_wrap').on('click', '.close_lightBox', function(e){
+    e.stopPropagation()
+    
+     $(this).parents('.lightBox_comtCard').hide();
+
     $('.lightBox_comtCard_mask').css({
         'pointer-events': 'none',
-        'opacity':'0',
+        'display':'none',
     })
     document.body.style.overflow='visible';
-});
+
+})
 
 
 

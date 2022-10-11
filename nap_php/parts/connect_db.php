@@ -2,8 +2,8 @@
 
 //---- nap主機 -----
 
-$db_host = '127.0.0.1';
-// $db_host = '192.168.33.108';
+// $db_host = '127.0.0.1';
+$db_host = '192.168.33.108';
 $db_user = 'nap';
 $db_pass = '123456789';
 $db_name = 'new_nap';
@@ -13,10 +13,10 @@ $db_name = 'new_nap';
 
 //---- chiyin DB -----
 
-$db_host = 'localhost';
-$db_name = 'new_nap';
-$db_user = 'chiyin_niyihc';
-$db_pass = 'Admin_chiyin0209';
+// $db_host = 'localhost';
+// $db_name = 'new_nap';
+// $db_user = 'chiyin_niyihc';
+// $db_pass = 'Admin_chiyin0209';
 
 
 

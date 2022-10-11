@@ -57,7 +57,9 @@
         </div>
     </div>
 </div>
+
 <div class="home_info">
+    <div id="pageAnchor"></div>
     <div class="content_wrap">
         <div class="story_wrap text-center">
             <div class="napHeadline ">

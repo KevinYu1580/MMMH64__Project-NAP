@@ -804,7 +804,7 @@
 
 <body>
     <div class="topNav_mobile">
-        <a class="logo" href="homepage.php">
+        <a class="logo" href="homepage.php#pageAnchor">
             <img class='mb' src="./img/component/logo/logo-1.svg" alt="">
             <img class='pc' src="./img/component/logo/logo-2.svg" alt="">
         </a>

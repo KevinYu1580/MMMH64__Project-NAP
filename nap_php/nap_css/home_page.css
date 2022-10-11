@@ -257,9 +257,11 @@ body {
   transform: translateX(-137px);
 }
 
+
 /* ------first page ------ */
 /* content wrap */
 .home_info {
+  position: relative;
   padding-top: 68px;
   background-color: var(--subColor_bgc);
 }
@@ -267,6 +269,14 @@ body {
   .home_info {
     margin-top: 500vh;
   }
+}
+/* pageAnchor(外頁連結進來後的錨點) */
+#pageAnchor{
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: -100vh;
+  left: 0;
 }
 .home_info .content_wrap {
   padding: 86px 40px 34px 40px;
