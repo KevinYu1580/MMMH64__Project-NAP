@@ -99,7 +99,7 @@ if (isset($_GET['sid'])) {
                     <div class="price-joinbtn d-md-flex justify-content-md-between">
                         <div class="price d-flex justify-content-center align-items-center">
                             <p>NT$
-                            <h6><?= $event['event_price'] ?></h6> / 人</p>
+                            <h6><?= number_format($event['event_price']) ?></h6> / 人</p>
                         </div>
                         <div class="join-btn">
                             <a href="enroll-event-notice.php?sid=<?= $event['sid'] ?>">手刀報名 GO</a>
