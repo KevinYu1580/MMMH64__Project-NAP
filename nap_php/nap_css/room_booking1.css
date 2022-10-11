@@ -370,7 +370,7 @@ li.select-li{
     font-weight: 600;
     padding-bottom: 20px;
 }
-.room-bed, .room-limit{
+.room-bed , .room-limit{
     margin-bottom: 10px;
 }
 .icon-imgbox{
@@ -504,7 +504,7 @@ input{
     }
     .card-textbox p{
         font-size: var(--headline_20px);
-        padding-bottom: 10px;
+        /* padding-bottom: 10px; */
     }
 }
 
