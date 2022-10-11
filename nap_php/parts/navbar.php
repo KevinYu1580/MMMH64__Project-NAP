@@ -796,7 +796,7 @@
 <link rel="stylesheet" href="./nap_css/reset.css">
 <script src="./nap_js/jquery-3.6.0.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
+<!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
 
 
 <title><?= 'N.A.P. | ' . $pageName ?></title>

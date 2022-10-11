@@ -341,7 +341,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
 
     function checkDisabled() {
         const itemNum = $('.per-cart-item').length;
-        console.log(itemNum);
+        // console.log('item:',itemNum);
         if (itemNum < 1) {
             // 判斷數量，去顯示disable狀態
 
@@ -351,6 +351,7 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             $('.form-control, .form-select').attr('disabled', true);
         }
     }
+    
 
     function goATM() {
         // console.log('special-need:', $('#special-need').val());
