@@ -382,6 +382,12 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             });
         });
     }
+
+    //一鍵輸入
+    $('.pay-way').click(function(){
+        $('#special-need').val('花生堅果過敏');
+    })
+
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

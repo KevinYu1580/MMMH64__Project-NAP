@@ -392,6 +392,11 @@ $rows_mem = $pdo->query($sql_mem)->fetchAll();
             });
         });
     };
+
+    //一鍵輸入
+    $('.pay-way').click(function(){
+        $('#special-need').val('自行開車，車號：NAP-2022，會攜帶寵物一同前往');
+    })
 </script>
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>
