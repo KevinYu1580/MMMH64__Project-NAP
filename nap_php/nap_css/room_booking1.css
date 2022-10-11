@@ -349,7 +349,7 @@ li.select-li{
 /* ---------房間搜尋結果-卡片文案--------- */
 .card-textbox{
     text-align: center;
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
     position: relative;
 }
 .card-textbox:after{
@@ -471,7 +471,7 @@ input{
     /* ---------房間搜尋結果-卡片文案--------- */
     .card-textbox{
         text-align: left;
-        padding-bottom: 40px;
+        /* padding-bottom: 40px; */
         position: relative;
     }
     .card-textbox:after{

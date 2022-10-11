@@ -1,5 +1,6 @@
 <?php
 // require __DIR__ . '/parts/connect_db.php';
+session_start();
 
 
 // $pageName = 'Home'; // 頁面名稱
@@ -59,7 +60,6 @@
 </div>
 
 <div class="home_info">
-    <div id="pageAnchor"></div>
     <div class="content_wrap">
         <div class="story_wrap text-center">
             <div class="napHeadline ">
@@ -333,7 +333,7 @@
             我們應該彼此互相理解、認同，因為動物的存在從不該建立在自身的利益上！
         </p>
     </div>
-    <a class="napBtn_fixed_filled" href="register.php">
+    <a class="napBtn_fixed_filled"  onclick= loginCheck() >
         <span>加入會員 Join Us!</span>
     </a>
 
@@ -412,5 +412,26 @@
 <script src="./nap_js/component.js?version=&lt;?php echo time(); ?&gt;"></script>
 <script src="./nap_js/home_page.js"></script>
 <!-- 自己的js放在這 -->
+<script>
+
+    function loginCheck() {
+        console.log(8888)
+        let logined = <?php  echo empty($_SESSION['user']) ? 'true' : 'false' ?>;
+
+        if ( logined) {
+            window.location.href = "register.php"
+        }else{
+            Swal.fire({
+                icon: 'warning',
+                title: '已登入會員!',
+                timer: 1500,
+                showConfirmButton: false,
+                // 以下為框框消失後執行的功能(可不加)
+            })
+        }}
+
+</script>
+
+
 
 <?php include __DIR__ . '/parts/html-foot.php'; ?>

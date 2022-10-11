@@ -804,7 +804,7 @@
 
 <body>
     <div class="topNav_mobile">
-        <a class="logo" href="homepage.php#pageAnchor">
+        <a class="logo" href="homepage.php">
             <img class='mb' src="./img/component/logo/logo-1.svg" alt="">
             <img class='pc' src="./img/component/logo/logo-2.svg" alt="">
         </a>
@@ -837,7 +837,7 @@
 
             <ul class="menu_link">
                 <li>
-                    <a href="homepage.php#pageAnchor">首頁<span>Home Page</span></a>
+                    <a href="homepage.php">首頁<span>Home Page</span></a>
                 </li>
                 <li>
                     園區介紹 <span>Field Info</span>
