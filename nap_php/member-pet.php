@@ -65,7 +65,7 @@ $pageName = '會員中心'; // 頁面名稱
                 <a href="./love-pet.php" class="">我的關注</a>
             </li>
             <li class="">
-                <a href="./gift.php" class="inhere">優惠專區</a>
+                <a href="./gift.php" >優惠專區</a>
             </li>
 
 

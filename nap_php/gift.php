@@ -96,7 +96,7 @@ $pageName = '會員中心'; // 頁面名稱
     <div class="container1 d-flex justify-content-center mt-4">
         <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
             <li class="bd">
-                <a href="./info-info.php" class="inhere">基本資料</a>
+                <a href="./info-info.php" class="">基本資料</a>
             </li>
             <li class="bd">
                 <a href="./member-pet.php" class="">毛孩資料</a>
@@ -111,7 +111,7 @@ $pageName = '會員中心'; // 頁面名稱
                 <a href="./love-pet.php" class="">我的關注</a>
             </li>
             <li class="">
-                <a href="./gift.php" class="">優惠專區</a>
+                <a href="./gift.php" class="inhere">優惠專區</a>
             </li>
 
 
