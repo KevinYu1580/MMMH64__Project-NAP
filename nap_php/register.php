@@ -129,7 +129,7 @@ $pageName = '註冊'; // 頁面名稱
                         <input type="password" class="form-control" id="password_check" name="password_check" placeholder="再次輸入6位數以上密碼">
                     </div>
                     <div class="msgerror mb-1 mx-5">
-                        <p>密碼有誤請檢查--請大於7位數</p>
+                        <p>密碼有誤請檢查--請大於6位數</p>
                     </div>
                     <div class="msgerror1 mb-1 mx-5">
                         <p>密碼有誤請檢查--密碼請與確認密碼一致</p>
