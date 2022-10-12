@@ -27,7 +27,7 @@ $pageName = '註冊'; // 頁面名稱
 
     <div class="wrap">
         <div class="login-pc d-flex justify-content-end">
-            <div class="textbox d-flex  align-items-center justify-content-center ">
+            <div class="textbox d-flex  align-items-center justify-content-center" onclick="myFunction()">
                 <div class="bikegirl">
                     <div class="play-people">
                         <img src="./img/self/n/member/bg/girl.png" alt="" class="girl ">
@@ -45,13 +45,13 @@ $pageName = '註冊'; // 頁面名稱
                 <img src="./img/self/n/member/bg/logo-white.png" alt="" class="people-logo">
             </div>
 
-            
+
             <div class="content content1 d-flex flex-column my-auto" id="content1">
                 <div class="close">
-                <a href="./homepage.php">
-                    <img src="./img/self/n/close.png" alt="">
-                </a>
-            </div>
+                    <a href="./homepage.php">
+                        <img src="./img/self/n/close.png" alt="">
+                    </a>
+                </div>
                 <div class="part part1 ">
                     <div class="logo d-flex justify-content-center mb-2"><img src="./img/self/n/logo.png" alt=""></div>
                     <div class="title d-flex justify-content-center mx-5 pb-2">
@@ -206,6 +206,15 @@ $pageName = '註冊'; // 頁面名稱
 
     <?php include __DIR__ . './parts/scripts.php'; ?>
     <script>
+        function myFunction() {
+
+            var input = document.getElementById("name");
+            input.value = "林柚子";
+            var input = document.getElementById("mobile");
+            input.value = "0920197952";
+        }
+
+
         function checkForm() {
             // TODO: 欄位檢查
             if (!$('#email').val()) {
