@@ -450,6 +450,8 @@ $pageName = '閒聊Q&A'; // 頁面名稱
         let formSum = petSelect + boardSelect + contentHeadline + contentText;
 
 
+        // ----------上傳圖片功能&驗證
+
         if(formSum != 4){
             Swal.fire({
                     icon: 'warning',
@@ -472,8 +474,7 @@ $pageName = '閒聊Q&A'; // 頁面名稱
             })
         }
     }
-    // ----------上傳圖片功能
-
+   
     // ------發文光箱  
     // 上傳圖片功能  預覽&新增div
 
