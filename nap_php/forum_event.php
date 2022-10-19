@@ -407,7 +407,7 @@ $pageName = '活動討論區'; // 頁面名稱
                         obj.picInPost = obj.articlePics.map(f => `<img src='./img/chatchat/event/${f}' alt=''>`).join('');
 
                         // 發文時如果沒有上傳圖片，在交流版不會顯示出來，但在會員中心會顯示預設圖片(myadmin設定無上傳時為預設圖片)
-                        if(obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`){
+                        if (obj.thunmNail == `<div style="background-image: url(./img/chatchat/event/paw_defaultBG.svg)" class="card_smPic"></div>`) {
                             obj.thunmNail = '';
                             obj.picInPost = '';
                         }
@@ -435,7 +435,26 @@ $pageName = '活動討論區'; // 頁面名稱
     }
     getData({})
 
+    // 開啟光箱 (pc & mb)
 
+    $('.postBtn_pc , .postBtn_mb').click(function() {
+        let notLogined = <?php echo !empty($_SESSION['user']) ? 'false' : 'true' ?>;
+        if (notLogined) {
+            Swal.fire({
+                icon: 'warning',
+                title: '尚未登入會員',
+                timer: 1500,
+                showConfirmButton: false,
+            })
+            return;
+        }
+        $('.lightBox_post').show()
+        $('.lightBox_post_mask').css({
+            'opacity': '1',
+            'pointer-events': 'auto',
+        })
+        // document.body.style.overflow = 'hidden'
+    })
 
     // ---------表格提交
     // 貼文
@@ -452,29 +471,31 @@ $pageName = '活動討論區'; // 頁面名稱
         let formSum = petSelect + boardSelect + contentHeadline + contentText;
 
 
-        if(formSum != 4){
+        if (formSum != 4) {
             Swal.fire({
-                    icon: 'warning',
-                    title: '請填寫必要欄位!',
-                    timer: 1500,
-                    showConfirmButton: false,
-                })
-        }else {
-            fetch('./nap_api/forum_postInsert-api.php', {
-                method: 'POST',
-                body: form_data,
-            }).then(r => r.json())
-            .then(result => {
-                Swal.fire({
-                    icon: 'success',
-                    title: '已成功發佈',
-                    timer: 1500,
-                    showConfirmButton: false,
-                }).then(() => {window.location.reload()})
+                icon: 'warning',
+                title: '請填寫必要欄位!',
+                timer: 1500,
+                showConfirmButton: false,
             })
+        } else {
+            fetch('./nap_api/forum_postInsert-api.php', {
+                    method: 'POST',
+                    body: form_data,
+                }).then(r => r.json())
+                .then(result => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '已成功發佈',
+                        timer: 1500,
+                        showConfirmButton: false,
+                    }).then(() => {
+                        window.location.reload()
+                    })
+                })
         }
     }
-    
+
     // ----------上傳圖片功能
 
     // ------發文光箱  
@@ -570,7 +591,7 @@ $pageName = '活動討論區'; // 頁面名稱
                 'background-color': 'var(--black_400)',
                 'pointer-events': 'none',
             })
-            
+
         }
     })
 

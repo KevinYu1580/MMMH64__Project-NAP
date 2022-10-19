@@ -1,16 +1,20 @@
-// 關閉光箱
-// $('.comtCard_wrap').on('click', 'close_lightBox' (function(e){
-//     // comtCard_wrap   close_lightBox
-//     e.stopPropagation()
+//----- 關閉光箱
+// 貼文卡片
+$('.lightBox_post').on('click', '.close_lightBox', function(e){
+    e.stopPropagation()
+    
+     $(this).parents('.lightBox_post').hide();
 
-//     // $(this),parents('.lightBox_comtCard').hide();
-//     console.log(888)
-//     $('.lightBox_comtCard_mask').css({
-//         'pointer-events': 'none',
-//         'opacity':'0',
-//     })
-//     document.body.style.overflow='visible';
-// }));
+     $('.lightBox_post_mask').css({
+        'pointer-events': 'none',
+        'display':'none',
+    })
+    
+    // 使body再次可以捲動, 故下以下程式碼
+     document.body.style.overflow='visible';
+})
+
+// 發文光箱
 $('.comtCard_wrap').on('click', '.close_lightBox', function(e){
     e.stopPropagation()
     
@@ -20,10 +24,10 @@ $('.comtCard_wrap').on('click', '.close_lightBox', function(e){
         'pointer-events': 'none',
         'display':'none',
     })
+
+    // 使body再次可以捲動, 故下以下程式碼
     document.body.style.overflow='visible';
-
 })
-
 
 
 
@@ -86,20 +90,7 @@ $(window).on('wheel', function(event){
 
 // ------lightBox_post 發文光箱
 
-// 開啟光箱 
 
-$('.postBtn_mb').click(function(){
-    $('.lightBox_post').show()
-    document.body.style.overflow='hidden'
-})
-$('.postBtn_pc').click(function(){
-    $('.lightBox_post').show()
-    $('.lightBox_post_mask').css({
-        'opacity':'1',
-        'pointer-events':'auto',
-    })
-    document.body.style.overflow='hidden'
-})
 // 關閉光箱
 $('.lightBox_post_mask').click(function(){
     $(this).css({
