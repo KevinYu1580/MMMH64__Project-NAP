@@ -335,25 +335,6 @@ body {
 .home_info .bot_img {
   position: relative;
 }
-/* .home_info .bot_img #hand {
-  width: 100%;
-  height: 172px;
-  position: absolute;
-  left: 0;
-  bottom: 70%;
-  background-image: url(../img/self/k/hand.png);
-  background-size: cover;
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  z-index: 2;
-}
-@media screen and (min-width: 996px) {
-  .home_info .bot_img #hand {
-    height: 100%;
-    transform: scale(100%);
-    bottom: 65%;
-  }
-} */
 .home_info .hand_aniWrap {
   overflow:visible;
   position: relative;
