@@ -379,10 +379,7 @@ $pageName = '活動討論區'; // 頁面名稱
                             obj.picInPost = '';
                         }
                     }
-
                     str += post_tpl_func(obj);
-
-
                 });
             }
             comtCardWrap.html(str);
